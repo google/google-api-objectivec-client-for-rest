@@ -838,10 +838,27 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 @interface GTLRBigtableAdmin_AutomatedBackupPolicy : GTLRObject
 
 /**
+ *  Optional. If `true`, automated backups are explicitly disabled on this
+ *  table. This allows users to opt out of default enablement.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *disabled;
+
+/**
  *  How frequently automated backups should occur. The only supported value at
  *  this time is 24 hours. An undefined frequency is treated as 24 hours.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *frequency;
+
+/**
+ *  Optional. The amount of time that the automated backups remain hot. If
+ *  specified, the backups created by this policy are `HOT` backups. If not
+ *  specified, the backups are `STANDARD` backups. The value must be at least 24
+ *  hours and at most 10 days, and can't exceed the policy's `retention_period`.
+ *  Only SSD instances support `HOT` automated backups.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *keepHotDuration;
 
 /**
  *  Optional. A list of Cloud Bigtable zones where automated backups are allowed
@@ -4336,6 +4353,14 @@ GTLR_DEPRECATED
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *deletionProtection;
+
+/**
+ *  Output only. The effective automated backup policy applied to the table.
+ *  This represents the policy actually in effect, which may be a system-default
+ *  policy if the user has not explicitly configured one. Views: `SCHEMA_VIEW`,
+ *  `FULL`.
+ */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_AutomatedBackupPolicy *effectiveAutomatedBackupPolicy;
 
 /**
  *  Immutable. The granularity at which timestamps are stored in this table.

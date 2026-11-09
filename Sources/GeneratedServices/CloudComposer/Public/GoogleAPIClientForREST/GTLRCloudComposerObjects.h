@@ -32,6 +32,7 @@
 @class GTLRCloudComposer_EnvironmentConfig;
 @class GTLRCloudComposer_ExitInfo;
 @class GTLRCloudComposer_ImageVersion;
+@class GTLRCloudComposer_ImageVersionRollbackTarget;
 @class GTLRCloudComposer_IPAllocationPolicy;
 @class GTLRCloudComposer_Line;
 @class GTLRCloudComposer_MaintenanceWindow;
@@ -346,6 +347,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_EnvironmentConfig_Environm
  *  Value: "ENVIRONMENT_SIZE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_EnvironmentConfig_EnvironmentSize_EnvironmentSizeUnspecified;
+/**
+ *  The environment size is double extra large.
+ *
+ *  Value: "ENVIRONMENT_SIZE_X_EXTRA_LARGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_EnvironmentConfig_EnvironmentSize_EnvironmentSizeXExtraLarge;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudComposer_EnvironmentConfig.resilienceMode
@@ -1206,6 +1213,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_TaskLogsRetentionConfig_St
  *    @arg @c kGTLRCloudComposer_EnvironmentConfig_EnvironmentSize_EnvironmentSizeUnspecified
  *        The size of the environment is unspecified. (Value:
  *        "ENVIRONMENT_SIZE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudComposer_EnvironmentConfig_EnvironmentSize_EnvironmentSizeXExtraLarge
+ *        The environment size is double extra large. (Value:
+ *        "ENVIRONMENT_SIZE_X_EXTRA_LARGE")
  */
 @property(nonatomic, copy, nullable) NSString *environmentSize;
 
@@ -1392,6 +1402,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_TaskLogsRetentionConfig_St
 
 
 /**
+ *  Request to hibernate a Composer environment.
+ */
+@interface GTLRCloudComposer_HibernateEnvironmentRequest : GTLRObject
+@end
+
+
+/**
  *  ImageVersion information
  */
 @interface GTLRCloudComposer_ImageVersion : GTLRObject
@@ -1402,6 +1419,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_TaskLogsRetentionConfig_St
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *creationDisabled;
+
+/**
+ *  Whether it is possible to create an environment in the `DEVELOPMENT` mode
+ *  with the image version.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *devModeSupported;
 
 /**
  *  The string identifier of the ImageVersion, in the form:
@@ -1430,6 +1455,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_TaskLogsRetentionConfig_St
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *upgradeDisabled;
+
+@end
+
+
+/**
+ *  The image version an environment can be rolled back to.
+ */
+@interface GTLRCloudComposer_ImageVersionRollbackTarget : GTLRObject
+
+/** Output only. The image version the environment can be rolled back to. */
+@property(nonatomic, copy, nullable) NSString *imageVersion;
+
+/**
+ *  Output only. The last time when the environment was running this image
+ *  version.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastActiveTime;
 
 @end
 
@@ -2316,6 +2358,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_TaskLogsRetentionConfig_St
 
 
 /**
+ *  Request to resume a Composer environment.
+ */
+@interface GTLRCloudComposer_ResumeEnvironmentRequest : GTLRObject
+@end
+
+
+/**
  *  Request to create a snapshot of a Cloud Composer environment.
  */
 @interface GTLRCloudComposer_SaveSnapshotRequest : GTLRObject
@@ -2493,6 +2542,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_TaskLogsRetentionConfig_St
  *  overview](/composer/docs/concepts/versioning/composer-versioning-overview).
  */
 @property(nonatomic, copy, nullable) NSString *imageVersion;
+
+/**
+ *  Output only. The list of image versions the environment can be rolled back
+ *  to, sorted by last_active_time in descending order (most recent first). This
+ *  field is supported for Cloud Composer environments in versions
+ *  composer-3-airflow-*.*.*-build.* and newer.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudComposer_ImageVersionRollbackTarget *> *imageVersionRollbackTargets;
 
 /**
  *  Optional. Custom Python Package Index (PyPI) packages to be installed in the

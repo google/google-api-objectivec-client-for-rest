@@ -2360,7 +2360,7 @@ NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping  = @"STOPPING";
 @implementation GTLRGKEOnPrem_VmwareNodePool
 @dynamic annotations, config, createTime, deleteTime, displayName, ETag, name,
          nodePoolAutoscaling, onPremVersion, reconciling, state, status, uid,
-         updateTime;
+         updateTime, validationCheck;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };

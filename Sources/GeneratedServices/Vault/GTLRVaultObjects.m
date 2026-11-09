@@ -79,6 +79,14 @@ NSString * const kGTLRVault_GeminiExportOptions_ExportFormat_Mbox = @"MBOX";
 NSString * const kGTLRVault_GeminiExportOptions_ExportFormat_Pst = @"PST";
 NSString * const kGTLRVault_GeminiExportOptions_ExportFormat_Xml = @"XML";
 
+// GTLRVault_GeminiInWorkspaceExportOptions.exportFormat
+NSString * const kGTLRVault_GeminiInWorkspaceExportOptions_ExportFormat_ExportFormatUnspecified = @"EXPORT_FORMAT_UNSPECIFIED";
+NSString * const kGTLRVault_GeminiInWorkspaceExportOptions_ExportFormat_Ics = @"ICS";
+NSString * const kGTLRVault_GeminiInWorkspaceExportOptions_ExportFormat_Json = @"JSON";
+NSString * const kGTLRVault_GeminiInWorkspaceExportOptions_ExportFormat_Mbox = @"MBOX";
+NSString * const kGTLRVault_GeminiInWorkspaceExportOptions_ExportFormat_Pst = @"PST";
+NSString * const kGTLRVault_GeminiInWorkspaceExportOptions_ExportFormat_Xml = @"XML";
+
 // GTLRVault_GroupsExportOptions.exportFormat
 NSString * const kGTLRVault_GroupsExportOptions_ExportFormat_ExportFormatUnspecified = @"EXPORT_FORMAT_UNSPECIFIED";
 NSString * const kGTLRVault_GroupsExportOptions_ExportFormat_Ics = @"ICS";
@@ -106,6 +114,7 @@ NSString * const kGTLRVault_Hold_Corpus_Calendar              = @"CALENDAR";
 NSString * const kGTLRVault_Hold_Corpus_CorpusTypeUnspecified = @"CORPUS_TYPE_UNSPECIFIED";
 NSString * const kGTLRVault_Hold_Corpus_Drive                 = @"DRIVE";
 NSString * const kGTLRVault_Hold_Corpus_Gemini                = @"GEMINI";
+NSString * const kGTLRVault_Hold_Corpus_GeminiInWorkspace     = @"GEMINI_IN_WORKSPACE";
 NSString * const kGTLRVault_Hold_Corpus_Groups                = @"GROUPS";
 NSString * const kGTLRVault_Hold_Corpus_HangoutsChat          = @"HANGOUTS_CHAT";
 NSString * const kGTLRVault_Hold_Corpus_Mail                  = @"MAIL";
@@ -147,6 +156,7 @@ NSString * const kGTLRVault_Query_Corpus_Calendar              = @"CALENDAR";
 NSString * const kGTLRVault_Query_Corpus_CorpusTypeUnspecified = @"CORPUS_TYPE_UNSPECIFIED";
 NSString * const kGTLRVault_Query_Corpus_Drive                 = @"DRIVE";
 NSString * const kGTLRVault_Query_Corpus_Gemini                = @"GEMINI";
+NSString * const kGTLRVault_Query_Corpus_GeminiInWorkspace     = @"GEMINI_IN_WORKSPACE";
 NSString * const kGTLRVault_Query_Corpus_Groups                = @"GROUPS";
 NSString * const kGTLRVault_Query_Corpus_HangoutsChat          = @"HANGOUTS_CHAT";
 NSString * const kGTLRVault_Query_Corpus_Mail                  = @"MAIL";
@@ -501,8 +511,8 @@ NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemails = @"VOICEMAILS";
 //
 
 @implementation GTLRVault_ExportOptions
-@dynamic calendarOptions, driveOptions, geminiOptions, groupsOptions,
-         hangoutsChatOptions, mailOptions, region, voiceOptions;
+@dynamic calendarOptions, driveOptions, geminiInWorkspaceOptions, geminiOptions,
+         groupsOptions, hangoutsChatOptions, mailOptions, region, voiceOptions;
 @end
 
 
@@ -523,6 +533,25 @@ NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemails = @"VOICEMAILS";
 
 @implementation GTLRVault_GeminiExportOptions
 @dynamic exportFormat;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVault_GeminiInWorkspaceExportOptions
+//
+
+@implementation GTLRVault_GeminiInWorkspaceExportOptions
+@dynamic exportFormat;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVault_GeminiInWorkspaceOptions
+//
+
+@implementation GTLRVault_GeminiInWorkspaceOptions
 @end
 
 
@@ -977,10 +1006,10 @@ NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemails = @"VOICEMAILS";
 
 @implementation GTLRVault_Query
 @dynamic accountInfo, calendarOptions, corpus, dataScope, driveDocumentInfo,
-         driveOptions, endTime, geminiOptions, hangoutsChatInfo,
-         hangoutsChatOptions, mailOptions, method, orgUnitInfo, searchMethod,
-         sharedDriveInfo, sitesUrlInfo, startTime, teamDriveInfo, terms,
-         timeZone, voiceOptions;
+         driveOptions, endTime, geminiInWorkspaceOptions, geminiOptions,
+         hangoutsChatInfo, hangoutsChatOptions, mailOptions, method,
+         orgUnitInfo, searchMethod, sharedDriveInfo, sitesUrlInfo, startTime,
+         teamDriveInfo, terms, timeZone, voiceOptions;
 @end
 
 

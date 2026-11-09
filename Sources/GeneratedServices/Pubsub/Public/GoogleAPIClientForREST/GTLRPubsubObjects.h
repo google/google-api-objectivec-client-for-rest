@@ -1320,8 +1320,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_J
 
 /**
  *  Optional. Cloud Storage bucket. The bucket name must be without any prefix
- *  like "gs://". See the [bucket naming requirements]
- *  (https://cloud.google.com/storage/docs/buckets#naming).
+ *  like "gs://". See the [bucket naming requirements](
+ *  https://cloud.google.com/storage/docs/buckets#naming).
  */
 @property(nonatomic, copy, nullable) NSString *bucket;
 
@@ -1776,7 +1776,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_J
 @property(nonatomic, copy, nullable) NSString *delimiter;
 
 /**
- *  Optional. The key fields to construct from the row key. The fields must be
+ *  Required. The key fields to construct from the row key. The fields must be
  *  present in the message as a top-level field, i.e. JSON path expressions will
  *  not traverse into nested objects.
  */
@@ -2110,8 +2110,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_J
  *  attribute. Note that client libraries represent this object differently
  *  depending on the language. See the corresponding [client library
  *  documentation](https://cloud.google.com/pubsub/docs/reference/libraries) for
- *  more information. See [quotas and limits]
- *  (https://cloud.google.com/pubsub/quotas) for more information about message
+ *  more information. See [quotas and limits](
+ *  https://cloud.google.com/pubsub/quotas) for more information about message
  *  limits.
  */
 @interface GTLRPubsub_Message : GTLRObject
@@ -2581,8 +2581,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_J
 
 /**
  *  Optional. When set, the payload to the push endpoint is in the form of the
- *  JSON representation of a PubsubMessage
- *  (https://cloud.google.com/pubsub/docs/reference/rpc/google.pubsub.v1#pubsubmessage).
+ *  JSON representation of a [PubsubMessage](
+ *  https://cloud.google.com/pubsub/docs/reference/rpc/google.pubsub.v1#pubsubmessage).
  */
 @property(nonatomic, strong, nullable) GTLRPubsub_Wrapper *pubsubWrapper;
 
@@ -2866,8 +2866,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_J
 @property(nonatomic, strong, nullable) GTLRDateTime *expireTime;
 
 /**
- *  Optional. See [Creating and managing labels]
- *  (https://cloud.google.com/pubsub/docs/labels).
+ *  Optional. See [Creating and managing labels](
+ *  https://cloud.google.com/pubsub/docs/labels).
  */
 @property(nonatomic, strong, nullable) GTLRPubsub_Snapshot_Labels *labels;
 
@@ -2884,8 +2884,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_J
 
 
 /**
- *  Optional. See [Creating and managing labels]
- *  (https://cloud.google.com/pubsub/docs/labels).
+ *  Optional. See [Creating and managing labels](
+ *  https://cloud.google.com/pubsub/docs/labels).
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -3055,8 +3055,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_J
  *  Optional. Indicates whether to retain acknowledged messages. If true, then
  *  messages are not expunged from the subscription's backlog, even if they are
  *  acknowledged, until they fall out of the `message_retention_duration`
- *  window. This must be true if you would like to [`Seek` to a timestamp]
- *  (https://cloud.google.com/pubsub/docs/replay-overview#seek_to_a_time) in the
+ *  window. This must be true if you would like to [`Seek` to a timestamp](
+ *  https://cloud.google.com/pubsub/docs/replay-overview#seek_to_a_time) in the
  *  past to replay previously-acknowledged messages.
  *
  *  Uses NSNumber of boolValue.
@@ -3211,8 +3211,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_J
 @property(nonatomic, copy, nullable) NSString *kmsKeyName;
 
 /**
- *  Optional. See [Creating and managing labels]
- *  (https://cloud.google.com/pubsub/docs/labels).
+ *  Optional. See [Creating and managing labels](
+ *  https://cloud.google.com/pubsub/docs/labels).
  */
 @property(nonatomic, strong, nullable) GTLRPubsub_Topic_Labels *labels;
 
@@ -3290,8 +3290,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_J
 
 
 /**
- *  Optional. See [Creating and managing labels]
- *  (https://cloud.google.com/pubsub/docs/labels).
+ *  Optional. See [Creating and managing labels](
+ *  https://cloud.google.com/pubsub/docs/labels).
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -3473,8 +3473,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_J
 
 /**
  *  The payload to the push endpoint is in the form of the JSON representation
- *  of a PubsubMessage
- *  (https://cloud.google.com/pubsub/docs/reference/rpc/google.pubsub.v1#pubsubmessage).
+ *  of a
+ *  [PubsubMessage](https://cloud.google.com/pubsub/docs/reference/rpc/google.pubsub.v1#pubsubmessage).
  */
 @interface GTLRPubsub_Wrapper : GTLRObject
 @end

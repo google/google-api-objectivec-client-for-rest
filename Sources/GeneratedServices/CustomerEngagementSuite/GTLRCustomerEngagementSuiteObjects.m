@@ -224,6 +224,7 @@ NSString * const kGTLRCustomerEngagementSuite_GenerateOnboardingSuggestionsRespo
 // GTLRCustomerEngagementSuite_GuardrailContentFilter.matchType
 NSString * const kGTLRCustomerEngagementSuite_GuardrailContentFilter_MatchType_MatchTypeUnspecified = @"MATCH_TYPE_UNSPECIFIED";
 NSString * const kGTLRCustomerEngagementSuite_GuardrailContentFilter_MatchType_RegexpMatch = @"REGEXP_MATCH";
+NSString * const kGTLRCustomerEngagementSuite_GuardrailContentFilter_MatchType_SensitiveWords = @"SENSITIVE_WORDS";
 NSString * const kGTLRCustomerEngagementSuite_GuardrailContentFilter_MatchType_SimpleStringMatch = @"SIMPLE_STRING_MATCH";
 NSString * const kGTLRCustomerEngagementSuite_GuardrailContentFilter_MatchType_WordBoundaryStringMatch = @"WORD_BOUNDARY_STRING_MATCH";
 
@@ -329,6 +330,11 @@ NSString * const kGTLRCustomerEngagementSuite_Schema_Type_Number = @"NUMBER";
 NSString * const kGTLRCustomerEngagementSuite_Schema_Type_Object = @"OBJECT";
 NSString * const kGTLRCustomerEngagementSuite_Schema_Type_String = @"STRING";
 NSString * const kGTLRCustomerEngagementSuite_Schema_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
+
+// GTLRCustomerEngagementSuite_SessionInput.recordingControl
+NSString * const kGTLRCustomerEngagementSuite_SessionInput_RecordingControl_RecordingControlUnspecified = @"RECORDING_CONTROL_UNSPECIFIED";
+NSString * const kGTLRCustomerEngagementSuite_SessionInput_RecordingControl_RecordingDisabled = @"RECORDING_DISABLED";
+NSString * const kGTLRCustomerEngagementSuite_SessionInput_RecordingControl_RecordingEnabled = @"RECORDING_ENABLED";
 
 // GTLRCustomerEngagementSuite_StreamChatAiAssistantRequest.clientCapabilities
 NSString * const kGTLRCustomerEngagementSuite_StreamChatAiAssistantRequest_ClientCapabilities_ClientCapabilityUnspecified = @"CLIENT_CAPABILITY_UNSPECIFIED";
@@ -2197,13 +2203,15 @@ NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextResponseConfig_Type_
 
 @implementation GTLRCustomerEngagementSuite_GuardrailContentFilter
 @dynamic bannedContents, bannedContentsInAgentResponse,
-         bannedContentsInUserInput, disregardDiacritics, matchType;
+         bannedContentsInUserInput, disregardDiacritics, matchType,
+         sensitiveWordsExemptions;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"bannedContents" : [NSString class],
     @"bannedContentsInAgentResponse" : [NSString class],
-    @"bannedContentsInUserInput" : [NSString class]
+    @"bannedContentsInUserInput" : [NSString class],
+    @"sensitiveWordsExemptions" : [NSString class]
   };
   return map;
 }
@@ -3388,7 +3396,7 @@ NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextResponseConfig_Type_
 @implementation GTLRCustomerEngagementSuite_LoggingSettings
 @dynamic audioRecordingConfig, bigqueryExportSettings, cloudLoggingSettings,
          conversationLoggingSettings, evaluationAudioRecordingConfig,
-         metricAnalysisSettings, redactionConfig,
+         metricAnalysisSettings, redactionConfig, requiredRecordingConsent,
          unredactedAudioRecordingConfig, unredactedBigqueryExportSettings;
 @end
 
@@ -4100,8 +4108,9 @@ NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextResponseConfig_Type_
 
 @implementation GTLRCustomerEngagementSuite_SessionConfig
 @dynamic deployment, enableTextStreaming, entryAgent, excludeDiagnosticInfo,
-         historicalContexts, inputAudioConfig, outputAudioConfig,
-         remoteDialogflowQueryParameters, timeZone, useToolFakes;
+         historicalContexts, includeLlmThoughtSummary, includeProgressUpdate,
+         inputAudioConfig, outputAudioConfig, remoteDialogflowQueryParameters,
+         timeZone, useToolFakes;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -4171,8 +4180,8 @@ NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextResponseConfig_Type_
 //
 
 @implementation GTLRCustomerEngagementSuite_SessionInput
-@dynamic audio, blob, dtmf, event, image, text, toolResponses, variables,
-         willContinue;
+@dynamic audio, blob, dtmf, event, image, recordingControl, text, toolResponses,
+         variables, willContinue;
 @end
 
 

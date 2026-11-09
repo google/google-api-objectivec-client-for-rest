@@ -107,6 +107,9 @@
 @class GTLRCompute_BackendServiceCdnPolicyNegativeCachingPolicy;
 @class GTLRCompute_BackendServiceConnectionTrackingPolicy;
 @class GTLRCompute_BackendServiceCustomMetric;
+@class GTLRCompute_BackendServiceDynamicForwarding;
+@class GTLRCompute_BackendServiceDynamicForwardingForwardProxy;
+@class GTLRCompute_BackendServiceDynamicForwardingIpPortSelection;
 @class GTLRCompute_BackendServiceFailoverPolicy;
 @class GTLRCompute_BackendServiceGroupHealth_Annotations;
 @class GTLRCompute_BackendServiceHAPolicy;
@@ -196,6 +199,7 @@
 @class GTLRCompute_CompositeHealthChecksScopedList_Warning;
 @class GTLRCompute_CompositeHealthChecksScopedList_Warning_Data_Item;
 @class GTLRCompute_ConfidentialInstanceConfig;
+@class GTLRCompute_ConfidentialParavisorConfig;
 @class GTLRCompute_ConnectionDraining;
 @class GTLRCompute_ConsistentHashLoadBalancerSettings;
 @class GTLRCompute_ConsistentHashLoadBalancerSettingsHttpCookie;
@@ -242,6 +246,7 @@
 @class GTLRCompute_DistributionPolicy;
 @class GTLRCompute_DistributionPolicyZoneConfiguration;
 @class GTLRCompute_Duration;
+@class GTLRCompute_DynamicCompressionPolicy;
 @class GTLRCompute_ErrorInfo;
 @class GTLRCompute_ErrorInfo_Metadatas;
 @class GTLRCompute_ExchangedPeeringRoute;
@@ -427,6 +432,7 @@
 @class GTLRCompute_Image_RawDisk;
 @class GTLRCompute_ImageList_Warning;
 @class GTLRCompute_ImageList_Warning_Data_Item;
+@class GTLRCompute_ImageOptimizationPolicy;
 @class GTLRCompute_ImageParams;
 @class GTLRCompute_ImageParams_ResourceManagerTags;
 @class GTLRCompute_ImageView;
@@ -1273,12 +1279,14 @@
 @class GTLRCompute_UrlMap;
 @class GTLRCompute_UrlMapList_Warning;
 @class GTLRCompute_UrlMapList_Warning_Data_Item;
+@class GTLRCompute_UrlMapQuotaUsage;
 @class GTLRCompute_UrlMapsAggregatedList_Items;
 @class GTLRCompute_UrlMapsAggregatedList_Warning;
 @class GTLRCompute_UrlMapsAggregatedList_Warning_Data_Item;
 @class GTLRCompute_UrlMapsScopedList;
 @class GTLRCompute_UrlMapsScopedList_Warning;
 @class GTLRCompute_UrlMapsScopedList_Warning_Data_Item;
+@class GTLRCompute_UrlMapStatus;
 @class GTLRCompute_UrlMapTest;
 @class GTLRCompute_UrlMapTestHeader;
 @class GTLRCompute_UrlMapValidationResult;
@@ -2140,6 +2148,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_Address_Purpose_IpsecInterconnec
  *  Value: "NAT_AUTO"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Address_Purpose_NatAuto;
+/**
+ *  The global external address can only be assigned to Global External
+ *  Passthrough Network Load Balancer forwarding rules, as an Availability
+ *  Group 0 address.
+ *
+ *  Value: "PASSTHROUGH_LOAD_BALANCER_AVAILABILITY_GROUP0"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Address_Purpose_PassthroughLoadBalancerAvailabilityGroup0;
+/**
+ *  The global external address can only be assigned to Global External
+ *  Passthrough Network Load Balancer forwarding rules, as an Availability
+ *  Group 1 address.
+ *
+ *  Value: "PASSTHROUGH_LOAD_BALANCER_AVAILABILITY_GROUP1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Address_Purpose_PassthroughLoadBalancerAvailabilityGroup1;
 /**
  *  A private network IP address that can be used to configure Private
  *  Service Connect. This purpose can be specified only forGLOBAL addresses of
@@ -4864,6 +4888,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendService_LoadBalancingSche
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendService_LoadBalancingScheme_ExternalManaged;
 /**
+ *  Signifies that this will be used for global external passthrough Network
+ *  Load Balancers.
+ *
+ *  Value: "EXTERNAL_PASSTHROUGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendService_LoadBalancingScheme_ExternalPassthrough;
+/**
  *  Signifies that this will be used for internal passthrough Network Load
  *  Balancers.
  *
@@ -5347,6 +5378,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServiceConnectionTracking
 FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServiceConnectionTrackingPolicy_TrackingMode_PerConnection;
 /** Value: "PER_SESSION" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServiceConnectionTrackingPolicy_TrackingMode_PerSession;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_BackendServiceDynamicForwardingForwardProxy.proxyMode
+
+/**
+ *  Dynamic forwarding directly to Cloud Run services.
+ *
+ *  Value: "CLOUD_RUN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServiceDynamicForwardingForwardProxy_ProxyMode_CloudRun;
+/**
+ *  Dynamic forwarding based on the Http Host header.
+ *
+ *  Value: "DIRECT_FORWARDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServiceDynamicForwardingForwardProxy_ProxyMode_DirectForwarding;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_BackendServiceHAPolicy.fastIPMove
@@ -6191,6 +6238,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_BulkInsertOperationStatus_Status
 // GTLRCompute_CachePolicy.cacheMode
 
 /**
+ *  Bypasses the cache for this route. All requests are forwarded to the
+ *  origin, and responses are not cached.
+ *
+ *  Value: "BYPASS_CACHE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_CachePolicy_CacheMode_BypassCache;
+/**
  *  Automatically cache static content, including common image formats,
  *  media (video and audio), and web assets (JavaScript and CSS).
  *  Requests and responses that are marked as uncacheable, as well as
@@ -6455,6 +6509,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_Commitment_Type_ComputeOptimized
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Commitment_Type_ComputeOptimizedH3;
 /** Value: "COMPUTE_OPTIMIZED_H4D" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Commitment_Type_ComputeOptimizedH4d;
+/**
+ *  CUD bucket for COMPUTE_OPTIMIZED_H4D_3TB machines.
+ *
+ *  Value: "COMPUTE_OPTIMIZED_H4D_3TB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Commitment_Type_ComputeOptimizedH4d3tb;
 /** Value: "GENERAL_PURPOSE" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Commitment_Type_GeneralPurpose;
 /** Value: "GENERAL_PURPOSE_C4" */
@@ -6491,6 +6551,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_Commitment_Type_MemoryOptimizedM
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Commitment_Type_MemoryOptimizedM4;
 /** Value: "MEMORY_OPTIMIZED_M4_6TB" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Commitment_Type_MemoryOptimizedM46tb;
+/**
+ *  CUD bucket for M4N machines with less than 6TB of memory.
+ *
+ *  Value: "MEMORY_OPTIMIZED_M4N"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Commitment_Type_MemoryOptimizedM4n;
+/**
+ *  CUD bucket for M4N machines with 6TB of memory.
+ *
+ *  Value: "MEMORY_OPTIMIZED_M4N_6TB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Commitment_Type_MemoryOptimizedM4n6tb;
 /**
  *  CUD bucket for X4 machine with 1440 vCPUs and 24TB of memory.
  *
@@ -6533,6 +6605,36 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_Commitment_Type_MemoryOptimizedX
  *  Value: "MEMORY_OPTIMIZED_X4_960_16T"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Commitment_Type_MemoryOptimizedX496016t;
+/**
+ *  CUD bucket for X5 machine with 1376 vCPUs and 24TB of memory.
+ *
+ *  Value: "MEMORY_OPTIMIZED_X5_1376_24T"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Commitment_Type_MemoryOptimizedX5137624t;
+/**
+ *  CUD bucket for X5 machine with 1376 vCPUs and 32TB of memory.
+ *
+ *  Value: "MEMORY_OPTIMIZED_X5_1376_32T"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Commitment_Type_MemoryOptimizedX5137632t;
+/**
+ *  CUD bucket for X5 machine with 2064 vCPUs and 48TB of memory.
+ *
+ *  Value: "MEMORY_OPTIMIZED_X5_2064_48T"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Commitment_Type_MemoryOptimizedX5206448t;
+/**
+ *  CUD bucket for X5 machine with 688 vCPUs and 12TB of memory.
+ *
+ *  Value: "MEMORY_OPTIMIZED_X5_688_12T"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Commitment_Type_MemoryOptimizedX568812t;
+/**
+ *  CUD bucket for X5 machine with 688 vCPUs and 16TB of memory.
+ *
+ *  Value: "MEMORY_OPTIMIZED_X5_688_16T"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Commitment_Type_MemoryOptimizedX568816t;
 /**
  *  CUD bucket for C4N (dual Diorite) machines.
  *
@@ -7815,6 +7917,50 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ConfidentialInstanceConfig_Confi
  *  Value: "TDX"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ConfidentialInstanceConfig_ConfidentialInstanceType_Tdx;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_ConfidentialParavisorConfig.confidentialTpmType
+
+/**
+ *  No TPM type specified. Do not use this value.
+ *
+ *  Value: "CONFIDENTIAL_TPM_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ConfidentialParavisorConfig_ConfidentialTpmType_ConfidentialTpmTypeUnspecified;
+/**
+ *  An ephemeral vTPM running in the paravisor (SVSM).
+ *
+ *  Value: "EPHEMERAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ConfidentialParavisorConfig_ConfidentialTpmType_Ephemeral;
+/**
+ *  No confidential computing vTPM is used in the paravisor (SVSM).
+ *
+ *  Value: "NO_CC_TPM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ConfidentialParavisorConfig_ConfidentialTpmType_NoCcTpm;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_ConfidentialParavisorConfig.sevSnpIrqMode
+
+/**
+ *  Restricted interrupt injection.
+ *
+ *  Value: "RESTRICTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ConfidentialParavisorConfig_SevSnpIrqMode_Restricted;
+/**
+ *  No IRQ mode specified. Do not use this value.
+ *
+ *  Value: "SEV_SNP_IRQ_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ConfidentialParavisorConfig_SevSnpIrqMode_SevSnpIrqModeUnspecified;
+/**
+ *  Unrestricted interrupt injection.
+ *
+ *  Value: "UNRESTRICTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ConfidentialParavisorConfig_SevSnpIrqMode_Unrestricted;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_CrossSiteNetworkList_Warning.code
@@ -9412,6 +9558,24 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_DistributionPolicy_TargetShape_B
 FOUNDATION_EXTERN NSString * const kGTLRCompute_DistributionPolicy_TargetShape_Even;
 
 // ----------------------------------------------------------------------------
+// GTLRCompute_DynamicCompressionPolicy.compressionMode
+
+/**
+ *  Automatically uses the best compression based on the Accept-Encoding
+ *  header sent by the client.
+ *
+ *  Value: "AUTOMATIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DynamicCompressionPolicy_CompressionMode_Automatic;
+/**
+ *  Disables compression. Existing compressed responses cached by
+ *  Cloud CDN will not be served to clients.
+ *
+ *  Value: "DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DynamicCompressionPolicy_CompressionMode_Disabled;
+
+// ----------------------------------------------------------------------------
 // GTLRCompute_ExchangedPeeringRoute.type
 
 /**
@@ -10286,6 +10450,25 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_FirewallPoliciesScopedList_Warni
 FOUNDATION_EXTERN NSString * const kGTLRCompute_FirewallPoliciesScopedList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
+// GTLRCompute_FirewallPolicy.policySource
+
+/**
+ *  A system-level policy managed by an internal service like GKE. This value
+ *  is reserved for internal services and cannot be set by users during
+ *  policy creation. Policies with a SYSTEM source cannot be modified or
+ *  deleted by users.
+ *
+ *  Value: "SYSTEM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_FirewallPolicy_PolicySource_System;
+/**
+ *  A regular firewall policy.
+ *
+ *  Value: "USER_DEFINED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_FirewallPolicy_PolicySource_UserDefined;
+
+// ----------------------------------------------------------------------------
 // GTLRCompute_FirewallPolicy.policyType
 
 /** Value: "RDMA_ROCE_POLICY" */
@@ -10570,6 +10753,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_FirewallPolicyRuleSecureTag_Stat
 FOUNDATION_EXTERN NSString * const kGTLRCompute_FirewallPolicyRuleSecureTag_State_Ineffective;
 
 // ----------------------------------------------------------------------------
+// GTLRCompute_ForwardingRule.availabilityGroup
+
+/** Value: "AVAILABILITY_GROUP0" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRule_AvailabilityGroup_AvailabilityGroup0;
+/** Value: "AVAILABILITY_GROUP1" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRule_AvailabilityGroup_AvailabilityGroup1;
+/** Value: "AVAILABILITY_GROUP_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRule_AvailabilityGroup_AvailabilityGroupUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRCompute_ForwardingRule.externalManagedBackendBucketMigrationState
 
 /** Value: "PREPARE" */
@@ -10614,6 +10807,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRule_IpVersion_Unspeci
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRule_LoadBalancingScheme_External;
 /** Value: "EXTERNAL_MANAGED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRule_LoadBalancingScheme_ExternalManaged;
+/** Value: "EXTERNAL_PASSTHROUGH" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRule_LoadBalancingScheme_ExternalPassthrough;
 /** Value: "INTERNAL" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRule_LoadBalancingScheme_Internal;
 /** Value: "INTERNAL_MANAGED" */
@@ -16394,6 +16589,30 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ImageList_Warning_Code_Undeclare
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ImageList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
+// GTLRCompute_ImageOptimizationPolicy.queryParameterInterpretation
+
+/**
+ *  Query parameters for image optimization are ignored.
+ *
+ *  Value: "DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ImageOptimizationPolicy_QueryParameterInterpretation_Disabled;
+/**
+ *  Query parameters for image optimization are interpreted.
+ *
+ *  Value: "ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ImageOptimizationPolicy_QueryParameterInterpretation_Enabled;
+/**
+ *  Default value. This field value translates to the
+ *  default behavior, which is to ignore query parameters for image
+ *  optimization.
+ *
+ *  Value: "QUERY_PARAMETER_INTERPRETATION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ImageOptimizationPolicy_QueryParameterInterpretation_QueryParameterInterpretationUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRCompute_ImageViewsListResponse_Warning.code
 
 /**
@@ -18519,6 +18738,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerStatusAccele
  *  Value: "ACTIVE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerStatusAcceleratorTopology_State_Active;
+/**
+ *  The accelerator topology is active but operating in degraded mode.
+ *
+ *  Value: "ACTIVE_DEGRADED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerStatusAcceleratorTopology_State_ActiveDegraded;
 /**
  *  The accelerator topology is being deactivated.
  *
@@ -25902,6 +26127,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkAttachmentConnectedEndpoi
  *  Value: "REJECTED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkAttachmentConnectedEndpoint_Status_Rejected;
+/**
+ *  There is no traffic flowing in this state, only the address is
+ *  reserved.
+ *
+ *  Value: "RESERVED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkAttachmentConnectedEndpoint_Status_Reserved;
 /** Value: "STATUS_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkAttachmentConnectedEndpoint_Status_StatusUnspecified;
 
@@ -28292,6 +28524,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkProfileNetworkFeatures_Ad
  *  Value: "NAT_AUTO"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkProfileNetworkFeatures_AddressPurposes_NatAuto;
+/**
+ *  The global external address can only be assigned to Global External
+ *  Passthrough Network Load Balancer forwarding rules, as an Availability
+ *  Group 0 address.
+ *
+ *  Value: "PASSTHROUGH_LOAD_BALANCER_AVAILABILITY_GROUP0"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkProfileNetworkFeatures_AddressPurposes_PassthroughLoadBalancerAvailabilityGroup0;
+/**
+ *  The global external address can only be assigned to Global External
+ *  Passthrough Network Load Balancer forwarding rules, as an Availability
+ *  Group 1 address.
+ *
+ *  Value: "PASSTHROUGH_LOAD_BALANCER_AVAILABILITY_GROUP1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkProfileNetworkFeatures_AddressPurposes_PassthroughLoadBalancerAvailabilityGroup1;
 /**
  *  A private network IP address that can be used to configure Private
  *  Service Connect. This purpose can be specified only forGLOBAL addresses of
@@ -34013,6 +34261,34 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_PublicDelegatedPrefix_Mode_Exter
 FOUNDATION_EXTERN NSString * const kGTLRCompute_PublicDelegatedPrefix_Mode_InternalIpv6SubnetworkCreation;
 
 // ----------------------------------------------------------------------------
+// GTLRCompute_PublicDelegatedPrefix.purpose
+
+/**
+ *  The global public delegated prefix can only be used by Global External
+ *  Application and Proxy Load Balancers to allocate addresses for forwarding
+ *  rules. This is the default value.
+ *
+ *  Value: "APPLICATION_AND_PROXY_LOAD_BALANCERS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PublicDelegatedPrefix_Purpose_ApplicationAndProxyLoadBalancers;
+/**
+ *  The global public delegated prefix can only be used by Global External
+ *  Passthrough Network Load Balancers to allocate Availability Group 0
+ *  addresses for forwarding rules.
+ *
+ *  Value: "PASSTHROUGH_LOAD_BALANCER_AVAILABILITY_GROUP0"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PublicDelegatedPrefix_Purpose_PassthroughLoadBalancerAvailabilityGroup0;
+/**
+ *  The global public delegated prefix can only be used by Global External
+ *  Passthrough Network Load Balancers to allocate Availability Group 1
+ *  addresses for forwarding rules.
+ *
+ *  Value: "PASSTHROUGH_LOAD_BALANCER_AVAILABILITY_GROUP1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PublicDelegatedPrefix_Purpose_PassthroughLoadBalancerAvailabilityGroup1;
+
+// ----------------------------------------------------------------------------
 // GTLRCompute_PublicDelegatedPrefix.status
 
 /**
@@ -34697,6 +34973,34 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_PublicDelegatedPrefixPublicDeleg
  *  Value: "INTERNAL_IPV6_SUBNETWORK_CREATION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_PublicDelegatedPrefixPublicDelegatedSubPrefix_Mode_InternalIpv6SubnetworkCreation;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_PublicDelegatedPrefixPublicDelegatedSubPrefix.purpose
+
+/**
+ *  The global public delegated prefix can only be used by Global External
+ *  Application and Proxy Load Balancers to allocate addresses for forwarding
+ *  rules. This is the default value.
+ *
+ *  Value: "APPLICATION_AND_PROXY_LOAD_BALANCERS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PublicDelegatedPrefixPublicDelegatedSubPrefix_Purpose_ApplicationAndProxyLoadBalancers;
+/**
+ *  The global public delegated prefix can only be used by Global External
+ *  Passthrough Network Load Balancers to allocate Availability Group 0
+ *  addresses for forwarding rules.
+ *
+ *  Value: "PASSTHROUGH_LOAD_BALANCER_AVAILABILITY_GROUP0"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PublicDelegatedPrefixPublicDelegatedSubPrefix_Purpose_PassthroughLoadBalancerAvailabilityGroup0;
+/**
+ *  The global public delegated prefix can only be used by Global External
+ *  Passthrough Network Load Balancers to allocate Availability Group 1
+ *  addresses for forwarding rules.
+ *
+ *  Value: "PASSTHROUGH_LOAD_BALANCER_AVAILABILITY_GROUP1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PublicDelegatedPrefixPublicDelegatedSubPrefix_Purpose_PassthroughLoadBalancerAvailabilityGroup1;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_PublicDelegatedPrefixPublicDelegatedSubPrefix.status
@@ -39467,6 +39771,36 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePolicyWorkloadPolicy_Typ
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePolicyWorkloadPolicy_Type_HighThroughput;
 
 // ----------------------------------------------------------------------------
+// GTLRCompute_ResourceStatusScheduling.protectionTier
+
+/**
+ *  CAPACITY_OPTIMIZED capacity leverages redundancies (e.g. power,
+ *  cooling) at the data center during normal operating conditions. In the
+ *  event of infrastructure failures at data center (e.g. power and/or
+ *  cooling failures), this workload may be disrupted. As a consequence, it
+ *  has a weaker availability SLO than STANDARD.
+ *
+ *  Value: "PROTECTION_TIER_CAPACITY_OPTIMIZED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourceStatusScheduling_ProtectionTier_ProtectionTierCapacityOptimized;
+/**
+ *  STANDARD protection for workload that should be protected by
+ *  redundancies (e.g. power, cooling) at the data center level. In the
+ *  event of infrastructure failures at data center (e.g. power and/or
+ *  cooling failures), this workload is expected to continue as normal
+ *  using the redundancies.
+ *
+ *  Value: "PROTECTION_TIER_STANDARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourceStatusScheduling_ProtectionTier_ProtectionTierStandard;
+/**
+ *  Unspecified protection tier.
+ *
+ *  Value: "PROTECTION_TIER_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourceStatusScheduling_ProtectionTier_ProtectionTierUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRCompute_ResourceStatusShutdownDetails.stopState
 
 /**
@@ -42259,6 +42593,36 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_Scheduling_OnHostMaintenance_Mig
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Scheduling_OnHostMaintenance_Terminate;
 
 // ----------------------------------------------------------------------------
+// GTLRCompute_Scheduling.protectionTier
+
+/**
+ *  CAPACITY_OPTIMIZED capacity leverages redundancies (e.g. power,
+ *  cooling) at the data center during normal operating conditions. In the
+ *  event of infrastructure failures at data center (e.g. power and/or
+ *  cooling failures), this workload may be disrupted. As a consequence, it
+ *  has a weaker availability SLO than STANDARD.
+ *
+ *  Value: "PROTECTION_TIER_CAPACITY_OPTIMIZED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Scheduling_ProtectionTier_ProtectionTierCapacityOptimized;
+/**
+ *  STANDARD protection for workload that should be protected by
+ *  redundancies (e.g. power, cooling) at the data center level. In the
+ *  event of infrastructure failures at data center (e.g. power and/or
+ *  cooling failures), this workload is expected to continue as normal
+ *  using the redundancies.
+ *
+ *  Value: "PROTECTION_TIER_STANDARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Scheduling_ProtectionTier_ProtectionTierStandard;
+/**
+ *  Unspecified protection tier.
+ *
+ *  Value: "PROTECTION_TIER_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Scheduling_ProtectionTier_ProtectionTierUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRCompute_Scheduling.provisioningModel
 
 /**
@@ -43819,9 +44183,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_Snapshot_Architecture_X8664;
 // ----------------------------------------------------------------------------
 // GTLRCompute_Snapshot.snapshotType
 
-/** Value: "ARCHIVE" */
+/**
+ *  Indicates an archive snapshot, which is recommended for long-term
+ *  retention and compliance.
+ *
+ *  Value: "ARCHIVE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Snapshot_SnapshotType_Archive;
-/** Value: "STANDARD" */
+/**
+ *  Indicates a standard snapshot, which is recommended for frequent
+ *  restores.
+ *
+ *  Value: "STANDARD"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Snapshot_SnapshotType_Standard;
 
 // ----------------------------------------------------------------------------
@@ -52209,6 +52583,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_TCPHealthCheck_ProxyHeader_Proxy
 // GTLRCompute_UpcomingMaintenance.maintenanceReasons
 
 /**
+ *  Maintenance due to a fault reported by the customer via the R&R
+ *  (Report-and-Replace) API.
+ *
+ *  Value: "FAILURE_CUSTOMER_REPORTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UpcomingMaintenance_MaintenanceReasons_FailureCustomerReported;
+/**
  *  Maintenance due to disk errors.
  *
  *  Value: "FAILURE_DISK"
@@ -55627,6 +56008,32 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_WireProperties_FaultResponse_Dis
 FOUNDATION_EXTERN NSString * const kGTLRCompute_WireProperties_FaultResponse_None;
 
 // ----------------------------------------------------------------------------
+// GTLRCompute_WireProperties.flowManagement
+
+/**
+ *  The wire uses dynamic paths.
+ *
+ *  Value: "DYNAMIC_PATH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_WireProperties_FlowManagement_DynamicPath;
+/**
+ *  The wire uses fixed paths.
+ *
+ *  Value: "FIXED_PATH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_WireProperties_FlowManagement_FixedPath;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_WorkloadIdentityConfig.identityType
+
+/** Value: "AGENT_IDENTITY" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_WorkloadIdentityConfig_IdentityType_AgentIdentity;
+/** Value: "IDENTITY_TYPE_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_WorkloadIdentityConfig_IdentityType_IdentityTypeUnspecified;
+/** Value: "SERVICE_ACCOUNT" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_WorkloadIdentityConfig_IdentityType_ServiceAccount;
+
+// ----------------------------------------------------------------------------
 // GTLRCompute_XpnHostList_Warning.code
 
 /**
@@ -56792,6 +57199,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, strong, nullable) NSNumber *externalIpv6PrefixLength;
 
 /**
+ *  Reference to the source of external IPv4 addresses,
+ *  like a PublicDelegatedPrefix (PDP) for BYOIP.
+ *  The PDP must support enhanced IPv4 allocations.
+ *  Use one of the following formats to specify a PDP when allocating an
+ *  external IPv4 address using BYOIP.
+ *  -
+ *  Full resource URL, as
+ *  inhttps://www.googleapis.com/compute/v1/projects/projectId/regions/region/publicDelegatedPrefixes/pdp-name
+ *  -
+ *  Partial URL, as in
+ *  - projects/projectId/regions/region/publicDelegatedPrefixes/pdp-name
+ *  - regions/region/publicDelegatedPrefixes/pdp-name
+ */
+@property(nonatomic, copy, nullable) NSString *ipCollection;
+
+/**
  *  Output only. [Output Only] Type of the resource. Alwayscompute#accessConfig
  *  for access configs.
  */
@@ -57033,6 +57456,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, copy, nullable) NSString *network;
 
 /**
+ *  Optional. The URL of the network attachment that this address comes from in
+ *  the
+ *  following format:
+ *  projects/{project}/regions/{region_name}/networkAttachments/{network_attachment_name}.
+ */
+@property(nonatomic, copy, nullable) NSString *networkAttachment;
+
+/**
  *  This signifies the networking tier used for configuring this address and
  *  can only take the following values: PREMIUM orSTANDARD. Internal IP
  *  addresses are always Premium Tier;
@@ -57109,6 +57540,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        "IPSEC_INTERCONNECT")
  *    @arg @c kGTLRCompute_Address_Purpose_NatAuto External IP automatically
  *        reserved for Cloud NAT. (Value: "NAT_AUTO")
+ *    @arg @c kGTLRCompute_Address_Purpose_PassthroughLoadBalancerAvailabilityGroup0
+ *        The global external address can only be assigned to Global External
+ *        Passthrough Network Load Balancer forwarding rules, as an Availability
+ *        Group 0 address. (Value:
+ *        "PASSTHROUGH_LOAD_BALANCER_AVAILABILITY_GROUP0")
+ *    @arg @c kGTLRCompute_Address_Purpose_PassthroughLoadBalancerAvailabilityGroup1
+ *        The global external address can only be assigned to Global External
+ *        Passthrough Network Load Balancer forwarding rules, as an Availability
+ *        Group 1 address. (Value:
+ *        "PASSTHROUGH_LOAD_BALANCER_AVAILABILITY_GROUP1")
  *    @arg @c kGTLRCompute_Address_Purpose_PrivateServiceConnect A private
  *        network IP address that can be used to configure Private
  *        Service Connect. This purpose can be specified only forGLOBAL
@@ -57134,6 +57575,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /** [Output Only] Server-defined URL for the resource. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
+
+/**
+ *  Optional. Producer Service's Service class ID for the region of this
+ *  address. Can
+ *  only be used with network_attachment. It is not possible to use on its own;
+ *  however, network_attachment can be used without service_class_id.
+ */
+@property(nonatomic, copy, nullable) NSString *serviceClassId;
 
 /**
  *  Output only. [Output Only] The status of the address, which can be one
@@ -61622,6 +62071,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
+ *  Dynamic forwarding configuration. This field is used to configure the
+ *  backend service with dynamic forwarding feature which together with Service
+ *  Extension allows customized and complex routing logic.
+ */
+@property(nonatomic, strong, nullable) GTLRCompute_BackendServiceDynamicForwarding *dynamicForwarding;
+
+/**
  *  [Output Only] The resource URL for the edge security policy associated with
  *  this backend service.
  */
@@ -61833,6 +62289,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Signifies that this will be used for global external Application Load
  *        Balancers, regional external Application Load Balancers, or regional
  *        external proxy Network Load Balancers. (Value: "EXTERNAL_MANAGED")
+ *    @arg @c kGTLRCompute_BackendService_LoadBalancingScheme_ExternalPassthrough
+ *        Signifies that this will be used for global external passthrough
+ *        Network
+ *        Load Balancers. (Value: "EXTERNAL_PASSTHROUGH")
  *    @arg @c kGTLRCompute_BackendService_LoadBalancingScheme_Internal Signifies
  *        that this will be used for internal passthrough Network Load
  *        Balancers. (Value: "INTERNAL")
@@ -62837,6 +63297,65 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  INTERNAL_SELF_MANAGED.
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Defines a dynamic forwarding configuration for the backend service.
+ */
+@interface GTLRCompute_BackendServiceDynamicForwarding : GTLRObject
+
+/** Dynamic Forwarding Proxy configuration. */
+@property(nonatomic, strong, nullable) GTLRCompute_BackendServiceDynamicForwardingForwardProxy *forwardProxy;
+
+/** IP:PORT based dynamic forwarding configuration. */
+@property(nonatomic, strong, nullable) GTLRCompute_BackendServiceDynamicForwardingIpPortSelection *ipPortSelection;
+
+@end
+
+
+/**
+ *  Defines Dynamic Forwarding Proxy configuration.
+ */
+@interface GTLRCompute_BackendServiceDynamicForwardingForwardProxy : GTLRObject
+
+/**
+ *  A boolean flag enabling dynamic forwarding proxy.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
+/**
+ *  Determines the dynamic forwarding proxy mode.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_BackendServiceDynamicForwardingForwardProxy_ProxyMode_CloudRun
+ *        Dynamic forwarding directly to Cloud Run services. (Value:
+ *        "CLOUD_RUN")
+ *    @arg @c kGTLRCompute_BackendServiceDynamicForwardingForwardProxy_ProxyMode_DirectForwarding
+ *        Dynamic forwarding based on the Http Host header. (Value:
+ *        "DIRECT_FORWARDING")
+ */
+@property(nonatomic, copy, nullable) NSString *proxyMode;
+
+@end
+
+
+/**
+ *  Defines a IP:PORT based dynamic forwarding configuration for the backend
+ *  service. Some ranges are restricted: Restricted
+ *  ranges.
+ */
+@interface GTLRCompute_BackendServiceDynamicForwardingIpPortSelection : GTLRObject
+
+/**
+ *  A boolean flag enabling IP:PORT based dynamic forwarding.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
 
 @end
 
@@ -64675,7 +65194,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  */
 @property(nonatomic, strong, nullable) NSNumber *count;
 
-/** A flexible specification of machine type of instances to create. */
+/**
+ *  A specification of alternative machine types to use when creating
+ *  instances. A single bulkInsert request can create instances with multiple
+ *  different machine types based on capacity and quota availability. This
+ *  field is supported only for regional bulkInsert requests. For more
+ *  information, see About
+ *  instance flexibility for VMs created in bulk.
+ */
 @property(nonatomic, strong, nullable) GTLRCompute_InstanceFlexibilityPolicy *instanceFlexibilityPolicy;
 
 /**
@@ -64903,6 +65429,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @interface GTLRCompute_CacheInvalidationRule : GTLRObject
 
 /**
+ *  If set, this invalidation rule will only apply to requests routed to the
+ *  given backend service or backend bucket.
+ *  For example, for a backend bucket `bb1` in the same scope as the URL map,
+ *  the path would be `projects/my-project/global/backendBuckets/bb1`; and
+ *  for a backend service `bs1` in the same scope as the URL map, the path
+ *  would be `projects/my-project/global/backendServices/bs1`.
+ */
+@property(nonatomic, copy, nullable) NSString *backendService;
+
+/**
  *  A list of cache tags used to identify cached objects.
  *  - Cache tags are specified when the response is first cached, by setting
  *  the `Cache-Tag` response header at the origin.
@@ -64915,10 +65451,27 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, strong, nullable) NSArray<NSString *> *cacheTags;
 
 /**
+ *  If set, this invalidation rule will only apply to responses with the given
+ *  content-type. Parameters are not allowed and are ignored from the response
+ *  when matching. Wildcards are not allowed.
+ */
+@property(nonatomic, copy, nullable) NSString *contentType;
+
+/**
  *  If set, this invalidation rule will only apply to requests with a Host
- *  header matching host.
+ *  header matching host. This field also accepts wildcards (*) to replace the
+ *  leftmost (or first) label of a hostname. For example, *.example.com will
+ *  match www.example.com, but not sub1.dev.example.com.
  */
 @property(nonatomic, copy, nullable) NSString *host;
+
+/**
+ *  If set, this invalidation rule will only apply to responses with the
+ *  given HTTP status. Valid range is 200-599.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *httpStatus;
 
 @property(nonatomic, copy, nullable) NSString *path;
 
@@ -65009,6 +65562,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  specified, Cloud CDN uses `CACHE_ALL_STATIC` mode.
  *
  *  Likely values:
+ *    @arg @c kGTLRCompute_CachePolicy_CacheMode_BypassCache Bypasses the cache
+ *        for this route. All requests are forwarded to the
+ *        origin, and responses are not cached. (Value: "BYPASS_CACHE")
  *    @arg @c kGTLRCompute_CachePolicy_CacheMode_CacheAllStatic Automatically
  *        cache static content, including common image formats,
  *        media (video and audio), and web assets (JavaScript and CSS).
@@ -66080,6 +66636,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        "COMPUTE_OPTIMIZED_H3"
  *    @arg @c kGTLRCompute_Commitment_Type_ComputeOptimizedH4d Value
  *        "COMPUTE_OPTIMIZED_H4D"
+ *    @arg @c kGTLRCompute_Commitment_Type_ComputeOptimizedH4d3tb CUD bucket for
+ *        COMPUTE_OPTIMIZED_H4D_3TB machines. (Value:
+ *        "COMPUTE_OPTIMIZED_H4D_3TB")
  *    @arg @c kGTLRCompute_Commitment_Type_GeneralPurpose Value
  *        "GENERAL_PURPOSE"
  *    @arg @c kGTLRCompute_Commitment_Type_GeneralPurposeC4 Value
@@ -66116,6 +66675,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        "MEMORY_OPTIMIZED_M4"
  *    @arg @c kGTLRCompute_Commitment_Type_MemoryOptimizedM46tb Value
  *        "MEMORY_OPTIMIZED_M4_6TB"
+ *    @arg @c kGTLRCompute_Commitment_Type_MemoryOptimizedM4n CUD bucket for M4N
+ *        machines with less than 6TB of memory. (Value: "MEMORY_OPTIMIZED_M4N")
+ *    @arg @c kGTLRCompute_Commitment_Type_MemoryOptimizedM4n6tb CUD bucket for
+ *        M4N machines with 6TB of memory. (Value: "MEMORY_OPTIMIZED_M4N_6TB")
  *    @arg @c kGTLRCompute_Commitment_Type_MemoryOptimizedX4144024t CUD bucket
  *        for X4 machine with 1440 vCPUs and 24TB of memory. (Value:
  *        "MEMORY_OPTIMIZED_X4_1440_24T")
@@ -66140,6 +66703,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_Commitment_Type_MemoryOptimizedX496016t CUD bucket
  *        for X4 machine with 960 vCPUs and 16TB of memory. (Value:
  *        "MEMORY_OPTIMIZED_X4_960_16T")
+ *    @arg @c kGTLRCompute_Commitment_Type_MemoryOptimizedX5137624t CUD bucket
+ *        for X5 machine with 1376 vCPUs and 24TB of memory. (Value:
+ *        "MEMORY_OPTIMIZED_X5_1376_24T")
+ *    @arg @c kGTLRCompute_Commitment_Type_MemoryOptimizedX5137632t CUD bucket
+ *        for X5 machine with 1376 vCPUs and 32TB of memory. (Value:
+ *        "MEMORY_OPTIMIZED_X5_1376_32T")
+ *    @arg @c kGTLRCompute_Commitment_Type_MemoryOptimizedX5206448t CUD bucket
+ *        for X5 machine with 2064 vCPUs and 48TB of memory. (Value:
+ *        "MEMORY_OPTIMIZED_X5_2064_48T")
+ *    @arg @c kGTLRCompute_Commitment_Type_MemoryOptimizedX568812t CUD bucket
+ *        for X5 machine with 688 vCPUs and 12TB of memory. (Value:
+ *        "MEMORY_OPTIMIZED_X5_688_12T")
+ *    @arg @c kGTLRCompute_Commitment_Type_MemoryOptimizedX568816t CUD bucket
+ *        for X5 machine with 688 vCPUs and 16TB of memory. (Value:
+ *        "MEMORY_OPTIMIZED_X5_688_16T")
  *    @arg @c kGTLRCompute_Commitment_Type_NetworkOptimizedC4n CUD bucket for
  *        C4N (dual Diorite) machines. (Value: "NETWORK_OPTIMIZED_C4N")
  *    @arg @c kGTLRCompute_Commitment_Type_NetworkOptimizedU4c CUD bucket for
@@ -67537,12 +68115,55 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  */
 @property(nonatomic, copy, nullable) NSString *confidentialInstanceType;
 
+/** Defines a set of Confidential Paravisor (SVSM) options. */
+@property(nonatomic, strong, nullable) GTLRCompute_ConfidentialParavisorConfig *confidentialParavisorConfig;
+
 /**
  *  Defines whether the instance should have confidential compute enabled.
+ *  When enabled, the technology used defaults to
+ *  AMD SEV unless confidentialInstanceType is specified.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *enableConfidentialCompute;
+
+@end
+
+
+/**
+ *  A set of Confidential Paravisor (SVSM) options.
+ */
+@interface GTLRCompute_ConfidentialParavisorConfig : GTLRObject
+
+/**
+ *  Defines the type of TPM to use for the confidential instance.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_ConfidentialParavisorConfig_ConfidentialTpmType_ConfidentialTpmTypeUnspecified
+ *        No TPM type specified. Do not use this value. (Value:
+ *        "CONFIDENTIAL_TPM_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRCompute_ConfidentialParavisorConfig_ConfidentialTpmType_Ephemeral
+ *        An ephemeral vTPM running in the paravisor (SVSM). (Value:
+ *        "EPHEMERAL")
+ *    @arg @c kGTLRCompute_ConfidentialParavisorConfig_ConfidentialTpmType_NoCcTpm
+ *        No confidential computing vTPM is used in the paravisor (SVSM).
+ *        (Value: "NO_CC_TPM")
+ */
+@property(nonatomic, copy, nullable) NSString *confidentialTpmType;
+
+/**
+ *  Defines the IRQ mode to use for the confidential instance.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_ConfidentialParavisorConfig_SevSnpIrqMode_Restricted
+ *        Restricted interrupt injection. (Value: "RESTRICTED")
+ *    @arg @c kGTLRCompute_ConfidentialParavisorConfig_SevSnpIrqMode_SevSnpIrqModeUnspecified
+ *        No IRQ mode specified. Do not use this value. (Value:
+ *        "SEV_SNP_IRQ_MODE_UNSPECIFIED")
+ *    @arg @c kGTLRCompute_ConfidentialParavisorConfig_SevSnpIrqMode_Unrestricted
+ *        Unrestricted interrupt injection. (Value: "UNRESTRICTED")
+ */
+@property(nonatomic, copy, nullable) NSString *sevSnpIrqMode;
 
 @end
 
@@ -68723,6 +69344,41 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  version of the instant snapshot that was used.
  */
 @property(nonatomic, copy, nullable) NSString *sourceInstantSnapshotId;
+
+/**
+ *  The machine image to create the disk from. You can provide this as a
+ *  partial or full URL to the resource. For example, the following are valid
+ *  values:
+ *  -
+ *  https://www.googleapis.com/compute/v1/projects/project/global/machineImages/machineImage
+ *  - projects/project/global/machineImages/machineImage
+ *  - global/machineImages/machineImage
+ */
+@property(nonatomic, copy, nullable) NSString *sourceMachineImage;
+
+/**
+ *  The device name of a disk within a given machine image. The
+ *  source_machine_image must be specified.
+ */
+@property(nonatomic, copy, nullable) NSString *sourceMachineImageDiskDeviceName;
+
+/**
+ *  Thecustomer-supplied
+ *  encryption key of the source machine image. Required if the source
+ *  machine image is protected by a customer-supplied encryption key.
+ */
+@property(nonatomic, strong, nullable) GTLRCompute_CustomerEncryptionKey *sourceMachineImageEncryptionKey;
+
+/**
+ *  Output only. [Output Only] The unique ID of the machine image used to create
+ *  this disk.
+ *  This value identifies the exact machine image that was used to create this
+ *  persistent disk. For example, if you created the persistent disk from a
+ *  machine image that was later deleted and recreated under the same name, the
+ *  source machine image ID would identify the exact version of the machine
+ *  image that was used.
+ */
+@property(nonatomic, copy, nullable) NSString *sourceMachineImageId;
 
 /**
  *  The source snapshot used to create this disk. You can provide this as a
@@ -70552,6 +71208,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 
 /**
+ *  Dynamic compression policy for this URL Map's route.
+ */
+@interface GTLRCompute_DynamicCompressionPolicy : GTLRObject
+
+/**
+ *  Compress text responses using Brotli or gzip compression, based on
+ *  the client's Accept-Encoding header.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_DynamicCompressionPolicy_CompressionMode_Automatic
+ *        Automatically uses the best compression based on the Accept-Encoding
+ *        header sent by the client. (Value: "AUTOMATIC")
+ *    @arg @c kGTLRCompute_DynamicCompressionPolicy_CompressionMode_Disabled
+ *        Disables compression. Existing compressed responses cached by
+ *        Cloud CDN will not be served to clients. (Value: "DISABLED")
+ */
+@property(nonatomic, copy, nullable) NSString *compressionMode;
+
+@end
+
+
+/**
  *  Describes the cause of the error with structured details.
  *  Example of an error when contacting the "pubsub.googleapis.com" API when it
  *  is not enabled:
@@ -72201,6 +72879,27 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
+ *  Indicates the source of this Firewall Policy. This field is optional on
+ *  creation and defaults to USER_DEFINED.
+ *  The USER_DEFINED value indicates a regular firewall policy.
+ *  The SYSTEM value indicates a system-level policy managed by an
+ *  internal service like GKE. This SYSTEM value is reserved for
+ *  internal services and cannot be set by users during policy creation.
+ *  Policies with a SYSTEM source cannot be modified or deleted by
+ *  users.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_FirewallPolicy_PolicySource_System A system-level
+ *        policy managed by an internal service like GKE. This value
+ *        is reserved for internal services and cannot be set by users during
+ *        policy creation. Policies with a SYSTEM source cannot be modified or
+ *        deleted by users. (Value: "SYSTEM")
+ *    @arg @c kGTLRCompute_FirewallPolicy_PolicySource_UserDefined A regular
+ *        firewall policy. (Value: "USER_DEFINED")
+ */
+@property(nonatomic, copy, nullable) NSString *policySource;
+
+/**
  *  The type of the firewall policy. This field can be one of
  *  VPC_POLICY, RDMA_ROCE_POLICY or ULL_POLICY.
  *  Note: if not specified then VPC_POLICY will be used.
@@ -73015,6 +73714,41 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, strong, nullable) NSArray<GTLRCompute_ForwardingRuleAttachedExtension *> *attachedExtensions;
 
 /**
+ *  Output only. [Output Only] Specifies the load balancing availability group,
+ *  one of the
+ *  two that collectively provide high availability.
+ *  Specifies the availability group of the forwarding rule. This
+ *  field is for use by global external passthrough load balancers (load
+ *  balancing scheme EXTERNAL_PASSTHROUGH) and is set for the
+ *  child forwarding rules only. The possible values are:
+ *  - AVAILABILITY_GROUP0: Set for the child forwarding rule
+ *  that is programmed on the AVAILABILITY_GROUP0 load balancing
+ *  stack. The child forwarding rule has the same IP protocol, port, and
+ *  backend service settings as the parent forwarding rule, but has only one of
+ *  the two IP addresses of the parent forwarding rule, the one with the
+ *  purpose PASSTHROUGH_LOAD_BALANCER_AVAILABILITY_GROUP0.
+ *  - AVAILABILITY_GROUP1: Set for the child forwarding rule
+ *  that is programmed on the AVAILABILITY_GROUP1 load balancing
+ *  stack. The child forwarding rule has the same IP protocol, port and backend
+ *  service settings as the parent forwarding rule, but has only one of the two
+ *  IP addresses of the parent forwarding rule, the one with the
+ *  purposePASSTHROUGH_LOAD_BALANCER_AVAILABILITY_GROUP1.
+ *  For each global external Passthrough Network Load Balancer forwarding rule
+ *  (a parent forwarding rule) that you create, Google Cloud generates two
+ *  output-only child forwarding rules, one forAVAILABILITY_GROUP0 and one
+ *  forAVAILABILITY_GROUP1.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_ForwardingRule_AvailabilityGroup_AvailabilityGroup0
+ *        Value "AVAILABILITY_GROUP0"
+ *    @arg @c kGTLRCompute_ForwardingRule_AvailabilityGroup_AvailabilityGroup1
+ *        Value "AVAILABILITY_GROUP1"
+ *    @arg @c kGTLRCompute_ForwardingRule_AvailabilityGroup_AvailabilityGroupUnspecified
+ *        Value "AVAILABILITY_GROUP_UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *availabilityGroup;
+
+/**
  *  Identifies the backend service to which the forwarding rule sends traffic.
  *  It is a required field for the following load balancers:
  *  - Internal passthrough Network Load Balancers
@@ -73036,6 +73770,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  specified.
  */
 @property(nonatomic, copy, nullable) NSString *baseForwardingRule;
+
+/**
+ *  Output only. [Output Only] The resource URLs for the child forwarding rules.
+ *  Applicable only to the parent forwarding rule of global
+ *  external passthrough load balancers. This field contains the list of child
+ *  forwarding rule URLs associated with the parent forwarding rule: one for
+ *  each availability group. AVAILABILITY_GROUP0 will be the first element, and
+ *  AVAILABILITY_GROUP1 will be the second element. Refer to
+ *  theavailabilityGroup field for further details. It cannot be set
+ *  by any other forwarding rules.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *childForwardingRules;
 
 /**
  *  Output only. [Output Only] Creation timestamp inRFC3339
@@ -73154,6 +73900,58 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, copy, nullable) NSString *IPAddress;
 
 /**
+ *  IP addresses for which this forwarding rule accepts traffic. All IP
+ *  addresses must have the same IP version, IPv4 or IPv6. When a client sends
+ *  traffic that matches one of the specified IP addresses, protocol and ports,
+ *  the forwarding rule directs the traffic to the referencedbackendService. All
+ *  IP addresses are served by the same set of
+ *  backends, and they share the target capacities specified in the backend
+ *  service fairly.
+ *  Global external Passthrough Network Load Balancer requires two IP addresses
+ *  for each forwarding rule to provide high availability when both IP
+ *  addresses are used to serve client requests. The two IP addresses must come
+ *  from global IP pools that belong to two distinct Availability
+ *  Groups, represented by the
+ *  purposePASSTHROUGH_LOAD_BALANCER_AVAILABILITY_GROUP0
+ *  andPASSTHROUGH_LOAD_BALANCER_AVAILABILITY_GROUP1. TheIPAddresses field
+ *  specifies zero, one, or two IP addresses:
+ *  - If omitted, Google Cloud assigns two ephemeral IP addresses, one from
+ *  each Availability Group.
+ *  - If you specify one IP address that references an existing static IP
+ *  address resource from one Availability Group, Google Cloud assigns an
+ *  ephemeral IP address from the other Availability Group.
+ *  - If you specify two IP addresses that reference existing static IP
+ *  address resources, they are required to be from different Availability
+ *  Groups.
+ *  For global external Passthrough Network Load Balancer, each IP address can
+ *  be one of the following:
+ *  - A static or ephemeral IPv4 address from a Google-owned IP pool.
+ *  - A static IPv4 address from a global public delegated prefix.
+ *  - A static or ephemeral IPv6 /96 prefix from a Google-owned IP pool.
+ *  For global external Passthrough Network Load Balancer, the two IP addresses
+ *  can be of different types. One IP address can be from a BYOIP prefix while
+ *  the other is from a Google-owned IP pool. One IP address can be static
+ *  while the other is ephemeral. However, both IP addresses must have the same
+ *  IP version, IPv4 or IPv6.
+ *  The IP addresses can only be set at creation and cannot be updated.
+ *  When creating a global external Passthrough Network Load Balancer
+ *  forwarding rule (a parent forwarding rule), you must use theIPAddresses
+ *  field, but the Google Cloud-generated child
+ *  forwarding rules set the IPAddress field instead. Refer to
+ *  theavailabilityGroup field for further details.
+ *  Refer to the IPAddress field for the formats that can be used
+ *  to specify IP addresses while creating a forwarding rule.
+ *  Because Passthrough Network Load Balancers do not terminate or translate
+ *  traffic, the backend stack types must be compatible with the forwarding
+ *  rule IP version:
+ *  - If the forwarding rule IP version is IPv4, backends should be
+ *  configured as dual-stack or IPv4-only.
+ *  - If the forwarding rule IP version is IPv6, backends should be
+ *  configured as dual-stack or IPv6-only.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *IPAddresses;
+
+/**
  *  Resource reference of a PublicDelegatedPrefix. The PDP must
  *  be a sub-PDP in EXTERNAL_IPV6_FORWARDING_RULE_CREATION mode.
  *  Use one of the following formats to specify a sub-PDP when creating an IPv6
@@ -73248,6 +74046,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        "EXTERNAL"
  *    @arg @c kGTLRCompute_ForwardingRule_LoadBalancingScheme_ExternalManaged
  *        Value "EXTERNAL_MANAGED"
+ *    @arg @c kGTLRCompute_ForwardingRule_LoadBalancingScheme_ExternalPassthrough
+ *        Value "EXTERNAL_PASSTHROUGH"
  *    @arg @c kGTLRCompute_ForwardingRule_LoadBalancingScheme_Internal Value
  *        "INTERNAL"
  *    @arg @c kGTLRCompute_ForwardingRule_LoadBalancingScheme_InternalManaged
@@ -73352,6 +74152,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *noAutomateDnsZone;
+
+/**
+ *  Output only. [Output Only] The resource URL for the parent forwarding rule.
+ *  Applicable only to the child forwarding rules of global external
+ *  passthrough load balancers. This field contains the URL of the parent
+ *  forwarding rule.
+ */
+@property(nonatomic, copy, nullable) NSString *parentForwardingRule;
 
 /**
  *  The ports, portRange, and allPorts
@@ -81521,6 +82329,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, strong, nullable) GTLRCompute_CorsPolicy *corsPolicy;
 
 /**
+ *  Dynamic compression policy for this URL Map's route. Available only for
+ *  Global EXTERNAL_MANAGED load balancer schemes.
+ */
+@property(nonatomic, strong, nullable) GTLRCompute_DynamicCompressionPolicy *dynamicCompressionPolicy;
+
+/**
  *  The specification for fault injection introduced into traffic to test
  *  the resiliency of clients to backend service failure. As part of fault
  *  injection, when clients send requests to a backend service, delays can be
@@ -81537,6 +82351,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  balancing: Routing and traffic management features.
  */
 @property(nonatomic, strong, nullable) GTLRCompute_HttpFaultInjection *faultInjectionPolicy;
+
+/**
+ *  Image optimization policy for this URL Map's route. Available only for
+ *  Global EXTERNAL_MANAGED load balancer schemes.
+ *  Either Cloud CDN must be enabled on the backend service or backend bucket
+ *  serving the route, or cache policy must be configured on the same route
+ */
+@property(nonatomic, strong, nullable) GTLRCompute_ImageOptimizationPolicy *imageOptimizationPolicy;
 
 /**
  *  Specifies the maximum duration (timeout) for streams on the selected route.
@@ -82832,6 +83654,36 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 
 /**
+ *  The configuration for Cloud CDN's image optimization feature. This feature
+ *  dynamically processes and delivers images from the network edge.
+ *  Image Optimization is only available for Global External Application Load
+ *  Balancers.
+ *  Either Cloud CDN must be enabled on the backend service or backend bucket
+ *  serving the route, or cache policy must be configured on the same route.
+ */
+@interface GTLRCompute_ImageOptimizationPolicy : GTLRObject
+
+/**
+ *  Specifies whether to interpret query parameters for image optimization.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_ImageOptimizationPolicy_QueryParameterInterpretation_Disabled
+ *        Query parameters for image optimization are ignored. (Value:
+ *        "DISABLED")
+ *    @arg @c kGTLRCompute_ImageOptimizationPolicy_QueryParameterInterpretation_Enabled
+ *        Query parameters for image optimization are interpreted. (Value:
+ *        "ENABLED")
+ *    @arg @c kGTLRCompute_ImageOptimizationPolicy_QueryParameterInterpretation_QueryParameterInterpretationUnspecified
+ *        Default value. This field value translates to the
+ *        default behavior, which is to ignore query parameters for image
+ *        optimization. (Value: "QUERY_PARAMETER_INTERPRETATION_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *queryParameterInterpretation;
+
+@end
+
+
+/**
  *  Additional image params.
  */
 @interface GTLRCompute_ImageParams : GTLRObject
@@ -83766,15 +84618,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @interface GTLRCompute_InstanceFlexibilityPolicy : GTLRObject
 
 /**
- *  Specification of alternative, flexible instance subsets.
- *  One of them will be selected to create the instances
- *  based on various criteria, like:
- *  - ranks,
- *  - location policy,
- *  - current capacity,
- *  - available reservations (you can specify affinity in
- *  InstanceProperties),
- *  - SWAN/GOOSE limitations.
+ *  Specifies named instance selections that define properties for instances
+ *  created in bulk.
  *  Key is an arbitrary, unique RFC1035 string that identifies the instance
  *  selection.
  */
@@ -83784,15 +84629,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 
 /**
- *  Specification of alternative, flexible instance subsets.
- *  One of them will be selected to create the instances
- *  based on various criteria, like:
- *  - ranks,
- *  - location policy,
- *  - current capacity,
- *  - available reservations (you can specify affinity in
- *  InstanceProperties),
- *  - SWAN/GOOSE limitations.
+ *  Specifies named instance selections that define properties for instances
+ *  created in bulk.
  *  Key is an arbitrary, unique RFC1035 string that identifies the instance
  *  selection.
  *
@@ -86712,6 +87550,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        The accelerator topology is being activated. (Value: "ACTIVATING")
  *    @arg @c kGTLRCompute_InstanceGroupManagerStatusAcceleratorTopology_State_Active
  *        The accelerator topology is active. (Value: "ACTIVE")
+ *    @arg @c kGTLRCompute_InstanceGroupManagerStatusAcceleratorTopology_State_ActiveDegraded
+ *        The accelerator topology is active but operating in degraded mode.
+ *        (Value: "ACTIVE_DEGRADED")
  *    @arg @c kGTLRCompute_InstanceGroupManagerStatusAcceleratorTopology_State_Deactivating
  *        The accelerator topology is being deactivated. (Value: "DEACTIVATING")
  *    @arg @c kGTLRCompute_InstanceGroupManagerStatusAcceleratorTopology_State_Failed
@@ -97486,6 +98327,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @interface GTLRCompute_MachineImageParams : GTLRObject
 
 /**
+ *  Input only. Specifies the list of disk device names that must be excluded
+ *  from the
+ *  new machine image.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *excludedDisks;
+
+/**
+ *  Input only. Specifies the list of disk device names that must be included
+ *  with the
+ *  new machine image.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *includedDisks;
+
+/**
  *  Input only. Resource manager tags to be bound to the machine image. Tag keys
  *  and values
  *  have the same definition as resource
@@ -99218,6 +100073,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  */
 @interface GTLRCompute_Network : GTLRObject
 
+/** Output only. [Output Only] Additional tags for this resource. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *additionalTags;
+
 /**
  *  Must be set to create a VPC network. If not set, a legacy network is
  *  created.
@@ -99756,6 +100614,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_NetworkAttachmentConnectedEndpoint_Status_Rejected
  *        The consumer prohibits traffic from the producer to reach its VPC.
  *        (Value: "REJECTED")
+ *    @arg @c kGTLRCompute_NetworkAttachmentConnectedEndpoint_Status_Reserved
+ *        There is no traffic flowing in this state, only the address is
+ *        reserved. (Value: "RESERVED")
  *    @arg @c kGTLRCompute_NetworkAttachmentConnectedEndpoint_Status_StatusUnspecified
  *        Value "STATUS_UNSPECIFIED"
  */
@@ -110979,6 +111840,47 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, strong, nullable) NSArray<GTLRCompute_PublicDelegatedPrefixPublicDelegatedSubPrefix *> *publicDelegatedSubPrefixs;
 
 /**
+ *  Immutable. The purpose of the public delegated prefix.
+ *  This field can only be set for the top-level global public delegated
+ *  prefix. It is an output-only field for the sub-delegates that inherit the
+ *  value from the top-level global public delegated prefix. Once the value is
+ *  set, it cannot be changed.
+ *  The field cannot be set for regional public delegated prefixes.
+ *  The supported values are:
+ *  - APPLICATION_AND_PROXY_LOAD_BALANCERS: The global public
+ *  delegated prefix can only be used by Global External Application and
+ *  Proxy Load Balancers to allocate addresses for forwarding rules. This is
+ *  the default value.
+ *  - PASSTHROUGH_LOAD_BALANCER_AVAILABILITY_GROUP0: The
+ *  global public delegated prefix can only be used by Global External
+ *  Passthrough Network Load Balancers to allocate Availability Group 0
+ *  addresses for forwarding rules.
+ *  - PASSTHROUGH_LOAD_BALANCER_AVAILABILITY_GROUP1: The
+ *  global public delegated prefix can only be used by Global External
+ *  Passthrough Network Load Balancers to allocate Availability Group 1
+ *  addresses for forwarding rules.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_PublicDelegatedPrefix_Purpose_ApplicationAndProxyLoadBalancers
+ *        The global public delegated prefix can only be used by Global External
+ *        Application and Proxy Load Balancers to allocate addresses for
+ *        forwarding
+ *        rules. This is the default value. (Value:
+ *        "APPLICATION_AND_PROXY_LOAD_BALANCERS")
+ *    @arg @c kGTLRCompute_PublicDelegatedPrefix_Purpose_PassthroughLoadBalancerAvailabilityGroup0
+ *        The global public delegated prefix can only be used by Global External
+ *        Passthrough Network Load Balancers to allocate Availability Group 0
+ *        addresses for forwarding rules. (Value:
+ *        "PASSTHROUGH_LOAD_BALANCER_AVAILABILITY_GROUP0")
+ *    @arg @c kGTLRCompute_PublicDelegatedPrefix_Purpose_PassthroughLoadBalancerAvailabilityGroup1
+ *        The global public delegated prefix can only be used by Global External
+ *        Passthrough Network Load Balancers to allocate Availability Group 1
+ *        addresses for forwarding rules. (Value:
+ *        "PASSTHROUGH_LOAD_BALANCER_AVAILABILITY_GROUP1")
+ */
+@property(nonatomic, copy, nullable) NSString *purpose;
+
+/**
  *  Output only. [Output Only] URL of the region where the public delegated
  *  prefix resides.
  *  This field applies only to the region resource. You must specify this
@@ -111695,6 +112597,31 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /** The name of the sub public delegated prefix. */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. [Output Only] The purpose of the sub public delegated prefix.
+ *  Inherited
+ *  from parent prefix.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_PublicDelegatedPrefixPublicDelegatedSubPrefix_Purpose_ApplicationAndProxyLoadBalancers
+ *        The global public delegated prefix can only be used by Global External
+ *        Application and Proxy Load Balancers to allocate addresses for
+ *        forwarding
+ *        rules. This is the default value. (Value:
+ *        "APPLICATION_AND_PROXY_LOAD_BALANCERS")
+ *    @arg @c kGTLRCompute_PublicDelegatedPrefixPublicDelegatedSubPrefix_Purpose_PassthroughLoadBalancerAvailabilityGroup0
+ *        The global public delegated prefix can only be used by Global External
+ *        Passthrough Network Load Balancers to allocate Availability Group 0
+ *        addresses for forwarding rules. (Value:
+ *        "PASSTHROUGH_LOAD_BALANCER_AVAILABILITY_GROUP0")
+ *    @arg @c kGTLRCompute_PublicDelegatedPrefixPublicDelegatedSubPrefix_Purpose_PassthroughLoadBalancerAvailabilityGroup1
+ *        The global public delegated prefix can only be used by Global External
+ *        Passthrough Network Load Balancers to allocate Availability Group 1
+ *        addresses for forwarding rules. (Value:
+ *        "PASSTHROUGH_LOAD_BALANCER_AVAILABILITY_GROUP1")
+ */
+@property(nonatomic, copy, nullable) NSString *purpose;
 
 /**
  *  Output only. [Output Only] The region of the sub public delegated prefix if
@@ -118674,6 +119601,31 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, copy, nullable) NSString *gracefulShutdownTimestamp;
 
 /**
+ *  Output only. Protection tier for the workload which specifies the workload
+ *  expectations in the event of infrastructure failures at data center
+ *  (e.g. power and/or cooling failures).
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_ResourceStatusScheduling_ProtectionTier_ProtectionTierCapacityOptimized
+ *        CAPACITY_OPTIMIZED capacity leverages redundancies (e.g. power,
+ *        cooling) at the data center during normal operating conditions. In the
+ *        event of infrastructure failures at data center (e.g. power and/or
+ *        cooling failures), this workload may be disrupted. As a consequence,
+ *        it
+ *        has a weaker availability SLO than STANDARD. (Value:
+ *        "PROTECTION_TIER_CAPACITY_OPTIMIZED")
+ *    @arg @c kGTLRCompute_ResourceStatusScheduling_ProtectionTier_ProtectionTierStandard
+ *        STANDARD protection for workload that should be protected by
+ *        redundancies (e.g. power, cooling) at the data center level. In the
+ *        event of infrastructure failures at data center (e.g. power and/or
+ *        cooling failures), this workload is expected to continue as normal
+ *        using the redundancies. (Value: "PROTECTION_TIER_STANDARD")
+ *    @arg @c kGTLRCompute_ResourceStatusScheduling_ProtectionTier_ProtectionTierUnspecified
+ *        Unspecified protection tier. (Value: "PROTECTION_TIER_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *protectionTier;
+
+/**
  *  Time in future when the instance will be terminated inRFC3339 text format.
  */
 @property(nonatomic, copy, nullable) NSString *terminationTimestamp;
@@ -122912,6 +123864,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, strong, nullable) GTLRCompute_BfdStatus *bfdStatus;
 
 /**
+ *  Output only. [Output Only] Indicates whether the BGP peer is in a
+ *  depreferenced state.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *depreferenced;
+
+/**
  *  Output only. Enable IPv4 traffic over BGP Peer.
  *  It is enabled by default if the peerIpAddress is version 4.
  *
@@ -123523,6 +124483,31 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, strong, nullable) GTLRCompute_Duration *preemptionNoticeDuration;
 
 /**
+ *  Protection tier for the workload which specifies the workload
+ *  expectations in the event of infrastructure failures at data center
+ *  (e.g. power and/or cooling failures).
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_Scheduling_ProtectionTier_ProtectionTierCapacityOptimized
+ *        CAPACITY_OPTIMIZED capacity leverages redundancies (e.g. power,
+ *        cooling) at the data center during normal operating conditions. In the
+ *        event of infrastructure failures at data center (e.g. power and/or
+ *        cooling failures), this workload may be disrupted. As a consequence,
+ *        it
+ *        has a weaker availability SLO than STANDARD. (Value:
+ *        "PROTECTION_TIER_CAPACITY_OPTIMIZED")
+ *    @arg @c kGTLRCompute_Scheduling_ProtectionTier_ProtectionTierStandard
+ *        STANDARD protection for workload that should be protected by
+ *        redundancies (e.g. power, cooling) at the data center level. In the
+ *        event of infrastructure failures at data center (e.g. power and/or
+ *        cooling failures), this workload is expected to continue as normal
+ *        using the redundancies. (Value: "PROTECTION_TIER_STANDARD")
+ *    @arg @c kGTLRCompute_Scheduling_ProtectionTier_ProtectionTierUnspecified
+ *        Unspecified protection tier. (Value: "PROTECTION_TIER_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *protectionTier;
+
+/**
  *  Specifies the provisioning model of the instance.
  *
  *  Likely values:
@@ -123541,7 +124526,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, copy, nullable) NSString *provisioningModel;
 
 /**
- *  Default is false and there will be 120 seconds between GCE ACPI G2 Soft
+ *  Defines whether GCE ACPI G2 Soft
+ *  Off signal should be skipped during shutdown operation of VM.
+ *  Default is false, meaning there will be 120 seconds between GCE ACPI G2 Soft
  *  Off and ACPI G3 Mechanical
  *  Off for Standard VMs and 30 seconds for Spot VMs.
  *
@@ -127031,11 +128018,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, copy, nullable) NSString *snapshotGroupName;
 
 /**
- *  Indicates the type of the snapshot.
+ *  Indicates the type of the snapshot. Valid values are ARCHIVE
+ *  or STANDARD. The default is STANDARD.
  *
  *  Likely values:
- *    @arg @c kGTLRCompute_Snapshot_SnapshotType_Archive Value "ARCHIVE"
- *    @arg @c kGTLRCompute_Snapshot_SnapshotType_Standard Value "STANDARD"
+ *    @arg @c kGTLRCompute_Snapshot_SnapshotType_Archive Indicates an archive
+ *        snapshot, which is recommended for long-term
+ *        retention and compliance. (Value: "ARCHIVE")
+ *    @arg @c kGTLRCompute_Snapshot_SnapshotType_Standard Indicates a standard
+ *        snapshot, which is recommended for frequent
+ *        restores. (Value: "STANDARD")
  */
 @property(nonatomic, copy, nullable) NSString *snapshotType;
 
@@ -134410,7 +135402,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  -
  *  //certificatemanager.googleapis.com/projects/{project}/locations/{location}/certificates/{resourceName}.
  *  -
- *  https://certificatemanager.googleapis.com/v1alpha1/projects/{project}/locations/{location}/certificates/{resourceName}.
+ *  https://certificatemanager.{universeDomain}/v1alpha1/projects/{project}/locations/{location}/certificates/{resourceName}.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *sslCertificates;
 
@@ -138665,6 +139657,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 /** [Output Only] Server-defined URL for the resource. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
 
+/** Output only. [Output Only] The status of the URL map. */
+@property(nonatomic, strong, nullable) GTLRCompute_UrlMapStatus *status;
+
 /**
  *  The list of expected URL mapping tests. Request to update theUrlMap succeeds
  *  only if all test cases pass. You can specify a
@@ -138865,6 +139860,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /** [Output Only] A warning data value corresponding to the key. */
 @property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  Message representing the quota usage for a UrlMap.
+ */
+@interface GTLRCompute_UrlMapQuotaUsage : GTLRObject
+
+/**
+ *  Output only. The number of forwarding rules that uses this UrlMap.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *forwardingRules;
+
+/**
+ *  Output only. The number of quota units calculated for this UrlMap.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *units;
 
 @end
 
@@ -139245,6 +140262,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 
 /**
+ *  [Output Only] The status of the URL map.
+ */
+@interface GTLRCompute_UrlMapStatus : GTLRObject
+
+/** Output only. Summary of quota usage for given UrlMap. */
+@property(nonatomic, strong, nullable) GTLRCompute_UrlMapQuotaUsage *quotaUsage;
+
+@end
+
+
+/**
  *  GTLRCompute_UrlMapsValidateRequest
  */
 @interface GTLRCompute_UrlMapsValidateRequest : GTLRObject
@@ -139379,6 +140407,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *loadSucceeded;
+
+/** Output only. Summary of quota usage for given UrlMap. */
+@property(nonatomic, strong, nullable) GTLRCompute_UrlMapQuotaUsage *quotaUsage;
 
 @property(nonatomic, strong, nullable) NSArray<GTLRCompute_TestFailure *> *testFailures;
 
@@ -142365,7 +143396,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  */
 @interface GTLRCompute_VpnTunnelCipherSuite : GTLRObject
 
+/** Cipher algorithms for IKE phase 1. */
 @property(nonatomic, strong, nullable) GTLRCompute_VpnTunnelPhase1Algorithms *phase1;
+
+/** Cipher algorithms for IKE phase 2. */
 @property(nonatomic, strong, nullable) GTLRCompute_VpnTunnelPhase2Algorithms *phase2;
 
 @end
@@ -142622,9 +143656,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  */
 @interface GTLRCompute_VpnTunnelPhase1Algorithms : GTLRObject
 
+/** Diffie-Hellman groups for IKE phase 1. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *dh;
+
+/** Encryption algorithms for IKE phase 1. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *encryption;
+
+/** Integrity algorithms for IKE phase 1. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *integrity;
+
+/** Pseudo-random functions (PRF) for IKE phase 1. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *prf;
 
 @end
@@ -142635,8 +143676,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  */
 @interface GTLRCompute_VpnTunnelPhase2Algorithms : GTLRObject
 
+/** Encryption algorithms for IKE phase 2. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *encryption;
+
+/** Integrity algorithms for IKE phase 2. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *integrity;
+
+/** Perfect Forward Secrecy (PFS) groups for IKE phase 2. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *pfs;
 
 @end
@@ -143438,6 +144484,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  */
 @property(nonatomic, copy, nullable) NSString *faultResponse;
 
+/**
+ *  The flow management configuration for the wire.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_WireProperties_FlowManagement_DynamicPath The wire
+ *        uses dynamic paths. (Value: "DYNAMIC_PATH")
+ *    @arg @c kGTLRCompute_WireProperties_FlowManagement_FixedPath The wire uses
+ *        fixed paths. (Value: "FIXED_PATH")
+ */
+@property(nonatomic, copy, nullable) NSString *flowManagement;
+
 @end
 
 
@@ -143454,6 +144511,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *identityCertificateEnabled;
+
+/**
+ *  identityType
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_WorkloadIdentityConfig_IdentityType_AgentIdentity
+ *        Value "AGENT_IDENTITY"
+ *    @arg @c kGTLRCompute_WorkloadIdentityConfig_IdentityType_IdentityTypeUnspecified
+ *        Value "IDENTITY_TYPE_UNSPECIFIED"
+ *    @arg @c kGTLRCompute_WorkloadIdentityConfig_IdentityType_ServiceAccount
+ *        Value "SERVICE_ACCOUNT"
+ */
+@property(nonatomic, copy, nullable) NSString *identityType;
 
 @end
 

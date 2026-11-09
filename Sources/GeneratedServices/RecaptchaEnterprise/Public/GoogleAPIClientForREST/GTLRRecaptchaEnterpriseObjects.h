@@ -647,6 +647,14 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  */
 FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RiskAnalysis_LastChallengeType_ChallengeTypeAudio;
 /**
+ *  A challenge requiring mobile device verification, completed by scanning a QR
+ *  code on desktop or clicking a verification button directly on a mobile
+ *  device.
+ *
+ *  Value: "CHALLENGE_TYPE_QR_CODE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RiskAnalysis_LastChallengeType_ChallengeTypeQrCode;
+/**
  *  Default unspecified type.
  *
  *  Value: "CHALLENGE_TYPE_UNSPECIFIED"
@@ -813,10 +821,10 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 /**
  *  The action provided at token generation was different than the
  *  `expected_action` in the assessment request. The comparison is
- *  case-insensitive. This reason can only be returned if all of the following
- *  are true: - your `site_key` has the POLICY_BASED_CHALLENGE integration type
- *  - you set an action score threshold higher than 0.0 - you provided a
- *  non-empty `expected_action`
+ *  case-insensitive. This reason can only be returned if an `expected_action`
+ *  is provided and either: - your `site_key` is a Universal key, or - your
+ *  `site_key` has the `POLICY_BASED_CHALLENGE` integration type with an action
+ *  score threshold higher than 0.0
  *
  *  Value: "UNEXPECTED_ACTION"
  */
@@ -1496,8 +1504,9 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Output only. Assessment returned when a site key, a token, and a phone
- *  number as `user_id` are provided. SMS defense needs to be enabled.
+ *  Output only. Assessment returned when a site key, a token,
+ *  `user_info.account_id`, and a phone number in `user_info.user_ids` are
+ *  provided. SMS defense must be enabled.
  */
 @property(nonatomic, strong, nullable) GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1PhoneFraudAssessment *phoneFraudAssessment;
 
@@ -1573,13 +1582,15 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  *  formatted in kebab-case. Current example values include the following: *
  *  google-agent - AI_AGENT * browser-base - AI_AGENT * chat-gpt - AI_AGENT *
  *  aws-bedrock - AI_AGENT * cybaa-bot - AI_AGENT * cloudflare - AI_AGENT *
- *  payhawk - AI_AGENT * duck-duck-go - SEARCH_INDEXER * mediaboard -
- *  CONTENT_SCRAPER * marker-io - AI_AGENT * anchor-browser - AI_AGENT * shopify
- *  - AI_AGENT * stackscope - CONTENT_SCRAPER * manus - AI_AGENT * kernel-sh -
- *  AI_AGENT * zvelo - SEARCH_INDEXER Ensure that your applications can handle
- *  identifier values not explicitly listed here. Deprecated values might take
- *  some time to stop showing up in responses. New values can be pushed so this
- *  list should be taken as non exhaustive.
+ *  payhawk - AI_AGENT * duck-duck-go - AI_AGENT * mediaboard - CONTENT_SCRAPER
+ *  * marker-io - AI_AGENT * anchor-browser - AI_AGENT * shopify - AI_AGENT *
+ *  stackscope - CONTENT_SCRAPER * manus - AI_AGENT * kernel-sh - AI_AGENT *
+ *  zvelo - SEARCH_INDEXER * meta-muse - AI_AGENT * duck-duck-bot -
+ *  SEARCH_INDEXER * my-porta - SEARCH_INDEXER * ison-search - SEARCH_INDEXER *
+ *  rokt - SEARCH_INDEXER Ensure that your applications can handle identifier
+ *  values not explicitly listed here. Deprecated values might take some time to
+ *  stop showing up in responses. New values can be pushed so this list should
+ *  be taken as non exhaustive.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1639,10 +1650,10 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  *  Optional. A CEL condition that must be met for this rule to apply. If
  *  unspecified, the rule applies unconditionally. The following fields can be
  *  referenced in the condition: * `score` * `user_ip_address` * `user_asn` *
- *  `user_agent` * `verified_bots.name` * `verified_bots.bot_type` Examples: *
- *  `score < 0.5` * `user_ip_address == "123.45.67.89"` *
- *  `user_agent.contains("Chrome")` * `score < 0.5 && user_ip_address ==
- *  "123.45.67.89"`
+ *  `user_agent` * `region_code` * `verified_bots.name` *
+ *  `verified_bots.bot_type` Examples: * `score < 0.5` * `user_ip_address ==
+ *  "123.45.67.89"` * `user_agent.contains("Chrome")` * `score < 0.5 &&
+ *  user_ip_address == "123.45.67.89"`
  */
 @property(nonatomic, copy, nullable) NSString *condition;
 
@@ -2714,15 +2725,18 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 @property(nonatomic, copy, nullable) NSString *action;
 
 /**
- *  Required. URI path of the API endpoint to protect. Must start with '/'.
- *  Supports glob characters '*' to match a single path segment and '**' to
- *  match multiple path segments. Standalone root catch-alls ('/ *' and '/ **')
- *  are invalid because it can negatively impact performance to trigger
- *  reCAPTCHA on every single request to your backend. Matching is evaluated
- *  against the URL path only (domain, scheme, and query parameters are
- *  ignored). Examples: - `/login` matches `/login`,
- *  `https://example.com/login`, and `/login?query=1`, but not `/login/step1`. -
- *  `/products/ *` matches `/products/123`, but not `/products/123/456`. -
+ *  Required. The URI path of the API endpoint to protect. The path is
+ *  case-sensitive and must meet the following criteria: * Be unique, start with
+ *  `/`, and contain 1 to 200 characters without consecutive slashes (`//`). *
+ *  Include at least one non-wildcard segment. For example, cannot be `/`, `/
+ *  *`, `/ **`, or `/ * /`. * Wildcards must occupy complete segments: `*`
+ *  matches a single segment. For example, `/api/ * /login` or `/api/ *` are
+ *  valid; `/api/login*` is invalid, and `**` matches multiple segments as the
+ *  final segment only. For example, `/api/ **` is valid; `/api/ ** /login` is
+ *  invalid. Matching is evaluated against the URL path only. Domain, scheme,
+ *  and query parameters are ignored. Examples: * `/login` matches `/login`,
+ *  `https://example.com/login`, and `/login?query=1`, but not `/login/step1`. *
+ *  `/products/ *` matches `/products/123`, but not `/products/123/456`. *
  *  `/content/ **` matches `/content/articles/2024/01/01`.
  */
 @property(nonatomic, copy, nullable) NSString *path;
@@ -2886,6 +2900,10 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  *  Likely values:
  *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RiskAnalysis_LastChallengeType_ChallengeTypeAudio
  *        An audio challenge. (Value: "CHALLENGE_TYPE_AUDIO")
+ *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RiskAnalysis_LastChallengeType_ChallengeTypeQrCode
+ *        A challenge requiring mobile device verification, completed by
+ *        scanning a QR code on desktop or clicking a verification button
+ *        directly on a mobile device. (Value: "CHALLENGE_TYPE_QR_CODE")
  *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RiskAnalysis_LastChallengeType_ChallengeTypeUnspecified
  *        Default unspecified type. (Value: "CHALLENGE_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RiskAnalysis_LastChallengeType_ChallengeTypeVisual
@@ -3071,9 +3089,9 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 @interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TestingOptions : GTLRObject
 
 /**
- *  Optional. For challenge-based keys only (CHECKBOX, INVISIBLE), all challenge
- *  requests for this site return nocaptcha if NOCAPTCHA, or an unsolvable
- *  challenge if CHALLENGE.
+ *  Optional. For challenge-based keys only (`CHECKBOX`, `INVISIBLE`), all
+ *  challenge requests for this site do not show a challenge if `NOCAPTCHA`, or
+ *  show an unsolvable challenge if `UNSOLVABLE_CHALLENGE`.
  *
  *  Likely values:
  *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TestingOptions_TestingChallenge_Nocaptcha
@@ -3168,11 +3186,11 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TokenProperties_InvalidReason_UnexpectedAction
  *        The action provided at token generation was different than the
  *        `expected_action` in the assessment request. The comparison is
- *        case-insensitive. This reason can only be returned if all of the
- *        following are true: - your `site_key` has the POLICY_BASED_CHALLENGE
- *        integration type - you set an action score threshold higher than 0.0 -
- *        you provided a non-empty `expected_action` (Value:
- *        "UNEXPECTED_ACTION")
+ *        case-insensitive. This reason can only be returned if an
+ *        `expected_action` is provided and either: - your `site_key` is a
+ *        Universal key, or - your `site_key` has the `POLICY_BASED_CHALLENGE`
+ *        integration type with an action score threshold higher than 0.0
+ *        (Value: "UNEXPECTED_ACTION")
  *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TokenProperties_InvalidReason_UnknownInvalidReason
  *        If the failure reason was not accounted for. (Value:
  *        "UNKNOWN_INVALID_REASON")
@@ -3412,7 +3430,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 
 /**
  *  Optional. Unique account identifier for this user. If using Account defense,
- *  this should match the hashed_account_id field. Otherwise, a unique and
+ *  this should match the `user_info.account_id` field. Otherwise, a unique and
  *  persistent identifier for this account.
  */
 @property(nonatomic, copy, nullable) NSString *accountId;

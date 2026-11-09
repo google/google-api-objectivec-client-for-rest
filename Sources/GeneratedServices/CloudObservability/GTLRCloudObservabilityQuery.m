@@ -646,6 +646,33 @@
 
 @end
 
+@implementation GTLRCloudObservabilityQuery_ProjectsLocationsBucketsReprovision
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRCloudObservability_ReprovisionBucketRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:reprovision";
+  GTLRCloudObservabilityQuery_ProjectsLocationsBucketsReprovision *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudObservability_Operation class];
+  query.loggingName = @"observability.projects.locations.buckets.reprovision";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudObservabilityQuery_ProjectsLocationsGet
 
 @dynamic name;

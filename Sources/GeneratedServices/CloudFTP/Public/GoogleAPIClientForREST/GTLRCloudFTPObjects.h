@@ -22,6 +22,7 @@
 @class GTLRCloudFTP_Location;
 @class GTLRCloudFTP_Location_Labels;
 @class GTLRCloudFTP_Location_Metadata;
+@class GTLRCloudFTP_LoggingConfig;
 @class GTLRCloudFTP_Operation;
 @class GTLRCloudFTP_Operation_Metadata;
 @class GTLRCloudFTP_Operation_Response;
@@ -45,6 +46,36 @@ NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
 // Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRCloudFTP_LoggingConfig.verbosity
+
+/**
+ *  Logs all SFTP events, including authentication, session lifecycle, file
+ *  transfers, and directory/metadata commands.
+ *
+ *  Value: "ALL_EVENTS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFTP_LoggingConfig_Verbosity_AllEvents;
+/**
+ *  Logs only failed operations and errors.
+ *
+ *  Value: "ERRORS_ONLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFTP_LoggingConfig_Verbosity_ErrorsOnly;
+/**
+ *  Default value. Defaults to `ALL_EVENTS` when logging is `enabled`.
+ *
+ *  Value: "LOG_VERBOSITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFTP_LoggingConfig_Verbosity_LogVerbosityUnspecified;
+/**
+ *  Logs authentication, session lifecycle, file transfers, and failed commands.
+ *  Suppresses successful non-transfer commands (such as LIST or STAT).
+ *
+ *  Value: "TRANSFERS_AND_AUTH_ONLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFTP_LoggingConfig_Verbosity_TransfersAndAuthOnly;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudFTP_Server.accessType
@@ -485,6 +516,42 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFTP_UserCredential_CredentialType_T
 
 
 /**
+ *  Configuration for Cloud Logging on the Server.
+ */
+@interface GTLRCloudFTP_LoggingConfig : GTLRObject
+
+/**
+ *  Optional. Whether platform logging (`ftp.googleapis.com/ftp_events`) is
+ *  enabled for this server. Defaults to `false`.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
+/**
+ *  Optional. The verbosity level of logs emitted when `enabled` is `true`.
+ *  Defaults to `ALL_EVENTS` if unspecified when `enabled` is `true`.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudFTP_LoggingConfig_Verbosity_AllEvents Logs all SFTP
+ *        events, including authentication, session lifecycle, file transfers,
+ *        and directory/metadata commands. (Value: "ALL_EVENTS")
+ *    @arg @c kGTLRCloudFTP_LoggingConfig_Verbosity_ErrorsOnly Logs only failed
+ *        operations and errors. (Value: "ERRORS_ONLY")
+ *    @arg @c kGTLRCloudFTP_LoggingConfig_Verbosity_LogVerbosityUnspecified
+ *        Default value. Defaults to `ALL_EVENTS` when logging is `enabled`.
+ *        (Value: "LOG_VERBOSITY_UNSPECIFIED")
+ *    @arg @c kGTLRCloudFTP_LoggingConfig_Verbosity_TransfersAndAuthOnly Logs
+ *        authentication, session lifecycle, file transfers, and failed
+ *        commands. Suppresses successful non-transfer commands (such as LIST or
+ *        STAT). (Value: "TRANSFERS_AND_AUTH_ONLY")
+ */
+@property(nonatomic, copy, nullable) NSString *verbosity;
+
+@end
+
+
+/**
  *  This resource represents a long-running operation that is the result of a
  *  network API call.
  */
@@ -661,6 +728,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFTP_UserCredential_CredentialType_T
 
 /** Optional. Labels as key value pairs */
 @property(nonatomic, strong, nullable) GTLRCloudFTP_Server_Labels *labels;
+
+/** Optional. Configuration for Cloud Logging on the Server. */
+@property(nonatomic, strong, nullable) GTLRCloudFTP_LoggingConfig *loggingConfig;
 
 /** Identifier. name of resource */
 @property(nonatomic, copy, nullable) NSString *name;

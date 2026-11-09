@@ -33,6 +33,7 @@
 @class GTLRNetworkconnectivity_Destination_Labels;
 @class GTLRNetworkconnectivity_DestinationEndpoint;
 @class GTLRNetworkconnectivity_DnsAutomationStatus;
+@class GTLRNetworkconnectivity_ExportPscConfig;
 @class GTLRNetworkconnectivity_Expr;
 @class GTLRNetworkconnectivity_Filter;
 @class GTLRNetworkconnectivity_Gateway;
@@ -1588,6 +1589,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Route_State_Updating
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Route_Type_DynamicRoute;
 /**
+ *  The route leads to a destination within the Private Service Connect Global
+ *  Google API range of the VPC network.
+ *
+ *  Value: "PSC_GLOBAL_GAPI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Route_Type_PscGlobalGapi;
+/**
  *  No route type information specified
  *
  *  Value: "ROUTE_TYPE_UNSPECIFIED"
@@ -2276,6 +2284,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Transport_State_Pend
  *  Value: "STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Transport_State_StateUnspecified;
+/**
+ *  The Transport is suspended due to an Abuse suspension or Wipeout Hide event.
+ *  Underlying connectivity is administratively disabled.
+ *
+ *  Value: "SUSPENDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Transport_State_Suspended;
 
 // ----------------------------------------------------------------------------
 // GTLRNetworkconnectivity_Warnings.code
@@ -3349,6 +3364,33 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 
 
 /**
+ *  Configuration for more granular control of Private Service Connect
+ *  connection propagation. This allows enabling or disabling connection
+ *  propagation for specific types of Private Service Connect endpoints.
+ */
+@interface GTLRNetworkconnectivity_ExportPscConfig : GTLRObject
+
+/**
+ *  Optional. Controls whether Private Service Connect endpoints for global
+ *  Google APIs should be propagated. The default value is false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *globalGoogleApis;
+
+/**
+ *  Optional. Controls whether Private Service Connect endpoints for regional
+ *  ILBs and regional Google APIs should be propagated. Default value is true if
+ *  export_psc is true. Otherwise, the default value is false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *publishedServicesAndRegionalGoogleApis;
+
+@end
+
+
+/**
  *  Represents a textual expression in the Common Expression Language (CEL)
  *  syntax. CEL is a C-like expression language. The syntax and semantics of CEL
  *  are documented at https://github.com/google/cel-spec. Example (Comparison):
@@ -3954,6 +3996,12 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 @property(nonatomic, strong, nullable) NSNumber *exportPsc;
 
 /**
+ *  Optional. Config for more granular control of Private Service Connect
+ *  transitivity.
+ */
+@property(nonatomic, strong, nullable) GTLRNetworkconnectivity_ExportPscConfig *exportPscConfig;
+
+/**
  *  Optional labels in key-value pair format. For more information about labels,
  *  see [Requirements for
  *  labels](https://cloud.google.com/resource-manager/docs/creating-managing-labels#requirements).
@@ -4403,6 +4451,30 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 @property(nonatomic, strong, nullable) NSArray<NSString *> *includeImportRanges;
 
 /**
+ *  Output only. The proposed exclude export IP ranges waiting for hub
+ *  administrator's approval.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *proposedExcludeExportRanges;
+
+/**
+ *  Output only. The proposed exclude import IP ranges waiting for hub
+ *  administrator's approval.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *proposedExcludeImportRanges;
+
+/**
+ *  Output only. The proposed include export IP ranges waiting for hub
+ *  administrator's approval.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *proposedIncludeExportRanges;
+
+/**
+ *  Output only. The proposed include import IP ranges waiting for hub
+ *  administrator's approval.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *proposedIncludeImportRanges;
+
+/**
  *  A value that controls whether site-to-site data transfer is enabled for
  *  these resources. Data transfer is available only in [supported
  *  locations](https://cloud.google.com/network-connectivity/docs/network-connectivity-center/concepts/locations).
@@ -4503,6 +4575,30 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 @property(nonatomic, strong, nullable) NSArray<GTLRNetworkconnectivity_RouterApplianceInstance *> *instances;
 
 /**
+ *  Output only. The proposed exclude export IP ranges waiting for hub
+ *  administrator's approval.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *proposedExcludeExportRanges;
+
+/**
+ *  Output only. The proposed exclude import IP ranges waiting for hub
+ *  administrator's approval.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *proposedExcludeImportRanges;
+
+/**
+ *  Output only. The proposed include export IP ranges waiting for hub
+ *  administrator's approval.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *proposedIncludeExportRanges;
+
+/**
+ *  Output only. The proposed include import IP ranges waiting for hub
+ *  administrator's approval.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *proposedIncludeImportRanges;
+
+/**
  *  A value that controls whether site-to-site data transfer is enabled for
  *  these resources. Data transfer is available only in [supported
  *  locations](https://cloud.google.com/network-connectivity/docs/network-connectivity-center/concepts/locations).
@@ -4593,6 +4689,30 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
  *  during import from hub.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *includeImportRanges;
+
+/**
+ *  Output only. The proposed exclude export IP ranges waiting for hub
+ *  administrator's approval.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *proposedExcludeExportRanges;
+
+/**
+ *  Output only. The proposed exclude import IP ranges waiting for hub
+ *  administrator's approval.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *proposedExcludeImportRanges;
+
+/**
+ *  Output only. The proposed include export IP ranges waiting for hub
+ *  administrator's approval.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *proposedIncludeExportRanges;
+
+/**
+ *  Output only. The proposed include import IP ranges waiting for hub
+ *  administrator's approval.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *proposedIncludeImportRanges;
 
 /**
  *  A value that controls whether site-to-site data transfer is enabled for
@@ -6591,6 +6711,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
  *        to a destination in a dynamic route. Dynamic routes are derived from
  *        Border Gateway Protocol (BGP) advertisements received from an NCC
  *        hybrid spoke. (Value: "DYNAMIC_ROUTE")
+ *    @arg @c kGTLRNetworkconnectivity_Route_Type_PscGlobalGapi The route leads
+ *        to a destination within the Private Service Connect Global Google API
+ *        range of the VPC network. (Value: "PSC_GLOBAL_GAPI")
  *    @arg @c kGTLRNetworkconnectivity_Route_Type_RouteTypeUnspecified No route
  *        type information specified (Value: "ROUTE_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRNetworkconnectivity_Route_Type_VpcPrimarySubnet The route
@@ -7739,6 +7862,10 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
  *        The configured bandwidth is not yet guaranteed. (Value: "PENDING_KEY")
  *    @arg @c kGTLRNetworkconnectivity_Transport_State_StateUnspecified
  *        Unspecified state. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRNetworkconnectivity_Transport_State_Suspended The Transport
+ *        is suspended due to an Abuse suspension or Wipeout Hide event.
+ *        Underlying connectivity is administratively disabled. (Value:
+ *        "SUSPENDED")
  */
 @property(nonatomic, copy, nullable) NSString *state;
 

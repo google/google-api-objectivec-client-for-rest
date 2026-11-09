@@ -15,24 +15,34 @@
 #endif
 
 @class GTLRCloudAuditManager_AuditReport;
+@class GTLRCloudAuditManager_AuditReport_CloudControlParameterStates;
 @class GTLRCloudAuditManager_AuditSchedule;
+@class GTLRCloudAuditManager_AuditSchedule_ParameterOverrides;
+@class GTLRCloudAuditManager_CloudControlParameterStates;
 @class GTLRCloudAuditManager_Control;
 @class GTLRCloudAuditManager_ControlDetails;
 @class GTLRCloudAuditManager_ControlFamily;
 @class GTLRCloudAuditManager_DestinationDetails;
 @class GTLRCloudAuditManager_EligibleDestination;
 @class GTLRCloudAuditManager_Enrollment;
+@class GTLRCloudAuditManager_GenerateAuditReportRequest_ParameterOverrides;
+@class GTLRCloudAuditManager_GenerateAuditScopeReportRequest_ParameterOverrides;
 @class GTLRCloudAuditManager_Location;
 @class GTLRCloudAuditManager_Location_Labels;
 @class GTLRCloudAuditManager_Location_Metadata;
 @class GTLRCloudAuditManager_Operation;
 @class GTLRCloudAuditManager_Operation_Metadata;
 @class GTLRCloudAuditManager_Operation_Response;
+@class GTLRCloudAuditManager_Parameter;
+@class GTLRCloudAuditManager_ParameterOverrides;
+@class GTLRCloudAuditManager_ParameterState;
+@class GTLRCloudAuditManager_ParamValue;
 @class GTLRCloudAuditManager_ReportSummary;
 @class GTLRCloudAuditManager_ResourceEnrollmentStatus;
 @class GTLRCloudAuditManager_ScheduleConfig;
 @class GTLRCloudAuditManager_Status;
 @class GTLRCloudAuditManager_Status_Details_Item;
+@class GTLRCloudAuditManager_StringList;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -467,6 +477,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAuditManager_ScheduleConfig_Frequen
 @interface GTLRCloudAuditManager_AuditReport : GTLRObject
 
 /**
+ *  Output only. Parameter values provided by the user and values for tunable
+ *  parameters, stored in the DB, keyed by control name.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudAuditManager_AuditReport_CloudControlParameterStates *cloudControlParameterStates;
+
+/**
  *  Output only. Compliance framework to use for the audit report. For example,
  *  `CIS_GCP_FOUNDATIONS_V1_2_0`.
  */
@@ -548,6 +564,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAuditManager_ScheduleConfig_Frequen
 
 
 /**
+ *  Output only. Parameter values provided by the user and values for tunable
+ *  parameters, stored in the DB, keyed by control name.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRCloudAuditManager_CloudControlParameterStates. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudAuditManager_AuditReport_CloudControlParameterStates : GTLRObject
+@end
+
+
+/**
  *  An audit schedule, in one of the following formats: *
  *  `projects/{project}/locations/{location}/auditSchedules/{audit_schedule}` *
  *  `folders/{folder}/locations/{location}/auditSchedules/{audit_schedule}`
@@ -588,6 +618,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAuditManager_ScheduleConfig_Frequen
 
 /** Output only. Calculated timestamp for the next scheduled run. */
 @property(nonatomic, strong, nullable) GTLRDateTime *nextRunTime;
+
+/**
+ *  Optional. Maps dynamic parameter overrides by Cloud Control resource name at
+ *  execution time. For example,
+ *  `{"organizations/123/locations/global/cloudControls/control-1": {parameters:
+ *  [...]}}`
+ */
+@property(nonatomic, strong, nullable) GTLRCloudAuditManager_AuditSchedule_ParameterOverrides *parameterOverrides;
 
 /**
  *  Required. Format for the audit report.
@@ -644,6 +682,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAuditManager_ScheduleConfig_Frequen
 
 
 /**
+ *  Optional. Maps dynamic parameter overrides by Cloud Control resource name at
+ *  execution time. For example,
+ *  `{"organizations/123/locations/global/cloudControls/control-1": {parameters:
+ *  [...]}}`
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRCloudAuditManager_ParameterOverrides. Use @c -additionalJSONKeys
+ *        and @c -additionalPropertyForName: to get the list of properties and
+ *        then fetch them; or @c -additionalProperties to fetch them all at
+ *        once.
+ */
+@interface GTLRCloudAuditManager_AuditSchedule_ParameterOverrides : GTLRObject
+@end
+
+
+/**
  *  Audit scope report.
  */
 @interface GTLRCloudAuditManager_AuditScopeReport : GTLRObject
@@ -674,6 +728,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAuditManager_ScheduleConfig_Frequen
  *  The request message for Operations.CancelOperation.
  */
 @interface GTLRCloudAuditManager_CancelOperationRequest : GTLRObject
+@end
+
+
+/**
+ *  Collection of parameter states for a cloud control.
+ */
+@interface GTLRCloudAuditManager_CloudControlParameterStates : GTLRObject
+
+/** Output only. The parameter states for the cloud control. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudAuditManager_ParameterState *> *parameterStates;
+
 @end
 
 
@@ -945,6 +1010,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAuditManager_ScheduleConfig_Frequen
 @property(nonatomic, copy, nullable) NSString *gcsUri;
 
 /**
+ *  Optional. Maps dynamic parameter overrides by Cloud Control resource name at
+ *  execution time. For example,
+ *  `{"organizations/123/locations/global/cloudControls/control-1": {parameters:
+ *  [...]}}`
+ */
+@property(nonatomic, strong, nullable) GTLRCloudAuditManager_GenerateAuditReportRequest_ParameterOverrides *parameterOverrides;
+
+/**
  *  Required. Format for the audit report.
  *
  *  Likely values:
@@ -976,6 +1049,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAuditManager_ScheduleConfig_Frequen
 
 
 /**
+ *  Optional. Maps dynamic parameter overrides by Cloud Control resource name at
+ *  execution time. For example,
+ *  `{"organizations/123/locations/global/cloudControls/control-1": {parameters:
+ *  [...]}}`
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRCloudAuditManager_ParameterOverrides. Use @c -additionalJSONKeys
+ *        and @c -additionalPropertyForName: to get the list of properties and
+ *        then fetch them; or @c -additionalProperties to fetch them all at
+ *        once.
+ */
+@interface GTLRCloudAuditManager_GenerateAuditReportRequest_ParameterOverrides : GTLRObject
+@end
+
+
+/**
  *  Request message for GenerateAuditScopeReport.
  */
 @interface GTLRCloudAuditManager_GenerateAuditScopeReportRequest : GTLRObject
@@ -992,6 +1081,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAuditManager_ScheduleConfig_Frequen
  *  field instead.
  */
 @property(nonatomic, copy, nullable) NSString *complianceStandard GTLR_DEPRECATED;
+
+/**
+ *  Optional. Maps dynamic parameter overrides by Cloud Control resource name at
+ *  execution time. For example,
+ *  `{"organizations/123/locations/global/cloudControls/control-1": {parameters:
+ *  [...]}}`
+ */
+@property(nonatomic, strong, nullable) GTLRCloudAuditManager_GenerateAuditScopeReportRequest_ParameterOverrides *parameterOverrides;
 
 /**
  *  Required. Format for the audit scope report.
@@ -1021,6 +1118,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAuditManager_ScheduleConfig_Frequen
  */
 @property(nonatomic, strong, nullable) NSNumber *validateOnly;
 
+@end
+
+
+/**
+ *  Optional. Maps dynamic parameter overrides by Cloud Control resource name at
+ *  execution time. For example,
+ *  `{"organizations/123/locations/global/cloudControls/control-1": {parameters:
+ *  [...]}}`
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRCloudAuditManager_ParameterOverrides. Use @c -additionalJSONKeys
+ *        and @c -additionalPropertyForName: to get the list of properties and
+ *        then fetch them; or @c -additionalProperties to fetch them all at
+ *        once.
+ */
+@interface GTLRCloudAuditManager_GenerateAuditScopeReportRequest_ParameterOverrides : GTLRObject
 @end
 
 
@@ -1376,6 +1489,83 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAuditManager_ScheduleConfig_Frequen
 
 
 /**
+ *  Parameters are key-value pairs that let you provide your custom location
+ *  requirements, environment requirements, or other settings that are relevant
+ *  to the cloud control.
+ */
+@interface GTLRCloudAuditManager_Parameter : GTLRObject
+
+/** Required. The name or key of the parameter. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Required. The value of the parameter. */
+@property(nonatomic, strong, nullable) GTLRCloudAuditManager_ParamValue *parameterValue;
+
+@end
+
+
+/**
+ *  Wrapper message to associate a list of CSC internal parameter overrides with
+ *  a control name.
+ */
+@interface GTLRCloudAuditManager_ParameterOverrides : GTLRObject
+
+/** The list of parameter overrides. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudAuditManager_Parameter *> *parameters;
+
+@end
+
+
+/**
+ *  State of a parameter for a cloud control.
+ */
+@interface GTLRCloudAuditManager_ParameterState : GTLRObject
+
+/**
+ *  Output only. Whether this parameter was overridden by the user.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isOverridden;
+
+/** Output only. The parameter key and value. */
+@property(nonatomic, strong, nullable) GTLRCloudAuditManager_Parameter *parameter;
+
+@end
+
+
+/**
+ *  The possible parameter value types.
+ */
+@interface GTLRCloudAuditManager_ParamValue : GTLRObject
+
+/**
+ *  Optional. A boolean value.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *boolValue;
+
+/**
+ *  Optional. A double value.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numberValue;
+
+/** Optional. Sub-parameter values. */
+@property(nonatomic, strong, nullable) GTLRCloudAuditManager_Parameter *oneofValue;
+
+/** Optional. A repeated string. */
+@property(nonatomic, strong, nullable) GTLRCloudAuditManager_StringList *stringListValue;
+
+/** Optional. A string value. */
+@property(nonatomic, copy, nullable) NSString *stringValue;
+
+@end
+
+
+/**
  *  Details about the current status of the report-generation process.
  */
 @interface GTLRCloudAuditManager_ReportGenerationProgress : GTLRObject
@@ -1647,6 +1837,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAuditManager_ScheduleConfig_Frequen
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRCloudAuditManager_Status_Details_Item : GTLRObject
+@end
+
+
+/**
+ *  A list of strings for the parameter value.
+ */
+@interface GTLRCloudAuditManager_StringList : GTLRObject
+
+/** Required. The strings in the list. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *values;
+
 @end
 
 NS_ASSUME_NONNULL_END

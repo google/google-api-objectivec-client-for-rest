@@ -320,10 +320,10 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV
 
 /**
  *  The App Check token. App Check tokens are signed
- *  [JWTs](https://tools.ietf.org/html/rfc7519) containing claims that identify
- *  the attested app and GCP project. This token is used to access Google
- *  services protected by App Check. These tokens can also be [verified by your
- *  own custom
+ *  [JWTs](https://www.rfc-editor.org/info/rfc7519/) containing claims that
+ *  identify the attested app and GCP project. This token is used to access
+ *  Google services protected by App Check. These tokens can also be [verified
+ *  by your own custom
  *  backends](https://firebase.google.com/docs/app-check/custom-resource-backend)
  *  using the Firebase Admin SDK or third-party libraries.
  */
@@ -1258,44 +1258,44 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV
 
 /**
  *  A JWK as specified by [section 4 of RFC
- *  7517](https://tools.ietf.org/html/rfc7517#section-4) and [section 6.3.1 of
- *  RFC 7518](https://tools.ietf.org/html/rfc7518#section-6.3.1).
+ *  7517](https://www.rfc-editor.org/info/rfc7517/#section-4) and [section 6.3.1
+ *  of RFC 7518](https://www.rfc-editor.org/info/rfc7518/#section-6.3.1).
  */
 @interface GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1PublicJwk : GTLRObject
 
 /**
  *  See [section 4.4 of RFC
- *  7517](https://tools.ietf.org/html/rfc7517#section-4.4).
+ *  7517](https://www.rfc-editor.org/info/rfc7517/#section-4.4).
  */
 @property(nonatomic, copy, nullable) NSString *alg;
 
 /**
  *  See [section 6.3.1.2 of RFC
- *  7518](https://tools.ietf.org/html/rfc7518#section-6.3.1.2).
+ *  7518](https://www.rfc-editor.org/info/rfc7518/#section-6.3.1.2).
  */
 @property(nonatomic, copy, nullable) NSString *e;
 
 /**
  *  See [section 4.5 of RFC
- *  7517](https://tools.ietf.org/html/rfc7517#section-4.5).
+ *  7517](https://www.rfc-editor.org/info/rfc7517/#section-4.5).
  */
 @property(nonatomic, copy, nullable) NSString *kid;
 
 /**
  *  See [section 4.1 of RFC
- *  7517](https://tools.ietf.org/html/rfc7517#section-4.1).
+ *  7517](https://www.rfc-editor.org/info/rfc7517/#section-4.1).
  */
 @property(nonatomic, copy, nullable) NSString *kty;
 
 /**
  *  See [section 6.3.1.1 of RFC
- *  7518](https://tools.ietf.org/html/rfc7518#section-6.3.1.1).
+ *  7518](https://www.rfc-editor.org/info/rfc7518/#section-6.3.1.1).
  */
 @property(nonatomic, copy, nullable) NSString *n;
 
 /**
  *  See [section 4.2 of RFC
- *  7517](https://tools.ietf.org/html/rfc7517#section-4.2).
+ *  7517](https://www.rfc-editor.org/info/rfc7517/#section-4.2).
  */
 @property(nonatomic, copy, nullable) NSString *use;
 
@@ -1305,14 +1305,14 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV
 /**
  *  The currently active set of public keys that can be used to verify App Check
  *  tokens. This object is a JWK set as specified by [section 5 of RFC
- *  7517](https://tools.ietf.org/html/rfc7517#section-5). For security, the
+ *  7517](https://www.rfc-editor.org/info/rfc7517#section-5). For security, the
  *  response **must not** be cached for longer than six hours.
  */
 @interface GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1PublicJwkSet : GTLRObject
 
 /**
  *  The set of public keys. See [section 5.1 of RFC
- *  7517](https://tools.ietf.org/html/rfc7517#section-5).
+ *  7517](https://www.rfc-editor.org/info/rfc7517#section-5).
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1PublicJwk *> *keys;
 

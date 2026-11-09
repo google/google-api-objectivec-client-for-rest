@@ -330,6 +330,15 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudObservability_ReprovisionBucketRequest
+//
+
+@implementation GTLRCloudObservability_ReprovisionBucketRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudObservability_Scope
 //
 

@@ -463,6 +463,11 @@ NSString * const kGTLRAndroidManagement_DeviceRadioState_MinimumWifiSecurityLeve
 NSString * const kGTLRAndroidManagement_DeviceRadioState_MinimumWifiSecurityLevel_OpenNetworkSecurity = @"OPEN_NETWORK_SECURITY";
 NSString * const kGTLRAndroidManagement_DeviceRadioState_MinimumWifiSecurityLevel_PersonalNetworkSecurity = @"PERSONAL_NETWORK_SECURITY";
 
+// GTLRAndroidManagement_DeviceRadioState.nfc
+NSString * const kGTLRAndroidManagement_DeviceRadioState_Nfc_NfcDisabled = @"NFC_DISABLED";
+NSString * const kGTLRAndroidManagement_DeviceRadioState_Nfc_NfcUnspecified = @"NFC_UNSPECIFIED";
+NSString * const kGTLRAndroidManagement_DeviceRadioState_Nfc_NfcUserChoice = @"NFC_USER_CHOICE";
+
 // GTLRAndroidManagement_DeviceRadioState.ultraWidebandState
 NSString * const kGTLRAndroidManagement_DeviceRadioState_UltraWidebandState_UltraWidebandDisabled = @"ULTRA_WIDEBAND_DISABLED";
 NSString * const kGTLRAndroidManagement_DeviceRadioState_UltraWidebandState_UltraWidebandStateUnspecified = @"ULTRA_WIDEBAND_STATE_UNSPECIFIED";
@@ -487,6 +492,11 @@ NSString * const kGTLRAndroidManagement_DeviceSettings_EncryptionStatus_ActivePe
 NSString * const kGTLRAndroidManagement_DeviceSettings_EncryptionStatus_EncryptionStatusUnspecified = @"ENCRYPTION_STATUS_UNSPECIFIED";
 NSString * const kGTLRAndroidManagement_DeviceSettings_EncryptionStatus_Inactive = @"INACTIVE";
 NSString * const kGTLRAndroidManagement_DeviceSettings_EncryptionStatus_Unsupported = @"UNSUPPORTED";
+
+// GTLRAndroidManagement_DeviceWideRadioState.nfc
+NSString * const kGTLRAndroidManagement_DeviceWideRadioState_Nfc_NfcDisabled = @"NFC_DISABLED";
+NSString * const kGTLRAndroidManagement_DeviceWideRadioState_Nfc_NfcUnspecified = @"NFC_UNSPECIFIED";
+NSString * const kGTLRAndroidManagement_DeviceWideRadioState_Nfc_NfcUserChoice = @"NFC_USER_CHOICE";
 
 // GTLRAndroidManagement_Display.state
 NSString * const kGTLRAndroidManagement_Display_State_DisplayStateUnspecified = @"DISPLAY_STATE_UNSPECIFIED";
@@ -539,6 +549,11 @@ NSString * const kGTLRAndroidManagement_EsimCommandStatus_Status_InternalError =
 NSString * const kGTLRAndroidManagement_EsimCommandStatus_Status_PendingUserAction = @"PENDING_USER_ACTION";
 NSString * const kGTLRAndroidManagement_EsimCommandStatus_Status_StatusUnspecified = @"STATUS_UNSPECIFIED";
 NSString * const kGTLRAndroidManagement_EsimCommandStatus_Status_Success = @"SUCCESS";
+
+// GTLRAndroidManagement_ExtraCapabilities.localDeviceWipeCommand
+NSString * const kGTLRAndroidManagement_ExtraCapabilities_LocalDeviceWipeCommand_LocalDeviceWipeCommandAllowed = @"LOCAL_DEVICE_WIPE_COMMAND_ALLOWED";
+NSString * const kGTLRAndroidManagement_ExtraCapabilities_LocalDeviceWipeCommand_LocalDeviceWipeCommandDisallowed = @"LOCAL_DEVICE_WIPE_COMMAND_DISALLOWED";
+NSString * const kGTLRAndroidManagement_ExtraCapabilities_LocalDeviceWipeCommand_LocalDeviceWipeCommandUnspecified = @"LOCAL_DEVICE_WIPE_COMMAND_UNSPECIFIED";
 
 // GTLRAndroidManagement_GoogleAuthenticationOptions.authenticationRequirement
 NSString * const kGTLRAndroidManagement_GoogleAuthenticationOptions_AuthenticationRequirement_AuthenticationRequirementUnspecified = @"AUTHENTICATION_REQUIREMENT_UNSPECIFIED";
@@ -705,6 +720,7 @@ NSString * const kGTLRAndroidManagement_NonComplianceDetail_SpecificNonComplianc
 NSString * const kGTLRAndroidManagement_NonComplianceDetail_SpecificNonComplianceReason_PrivateDnsHostNotServing = @"PRIVATE_DNS_HOST_NOT_SERVING";
 NSString * const kGTLRAndroidManagement_NonComplianceDetail_SpecificNonComplianceReason_RequiredAccountNotInEnterprise = @"REQUIRED_ACCOUNT_NOT_IN_ENTERPRISE";
 NSString * const kGTLRAndroidManagement_NonComplianceDetail_SpecificNonComplianceReason_SpecificNonComplianceReasonUnspecified = @"SPECIFIC_NON_COMPLIANCE_REASON_UNSPECIFIED";
+NSString * const kGTLRAndroidManagement_NonComplianceDetail_SpecificNonComplianceReason_UserNotUnlocked = @"USER_NOT_UNLOCKED";
 
 // GTLRAndroidManagement_NonComplianceDetailCondition.nonComplianceReason
 NSString * const kGTLRAndroidManagement_NonComplianceDetailCondition_NonComplianceReason_ApiLevel = @"API_LEVEL";
@@ -734,6 +750,12 @@ NSString * const kGTLRAndroidManagement_OsStartupEvent_VerityMode_Disabled = @"D
 NSString * const kGTLRAndroidManagement_OsStartupEvent_VerityMode_DmVerityModeUnspecified = @"DM_VERITY_MODE_UNSPECIFIED";
 NSString * const kGTLRAndroidManagement_OsStartupEvent_VerityMode_Enforcing = @"ENFORCING";
 NSString * const kGTLRAndroidManagement_OsStartupEvent_VerityMode_IoError = @"IO_ERROR";
+
+// GTLRAndroidManagement_Outcome.outcomeType
+NSString * const kGTLRAndroidManagement_Outcome_OutcomeType_Block = @"BLOCK";
+NSString * const kGTLRAndroidManagement_Outcome_OutcomeType_Force = @"FORCE";
+NSString * const kGTLRAndroidManagement_Outcome_OutcomeType_OutcomeTypeUnspecified = @"OUTCOME_TYPE_UNSPECIFIED";
+NSString * const kGTLRAndroidManagement_Outcome_OutcomeType_UserPrompt = @"USER_PROMPT";
 
 // GTLRAndroidManagement_PasswordPoliciesContext.passwordPolicyScope
 NSString * const kGTLRAndroidManagement_PasswordPoliciesContext_PasswordPolicyScope_ScopeDevice = @"SCOPE_DEVICE";
@@ -943,6 +965,16 @@ NSString * const kGTLRAndroidManagement_PowerManagementEvent_EventType_PowerDisc
 NSString * const kGTLRAndroidManagement_PowerManagementEvent_EventType_PowerManagementEventTypeUnspecified = @"POWER_MANAGEMENT_EVENT_TYPE_UNSPECIFIED";
 NSString * const kGTLRAndroidManagement_PowerManagementEvent_EventType_Shutdown = @"SHUTDOWN";
 
+// GTLRAndroidManagement_Predicate.daysOfWeek
+NSString * const kGTLRAndroidManagement_Predicate_DaysOfWeek_DayOfWeekUnspecified = @"DAY_OF_WEEK_UNSPECIFIED";
+NSString * const kGTLRAndroidManagement_Predicate_DaysOfWeek_Friday = @"FRIDAY";
+NSString * const kGTLRAndroidManagement_Predicate_DaysOfWeek_Monday = @"MONDAY";
+NSString * const kGTLRAndroidManagement_Predicate_DaysOfWeek_Saturday = @"SATURDAY";
+NSString * const kGTLRAndroidManagement_Predicate_DaysOfWeek_Sunday = @"SUNDAY";
+NSString * const kGTLRAndroidManagement_Predicate_DaysOfWeek_Thursday = @"THURSDAY";
+NSString * const kGTLRAndroidManagement_Predicate_DaysOfWeek_Tuesday = @"TUESDAY";
+NSString * const kGTLRAndroidManagement_Predicate_DaysOfWeek_Wednesday = @"WEDNESDAY";
+
 // GTLRAndroidManagement_PreferentialNetworkServiceConfig.fallbackToDefaultConnection
 NSString * const kGTLRAndroidManagement_PreferentialNetworkServiceConfig_FallbackToDefaultConnection_FallbackToDefaultConnectionAllowed = @"FALLBACK_TO_DEFAULT_CONNECTION_ALLOWED";
 NSString * const kGTLRAndroidManagement_PreferentialNetworkServiceConfig_FallbackToDefaultConnection_FallbackToDefaultConnectionDisallowed = @"FALLBACK_TO_DEFAULT_CONNECTION_DISALLOWED";
@@ -1004,6 +1036,11 @@ NSString * const kGTLRAndroidManagement_Role_RoleType_Kiosk    = @"KIOSK";
 NSString * const kGTLRAndroidManagement_Role_RoleType_MobileThreatDefenseEndpointDetectionResponse = @"MOBILE_THREAT_DEFENSE_ENDPOINT_DETECTION_RESPONSE";
 NSString * const kGTLRAndroidManagement_Role_RoleType_RoleTypeUnspecified = @"ROLE_TYPE_UNSPECIFIED";
 NSString * const kGTLRAndroidManagement_Role_RoleType_SystemHealthMonitoring = @"SYSTEM_HEALTH_MONITORING";
+
+// GTLRAndroidManagement_Rule.stages
+NSString * const kGTLRAndroidManagement_Rule_Stages_StageApply = @"STAGE_APPLY";
+NSString * const kGTLRAndroidManagement_Rule_Stages_StageDownload = @"STAGE_DOWNLOAD";
+NSString * const kGTLRAndroidManagement_Rule_Stages_StageUnspecified = @"STAGE_UNSPECIFIED";
 
 // GTLRAndroidManagement_ScreenBrightnessSettings.screenBrightnessMode
 NSString * const kGTLRAndroidManagement_ScreenBrightnessSettings_ScreenBrightnessMode_BrightnessAutomatic = @"BRIGHTNESS_AUTOMATIC";
@@ -1067,6 +1104,14 @@ NSString * const kGTLRAndroidManagement_SystemUpdateInfo_UpdateStatus_SecurityUp
 NSString * const kGTLRAndroidManagement_SystemUpdateInfo_UpdateStatus_UnknownUpdateAvailable = @"UNKNOWN_UPDATE_AVAILABLE";
 NSString * const kGTLRAndroidManagement_SystemUpdateInfo_UpdateStatus_UpdateStatusUnknown = @"UPDATE_STATUS_UNKNOWN";
 NSString * const kGTLRAndroidManagement_SystemUpdateInfo_UpdateStatus_UpToDate = @"UP_TO_DATE";
+
+// GTLRAndroidManagement_Target.targetType
+NSString * const kGTLRAndroidManagement_Target_TargetType_GooglePlaySystemUpdate = @"GOOGLE_PLAY_SYSTEM_UPDATE";
+NSString * const kGTLRAndroidManagement_Target_TargetType_GoogleSystemServices = @"GOOGLE_SYSTEM_SERVICES";
+NSString * const kGTLRAndroidManagement_Target_TargetType_OsUpdateWithApiLevelChange = @"OS_UPDATE_WITH_API_LEVEL_CHANGE";
+NSString * const kGTLRAndroidManagement_Target_TargetType_OsUpdateWithoutApiLevelChange = @"OS_UPDATE_WITHOUT_API_LEVEL_CHANGE";
+NSString * const kGTLRAndroidManagement_Target_TargetType_SingleApp = @"SINGLE_APP";
+NSString * const kGTLRAndroidManagement_Target_TargetType_TargetTypeUnspecified = @"TARGET_TYPE_UNSPECIFIED";
 
 // GTLRAndroidManagement_TelephonyInfo.activationState
 NSString * const kGTLRAndroidManagement_TelephonyInfo_ActivationState_Activated = @"ACTIVATED";
@@ -1894,7 +1939,7 @@ NSString * const kGTLRAndroidManagement_WorkAccountSetupConfig_AuthenticationTyp
 //
 
 @implementation GTLRAndroidManagement_DeviceRadioState
-@dynamic airplaneModeState, cellularTwoGState, minimumWifiSecurityLevel,
+@dynamic airplaneModeState, cellularTwoGState, minimumWifiSecurityLevel, nfc,
          ultraWidebandState, userInitiatedAddEsimSettings, wifiState;
 @end
 
@@ -1907,6 +1952,26 @@ NSString * const kGTLRAndroidManagement_WorkAccountSetupConfig_AuthenticationTyp
 @implementation GTLRAndroidManagement_DeviceSettings
 @dynamic adbEnabled, developmentSettingsEnabled, encryptionStatus,
          isDeviceSecure, isEncrypted, unknownSourcesEnabled, verifyAppsEnabled;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidManagement_DeviceWidePolicies
+//
+
+@implementation GTLRAndroidManagement_DeviceWidePolicies
+@dynamic deviceRadioState;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidManagement_DeviceWideRadioState
+//
+
+@implementation GTLRAndroidManagement_DeviceWideRadioState
+@dynamic nfc;
 @end
 
 
@@ -2104,6 +2169,16 @@ NSString * const kGTLRAndroidManagement_WorkAccountSetupConfig_AuthenticationTyp
 
 @implementation GTLRAndroidManagement_ExternalData
 @dynamic sha256Hash, url;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidManagement_ExtraCapabilities
+//
+
+@implementation GTLRAndroidManagement_ExtraCapabilities
+@dynamic localDeviceWipeCommand;
 @end
 
 
@@ -2843,6 +2918,16 @@ NSString * const kGTLRAndroidManagement_WorkAccountSetupConfig_AuthenticationTyp
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidManagement_Outcome
+//
+
+@implementation GTLRAndroidManagement_Outcome
+@dynamic outcomeType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidManagement_PackageNameList
 //
 
@@ -2983,11 +3068,11 @@ NSString * const kGTLRAndroidManagement_WorkAccountSetupConfig_AuthenticationTyp
          dataRoamingDisabled, debuggingFeaturesAllowed,
          defaultApplicationSettings, defaultPermissionPolicy,
          deviceConnectivityManagement, deviceOwnerLockScreenInfo,
-         deviceRadioState, displaySettings, encryptionPolicy,
-         ensureVerifyAppsEnabled, enterpriseDisplayNameVisibility,
-         factoryResetDisabled, frpAdminEmails, funDisabled, installAppsDisabled,
-         installUnknownSourcesAllowed, keyguardDisabled,
-         keyguardDisabledFeatures, kioskCustomization,
+         deviceRadioState, deviceWidePolicies, displaySettings,
+         encryptionPolicy, ensureVerifyAppsEnabled,
+         enterpriseDisplayNameVisibility, factoryResetDisabled, frpAdminEmails,
+         funDisabled, installAppsDisabled, installUnknownSourcesAllowed,
+         keyguardDisabled, keyguardDisabledFeatures, kioskCustomization,
          kioskCustomLauncherEnabled, locationMode, longSupportMessage,
          maximumTimeToLock, microphoneAccess, minimumApiLevel,
          mobileNetworksConfigDisabled, modifyAccountsDisabled,
@@ -3003,10 +3088,11 @@ NSString * const kGTLRAndroidManagement_WorkAccountSetupConfig_AuthenticationTyp
          setUserIconDisabled, setWallpaperDisabled, shareLocationDisabled,
          shortSupportMessage, skipFirstUseHintsEnabled, smsDisabled,
          statusBarDisabled, statusReportingSettings, stayOnPluggedModes,
-         systemUpdate, tetheringConfigDisabled, uninstallAppsDisabled,
-         unmuteMicrophoneDisabled, usageLog, usbFileTransferDisabled,
-         usbMassStorageEnabled, version, vpnConfigDisabled, wifiConfigDisabled,
-         wifiConfigsLockdownEnabled, wipeDataFlags, workAccountSetupConfig;
+         systemUpdate, tetheringConfigDisabled, unifiedUpdatePolicy,
+         uninstallAppsDisabled, unmuteMicrophoneDisabled, usageLog,
+         usbFileTransferDisabled, usbMassStorageEnabled, version,
+         vpnConfigDisabled, wifiConfigDisabled, wifiConfigsLockdownEnabled,
+         wipeDataFlags, workAccountSetupConfig;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -3082,6 +3168,25 @@ NSString * const kGTLRAndroidManagement_WorkAccountSetupConfig_AuthenticationTyp
 
 @implementation GTLRAndroidManagement_PowerManagementEvent
 @dynamic batteryLevel, createTime, eventType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidManagement_Predicate
+//
+
+@implementation GTLRAndroidManagement_Predicate
+@dynamic dateLowerBound, dateUpperBound, daysOfWeek, timeOfDayLowerBound,
+         timeOfDayUpperBound, updateAgeLowerBound, updateAgeUpperBound;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"daysOfWeek" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -3227,7 +3332,30 @@ NSString * const kGTLRAndroidManagement_WorkAccountSetupConfig_AuthenticationTyp
 //
 
 @implementation GTLRAndroidManagement_Role
-@dynamic roleType;
+@dynamic extraCapabilities, roleType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidManagement_Rule
+//
+
+@implementation GTLRAndroidManagement_Rule
+@dynamic identifier, outcome, predicate, stages, targets;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"stages" : [NSString class],
+    @"targets" : [GTLRAndroidManagement_Target class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -3312,6 +3440,16 @@ NSString * const kGTLRAndroidManagement_WorkAccountSetupConfig_AuthenticationTyp
 
 @implementation GTLRAndroidManagement_SignupUrl
 @dynamic name, url;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidManagement_SingleApp
+//
+
+@implementation GTLRAndroidManagement_SingleApp
+@dynamic packageName;
 @end
 
 
@@ -3464,6 +3602,16 @@ NSString * const kGTLRAndroidManagement_WorkAccountSetupConfig_AuthenticationTyp
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidManagement_Target
+//
+
+@implementation GTLRAndroidManagement_Target
+@dynamic singleApp, targetType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidManagement_TelephonyInfo
 //
 
@@ -3479,6 +3627,34 @@ NSString * const kGTLRAndroidManagement_WorkAccountSetupConfig_AuthenticationTyp
 
 @implementation GTLRAndroidManagement_TermsAndConditions
 @dynamic content, header;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidManagement_TimeOfDay
+//
+
+@implementation GTLRAndroidManagement_TimeOfDay
+@dynamic hours, minutes, nanos, seconds;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidManagement_UnifiedUpdatePolicy
+//
+
+@implementation GTLRAndroidManagement_UnifiedUpdatePolicy
+@dynamic rules;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"rules" : [GTLRAndroidManagement_Rule class]
+  };
+  return map;
+}
+
 @end
 
 

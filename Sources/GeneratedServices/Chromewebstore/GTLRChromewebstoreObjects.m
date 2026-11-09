@@ -53,6 +53,16 @@ NSString * const kGTLRChromewebstore_UploadItemPackageResponse_UploadState_Uploa
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRChromewebstore_AuthorInfo
+//
+
+@implementation GTLRChromewebstore_AuthorInfo
+@dynamic displayName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRChromewebstore_CancelSubmissionRequest
 //
 
@@ -66,6 +76,16 @@ NSString * const kGTLRChromewebstore_UploadItemPackageResponse_UploadState_Uploa
 //
 
 @implementation GTLRChromewebstore_CancelSubmissionResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromewebstore_Date
+//
+
+@implementation GTLRChromewebstore_Date
+@dynamic day, month, year;
 @end
 
 
@@ -86,6 +106,28 @@ NSString * const kGTLRChromewebstore_UploadItemPackageResponse_UploadState_Uploa
 
 @implementation GTLRChromewebstore_DistributionChannel
 @dynamic crxVersion, deployPercentage;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromewebstore_FetchItemReviewsResponse
+//
+
+@implementation GTLRChromewebstore_FetchItemReviewsResponse
+@dynamic nextPageToken, reviews;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"reviews" : [GTLRChromewebstore_Review class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"reviews";
+}
+
 @end
 
 
@@ -121,6 +163,35 @@ NSString * const kGTLRChromewebstore_UploadItemPackageResponse_UploadState_Uploa
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRChromewebstore_MetricRow
+//
+
+@implementation GTLRChromewebstore_MetricRow
+@dynamic date, dimensionValues, metricValues;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"dimensionValues" : [NSString class],
+    @"metricValues" : [GTLRChromewebstore_MetricValue class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromewebstore_MetricValue
+//
+
+@implementation GTLRChromewebstore_MetricValue
+@dynamic metric, uniqueUserCount, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRChromewebstore_PublishItemRequest
 //
 
@@ -144,6 +215,69 @@ NSString * const kGTLRChromewebstore_UploadItemPackageResponse_UploadState_Uploa
 
 @implementation GTLRChromewebstore_PublishItemResponse
 @dynamic itemId, name, state, warningInfo;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromewebstore_QueryItemMetricsResponse
+//
+
+@implementation GTLRChromewebstore_QueryItemMetricsResponse
+@dynamic metricRows, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"metricRows" : [GTLRChromewebstore_MetricRow class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"metricRows";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromewebstore_RatingSummary
+//
+
+@implementation GTLRChromewebstore_RatingSummary
+@dynamic fiveStarRatingCount, fourStarRatingCount, name, nonEmptyReviewCount,
+         oneStarRatingCount, rating, ratingCount, threeStarRatingCount,
+         twoStarRatingCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromewebstore_Review
+//
+
+@implementation GTLRChromewebstore_Review
+@dynamic authorInfo, comment, createTime, item, name, rating;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromewebstore_RollbackItemRequest
+//
+
+@implementation GTLRChromewebstore_RollbackItemRequest
+@dynamic newVersion, rollbackReason, targetCrxVersion, validateOnly;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromewebstore_RollbackItemResponse
+//
+
+@implementation GTLRChromewebstore_RollbackItemResponse
 @end
 
 

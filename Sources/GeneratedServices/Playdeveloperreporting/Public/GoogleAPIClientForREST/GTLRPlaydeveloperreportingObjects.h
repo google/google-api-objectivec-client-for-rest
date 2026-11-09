@@ -1595,8 +1595,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
 
 /**
  *  Optional. * Maximum size of the returned data. If unspecified, at most 1000
- *  rows will be returned. The maximum value is 100000; values above 100000 will
- *  be coerced to 100000.
+ *  rows will be returned. The maximum value is 10000; values above 10000 will
+ *  be coerced to 10000.
  *
  *  Uses NSNumber of intValue.
  */
@@ -1741,8 +1741,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
 
 /**
  *  Optional. Maximum size of the returned data. If unspecified, at most 1000
- *  rows will be returned. The maximum value is 100,000; values above 100,000
- *  will be coerced to 100,000.
+ *  rows will be returned. The maximum value is 10,000; values above 10,000 will
+ *  be coerced to 10,000.
  *
  *  Uses NSNumber of intValue.
  */
@@ -1881,8 +1881,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
 
 /**
  *  Optional. Maximum size of the returned data. If unspecified, at most 1000
- *  rows will be returned. The maximum value is 100000; values above 100000 will
- *  be coerced to 100000.
+ *  rows will be returned. The maximum value is 10000; values above 10000 will
+ *  be coerced to 10000.
  *
  *  Uses NSNumber of intValue.
  */
@@ -2029,8 +2029,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
 
 /**
  *  Optional. Maximum size of the returned data. If unspecified, at most 1000
- *  rows will be returned. The maximum value is 100,000; values above 100,000
- *  will be coerced to 100,000.
+ *  rows will be returned. The maximum value is 10,000; values above 10,000 will
+ *  be coerced to 10,000.
  *
  *  Uses NSNumber of intValue.
  */
@@ -2166,8 +2166,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
 
 /**
  *  Optional. Maximum size of the returned data. If unspecified, at most 1000
- *  rows will be returned. The maximum value is 100000; values above 100000 will
- *  be coerced to 100000.
+ *  rows will be returned. The maximum value is 10000; values above 10000 will
+ *  be coerced to 10000.
  *
  *  Uses NSNumber of intValue.
  */
@@ -2281,8 +2281,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
 
 /**
  *  Optional. Maximum size of the returned data. If unspecified, at most 1000
- *  rows will be returned. The maximum value is 100000; values above 100000 will
- *  be coerced to 100000.
+ *  rows will be returned. The maximum value is 10000; values above 10000 will
+ *  be coerced to 10000.
  *
  *  Uses NSNumber of intValue.
  */
@@ -2419,8 +2419,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
 
 /**
  *  Optional. Maximum size of the returned data. If unspecified, at most 1000
- *  rows will be returned. The maximum value is 100,000; values above 100,000
- *  will be coerced to 100,000.
+ *  rows will be returned. The maximum value is 10,000; values above 10,000 will
+ *  be coerced to 10,000.
  *
  *  Uses NSNumber of intValue.
  */
@@ -2570,8 +2570,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
 
 /**
  *  Optional. Maximum size of the returned data. If unspecified, at most 1000
- *  rows will be returned. The maximum value is 100000; values above 100000 will
- *  be coerced to 100000.
+ *  rows will be returned. The maximum value is 10000; values above 10000 will
+ *  be coerced to 10000.
  *
  *  Uses NSNumber of intValue.
  */
@@ -2705,8 +2705,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
 
 /**
  *  Optional. Maximum size of the returned data. If unspecified, at most 1000
- *  rows will be returned. The maximum value is 100000; values above 100000 will
- *  be coerced to 100000.
+ *  rows will be returned. The maximum value is 10000; values above 10000 will
+ *  be coerced to 10000.
  *
  *  Uses NSNumber of intValue.
  */
@@ -2842,8 +2842,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
 
 /**
  *  Optional. Maximum size of the returned data. If unspecified, at most 1000
- *  rows will be returned. The maximum value is 100000; values above 100000 will
- *  be coerced to 100000.
+ *  rows will be returned. The maximum value is 10000; values above 10000 will
+ *  be coerced to 10000.
  *
  *  Uses NSNumber of intValue.
  */

@@ -156,12 +156,14 @@ NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonDuplica
 NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonDuplicateTransactionId = @"PROCESSING_ERROR_REASON_DUPLICATE_TRANSACTION_ID";
 NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonEventIdDecodeError = @"PROCESSING_ERROR_REASON_EVENT_ID_DECODE_ERROR";
 NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonEventTooOld = @"PROCESSING_ERROR_REASON_EVENT_TOO_OLD";
+NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonExpiredCall = @"PROCESSING_ERROR_REASON_EXPIRED_CALL";
 NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonExpiredClick = @"PROCESSING_ERROR_REASON_EXPIRED_CLICK";
 NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonExternalAttributionDataMissing = @"PROCESSING_ERROR_REASON_EXTERNAL_ATTRIBUTION_DATA_MISSING";
 NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonInsufficientMatchedTransactions = @"PROCESSING_ERROR_REASON_INSUFFICIENT_MATCHED_TRANSACTIONS";
 NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonInsufficientTransactions = @"PROCESSING_ERROR_REASON_INSUFFICIENT_TRANSACTIONS";
 NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonInternalError = @"PROCESSING_ERROR_REASON_INTERNAL_ERROR";
 NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonInvalidAdIdentifiers = @"PROCESSING_ERROR_REASON_INVALID_AD_IDENTIFIERS";
+NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonInvalidCall = @"PROCESSING_ERROR_REASON_INVALID_CALL";
 NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonInvalidClick = @"PROCESSING_ERROR_REASON_INVALID_CLICK";
 NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonInvalidCustomVariable = @"PROCESSING_ERROR_REASON_INVALID_CUSTOM_VARIABLE";
 NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonInvalidEvent = @"PROCESSING_ERROR_REASON_INVALID_EVENT";
@@ -179,6 +181,7 @@ NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonMatchId
 NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonNoConsent = @"PROCESSING_ERROR_REASON_NO_CONSENT";
 NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonOnePerClickConversionActionNotPermittedWithBraid = @"PROCESSING_ERROR_REASON_ONE_PER_CLICK_CONVERSION_ACTION_NOT_PERMITTED_WITH_BRAID";
 NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonOriginalConversionsNotFound = @"PROCESSING_ERROR_REASON_ORIGINAL_CONVERSIONS_NOT_FOUND";
+NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonTooRecentCall = @"PROCESSING_ERROR_REASON_TOO_RECENT_CALL";
 NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonTooRecentClick = @"PROCESSING_ERROR_REASON_TOO_RECENT_CLICK";
 NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonUnknownConsent = @"PROCESSING_ERROR_REASON_UNKNOWN_CONSENT";
 NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonUnspecified = @"PROCESSING_ERROR_REASON_UNSPECIFIED";
@@ -200,21 +203,32 @@ NSString * const kGTLRDataManager_Event_EventSource_Phone      = @"PHONE";
 NSString * const kGTLRDataManager_Event_EventSource_Web        = @"WEB";
 
 // GTLRDataManager_FieldWarning.reason
+NSString * const kGTLRDataManager_FieldWarning_Reason_WarningReasonAdidentifierNotUsed = @"WARNING_REASON_ADIDENTIFIER_NOT_USED";
 NSString * const kGTLRDataManager_FieldWarning_Reason_WarningReasonCartDataItemMerchantProductIdMissing = @"WARNING_REASON_CART_DATA_ITEM_MERCHANT_PRODUCT_ID_MISSING";
 NSString * const kGTLRDataManager_FieldWarning_Reason_WarningReasonCartDataItemUnitPriceMissing = @"WARNING_REASON_CART_DATA_ITEM_UNIT_PRICE_MISSING";
 NSString * const kGTLRDataManager_FieldWarning_Reason_WarningReasonCartDataNotSupportedWithGbraidOrWbraid = @"WARNING_REASON_CART_DATA_NOT_SUPPORTED_WITH_GBRAID_OR_WBRAID";
 NSString * const kGTLRDataManager_FieldWarning_Reason_WarningReasonCustomVariableNotEnabled = @"WARNING_REASON_CUSTOM_VARIABLE_NOT_ENABLED";
 NSString * const kGTLRDataManager_FieldWarning_Reason_WarningReasonCustomVariableNotPredefined = @"WARNING_REASON_CUSTOM_VARIABLE_NOT_PREDEFINED";
+NSString * const kGTLRDataManager_FieldWarning_Reason_WarningReasonCustomVariablesNotSupportedWithGbraidOrWbraid = @"WARNING_REASON_CUSTOM_VARIABLES_NOT_SUPPORTED_WITH_GBRAID_OR_WBRAID";
+NSString * const kGTLRDataManager_FieldWarning_Reason_WarningReasonDuplicateElements = @"WARNING_REASON_DUPLICATE_ELEMENTS";
+NSString * const kGTLRDataManager_FieldWarning_Reason_WarningReasonFieldValueTooLong = @"WARNING_REASON_FIELD_VALUE_TOO_LONG";
+NSString * const kGTLRDataManager_FieldWarning_Reason_WarningReasonFieldValueTooShort = @"WARNING_REASON_FIELD_VALUE_TOO_SHORT";
 NSString * const kGTLRDataManager_FieldWarning_Reason_WarningReasonGeneric = @"WARNING_REASON_GENERIC";
 NSString * const kGTLRDataManager_FieldWarning_Reason_WarningReasonInvalidClientId = @"WARNING_REASON_INVALID_CLIENT_ID";
 NSString * const kGTLRDataManager_FieldWarning_Reason_WarningReasonInvalidContinentCode = @"WARNING_REASON_INVALID_CONTINENT_CODE";
 NSString * const kGTLRDataManager_FieldWarning_Reason_WarningReasonInvalidDeviceCategory = @"WARNING_REASON_INVALID_DEVICE_CATEGORY";
 NSString * const kGTLRDataManager_FieldWarning_Reason_WarningReasonInvalidDeviceScreenResolution = @"WARNING_REASON_INVALID_DEVICE_SCREEN_RESOLUTION";
+NSString * const kGTLRDataManager_FieldWarning_Reason_WarningReasonInvalidMerchantFeedLanguageCode = @"WARNING_REASON_INVALID_MERCHANT_FEED_LANGUAGE_CODE";
 NSString * const kGTLRDataManager_FieldWarning_Reason_WarningReasonInvalidMerchantId = @"WARNING_REASON_INVALID_MERCHANT_ID";
+NSString * const kGTLRDataManager_FieldWarning_Reason_WarningReasonInvalidNumberFormat = @"WARNING_REASON_INVALID_NUMBER_FORMAT";
 NSString * const kGTLRDataManager_FieldWarning_Reason_WarningReasonInvalidRegionCode = @"WARNING_REASON_INVALID_REGION_CODE";
+NSString * const kGTLRDataManager_FieldWarning_Reason_WarningReasonInvalidSha256Format = @"WARNING_REASON_INVALID_SHA256_FORMAT";
 NSString * const kGTLRDataManager_FieldWarning_Reason_WarningReasonInvalidSubcontinentCode = @"WARNING_REASON_INVALID_SUBCONTINENT_CODE";
 NSString * const kGTLRDataManager_FieldWarning_Reason_WarningReasonInvalidSubdivisionCode = @"WARNING_REASON_INVALID_SUBDIVISION_CODE";
+NSString * const kGTLRDataManager_FieldWarning_Reason_WarningReasonTooManyElements = @"WARNING_REASON_TOO_MANY_ELEMENTS";
 NSString * const kGTLRDataManager_FieldWarning_Reason_WarningReasonUnspecified = @"WARNING_REASON_UNSPECIFIED";
+NSString * const kGTLRDataManager_FieldWarning_Reason_WarningReasonValueTooHigh = @"WARNING_REASON_VALUE_TOO_HIGH";
+NSString * const kGTLRDataManager_FieldWarning_Reason_WarningReasonValueTooLow = @"WARNING_REASON_VALUE_TOO_LOW";
 
 // GTLRDataManager_GcpWrappedKeyInfo.keyType
 NSString * const kGTLRDataManager_GcpWrappedKeyInfo_KeyType_KeyTypeUnspecified = @"KEY_TYPE_UNSPECIFIED";
@@ -471,6 +485,8 @@ NSString * const kGTLRDataManager_ViewabilityInfo_ViewType_ViewTypeUnspecified =
 
 // GTLRDataManager_WarningCount.reason
 NSString * const kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonAwsAuthFailed = @"PROCESSING_WARNING_REASON_AWS_AUTH_FAILED";
+NSString * const kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonCustomVariableNotEnabled = @"PROCESSING_WARNING_REASON_CUSTOM_VARIABLE_NOT_ENABLED";
+NSString * const kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonCustomVariableNotPredefined = @"PROCESSING_WARNING_REASON_CUSTOM_VARIABLE_NOT_PREDEFINED";
 NSString * const kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonDecryptionError = @"PROCESSING_WARNING_REASON_DECRYPTION_ERROR";
 NSString * const kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonDekDecryptionError = @"PROCESSING_WARNING_REASON_DEK_DECRYPTION_ERROR";
 NSString * const kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonInternalError = @"PROCESSING_WARNING_REASON_INTERNAL_ERROR";
@@ -515,7 +531,7 @@ NSString * const kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonWip
 
 @implementation GTLRDataManager_AdIdentifiers
 @dynamic dclid, encryptedUserIds, gbraid, gclid, impressionId,
-         landingPageDeviceInfo, matchId, mobileDeviceId, ppid,
+         landingPageDeviceInfo, leadId, matchId, mobileDeviceId, ppid,
          sessionAttributes, visitorPpid, wbraid;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
@@ -565,6 +581,16 @@ NSString * const kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonWip
 
 @implementation GTLRDataManager_Baseline
 @dynamic baselineLocation, locationAutoDetectionEnabled;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataManager_CallInfo
+//
+
+@implementation GTLRDataManager_CallInfo
+@dynamic startTimestamp;
 @end
 
 
@@ -722,7 +748,15 @@ NSString * const kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonWip
 //
 
 @implementation GTLRDataManager_ErrorCount
-@dynamic reason, recordCount;
+@dynamic reason, recordCount, recordIndices;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"recordIndices" : [NSNumber class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -750,12 +784,12 @@ NSString * const kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonWip
 //
 
 @implementation GTLRDataManager_Event
-@dynamic additionalEventParameters, adIdentifiers, appInstanceId, cartData,
-         clientId, consent, conversionCount, conversionValue, currency,
-         customVariables, destinationReferences, eventDeviceInfo, eventLocation,
-         eventName, eventSource, eventTimestamp, experimentalFields,
-         lastUpdatedTimestamp, thirdPartyUserData, transactionId, userData,
-         userId, userPropertiesProperty;
+@dynamic additionalEventParameters, adIdentifiers, appInstanceId, callInfo,
+         cartData, clientId, consent, conversionCount, conversionValue,
+         currency, customVariables, destinationReferences, eventDeviceInfo,
+         eventLocation, eventName, eventSource, eventTimestamp,
+         experimentalFields, lastUpdatedTimestamp, thirdPartyUserData,
+         transactionId, userData, userId, userPropertiesProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"userPropertiesProperty" : @"userProperties" };
@@ -1332,6 +1366,16 @@ NSString * const kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonWip
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataManager_Money
+//
+
+@implementation GTLRDataManager_Money
+@dynamic currencyCode, nanos, units;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataManager_PairData
 //
 
@@ -1405,6 +1449,67 @@ NSString * const kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonWip
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataManager_PartnerMatchAdGroup
+//
+
+@implementation GTLRDataManager_PartnerMatchAdGroup
+@dynamic adGroupId, displayName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataManager_PartnerMatchAdvertiserAccount
+//
+
+@implementation GTLRDataManager_PartnerMatchAdvertiserAccount
+@dynamic accountId, accountType, displayName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataManager_PartnerMatchCampaign
+//
+
+@implementation GTLRDataManager_PartnerMatchCampaign
+@dynamic campaignId, displayName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataManager_PartnerMatchLineItem
+//
+
+@implementation GTLRDataManager_PartnerMatchLineItem
+@dynamic displayName, lineItemId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataManager_PartnerMatchReportEntry
+//
+
+@implementation GTLRDataManager_PartnerMatchReportEntry
+@dynamic adGroup, advertiserAccount, campaign, dataFees, impressionCount,
+         lineItem, mediaCost, userList;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataManager_PartnerMatchUserList
+//
+
+@implementation GTLRDataManager_PartnerMatchUserList
+@dynamic displayName, userListId;
 @end
 
 
@@ -1695,6 +1800,28 @@ NSString * const kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonWip
     @"marketingDataInsights" : [GTLRDataManager_MarketingDataInsight class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataManager_RetrievePartnerMatchReportResponse
+//
+
+@implementation GTLRDataManager_RetrievePartnerMatchReportResponse
+@dynamic nextPageToken, partnerMatchReportEntries;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"partnerMatchReportEntries" : [GTLRDataManager_PartnerMatchReportEntry class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"partnerMatchReportEntries";
 }
 
 @end
@@ -2008,7 +2135,15 @@ NSString * const kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonWip
 //
 
 @implementation GTLRDataManager_WarningCount
-@dynamic reason, recordCount;
+@dynamic reason, recordCount, recordIndices;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"recordIndices" : [NSNumber class]
+  };
+  return map;
+}
+
 @end
 
 

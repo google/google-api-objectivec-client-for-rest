@@ -39,9 +39,13 @@
 @class GTLROracleDatabase_CloudVmCluster;
 @class GTLROracleDatabase_CloudVmCluster_Labels;
 @class GTLROracleDatabase_CloudVmClusterProperties;
+@class GTLROracleDatabase_Column;
+@class GTLROracleDatabase_ComputePerformance;
 @class GTLROracleDatabase_CustomerContact;
 @class GTLROracleDatabase_Database;
 @class GTLROracleDatabase_DatabaseCharacterSet;
+@class GTLROracleDatabase_DatabaseConnection;
+@class GTLROracleDatabase_DatabaseConnection_Labels;
 @class GTLROracleDatabase_DatabaseConnectionStringProfile;
 @class GTLROracleDatabase_DatabaseManagementConfig;
 @class GTLROracleDatabase_DatabaseProperties;
@@ -56,6 +60,7 @@
 @class GTLROracleDatabase_DbServerProperties;
 @class GTLROracleDatabase_DbSystem;
 @class GTLROracleDatabase_DbSystem_Labels;
+@class GTLROracleDatabase_DbSystemComputePerformance;
 @class GTLROracleDatabase_DbSystemInitialStorageSize;
 @class GTLROracleDatabase_DbSystemInitialStorageSizeProperties;
 @class GTLROracleDatabase_DbSystemOptions;
@@ -78,6 +83,9 @@
 @class GTLROracleDatabase_ExascaleDbStorageVault;
 @class GTLROracleDatabase_ExascaleDbStorageVault_Labels;
 @class GTLROracleDatabase_ExascaleDbStorageVaultProperties;
+@class GTLROracleDatabase_ExecuteSqlMetadata;
+@class GTLROracleDatabase_FlexComponent;
+@class GTLROracleDatabase_FlexComponentProperties;
 @class GTLROracleDatabase_GiVersion;
 @class GTLROracleDatabase_GlueIcebergCatalog;
 @class GTLROracleDatabase_GoldengateAmazonKinesisConnectionProperties;
@@ -143,6 +151,8 @@
 @class GTLROracleDatabase_MinorVersion;
 @class GTLROracleDatabase_NameValuePair;
 @class GTLROracleDatabase_NessieIcebergCatalog;
+@class GTLROracleDatabase_OdbDnsZone;
+@class GTLROracleDatabase_OdbDnsZone_Labels;
 @class GTLROracleDatabase_OdbNetwork;
 @class GTLROracleDatabase_OdbNetwork_Labels;
 @class GTLROracleDatabase_OdbSubnet;
@@ -158,15 +168,21 @@
 @class GTLROracleDatabase_PluggableDatabaseProperties_DefinedTags;
 @class GTLROracleDatabase_PluggableDatabaseProperties_FreeformTags;
 @class GTLROracleDatabase_PolarisIcebergCatalog;
+@class GTLROracleDatabase_PscInterfaceConfig;
 @class GTLROracleDatabase_RestIcebergCatalog;
+@class GTLROracleDatabase_Row;
 @class GTLROracleDatabase_ScheduledOperationDetails;
+@class GTLROracleDatabase_ServiceConnectivityConfig;
 @class GTLROracleDatabase_SourceConfig;
+@class GTLROracleDatabase_SqlParameter;
+@class GTLROracleDatabase_SqlResult;
 @class GTLROracleDatabase_Status;
 @class GTLROracleDatabase_Status_Details_Item;
 @class GTLROracleDatabase_StorageSizeDetails;
 @class GTLROracleDatabase_TestConnectionAssignmentError;
 @class GTLROracleDatabase_TimeOfDay;
 @class GTLROracleDatabase_TimeZone;
+@class GTLROracleDatabase_Value;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -432,6 +448,12 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_AutonomousDatabasePropert
  *  Value: "DW"
  */
 FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_AutonomousDatabaseProperties_DbWorkload_Dw;
+/**
+ *  Autonomous Database with the Lakehouse workload type.
+ *
+ *  Value: "LH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_AutonomousDatabaseProperties_DbWorkload_Lh;
 /**
  *  Autonomous Transaction Processing database.
  *
@@ -991,6 +1013,12 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_AutonomousDbVersion_DbWor
  */
 FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_AutonomousDbVersion_DbWorkload_Dw;
 /**
+ *  Autonomous Database with the Lakehouse workload type.
+ *
+ *  Value: "LH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_AutonomousDbVersion_DbWorkload_Lh;
+/**
  *  Autonomous Transaction Processing database.
  *
  *  Value: "OLTP"
@@ -1300,6 +1328,30 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_CloudVmClusterProperties_
 FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_CloudVmClusterProperties_VmFileSystemStorageType_VmFileSystemStorageTypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLROracleDatabase_ComputePerformance.computeModel
+
+/**
+ *  Abstract measure of compute resources. ECPUs are based on the number of
+ *  cores elastically allocated from a pool of compute and storage servers.
+ *
+ *  Value: "COMPUTE_MODEL_ECPU"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ComputePerformance_ComputeModel_ComputeModelEcpu;
+/**
+ *  Physical measure of compute resources. OCPUs are based on the physical core
+ *  of a processor.
+ *
+ *  Value: "COMPUTE_MODEL_OCPU"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ComputePerformance_ComputeModel_ComputeModelOcpu;
+/**
+ *  Unspecified compute model.
+ *
+ *  Value: "COMPUTE_MODEL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ComputePerformance_ComputeModel_ComputeModelUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLROracleDatabase_Database.opsInsightsStatus
 
 /**
@@ -1366,6 +1418,40 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DatabaseCharacterSet_Char
  *  Value: "NATIONAL"
  */
 FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DatabaseCharacterSet_CharacterSetType_National;
+
+// ----------------------------------------------------------------------------
+// GTLROracleDatabase_DatabaseConnection.state
+
+/**
+ *  Indicates that the resource is in an active state.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DatabaseConnection_State_Active;
+/**
+ *  Indicates that the resource is in a creating state.
+ *
+ *  Value: "CREATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DatabaseConnection_State_Creating;
+/**
+ *  Indicates that the resource is in a deleting state.
+ *
+ *  Value: "DELETING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DatabaseConnection_State_Deleting;
+/**
+ *  Indicates that the resource is in a failed state.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DatabaseConnection_State_Failed;
+/**
+ *  Default unspecified value.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DatabaseConnection_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLROracleDatabase_DatabaseConnectionStringProfile.consumerGroup
@@ -2495,6 +2581,88 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ExascaleDbStorageVaultPro
  *  Value: "UPDATING"
  */
 FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ExascaleDbStorageVaultProperties_State_Updating;
+
+// ----------------------------------------------------------------------------
+// GTLROracleDatabase_ExecuteSqlMetadata.status
+
+/**
+ *  The database returned an error while executing the SQL statement. `message`
+ *  contains the error text returned by Oracle. `sql_results` is empty. The
+ *  statement runs in autocommit mode; which changes are committed or rolled
+ *  back follows Oracle Database behavior. Authentication failures, database
+ *  availability errors, network errors, and timeouts are returned as API errors
+ *  (AIP-193), not as ERROR.
+ *
+ *  Value: "ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ExecuteSqlMetadata_Status_Error;
+/**
+ *  No error during SQL execution i.e. All SQL statements ran to completion. The
+ *  "message" will be empty.
+ *
+ *  Value: "OK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ExecuteSqlMetadata_Status_Ok;
+/**
+ *  Same as OK, except indicates that only partial results were returned. The
+ *  "message" field will contain details on why results were truncated.
+ *  `partial_result` is true if and only if `status` is `PARTIAL`.
+ *
+ *  Value: "PARTIAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ExecuteSqlMetadata_Status_Partial;
+/**
+ *  Default value. Not returned by the service.
+ *
+ *  Value: "STATUS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ExecuteSqlMetadata_Status_StatusUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLROracleDatabase_FlexComponentProperties.computeModel
+
+/**
+ *  Abstract measure of compute resources. ECPUs are based on the number of
+ *  cores elastically allocated from a pool of compute and storage servers.
+ *
+ *  Value: "COMPUTE_MODEL_ECPU"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_FlexComponentProperties_ComputeModel_ComputeModelEcpu;
+/**
+ *  Physical measure of compute resources. OCPUs are based on the physical core
+ *  of a processor.
+ *
+ *  Value: "COMPUTE_MODEL_OCPU"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_FlexComponentProperties_ComputeModel_ComputeModelOcpu;
+/**
+ *  Unspecified compute model.
+ *
+ *  Value: "COMPUTE_MODEL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_FlexComponentProperties_ComputeModel_ComputeModelUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLROracleDatabase_FlexComponentProperties.hardwareType
+
+/**
+ *  CELL
+ *
+ *  Value: "CELL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_FlexComponentProperties_HardwareType_Cell;
+/**
+ *  COMPUTE
+ *
+ *  Value: "COMPUTE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_FlexComponentProperties_HardwareType_Compute;
+/**
+ *  Unspecified default
+ *
+ *  Value: "HARDWARE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_FlexComponentProperties_HardwareType_HardwareTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLROracleDatabase_GenerateAutonomousDatabaseWalletRequest.type
@@ -4388,6 +4556,46 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_MaintenanceWindow_Prefere
 FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_MaintenanceWindow_Preference_NoPreference;
 
 // ----------------------------------------------------------------------------
+// GTLROracleDatabase_OdbDnsZone.state
+
+/**
+ *  Indicates that the resource is in an available state.
+ *
+ *  Value: "AVAILABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_OdbDnsZone_State_Available;
+/**
+ *  Indicates that the resource is in a failed state.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_OdbDnsZone_State_Failed;
+/**
+ *  Indicates that the resource is available but inactive.
+ *
+ *  Value: "INACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_OdbDnsZone_State_Inactive;
+/**
+ *  Indicates that the resource is in a provisioning state.
+ *
+ *  Value: "PROVISIONING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_OdbDnsZone_State_Provisioning;
+/**
+ *  Default unspecified value.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_OdbDnsZone_State_StateUnspecified;
+/**
+ *  Indicates that the resource is in a terminating state.
+ *
+ *  Value: "TERMINATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_OdbDnsZone_State_Terminating;
+
+// ----------------------------------------------------------------------------
 // GTLROracleDatabase_OdbNetwork.state
 
 /**
@@ -4900,14 +5108,15 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_TestGoldengateConnectionA
 @interface GTLROracleDatabase_AutonomousDatabase : GTLRObject
 
 /**
- *  Optional. Immutable. The password for the default ADMIN user. Note: Only one
- *  of `admin_password_secret_version` or `admin_password` can be populated.
+ *  Optional. Input only. Immutable. The password for the default ADMIN user.
+ *  Note: Only one of `admin_password_secret_version` or `admin_password` can be
+ *  populated.
  */
 @property(nonatomic, copy, nullable) NSString *adminPassword;
 
 /**
- *  Optional. Immutable. The resource name of a secret version in Secret Manager
- *  which contains the database admin user's password. Format:
+ *  Optional. Input only. Immutable. The resource name of a secret version in
+ *  Secret Manager which contains the database admin user's password. Format:
  *  projects/{project}/secrets/{secret}/versions/{version}. Note: Only one of
  *  `admin_password_secret_version` or `admin_password` can be populated.
  */
@@ -5532,6 +5741,8 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_TestGoldengateConnectionA
  *        Default unspecified value. (Value: "DB_WORKLOAD_UNSPECIFIED")
  *    @arg @c kGTLROracleDatabase_AutonomousDatabaseProperties_DbWorkload_Dw
  *        Autonomous Data Warehouse database. (Value: "DW")
+ *    @arg @c kGTLROracleDatabase_AutonomousDatabaseProperties_DbWorkload_Lh
+ *        Autonomous Database with the Lakehouse workload type. (Value: "LH")
  *    @arg @c kGTLROracleDatabase_AutonomousDatabaseProperties_DbWorkload_Oltp
  *        Autonomous Transaction Processing database. (Value: "OLTP")
  */
@@ -6119,6 +6330,8 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_TestGoldengateConnectionA
  *        Default unspecified value. (Value: "DB_WORKLOAD_UNSPECIFIED")
  *    @arg @c kGTLROracleDatabase_AutonomousDbVersion_DbWorkload_Dw Autonomous
  *        Data Warehouse database. (Value: "DW")
+ *    @arg @c kGTLROracleDatabase_AutonomousDbVersion_DbWorkload_Lh Autonomous
+ *        Database with the Lakehouse workload type. (Value: "LH")
  *    @arg @c kGTLROracleDatabase_AutonomousDbVersion_DbWorkload_Oltp Autonomous
  *        Transaction Processing database. (Value: "OLTP")
  */
@@ -6230,7 +6443,7 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_TestGoldengateConnectionA
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
-/** Optional. User friendly name for this resource. */
+/** Optional. Immutable. User friendly name for this resource. */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
@@ -6240,9 +6453,9 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_TestGoldengateConnectionA
 @property(nonatomic, copy, nullable) NSString *entitlementId;
 
 /**
- *  Optional. The GCP Oracle zone where Oracle Exadata Infrastructure is hosted.
- *  Example: us-east4-b-r2. If not specified, the system will pick a zone based
- *  on availability.
+ *  Optional. Immutable. The GCP Oracle zone where Oracle Exadata Infrastructure
+ *  is hosted. Example: us-east4-b-r2. If not specified, the system will pick a
+ *  zone based on availability.
  */
 @property(nonatomic, copy, nullable) NSString *gcpOracleZone;
 
@@ -6255,7 +6468,7 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_TestGoldengateConnectionA
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** Optional. Various properties of the infra. */
+/** Optional. Immutable. Various properties of the infra. */
 @property(nonatomic, strong, nullable) GTLROracleDatabase_CloudExadataInfrastructureProperties *properties;
 
 @end
@@ -6497,34 +6710,37 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_TestGoldengateConnectionA
 @interface GTLROracleDatabase_CloudVmCluster : GTLRObject
 
 /**
- *  Optional. The name of the backup OdbSubnet associated with the VM Cluster.
- *  Format:
+ *  Optional. Immutable. The name of the backup OdbSubnet associated with the VM
+ *  Cluster. Format:
  *  projects/{project}/locations/{location}/odbNetworks/{odb_network}/odbSubnets/{odb_subnet}
  */
 @property(nonatomic, copy, nullable) NSString *backupOdbSubnet;
 
-/** Optional. CIDR range of the backup subnet. */
+/** Optional. Immutable. CIDR range of the backup subnet. */
 @property(nonatomic, copy, nullable) NSString *backupSubnetCidr;
 
-/** Optional. Network settings. CIDR to use for cluster IP allocation. */
+/**
+ *  Optional. Immutable. Network settings. CIDR to use for cluster IP
+ *  allocation.
+ */
 @property(nonatomic, copy, nullable) NSString *cidr;
 
 /** Output only. The date and time that the VM cluster was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
-/** Optional. User friendly name for this resource. */
+/** Optional. Immutable. User friendly name for this resource. */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
- *  Required. The name of the Exadata Infrastructure resource on which VM
- *  cluster resource is created, in the following format:
+ *  Required. Immutable. The name of the Exadata Infrastructure resource on
+ *  which VM cluster resource is created, in the following format:
  *  projects/{project}/locations/{region}/cloudExadataInfrastuctures/{cloud_extradata_infrastructure}
  */
 @property(nonatomic, copy, nullable) NSString *exadataInfrastructure;
 
 /**
- *  Optional. The name of ExascaleDbStorageVault associated with the VM Cluster.
- *  Format:
+ *  Optional. Immutable. The name of ExascaleDbStorageVault associated with the
+ *  VM Cluster. Format:
  *  projects/{project}/locations/{location}/exascaleDbStorageVaults/{exascale_db_storage_vault}
  */
 @property(nonatomic, copy, nullable) NSString *exascaleDbStorageVault;
@@ -6542,6 +6758,17 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_TestGoldengateConnectionA
  */
 @property(nonatomic, strong, nullable) GTLROracleDatabase_IdentityConnector *identityConnector;
 
+/**
+ *  Optional. Input only. Immutable. If set to true, disables the automatic
+ *  provisioning of the Workload Identity Connector during creation. If set to
+ *  false or omitted, the Workload Identity Connector will be automatically
+ *  provisioned by default. Note: Provisioning the Workload Identity Connector
+ *  is a prerequisite for enabling Google Cloud CMEK.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *identityConnectorDisabled;
+
 /** Optional. Labels or tags associated with the VM Cluster. */
 @property(nonatomic, strong, nullable) GTLROracleDatabase_CloudVmCluster_Labels *labels;
 
@@ -6552,13 +6779,21 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_TestGoldengateConnectionA
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Optional. The name of the VPC network. Format:
+ *  Optional. Immutable. The name of the VPC network. Format:
  *  projects/{project}/global/networks/{network}
  */
 @property(nonatomic, copy, nullable) NSString *network;
 
 /**
- *  Optional. The name of the OdbNetwork associated with the VM Cluster. Format:
+ *  Optional. Immutable. The name of the OdbDnsZone for using custom domain name
+ *  for the VM Cluster. Format:
+ *  projects/{project}/locations/{location}/odbNetworks/{odb_network}/odbDnsZones/{odb_dns_zone}
+ */
+@property(nonatomic, copy, nullable) NSString *odbDnsZone;
+
+/**
+ *  Optional. Immutable. The name of the OdbNetwork associated with the VM
+ *  Cluster. Format:
  *  projects/{project}/locations/{location}/odbNetworks/{odb_network} It is
  *  optional but if specified, this should match the parent ODBNetwork of the
  *  odb_subnet and backup_odb_subnet.
@@ -6566,13 +6801,13 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_TestGoldengateConnectionA
 @property(nonatomic, copy, nullable) NSString *odbNetwork;
 
 /**
- *  Optional. The name of the OdbSubnet associated with the VM Cluster for IP
- *  allocation. Format:
+ *  Optional. Immutable. The name of the OdbSubnet associated with the VM
+ *  Cluster for IP allocation. Format:
  *  projects/{project}/locations/{location}/odbNetworks/{odb_network}/odbSubnets/{odb_subnet}
  */
 @property(nonatomic, copy, nullable) NSString *odbSubnet;
 
-/** Optional. Various properties of the VM Cluster. */
+/** Optional. Immutable. Various properties of the VM Cluster. */
 @property(nonatomic, strong, nullable) GTLROracleDatabase_CloudVmClusterProperties *properties;
 
 @end
@@ -6855,6 +7090,69 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_TestGoldengateConnectionA
 
 
 /**
+ *  Contains the name and datatype of a column in a SQL Result.
+ */
+@interface GTLROracleDatabase_Column : GTLRObject
+
+/** Required. Name of the column. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. Database-specific type name (e.g., "VARCHAR2(255)", "NUMBER",
+ *  "DATE", "CLOB")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  Parameters detailing the compute performance for a specified DB system
+ *  shape.
+ */
+@interface GTLROracleDatabase_ComputePerformance : GTLRObject
+
+/**
+ *  Output only. The number of compute servers for the DB system.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *computeCount;
+
+/**
+ *  Output only. The compute model for Base Database Service.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROracleDatabase_ComputePerformance_ComputeModel_ComputeModelEcpu
+ *        Abstract measure of compute resources. ECPUs are based on the number
+ *        of cores elastically allocated from a pool of compute and storage
+ *        servers. (Value: "COMPUTE_MODEL_ECPU")
+ *    @arg @c kGTLROracleDatabase_ComputePerformance_ComputeModel_ComputeModelOcpu
+ *        Physical measure of compute resources. OCPUs are based on the physical
+ *        core of a processor. (Value: "COMPUTE_MODEL_OCPU")
+ *    @arg @c kGTLROracleDatabase_ComputePerformance_ComputeModel_ComputeModelUnspecified
+ *        Unspecified compute model. (Value: "COMPUTE_MODEL_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *computeModel;
+
+/**
+ *  Output only. The number of CPU cores available.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *cpuCoreCount;
+
+/**
+ *  Output only. The amount of memory allocated for the VMDB System in GBs.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *memoryInGbs;
+
+@end
+
+
+/**
  *  The request for `CloudExadataInfrastructure.ConfigureExascale`.
  */
 @interface GTLROracleDatabase_ConfigureExascaleCloudExadataInfrastructureRequest : GTLRObject
@@ -6901,14 +7199,14 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_TestGoldengateConnectionA
 @interface GTLROracleDatabase_Database : GTLRObject
 
 /**
- *  Optional. The password for the default ADMIN user. Note: Only one of
- *  `admin_password_secret_version` or `admin_password` can be populated.
+ *  Optional. Input only. The password for the default ADMIN user. Note: Only
+ *  one of `admin_password_secret_version` or `admin_password` can be populated.
  */
 @property(nonatomic, copy, nullable) NSString *adminPassword;
 
 /**
- *  Optional. The resource name of a secret version in Secret Manager which
- *  contains the database admin user's password. Format:
+ *  Optional. Input only. The resource name of a secret version in Secret
+ *  Manager which contains the database admin user's password. Format:
  *  projects/{project}/secrets/{secret}/versions/{version}. Note: Only one of
  *  `admin_password_secret_version` or `admin_password` can be populated.
  */
@@ -6999,15 +7297,15 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_TestGoldengateConnectionA
 @property(nonatomic, strong, nullable) GTLROracleDatabase_DatabaseProperties *properties;
 
 /**
- *  Optional. The TDE wallet password for the database. Note: Only one of
- *  `tde_wallet_password_secret_version` or `tde_wallet_password` can be
+ *  Optional. Input only. The TDE wallet password for the database. Note: Only
+ *  one of `tde_wallet_password_secret_version` or `tde_wallet_password` can be
  *  populated.
  */
 @property(nonatomic, copy, nullable) NSString *tdeWalletPassword;
 
 /**
- *  Optional. The resource name of a secret version in Secret Manager which
- *  contains the TDE wallet password for the database. Format:
+ *  Optional. Input only. The resource name of a secret version in Secret
+ *  Manager which contains the TDE wallet password for the database. Format:
  *  projects/{project}/secrets/{secret}/versions/{version}. Note: Only one of
  *  `tde_wallet_password_secret_version` or `tde_wallet_password` can be
  *  populated.
@@ -7049,6 +7347,103 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_TestGoldengateConnectionA
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
+@end
+
+
+/**
+ *  Represents DatabaseConnection resource.
+ */
+@interface GTLROracleDatabase_DatabaseConnection : GTLRObject
+
+/**
+ *  Required. Immutable. Oracle Easy Connect or TNS connection string. Example:
+ *  "your-db-host.example.com:1521/YOUR_SERVICE_NAME"
+ */
+@property(nonatomic, copy, nullable) NSString *connectionString;
+
+/** Output only. The create time of the resource. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Optional. Immutable. User-friendly display name for the connection. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/** Optional. Optional: Labels as key-value pairs to organize the resource. */
+@property(nonatomic, strong, nullable) GTLROracleDatabase_DatabaseConnection_Labels *labels;
+
+/**
+ *  Output only. Additional information about the current state of the
+ *  connection.
+ */
+@property(nonatomic, copy, nullable) NSString *lifecycleDetails;
+
+/**
+ *  Identifier. The resource name of the DatabaseConnection. Format:
+ *  projects/{project}/locations/{location}/databaseConnections/{database_connection}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Immutable. For Oracle Database\@Google cloud resources. Format:
+ *  projects/{project}/locations/{location}/odbNetworks/{odbNetwork}
+ */
+@property(nonatomic, copy, nullable) NSString *odbNetwork;
+
+/**
+ *  Optional. The resource name of the GCP Secret Manager secret version
+ *  containing the password for the specified username. Format:
+ *  projects/{project}/secrets/{secret_id}/versions/{version_id} The service's
+ *  Per-Product Per-Project Service Account (P4SA) must have the
+ *  'secretmanager.secretAccessor' permission on this secret.
+ */
+@property(nonatomic, copy, nullable) NSString *passwordSecretVersion;
+
+/**
+ *  Output only. The current state of the connection.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROracleDatabase_DatabaseConnection_State_Active Indicates that
+ *        the resource is in an active state. (Value: "ACTIVE")
+ *    @arg @c kGTLROracleDatabase_DatabaseConnection_State_Creating Indicates
+ *        that the resource is in a creating state. (Value: "CREATING")
+ *    @arg @c kGTLROracleDatabase_DatabaseConnection_State_Deleting Indicates
+ *        that the resource is in a deleting state. (Value: "DELETING")
+ *    @arg @c kGTLROracleDatabase_DatabaseConnection_State_Failed Indicates that
+ *        the resource is in a failed state. (Value: "FAILED")
+ *    @arg @c kGTLROracleDatabase_DatabaseConnection_State_StateUnspecified
+ *        Default unspecified value. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** Output only. The update time of the resource. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+/**
+ *  Optional. Immutable. The default database username to use for connections.
+ */
+@property(nonatomic, copy, nullable) NSString *username;
+
+/**
+ *  Optional. Optional: The resource name of the GCP Secret Manager secret
+ *  version containing base64 encoded content of the Oracle Wallet ZIP file
+ *  required for mTLS/TLS connections. Format:
+ *  projects/{project}/secrets/{secret_id}/versions/{version_id} The service's
+ *  Per-Product Per-Project Service Account (P4SA) must have the
+ *  'secretmanager.secretAccessor' permission on this secret.
+ */
+@property(nonatomic, copy, nullable) NSString *walletSecretVersion;
+
+@end
+
+
+/**
+ *  Optional. Optional: Labels as key-value pairs to organize the resource.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLROracleDatabase_DatabaseConnection_Labels : GTLRObject
 @end
 
 
@@ -7719,8 +8114,8 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_TestGoldengateConnectionA
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  Required. The display name for the System db. The name does not have to be
- *  unique within your project.
+ *  Required. Immutable. The display name for the System db. The name does not
+ *  have to be unique within your project.
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
@@ -7731,9 +8126,9 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_TestGoldengateConnectionA
 @property(nonatomic, copy, nullable) NSString *entitlementId;
 
 /**
- *  Optional. The GCP Oracle zone where Oracle DbSystem is hosted. Example:
- *  us-east4-b-r2. If not specified, the system will pick a zone based on
- *  availability.
+ *  Optional. Immutable. The GCP Oracle zone where Oracle DbSystem is hosted.
+ *  Example: us-east4-b-r2. If not specified, the system will pick a zone based
+ *  on availability.
  */
 @property(nonatomic, copy, nullable) NSString *gcpOracleZone;
 
@@ -7753,7 +8148,8 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_TestGoldengateConnectionA
 @property(nonatomic, copy, nullable) NSString *ociUrl;
 
 /**
- *  Optional. The name of the OdbNetwork associated with the DbSystem. Format:
+ *  Optional. Immutable. The name of the OdbNetwork associated with the
+ *  DbSystem. Format:
  *  projects/{project}/locations/{location}/odbNetworks/{odb_network} It is
  *  optional but if specified, this should match the parent ODBNetwork of the
  *  OdbSubnet.
@@ -7761,13 +8157,13 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_TestGoldengateConnectionA
 @property(nonatomic, copy, nullable) NSString *odbNetwork;
 
 /**
- *  Required. The name of the OdbSubnet associated with the DbSystem for IP
- *  allocation. Format:
+ *  Required. Immutable. The name of the OdbSubnet associated with the DbSystem
+ *  for IP allocation. Format:
  *  projects/{project}/locations/{location}/odbNetworks/{odb_network}/odbSubnets/{odb_subnet}
  */
 @property(nonatomic, copy, nullable) NSString *odbSubnet;
 
-/** Optional. The properties of the DbSystem. */
+/** Optional. Immutable. The properties of the DbSystem. */
 @property(nonatomic, strong, nullable) GTLROracleDatabase_DbSystemProperties *properties;
 
 @end
@@ -7782,6 +8178,30 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_TestGoldengateConnectionA
  *        fetch them all at once.
  */
 @interface GTLROracleDatabase_DbSystem_Labels : GTLRObject
+@end
+
+
+/**
+ *  Details of the DbSystem compute performance resource.
+ */
+@interface GTLROracleDatabase_DbSystemComputePerformance : GTLRObject
+
+/**
+ *  Output only. List of Compute performance details for the specified DB system
+ *  shape.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLROracleDatabase_ComputePerformance *> *computePerformances;
+
+/**
+ *  Identifier. The name of the DbSystemComputePerformance resource with the
+ *  format:
+ *  projects/{project}/locations/{location}/dbSystemComputePerformances/{db_system_compute_performance}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. The shape of the DB system. */
+@property(nonatomic, copy, nullable) NSString *shape;
+
 @end
 
 
@@ -8272,12 +8692,40 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_TestGoldengateConnectionA
 
 
 /**
+ *  The request for `CloudVmCluster.DisableCloudVmClusterIdentityConnector`.
+ */
+@interface GTLROracleDatabase_DisableCloudVmClusterIdentityConnectorRequest : GTLRObject
+@end
+
+
+/**
+ *  The request for `ExadbVmCluster.DisableExadbVmClusterIdentityConnector`.
+ */
+@interface GTLROracleDatabase_DisableExadbVmClusterIdentityConnectorRequest : GTLRObject
+@end
+
+
+/**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance: service Foo { rpc
  *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); }
  */
 @interface GTLROracleDatabase_Empty : GTLRObject
+@end
+
+
+/**
+ *  The request for `CloudVmCluster.EnableCloudVmClusterIdentityConnector`.
+ */
+@interface GTLROracleDatabase_EnableCloudVmClusterIdentityConnectorRequest : GTLRObject
+@end
+
+
+/**
+ *  The request for `ExadbVmCluster.EnableExadbVmClusterIdentityConnector`.
+ */
+@interface GTLROracleDatabase_EnableExadbVmClusterIdentityConnectorRequest : GTLRObject
 @end
 
 
@@ -8412,6 +8860,17 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_TestGoldengateConnectionA
  *  access the resources in the customer project.
  */
 @property(nonatomic, strong, nullable) GTLROracleDatabase_IdentityConnector *identityConnector;
+
+/**
+ *  Optional. Input only. Immutable. If set to true, disables the automatic
+ *  provisioning of the Workload Identity Connector during creation. If set to
+ *  false or omitted, the Workload Identity Connector will be automatically
+ *  provisioned by default. Note: Provisioning the Workload Identity Connector
+ *  is a prerequisite for enabling Google Cloud CMEK.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *identityConnectorDisabled;
 
 /** Optional. The labels or tags associated with the ExadbVmCluster. */
 @property(nonatomic, strong, nullable) GTLROracleDatabase_ExadbVmCluster_Labels *labels;
@@ -8696,9 +9155,9 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_TestGoldengateConnectionA
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  Required. The display name for the ExascaleDbStorageVault. The name does not
- *  have to be unique within your project. The name must be 1-255 characters
- *  long and can only contain alphanumeric characters.
+ *  Required. Immutable. The display name for the ExascaleDbStorageVault. The
+ *  name does not have to be unique within your project. The name must be 1-255
+ *  characters long and can only contain alphanumeric characters.
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
@@ -8709,16 +9168,16 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_TestGoldengateConnectionA
 @property(nonatomic, copy, nullable) NSString *entitlementId;
 
 /**
- *  Optional. The Exadata Infrastructure resource on which
+ *  Optional. Immutable. The Exadata Infrastructure resource on which
  *  ExascaleDbStorageVault resource is created, in the following format:
  *  projects/{project}/locations/{region}/cloudExadataInfrastuctures/{cloud_extradata_infrastructure}
  */
 @property(nonatomic, copy, nullable) NSString *exadataInfrastructure;
 
 /**
- *  Optional. The GCP Oracle zone where Oracle ExascaleDbStorageVault is hosted.
- *  Example: us-east4-b-r2. If not specified, the system will pick a zone based
- *  on availability.
+ *  Optional. Immutable. The GCP Oracle zone where Oracle ExascaleDbStorageVault
+ *  is hosted. Example: us-east4-b-r2. If not specified, the system will pick a
+ *  zone based on availability.
  */
 @property(nonatomic, copy, nullable) NSString *gcpOracleZone;
 
@@ -8733,7 +9192,7 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_TestGoldengateConnectionA
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** Required. The properties of the ExascaleDbStorageVault. */
+/** Required. Immutable. The properties of the ExascaleDbStorageVault. */
 @property(nonatomic, strong, nullable) GTLROracleDatabase_ExascaleDbStorageVaultProperties *properties;
 
 @end
@@ -8836,6 +9295,91 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_TestGoldengateConnectionA
 
 
 /**
+ *  Any additional metadata information regarding the execution of the SQL
+ */
+@interface GTLROracleDatabase_ExecuteSqlMetadata : GTLRObject
+
+/** The time duration taken to execute the sql statement. */
+@property(nonatomic, strong, nullable) GTLRDuration *executionDuration;
+
+/**
+ *  Message related to SQL execution. This field can be used to convey size
+ *  limit related message.
+ */
+@property(nonatomic, copy, nullable) NSString *message;
+
+/**
+ *  Set to true if SQL returned a result set larger than the acceptable response
+ *  size limits and the result was truncated.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *partialResult;
+
+/**
+ *  Output only. Status of SQL execution.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROracleDatabase_ExecuteSqlMetadata_Status_Error The database
+ *        returned an error while executing the SQL statement. `message`
+ *        contains the error text returned by Oracle. `sql_results` is empty.
+ *        The statement runs in autocommit mode; which changes are committed or
+ *        rolled back follows Oracle Database behavior. Authentication failures,
+ *        database availability errors, network errors, and timeouts are
+ *        returned as API errors (AIP-193), not as ERROR. (Value: "ERROR")
+ *    @arg @c kGTLROracleDatabase_ExecuteSqlMetadata_Status_Ok No error during
+ *        SQL execution i.e. All SQL statements ran to completion. The "message"
+ *        will be empty. (Value: "OK")
+ *    @arg @c kGTLROracleDatabase_ExecuteSqlMetadata_Status_Partial Same as OK,
+ *        except indicates that only partial results were returned. The
+ *        "message" field will contain details on why results were truncated.
+ *        `partial_result` is true if and only if `status` is `PARTIAL`. (Value:
+ *        "PARTIAL")
+ *    @arg @c kGTLROracleDatabase_ExecuteSqlMetadata_Status_StatusUnspecified
+ *        Default value. Not returned by the service. (Value:
+ *        "STATUS_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *status;
+
+@end
+
+
+/**
+ *  The request for `DatabaseConnection.ExecuteSql`.
+ */
+@interface GTLROracleDatabase_ExecuteSqlRequest : GTLRObject
+
+/**
+ *  Optional. Optional: Bind variables (parameters) to be used with the SQL
+ *  statement. Supports named bind variables (e.g., :dept_id, :status in Oracle
+ *  SQL) or positional parameters (:1, :2).
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLROracleDatabase_SqlParameter *> *params;
+
+/** Required. The SQL statement to execute. */
+@property(nonatomic, copy, nullable) NSString *sqlStatement;
+
+@end
+
+
+/**
+ *  Execute a SQL statement response.
+ */
+@interface GTLROracleDatabase_ExecuteSqlResponse : GTLRObject
+
+/**
+ *  Any additional metadata information regarding the execution of the sql
+ *  statement.
+ */
+@property(nonatomic, strong, nullable) GTLROracleDatabase_ExecuteSqlMetadata *metadata;
+
+/** SqlResult represents the results for the execution of sql statements. */
+@property(nonatomic, strong, nullable) NSArray<GTLROracleDatabase_SqlResult *> *sqlResults;
+
+@end
+
+
+/**
  *  The request for `OracleDatabase.FailoverAutonomousDatabase`.
  */
 @interface GTLROracleDatabase_FailoverAutonomousDatabaseRequest : GTLRObject
@@ -8845,6 +9389,119 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_TestGoldengateConnectionA
  *  standby, and must be omitted for in-region Data Guard.
  */
 @property(nonatomic, copy, nullable) NSString *peerAutonomousDatabase;
+
+@end
+
+
+/**
+ *  Details of the Flex Component resource.
+ */
+@interface GTLROracleDatabase_FlexComponent : GTLRObject
+
+/**
+ *  Identifier. Specifies the name of the Flex Component resource with the
+ *  format:
+ *  projects/{project}/locations/{region}/flexComponents/{flex_component}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. The properties of the Flex Component. */
+@property(nonatomic, strong, nullable) GTLROracleDatabase_FlexComponentProperties *properties;
+
+@end
+
+
+/**
+ *  The properties of the Flex Component.
+ */
+@interface GTLROracleDatabase_FlexComponentProperties : GTLRObject
+
+/**
+ *  Output only. The maximum number of CPU cores that can be enabled on the DB
+ *  system for this shape.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *availableCoreCount;
+
+/**
+ *  Output only. The maximum storage that can be enabled on the Storage Server
+ *  for this Flex Component.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *availableDbNodeStoragePerNodeGb;
+
+/**
+ *  Output only. The maximum local storage that can be enabled on the DB Server
+ *  for this Flex Component.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *availableLocalStorageGb;
+
+/**
+ *  Output only. The maximum memory size that can be enabled on the DB Server
+ *  for this Flex Component.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *availableMemoryGb;
+
+/**
+ *  Output only. The compute model of the DB Server for this Flex Component.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROracleDatabase_FlexComponentProperties_ComputeModel_ComputeModelEcpu
+ *        Abstract measure of compute resources. ECPUs are based on the number
+ *        of cores elastically allocated from a pool of compute and storage
+ *        servers. (Value: "COMPUTE_MODEL_ECPU")
+ *    @arg @c kGTLROracleDatabase_FlexComponentProperties_ComputeModel_ComputeModelOcpu
+ *        Physical measure of compute resources. OCPUs are based on the physical
+ *        core of a processor. (Value: "COMPUTE_MODEL_OCPU")
+ *    @arg @c kGTLROracleDatabase_FlexComponentProperties_ComputeModel_ComputeModelUnspecified
+ *        Unspecified compute model. (Value: "COMPUTE_MODEL_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *computeModel;
+
+/** Output only. The description summary for this Flex Component. */
+@property(nonatomic, copy, nullable) NSString *descriptionSummary;
+
+/**
+ *  Output only. The hardware type of the DB (Compute) or Storage (Cell) Server
+ *  for this Flex Component.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROracleDatabase_FlexComponentProperties_HardwareType_Cell CELL
+ *        (Value: "CELL")
+ *    @arg @c kGTLROracleDatabase_FlexComponentProperties_HardwareType_Compute
+ *        COMPUTE (Value: "COMPUTE")
+ *    @arg @c kGTLROracleDatabase_FlexComponentProperties_HardwareType_HardwareTypeUnspecified
+ *        Unspecified default (Value: "HARDWARE_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *hardwareType;
+
+/**
+ *  Output only. The minimum number of CPU cores that can be enabled on the DB
+ *  Server for this Flex Component.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minimumCoreCount;
+
+/** Output only. The name of the Flex Component used for the DB system. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The runtime minimum number of CPU cores that can be enabled for
+ *  this Flex Component.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *runtimeMinimumCoreCount;
+
+/** Output only. The name of the DB system shape for this Flex Component. */
+@property(nonatomic, copy, nullable) NSString *shape;
 
 @end
 
@@ -9197,9 +9854,9 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_TestGoldengateConnectionA
 @property(nonatomic, copy, nullable) NSString *entitlementId;
 
 /**
- *  Optional. The GCP Oracle zone where Oracle GoldengateConnection is hosted.
- *  Example: us-east4-b-r2. If not specified, the system will pick a zone based
- *  on availability.
+ *  Optional. Immutable. The GCP Oracle zone where Oracle GoldengateConnection
+ *  is hosted. Example: us-east4-b-r2. If not specified, the system will pick a
+ *  zone based on availability.
  */
 @property(nonatomic, copy, nullable) NSString *gcpOracleZone;
 
@@ -9220,7 +9877,7 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_TestGoldengateConnectionA
 @property(nonatomic, copy, nullable) NSString *ociUrl;
 
 /**
- *  Optional. The name of the OdbNetwork associated with the
+ *  Optional. Immutable. The name of the OdbNetwork associated with the
  *  GoldengateConnection. The format is
  *  projects/{project}/locations/{location}/odbNetworks/{odb_network}. It is
  *  optional but if specified, this should match the parent ODBNetwork of the
@@ -9229,13 +9886,13 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_TestGoldengateConnectionA
 @property(nonatomic, copy, nullable) NSString *odbNetwork;
 
 /**
- *  Optional. The name of the OdbSubnet associated with the GoldengateConnection
- *  for IP allocation. Format:
+ *  Optional. Immutable. The name of the OdbSubnet associated with the
+ *  GoldengateConnection for IP allocation. Format:
  *  projects/{project}/locations/{location}/odbNetworks/{odb_network}/odbSubnets/{odb_subnet}
  */
 @property(nonatomic, copy, nullable) NSString *odbSubnet;
 
-/** Required. The properties of the GoldengateConnection. */
+/** Required. Immutable. The properties of the GoldengateConnection. */
 @property(nonatomic, strong, nullable) GTLROracleDatabase_GoldengateConnectionProperties *properties;
 
 @end
@@ -9261,7 +9918,10 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_TestGoldengateConnectionA
 /** Output only. The time when the connection assignment was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
-/** Optional. The display name for the GoldengateConnectionAssignment. */
+/**
+ *  Optional. Immutable. The display name for the
+ *  GoldengateConnectionAssignment.
+ */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /** Output only. The OCID of the entitlement linked to this resource. */
@@ -9280,7 +9940,9 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_TestGoldengateConnectionA
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** Required. The properties of the GoldengateConnectionAssignment. */
+/**
+ *  Required. Immutable. The properties of the GoldengateConnectionAssignment.
+ */
 @property(nonatomic, strong, nullable) GTLROracleDatabase_GoldengateConnectionAssignmentProperties *properties;
 
 @end
@@ -9838,7 +10500,7 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_TestGoldengateConnectionA
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
-/** Required. The display name for the GoldengateDeployment. */
+/** Required. Immutable. The display name for the GoldengateDeployment. */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
@@ -9848,9 +10510,9 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_TestGoldengateConnectionA
 @property(nonatomic, copy, nullable) NSString *entitlementId;
 
 /**
- *  Optional. The GCP Oracle zone where Oracle GoldengateDeployment is hosted.
- *  Example: us-east4-b-r2. If not specified, the system will pick a zone based
- *  on availability.
+ *  Optional. Immutable. The GCP Oracle zone where Oracle GoldengateDeployment
+ *  is hosted. Example: us-east4-b-r2. If not specified, the system will pick a
+ *  zone based on availability.
  */
 @property(nonatomic, copy, nullable) NSString *gcpOracleZone;
 
@@ -9871,18 +10533,18 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_TestGoldengateConnectionA
 @property(nonatomic, copy, nullable) NSString *ociUrl;
 
 /**
- *  Optional. The name of the OdbNetwork associated with the
+ *  Optional. Immutable. The name of the OdbNetwork associated with the
  *  GoldengateDeployment.
  */
 @property(nonatomic, copy, nullable) NSString *odbNetwork;
 
 /**
- *  Required. The name of the OdbSubnet associated with the GoldengateDeployment
- *  for IP allocation.
+ *  Required. Immutable. The name of the OdbSubnet associated with the
+ *  GoldengateDeployment for IP allocation.
  */
 @property(nonatomic, copy, nullable) NSString *odbSubnet;
 
-/** Required. The properties of the GoldengateDeployment. */
+/** Required. Immutable. The properties of the GoldengateDeployment. */
 @property(nonatomic, strong, nullable) GTLROracleDatabase_GoldengateDeploymentProperties *properties;
 
 @end
@@ -11585,7 +12247,10 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_TestGoldengateConnectionA
  */
 @interface GTLROracleDatabase_GoldengateOggDeployment : GTLRObject
 
-/** Optional. The Goldengate deployment console password in plain text. */
+/**
+ *  Optional. Input only. The Goldengate deployment console password in plain
+ *  text.
+ */
 @property(nonatomic, copy, nullable) NSString *adminPassword;
 
 /**
@@ -12188,11 +12853,30 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_TestGoldengateConnectionA
 @property(nonatomic, copy, nullable) NSString *connectionState;
 
 /**
+ *  Output only. The unique partner identifier for the Identity Connector, used
+ *  to establish secure cross-cloud access between Google Cloud and OCI. This
+ *  corresponds directly to the ID of the OracleDbGcpIdentityConnector resource
+ *  in Oracle Cloud Infrastructure (OCI).
+ */
+@property(nonatomic, copy, nullable) NSString *identityConnectorId;
+
+/** Output only. Additional information about the current lifecycle state. */
+@property(nonatomic, copy, nullable) NSString *lifecycleStateDetails;
+
+/**
  *  Output only. A google managed service account on which customers can grant
  *  roles to access resources in the customer project. Example:
  *  `p176944527254-55-75119d87fd8f\@gcp-sa-oci.iam.gserviceaccount.com`
  */
 @property(nonatomic, copy, nullable) NSString *serviceAgentEmail;
+
+/**
+ *  Output only. The resource name of the Workload Identity Pool configured for
+ *  identity federation with OCI. This exact pool name can be used to configure
+ *  VPC Service Controls (VPC-SC) egress rules. Format:
+ *  `projects/{project}/locations/global/workloadIdentityPools/{workload_identity_pool}`
+ */
+@property(nonatomic, copy, nullable) NSString *workloadIdentityPool;
 
 @end
 
@@ -12425,6 +13109,36 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_TestGoldengateConnectionA
 
 
 /**
+ *  The response for `DatabaseConnection.List`.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "databaseConnections" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLROracleDatabase_ListDatabaseConnectionsResponse : GTLRCollectionObject
+
+/**
+ *  The list of DatabaseConnections.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLROracleDatabase_DatabaseConnection *> *databaseConnections;
+
+/** A token identifying a page of results the server should return. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  Unreachable locations when listing resources across all locations using
+ *  wildcard location '-'.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
  *  The response for `Database.List`.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -12492,6 +13206,36 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_TestGoldengateConnectionA
 
 /** A token identifying a page of results the server should return. */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Message for response to listing DbSystemComputePerformances
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "dbSystemComputePerformances" property. If returned as the result
+ *        of a query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLROracleDatabase_ListDbSystemComputePerformancesResponse : GTLRCollectionObject
+
+/**
+ *  The list of DbSystemComputePerformance.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLROracleDatabase_DbSystemComputePerformance *> *dbSystemComputePerformances;
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** Unordered list. Locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
 @end
 
@@ -12682,6 +13426,36 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_TestGoldengateConnectionA
  *  Unreachable locations when listing resources across all locations using
  *  wildcard location '-'.
  */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
+ *  Message for response to listing FlexComponents
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "flexComponents" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLROracleDatabase_ListFlexComponentsResponse : GTLRCollectionObject
+
+/**
+ *  The list of FlexComponent
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLROracleDatabase_FlexComponent *> *flexComponents;
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** Unordered list. Locations that could not be reached. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
 @end
@@ -12964,6 +13738,36 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_TestGoldengateConnectionA
 
 /** A token identifying a page of results the server should return. */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  The response for `OdbDnsZone.List`.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "odbDnsZones" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLROracleDatabase_ListOdbDnsZonesResponse : GTLRCollectionObject
+
+/** A token identifying a page of results the server should return. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The list of OdbDnsZones.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLROracleDatabase_OdbDnsZone *> *odbDnsZones;
+
+/**
+ *  Unreachable locations when listing resources across all locations using
+ *  wildcard location '-'.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
 @end
 
@@ -13300,6 +14104,60 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_TestGoldengateConnectionA
 
 
 /**
+ *  Represents OdbDnsZone resource.
+ */
+@interface GTLROracleDatabase_OdbDnsZone : GTLRObject
+
+/** Output only. The date and time that the OdbDnsZone was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Required. Immutable. The DNS suffix for the zone. Ex: abc.example.com. */
+@property(nonatomic, copy, nullable) NSString *domain;
+
+/** Optional. Labels or tags associated with the resource. */
+@property(nonatomic, strong, nullable) GTLROracleDatabase_OdbDnsZone_Labels *labels;
+
+/**
+ *  Identifier. The name of the OdbDnsZone resource in the following format:
+ *  projects/{project}/locations/{location}/odbNetworks/{odb_network}/odbDnsZones/{odb_dns_zone}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. State of the OdbDnsZone.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROracleDatabase_OdbDnsZone_State_Available Indicates that the
+ *        resource is in an available state. (Value: "AVAILABLE")
+ *    @arg @c kGTLROracleDatabase_OdbDnsZone_State_Failed Indicates that the
+ *        resource is in a failed state. (Value: "FAILED")
+ *    @arg @c kGTLROracleDatabase_OdbDnsZone_State_Inactive Indicates that the
+ *        resource is available but inactive. (Value: "INACTIVE")
+ *    @arg @c kGTLROracleDatabase_OdbDnsZone_State_Provisioning Indicates that
+ *        the resource is in a provisioning state. (Value: "PROVISIONING")
+ *    @arg @c kGTLROracleDatabase_OdbDnsZone_State_StateUnspecified Default
+ *        unspecified value. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLROracleDatabase_OdbDnsZone_State_Terminating Indicates that
+ *        the resource is in a terminating state. (Value: "TERMINATING")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
+ *  Optional. Labels or tags associated with the resource.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLROracleDatabase_OdbDnsZone_Labels : GTLRObject
+@end
+
+
+/**
  *  Represents OdbNetwork resource.
  */
 @interface GTLROracleDatabase_OdbNetwork : GTLRObject
@@ -13314,9 +14172,9 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_TestGoldengateConnectionA
 @property(nonatomic, copy, nullable) NSString *entitlementId;
 
 /**
- *  Optional. The GCP Oracle zone where OdbNetwork is hosted. Example:
- *  us-east4-b-r2. If not specified, the system will pick a zone based on
- *  availability.
+ *  Optional. Immutable. The GCP Oracle zone where OdbNetwork is hosted.
+ *  Example: us-east4-b-r2. If not specified, the system will pick a zone based
+ *  on availability.
  */
 @property(nonatomic, copy, nullable) NSString *gcpOracleZone;
 
@@ -13330,10 +14188,28 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_TestGoldengateConnectionA
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Required. The name of the VPC network in the following format:
+ *  Required. Immutable. The name of the VPC network in the following format:
  *  projects/{project}/global/networks/{network}
  */
 @property(nonatomic, copy, nullable) NSString *network;
+
+/**
+ *  Output only. Indicates whether the OdbNetwork is currently reconciling
+ *  changes.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *reconciling;
+
+/**
+ *  Optional. Configuration to enable the service (Oracledatabase\@Google Cloud)
+ *  to establish connectivity to the database. This should be specified if you
+ *  intend to associate this OdbNetwork with a DatabaseConnection resource to
+ *  `ExecuteSQL` on the database, or to create a ServiceIntegration with the
+ *  Database. Please don't specify it otherwise to avoid complicating the
+ *  network setup.
+ */
+@property(nonatomic, strong, nullable) GTLROracleDatabase_ServiceConnectivityConfig *serviceConnectivityConfig;
 
 /**
  *  Output only. State of the ODB Network.
@@ -13372,7 +14248,7 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_TestGoldengateConnectionA
  */
 @interface GTLROracleDatabase_OdbSubnet : GTLRObject
 
-/** Required. The CIDR range of the subnet. */
+/** Required. Immutable. The CIDR range of the subnet. */
 @property(nonatomic, copy, nullable) NSString *cidrRange;
 
 /** Output only. The date and time that the OdbNetwork was created. */
@@ -13388,7 +14264,7 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_TestGoldengateConnectionA
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Required. Purpose of the subnet.
+ *  Required. Immutable. Purpose of the subnet.
  *
  *  Likely values:
  *    @arg @c kGTLROracleDatabase_OdbSubnet_Purpose_BackupSubnet Subnet to be
@@ -13822,6 +14698,24 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_TestGoldengateConnectionA
 
 
 /**
+ *  Configuration for a Private Service Connect (PSC) interface used by
+ *  Oracledatabase\@Google Cloud to establish private connectivity to the
+ *  database.
+ */
+@interface GTLROracleDatabase_PscInterfaceConfig : GTLRObject
+
+/**
+ *  Optional. The resource name of the Network Attachment that
+ *  Oracledatabase\@Google Cloud will use to establish private connectivity to
+ *  the database via a Private Service Connect Interface (PSC-I). Format:
+ *  projects/{project}/regions/{region}/networkAttachments/{network_attachment}
+ */
+@property(nonatomic, copy, nullable) NSString *networkAttachment;
+
+@end
+
+
+/**
  *  Request message for RefreshAutonomousDatabase method.
  */
 @interface GTLROracleDatabase_RefreshAutonomousDatabaseRequest : GTLRObject
@@ -13897,6 +14791,17 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_TestGoldengateConnectionA
 
 
 /**
+ *  A single row from a sql result.
+ */
+@interface GTLROracleDatabase_Row : GTLRObject
+
+/** List of values in a row of sql result. */
+@property(nonatomic, strong, nullable) NSArray<GTLROracleDatabase_Value *> *values;
+
+@end
+
+
+/**
  *  Details of scheduled operation.
  *  https://docs.oracle.com/en-us/iaas/api/#/en/database/20160918/datatypes/ScheduledOperationDetails
  */
@@ -13930,6 +14835,22 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_TestGoldengateConnectionA
 
 /** Output only. Auto stop time. */
 @property(nonatomic, strong, nullable) GTLROracleDatabase_TimeOfDay *stopTime;
+
+@end
+
+
+/**
+ *  Configuration to enable the service (Oracledatabase\@Google Cloud) to
+ *  establish connectivity to the database. This should be specified if you
+ *  intend to associate this OdbNetwork with a DatabaseConnection resource to
+ *  `ExecuteSQL` on the database, or to create a ServiceIntegration with the
+ *  Database. Please don't specify it otherwise to avoid complicating the
+ *  network setup.
+ */
+@interface GTLROracleDatabase_ServiceConnectivityConfig : GTLRObject
+
+/** Optional. Configuration for Private Service Connect (PSC) interface. */
+@property(nonatomic, strong, nullable) GTLROracleDatabase_PscInterfaceConfig *pscInterfaceConfig;
 
 @end
 
@@ -14052,6 +14973,50 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_TestGoldengateConnectionA
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *useLatestAvailableBackup;
+
+@end
+
+
+/**
+ *  Represents a bind variable (parameter) for SQL execution.
+ */
+@interface GTLROracleDatabase_SqlParameter : GTLRObject
+
+/**
+ *  Optional. The name of the SQL bind parameter (excluding the leading colon,
+ *  e.g. "id"). If omitted, parameters bind positionally based on their order in
+ *  the list.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Optional: Datatype hint for the parameter (e.g., "VARCHAR2",
+ *  "NUMBER", "DATE", "TIMESTAMP"). If omitted, the Oracle driver will infer the
+ *  type from the value string.
+ */
+@property(nonatomic, copy, nullable) NSString *typeName;
+
+/**
+ *  Required. Use protobuf.Value so clients can pass ints, bools, and strings
+ *  natively.
+ *
+ *  Can be any valid JSON type.
+ */
+@property(nonatomic, strong, nullable) id value;
+
+@end
+
+
+/**
+ *  SqlResult represents the result for the execution of a sql statement.
+ */
+@interface GTLROracleDatabase_SqlResult : GTLRObject
+
+/** List of columns included in the result, including data type. */
+@property(nonatomic, strong, nullable) NSArray<GTLROracleDatabase_Column *> *columns;
+
+/** Rows returned by the SQL statement. */
+@property(nonatomic, strong, nullable) NSArray<GTLROracleDatabase_Row *> *rows;
 
 @end
 
@@ -14191,6 +15156,31 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_TestGoldengateConnectionA
 
 
 /**
+ *  Request message for `DatabaseConnection.TestDatabaseConnection`.
+ */
+@interface GTLROracleDatabase_TestDatabaseConnectionRequest : GTLRObject
+@end
+
+
+/**
+ *  Response message for `DatabaseConnection.TestDatabaseConnection`.
+ */
+@interface GTLROracleDatabase_TestDatabaseConnectionResponse : GTLRObject
+
+/** Error message if the test connection failed. */
+@property(nonatomic, copy, nullable) NSString *errorMessage;
+
+/**
+ *  Whether the test connection was successful.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *success;
+
+@end
+
+
+/**
  *  Request message for TestGoldengateConnectionAssignment.
  */
 @interface GTLROracleDatabase_TestGoldengateConnectionAssignmentRequest : GTLRObject
@@ -14300,6 +15290,27 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_TestGoldengateConnectionA
 
 /** Optional. IANA Time Zone Database version number. For example "2019a". */
 @property(nonatomic, copy, nullable) NSString *version;
+
+@end
+
+
+/**
+ *  A single value in a row from a sql result.
+ */
+@interface GTLROracleDatabase_Value : GTLRObject
+
+/**
+ *  Set to true if the cell value is NULL.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *nullValue;
+
+/**
+ *  The cell value represented in string format. Timestamps should be converted
+ *  using RFC3339Nano format.
+ */
+@property(nonatomic, copy, nullable) NSString *value;
 
 @end
 

@@ -283,8 +283,15 @@ NSString * const kGTLRNetworkSecurity_MirroringLocation_State_StateUnspecified =
 
 // GTLRNetworkSecurity_MTLSPolicy.clientValidationMode
 NSString * const kGTLRNetworkSecurity_MTLSPolicy_ClientValidationMode_AllowInvalidOrMissingClientCert = @"ALLOW_INVALID_OR_MISSING_CLIENT_CERT";
+NSString * const kGTLRNetworkSecurity_MTLSPolicy_ClientValidationMode_AllowValidationRelaxations = @"ALLOW_VALIDATION_RELAXATIONS";
 NSString * const kGTLRNetworkSecurity_MTLSPolicy_ClientValidationMode_ClientValidationModeUnspecified = @"CLIENT_VALIDATION_MODE_UNSPECIFIED";
 NSString * const kGTLRNetworkSecurity_MTLSPolicy_ClientValidationMode_RejectInvalid = @"REJECT_INVALID";
+
+// GTLRNetworkSecurity_MTLSPolicy.clientValidationRelaxations
+NSString * const kGTLRNetworkSecurity_MTLSPolicy_ClientValidationRelaxations_AllowExpiredLeafCertificate = @"ALLOW_EXPIRED_LEAF_CERTIFICATE";
+NSString * const kGTLRNetworkSecurity_MTLSPolicy_ClientValidationRelaxations_AllowMissingEku = @"ALLOW_MISSING_EKU";
+NSString * const kGTLRNetworkSecurity_MTLSPolicy_ClientValidationRelaxations_AllowSha1Hashing = @"ALLOW_SHA1_HASHING";
+NSString * const kGTLRNetworkSecurity_MTLSPolicy_ClientValidationRelaxations_ClientValidationRelaxationUnspecified = @"CLIENT_VALIDATION_RELAXATION_UNSPECIFIED";
 
 // GTLRNetworkSecurity_SACAttachment.state
 NSString * const kGTLRNetworkSecurity_SACAttachment_State_PartnerAttached = @"PARTNER_ATTACHED";
@@ -2521,11 +2528,13 @@ NSString * const kGTLRNetworkSecurity_WildfireVerdictChangeRequest_State_Verdict
 //
 
 @implementation GTLRNetworkSecurity_MTLSPolicy
-@dynamic clientValidationCa, clientValidationMode, clientValidationTrustConfig;
+@dynamic clientValidationCa, clientValidationMode, clientValidationRelaxations,
+         clientValidationTrustConfig;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"clientValidationCa" : [GTLRNetworkSecurity_ValidationCA class]
+    @"clientValidationCa" : [GTLRNetworkSecurity_ValidationCA class],
+    @"clientValidationRelaxations" : [NSString class]
   };
   return map;
 }

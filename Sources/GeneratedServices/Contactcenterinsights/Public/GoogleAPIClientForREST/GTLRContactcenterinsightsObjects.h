@@ -204,9 +204,6 @@
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ArticleSuggestionData_Metadata;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Assessment;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AssessmentRule;
-@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AssistantChunk;
-@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AssistantMessage;
-@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AssistantSession;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AuthorizedView;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AuthorizedViewSet;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AutoLabelingRule;
@@ -1169,6 +1166,18 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  */
 FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataRequest_ExportSchemaVersion_ExportV17;
 /**
+ *  Export schema version 18.
+ *
+ *  Value: "EXPORT_V18"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataRequest_ExportSchemaVersion_ExportV18;
+/**
+ *  Export schema version 19.
+ *
+ *  Value: "EXPORT_V19"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataRequest_ExportSchemaVersion_ExportV19;
+/**
  *  Export schema version 2.
  *
  *  Value: "EXPORT_V2"
@@ -1590,50 +1599,6 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  *  Value: "STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Assessment_State_StateUnspecified;
-
-// ----------------------------------------------------------------------------
-// GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AssistantMessage.role
-
-/**
- *  The model role.
- *
- *  Value: "MODEL"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AssistantMessage_Role_Model;
-/**
- *  Default value for unspecified.
- *
- *  Value: "ROLE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AssistantMessage_Role_RoleUnspecified;
-/**
- *  The user role.
- *
- *  Value: "USER"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AssistantMessage_Role_User;
-
-// ----------------------------------------------------------------------------
-// GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AssistantSession.state
-
-/**
- *  Waiting for user input.
- *
- *  Value: "IDLE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AssistantSession_State_Idle;
-/**
- *  Agent is working.
- *
- *  Value: "PROCESSING"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AssistantSession_State_Processing;
-/**
- *  Unspecified state.
- *
- *  Value: "STATE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AssistantSession_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AutoLabelingRule.labelKeyType
@@ -2362,6 +2327,18 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  *  Value: "EXPORT_V17"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportInsightsDataRequest_ExportSchemaVersion_ExportV17;
+/**
+ *  Export schema version 18.
+ *
+ *  Value: "EXPORT_V18"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportInsightsDataRequest_ExportSchemaVersion_ExportV18;
+/**
+ *  Export schema version 19.
+ *
+ *  Value: "EXPORT_V19"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportInsightsDataRequest_ExportSchemaVersion_ExportV19;
 /**
  *  Export schema version 2.
  *
@@ -3272,6 +3249,18 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  */
 FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainExportInsightsDataRequest_ExportSchemaVersion_ExportV17;
 /**
+ *  Export schema version 18.
+ *
+ *  Value: "EXPORT_V18"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainExportInsightsDataRequest_ExportSchemaVersion_ExportV18;
+/**
+ *  Export schema version 19.
+ *
+ *  Value: "EXPORT_V19"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainExportInsightsDataRequest_ExportSchemaVersion_ExportV19;
+/**
  *  Export schema version 2.
  *
  *  Value: "EXPORT_V2"
@@ -3759,6 +3748,13 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  *  Value: "CONVERSATION_OUTCOME_ESCALATION_INITIATOR_ROLE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestionPredefinedQuestionConfig_Type_ConversationOutcomeEscalationInitiatorRole;
+/**
+ *  Classifies the primary reason for escalating the conversation to a human
+ *  agent.
+ *
+ *  Value: "CONVERSATION_OUTCOME_ESCALATION_REASON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestionPredefinedQuestionConfig_Type_ConversationOutcomeEscalationReason;
 /**
  *  The type of the predefined question is unspecified.
  *
@@ -4276,6 +4272,14 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLo
 @property(nonatomic, copy, nullable) NSString *parentToolCallId;
 
 /**
+ *  Output only. The app this call targets, derived by the assistant from the
+ *  call's resource arguments: an app resource name, `PROJECT` for
+ *  location-scoped tools, or empty for session-local tools. Set only in
+ *  project-scoped assistant sessions.
+ */
+@property(nonatomic, copy, nullable) NSString *targetApp;
+
+/**
  *  Optional. The name of the tool to execute. Format:
  *  `projects/{project}/locations/{location}/apps/{app}/tools/{tool}`
  */
@@ -4336,6 +4340,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLo
  *  treated as tool execution result.
  */
 @property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudCesV1mainToolResponse_Response *response;
+
+/**
+ *  Output only. The app the executed tool targeted; mirrors
+ *  ToolCall.target_app.
+ */
+@property(nonatomic, copy, nullable) NSString *targetApp;
 
 /**
  *  Optional. The name of the tool to execute. Format:
@@ -5572,6 +5582,18 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLo
 
 /** The agent's location. */
 @property(nonatomic, copy, nullable) NSString *location;
+
+/**
+ *  The study arm ID associated with the conversation. Only applicable to
+ *  automated agents.
+ */
+@property(nonatomic, copy, nullable) NSString *studyArmId;
+
+/**
+ *  The study ID associated with the conversation. Only applicable to automated
+ *  agents.
+ */
+@property(nonatomic, copy, nullable) NSString *studyId;
 
 /**
  *  A user-specified string representing the agent's team. Deprecated in favor
@@ -6899,6 +6921,10 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLo
  *        Export schema version 16. (Value: "EXPORT_V16")
  *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataRequest_ExportSchemaVersion_ExportV17
  *        Export schema version 17. (Value: "EXPORT_V17")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataRequest_ExportSchemaVersion_ExportV18
+ *        Export schema version 18. (Value: "EXPORT_V18")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataRequest_ExportSchemaVersion_ExportV19
+ *        Export schema version 19. (Value: "EXPORT_V19")
  *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataRequest_ExportSchemaVersion_ExportV2
  *        Export schema version 2. (Value: "EXPORT_V2")
  *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataRequest_ExportSchemaVersion_ExportV3
@@ -7340,6 +7366,14 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLo
  *  The full list of generative responses. Each response is ordered by time.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1GenerativeInsightsResponseGenerativeResponse *> *generativeResponses;
+
+/**
+ *  The time zone name from the [IANA Time Zone
+ *  Database](https://www.iana.org/time-zones) that the query actually used to
+ *  group results. Equals the requested `time_zone` when the chart SQL supports
+ *  time zones, otherwise `"UTC"`.
+ */
+@property(nonatomic, copy, nullable) NSString *timeZone;
 
 /** The transcript of the generative insights conversation. */
 @property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1GenerativeInsightConversationTranscript *transcript;
@@ -10333,86 +10367,6 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLo
 
 
 /**
- *  A chunk of data in an assistant message.
- */
-@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AssistantChunk : GTLRObject
-
-/** Optional. Text data. */
-@property(nonatomic, copy, nullable) NSString *text;
-
-@end
-
-
-/**
- *  A message in an assistant session.
- */
-@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AssistantMessage : GTLRObject
-
-/** Required. Content of the message. */
-@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AssistantChunk *> *chunks;
-
-/** Required. Timestamp when the message was sent or received. */
-@property(nonatomic, strong, nullable) GTLRDateTime *eventTime;
-
-/**
- *  Required. Role within the conversation.
- *
- *  Likely values:
- *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AssistantMessage_Role_Model
- *        The model role. (Value: "MODEL")
- *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AssistantMessage_Role_RoleUnspecified
- *        Default value for unspecified. (Value: "ROLE_UNSPECIFIED")
- *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AssistantMessage_Role_User
- *        The user role. (Value: "USER")
- */
-@property(nonatomic, copy, nullable) NSString *role;
-
-@end
-
-
-/**
- *  Represents a conversation session with the Assistant Agent.
- */
-@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AssistantSession : GTLRObject
-
-/** Output only. The time the session was created. */
-@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
-
-/** Optional. The display name of the session. */
-@property(nonatomic, copy, nullable) NSString *displayName;
-
-/** Optional. History of messages in the session. */
-@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AssistantMessage *> *messages;
-
-/**
- *  Identifier. Resource name of the session. Format:
- *  projects/{project}/locations/{location}/assistantSessions/{assistant_session}
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/** Output only. The user who initiated the session. */
-@property(nonatomic, copy, nullable) NSString *requester;
-
-/**
- *  Output only. The status of the session.
- *
- *  Likely values:
- *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AssistantSession_State_Idle
- *        Waiting for user input. (Value: "IDLE")
- *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AssistantSession_State_Processing
- *        Agent is working. (Value: "PROCESSING")
- *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AssistantSession_State_StateUnspecified
- *        Unspecified state. (Value: "STATE_UNSPECIFIED")
- */
-@property(nonatomic, copy, nullable) NSString *state;
-
-/** Output only. The time the session was last updated. */
-@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
-
-@end
-
-
-/**
  *  An AuthorizedView represents a view of accessible Insights resources (for
  *  example, Conversation and Scorecard). Who have read access to the
  *  AuthorizedView resource will have access to these Insight resources as well.
@@ -12004,6 +11958,18 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *location;
 
 /**
+ *  The study arm ID associated with the conversation. Only applicable to
+ *  automated agents.
+ */
+@property(nonatomic, copy, nullable) NSString *studyArmId;
+
+/**
+ *  The study ID associated with the conversation. Only applicable to automated
+ *  agents.
+ */
+@property(nonatomic, copy, nullable) NSString *studyId;
+
+/**
  *  A user-specified string representing the agent's team. Deprecated in favor
  *  of the `teams` field.
  */
@@ -13524,6 +13490,10 @@ GTLR_DEPRECATED
  *        Export schema version 16. (Value: "EXPORT_V16")
  *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportInsightsDataRequest_ExportSchemaVersion_ExportV17
  *        Export schema version 17. (Value: "EXPORT_V17")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportInsightsDataRequest_ExportSchemaVersion_ExportV18
+ *        Export schema version 18. (Value: "EXPORT_V18")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportInsightsDataRequest_ExportSchemaVersion_ExportV19
+ *        Export schema version 19. (Value: "EXPORT_V19")
  *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportInsightsDataRequest_ExportSchemaVersion_ExportV2
  *        Export schema version 2. (Value: "EXPORT_V2")
  *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportInsightsDataRequest_ExportSchemaVersion_ExportV3
@@ -14220,6 +14190,15 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *sqlQuery;
 
 /**
+ *  Optional. The time zone name from the [IANA Time Zone
+ *  Database](https://www.iana.org/time-zones) (for example,
+ *  `"America/Los_Angeles"`) used to group daily time-series results. If empty,
+ *  or if the name is well-formed but not known to the server, `UTC` is used.
+ *  Malformed values are rejected with `INVALID_ARGUMENT`.
+ */
+@property(nonatomic, copy, nullable) NSString *timeZone;
+
+/**
  *  Optional. The user provided chart spec for the chart. This will be used to
  *  override the visual spec generated by the LLM.
  */
@@ -14250,6 +14229,14 @@ GTLR_DEPRECATED
  *  The full list of generative responses. Each response is ordered by time.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerativeInsightsResponseGenerativeResponse *> *generativeResponses;
+
+/**
+ *  The time zone name from the [IANA Time Zone
+ *  Database](https://www.iana.org/time-zones) that the query actually used to
+ *  group results. Equals the requested `time_zone` when the chart SQL supports
+ *  time zones, otherwise `"UTC"`.
+ */
+@property(nonatomic, copy, nullable) NSString *timeZone;
 
 /** The transcript of the generative insights conversation. */
 @property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerativeInsightConversationTranscript *transcript;
@@ -15136,30 +15123,6 @@ GTLR_DEPRECATED
 
 
 /**
- *  Response to list assistant sessions.
- *
- *  @note This class supports NSFastEnumeration and indexed subscripting over
- *        its "assistantSessions" property. If returned as the result of a
- *        query, it should support automatic pagination (when @c
- *        shouldFetchNextPages is enabled).
- */
-@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ListAssistantSessionsResponse : GTLRCollectionObject
-
-/**
- *  The assistant sessions.
- *
- *  @note This property is used to support NSFastEnumeration and indexed
- *        subscripting on this class.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AssistantSession *> *assistantSessions;
-
-/** A token, which can be sent as `page_token` to retrieve the next page. */
-@property(nonatomic, copy, nullable) NSString *nextPageToken;
-
-@end
-
-
-/**
  *  The response from a ListAuthorizedViewSet request.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -15234,34 +15197,6 @@ GTLR_DEPRECATED
 /**
  *  A token, which can be sent as `page_token` to retrieve the next page. If
  *  this field is omitted, there are no subsequent pages.
- */
-@property(nonatomic, copy, nullable) NSString *nextPageToken;
-
-@end
-
-
-/**
- *  The response of listing charts.
- *
- *  @note This class supports NSFastEnumeration and indexed subscripting over
- *        its "charts" property. If returned as the result of a query, it should
- *        support automatic pagination (when @c shouldFetchNextPages is
- *        enabled).
- */
-@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ListChartsResponse : GTLRCollectionObject
-
-/**
- *  The charts under the parent.
- *
- *  @note This property is used to support NSFastEnumeration and indexed
- *        subscripting on this class.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Chart *> *charts;
-
-/**
- *  The value returned by the last `ListChartsResponse`. This value indicates
- *  that this is a continuation of a prior `ListCharts` call and that the system
- *  should return the next page of data.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -16987,6 +16922,18 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *location;
 
 /**
+ *  The study arm ID associated with the conversation. Only applicable to
+ *  automated agents.
+ */
+@property(nonatomic, copy, nullable) NSString *studyArmId;
+
+/**
+ *  The study ID associated with the conversation. Only applicable to automated
+ *  agents.
+ */
+@property(nonatomic, copy, nullable) NSString *studyId;
+
+/**
  *  A user-specified string representing the agent's team. Deprecated in favor
  *  of the `teams` field.
  */
@@ -18312,6 +18259,10 @@ GTLR_DEPRECATED
  *        Export schema version 16. (Value: "EXPORT_V16")
  *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainExportInsightsDataRequest_ExportSchemaVersion_ExportV17
  *        Export schema version 17. (Value: "EXPORT_V17")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainExportInsightsDataRequest_ExportSchemaVersion_ExportV18
+ *        Export schema version 18. (Value: "EXPORT_V18")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainExportInsightsDataRequest_ExportSchemaVersion_ExportV19
+ *        Export schema version 19. (Value: "EXPORT_V19")
  *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainExportInsightsDataRequest_ExportSchemaVersion_ExportV2
  *        Export schema version 2. (Value: "EXPORT_V2")
  *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainExportInsightsDataRequest_ExportSchemaVersion_ExportV3
@@ -18753,6 +18704,14 @@ GTLR_DEPRECATED
  *  The full list of generative responses. Each response is ordered by time.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainGenerativeInsightsResponseGenerativeResponse *> *generativeResponses;
+
+/**
+ *  The time zone name from the [IANA Time Zone
+ *  Database](https://www.iana.org/time-zones) that the query actually used to
+ *  group results. Equals the requested `time_zone` when the chart SQL supports
+ *  time zones, otherwise `"UTC"`.
+ */
+@property(nonatomic, copy, nullable) NSString *timeZone;
 
 /** The transcript of the generative insights conversation. */
 @property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainGenerativeInsightConversationTranscript *transcript;
@@ -21758,6 +21717,9 @@ GTLR_DEPRECATED
  *        A prebuilt classifier classfying the initiator of the conversation
  *        escalation. For example, if it was initiated by the customer or the
  *        agent. (Value: "CONVERSATION_OUTCOME_ESCALATION_INITIATOR_ROLE")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestionPredefinedQuestionConfig_Type_ConversationOutcomeEscalationReason
+ *        Classifies the primary reason for escalating the conversation to a
+ *        human agent. (Value: "CONVERSATION_OUTCOME_ESCALATION_REASON")
  *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestionPredefinedQuestionConfig_Type_PredefinedQuestionTypeUnspecified
  *        The type of the predefined question is unspecified. (Value:
  *        "PREDEFINED_QUESTION_TYPE_UNSPECIFIED")
@@ -23615,37 +23577,6 @@ GTLR_DEPRECATED
  *  `projects/{project_id}/locations/{location}/recognizer/{recognizer}`
  */
 @property(nonatomic, copy, nullable) NSString *speechRecognizer;
-
-@end
-
-
-/**
- *  Request to stream chat.
- */
-@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1StreamChatRequest : GTLRObject
-
-/** Required. The message to send to the assistant. */
-@property(nonatomic, copy, nullable) NSString *message;
-
-@end
-
-
-/**
- *  Response from streaming chat.
- */
-@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1StreamChatResponse : GTLRObject
-
-/** A chunk of the assistant response message. */
-@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AssistantChunk *chunk;
-
-/** The unique ID of the event. */
-@property(nonatomic, copy, nullable) NSString *eventId;
-
-/** The time when the event occurred. */
-@property(nonatomic, strong, nullable) GTLRDateTime *eventTime;
-
-/** A status message. */
-@property(nonatomic, copy, nullable) NSString *statusMessage;
 
 @end
 

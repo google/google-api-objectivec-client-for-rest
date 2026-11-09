@@ -27,6 +27,7 @@
 @class GTLRCloudAlloyDBAdmin_AuthorizedNetwork;
 @class GTLRCloudAlloyDBAdmin_AutomatedBackupPolicy;
 @class GTLRCloudAlloyDBAdmin_AutomatedBackupPolicy_Labels;
+@class GTLRCloudAlloyDBAdmin_AutoScalingConfig;
 @class GTLRCloudAlloyDBAdmin_Backup;
 @class GTLRCloudAlloyDBAdmin_Backup_Annotations;
 @class GTLRCloudAlloyDBAdmin_Backup_Labels;
@@ -45,9 +46,11 @@
 @class GTLRCloudAlloyDBAdmin_ClusterUpgradeDetails;
 @class GTLRCloudAlloyDBAdmin_ConnectionPoolConfig;
 @class GTLRCloudAlloyDBAdmin_ConnectionPoolConfig_Flags;
+@class GTLRCloudAlloyDBAdmin_ConnectionsCount;
 @class GTLRCloudAlloyDBAdmin_ContinuousBackupConfig;
 @class GTLRCloudAlloyDBAdmin_ContinuousBackupInfo;
 @class GTLRCloudAlloyDBAdmin_ContinuousBackupSource;
+@class GTLRCloudAlloyDBAdmin_CpuUtilization;
 @class GTLRCloudAlloyDBAdmin_CsvExportOptions;
 @class GTLRCloudAlloyDBAdmin_CsvImportOptions;
 @class GTLRCloudAlloyDBAdmin_DataplexConfig;
@@ -80,6 +83,7 @@
 @class GTLRCloudAlloyDBAdmin_Operation;
 @class GTLRCloudAlloyDBAdmin_Operation_Metadata;
 @class GTLRCloudAlloyDBAdmin_Operation_Response;
+@class GTLRCloudAlloyDBAdmin_Policy;
 @class GTLRCloudAlloyDBAdmin_PrimaryConfig;
 @class GTLRCloudAlloyDBAdmin_PscAutoConnectionConfig;
 @class GTLRCloudAlloyDBAdmin_PscConfig;
@@ -92,6 +96,7 @@
 @class GTLRCloudAlloyDBAdmin_QueryInsightsInstanceInfo;
 @class GTLRCloudAlloyDBAdmin_ReadPoolConfig;
 @class GTLRCloudAlloyDBAdmin_ReadPoolInstancesUpgradeStageStatus;
+@class GTLRCloudAlloyDBAdmin_Schedule;
 @class GTLRCloudAlloyDBAdmin_SecondaryConfig;
 @class GTLRCloudAlloyDBAdmin_SqlExportOptions;
 @class GTLRCloudAlloyDBAdmin_SqlImportOptions;
@@ -4752,6 +4757,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 
 
 /**
+ *  Configuration for autoscaling.
+ */
+@interface GTLRCloudAlloyDBAdmin_AutoScalingConfig : GTLRObject
+
+/** Policy for the MIG autoscaler. */
+@property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_Policy *policy;
+
+/**
+ *  Optional list of schedules for the MIG autoscaler. If not set, no schedules
+ *  are created.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudAlloyDBAdmin_Schedule *> *schedules;
+
+@end
+
+
+/**
  *  Message describing Backup object
  */
 @interface GTLRCloudAlloyDBAdmin_Backup : GTLRObject
@@ -5716,6 +5738,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 
 
 /**
+ *  Connections count policy for the autoscaler.
+ */
+@interface GTLRCloudAlloyDBAdmin_ConnectionsCount : GTLRObject
+
+/**
+ *  Optional. The target number of connections for the autoscaler to scale the
+ *  instance to.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *targetCount;
+
+@end
+
+
+/**
  *  ContinuousBackupConfig describes the continuous backups recovery
  *  configurations of a cluster.
  */
@@ -5799,6 +5837,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 
 /** Required. The point in time to restore to. */
 @property(nonatomic, strong, nullable) GTLRDateTime *pointInTime;
+
+@end
+
+
+/**
+ *  CPU utilization policy for the autoscaler.
+ */
+@interface GTLRCloudAlloyDBAdmin_CpuUtilization : GTLRObject
+
+/**
+ *  Target CPU utilization as a float between 0 and 1.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *utilizationTarget;
 
 @end
 
@@ -6569,9 +6622,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 @property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_PscInstanceInfo *pscInstanceInfo;
 
 /**
- *  Output only. The public IP addresses for the Instance. This is available
- *  ONLY when enable_public_ip is set. This is the connection endpoint for an
- *  end-user application.
+ *  Output only. The public IP address for the Instance. This is available ONLY
+ *  when `enable_public_ip` is set or when you have upgraded from an Express
+ *  Instance that has public DNS enabled. This field is not available for
+ *  Express Instances. This is the connection endpoint for an end-user
+ *  application.
  */
 @property(nonatomic, copy, nullable) NSString *publicIpAddress;
 
@@ -7450,6 +7505,47 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 
 
 /**
+ *  Policy for the autoscaler.
+ */
+@interface GTLRCloudAlloyDBAdmin_Policy : GTLRObject
+
+/**
+ *  Optional. Connections count policy for the autoscaler. If not set, the
+ *  autoscaler will not use connection count for scaling.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_ConnectionsCount *connectionsCount;
+
+/**
+ *  The period of time in seconds after a new node is created before the
+ *  autoscaler will incorporate its resource usage (e.g. CPU utilization) into
+ *  the autoscaling recommendation algorithm.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *coolDownPeriodSec;
+
+/** CPU utilization policy for the autoscaler. */
+@property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_CpuUtilization *cpuUtilization;
+
+/**
+ *  If true, autoscaling is enabled for the instance. If not set, the default
+ *  value is false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
+/**
+ *  Maximum number of nodes for the autoscaler.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxNodeCount;
+
+@end
+
+
+/**
  *  Configuration for the primary cluster. It has the list of clusters that are
  *  replicating from this cluster. This should be set if and only if the cluster
  *  is of type PRIMARY.
@@ -7858,6 +7954,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 @interface GTLRCloudAlloyDBAdmin_ReadPoolConfig : GTLRObject
 
 /**
+ *  Optional. Autoscaling configuration for the read pool instance. If not set,
+ *  the read pool instance will not be autoscaled.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_AutoScalingConfig *autoScalingConfig;
+
+/**
  *  Read capacity, i.e. number of nodes in a read pool instance.
  *
  *  Uses NSNumber of intValue.
@@ -7981,6 +8083,58 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 
 /** Required. ID of the requesting object. */
 @property(nonatomic, copy, nullable) NSString *clusterId;
+
+@end
+
+
+/**
+ *  A schedule for the autoscaler.
+ */
+@interface GTLRCloudAlloyDBAdmin_Schedule : GTLRObject
+
+/**
+ *  Cron expression for the triggering the schedule. See
+ *  https://cloud.google.com/compute/docs/autoscaler/scaling-schedules#cron_expressions
+ *  for the syntax.
+ */
+@property(nonatomic, copy, nullable) NSString *cronExpression;
+
+/**
+ *  Description of the schedule.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  If true, the schedule is disabled.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *disabled;
+
+/**
+ *  Duration of the schedule.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *durationSec;
+
+/**
+ *  Minimum number of nodes in while the schedule is active.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minNodeCount;
+
+/** Name of the schedule. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The location-based IANA time zone for interpreting the schedule's start
+ *  time. If no time zone is provided, UTC is used by default.
+ */
+@property(nonatomic, copy, nullable) NSString *timeZone;
 
 @end
 

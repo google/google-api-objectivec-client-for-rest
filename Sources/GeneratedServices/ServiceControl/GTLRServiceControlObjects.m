@@ -21,6 +21,11 @@ NSString * const kGTLRServiceControl_AuthorizationInfo_PermissionType_DataRead =
 NSString * const kGTLRServiceControl_AuthorizationInfo_PermissionType_DataWrite = @"DATA_WRITE";
 NSString * const kGTLRServiceControl_AuthorizationInfo_PermissionType_PermissionTypeUnspecified = @"PERMISSION_TYPE_UNSPECIFIED";
 
+// GTLRServiceControl_CallerAgent.authority
+NSString * const kGTLRServiceControl_CallerAgent_Authority_AuthorityTypeUnspecified = @"AUTHORITY_TYPE_UNSPECIFIED";
+NSString * const kGTLRServiceControl_CallerAgent_Authority_OnBehalfOf = @"ON_BEHALF_OF";
+NSString * const kGTLRServiceControl_CallerAgent_Authority_Self = @"SELF";
+
 // GTLRServiceControl_V2LogEntry.severity
 NSString * const kGTLRServiceControl_V2LogEntry_Severity_Alert = @"ALERT";
 NSString * const kGTLRServiceControl_V2LogEntry_Severity_Critical = @"CRITICAL";
@@ -103,10 +108,11 @@ NSString * const kGTLRServiceControl_ViolationInfo_PolicyType_PolicyTypeUnspecif
 //
 
 @implementation GTLRServiceControl_AuditLog
-@dynamic apiVersionIdentifier, authenticationInfo, authorizationInfo, metadata,
-         methodName, numResponseItems, policyViolationInfo, request,
-         requestMetadata, resourceLocation, resourceName, resourceOriginalState,
-         response, serviceData, serviceName, status;
+@dynamic apiVersionIdentifier, authenticationInfo, authorizationInfo,
+         callerAgent, metadata, methodName, numResponseItems,
+         policyViolationInfo, request, requestMetadata, resourceLocation,
+         resourceName, resourceOriginalState, response, serviceData,
+         serviceName, status;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -288,6 +294,21 @@ NSString * const kGTLRServiceControl_ViolationInfo_PolicyType_PolicyTypeUnspecif
 @implementation GTLRServiceControl_AuthorizationInfo
 @dynamic granted, permission, permissionType, privilegedAccessManagerMetadata,
          resource, resourceAttributes;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceControl_CallerAgent
+//
+
+@implementation GTLRServiceControl_CallerAgent
+@dynamic authority, identifier;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
 @end
 
 

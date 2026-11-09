@@ -131,6 +131,11 @@ NSString * const kGTLRDataproc_DiagnoseClusterRequest_TarballAccess_GoogleCloudS
 NSString * const kGTLRDataproc_DiagnoseClusterRequest_TarballAccess_GoogleDataprocDiagnose = @"GOOGLE_DATAPROC_DIAGNOSE";
 NSString * const kGTLRDataproc_DiagnoseClusterRequest_TarballAccess_TarballAccessUnspecified = @"TARBALL_ACCESS_UNSPECIFIED";
 
+// GTLRDataproc_FlexibleInstanceGroupConfig.hardwareClass
+NSString * const kGTLRDataproc_FlexibleInstanceGroupConfig_HardwareClass_HardwareClassUnspecified = @"HARDWARE_CLASS_UNSPECIFIED";
+NSString * const kGTLRDataproc_FlexibleInstanceGroupConfig_HardwareClass_Performance = @"PERFORMANCE";
+NSString * const kGTLRDataproc_FlexibleInstanceGroupConfig_HardwareClass_Standard = @"STANDARD";
+
 // GTLRDataproc_GceClusterConfig.privateIpv6GoogleAccess
 NSString * const kGTLRDataproc_GceClusterConfig_PrivateIpv6GoogleAccess_Bidirectional = @"BIDIRECTIONAL";
 NSString * const kGTLRDataproc_GceClusterConfig_PrivateIpv6GoogleAccess_InheritFromSubnetwork = @"INHERIT_FROM_SUBNETWORK";
@@ -265,6 +270,7 @@ NSString * const kGTLRDataproc_SessionStateHistory_State_Terminated = @"TERMINAT
 NSString * const kGTLRDataproc_SessionStateHistory_State_Terminating = @"TERMINATING";
 
 // GTLRDataproc_SoftwareConfig.optionalComponents
+NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_AlloydbConnector = @"ALLOYDB_CONNECTOR";
 NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Anaconda = @"ANACONDA";
 NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_ComponentUnspecified = @"COMPONENT_UNSPECIFIED";
 NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Delta = @"DELTA";
@@ -1038,9 +1044,10 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 @dynamic autoscalingConfig, auxiliaryNodeGroups, clusterTier, clusterType,
          configBucket, dataprocMetricConfig, diagnosticBucket, encryptionConfig,
          endpointConfig, engine, gceClusterConfig, gkeClusterConfig,
-         initializationActions, lifecycleConfig, masterConfig, metastoreConfig,
-         secondaryWorkerConfig, securityConfig, softwareConfig, tempBucket,
-         workerConfig;
+         initializationActions, lifecycleConfig, masterConfig,
+         masterFlexibleConfig, metastoreConfig, schedulingConfig,
+         secondaryWorkerConfig, secondaryWorkerFlexibleConfig, securityConfig,
+         softwareConfig, tempBucket, workerConfig, workerFlexibleConfig;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1592,6 +1599,16 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 @implementation GTLRDataproc_FallbackReason
 @dynamic fallbackNode, fallbackReason;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_FlexibleInstanceGroupConfig
+//
+
+@implementation GTLRDataproc_FlexibleInstanceGroupConfig
+@dynamic bootDiskSizeGb, coreCount, hardwareClass, numInstances;
 @end
 
 
@@ -3527,6 +3544,16 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataproc_SchedulingConfig
+//
+
+@implementation GTLRDataproc_SchedulingConfig
+@dynamic requestedRunDuration, schedulingTimeout;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataproc_SearchSessionSparkApplicationExecutorsResponse
 //
 
@@ -4018,9 +4045,9 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 //
 
 @implementation GTLRDataproc_SessionTemplate
-@dynamic createTime, creator, descriptionProperty, environmentConfig,
-         jupyterSession, labels, name, runtimeConfig, sparkConnectSession,
-         updateTime, uuid;
+@dynamic createTime, creator, descriptionProperty, displayName,
+         environmentConfig, jupyterSession, labels, name, runtimeConfig,
+         sparkConnectSession, updateTime, uuid;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

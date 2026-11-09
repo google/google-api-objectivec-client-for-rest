@@ -382,6 +382,24 @@ NSString * const kGTLRAlertCenter_VoiceMisconfiguration_EntityType_RingGroup = @
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAlertCenter_AlertDetail
+//
+
+@implementation GTLRAlertCenter_AlertDetail
+@dynamic fieldName, fieldValues;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"fieldValues" : [GTLRAlertCenter_SystemDefinedAlertDataAlertDetailFieldValue class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAlertCenter_AlertFeedback
 //
 
@@ -1231,6 +1249,34 @@ NSString * const kGTLRAlertCenter_VoiceMisconfiguration_EntityType_RingGroup = @
 @implementation GTLRAlertCenter_SuspiciousActivitySecurityDetail
 @dynamic deviceId, deviceModel, deviceProperty, deviceType, iosVendorId,
          newValue, oldValue, resourceId, serialNumber;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAlertCenter_SystemDefinedAlertData
+//
+
+@implementation GTLRAlertCenter_SystemDefinedAlertData
+@dynamic alertDetails;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"alertDetails" : [GTLRAlertCenter_AlertDetail class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAlertCenter_SystemDefinedAlertDataAlertDetailFieldValue
+//
+
+@implementation GTLRAlertCenter_SystemDefinedAlertDataAlertDetailFieldValue
+@dynamic boolValue, intValue, stringValue, timestampValue;
 @end
 
 

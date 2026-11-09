@@ -589,16 +589,6 @@ NSString * const kGTLRBeyondCorp_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspec
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectorsV1ReportStatusRequest
-//
-
-@implementation GTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectorsV1ReportStatusRequest
-@dynamic requestId, resourceInfo, validateOnly;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectorsV1ResolveInstanceConfigResponse
 //
 

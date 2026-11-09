@@ -89,6 +89,12 @@ NSString * const kGTLRBigQueryReservation_Reservation_ScalingMode_AutoscaleOnly 
 NSString * const kGTLRBigQueryReservation_Reservation_ScalingMode_IdleSlotsOnly = @"IDLE_SLOTS_ONLY";
 NSString * const kGTLRBigQueryReservation_Reservation_ScalingMode_ScalingModeUnspecified = @"SCALING_MODE_UNSPECIFIED";
 
+// GTLRBigQueryReservation_UpgradeEditionRequest.targetEdition
+NSString * const kGTLRBigQueryReservation_UpgradeEditionRequest_TargetEdition_EditionUnspecified = @"EDITION_UNSPECIFIED";
+NSString * const kGTLRBigQueryReservation_UpgradeEditionRequest_TargetEdition_Enterprise = @"ENTERPRISE";
+NSString * const kGTLRBigQueryReservation_UpgradeEditionRequest_TargetEdition_EnterprisePlus = @"ENTERPRISE_PLUS";
+NSString * const kGTLRBigQueryReservation_UpgradeEditionRequest_TargetEdition_Standard = @"STANDARD";
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRBigQueryReservation_Assignment
@@ -578,6 +584,44 @@ NSString * const kGTLRBigQueryReservation_Reservation_ScalingMode_ScalingModeUns
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"permissions" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigQueryReservation_UpgradeEditionRequest
+//
+
+@implementation GTLRBigQueryReservation_UpgradeEditionRequest
+@dynamic capacityCommitments, reservations, targetEdition;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"capacityCommitments" : [NSString class],
+    @"reservations" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigQueryReservation_UpgradeEditionResponse
+//
+
+@implementation GTLRBigQueryReservation_UpgradeEditionResponse
+@dynamic capacityCommitments, reservations;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"capacityCommitments" : [GTLRBigQueryReservation_CapacityCommitment class],
+    @"reservations" : [GTLRBigQueryReservation_Reservation class]
   };
   return map;
 }

@@ -15,6 +15,9 @@
 #endif
 
 @class GTLRAppHub_Application;
+@class GTLRAppHub_ApplicationProperties;
+@class GTLRAppHub_ApplicationProperties_ExtendedMetadata;
+@class GTLRAppHub_ApplicationType;
 @class GTLRAppHub_Attributes;
 @class GTLRAppHub_AuditConfig;
 @class GTLRAppHub_AuditLogConfig;
@@ -88,6 +91,22 @@ FOUNDATION_EXTERN NSString * const kGTLRAppHub_Application_State_Deleting;
  *  Value: "STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAppHub_Application_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAppHub_ApplicationType.type
+
+/**
+ *  AI Application type.
+ *
+ *  Value: "AI_APPLICATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppHub_ApplicationType_Type_AiApplication;
+/**
+ *  Unspecified type.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppHub_ApplicationType_Type_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAppHub_AuditLogConfig.logType
@@ -417,6 +436,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAppHub_Workload_State_StateUnspecified;
  */
 @interface GTLRAppHub_Application : GTLRObject
 
+/**
+ *  Output only. Properties of an underlying cloud resource that can comprise an
+ *  Application.
+ */
+@property(nonatomic, strong, nullable) GTLRAppHub_ApplicationProperties *applicationProperties;
+
+/** Output only. Application type. */
+@property(nonatomic, strong, nullable) GTLRAppHub_ApplicationType *applicationType;
+
 /** Optional. Consumer provided attributes. */
 @property(nonatomic, strong, nullable) GTLRAppHub_Attributes *attributes;
 
@@ -472,6 +500,56 @@ FOUNDATION_EXTERN NSString * const kGTLRAppHub_Workload_State_StateUnspecified;
 
 /** Output only. Update time. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Additional system properties of an Application.
+ */
+@interface GTLRAppHub_ApplicationProperties : GTLRObject
+
+/**
+ *  Output only. Additional metadata specific to the App Hub application. The
+ *  key is a string that identifies the type of metadata and the value is the
+ *  metadata contents specific to that type. Key format:
+ *  `apphub.googleapis.com/{metadataType}`
+ */
+@property(nonatomic, strong, nullable) GTLRAppHub_ApplicationProperties_ExtendedMetadata *extendedMetadata;
+
+@end
+
+
+/**
+ *  Output only. Additional metadata specific to the App Hub application. The
+ *  key is a string that identifies the type of metadata and the value is the
+ *  metadata contents specific to that type. Key format:
+ *  `apphub.googleapis.com/{metadataType}`
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRAppHub_ExtendedMetadata. Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRAppHub_ApplicationProperties_ExtendedMetadata : GTLRObject
+@end
+
+
+/**
+ *  Application type.
+ */
+@interface GTLRAppHub_ApplicationType : GTLRObject
+
+/**
+ *  The type of the application.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAppHub_ApplicationType_Type_AiApplication AI Application
+ *        type. (Value: "AI_APPLICATION")
+ *    @arg @c kGTLRAppHub_ApplicationType_Type_TypeUnspecified Unspecified type.
+ *        (Value: "TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 

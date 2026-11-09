@@ -22,17 +22,32 @@
 @class GTLRAgentRegistry_Agent_Attributes_Attribute;
 @class GTLRAgentRegistry_AgentSpec;
 @class GTLRAgentRegistry_AgentSpec_Content;
+@class GTLRAgentRegistry_AiApplication;
 @class GTLRAgentRegistry_Annotations;
+@class GTLRAgentRegistry_ApplicationProperties;
+@class GTLRAgentRegistry_ApplicationProperties_ExtendedMetadata;
+@class GTLRAgentRegistry_ArchiveUploadSource;
+@class GTLRAgentRegistry_Attributes;
 @class GTLRAgentRegistry_AuthProviderBinding;
 @class GTLRAgentRegistry_Binding;
 @class GTLRAgentRegistry_Card;
 @class GTLRAgentRegistry_Card_Content;
+@class GTLRAgentRegistry_ContactInfo;
+@class GTLRAgentRegistry_Criticality;
 @class GTLRAgentRegistry_Endpoint;
 @class GTLRAgentRegistry_Endpoint_Attributes;
 @class GTLRAgentRegistry_Endpoint_Attributes_Attribute;
 @class GTLRAgentRegistry_EndpointSpec;
 @class GTLRAgentRegistry_EndpointSpec_Content;
+@class GTLRAgentRegistry_Environment;
 @class GTLRAgentRegistry_Expr;
+@class GTLRAgentRegistry_ExtendedMetadata;
+@class GTLRAgentRegistry_ExtendedMetadata_MetadataStruct;
+@class GTLRAgentRegistry_File;
+@class GTLRAgentRegistry_Finding;
+@class GTLRAgentRegistry_Frontmatter;
+@class GTLRAgentRegistry_Frontmatter_Metadata;
+@class GTLRAgentRegistry_GcsSource;
 @class GTLRAgentRegistry_GoogleIamV1AuditConfig;
 @class GTLRAgentRegistry_GoogleIamV1AuditLogConfig;
 @class GTLRAgentRegistry_GoogleIamV1Binding;
@@ -50,12 +65,18 @@
 @class GTLRAgentRegistry_Operation_Metadata;
 @class GTLRAgentRegistry_Operation_Response;
 @class GTLRAgentRegistry_Protocol;
+@class GTLRAgentRegistry_Publisher;
+@class GTLRAgentRegistry_ScanningConfig;
+@class GTLRAgentRegistry_ScanResult;
 @class GTLRAgentRegistry_Service;
+@class GTLRAgentRegistry_Skill;
+@class GTLRAgentRegistry_SkillRevision;
 @class GTLRAgentRegistry_Source;
 @class GTLRAgentRegistry_Status;
 @class GTLRAgentRegistry_Status_Details_Item;
 @class GTLRAgentRegistry_Target;
 @class GTLRAgentRegistry_Tool;
+@class GTLRAgentRegistry_Tool_XMeta;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -91,6 +112,34 @@ FOUNDATION_EXTERN NSString * const kGTLRAgentRegistry_AgentSpec_Type_NoSpec;
 FOUNDATION_EXTERN NSString * const kGTLRAgentRegistry_AgentSpec_Type_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRAgentRegistry_AiApplication.state
+
+/**
+ *  The resource is active and ready for use.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAgentRegistry_AiApplication_State_Active;
+/**
+ *  The resource is being provisioned or created.
+ *
+ *  Value: "CREATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAgentRegistry_AiApplication_State_Creating;
+/**
+ *  The resource is in the process of being deleted.
+ *
+ *  Value: "DELETING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAgentRegistry_AiApplication_State_Deleting;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAgentRegistry_AiApplication_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRAgentRegistry_Card.type
 
 /**
@@ -107,6 +156,40 @@ FOUNDATION_EXTERN NSString * const kGTLRAgentRegistry_Card_Type_A2aAgentCard;
 FOUNDATION_EXTERN NSString * const kGTLRAgentRegistry_Card_Type_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRAgentRegistry_Criticality.type
+
+/**
+ *  High impact.
+ *
+ *  Value: "HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAgentRegistry_Criticality_Type_High;
+/**
+ *  Low impact.
+ *
+ *  Value: "LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAgentRegistry_Criticality_Type_Low;
+/**
+ *  Medium impact.
+ *
+ *  Value: "MEDIUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAgentRegistry_Criticality_Type_Medium;
+/**
+ *  Mission critical service, application or workload.
+ *
+ *  Value: "MISSION_CRITICAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAgentRegistry_Criticality_Type_MissionCritical;
+/**
+ *  Unspecified type.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAgentRegistry_Criticality_Type_TypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRAgentRegistry_EndpointSpec.type
 
 /**
@@ -121,6 +204,99 @@ FOUNDATION_EXTERN NSString * const kGTLRAgentRegistry_EndpointSpec_Type_NoSpec;
  *  Value: "TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAgentRegistry_EndpointSpec_Type_TypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAgentRegistry_Environment.type
+
+/**
+ *  Development environment.
+ *
+ *  Value: "DEVELOPMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAgentRegistry_Environment_Type_Development;
+/**
+ *  Production environment.
+ *
+ *  Value: "PRODUCTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAgentRegistry_Environment_Type_Production;
+/**
+ *  Staging environment.
+ *
+ *  Value: "STAGING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAgentRegistry_Environment_Type_Staging;
+/**
+ *  Test environment.
+ *
+ *  Value: "TEST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAgentRegistry_Environment_Type_Test;
+/**
+ *  Unspecified type.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAgentRegistry_Environment_Type_TypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAgentRegistry_Finding.findingClass
+
+/**
+ *  Unspecified finding class.
+ *
+ *  Value: "FINDING_CLASS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAgentRegistry_Finding_FindingClass_FindingClassUnspecified;
+/**
+ *  Describes a potential security risk due to plaintext credentials, keys, or
+ *  tokens being exposed in an asset or workload.
+ *
+ *  Value: "SECRET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAgentRegistry_Finding_FindingClass_Secret;
+/**
+ *  Describes a potential weakness in software that increases risk to
+ *  Confidentiality & Integrity & Availability.
+ *
+ *  Value: "VULNERABILITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAgentRegistry_Finding_FindingClass_Vulnerability;
+
+// ----------------------------------------------------------------------------
+// GTLRAgentRegistry_Finding.severity
+
+/**
+ *  Critical severity.
+ *
+ *  Value: "SEVERITY_CRITICAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAgentRegistry_Finding_Severity_SeverityCritical;
+/**
+ *  High severity.
+ *
+ *  Value: "SEVERITY_HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAgentRegistry_Finding_Severity_SeverityHigh;
+/**
+ *  Low severity.
+ *
+ *  Value: "SEVERITY_LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAgentRegistry_Finding_Severity_SeverityLow;
+/**
+ *  Medium severity.
+ *
+ *  Value: "SEVERITY_MEDIUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAgentRegistry_Finding_Severity_SeverityMedium;
+/**
+ *  This value is used for findings when a source doesn't write a severity
+ *  value.
+ *
+ *  Value: "SEVERITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAgentRegistry_Finding_Severity_SeverityUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAgentRegistry_GoogleIamV1AuditLogConfig.logType
@@ -222,6 +398,267 @@ FOUNDATION_EXTERN NSString * const kGTLRAgentRegistry_Protocol_Type_Custom;
  *  Value: "TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAgentRegistry_Protocol_Type_TypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAgentRegistry_Publisher.publisherTier
+
+/**
+ *  First-party Google-curated and verified global publishers.
+ *
+ *  Value: "FIRST_PARTY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAgentRegistry_Publisher_PublisherTier_FirstParty;
+/**
+ *  Private publishers within the developer's workspace/project.
+ *
+ *  Value: "PRIVATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAgentRegistry_Publisher_PublisherTier_Private;
+/**
+ *  Default value. Unspecified.
+ *
+ *  Value: "PUBLISHER_TIER_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAgentRegistry_Publisher_PublisherTier_PublisherTierUnspecified;
+/**
+ *  Third-party verified enterprise partner publishers.
+ *
+ *  Value: "THIRD_PARTY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAgentRegistry_Publisher_PublisherTier_ThirdParty;
+
+// ----------------------------------------------------------------------------
+// GTLRAgentRegistry_ScanningConfig.policy
+
+/**
+ *  Bypasses scanning.
+ *
+ *  Value: "DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAgentRegistry_ScanningConfig_Policy_Disabled;
+/**
+ *  Scans the skill package and blocks download if security or safety issues are
+ *  found.
+ *
+ *  Value: "ENABLED_BLOCKING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAgentRegistry_ScanningConfig_Policy_EnabledBlocking;
+/**
+ *  Scans the skill package in audit mode without blocking downloads.
+ *
+ *  Value: "ENABLED_NONBLOCKING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAgentRegistry_ScanningConfig_Policy_EnabledNonblocking;
+/**
+ *  Default value. Inherits system default (ENABLED_BLOCKING).
+ *
+ *  Value: "POLICY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAgentRegistry_ScanningConfig_Policy_PolicyUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAgentRegistry_ScanResult.scanState
+
+/**
+ *  The scan was disabled.
+ *
+ *  Value: "DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAgentRegistry_ScanResult_ScanState_Disabled;
+/**
+ *  The underlying scanning system failed to execute the scan.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAgentRegistry_ScanResult_ScanState_Failed;
+/**
+ *  The scan is running.
+ *
+ *  Value: "RUNNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAgentRegistry_ScanResult_ScanState_Running;
+/**
+ *  Should not be used.
+ *
+ *  Value: "SCAN_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAgentRegistry_ScanResult_ScanState_ScanStateUnspecified;
+/**
+ *  The scan has completed successfully.
+ *
+ *  Value: "SUCCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAgentRegistry_ScanResult_ScanState_Succeeded;
+/**
+ *  The uploaded artifact format is unsupported by the scanning system.
+ *
+ *  Value: "UNSUPPORTED_FORMAT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAgentRegistry_ScanResult_ScanState_UnsupportedFormat;
+
+// ----------------------------------------------------------------------------
+// GTLRAgentRegistry_SearchSkillsRequest.searchType
+
+/**
+ *  Search for a keyword across all searchable fields.
+ *
+ *  Value: "KEYWORD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAgentRegistry_SearchSkillsRequest_SearchType_Keyword;
+/**
+ *  Invalid search type.
+ *
+ *  Value: "SEARCH_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAgentRegistry_SearchSkillsRequest_SearchType_SearchTypeUnspecified;
+/**
+ *  Search based on the meaning and intent of a natural language query.
+ *
+ *  Value: "SEMANTIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAgentRegistry_SearchSkillsRequest_SearchType_Semantic;
+
+// ----------------------------------------------------------------------------
+// GTLRAgentRegistry_Skill.state
+
+/**
+ *  The skill is active and is served.
+ *
+ *  Value: "STATE_ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAgentRegistry_Skill_State_StateActive;
+/**
+ *  The skill is being created. It is not served.
+ *
+ *  Value: "STATE_CREATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAgentRegistry_Skill_State_StateCreating;
+/**
+ *  The skill is decommissioned and is not served.
+ *
+ *  Value: "STATE_DECOMMISSIONED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAgentRegistry_Skill_State_StateDecommissioned;
+/**
+ *  The skill is being deleted. It is not served.
+ *
+ *  Value: "STATE_DELETING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAgentRegistry_Skill_State_StateDeleting;
+/**
+ *  The skill is deprecated. It is served, but emits warnings.
+ *
+ *  Value: "STATE_DEPRECATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAgentRegistry_Skill_State_StateDeprecated;
+/**
+ *  The skill is disabled and is not served.
+ *
+ *  Value: "STATE_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAgentRegistry_Skill_State_StateDisabled;
+/**
+ *  The skill is in draft, or lacks a valid payload. It is not served.
+ *
+ *  Value: "STATE_DRAFT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAgentRegistry_Skill_State_StateDraft;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAgentRegistry_Skill_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAgentRegistry_Skill.targetState
+
+/**
+ *  The skill is active and can be served.
+ *
+ *  Value: "TARGET_STATE_ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAgentRegistry_Skill_TargetState_TargetStateActive;
+/**
+ *  The skill is decommissioned and cannot be served.
+ *
+ *  Value: "TARGET_STATE_DECOMMISSIONED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAgentRegistry_Skill_TargetState_TargetStateDecommissioned;
+/**
+ *  The skill is deprecated. It can still be served, but emits warnings.
+ *
+ *  Value: "TARGET_STATE_DEPRECATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAgentRegistry_Skill_TargetState_TargetStateDeprecated;
+/**
+ *  The skill is disabled and cannot be served.
+ *
+ *  Value: "TARGET_STATE_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAgentRegistry_Skill_TargetState_TargetStateDisabled;
+/**
+ *  The skill is in draft and cannot be served.
+ *
+ *  Value: "TARGET_STATE_DRAFT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAgentRegistry_Skill_TargetState_TargetStateDraft;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "TARGET_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAgentRegistry_Skill_TargetState_TargetStateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAgentRegistry_Skill.type
+
+/**
+ *  A standard, leaf executable skill containing natural language and code.
+ *
+ *  Value: "SIMPLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAgentRegistry_Skill_Type_Simple;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAgentRegistry_Skill_Type_TypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAgentRegistry_SkillRevision.state
+
+/**
+ *  The revision is active.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAgentRegistry_SkillRevision_State_Active;
+/**
+ *  The revision is being created.
+ *
+ *  Value: "CREATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAgentRegistry_SkillRevision_State_Creating;
+/**
+ *  The revision is being deleted.
+ *
+ *  Value: "DELETING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAgentRegistry_SkillRevision_State_Deleting;
+/**
+ *  The revision failed to compile or ingest.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAgentRegistry_SkillRevision_State_Failed;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAgentRegistry_SkillRevision_State_StateUnspecified;
 
 /**
  *  Represents the skills of an Agent.
@@ -377,7 +814,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAgentRegistry_Protocol_Type_TypeUnspecif
 @property(nonatomic, strong, nullable) GTLRAgentRegistry_AgentSpec_Content *content;
 
 /**
- *  Required. The type of the agent spec content.
+ *  Required. Immutable. The type of the agent spec content.
  *
  *  Likely values:
  *    @arg @c kGTLRAgentRegistry_AgentSpec_Type_A2aAgentCard The content is an
@@ -404,6 +841,65 @@ FOUNDATION_EXTERN NSString * const kGTLRAgentRegistry_Protocol_Type_TypeUnspecif
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRAgentRegistry_AgentSpec_Content : GTLRObject
+@end
+
+
+/**
+ *  Represents an AI Application.
+ */
+@interface GTLRAgentRegistry_AiApplication : GTLRObject
+
+/**
+ *  Output only. Properties of an underlying cloud resource that can comprise an
+ *  AI Application.
+ */
+@property(nonatomic, strong, nullable) GTLRAgentRegistry_ApplicationProperties *applicationProperties;
+
+/** Optional. Consumer provided attributes. */
+@property(nonatomic, strong, nullable) GTLRAgentRegistry_Attributes *attributes;
+
+/** Output only. Creation time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. User-defined description of the AI Application.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** Optional. User-defined name for the AI Application. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Identifier. Resource name of the AI Application. Format:
+ *  `projects/{project}/locations/{location}/aiApplications/{ai_application}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The current state of the AI Application.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAgentRegistry_AiApplication_State_Active The resource is
+ *        active and ready for use. (Value: "ACTIVE")
+ *    @arg @c kGTLRAgentRegistry_AiApplication_State_Creating The resource is
+ *        being provisioned or created. (Value: "CREATING")
+ *    @arg @c kGTLRAgentRegistry_AiApplication_State_Deleting The resource is in
+ *        the process of being deleted. (Value: "DELETING")
+ *    @arg @c kGTLRAgentRegistry_AiApplication_State_StateUnspecified Default
+ *        value. This value is unused. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  Output only. Universally unique identifier (UUID4) for the AI Application.
+ */
+@property(nonatomic, copy, nullable) NSString *uid;
+
+/** Output only. Last update time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
 @end
 
 
@@ -451,6 +947,80 @@ FOUNDATION_EXTERN NSString * const kGTLRAgentRegistry_Protocol_Type_TypeUnspecif
 
 /** Output only. A human-readable title for the tool. */
 @property(nonatomic, copy, nullable) NSString *title;
+
+@end
+
+
+/**
+ *  Additional system properties of an Application.
+ */
+@interface GTLRAgentRegistry_ApplicationProperties : GTLRObject
+
+/**
+ *  Output only. Additional metadata specific to the App Hub application. The
+ *  key is a string that identifies the type of metadata and the value is the
+ *  metadata contents specific to that type. Key format:
+ *  `apphub.googleapis.com/{metadataType}`
+ */
+@property(nonatomic, strong, nullable) GTLRAgentRegistry_ApplicationProperties_ExtendedMetadata *extendedMetadata;
+
+@end
+
+
+/**
+ *  Output only. Additional metadata specific to the App Hub application. The
+ *  key is a string that identifies the type of metadata and the value is the
+ *  metadata contents specific to that type. Key format:
+ *  `apphub.googleapis.com/{metadataType}`
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRAgentRegistry_ExtendedMetadata. Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRAgentRegistry_ApplicationProperties_ExtendedMetadata : GTLRObject
+@end
+
+
+/**
+ *  Direct write-only raw archive payload upload.
+ */
+@interface GTLRAgentRegistry_ArchiveUploadSource : GTLRObject
+
+/**
+ *  Required. Input only. Write-only raw ZIP/TAR archive payload bytes
+ *  containing the skill package.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *archiveContent;
+
+@end
+
+
+/**
+ *  Consumer provided attributes.
+ */
+@interface GTLRAgentRegistry_Attributes : GTLRObject
+
+/**
+ *  Optional. Business team that ensures user needs are met and value is
+ *  delivered
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAgentRegistry_ContactInfo *> *businessOwners;
+
+/** Optional. User-defined criticality information. */
+@property(nonatomic, strong, nullable) GTLRAgentRegistry_Criticality *criticality;
+
+/** Optional. Developer team that owns development and coding. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAgentRegistry_ContactInfo *> *developerOwners;
+
+/** Optional. User-defined environment information. */
+@property(nonatomic, strong, nullable) GTLRAgentRegistry_Environment *environment;
+
+/** Optional. Operator team that ensures runtime and operations. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAgentRegistry_ContactInfo *> *operatorOwners;
 
 @end
 
@@ -509,7 +1079,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAgentRegistry_Protocol_Type_TypeUnspecif
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** Required. The target Agent of the Binding. */
+/** Optional. The source Agent of the Binding. */
 @property(nonatomic, strong, nullable) GTLRAgentRegistry_Source *source;
 
 /** Required. The target Agent Registry Resource of the Binding. */
@@ -559,6 +1129,44 @@ FOUNDATION_EXTERN NSString * const kGTLRAgentRegistry_Protocol_Type_TypeUnspecif
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRAgentRegistry_Card_Content : GTLRObject
+@end
+
+
+/**
+ *  Contact information of stakeholders.
+ */
+@interface GTLRAgentRegistry_ContactInfo : GTLRObject
+
+/** Optional. Contact's name. Can have a maximum length of 63 characters. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/** Required. Email address of the contacts. */
+@property(nonatomic, copy, nullable) NSString *email;
+
+@end
+
+
+/**
+ *  Criticality of the Application, Service, or Workload
+ */
+@interface GTLRAgentRegistry_Criticality : GTLRObject
+
+/**
+ *  Required. Criticality Type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAgentRegistry_Criticality_Type_High High impact. (Value:
+ *        "HIGH")
+ *    @arg @c kGTLRAgentRegistry_Criticality_Type_Low Low impact. (Value: "LOW")
+ *    @arg @c kGTLRAgentRegistry_Criticality_Type_Medium Medium impact. (Value:
+ *        "MEDIUM")
+ *    @arg @c kGTLRAgentRegistry_Criticality_Type_MissionCritical Mission
+ *        critical service, application or workload. (Value: "MISSION_CRITICAL")
+ *    @arg @c kGTLRAgentRegistry_Criticality_Type_TypeUnspecified Unspecified
+ *        type. (Value: "TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
 @end
 
 
@@ -653,7 +1261,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAgentRegistry_Protocol_Type_TypeUnspecif
 @property(nonatomic, strong, nullable) GTLRAgentRegistry_EndpointSpec_Content *content;
 
 /**
- *  Required. The type of the endpoint spec content.
+ *  Required. Immutable. The type of the endpoint spec content.
  *
  *  Likely values:
  *    @arg @c kGTLRAgentRegistry_EndpointSpec_Type_NoSpec There is no spec for
@@ -675,6 +1283,31 @@ FOUNDATION_EXTERN NSString * const kGTLRAgentRegistry_Protocol_Type_TypeUnspecif
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRAgentRegistry_EndpointSpec_Content : GTLRObject
+@end
+
+
+/**
+ *  Environment of the Application, Service, or Workload
+ */
+@interface GTLRAgentRegistry_Environment : GTLRObject
+
+/**
+ *  Required. Environment Type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAgentRegistry_Environment_Type_Development Development
+ *        environment. (Value: "DEVELOPMENT")
+ *    @arg @c kGTLRAgentRegistry_Environment_Type_Production Production
+ *        environment. (Value: "PRODUCTION")
+ *    @arg @c kGTLRAgentRegistry_Environment_Type_Staging Staging environment.
+ *        (Value: "STAGING")
+ *    @arg @c kGTLRAgentRegistry_Environment_Type_Test Test environment. (Value:
+ *        "TEST")
+ *    @arg @c kGTLRAgentRegistry_Environment_Type_TypeUnspecified Unspecified
+ *        type. (Value: "TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
 @end
 
 
@@ -728,6 +1361,29 @@ FOUNDATION_EXTERN NSString * const kGTLRAgentRegistry_Protocol_Type_TypeUnspecif
 
 
 /**
+ *  Additional metadata for a Service or Workload.
+ */
+@interface GTLRAgentRegistry_ExtendedMetadata : GTLRObject
+
+/** Output only. The metadata contents. */
+@property(nonatomic, strong, nullable) GTLRAgentRegistry_ExtendedMetadata_MetadataStruct *metadataStruct;
+
+@end
+
+
+/**
+ *  Output only. The metadata contents.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRAgentRegistry_ExtendedMetadata_MetadataStruct : GTLRObject
+@end
+
+
+/**
  *  Message for response to fetching available Bindings.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -747,6 +1403,155 @@ FOUNDATION_EXTERN NSString * const kGTLRAgentRegistry_Protocol_Type_TypeUnspecif
 
 /** A token identifying a page of results the server should return. */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  File location of the finding.
+ */
+@interface GTLRAgentRegistry_File : GTLRObject
+
+/**
+ *  Optional. Line number (1-based), or 0 if whole File / unknown.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *lineNumber;
+
+/** Optional. Relative path of the file containing the finding. */
+@property(nonatomic, copy, nullable) NSString *path;
+
+@end
+
+
+/**
+ *  Represents a security Finding.
+ */
+@interface GTLRAgentRegistry_Finding : GTLRObject
+
+/** Output only. Create time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Optional. Detailed description of the finding. */
+@property(nonatomic, copy, nullable) NSString *detail;
+
+/** Optional. File associated with the finding. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAgentRegistry_File *> *files;
+
+/**
+ *  Optional. Class of the finding.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAgentRegistry_Finding_FindingClass_FindingClassUnspecified
+ *        Unspecified finding class. (Value: "FINDING_CLASS_UNSPECIFIED")
+ *    @arg @c kGTLRAgentRegistry_Finding_FindingClass_Secret Describes a
+ *        potential security risk due to plaintext credentials, keys, or tokens
+ *        being exposed in an asset or workload. (Value: "SECRET")
+ *    @arg @c kGTLRAgentRegistry_Finding_FindingClass_Vulnerability Describes a
+ *        potential weakness in software that increases risk to Confidentiality
+ *        & Integrity & Availability. (Value: "VULNERABILITY")
+ */
+@property(nonatomic, copy, nullable) NSString *findingClass;
+
+/**
+ *  Identifier. Resource name of the Finding. Format:
+ *  `projects/{project}/locations/{location}/findings/{finding}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Optional. The resource that the finding is associated with. */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Optional. Severity of the finding.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAgentRegistry_Finding_Severity_SeverityCritical Critical
+ *        severity. (Value: "SEVERITY_CRITICAL")
+ *    @arg @c kGTLRAgentRegistry_Finding_Severity_SeverityHigh High severity.
+ *        (Value: "SEVERITY_HIGH")
+ *    @arg @c kGTLRAgentRegistry_Finding_Severity_SeverityLow Low severity.
+ *        (Value: "SEVERITY_LOW")
+ *    @arg @c kGTLRAgentRegistry_Finding_Severity_SeverityMedium Medium
+ *        severity. (Value: "SEVERITY_MEDIUM")
+ *    @arg @c kGTLRAgentRegistry_Finding_Severity_SeverityUnspecified This value
+ *        is used for findings when a source doesn't write a severity value.
+ *        (Value: "SEVERITY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *severity;
+
+/** Output only. Universally unique identifier (UUID4) for the Finding. */
+@property(nonatomic, copy, nullable) NSString *uid;
+
+/** Output only. Update time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Structured metadata attributes extracted from the package's local SKILL.md
+ *  frontmatter.
+ */
+@interface GTLRAgentRegistry_Frontmatter : GTLRObject
+
+/** Optional. Environmental dependencies or local sidecars. */
+@property(nonatomic, copy, nullable) NSString *compatibility;
+
+/**
+ *  Required. Functional description.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** Optional. License. */
+@property(nonatomic, copy, nullable) NSString *license;
+
+/**
+ *  Optional. Extensible flattened map mapping custom tags, authors, and version
+ *  parameters.
+ */
+@property(nonatomic, strong, nullable) GTLRAgentRegistry_Frontmatter_Metadata *metadata;
+
+/** Required. The name of the skill. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Optional. Extensible flattened map mapping custom tags, authors, and version
+ *  parameters.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRAgentRegistry_Frontmatter_Metadata : GTLRObject
+@end
+
+
+/**
+ *  Specifications for Cloud Storage objects.
+ */
+@interface GTLRAgentRegistry_GcsSource : GTLRObject
+
+/**
+ *  Optional. Cloud Storage object generation ID. If not specified, the latest
+ *  generation is used.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *generation;
+
+/**
+ *  Required. Cloud Storage object URI. Format:
+ *  `gs://{bucket_name}/{object_name}`
+ */
+@property(nonatomic, copy, nullable) NSString *uri;
 
 @end
 
@@ -1098,6 +1903,105 @@ FOUNDATION_EXTERN NSString * const kGTLRAgentRegistry_Protocol_Type_TypeUnspecif
 
 
 /**
+ *  Message for response to listing Agents under an AI Application.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "agents" property. If returned as the result of a query, it should
+ *        support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRAgentRegistry_ListAiApplicationAgentsResponse : GTLRCollectionObject
+
+/**
+ *  The list of Agents.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAgentRegistry_Agent *> *agents;
+
+/** A token identifying a page of results the server should return. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Message for response to listing Endpoints under an AI Application.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "endpoints" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRAgentRegistry_ListAiApplicationEndpointsResponse : GTLRCollectionObject
+
+/**
+ *  The list of Endpoints.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAgentRegistry_Endpoint *> *endpoints;
+
+/** A token identifying a page of results the server should return. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Message for response to listing McpServers under an AI Application.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "mcpServers" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRAgentRegistry_ListAiApplicationMcpServersResponse : GTLRCollectionObject
+
+/**
+ *  The list of McpServers.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAgentRegistry_McpServer *> *mcpServers;
+
+/** A token identifying a page of results the server should return. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Message for response to listing AiApplications.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "aiApplications" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRAgentRegistry_ListAiApplicationsResponse : GTLRCollectionObject
+
+/**
+ *  The list of AiApplications.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAgentRegistry_AiApplication *> *aiApplications;
+
+/** A token identifying a page of results the server should return. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** Unordered list. Locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
  *  Message for response to listing Bindings
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -1150,6 +2054,30 @@ FOUNDATION_EXTERN NSString * const kGTLRAgentRegistry_Protocol_Type_TypeUnspecif
  *  A token identifying a page of results the server should return. Used in
  *  page_token.
  */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Message for response to listing Findings.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "findings" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRAgentRegistry_ListFindingsResponse : GTLRCollectionObject
+
+/**
+ *  The list of Findings.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAgentRegistry_Finding *> *findings;
+
+/** A token identifying a page of results the server should return. */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
@@ -1236,6 +2164,30 @@ FOUNDATION_EXTERN NSString * const kGTLRAgentRegistry_Protocol_Type_TypeUnspecif
 
 
 /**
+ *  Response listing Publishers.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "publishers" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRAgentRegistry_ListPublishersResponse : GTLRCollectionObject
+
+/** Page offset continuation token. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The returned list of Publishers.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAgentRegistry_Publisher *> *publishers;
+
+@end
+
+
+/**
  *  Message for response to listing Services
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -1260,6 +2212,57 @@ FOUNDATION_EXTERN NSString * const kGTLRAgentRegistry_Protocol_Type_TypeUnspecif
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAgentRegistry_Service *> *services;
+
+@end
+
+
+/**
+ *  Response listing Revisions.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "skillRevisions" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRAgentRegistry_ListSkillRevisionsResponse : GTLRCollectionObject
+
+/** Page offset continuation token. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  Returned version snapshot list.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAgentRegistry_SkillRevision *> *skillRevisions;
+
+@end
+
+
+/**
+ *  Response structure listing logical Skills.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "skills" property. If returned as the result of a query, it should
+ *        support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRAgentRegistry_ListSkillsResponse : GTLRCollectionObject
+
+/** Page continuation continuation token. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  Returned container list.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAgentRegistry_Skill *> *skills;
+
+/** Unreachable locations or failures. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
 @end
 
@@ -1417,7 +2420,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAgentRegistry_Protocol_Type_TypeUnspecif
 @property(nonatomic, strong, nullable) GTLRAgentRegistry_McpServerSpec_Content *content;
 
 /**
- *  Required. The type of the MCP Server spec content.
+ *  Required. Immutable. The type of the MCP Server spec content.
  *
  *  Likely values:
  *    @arg @c kGTLRAgentRegistry_McpServerSpec_Type_NoSpec There is no spec for
@@ -1596,6 +2599,116 @@ FOUNDATION_EXTERN NSString * const kGTLRAgentRegistry_Protocol_Type_TypeUnspecif
 
 
 /**
+ *  Represents a verified Publisher of Skills. Prepopulated publishers include
+ *  `publishers/cloud.google.com` and `publishers/workspace.google.com`.
+ */
+@interface GTLRAgentRegistry_Publisher : GTLRObject
+
+/** Optional. Human readable display name of the publisher. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/** Optional. URI pointing to official publisher documentation. */
+@property(nonatomic, copy, nullable) NSString *documentationUri;
+
+/**
+ *  Identifier. Resource name of the publisher. Format:
+ *  `projects/{project}/locations/{location}/publishers/{publisher}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The curation tier of the publisher.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAgentRegistry_Publisher_PublisherTier_FirstParty First-party
+ *        Google-curated and verified global publishers. (Value: "FIRST_PARTY")
+ *    @arg @c kGTLRAgentRegistry_Publisher_PublisherTier_Private Private
+ *        publishers within the developer's workspace/project. (Value:
+ *        "PRIVATE")
+ *    @arg @c kGTLRAgentRegistry_Publisher_PublisherTier_PublisherTierUnspecified
+ *        Default value. Unspecified. (Value: "PUBLISHER_TIER_UNSPECIFIED")
+ *    @arg @c kGTLRAgentRegistry_Publisher_PublisherTier_ThirdParty Third-party
+ *        verified enterprise partner publishers. (Value: "THIRD_PARTY")
+ */
+@property(nonatomic, copy, nullable) NSString *publisherTier;
+
+/** Optional. URI pointing to the support portal or email. */
+@property(nonatomic, copy, nullable) NSString *supportUri;
+
+/**
+ *  Required. The verified prefix (e.g. "snowflake-", "google-") associated with
+ *  this publisher. The system uses this prefix to enforce name-squatting rules
+ *  during Skill registration. Must be globally unique across all publishers.
+ */
+@property(nonatomic, copy, nullable) NSString *verifiedPrefix;
+
+@end
+
+
+/**
+ *  Configuration for scanning of the skill.
+ */
+@interface GTLRAgentRegistry_ScanningConfig : GTLRObject
+
+/**
+ *  Optional. The security scanning policy.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAgentRegistry_ScanningConfig_Policy_Disabled Bypasses
+ *        scanning. (Value: "DISABLED")
+ *    @arg @c kGTLRAgentRegistry_ScanningConfig_Policy_EnabledBlocking Scans the
+ *        skill package and blocks download if security or safety issues are
+ *        found. (Value: "ENABLED_BLOCKING")
+ *    @arg @c kGTLRAgentRegistry_ScanningConfig_Policy_EnabledNonblocking Scans
+ *        the skill package in audit mode without blocking downloads. (Value:
+ *        "ENABLED_NONBLOCKING")
+ *    @arg @c kGTLRAgentRegistry_ScanningConfig_Policy_PolicyUnspecified Default
+ *        value. Inherits system default (ENABLED_BLOCKING). (Value:
+ *        "POLICY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *policy;
+
+@end
+
+
+/**
+ *  Scan result of the skill revision.
+ */
+@interface GTLRAgentRegistry_ScanResult : GTLRObject
+
+/** Output only. The error message if the scan failed. */
+@property(nonatomic, copy, nullable) NSString *errorMessage;
+
+/** Output only. The finding resource names for the skill revision. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *findings;
+
+/**
+ *  Output only. The state of the vulnerability check.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAgentRegistry_ScanResult_ScanState_Disabled The scan was
+ *        disabled. (Value: "DISABLED")
+ *    @arg @c kGTLRAgentRegistry_ScanResult_ScanState_Failed The underlying
+ *        scanning system failed to execute the scan. (Value: "FAILED")
+ *    @arg @c kGTLRAgentRegistry_ScanResult_ScanState_Running The scan is
+ *        running. (Value: "RUNNING")
+ *    @arg @c kGTLRAgentRegistry_ScanResult_ScanState_ScanStateUnspecified
+ *        Should not be used. (Value: "SCAN_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRAgentRegistry_ScanResult_ScanState_Succeeded The scan has
+ *        completed successfully. (Value: "SUCCEEDED")
+ *    @arg @c kGTLRAgentRegistry_ScanResult_ScanState_UnsupportedFormat The
+ *        uploaded artifact format is unsupported by the scanning system.
+ *        (Value: "UNSUPPORTED_FORMAT")
+ */
+@property(nonatomic, copy, nullable) NSString *scanState;
+
+/** Output only. The time when the scan was completed. */
+@property(nonatomic, strong, nullable) GTLRDateTime *scanTime;
+
+@end
+
+
+/**
  *  Message for searching Agents
  */
 @interface GTLRAgentRegistry_SearchAgentsRequest : GTLRObject
@@ -1635,7 +2748,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAgentRegistry_Protocol_Type_TypeUnspecif
  *  | skills.name | No | Yes | No | Included | | skills.description | No | Yes |
  *  No | Included | | skills.tags | No | Yes | No | Included | | skills.examples
  *  | No | Yes | No | Included | Examples: *
- *  `agentId="urn:agent:projects-123:projects:123:locations:us-central1:reasoningEngines:1234"`
+ *  `agentId="urn:agent:projects-123:projects:123:locations:us-central1:aiplatform:reasoningEngines:1234"`
  *  to find the agent with the specified agent ID. * `name:important` to find
  *  agents whose name contains `important` as a word. * `displayName:works*` to
  *  find agents whose display name contains words that start with `works`. *
@@ -1756,6 +2869,107 @@ FOUNDATION_EXTERN NSString * const kGTLRAgentRegistry_Protocol_Type_TypeUnspecif
 
 
 /**
+ *  Requesting a deep search of Skills.
+ */
+@interface GTLRAgentRegistry_SearchSkillsRequest : GTLRObject
+
+/**
+ *  Optional. Use this field to specify additional filter criteria on search
+ *  results. Filter expressions can be used to restrict results based upon
+ *  filterable fields, where equality operators can be used. See
+ *  [instructions](https://docs.cloud.google.com/agent-registry/search-agents-and-tools)
+ *  for more details. Allowed operators: `=`, `<`, `>`, `NOT`, `AND`, `OR`, and
+ *  `()`. | Field | `=` | `<`, `>` | |--------------|-----|----------| | state |
+ *  Yes | No | | targetState | Yes | No | | createTime | Yes | Yes | |
+ *  updateTime | Yes | Yes | Examples: * `state=ACTIVE` to restrict results to
+ *  skills in the `ACTIVE` state.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. The maximum number of search results to return per page. The page
+ *  size is capped at `100`, even if a larger value is specified. A negative
+ *  value will result in an `INVALID_ARGUMENT` error. If unspecified or set to
+ *  `0`, a default value of `20` will be used. The server may return fewer
+ *  results than requested.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pageSize;
+
+/**
+ *  Optional. If present, retrieve the next batch of results from the preceding
+ *  call to this method. `page_token` must be the value of `next_page_token`
+ *  from the previous response. The values of all other method parameters, must
+ *  be identical to those in the previous call.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Optional. Search criteria used to select the Skills to return. If no search
+ *  criteria is specified then all accessible Skills will be returned. Search
+ *  expressions can be used to restrict results based upon searchable fields,
+ *  where the operators can be used along with the suffix wildcard symbol `*`.
+ *  See
+ *  [instructions](https://docs.cloud.google.com/agent-registry/search-agents-and-tools)
+ *  for more details. Allowed operators: `=`, `:`, `NOT`, `AND`, `OR`, and `()`.
+ *  Searchable fields: | Field | `=` | `:` | `*` | Keyword Search |
+ *  |---------------------------|-----|-----|-----|----------------| | skillId |
+ *  Yes | Yes | Yes | Included | | name | No | Yes | Yes | Included | |
+ *  displayName | No | Yes | Yes | Included | | description | No | Yes | No |
+ *  Included | | frontmatter.name | No | Yes | No | Included | |
+ *  frontmatter.description | No | Yes | No | Included | |
+ *  frontmatter.compatibility | No | Yes | No | Included | | frontmatter.license
+ *  | No | Yes | No | Included | Examples: *
+ *  `skillId="urn:skill:projects-1234:locations:global:private-important-skill"`
+ *  to find the skill with the specified skill ID. * `name:important` to find
+ *  skills whose name contains `important` as a word. * `displayName:works*` to
+ *  find skills whose display name contains words that start with `works`.
+ */
+@property(nonatomic, copy, nullable) NSString *searchString;
+
+/**
+ *  Optional. The type of search.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAgentRegistry_SearchSkillsRequest_SearchType_Keyword Search
+ *        for a keyword across all searchable fields. (Value: "KEYWORD")
+ *    @arg @c kGTLRAgentRegistry_SearchSkillsRequest_SearchType_SearchTypeUnspecified
+ *        Invalid search type. (Value: "SEARCH_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRAgentRegistry_SearchSkillsRequest_SearchType_Semantic Search
+ *        based on the meaning and intent of a natural language query. (Value:
+ *        "SEMANTIC")
+ */
+@property(nonatomic, copy, nullable) NSString *searchType;
+
+@end
+
+
+/**
+ *  Response listing searched Skills.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "skills" property. If returned as the result of a query, it should
+ *        support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRAgentRegistry_SearchSkillsResponse : GTLRCollectionObject
+
+/** Query page offset continuation token. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  Matched Skills list.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAgentRegistry_Skill *> *skills;
+
+@end
+
+
+/**
  *  Represents a user-defined Service.
  */
 @interface GTLRAgentRegistry_Service : GTLRObject
@@ -1815,6 +3029,215 @@ FOUNDATION_EXTERN NSString * const kGTLRAgentRegistry_Protocol_Type_TypeUnspecif
 
 /** Output only. Update time. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Represents an Executable Agent Skill or a Composite Tool Suite (Bundle).
+ *  Sibling resource with Agent and McpServer under
+ *  agentregistry.googleapis.com.
+ */
+@interface GTLRAgentRegistry_Skill : GTLRObject
+
+/** Output only. Create time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. The full resource name of the revision currently served by default
+ *  (floating track). Format:
+ *  `projects/{project}/locations/{location}/skills/{skill}/revisions/{revision}`
+ */
+@property(nonatomic, copy, nullable) NSString *defaultRevision;
+
+/**
+ *  Optional. Brief summary describing the capabilities of the skill. Maximum
+ *  length is 2048 characters.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Optional. Human-readable display name of the skill. Maximum length is 128
+ *  characters.
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Output only. Lightweight frontmatter metadata attributes copied from the
+ *  default revision.
+ */
+@property(nonatomic, strong, nullable) GTLRAgentRegistry_Frontmatter *frontmatter;
+
+/**
+ *  Optional. Input only. Optional nested initial revision payload to support
+ *  standard one-shot creation. The server processes this field on input during
+ *  creation but must never return it in responses.
+ */
+@property(nonatomic, strong, nullable) GTLRAgentRegistry_SkillRevision *initialRevision;
+
+/**
+ *  Identifier. Resource name of the Skill. Format:
+ *  `projects/{project}/locations/{location}/skills/{skill}` The `{skill}`
+ *  segment acts as the resource ID. If the skill is associated with a
+ *  Publisher, this segment typically uses a hyphenated namespace prefix
+ *  corresponding to the publisher (e.g., `google-workspace-create-docs`).
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The publisher resource associated with this skill. Format:
+ *  `projects/{project}/locations/{location}/publishers/{publisher}` The
+ *  publisher dictates the allowed namespace prefixes for the skill's name and
+ *  logical `skill_id` (e.g., Publisher `google` authorizes the `google-*`
+ *  prefix).
+ */
+@property(nonatomic, copy, nullable) NSString *publisher;
+
+/** Optional. Optional. Scanning configuration for the skill. */
+@property(nonatomic, strong, nullable) GTLRAgentRegistry_ScanningConfig *scanningConfig;
+
+/**
+ *  Output only. A stable, globally unique logical identifier for the skill. It
+ *  is securely constructed by the backend by combining the associated
+ *  `publisher`'s verified namespace and the skill's resource ID to enforce
+ *  strict ownership. For example, the prefix `google-` is reserved exclusively
+ *  for first-party Google publishers to prevent namespace squatting. Example:
+ *  `urn:skill:google-workspace:create-docs`
+ */
+@property(nonatomic, copy, nullable) NSString *skillId;
+
+/**
+ *  Output only. The system-managed state of the skill.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAgentRegistry_Skill_State_StateActive The skill is active and
+ *        is served. (Value: "STATE_ACTIVE")
+ *    @arg @c kGTLRAgentRegistry_Skill_State_StateCreating The skill is being
+ *        created. It is not served. (Value: "STATE_CREATING")
+ *    @arg @c kGTLRAgentRegistry_Skill_State_StateDecommissioned The skill is
+ *        decommissioned and is not served. (Value: "STATE_DECOMMISSIONED")
+ *    @arg @c kGTLRAgentRegistry_Skill_State_StateDeleting The skill is being
+ *        deleted. It is not served. (Value: "STATE_DELETING")
+ *    @arg @c kGTLRAgentRegistry_Skill_State_StateDeprecated The skill is
+ *        deprecated. It is served, but emits warnings. (Value:
+ *        "STATE_DEPRECATED")
+ *    @arg @c kGTLRAgentRegistry_Skill_State_StateDisabled The skill is disabled
+ *        and is not served. (Value: "STATE_DISABLED")
+ *    @arg @c kGTLRAgentRegistry_Skill_State_StateDraft The skill is in draft,
+ *        or lacks a valid payload. It is not served. (Value: "STATE_DRAFT")
+ *    @arg @c kGTLRAgentRegistry_Skill_State_StateUnspecified Default value.
+ *        This value is unused. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  Required. User-managed target state of the skill.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAgentRegistry_Skill_TargetState_TargetStateActive The skill
+ *        is active and can be served. (Value: "TARGET_STATE_ACTIVE")
+ *    @arg @c kGTLRAgentRegistry_Skill_TargetState_TargetStateDecommissioned The
+ *        skill is decommissioned and cannot be served. (Value:
+ *        "TARGET_STATE_DECOMMISSIONED")
+ *    @arg @c kGTLRAgentRegistry_Skill_TargetState_TargetStateDeprecated The
+ *        skill is deprecated. It can still be served, but emits warnings.
+ *        (Value: "TARGET_STATE_DEPRECATED")
+ *    @arg @c kGTLRAgentRegistry_Skill_TargetState_TargetStateDisabled The skill
+ *        is disabled and cannot be served. (Value: "TARGET_STATE_DISABLED")
+ *    @arg @c kGTLRAgentRegistry_Skill_TargetState_TargetStateDraft The skill is
+ *        in draft and cannot be served. (Value: "TARGET_STATE_DRAFT")
+ *    @arg @c kGTLRAgentRegistry_Skill_TargetState_TargetStateUnspecified
+ *        Default value. This value is unused. (Value:
+ *        "TARGET_STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *targetState;
+
+/**
+ *  Required. Structural deployment type (SIMPLE leaf vs COMPOSITE bundle).
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAgentRegistry_Skill_Type_Simple A standard, leaf executable
+ *        skill containing natural language and code. (Value: "SIMPLE")
+ *    @arg @c kGTLRAgentRegistry_Skill_Type_TypeUnspecified Default value. This
+ *        value is unused. (Value: "TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+/**
+ *  Output only. Universally unique identifier (UUID4) for the logical
+ *  container.
+ */
+@property(nonatomic, copy, nullable) NSString *uid;
+
+/** Output only. Update time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Represents an immutable, versioned snapshot of a Skill package.
+ */
+@interface GTLRAgentRegistry_SkillRevision : GTLRObject
+
+/** Optional. Immutable. Direct write-only raw archive upload source. */
+@property(nonatomic, strong, nullable) GTLRAgentRegistry_ArchiveUploadSource *archiveUploadSource;
+
+/** Output only. Revision creation timestamp. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Output only. Extracted YAML frontmatter configuration snapshot. */
+@property(nonatomic, strong, nullable) GTLRAgentRegistry_Frontmatter *frontmatter;
+
+/** Optional. Immutable. Cloud Storage object generation URI. */
+@property(nonatomic, strong, nullable) GTLRAgentRegistry_GcsSource *gcsSource;
+
+/**
+ *  Identifier. Resource name of the SkillRevision. Format:
+ *  `projects/{project}/locations/{location}/skills/{skill}/revisions/{revision}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. Scan result of the skill revision. */
+@property(nonatomic, strong, nullable) GTLRAgentRegistry_ScanResult *scanResult;
+
+/**
+ *  Output only. Cryptographic SHA-256 integrity and deduplication digest of the
+ *  payload zip.
+ */
+@property(nonatomic, copy, nullable) NSString *sha256Hash;
+
+/**
+ *  Output only. Size of the compiled zip payload in bytes (assists client
+ *  download progress).
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sizeBytes;
+
+/**
+ *  Output only. The system-managed lifecycle state of this revision.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAgentRegistry_SkillRevision_State_Active The revision is
+ *        active. (Value: "ACTIVE")
+ *    @arg @c kGTLRAgentRegistry_SkillRevision_State_Creating The revision is
+ *        being created. (Value: "CREATING")
+ *    @arg @c kGTLRAgentRegistry_SkillRevision_State_Deleting The revision is
+ *        being deleted. (Value: "DELETING")
+ *    @arg @c kGTLRAgentRegistry_SkillRevision_State_Failed The revision failed
+ *        to compile or ingest. (Value: "FAILED")
+ *    @arg @c kGTLRAgentRegistry_SkillRevision_State_StateUnspecified Default
+ *        value. This value is unused. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  Output only. Universally unique identifier (UUID4) for the skill revision.
+ */
+@property(nonatomic, copy, nullable) NSString *uid;
 
 @end
 
@@ -1905,6 +3328,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAgentRegistry_Protocol_Type_TypeUnspecif
  */
 @interface GTLRAgentRegistry_Tool : GTLRObject
 
+/**
+ *  Output only. Protocol-level tool metadata conforming to MCP _meta
+ *  specification. Output only.
+ */
+@property(nonatomic, strong, nullable) GTLRAgentRegistry_Tool_XMeta *xMeta;
+
 /** Output only. Annotations associated with the tool. */
 @property(nonatomic, strong, nullable) GTLRAgentRegistry_Annotations *annotations;
 
@@ -1918,6 +3347,19 @@ FOUNDATION_EXTERN NSString * const kGTLRAgentRegistry_Protocol_Type_TypeUnspecif
 /** Output only. Human-readable name of the tool. */
 @property(nonatomic, copy, nullable) NSString *name;
 
+@end
+
+
+/**
+ *  Output only. Protocol-level tool metadata conforming to MCP _meta
+ *  specification. Output only.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRAgentRegistry_Tool_XMeta : GTLRObject
 @end
 
 NS_ASSUME_NONNULL_END

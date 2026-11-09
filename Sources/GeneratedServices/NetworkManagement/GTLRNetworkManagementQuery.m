@@ -14,6 +14,12 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// cloudDeploymentType
+NSString * const kGTLRNetworkManagementCloudDeploymentTypeBicep = @"BICEP";
+NSString * const kGTLRNetworkManagementCloudDeploymentTypeCloudDeploymentTypeUnspecified = @"CLOUD_DEPLOYMENT_TYPE_UNSPECIFIED";
+NSString * const kGTLRNetworkManagementCloudDeploymentTypeCloudFormation = @"CLOUD_FORMATION";
+NSString * const kGTLRNetworkManagementCloudDeploymentTypeTerraform = @"TERRAFORM";
+
 // monitoringPointType
 NSString * const kGTLRNetworkManagementMonitoringPointTypeAwsEc2 = @"AWS_EC2";
 NSString * const kGTLRNetworkManagementMonitoringPointTypeAzureVm = @"AZURE_VM";
@@ -742,9 +748,9 @@ NSString * const kGTLRNetworkManagementMonitoringPointTypeVmware = @"VMWARE";
 
 @implementation GTLRNetworkManagementQuery_ProjectsLocationsNetworkMonitoringProvidersMonitoringPointsDownloadInstallScript
 
-@dynamic xPassword, hostname, monitoringPointType, ntpServerAddress,
-         ntpServerSecondaryAddress, parent, privateConnectivityEnabled,
-         staticIpAddressDnsServerAddress,
+@dynamic xPassword, cloudDeploymentType, hostname, monitoringPointType,
+         ntpServerAddress, ntpServerSecondaryAddress, parent,
+         privateConnectivityEnabled, staticIpAddressDnsServerAddress,
          staticIpAddressDnsServerSecondaryAddress, staticIpAddressDomain,
          staticIpAddressGatewayAddress, staticIpAddressIpAddress,
          staticIpAddressNetmask, timeZoneId, timeZoneVersion, useDhcp;

@@ -5383,7 +5383,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
 @interface GTLRCloudRedis_ClusterWeeklyMaintenanceWindow : GTLRObject
 
 /**
- *  Optional. Allows to define schedule that runs specified day of the week.
+ *  Optional. The day of the week for the maintenance window. This field is
+ *  required. You can't use `DAY_OF_WEEK_UNSPECIFIED`.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudRedis_ClusterWeeklyMaintenanceWindow_Day_DayOfWeekUnspecified
@@ -5405,7 +5406,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  */
 @property(nonatomic, copy, nullable) NSString *day;
 
-/** Optional. Start time of the window in UTC. */
+/**
+ *  Optional. The start time of the maintenance window in UTC. When you specify
+ *  a maintenance window, `start_time` is required.
+ */
 @property(nonatomic, strong, nullable) GTLRCloudRedis_TimeOfDay *startTime;
 
 @end
@@ -9931,6 +9935,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *  Zone distribution config for allocation of cluster resources.
  */
 @interface GTLRCloudRedis_ZoneDistributionConfig : GTLRObject
+
+/**
+ *  Output only. The exact list of zones where the cluster currently has active
+ *  VMs.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *activeZones;
 
 /**
  *  Optional. The mode of zone distribution. Defaults to MULTI_ZONE, when not

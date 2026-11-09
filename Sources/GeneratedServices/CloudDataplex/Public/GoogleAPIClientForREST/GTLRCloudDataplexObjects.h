@@ -44,6 +44,13 @@
 @class GTLRCloudDataplex_GoogleCloudDataplexV1AssetResourceStatus;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1AssetSecurityStatus;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1AssetStatus;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1BatchChangeMetadataRequest;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1BatchChangeMetadataRequestChange;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1BatchChangeMetadataRequestDescription;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1BatchChangeMetadataRequestDescriptionJob;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1BatchChangeMetadataResponse;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1BatchChangeMetadataResponse_FailedRequests;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1BatchOperationMetadata_FailedRequests;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1ChangeRequest;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1ChangeRequest_Labels;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1ContactIdentity;
@@ -66,6 +73,8 @@
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataDiscoverySpecStorageConfigCsvOptions;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataDiscoverySpecStorageConfigJsonOptions;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationResult;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationResultDataProductResult;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationResultDataProductResultAssetDescription;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationResultDatasetResult;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationResultField;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationResultQuery;
@@ -178,6 +187,7 @@
 @class GTLRCloudDataplex_GoogleCloudDataplexV1Entry_Aspects;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1EntryGroup;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1EntryGroup_Labels;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1EntryGroupChangeRequestConfig;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1EntryLink;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1EntryLink_Aspects;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1EntryLinkEntryReference;
@@ -220,6 +230,7 @@
 @class GTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobImportJobSpecImportJobScope;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobStatus;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1Partition;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1RequestBatchMetadataChangeRequest_Labels;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1RunTaskRequest_Args;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1RunTaskRequest_Labels;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1ScannedData;
@@ -252,6 +263,7 @@
 @class GTLRCloudDataplex_GoogleCloudDataplexV1TriggerOnDemand;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1TriggerOneTime;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1TriggerSchedule;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1UpdateEntryLinkRequest;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1UpdateEntryRequest;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1UpdateGlossaryCategoryRequest;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1UpdateGlossaryRequest;
@@ -634,6 +646,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1Busin
 // GTLRCloudDataplex_GoogleCloudDataplexV1ChangeRequest.changeType
 
 /**
+ *  Request to execute a batch of catalog changes.
+ *
+ *  Value: "BATCH_CHANGE_METADATA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1ChangeRequest_ChangeType_BatchChangeMetadata;
+/**
  *  State unspecified.
  *
  *  Value: "CHANGE_TYPE_UNSPECIFIED"
@@ -734,6 +752,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1Chang
 // GTLRCloudDataplex_GoogleCloudDataplexV1ChangeRequest.state
 
 /**
+ *  The change request has been approved and changes are currently being
+ *  applied.
+ *
+ *  Value: "APPLYING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1ChangeRequest_State_Applying;
+/**
  *  The change has been approved.
  *
  *  Value: "APPROVED"
@@ -745,6 +770,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1Chang
  *  Value: "EXPIRED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1ChangeRequest_State_Expired;
+/**
+ *  The change request execution failed.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1ChangeRequest_State_Failed;
 /**
  *  The change is proposed and new.
  *
@@ -3576,8 +3607,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 /**
  *  Optional. You can use String Type annotations to specify special meaning to
  *  string fields. The following values are supported: richText: The field must
- *  be interpreted as a rich text field. url: A fully qualified URL link.
- *  resource: A service qualified resource reference.
+ *  be interpreted as a rich text field. markdown: The field must be interpreted
+ *  as a markdown field. url: A fully qualified URL link. resource: A service
+ *  qualified resource reference.
  */
 @property(nonatomic, copy, nullable) NSString *stringType;
 
@@ -4042,6 +4074,192 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 
 
 /**
+ *  Request message for batch changing metadata. Requires permission to perform
+ *  the underlying change, depending on the type and content of the change. Per
+ *  operation, required permissions are: - for CreateEntry:
+ *  dataplex.entries.create - for UpdateEntry: dataplex.entries.update - for
+ *  DeleteEntry: dataplex.entries.delete - for CreateEntryLink:
+ *  dataplex.entryLinks.create - for UpdateEntryLink: dataplex.entryLinks.update
+ *  - for DeleteEntryLink: dataplex.entryLinks.deleteAnd per used type
+ *  permissions are: - for EntryType: dataplex.entryTypes.use or
+ *  dataplex.entryGroups.useEntry for reusable built-in types, - for AspectType:
+ *  dataplex.aspectTypes.use or dataplex.entryGroups.useAspect for reusable
+ *  built-in types and - for EntryLinkType: dataplex.entryLinkTypes.use or
+ *  dataplex.entryGroups.useEntryLink for reusable built-in types.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1BatchChangeMetadataRequest : GTLRObject
+
+/**
+ *  Required. The list of changes to apply. Only a single change per resource is
+ *  supported. Maximum number of changes supported is 250.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudDataplex_GoogleCloudDataplexV1BatchChangeMetadataRequestChange *> *changes;
+
+/**
+ *  Optional. Text description of the batch change.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1BatchChangeMetadataRequestDescription *descriptionProperty;
+
+/**
+ *  Required. The resource name of the EntryGroup on which the batch change
+ *  applies. Format:
+ *  projects/{project_number_or_id}/locations/{location_id}/entryGroups/{entry_group_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Detailed description of an individual change.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1BatchChangeMetadataRequestChange : GTLRObject
+
+/** Payload for creating an EntryLink. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1CreateEntryLinkRequest *createEntryLinkRequest;
+
+/** Payload for creating an Entry. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1CreateEntryRequest *createEntryRequest;
+
+/** Payload for deleting an EntryLink. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DeleteEntryLinkRequest *deleteEntryLinkRequest;
+
+/** Payload for deleting an Entry. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DeleteEntryRequest *deleteEntryRequest;
+
+/** Payload for updating an EntryLink. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1UpdateEntryLinkRequest *updateEntryLinkRequest;
+
+/** Payload for updating an Entry. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1UpdateEntryRequest *updateEntryRequest;
+
+@end
+
+
+/**
+ *  Description of the batch change.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1BatchChangeMetadataRequestDescription : GTLRObject
+
+/** Optional. The text description content. */
+@property(nonatomic, copy, nullable) NSString *content;
+
+/** Optional. The job that created the batch change. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1BatchChangeMetadataRequestDescriptionJob *job;
+
+@end
+
+
+/**
+ *  Description of the job that created the batch change.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1BatchChangeMetadataRequestDescriptionJob : GTLRObject
+
+/**
+ *  Optional. The name of the job that created the batch change. For example:
+ *  projects/{project_number}/locations/{location_id}/enrichmentTasks/{enrichment_task_id}/runs/{enrichment_run_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Optional. The start time of the job run that created the batch change. */
+@property(nonatomic, strong, nullable) GTLRDateTime *runTime;
+
+@end
+
+
+/**
+ *  Response message for BatchChangeMetadata.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1BatchChangeMetadataResponse : GTLRObject
+
+/**
+ *  A map of failed requests for a batch change, where the key is the 0-based
+ *  index of the failed request in the batch and the value is the error status.
+ *  If all operations succeeded, this map is empty.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1BatchChangeMetadataResponse_FailedRequests *failedRequests;
+
+@end
+
+
+/**
+ *  A map of failed requests for a batch change, where the key is the 0-based
+ *  index of the failed request in the batch and the value is the error status.
+ *  If all operations succeeded, this map is empty.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRCloudDataplex_GoogleRpcStatus. Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1BatchChangeMetadataResponse_FailedRequests : GTLRObject
+@end
+
+
+/**
+ *  Represents the metadata of a long-running operation.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1BatchOperationMetadata : GTLRObject
+
+/** Output only. API version used to start the operation. */
+@property(nonatomic, copy, nullable) NSString *apiVersion;
+
+/** Output only. The time the operation was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Output only. The time the operation finished running. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/**
+ *  Output only. A map of failed requests, where the key is the index of the
+ *  request in a batch and the value is the error status.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1BatchOperationMetadata_FailedRequests *failedRequests;
+
+/**
+ *  Output only. Identifies whether the user has requested cancellation of the
+ *  operation. Operations that have successfully been cancelled have
+ *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Code.CANCELLED.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *requestedCancellation;
+
+/** Output only. Human-readable status of the operation, if any. */
+@property(nonatomic, copy, nullable) NSString *statusMessage;
+
+/**
+ *  Output only. Server-defined resource path for the target of the operation.
+ */
+@property(nonatomic, copy, nullable) NSString *target;
+
+/**
+ *  Output only. Name of the verb executed by the operation. This corresponds to
+ *  the type of operation being performed. For example: 'batchCreate' or
+ *  'batchChangeMetadata'.
+ */
+@property(nonatomic, copy, nullable) NSString *verb;
+
+@end
+
+
+/**
+ *  Output only. A map of failed requests, where the key is the index of the
+ *  request in a batch and the value is the error status.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRCloudDataplex_GoogleRpcStatus. Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1BatchOperationMetadata_FailedRequests : GTLRObject
+@end
+
+
+/**
  *  Payload associated with Business Glossary related log events.
  */
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1BusinessGlossaryEvent : GTLRObject
@@ -4126,11 +4344,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
  */
 @property(nonatomic, copy, nullable) NSString *author;
 
+/** Payload for executing a batch of catalog changes. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1BatchChangeMetadataRequest *batchChangeMetadataRequest;
+
+/** Output only. Result of applying a batch change metadata request. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1BatchChangeMetadataResponse *batchChangeMetadataResponse;
+
 /**
  *  Output only. The type of change represented by the change_payload. This
  *  field is derived from the populated field in the change_payload oneof.
  *
  *  Likely values:
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1ChangeRequest_ChangeType_BatchChangeMetadata
+ *        Request to execute a batch of catalog changes. (Value:
+ *        "BATCH_CHANGE_METADATA")
  *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1ChangeRequest_ChangeType_ChangeTypeUnspecified
  *        State unspecified. (Value: "CHANGE_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1ChangeRequest_ChangeType_CreateEntry
@@ -4248,10 +4475,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
  *  Output only. The current state of the ChangeRequest.
  *
  *  Likely values:
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1ChangeRequest_State_Applying
+ *        The change request has been approved and changes are currently being
+ *        applied. (Value: "APPLYING")
  *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1ChangeRequest_State_Approved
  *        The change has been approved. (Value: "APPROVED")
  *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1ChangeRequest_State_Expired
  *        The change request has expired. (Value: "EXPIRED")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1ChangeRequest_State_Failed
+ *        The change request execution failed. (Value: "FAILED")
  *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1ChangeRequest_State_New
  *        The change is proposed and new. (Value: "NEW")
  *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1ChangeRequest_State_Rejected
@@ -4865,11 +5097,52 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
  */
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationResult : GTLRObject
 
+/** Output only. Insights for a data product. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationResultDataProductResult *dataProductResult;
+
 /** Output only. Insights for a Dataset resource. */
 @property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationResultDatasetResult *datasetResult;
 
 /** Output only. Insights for a Table resource. */
 @property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationResultTableResult *tableResult;
+
+@end
+
+
+/**
+ *  Generated metadata about a data product.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationResultDataProductResult : GTLRObject
+
+/**
+ *  Output only. Unordered list. Generated descriptions for assets in the data
+ *  product. Note that some assets may not have a generated description. Such
+ *  assets will not be included in this list.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationResultDataProductResultAssetDescription *> *assetDescriptions;
+
+/** Output only. A detailed description for the data product. */
+@property(nonatomic, copy, nullable) NSString *overview;
+
+/** Output only. Unordered list. Sample SQL queries for the data product. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationResultQuery *> *queries;
+
+@end
+
+
+/**
+ *  Description for an asset in the data product.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationResultDataProductResultAssetDescription : GTLRObject
+
+/** Output only. A generated description for the asset. */
+@property(nonatomic, copy, nullable) NSString *overview;
+
+/**
+ *  Output only. The service-qualified full resource name of the asset. Example:
+ *  //bigquery.googleapis.com/projects/PROJECT_ID/datasets/DATASET_ID/tables/TABLE_ID
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
 
 @end
 
@@ -5057,6 +5330,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *catalogPublishingEnabled;
+
+/**
+ *  Optional. Custom instructions for generating data documentation. The maximum
+ *  length is 2,048 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *customInstructions;
 
 /**
  *  Optional. Specifies which components of the data documentation to generate.
@@ -8386,6 +8665,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
+ *  Output only. The type of the EntryGroup that this entry belongs to. The
+ *  default value is an empty string. Recognised values include: * context-set:
+ *  EntryGroup containing context set data assets.
+ */
+@property(nonatomic, copy, nullable) NSString *entryGroupType;
+
+/**
  *  Optional. Information related to the source system of the data resource that
  *  is represented by the entry.
  */
@@ -8450,6 +8736,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
  */
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1EntryGroup : GTLRObject
 
+/**
+ *  Optional. Specifies the configuration for requesting changes in the metadata
+ *  belonging to the Entry Group.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1EntryGroupChangeRequestConfig *changeRequestConfig;
+
 /** Output only. The time when the EntryGroup was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
@@ -8500,6 +8792,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 @property(nonatomic, copy, nullable) NSString *transferStatus;
 
 /**
+ *  Optional. Immutable. The type of this EntryGroup. The default value is an
+ *  empty string. Recognised values include: * context-set: EntryGroup
+ *  containing context set data assets.
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+/**
  *  Output only. System generated globally unique ID for the EntryGroup. If you
  *  delete and recreate the EntryGroup with the same name, this ID will be
  *  different.
@@ -8521,6 +8820,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
  *        fetch them all at once.
  */
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1EntryGroup_Labels : GTLRObject
+@end
+
+
+/**
+ *  Specifies the configuration for requesting changes in the metadata belonging
+ *  to the Entry Group.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1EntryGroupChangeRequestConfig : GTLRObject
+
+/**
+ *  Optional. Specifies the email addresses of users who are potential approvers
+ *  and are notified when a change request is created for the metadata belonging
+ *  to the Entry Group. The maximum number of emails allowed is 10.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *approverEmails;
+
 @end
 
 
@@ -11186,6 +11501,63 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 
 
 /**
+ *  Request message for submitting a set of catalog changes proposals.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1RequestBatchMetadataChangeRequest : GTLRObject
+
+/**
+ *  Required. The detailed specification of the proposed changes. This payload
+ *  is intended to be embedded as the change_payload in the resulting
+ *  ChangeRequest.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1BatchChangeMetadataRequest *changePayload;
+
+/**
+ *  Optional. If set to true, defers reference validation between entries to
+ *  when the change request is approved and applied. Structural validation of
+ *  entries and aspects is still performed at the time of submission. The
+ *  default is false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *deferredValidation;
+
+/** Optional. Justification for the metadata change request. */
+@property(nonatomic, copy, nullable) NSString *justification;
+
+/** Optional. User-defined labels for the metadata change request. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1RequestBatchMetadataChangeRequest_Labels *labels;
+
+@end
+
+
+/**
+ *  Optional. User-defined labels for the metadata change request.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1RequestBatchMetadataChangeRequest_Labels : GTLRObject
+@end
+
+
+/**
+ *  Response message containing the reference to the created change request.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1RequestBatchMetadataChangeResponse : GTLRObject
+
+/**
+ *  The resource name of the created ChangeRequest. Format:
+ *  projects/{project}/locations/{location}/changeRequests/{change_request}
+ */
+@property(nonatomic, copy, nullable) NSString *changeRequest;
+
+@end
+
+
+/**
  *  Message for requesting access to a Data Product.
  */
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1RequestDataProductAccessRequest : GTLRObject
@@ -12357,6 +12729,34 @@ GTLR_DEPRECATED
  *  *.This field is required for Schedule scans.
  */
 @property(nonatomic, copy, nullable) NSString *cron;
+
+@end
+
+
+/**
+ *  Request message for UpdateEntryLink method.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1UpdateEntryLinkRequest : GTLRObject
+
+/**
+ *  Optional. If set to true and the entry link doesn't exist, the service will
+ *  create it.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allowMissing;
+
+/**
+ *  Optional. The map keys of the Aspects which the service should modify. It
+ *  should be the aspect type reference in the format
+ *  {project_id_or_number}.{location_id}.{aspect_type_id}.If this field is left
+ *  empty, the service treats it as specifying exactly those Aspects present in
+ *  the request.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *aspectKeys;
+
+/** Required. Entry Link resource. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1EntryLink *entryLink;
 
 @end
 

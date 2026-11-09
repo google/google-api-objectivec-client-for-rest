@@ -34,6 +34,117 @@
 
 @end
 
+@implementation GTLRCloudResourceManagerQuery_FoldersBoundariesCreate
+
+@dynamic boundaryId, parent;
+
++ (instancetype)queryWithObject:(GTLRCloudResourceManager_Boundary *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v3/{+parent}/boundaries";
+  GTLRCloudResourceManagerQuery_FoldersBoundariesCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudResourceManager_Operation class];
+  query.loggingName = @"cloudresourcemanager.folders.boundaries.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudResourceManagerQuery_FoldersBoundariesDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v3/{+name}";
+  GTLRCloudResourceManagerQuery_FoldersBoundariesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudResourceManager_Operation class];
+  query.loggingName = @"cloudresourcemanager.folders.boundaries.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudResourceManagerQuery_FoldersBoundariesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v3/{+name}";
+  GTLRCloudResourceManagerQuery_FoldersBoundariesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudResourceManager_Boundary class];
+  query.loggingName = @"cloudresourcemanager.folders.boundaries.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudResourceManagerQuery_FoldersBoundariesList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v3/{+parent}/boundaries";
+  GTLRCloudResourceManagerQuery_FoldersBoundariesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudResourceManager_ListBoundariesResponse class];
+  query.loggingName = @"cloudresourcemanager.folders.boundaries.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudResourceManagerQuery_FoldersBoundariesPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRCloudResourceManager_Boundary *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v3/{+name}";
+  GTLRCloudResourceManagerQuery_FoldersBoundariesPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudResourceManager_Operation class];
+  query.loggingName = @"cloudresourcemanager.folders.boundaries.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudResourceManagerQuery_FoldersCapabilitiesGet
 
 @dynamic name;
@@ -251,6 +362,25 @@
 
 @end
 
+@implementation GTLRCloudResourceManagerQuery_FoldersGetBoundaryConfig
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v3/{+name}";
+  GTLRCloudResourceManagerQuery_FoldersGetBoundaryConfig *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudResourceManager_BoundaryConfig class];
+  query.loggingName = @"cloudresourcemanager.folders.getBoundaryConfig";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudResourceManagerQuery_FoldersGetIamPolicy
 
 @dynamic resource;
@@ -447,6 +577,33 @@
 
 @end
 
+@implementation GTLRCloudResourceManagerQuery_FoldersUpdateBoundaryConfig
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRCloudResourceManager_BoundaryConfig *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v3/{+name}";
+  GTLRCloudResourceManagerQuery_FoldersUpdateBoundaryConfig *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudResourceManager_Operation class];
+  query.loggingName = @"cloudresourcemanager.folders.updateBoundaryConfig";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudResourceManagerQuery_LiensCreate
 
 + (instancetype)queryWithObject:(GTLRCloudResourceManager_Lien *)object {
@@ -608,6 +765,117 @@
 
 @end
 
+@implementation GTLRCloudResourceManagerQuery_OrganizationsBoundariesCreate
+
+@dynamic boundaryId, parent;
+
++ (instancetype)queryWithObject:(GTLRCloudResourceManager_Boundary *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v3/{+parent}/boundaries";
+  GTLRCloudResourceManagerQuery_OrganizationsBoundariesCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudResourceManager_Operation class];
+  query.loggingName = @"cloudresourcemanager.organizations.boundaries.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudResourceManagerQuery_OrganizationsBoundariesDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v3/{+name}";
+  GTLRCloudResourceManagerQuery_OrganizationsBoundariesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudResourceManager_Operation class];
+  query.loggingName = @"cloudresourcemanager.organizations.boundaries.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudResourceManagerQuery_OrganizationsBoundariesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v3/{+name}";
+  GTLRCloudResourceManagerQuery_OrganizationsBoundariesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudResourceManager_Boundary class];
+  query.loggingName = @"cloudresourcemanager.organizations.boundaries.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudResourceManagerQuery_OrganizationsBoundariesList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v3/{+parent}/boundaries";
+  GTLRCloudResourceManagerQuery_OrganizationsBoundariesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudResourceManager_ListBoundariesResponse class];
+  query.loggingName = @"cloudresourcemanager.organizations.boundaries.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudResourceManagerQuery_OrganizationsBoundariesPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRCloudResourceManager_Boundary *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v3/{+name}";
+  GTLRCloudResourceManagerQuery_OrganizationsBoundariesPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudResourceManager_Operation class];
+  query.loggingName = @"cloudresourcemanager.organizations.boundaries.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudResourceManagerQuery_OrganizationsCapabilityConfigsCreate
 
 @dynamic capabilityConfigId, parent;
@@ -738,6 +1006,25 @@
 
 @end
 
+@implementation GTLRCloudResourceManagerQuery_OrganizationsGetBoundaryConfig
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v3/{+name}";
+  GTLRCloudResourceManagerQuery_OrganizationsGetBoundaryConfig *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudResourceManager_BoundaryConfig class];
+  query.loggingName = @"cloudresourcemanager.organizations.getBoundaryConfig";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudResourceManagerQuery_OrganizationsGetIamPolicy
 
 @dynamic resource;
@@ -831,6 +1118,33 @@
   query.resource = resource;
   query.expectedObjectClass = [GTLRCloudResourceManager_TestIamPermissionsResponse class];
   query.loggingName = @"cloudresourcemanager.organizations.testIamPermissions";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudResourceManagerQuery_OrganizationsUpdateBoundaryConfig
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRCloudResourceManager_BoundaryConfig *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v3/{+name}";
+  GTLRCloudResourceManagerQuery_OrganizationsUpdateBoundaryConfig *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudResourceManager_Operation class];
+  query.loggingName = @"cloudresourcemanager.organizations.updateBoundaryConfig";
   return query;
 }
 

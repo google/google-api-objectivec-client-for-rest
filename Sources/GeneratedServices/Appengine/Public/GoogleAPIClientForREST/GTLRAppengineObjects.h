@@ -85,7 +85,9 @@
 @class GTLRAppengine_Version_EnvVariables;
 @class GTLRAppengine_Version_GeneratedCustomerMetadata;
 @class GTLRAppengine_Volume;
+@class GTLRAppengine_VpcAccess;
 @class GTLRAppengine_VpcAccessConnector;
+@class GTLRAppengine_VpcNetworkInterface;
 @class GTLRAppengine_ZipInfo;
 
 // Generated comments include content from the discovery document; avoid them
@@ -1283,6 +1285,30 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_ServingS
  *  Value: "STOPPED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
+
+// ----------------------------------------------------------------------------
+// GTLRAppengine_VpcAccess.vpcEgress
+
+/**
+ *  Force all traffic to egress through the NetworkInterface (and configured VPC
+ *  Network)
+ *
+ *  Value: "ALL_TRAFFIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_VpcAccess_VpcEgress_AllTraffic;
+/**
+ *  Force all Private IP Space traffic to egress through NetworkInterface (and
+ *  configured VPC Network)
+ *
+ *  Value: "PRIVATE_IP_RANGES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_VpcAccess_VpcEgress_PrivateIpRanges;
+/**
+ *  No value set; apply default behavior
+ *
+ *  Value: "VPC_EGRESS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_VpcAccess_VpcEgress_VpcEgressUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAppengine_VpcAccessConnector.egressSetting
@@ -4759,6 +4785,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetti
  */
 @property(nonatomic, strong, nullable) NSNumber *vm;
 
+/** Enables VPC access connectivity for standard apps. */
+@property(nonatomic, strong, nullable) GTLRAppengine_VpcAccess *vpcAccess;
+
 /** Enables VPC connectivity for standard apps. */
 @property(nonatomic, strong, nullable) GTLRAppengine_VpcAccessConnector *vpcAccessConnector;
 
@@ -4847,6 +4876,36 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetti
 
 
 /**
+ *  VPC Access settings
+ */
+@interface GTLRAppengine_VpcAccess : GTLRObject
+
+/**
+ *  The Direct VPC configuration. Currently only single network interface is
+ *  supported.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAppengine_VpcNetworkInterface *> *networkInterfaces;
+
+/**
+ *  The traffic egress setting for the VPC network interface, controlling what
+ *  traffic is diverted through it.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAppengine_VpcAccess_VpcEgress_AllTraffic Force all traffic to
+ *        egress through the NetworkInterface (and configured VPC Network)
+ *        (Value: "ALL_TRAFFIC")
+ *    @arg @c kGTLRAppengine_VpcAccess_VpcEgress_PrivateIpRanges Force all
+ *        Private IP Space traffic to egress through NetworkInterface (and
+ *        configured VPC Network) (Value: "PRIVATE_IP_RANGES")
+ *    @arg @c kGTLRAppengine_VpcAccess_VpcEgress_VpcEgressUnspecified No value
+ *        set; apply default behavior (Value: "VPC_EGRESS_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *vpcEgress;
+
+@end
+
+
+/**
  *  VPC access connector specification.
  */
 @interface GTLRAppengine_VpcAccessConnector : GTLRObject
@@ -4872,6 +4931,40 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetti
  *  projects/my-project/locations/us-central1/connectors/c1.
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Network interface key message.
+ */
+@interface GTLRAppengine_VpcNetworkInterface : GTLRObject
+
+/**
+ *  Optional. The VPC network that the App Engine resource will be able to send
+ *  traffic to. At least one of network or subnetwork must be specified. If both
+ *  network and subnetwork are specified, the given VPC subnetwork must belong
+ *  to the given VPC network. If network is not specified, it will be looked up
+ *  from the subnetwork. Could be either a short name or a full path. e.g.
+ *  {VPC_NETWORK} or projects/{HOST_PROJECT_ID}/global/networks/{VPC_NETWORK}
+ */
+@property(nonatomic, copy, nullable) NSString *network;
+
+/**
+ *  Optional. The VPC subnetwork that the App Engine resource will get IPs from.
+ *  At least one of network or subnetwork must be specified. If both network and
+ *  subnetwork are specified, the given VPC subnetwork must belong to the given
+ *  VPC network. If subnetwork is not specified, the subnetwork with the same
+ *  name with the network will be used. Could be either a short name or a full
+ *  path. e.g. {SUBNET_NAME} or
+ *  projects/{HOST_PROJECT_ID}/regions/{REGION}/subnetworks/{SUBNET_NAME}
+ */
+@property(nonatomic, copy, nullable) NSString *subnet;
+
+/**
+ *  Optional. The network tags that will be applied to this App Engine resource.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *tags;
 
 @end
 

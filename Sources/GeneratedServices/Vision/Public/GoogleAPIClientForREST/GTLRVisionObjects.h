@@ -5444,7 +5444,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @interface GTLRVision_FaceAnnotation : GTLRObject
 
 /**
- *  Anger likelihood.
+ *  Deprecated: No longer populated.
  *
  *  Likely values:
  *    @arg @c kGTLRVision_FaceAnnotation_AngerLikelihood_Likely It is likely.
@@ -5460,7 +5460,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
  *    @arg @c kGTLRVision_FaceAnnotation_AngerLikelihood_VeryUnlikely It is very
  *        unlikely. (Value: "VERY_UNLIKELY")
  */
-@property(nonatomic, copy, nullable) NSString *angerLikelihood;
+@property(nonatomic, copy, nullable) NSString *angerLikelihood GTLR_DEPRECATED;
 
 /**
  *  Blurred likelihood.
@@ -5527,7 +5527,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @property(nonatomic, copy, nullable) NSString *headwearLikelihood;
 
 /**
- *  Joy likelihood.
+ *  Deprecated: No longer populated.
  *
  *  Likely values:
  *    @arg @c kGTLRVision_FaceAnnotation_JoyLikelihood_Likely It is likely.
@@ -5543,7 +5543,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
  *    @arg @c kGTLRVision_FaceAnnotation_JoyLikelihood_VeryUnlikely It is very
  *        unlikely. (Value: "VERY_UNLIKELY")
  */
-@property(nonatomic, copy, nullable) NSString *joyLikelihood;
+@property(nonatomic, copy, nullable) NSString *joyLikelihood GTLR_DEPRECATED;
 
 /**
  *  Face landmarking confidence. Range [0, 1].
@@ -5574,7 +5574,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @property(nonatomic, strong, nullable) NSNumber *rollAngle;
 
 /**
- *  Sorrow likelihood.
+ *  Deprecated: No longer populated.
  *
  *  Likely values:
  *    @arg @c kGTLRVision_FaceAnnotation_SorrowLikelihood_Likely It is likely.
@@ -5590,10 +5590,10 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
  *    @arg @c kGTLRVision_FaceAnnotation_SorrowLikelihood_VeryUnlikely It is
  *        very unlikely. (Value: "VERY_UNLIKELY")
  */
-@property(nonatomic, copy, nullable) NSString *sorrowLikelihood;
+@property(nonatomic, copy, nullable) NSString *sorrowLikelihood GTLR_DEPRECATED;
 
 /**
- *  Surprise likelihood.
+ *  Deprecated: No longer populated.
  *
  *  Likely values:
  *    @arg @c kGTLRVision_FaceAnnotation_SurpriseLikelihood_Likely It is likely.
@@ -5609,7 +5609,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
  *    @arg @c kGTLRVision_FaceAnnotation_SurpriseLikelihood_VeryUnlikely It is
  *        very unlikely. (Value: "VERY_UNLIKELY")
  */
-@property(nonatomic, copy, nullable) NSString *surpriseLikelihood;
+@property(nonatomic, copy, nullable) NSString *surpriseLikelihood GTLR_DEPRECATED;
 
 /**
  *  Pitch angle, which indicates the upwards/downwards angle that the face is
@@ -6089,7 +6089,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @interface GTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotation : GTLRObject
 
 /**
- *  Anger likelihood.
+ *  Deprecated: No longer populated.
  *
  *  Likely values:
  *    @arg @c kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotation_AngerLikelihood_Likely
@@ -6105,7 +6105,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
  *    @arg @c kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotation_AngerLikelihood_VeryUnlikely
  *        It is very unlikely. (Value: "VERY_UNLIKELY")
  */
-@property(nonatomic, copy, nullable) NSString *angerLikelihood;
+@property(nonatomic, copy, nullable) NSString *angerLikelihood GTLR_DEPRECATED;
 
 /**
  *  Blurred likelihood.
@@ -6172,7 +6172,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @property(nonatomic, copy, nullable) NSString *headwearLikelihood;
 
 /**
- *  Joy likelihood.
+ *  Deprecated: No longer populated.
  *
  *  Likely values:
  *    @arg @c kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotation_JoyLikelihood_Likely
@@ -6188,7 +6188,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
  *    @arg @c kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotation_JoyLikelihood_VeryUnlikely
  *        It is very unlikely. (Value: "VERY_UNLIKELY")
  */
-@property(nonatomic, copy, nullable) NSString *joyLikelihood;
+@property(nonatomic, copy, nullable) NSString *joyLikelihood GTLR_DEPRECATED;
 
 /**
  *  Face landmarking confidence. Range [0, 1].
@@ -6219,7 +6219,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @property(nonatomic, strong, nullable) NSNumber *rollAngle;
 
 /**
- *  Sorrow likelihood.
+ *  Deprecated: No longer populated.
  *
  *  Likely values:
  *    @arg @c kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotation_SorrowLikelihood_Likely
@@ -6235,10 +6235,10 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
  *    @arg @c kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotation_SorrowLikelihood_VeryUnlikely
  *        It is very unlikely. (Value: "VERY_UNLIKELY")
  */
-@property(nonatomic, copy, nullable) NSString *sorrowLikelihood;
+@property(nonatomic, copy, nullable) NSString *sorrowLikelihood GTLR_DEPRECATED;
 
 /**
- *  Surprise likelihood.
+ *  Deprecated: No longer populated.
  *
  *  Likely values:
  *    @arg @c kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotation_SurpriseLikelihood_Likely
@@ -6254,7 +6254,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
  *    @arg @c kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotation_SurpriseLikelihood_VeryUnlikely
  *        It is very unlikely. (Value: "VERY_UNLIKELY")
  */
-@property(nonatomic, copy, nullable) NSString *surpriseLikelihood;
+@property(nonatomic, copy, nullable) NSString *surpriseLikelihood GTLR_DEPRECATED;
 
 /**
  *  Pitch angle, which indicates the upwards/downwards angle that the face is
@@ -7660,7 +7660,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @interface GTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotation : GTLRObject
 
 /**
- *  Anger likelihood.
+ *  Deprecated: No longer populated.
  *
  *  Likely values:
  *    @arg @c kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotation_AngerLikelihood_Likely
@@ -7676,7 +7676,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
  *    @arg @c kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotation_AngerLikelihood_VeryUnlikely
  *        It is very unlikely. (Value: "VERY_UNLIKELY")
  */
-@property(nonatomic, copy, nullable) NSString *angerLikelihood;
+@property(nonatomic, copy, nullable) NSString *angerLikelihood GTLR_DEPRECATED;
 
 /**
  *  Blurred likelihood.
@@ -7743,7 +7743,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @property(nonatomic, copy, nullable) NSString *headwearLikelihood;
 
 /**
- *  Joy likelihood.
+ *  Deprecated: No longer populated.
  *
  *  Likely values:
  *    @arg @c kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotation_JoyLikelihood_Likely
@@ -7759,7 +7759,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
  *    @arg @c kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotation_JoyLikelihood_VeryUnlikely
  *        It is very unlikely. (Value: "VERY_UNLIKELY")
  */
-@property(nonatomic, copy, nullable) NSString *joyLikelihood;
+@property(nonatomic, copy, nullable) NSString *joyLikelihood GTLR_DEPRECATED;
 
 /**
  *  Face landmarking confidence. Range [0, 1].
@@ -7790,7 +7790,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @property(nonatomic, strong, nullable) NSNumber *rollAngle;
 
 /**
- *  Sorrow likelihood.
+ *  Deprecated: No longer populated.
  *
  *  Likely values:
  *    @arg @c kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotation_SorrowLikelihood_Likely
@@ -7806,10 +7806,10 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
  *    @arg @c kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotation_SorrowLikelihood_VeryUnlikely
  *        It is very unlikely. (Value: "VERY_UNLIKELY")
  */
-@property(nonatomic, copy, nullable) NSString *sorrowLikelihood;
+@property(nonatomic, copy, nullable) NSString *sorrowLikelihood GTLR_DEPRECATED;
 
 /**
- *  Surprise likelihood.
+ *  Deprecated: No longer populated.
  *
  *  Likely values:
  *    @arg @c kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotation_SurpriseLikelihood_Likely
@@ -7825,7 +7825,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
  *    @arg @c kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotation_SurpriseLikelihood_VeryUnlikely
  *        It is very unlikely. (Value: "VERY_UNLIKELY")
  */
-@property(nonatomic, copy, nullable) NSString *surpriseLikelihood;
+@property(nonatomic, copy, nullable) NSString *surpriseLikelihood GTLR_DEPRECATED;
 
 /**
  *  Pitch angle, which indicates the upwards/downwards angle that the face is
@@ -9272,7 +9272,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @interface GTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotation : GTLRObject
 
 /**
- *  Anger likelihood.
+ *  Deprecated: No longer populated.
  *
  *  Likely values:
  *    @arg @c kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotation_AngerLikelihood_Likely
@@ -9288,7 +9288,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
  *    @arg @c kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotation_AngerLikelihood_VeryUnlikely
  *        It is very unlikely. (Value: "VERY_UNLIKELY")
  */
-@property(nonatomic, copy, nullable) NSString *angerLikelihood;
+@property(nonatomic, copy, nullable) NSString *angerLikelihood GTLR_DEPRECATED;
 
 /**
  *  Blurred likelihood.
@@ -9355,7 +9355,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @property(nonatomic, copy, nullable) NSString *headwearLikelihood;
 
 /**
- *  Joy likelihood.
+ *  Deprecated: No longer populated.
  *
  *  Likely values:
  *    @arg @c kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotation_JoyLikelihood_Likely
@@ -9371,7 +9371,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
  *    @arg @c kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotation_JoyLikelihood_VeryUnlikely
  *        It is very unlikely. (Value: "VERY_UNLIKELY")
  */
-@property(nonatomic, copy, nullable) NSString *joyLikelihood;
+@property(nonatomic, copy, nullable) NSString *joyLikelihood GTLR_DEPRECATED;
 
 /**
  *  Face landmarking confidence. Range [0, 1].
@@ -9402,7 +9402,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @property(nonatomic, strong, nullable) NSNumber *rollAngle;
 
 /**
- *  Sorrow likelihood.
+ *  Deprecated: No longer populated.
  *
  *  Likely values:
  *    @arg @c kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotation_SorrowLikelihood_Likely
@@ -9418,10 +9418,10 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
  *    @arg @c kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotation_SorrowLikelihood_VeryUnlikely
  *        It is very unlikely. (Value: "VERY_UNLIKELY")
  */
-@property(nonatomic, copy, nullable) NSString *sorrowLikelihood;
+@property(nonatomic, copy, nullable) NSString *sorrowLikelihood GTLR_DEPRECATED;
 
 /**
- *  Surprise likelihood.
+ *  Deprecated: No longer populated.
  *
  *  Likely values:
  *    @arg @c kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotation_SurpriseLikelihood_Likely
@@ -9437,7 +9437,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
  *    @arg @c kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotation_SurpriseLikelihood_VeryUnlikely
  *        It is very unlikely. (Value: "VERY_UNLIKELY")
  */
-@property(nonatomic, copy, nullable) NSString *surpriseLikelihood;
+@property(nonatomic, copy, nullable) NSString *surpriseLikelihood GTLR_DEPRECATED;
 
 /**
  *  Pitch angle, which indicates the upwards/downwards angle that the face is
@@ -10986,7 +10986,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @interface GTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation : GTLRObject
 
 /**
- *  Anger likelihood.
+ *  Deprecated: No longer populated.
  *
  *  Likely values:
  *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_AngerLikelihood_Likely
@@ -11002,7 +11002,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
  *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_AngerLikelihood_VeryUnlikely
  *        It is very unlikely. (Value: "VERY_UNLIKELY")
  */
-@property(nonatomic, copy, nullable) NSString *angerLikelihood;
+@property(nonatomic, copy, nullable) NSString *angerLikelihood GTLR_DEPRECATED;
 
 /**
  *  Blurred likelihood.
@@ -11069,7 +11069,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @property(nonatomic, copy, nullable) NSString *headwearLikelihood;
 
 /**
- *  Joy likelihood.
+ *  Deprecated: No longer populated.
  *
  *  Likely values:
  *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_JoyLikelihood_Likely
@@ -11085,7 +11085,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
  *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_JoyLikelihood_VeryUnlikely
  *        It is very unlikely. (Value: "VERY_UNLIKELY")
  */
-@property(nonatomic, copy, nullable) NSString *joyLikelihood;
+@property(nonatomic, copy, nullable) NSString *joyLikelihood GTLR_DEPRECATED;
 
 /**
  *  Face landmarking confidence. Range [0, 1].
@@ -11124,7 +11124,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @property(nonatomic, strong, nullable) NSNumber *rollAngle;
 
 /**
- *  Sorrow likelihood.
+ *  Deprecated: No longer populated.
  *
  *  Likely values:
  *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_SorrowLikelihood_Likely
@@ -11140,10 +11140,10 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
  *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_SorrowLikelihood_VeryUnlikely
  *        It is very unlikely. (Value: "VERY_UNLIKELY")
  */
-@property(nonatomic, copy, nullable) NSString *sorrowLikelihood;
+@property(nonatomic, copy, nullable) NSString *sorrowLikelihood GTLR_DEPRECATED;
 
 /**
- *  Surprise likelihood.
+ *  Deprecated: No longer populated.
  *
  *  Likely values:
  *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_SurpriseLikelihood_Likely
@@ -11159,7 +11159,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
  *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_SurpriseLikelihood_VeryUnlikely
  *        It is very unlikely. (Value: "VERY_UNLIKELY")
  */
-@property(nonatomic, copy, nullable) NSString *surpriseLikelihood;
+@property(nonatomic, copy, nullable) NSString *surpriseLikelihood GTLR_DEPRECATED;
 
 /**
  *  Pitch angle, which indicates the upwards/downwards angle that the face is

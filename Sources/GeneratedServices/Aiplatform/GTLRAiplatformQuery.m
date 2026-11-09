@@ -26,6 +26,9 @@ NSString * const kGTLRAiplatformViewPublisherModelViewUnspecified = @"PUBLISHER_
 // Query Classes
 //
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-implementations"
+
 @implementation GTLRAiplatformQuery
 
 @dynamic fields;
@@ -2268,6 +2271,63 @@ NSString * const kGTLRAiplatformViewPublisherModelViewUnspecified = @"PUBLISHER_
   query.name = name;
   query.expectedObjectClass = [GTLRAiplatform_GoogleLongrunningOperation class];
   query.loggingName = @"aiplatform.indexes.operations.wait";
+  return query;
+}
+
+@end
+
+@implementation GTLRAiplatformQuery_InteractionsCancel
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:cancel";
+  GTLRAiplatformQuery_InteractionsCancel *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRAiplatform_GenaiVertexV1Interaction class];
+  query.loggingName = @"aiplatform.interactions.cancel";
+  return query;
+}
+
+@end
+
+@implementation GTLRAiplatformQuery_InteractionsGetPoll
+
+@dynamic lastEventId, name, stream;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:poll";
+  GTLRAiplatformQuery_InteractionsGetPoll *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRAiplatform_GenaiVertexV1Interaction class];
+  query.loggingName = @"aiplatform.interactions.getPoll";
+  return query;
+}
+
+@end
+
+@implementation GTLRAiplatformQuery_InteractionsGetStream
+
+@dynamic lastEventId, name, stream;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:stream";
+  GTLRAiplatformQuery_InteractionsGetStream *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRAiplatform_GenaiVertexV1InteractionStreamingEvent class];
+  query.loggingName = @"aiplatform.interactions.getStream";
   return query;
 }
 
@@ -10621,6 +10681,152 @@ NSString * const kGTLRAiplatformViewPublisherModelViewUnspecified = @"PUBLISHER_
 
 @end
 
+@implementation GTLRAiplatformQuery_ProjectsLocationsInteractionsCreate
+
+@dynamic locationsId, projectsId;
+
++ (instancetype)queryWithObject:(GTLRAiplatform_GenaiVertexV1CreateInteractionRequest *)object
+                     projectsId:(NSString *)projectsId
+                    locationsId:(NSString *)locationsId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"locationsId", @"projectsId"
+  ];
+  NSString *pathURITemplate = @"v1/projects/{projectsId}/locations/{locationsId}/interactions:create";
+  GTLRAiplatformQuery_ProjectsLocationsInteractionsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.projectsId = projectsId;
+  query.locationsId = locationsId;
+  query.expectedObjectClass = [GTLRAiplatform_GenaiVertexV1Interaction class];
+  query.loggingName = @"aiplatform.projects.locations.interactions.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRAiplatformQuery_ProjectsLocationsInteractionsCreateStream
+
+@dynamic locationsId, projectsId;
+
++ (instancetype)queryWithObject:(GTLRAiplatform_GenaiVertexV1CreateInteractionRequest *)object
+                     projectsId:(NSString *)projectsId
+                    locationsId:(NSString *)locationsId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"locationsId", @"projectsId"
+  ];
+  NSString *pathURITemplate = @"v1/projects/{projectsId}/locations/{locationsId}/interactions:createStream";
+  GTLRAiplatformQuery_ProjectsLocationsInteractionsCreateStream *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.projectsId = projectsId;
+  query.locationsId = locationsId;
+  query.expectedObjectClass = [GTLRAiplatform_GenaiVertexV1InteractionStreamingEvent class];
+  query.loggingName = @"aiplatform.projects.locations.interactions.createStream";
+  return query;
+}
+
+@end
+
+@implementation GTLRAiplatformQuery_ProjectsLocationsInteractionsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRAiplatformQuery_ProjectsLocationsInteractionsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRAiplatform_GenaiVertexV1DeleteInteractionResponse class];
+  query.loggingName = @"aiplatform.projects.locations.interactions.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRAiplatformQuery_ProjectsLocationsInteractionsHttpCancel
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}/cancel";
+  GTLRAiplatformQuery_ProjectsLocationsInteractionsHttpCancel *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRAiplatform_GoogleApiHttpBody class];
+  query.loggingName = @"aiplatform.projects.locations.interactionsHttp.cancel";
+  return query;
+}
+
+@end
+
+@implementation GTLRAiplatformQuery_ProjectsLocationsInteractionsHttpCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRAiplatform_GenaiVertexV1CreateInteractionHttpRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/interactionsHttp";
+  GTLRAiplatformQuery_ProjectsLocationsInteractionsHttpCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRAiplatform_GoogleApiHttpBody class];
+  query.loggingName = @"aiplatform.projects.locations.interactionsHttp.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRAiplatformQuery_ProjectsLocationsInteractionsHttpGet
+
+@dynamic lastEventId, name, stream;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRAiplatformQuery_ProjectsLocationsInteractionsHttpGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRAiplatform_GoogleApiHttpBody class];
+  query.loggingName = @"aiplatform.projects.locations.interactionsHttp.get";
+  return query;
+}
+
+@end
+
 @implementation GTLRAiplatformQuery_ProjectsLocationsList
 
 @dynamic extraLocationTypes, filter, name, pageSize, pageToken;
@@ -14166,6 +14372,33 @@ NSString * const kGTLRAiplatformViewPublisherModelViewUnspecified = @"PUBLISHER_
 
 @end
 
+@implementation GTLRAiplatformQuery_ProjectsLocationsNotebookRuntimeTemplatesSetDefault
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1SetDefaultNotebookRuntimeTemplateRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/notebookRuntimeTemplates:setDefault";
+  GTLRAiplatformQuery_ProjectsLocationsNotebookRuntimeTemplatesSetDefault *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRAiplatform_GoogleCloudAiplatformV1SetDefaultNotebookRuntimeTemplateResponse class];
+  query.loggingName = @"aiplatform.projects.locations.notebookRuntimeTemplates.setDefault";
+  return query;
+}
+
+@end
+
 @implementation GTLRAiplatformQuery_ProjectsLocationsNotebookRuntimeTemplatesSetIamPolicy
 
 @dynamic resource;
@@ -15062,6 +15295,155 @@ NSString * const kGTLRAiplatformViewPublisherModelViewUnspecified = @"PUBLISHER_
   query.name = name;
   query.expectedObjectClass = [GTLRAiplatform_GoogleLongrunningOperation class];
   query.loggingName = @"aiplatform.projects.locations.pipelineJobs.operations.wait";
+  return query;
+}
+
+@end
+
+@implementation GTLRAiplatformQuery_ProjectsLocationsPublishersFilesDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRAiplatformQuery_ProjectsLocationsPublishersFilesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRAiplatform_GoogleCloudAiplatformV1DeleteFileResponse class];
+  query.loggingName = @"aiplatform.projects.locations.publishers.files.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRAiplatformQuery_ProjectsLocationsPublishersFilesDownload
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}/content";
+  GTLRAiplatformQuery_ProjectsLocationsPublishersFilesDownload *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRAiplatform_GoogleCloudAiplatformV1DownloadFileResponse class];
+  query.loggingName = @"aiplatform.projects.locations.publishers.files.download";
+  return query;
+}
+
++ (instancetype)queryForMediaWithName:(NSString *)name {
+  GTLRAiplatformQuery_ProjectsLocationsPublishersFilesDownload *query =
+    [self queryWithName:name];
+  query.downloadAsDataObjectType = @"media";
+  query.useMediaDownloadService = YES;
+  query.loggingName = @"Download aiplatform.projects.locations.publishers.files.download";
+  return query;
+}
+
+@end
+
+@implementation GTLRAiplatformQuery_ProjectsLocationsPublishersFilesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRAiplatformQuery_ProjectsLocationsPublishersFilesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRAiplatform_GoogleCloudAiplatformV1ClaudeFile class];
+  query.loggingName = @"aiplatform.projects.locations.publishers.files.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRAiplatformQuery_ProjectsLocationsPublishersFilesList
+
+@dynamic limit, page, parent, publishersId;
+
++ (instancetype)queryWithParent:(NSString *)parent
+                   publishersId:(NSString *)publishersId {
+  NSArray *pathParams = @[
+    @"parent", @"publishersId"
+  ];
+  NSString *pathURITemplate = @"v1/{+parent}/publishers/{publishersId}/files";
+  GTLRAiplatformQuery_ProjectsLocationsPublishersFilesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.publishersId = publishersId;
+  query.expectedObjectClass = [GTLRAiplatform_GoogleCloudAiplatformV1ListFilesResponse class];
+  query.loggingName = @"aiplatform.projects.locations.publishers.files.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRAiplatformQuery_ProjectsLocationsPublishersFilesUpload
+
+@dynamic parent, publishersId;
+
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1CreateFileRequest *)object
+                         parent:(NSString *)parent
+                   publishersId:(NSString *)publishersId
+               uploadParameters:(GTLRUploadParameters *)uploadParameters {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"parent", @"publishersId"
+  ];
+  NSString *pathURITemplate = @"v1/{+parent}/publishers/{publishersId}/files";
+  GTLRAiplatformQuery_ProjectsLocationsPublishersFilesUpload *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.publishersId = publishersId;
+  query.uploadParameters = uploadParameters;
+  query.expectedObjectClass = [GTLRAiplatform_GoogleCloudAiplatformV1ClaudeFile class];
+  query.loggingName = @"aiplatform.projects.locations.publishers.files.upload";
+  return query;
+}
+
+@end
+
+@implementation GTLRAiplatformQuery_ProjectsLocationsPublishersModelsBatchEmbedContents
+
+@dynamic model;
+
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1BatchEmbedContentsRequest *)object
+                          model:(NSString *)model {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"model" ];
+  NSString *pathURITemplate = @"v1/{+model}:batchEmbedContents";
+  GTLRAiplatformQuery_ProjectsLocationsPublishersModelsBatchEmbedContents *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.model = model;
+  query.expectedObjectClass = [GTLRAiplatform_GoogleCloudAiplatformV1BatchEmbedContentsResponse class];
+  query.loggingName = @"aiplatform.projects.locations.publishers.models.batchEmbedContents";
   return query;
 }
 
@@ -23982,3 +24364,5 @@ NSString * const kGTLRAiplatformViewPublisherModelViewUnspecified = @"PUBLISHER_
 }
 
 @end
+
+#pragma clang diagnostic pop

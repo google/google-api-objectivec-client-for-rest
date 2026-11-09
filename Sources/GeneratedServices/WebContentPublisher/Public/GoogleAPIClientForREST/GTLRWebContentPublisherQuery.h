@@ -258,6 +258,46 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Retrieves the catalog of predefined survey questions and answer choices
+ *  available for a publication.
+ *
+ *  Method: webcontentpublisher.organizations.publications.getSurveyQuestionCatalog
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeWebContentPublisherPublicationsManageSystem
+ */
+@interface GTLRWebContentPublisherQuery_OrganizationsPublicationsGetSurveyQuestionCatalog : GTLRWebContentPublisherQuery
+
+/**
+ *  Optional. The BCP-47 language code (e.g., "en-US", "es-419") to override the
+ *  publication's configured primary language.
+ */
+@property(nonatomic, copy, nullable) NSString *languageCode;
+
+/**
+ *  Required. The resource name of the survey question catalog to retrieve.
+ *  Format:
+ *  `organizations/{organization}/publications/{publication}/surveyQuestionCatalog`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRWebContentPublisher_SurveyQuestionCatalog.
+ *
+ *  Retrieves the catalog of predefined survey questions and answer choices
+ *  available for a publication.
+ *
+ *  @param name Required. The resource name of the survey question catalog to
+ *    retrieve. Format:
+ *    `organizations/{organization}/publications/{publication}/surveyQuestionCatalog`.
+ *
+ *  @return GTLRWebContentPublisherQuery_OrganizationsPublicationsGetSurveyQuestionCatalog
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Lists publications.
  *
  *  Method: webcontentpublisher.organizations.publications.list
@@ -361,7 +401,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The resource name of the publication. Format:
- *  publications/{publication_id}
+ *  publications/{publication}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -374,9 +414,48 @@ NS_ASSUME_NONNULL_BEGIN
  *  Checks if a user is eligible for free article access.
  *
  *  @param name Required. The resource name of the publication. Format:
- *    publications/{publication_id}
+ *    publications/{publication}
  *
  *  @return GTLRWebContentPublisherQuery_PublicationsCheckFreeAccess
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Checks if a reader has active program access.
+ *
+ *  Method: webcontentpublisher.publications.checkProgramAccess
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeWebContentPublisherPublicationsEntitlementsReadonlySystem
+ */
+@interface GTLRWebContentPublisherQuery_PublicationsCheckProgramAccess : GTLRWebContentPublisherQuery
+
+/**
+ *  Required. The resource name of the publication. Format:
+ *  publications/{publication}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Required. The specific product ID being accessed. */
+@property(nonatomic, copy, nullable) NSString *productId;
+
+/**
+ *  Required. The encrypted site token string received from the Chrome HTTP
+ *  header.
+ */
+@property(nonatomic, copy, nullable) NSString *swgUserToken;
+
+/**
+ *  Fetches a @c GTLRWebContentPublisher_CheckProgramAccessResponse.
+ *
+ *  Checks if a reader has active program access.
+ *
+ *  @param name Required. The resource name of the publication. Format:
+ *    publications/{publication}
+ *
+ *  @return GTLRWebContentPublisherQuery_PublicationsCheckProgramAccess
  */
 + (instancetype)queryWithName:(NSString *)name;
 

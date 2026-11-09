@@ -509,6 +509,34 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Reservation_ScalingM
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Reservation_ScalingMode_ScalingModeUnspecified;
 
+// ----------------------------------------------------------------------------
+// GTLRBigQueryReservation_UpgradeEditionRequest.targetEdition
+
+/**
+ *  Default value, which will be treated as ENTERPRISE.
+ *
+ *  Value: "EDITION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_UpgradeEditionRequest_TargetEdition_EditionUnspecified;
+/**
+ *  Enterprise edition.
+ *
+ *  Value: "ENTERPRISE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_UpgradeEditionRequest_TargetEdition_Enterprise;
+/**
+ *  Enterprise Plus edition.
+ *
+ *  Value: "ENTERPRISE_PLUS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_UpgradeEditionRequest_TargetEdition_EnterprisePlus;
+/**
+ *  Standard edition.
+ *
+ *  Value: "STANDARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_UpgradeEditionRequest_TargetEdition_Standard;
+
 /**
  *  An assignment allows a project to submit jobs of a certain type using slots
  *  from the specified reservation.
@@ -1955,6 +1983,66 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Reservation_ScalingM
  *  A subset of `TestPermissionsRequest.permissions` that the caller is allowed.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
+
+@end
+
+
+/**
+ *  The request for ReservationService.UpgradeEdition. You must specify at least
+ *  one reservation or capacity commitment.
+ */
+@interface GTLRBigQueryReservation_UpgradeEditionRequest : GTLRObject
+
+/**
+ *  Optional. The resource names of the capacity commitments to upgrade, in the
+ *  format
+ *  `projects/{project}/locations/{location}/capacityCommitments/{capacity_commitment}`.
+ *  For example,
+ *  `projects/myproject/locations/us-west1/capacityCommitments/123`. These
+ *  capacity commitments must be in the `ACTIVE` state and must exist under the
+ *  specified `parent`. The `commitment_start_time` and `commitment_end_time`
+ *  fields don't change after the upgrade.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *capacityCommitments;
+
+/**
+ *  Optional. The resource names of the reservations to upgrade, in the format
+ *  `projects/{project}/locations/{location}/reservations/{reservation}`. For
+ *  example, `projects/myproject/locations/us-west1/reservations/team1-prod`.
+ *  These reservations must exist under the specified `parent`.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *reservations;
+
+/**
+ *  The edition to upgrade the capacity commitments and reservations to.
+ *  Supported values are `ENTERPRISE` and `ENTERPRISE_PLUS`.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBigQueryReservation_UpgradeEditionRequest_TargetEdition_EditionUnspecified
+ *        Default value, which will be treated as ENTERPRISE. (Value:
+ *        "EDITION_UNSPECIFIED")
+ *    @arg @c kGTLRBigQueryReservation_UpgradeEditionRequest_TargetEdition_Enterprise
+ *        Enterprise edition. (Value: "ENTERPRISE")
+ *    @arg @c kGTLRBigQueryReservation_UpgradeEditionRequest_TargetEdition_EnterprisePlus
+ *        Enterprise Plus edition. (Value: "ENTERPRISE_PLUS")
+ *    @arg @c kGTLRBigQueryReservation_UpgradeEditionRequest_TargetEdition_Standard
+ *        Standard edition. (Value: "STANDARD")
+ */
+@property(nonatomic, copy, nullable) NSString *targetEdition;
+
+@end
+
+
+/**
+ *  The response for ReservationService.UpgradeEdition.
+ */
+@interface GTLRBigQueryReservation_UpgradeEditionResponse : GTLRObject
+
+/** The updated capacity commitments after the upgrade. */
+@property(nonatomic, strong, nullable) NSArray<GTLRBigQueryReservation_CapacityCommitment *> *capacityCommitments;
+
+/** The updated reservations after the upgrade. */
+@property(nonatomic, strong, nullable) NSArray<GTLRBigQueryReservation_Reservation *> *reservations;
 
 @end
 

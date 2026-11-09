@@ -241,6 +241,11 @@ NSString * const kGTLRAppengine_Version_ServingStatus_Serving  = @"SERVING";
 NSString * const kGTLRAppengine_Version_ServingStatus_ServingStatusUnspecified = @"SERVING_STATUS_UNSPECIFIED";
 NSString * const kGTLRAppengine_Version_ServingStatus_Stopped  = @"STOPPED";
 
+// GTLRAppengine_VpcAccess.vpcEgress
+NSString * const kGTLRAppengine_VpcAccess_VpcEgress_AllTraffic = @"ALL_TRAFFIC";
+NSString * const kGTLRAppengine_VpcAccess_VpcEgress_PrivateIpRanges = @"PRIVATE_IP_RANGES";
+NSString * const kGTLRAppengine_VpcAccess_VpcEgress_VpcEgressUnspecified = @"VPC_EGRESS_UNSPECIFIED";
+
 // GTLRAppengine_VpcAccessConnector.egressSetting
 NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetting_AllTraffic = @"ALL_TRAFFIC";
 NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetting_EgressSettingUnspecified = @"EGRESS_SETTING_UNSPECIFIED";
@@ -1488,7 +1493,7 @@ NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetting_PrivateIpRanges
          manualScaling, name, network, nobuildFilesRegex, readinessCheck,
          resources, runtime, runtimeApiVersion, runtimeChannel,
          runtimeMainExecutablePath, serviceAccount, servingStatus, threadsafe,
-         versionUrl, vm, vpcAccessConnector, zones;
+         versionUrl, vm, vpcAccess, vpcAccessConnector, zones;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -1577,11 +1582,47 @@ NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetting_PrivateIpRanges
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAppengine_VpcAccess
+//
+
+@implementation GTLRAppengine_VpcAccess
+@dynamic networkInterfaces, vpcEgress;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"networkInterfaces" : [GTLRAppengine_VpcNetworkInterface class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAppengine_VpcAccessConnector
 //
 
 @implementation GTLRAppengine_VpcAccessConnector
 @dynamic egressSetting, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAppengine_VpcNetworkInterface
+//
+
+@implementation GTLRAppengine_VpcNetworkInterface
+@dynamic network, subnet, tags;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"tags" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 

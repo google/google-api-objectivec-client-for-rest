@@ -870,6 +870,51 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+/**
+ *  Searches for media planner accounts matching the given DSP seat ID.
+ *
+ *  Method: curationpartners.mediaPlanners.search
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCurationPartnersCurationPartners
+ */
+@interface GTLRCurationPartnersQuery_MediaPlannersSearch : GTLRCurationPartnersQuery
+
+/**
+ *  Required. The DSP seat ID to search for. The DSP seat ID is provided by the
+ *  media planner.
+ */
+@property(nonatomic, copy, nullable) NSString *dspSeatId;
+
+/**
+ *  Optional. The maximum number of media planners to return. If unspecified, at
+ *  most 100 media planners will be returned. The maximum value is 500; values
+ *  above 500 will be coerced to 500.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A token identifying a page of results the server should return.
+ *  This value is received from a previous `SearchMediaPlanners` call in
+ *  SearchMediaPlannersResponse.nextPageToken.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRCurationPartners_SearchMediaPlannersResponse.
+ *
+ *  Searches for media planner accounts matching the given DSP seat ID.
+ *
+ *  @return GTLRCurationPartnersQuery_MediaPlannersSearch
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)query;
+
+@end
+
 NS_ASSUME_NONNULL_END
 
 #pragma clang diagnostic pop

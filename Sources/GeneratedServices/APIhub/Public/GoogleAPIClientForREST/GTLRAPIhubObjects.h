@@ -71,6 +71,8 @@
 @class GTLRAPIhub_GoogleCloudApihubV1FlattenedApiVersionOperationDeploymentView;
 @class GTLRAPIhub_GoogleCloudApihubV1GatewayPluginAddonConfig;
 @class GTLRAPIhub_GoogleCloudApihubV1GatewayPluginConfig;
+@class GTLRAPIhub_GoogleCloudApihubV1GeneratedSpecApi;
+@class GTLRAPIhub_GoogleCloudApihubV1GeneratedSpecApiSource;
 @class GTLRAPIhub_GoogleCloudApihubV1GoogleServiceAccountConfig;
 @class GTLRAPIhub_GoogleCloudApihubV1Header;
 @class GTLRAPIhub_GoogleCloudApihubV1HostingService;
@@ -144,6 +146,7 @@
 @class GTLRAPIhub_GoogleLongrunningOperation_Response;
 @class GTLRAPIhub_GoogleRpcStatus;
 @class GTLRAPIhub_GoogleRpcStatus_Details_Item;
+@class GTLRAPIhub_GoogleTypeInterval;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -863,6 +866,50 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1ExecutionStatu
  *  Value: "RUNNING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1ExecutionStatus_CurrentExecutionState_Running;
+
+// ----------------------------------------------------------------------------
+// GTLRAPIhub_GoogleCloudApihubV1GeneratedSpecApi.state
+
+/**
+ *  Observed; no spec written yet.
+ *
+ *  Value: "SPEC_API_REGISTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1GeneratedSpecApi_State_SpecApiRegistered;
+/**
+ *  User-linked to a catalog Spec; spec set.
+ *
+ *  Value: "SPEC_ASSOCIATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1GeneratedSpecApi_State_SpecAssociated;
+/**
+ *  At least one generated spec exists.
+ *
+ *  Value: "SPEC_GENERATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1GeneratedSpecApi_State_SpecGenerated;
+/**
+ *  The default value. This value is unused.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1GeneratedSpecApi_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAPIhub_GoogleCloudApihubV1GeneratedSpecApiSource.type
+
+/**
+ *  Apigee X.
+ *
+ *  Value: "APIGEE_X"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1GeneratedSpecApiSource_Type_ApigeeX;
+/**
+ *  The default value. This value is unused.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1GeneratedSpecApiSource_Type_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAPIhub_GoogleCloudApihubV1Header.dataType
@@ -4020,6 +4067,130 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_S
 
 
 /**
+ *  An API the pipeline is tracking for spec generation.
+ */
+@interface GTLRAPIhub_GoogleCloudApihubV1GeneratedSpecApi : GTLRObject
+
+/**
+ *  Output only. The full resource name of the associated catalog API. Format:
+ *  `projects/{project}/locations/{location}/apis/{api}`
+ */
+@property(nonatomic, copy, nullable) NSString *api;
+
+/** Output only. The time at which the resource was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Output only. The full resource name of the associated catalog Deployment.
+ *  Format: `projects/{project}/locations/{location}/deployments/{deployment}`
+ */
+@property(nonatomic, copy, nullable) NSString *deployment;
+
+/** Output only. Human-readable display name; server-derived. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Output only. The time at which the most recent spec was generated. Unset
+ *  while `state == SPEC_API_REGISTERED`.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastSpecGeneratedTime;
+
+/**
+ *  Identifier. The full resource name. The trailing segment is the
+ *  pipeline-generated identifier. Format:
+ *  `projects/{project}/locations/{location}/generatedSpecApis/{generated_spec_api}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. Where the pipeline observed this API. */
+@property(nonatomic, strong, nullable) GTLRAPIhub_GoogleCloudApihubV1GeneratedSpecApiSource *source;
+
+/**
+ *  Output only. The full resource name of the associated catalog Spec;
+ *  populated only when `state == SPEC_ASSOCIATED`. Format:
+ *  `projects/{project}/locations/{location}/apis/{api}/versions/{version}/specs/{spec}`
+ */
+@property(nonatomic, copy, nullable) NSString *spec;
+
+/**
+ *  Output only. The current lifecycle state.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAPIhub_GoogleCloudApihubV1GeneratedSpecApi_State_SpecApiRegistered
+ *        Observed; no spec written yet. (Value: "SPEC_API_REGISTERED")
+ *    @arg @c kGTLRAPIhub_GoogleCloudApihubV1GeneratedSpecApi_State_SpecAssociated
+ *        User-linked to a catalog Spec; spec set. (Value: "SPEC_ASSOCIATED")
+ *    @arg @c kGTLRAPIhub_GoogleCloudApihubV1GeneratedSpecApi_State_SpecGenerated
+ *        At least one generated spec exists. (Value: "SPEC_GENERATED")
+ *    @arg @c kGTLRAPIhub_GoogleCloudApihubV1GeneratedSpecApi_State_StateUnspecified
+ *        The default value. This value is unused. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** Output only. The time at which the resource was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+/**
+ *  Output only. The full resource name of the associated catalog Version.
+ *  Format:
+ *  `projects/{project}/locations/{location}/apis/{api}/versions/{version}`
+ */
+@property(nonatomic, copy, nullable) NSString *version;
+
+@end
+
+
+/**
+ *  User-facing collapse of the source-side identity tuple.
+ */
+@interface GTLRAPIhub_GoogleCloudApihubV1GeneratedSpecApiSource : GTLRObject
+
+/** Output only. Per-source instance label (e.g. "/" for Apigee X). */
+@property(nonatomic, copy, nullable) NSString *sourceDisplayName;
+
+/**
+ *  Output only. The source type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAPIhub_GoogleCloudApihubV1GeneratedSpecApiSource_Type_ApigeeX
+ *        Apigee X. (Value: "APIGEE_X")
+ *    @arg @c kGTLRAPIhub_GoogleCloudApihubV1GeneratedSpecApiSource_Type_TypeUnspecified
+ *        The default value. This value is unused. (Value: "TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+/** Output only. Server-supplied label (e.g. "Apigee X"). */
+@property(nonatomic, copy, nullable) NSString *typeDisplayName;
+
+@end
+
+
+/**
+ *  Request for GenerateSpec.
+ */
+@interface GTLRAPIhub_GoogleCloudApihubV1GenerateSpecRequest : GTLRObject
+
+/**
+ *  Required. The observation window. The server quantizes to day boundaries and
+ *  caps the span at 90 days.
+ */
+@property(nonatomic, strong, nullable) GTLRAPIhub_GoogleTypeInterval *observationWindow;
+
+@end
+
+
+/**
+ *  Response for GenerateSpec.
+ */
+@interface GTLRAPIhub_GoogleCloudApihubV1GenerateSpecResponse : GTLRObject
+
+/** The merged OpenAPI document for the requested window. */
+@property(nonatomic, strong, nullable) GTLRAPIhub_GoogleCloudApihubV1SpecContents *generatedSpec;
+
+@end
+
+
+/**
  *  Config for Google service account authentication.
  */
 @interface GTLRAPIhub_GoogleCloudApihubV1GoogleServiceAccountConfig : GTLRObject
@@ -4706,6 +4877,33 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_S
 /**
  *  A token, which can be sent as `page_token` to retrieve the next page. If
  *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Response for ListGeneratedSpecApis.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "generatedSpecApis" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRAPIhub_GoogleCloudApihubV1ListGeneratedSpecApisResponse : GTLRCollectionObject
+
+/**
+ *  The tracked APIs for the requested parent, ordered by `update_time desc`.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAPIhub_GoogleCloudApihubV1GeneratedSpecApi *> *generatedSpecApis;
+
+/**
+ *  A token to retrieve the next page of results; empty when there are no more
+ *  results.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -6300,7 +6498,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_S
 @interface GTLRAPIhub_GoogleCloudApihubV1SpecContents : GTLRObject
 
 /**
- *  Required. The contents of the spec.
+ *  Required. The contents of the spec. The contents should be base64 encoded
+ *  while calling the OnePlatform APIs like CreateSpec, UpdateSpec and
+ *  CollectApiData.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -7016,6 +7216,29 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_S
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRAPIhub_GoogleRpcStatus_Details_Item : GTLRObject
+@end
+
+
+/**
+ *  Represents a time interval, encoded as a Timestamp start (inclusive) and a
+ *  Timestamp end (exclusive). The start must be less than or equal to the end.
+ *  When the start equals the end, the interval is empty (matches no time). When
+ *  both start and end are unspecified, the interval matches any time.
+ */
+@interface GTLRAPIhub_GoogleTypeInterval : GTLRObject
+
+/**
+ *  Optional. Exclusive end of the interval. If specified, a Timestamp matching
+ *  this interval will have to be before the end.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/**
+ *  Optional. Inclusive start of the interval. If specified, a Timestamp
+ *  matching this interval will have to be the same or after the start.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
 @end
 
 NS_ASSUME_NONNULL_END

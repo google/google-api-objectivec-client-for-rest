@@ -687,6 +687,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Ty
  */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_ImageSvg;
 /**
+ *  TIFF image format.
+ *
+ *  Value: "IMAGE_TIFF"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_ImageTiff;
+/**
  *  pdf
  *
  *  Value: "PDF"
@@ -711,7 +717,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Ty
  */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_Tsv;
 /**
- *  Video file types. Only used for profiling.
+ *  Video file types.
  *
  *  Value: "VIDEO"
  */
@@ -825,7 +831,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOption
  */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOptions_FileTypes_FileTypeUnspecified;
 /**
- *  Included file extensions: bmp, gif, jpg, jpeg, jpe, png. Setting
+ *  Included file extensions: bmp, gif, jpg, jpeg, jpe, png, tif, tiff. Setting
  *  bytes_limit_per_file or bytes_limit_per_file_percent has no effect on image
  *  files. Image inspection is restricted to the `global`, `us`, `asia`, and
  *  `europe` regions.
@@ -1521,7 +1527,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Deidentify_FileTyp
  */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Deidentify_FileTypesToTransform_FileTypeUnspecified;
 /**
- *  Included file extensions: bmp, gif, jpg, jpeg, jpe, png. Setting
+ *  Included file extensions: bmp, gif, jpg, jpeg, jpe, png, tif, tiff. Setting
  *  bytes_limit_per_file or bytes_limit_per_file_percent has no effect on image
  *  files. Image inspection is restricted to the `global`, `us`, `asia`, and
  *  `europe` regions.
@@ -4604,6 +4610,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *        (Value: "IMAGE_PNG")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_ImageSvg svg
  *        (Value: "IMAGE_SVG")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_ImageTiff TIFF
+ *        image format. (Value: "IMAGE_TIFF")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_Pdf pdf (Value:
  *        "PDF")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_PowerpointDocument
@@ -4613,7 +4621,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_Tsv tsv (Value:
  *        "TSV")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_Video Video file
- *        types. Only used for profiling. (Value: "VIDEO")
+ *        types. (Value: "VIDEO")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_WordDocument docx,
  *        docm, dotx, dotm (Value: "WORD_DOCUMENT")
  */
@@ -9275,6 +9283,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  Bounding boxes locating the pixels within the image containing the finding.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2BoundingBox *> *boundingBoxes;
+
+/**
+ *  The 0-indexed page number or frame index for multi-page image formats.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pageNumber;
 
 @end
 

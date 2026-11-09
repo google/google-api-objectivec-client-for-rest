@@ -20,6 +20,7 @@ NSString * const kGTLRDatabaseMigrationService_AlloyDbSettings_DatabaseVersion_P
 NSString * const kGTLRDatabaseMigrationService_AlloyDbSettings_DatabaseVersion_Postgres16 = @"POSTGRES_16";
 NSString * const kGTLRDatabaseMigrationService_AlloyDbSettings_DatabaseVersion_Postgres17 = @"POSTGRES_17";
 NSString * const kGTLRDatabaseMigrationService_AlloyDbSettings_DatabaseVersion_Postgres18 = @"POSTGRES_18";
+NSString * const kGTLRDatabaseMigrationService_AlloyDbSettings_DatabaseVersion_Postgres19 = @"POSTGRES_19";
 
 // GTLRDatabaseMigrationService_AuditLogConfig.logType
 NSString * const kGTLRDatabaseMigrationService_AuditLogConfig_LogType_AdminRead = @"ADMIN_READ";
@@ -1670,6 +1671,16 @@ NSString * const kGTLRDatabaseMigrationService_ValueListFilter_ValuePresentList_
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDatabaseMigrationService_GcsSource
+//
+
+@implementation GTLRDatabaseMigrationService_GcsSource
+@dynamic bucket, prefix;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDatabaseMigrationService_GenerateSshScriptRequest
 //
 
@@ -2681,7 +2692,7 @@ NSString * const kGTLRDatabaseMigrationService_ValueListFilter_ValuePresentList_
 //
 
 @implementation GTLRDatabaseMigrationService_PromoteMigrationJobRequest
-@dynamic objectsFilter;
+@dynamic failback, objectsFilter;
 @end
 
 
@@ -2903,7 +2914,8 @@ NSString * const kGTLRDatabaseMigrationService_ValueListFilter_ValuePresentList_
 //
 
 @implementation GTLRDatabaseMigrationService_SeedConversionWorkspaceRequest
-@dynamic autoCommit, destinationConnectionProfile, sourceConnectionProfile;
+@dynamic autoCommit, destinationConnectionProfile, gcsSource,
+         sourceConnectionProfile;
 @end
 
 
@@ -3086,10 +3098,11 @@ NSString * const kGTLRDatabaseMigrationService_ValueListFilter_ValuePresentList_
 //
 
 @implementation GTLRDatabaseMigrationService_SourceObjectsConfig
-@dynamic objectConfigs, objectsSelectionType;
+@dynamic excludedObjectConfigs, objectConfigs, objectsSelectionType;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"excludedObjectConfigs" : [GTLRDatabaseMigrationService_SourceObjectConfig class],
     @"objectConfigs" : [GTLRDatabaseMigrationService_SourceObjectConfig class]
   };
   return map;

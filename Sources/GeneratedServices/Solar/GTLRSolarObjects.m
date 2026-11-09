@@ -56,7 +56,39 @@ NSString * const kGTLRSolar_Panel_Orientation_SolarPanelOrientationUnspecified =
 //
 
 @implementation GTLRSolar_BuildingInsightsDetectedArrays
-@dynamic detectionStatus, latestCaptureDate;
+@dynamic arrays, detectionStatus, latestCaptureDate;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"arrays" : [GTLRSolar_BuildingInsightsDetectedArraysSolarArray class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSolar_BuildingInsightsDetectedArraysSolarArray
+//
+
+@implementation GTLRSolar_BuildingInsightsDetectedArraysSolarArray
+@dynamic polygonGeojson;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSolar_BuildingInsightsDetectedArraysSolarArray_PolygonGeojson
+//
+
+@implementation GTLRSolar_BuildingInsightsDetectedArraysSolarArray_PolygonGeojson
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
 @end
 
 

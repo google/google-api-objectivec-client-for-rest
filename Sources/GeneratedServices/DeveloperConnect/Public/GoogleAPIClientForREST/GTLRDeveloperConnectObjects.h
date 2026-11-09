@@ -25,6 +25,7 @@
 @class GTLRDeveloperConnect_BearerTokenAuthentication;
 @class GTLRDeveloperConnect_BitbucketCloudConfig;
 @class GTLRDeveloperConnect_BitbucketDataCenterConfig;
+@class GTLRDeveloperConnect_BlameRange;
 @class GTLRDeveloperConnect_Connection;
 @class GTLRDeveloperConnect_Connection_Annotations;
 @class GTLRDeveloperConnect_Connection_Labels;
@@ -33,6 +34,7 @@
 @class GTLRDeveloperConnect_DeploymentEvent;
 @class GTLRDeveloperConnect_ExchangeError;
 @class GTLRDeveloperConnect_FieldVisibility;
+@class GTLRDeveloperConnect_FileDiff;
 @class GTLRDeveloperConnect_GenericHTTPEndpointConfig;
 @class GTLRDeveloperConnect_GitHubConfig;
 @class GTLRDeveloperConnect_GitHubEnterpriseConfig;
@@ -64,7 +66,11 @@
 @class GTLRDeveloperConnect_Projects;
 @class GTLRDeveloperConnect_ProviderOAuthConfig;
 @class GTLRDeveloperConnect_ProxyConfig;
+@class GTLRDeveloperConnect_PullRequest;
+@class GTLRDeveloperConnect_PullRequestComment;
+@class GTLRDeveloperConnect_PullRequestReviewComment;
 @class GTLRDeveloperConnect_RuntimeConfig;
+@class GTLRDeveloperConnect_SCMCommit;
 @class GTLRDeveloperConnect_SecureSourceManagerInstanceConfig;
 @class GTLRDeveloperConnect_ServiceDirectoryConfig;
 @class GTLRDeveloperConnect_Status;
@@ -255,6 +261,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_McpToolVisibility_Visib
 FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_McpToolVisibility_VisibilityEnforcementStrategy_VisibilityEnforcementStrategyUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRDeveloperConnect_ModifyGitRepositoryLinkPullRequestRequest.state
+
+/**
+ *  The pull request is closed.
+ *
+ *  Value: "CLOSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_ModifyGitRepositoryLinkPullRequestRequest_State_Closed;
+/**
+ *  The pull request is open.
+ *
+ *  Value: "OPEN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_ModifyGitRepositoryLinkPullRequestRequest_State_Open;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_ModifyGitRepositoryLinkPullRequestRequest_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRDeveloperConnect_ProviderOAuthConfig.systemProviderId
 
 /**
@@ -322,6 +350,93 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_ProviderOAuthConfig_Sys
  *  Value: "SYSTEM_PROVIDER_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_ProviderOAuthConfig_SystemProviderId_SystemProviderUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDeveloperConnect_PullRequest.mergeability
+
+/**
+ *  The mergeability state is currently being computed asynchronously by the
+ *  upstream SCM provider.
+ *
+ *  Value: "COMPUTING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_PullRequest_Mergeability_Computing;
+/**
+ *  The pull request has merge conflicts and cannot be merged cleanly.
+ *
+ *  Value: "CONFLICTING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_PullRequest_Mergeability_Conflicting;
+/**
+ *  Mergeability state is unspecified.
+ *
+ *  Value: "MERGEABILITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_PullRequest_Mergeability_MergeabilityUnspecified;
+/**
+ *  The pull request can be merged cleanly without Git conflicts.
+ *
+ *  Value: "MERGEABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_PullRequest_Mergeability_Mergeable;
+
+// ----------------------------------------------------------------------------
+// GTLRDeveloperConnect_PullRequest.state
+
+/**
+ *  The PR is closed.
+ *
+ *  Value: "CLOSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_PullRequest_State_Closed;
+/**
+ *  The PR is declined. Only used by SCM providers that support declining pull
+ *  requests. Never used for GitHub, GitHub Enterprise, GitLab, or GitLab
+ *  Enterprise, where a pull request closed without being merged is `CLOSED`.
+ *
+ *  Value: "DECLINED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_PullRequest_State_Declined;
+/**
+ *  The PR is merged.
+ *
+ *  Value: "MERGED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_PullRequest_State_Merged;
+/**
+ *  The PR is open.
+ *
+ *  Value: "OPEN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_PullRequest_State_Open;
+/**
+ *  Default value.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_PullRequest_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDeveloperConnect_PullRequestReviewComment.side
+
+/**
+ *  The side of the diff before changes (deleted or modified lines).
+ *
+ *  Value: "BASE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_PullRequestReviewComment_Side_Base;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "DIFF_SIDE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_PullRequestReviewComment_Side_DiffSideUnspecified;
+/**
+ *  The side of the diff after changes (added or modified lines).
+ *
+ *  Value: "HEAD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_PullRequestReviewComment_Side_Head;
 
 // ----------------------------------------------------------------------------
 // GTLRDeveloperConnect_RuntimeConfig.state
@@ -488,6 +603,40 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_StartOAuthResponse_Syst
  *        fetch them all at once.
  */
 @interface GTLRDeveloperConnect_AccountConnector_Labels : GTLRObject
+@end
+
+
+/**
+ *  Request message for AddGitRepositoryLinkPullRequestComment.
+ */
+@interface GTLRDeveloperConnect_AddGitRepositoryLinkPullRequestCommentRequest : GTLRObject
+
+/** Required. The comment to add. */
+@property(nonatomic, strong, nullable) GTLRDeveloperConnect_PullRequestComment *comment;
+
+/** Required. The ID of the Pull Request. */
+@property(nonatomic, copy, nullable) NSString *pullRequestId;
+
+@end
+
+
+/**
+ *  Request message for AddGitRepositoryLinkPullRequestReviewComment.
+ */
+@interface GTLRDeveloperConnect_AddGitRepositoryLinkPullRequestReviewCommentRequest : GTLRObject
+
+/** Required. The review comment to add. */
+@property(nonatomic, strong, nullable) GTLRDeveloperConnect_PullRequestReviewComment *comment;
+
+/**
+ *  Optional. The commit SHA to comment on. If not specified, defaults to the
+ *  HEAD commit of the Pull Request.
+ */
+@property(nonatomic, copy, nullable) NSString *commitId;
+
+/** Required. The ID of the Pull Request. */
+@property(nonatomic, copy, nullable) NSString *pullRequestId;
+
 @end
 
 
@@ -726,6 +875,31 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_StartOAuthResponse_Syst
 
 
 /**
+ *  BlameRange represents blame information for a range of lines.
+ */
+@interface GTLRDeveloperConnect_BlameRange : GTLRObject
+
+/** The commit metadata for this line range. */
+@property(nonatomic, strong, nullable) GTLRDeveloperConnect_SCMCommit *commit;
+
+/**
+ *  The 1-indexed starting line number of the range (inclusive).
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *firstLine;
+
+/**
+ *  The 1-indexed ending line number of the range (inclusive).
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *lastLine;
+
+@end
+
+
+/**
  *  The request message for Operations.CancelOperation.
  */
 @interface GTLRDeveloperConnect_CancelOperationRequest : GTLRObject
@@ -746,7 +920,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_StartOAuthResponse_Syst
 /** Configuration for connections to an instance of Bitbucket Data Center. */
 @property(nonatomic, strong, nullable) GTLRDeveloperConnect_BitbucketDataCenterConfig *bitbucketDataCenterConfig;
 
-/** Output only. [Output only] Create timestamp */
+/** Output only. Create timestamp. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
@@ -755,7 +929,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_StartOAuthResponse_Syst
  */
 @property(nonatomic, strong, nullable) GTLRDeveloperConnect_CryptoKeyConfig *cryptoKeyConfig;
 
-/** Output only. [Output only] Delete timestamp */
+/** Output only. Delete timestamp. */
 @property(nonatomic, strong, nullable) GTLRDateTime *deleteTime;
 
 /**
@@ -787,8 +961,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_StartOAuthResponse_Syst
 @property(nonatomic, strong, nullable) GTLRDeveloperConnect_GitLabEnterpriseConfig *gitlabEnterpriseConfig;
 
 /**
- *  Optional. Configuration for the git proxy feature. Enabling the git proxy
- *  allows clients to perform git operations on the repositories linked in the
+ *  Optional. Configuration for the Git proxy feature. Enabling the Git proxy
+ *  allows clients to perform Git operations on the repositories linked in the
  *  connection. [Learn
  *  more](https://docs.cloud.google.com/developer-connect/docs/configure-git-proxy).
  */
@@ -823,7 +997,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_StartOAuthResponse_Syst
 /** Output only. A system-assigned unique identifier for the Connection. */
 @property(nonatomic, copy, nullable) NSString *uid;
 
-/** Output only. [Output only] Update timestamp */
+/** Output only. Update timestamp. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 @end
@@ -1008,6 +1182,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_StartOAuthResponse_Syst
 
 
 /**
+ *  Response message for DiffGitRepositoryLinkCommit.
+ */
+@interface GTLRDeveloperConnect_DiffGitRepositoryLinkCommitResponse : GTLRObject
+
+/** The file diff extracted from the unified diff. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDeveloperConnect_FileDiff *> *files;
+
+@end
+
+
+/**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance: service Foo { rpc
@@ -1089,6 +1274,89 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_StartOAuthResponse_Syst
 
 /** Name of the refs fetched. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *refNames;
+
+@end
+
+
+/**
+ *  Response message for FetchGitRepositoryLinkCommitList.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "commits" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRDeveloperConnect_FetchGitRepositoryLinkCommitListResponse : GTLRCollectionObject
+
+/**
+ *  The list of commit metadata.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDeveloperConnect_SCMCommit *> *commits;
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Response message for FetchGitRepositoryLinkCommit.
+ */
+@interface GTLRDeveloperConnect_FetchGitRepositoryLinkCommitResponse : GTLRObject
+
+/** The commit metadata. */
+@property(nonatomic, strong, nullable) GTLRDeveloperConnect_SCMCommit *commit;
+
+/**
+ *  List of file changes and patch diffs. Omitted when view is `BASIC`. Patch
+ *  diffs (`FileDiff.patch`) are only populated when `path_filters` is specified
+ *  in the request.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDeveloperConnect_FileDiff *> *files;
+
+@end
+
+
+/**
+ *  Response message for FetchGitRepositoryLinkFileBlame.
+ */
+@interface GTLRDeveloperConnect_FetchGitRepositoryLinkFileBlameResponse : GTLRObject
+
+/** The list of blame ranges for the file. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDeveloperConnect_BlameRange *> *ranges;
+
+@end
+
+
+/**
+ *  Response message for FetchGitRepositoryLinkPullRequestList.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "pullRequests" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRDeveloperConnect_FetchGitRepositoryLinkPullRequestListResponse : GTLRCollectionObject
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The list of pull requests.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDeveloperConnect_PullRequest *> *pullRequests;
 
 @end
 
@@ -1206,6 +1474,26 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_StartOAuthResponse_Syst
 
 /** The name of the parameter in the input_schema or output_schema. */
 @property(nonatomic, copy, nullable) NSString *selector;
+
+@end
+
+
+/**
+ *  Message for a file diff.
+ */
+@interface GTLRDeveloperConnect_FileDiff : GTLRObject
+
+/**
+ *  Standard unified diff patch hunk for the file. Only populated when
+ *  `path_filters` is specified in the request; otherwise empty.
+ */
+@property(nonatomic, copy, nullable) NSString *patch;
+
+/** Relative path to the file in the repository. */
+@property(nonatomic, copy, nullable) NSString *path;
+
+/** Status of change: "ADDED", "MODIFIED", "REMOVED", "RENAMED". */
+@property(nonatomic, copy, nullable) NSString *status;
 
 @end
 
@@ -1467,8 +1755,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_StartOAuthResponse_Syst
 @interface GTLRDeveloperConnect_GitProxyConfig : GTLRObject
 
 /**
- *  Optional. Setting this to true allows the git proxy to be used for
- *  performing git operations on the repositories linked in the connection.
+ *  Optional. Setting this to true allows the Git proxy to be used for
+ *  performing Git operations on the repositories linked in the connection.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1496,10 +1784,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_StartOAuthResponse_Syst
 /** Required. Git Clone URI. */
 @property(nonatomic, copy, nullable) NSString *cloneUri;
 
-/** Output only. [Output only] Create timestamp */
+/** Output only. Create timestamp. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
-/** Output only. [Output only] Delete timestamp */
+/** Output only. Delete timestamp. */
 @property(nonatomic, strong, nullable) GTLRDateTime *deleteTime;
 
 /**
@@ -1510,8 +1798,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_StartOAuthResponse_Syst
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  Output only. URI to access the linked repository through the Git Proxy. This
- *  field is only populated if the git proxy is enabled for the connection.
+ *  Output only. URI to access the linked repository through the Git proxy. This
+ *  field is only populated if the Git proxy is enabled for the connection.
  */
 @property(nonatomic, copy, nullable) NSString *gitProxyUri;
 
@@ -1537,7 +1825,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_StartOAuthResponse_Syst
  */
 @property(nonatomic, copy, nullable) NSString *uid;
 
-/** Output only. [Output only] Update timestamp */
+/** Output only. Update timestamp. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 /** Output only. External ID of the webhook created for the repository. */
@@ -1912,7 +2200,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_StartOAuthResponse_Syst
 @interface GTLRDeveloperConnect_ListConnectionsResponse : GTLRCollectionObject
 
 /**
- *  The list of Connection
+ *  The list of Connections.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -1966,7 +2254,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_StartOAuthResponse_Syst
 @interface GTLRDeveloperConnect_ListGitRepositoryLinksResponse : GTLRCollectionObject
 
 /**
- *  The list of GitRepositoryLinks
+ *  The list of GitRepositoryLinks.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -2191,6 +2479,39 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_StartOAuthResponse_Syst
 
 
 /**
+ *  Message for modifying SCM Pull Request.
+ */
+@interface GTLRDeveloperConnect_ModifyGitRepositoryLinkPullRequestRequest : GTLRObject
+
+/** Optional. The target branch to merge into. */
+@property(nonatomic, copy, nullable) NSString *baseRef;
+
+/** Optional. The body description of the Pull Request. */
+@property(nonatomic, copy, nullable) NSString *body;
+
+/** Required. The SCM-specific pull request identifier (for example, "45"). */
+@property(nonatomic, copy, nullable) NSString *pullRequestId;
+
+/**
+ *  Optional. The state of the Pull Request.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDeveloperConnect_ModifyGitRepositoryLinkPullRequestRequest_State_Closed
+ *        The pull request is closed. (Value: "CLOSED")
+ *    @arg @c kGTLRDeveloperConnect_ModifyGitRepositoryLinkPullRequestRequest_State_Open
+ *        The pull request is open. (Value: "OPEN")
+ *    @arg @c kGTLRDeveloperConnect_ModifyGitRepositoryLinkPullRequestRequest_State_StateUnspecified
+ *        Default value. This value is unused. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** Optional. The title of the Pull Request. */
+@property(nonatomic, copy, nullable) NSString *title;
+
+@end
+
+
+/**
  *  Represents an OAuth token of the account that authorized the Connection, and
  *  associated metadata.
  */
@@ -2206,6 +2527,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_StartOAuthResponse_Syst
 
 /** Output only. The username associated with this token. */
 @property(nonatomic, copy, nullable) NSString *username;
+
+@end
+
+
+/**
+ *  Message for opening SCM Pull Request.
+ */
+@interface GTLRDeveloperConnect_OpenGitRepositoryLinkPullRequestRequest : GTLRObject
+
+/**
+ *  Required. The Pull Request details to open. Input fields used: title, body,
+ *  head_ref, base_ref.
+ */
+@property(nonatomic, strong, nullable) GTLRDeveloperConnect_PullRequest *pullRequest;
 
 @end
 
@@ -2471,6 +2806,187 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_StartOAuthResponse_Syst
 
 
 /**
+ *  Message representing a SCM Pull Request.
+ */
+@interface GTLRDeveloperConnect_PullRequest : GTLRObject
+
+/** Output only. The username of the author. */
+@property(nonatomic, copy, nullable) NSString *author;
+
+/** Required. The target commit SHA of the base branch. */
+@property(nonatomic, copy, nullable) NSString *baseRef;
+
+/** Optional. The body description of the PR. */
+@property(nonatomic, copy, nullable) NSString *body;
+
+/** Output only. When the PR was closed. */
+@property(nonatomic, strong, nullable) GTLRDateTime *closeTime;
+
+/** Output only. When the PR was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Output only. When the PR was declined. Only set for SCM providers that
+ *  support declining pull requests. Never set for GitHub, GitHub Enterprise,
+ *  GitLab, or GitLab Enterprise, where a pull request closed without being
+ *  merged is `CLOSED`.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *declineTime;
+
+/** Required. The source commit SHA of the head branch. */
+@property(nonatomic, copy, nullable) NSString *headRef;
+
+/** Output only. The HTML URL of the pull request on the SCM provider. */
+@property(nonatomic, copy, nullable) NSString *htmlUrl;
+
+/**
+ *  Required. The ID of the PR.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  Output only. The mergeability state of the pull request.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDeveloperConnect_PullRequest_Mergeability_Computing The
+ *        mergeability state is currently being computed asynchronously by the
+ *        upstream SCM provider. (Value: "COMPUTING")
+ *    @arg @c kGTLRDeveloperConnect_PullRequest_Mergeability_Conflicting The
+ *        pull request has merge conflicts and cannot be merged cleanly. (Value:
+ *        "CONFLICTING")
+ *    @arg @c kGTLRDeveloperConnect_PullRequest_Mergeability_MergeabilityUnspecified
+ *        Mergeability state is unspecified. (Value: "MERGEABILITY_UNSPECIFIED")
+ *    @arg @c kGTLRDeveloperConnect_PullRequest_Mergeability_Mergeable The pull
+ *        request can be merged cleanly without Git conflicts. (Value:
+ *        "MERGEABLE")
+ */
+@property(nonatomic, copy, nullable) NSString *mergeability;
+
+/** Output only. When the PR was merged. */
+@property(nonatomic, strong, nullable) GTLRDateTime *mergeTime;
+
+/**
+ *  Output only. The current state of the PR.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDeveloperConnect_PullRequest_State_Closed The PR is closed.
+ *        (Value: "CLOSED")
+ *    @arg @c kGTLRDeveloperConnect_PullRequest_State_Declined The PR is
+ *        declined. Only used by SCM providers that support declining pull
+ *        requests. Never used for GitHub, GitHub Enterprise, GitLab, or GitLab
+ *        Enterprise, where a pull request closed without being merged is
+ *        `CLOSED`. (Value: "DECLINED")
+ *    @arg @c kGTLRDeveloperConnect_PullRequest_State_Merged The PR is merged.
+ *        (Value: "MERGED")
+ *    @arg @c kGTLRDeveloperConnect_PullRequest_State_Open The PR is open.
+ *        (Value: "OPEN")
+ *    @arg @c kGTLRDeveloperConnect_PullRequest_State_StateUnspecified Default
+ *        value. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** Required. The title of the PR. */
+@property(nonatomic, copy, nullable) NSString *title;
+
+/** Output only. When the PR was updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Message representing a SCM Pull Request Comment.
+ */
+@interface GTLRDeveloperConnect_PullRequestComment : GTLRObject
+
+/** Output only. The username of the author. */
+@property(nonatomic, copy, nullable) NSString *author;
+
+/** Required. The body of the comment. */
+@property(nonatomic, copy, nullable) NSString *body;
+
+/** Output only. When the comment was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Output only. The ID of the comment.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/** Output only. When the comment was updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Message representing a SCM Pull Request Review Comment (inline on diff).
+ */
+@interface GTLRDeveloperConnect_PullRequestReviewComment : GTLRObject
+
+/** Output only. The username of the author. */
+@property(nonatomic, copy, nullable) NSString *author;
+
+/** Required. The body of the comment. */
+@property(nonatomic, copy, nullable) NSString *body;
+
+/** Output only. The commit SHA the comment was actually applied to. */
+@property(nonatomic, copy, nullable) NSString *commitId;
+
+/** Output only. When the comment was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. The first line of the comment range (inclusive). If not specified,
+ *  the comment applies only to the `last_line`.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *firstLine;
+
+/**
+ *  Output only. The ID of the comment.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  Required. The last line of the comment range (inclusive). If `first_line` is
+ *  not specified, the comment applies only to this line.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *lastLine;
+
+/** Required. The file path to comment on. */
+@property(nonatomic, copy, nullable) NSString *path;
+
+/**
+ *  Optional. The side of the diff to comment on. Defaults to HEAD.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDeveloperConnect_PullRequestReviewComment_Side_Base The side
+ *        of the diff before changes (deleted or modified lines). (Value:
+ *        "BASE")
+ *    @arg @c kGTLRDeveloperConnect_PullRequestReviewComment_Side_DiffSideUnspecified
+ *        Default value. This value is unused. (Value: "DIFF_SIDE_UNSPECIFIED")
+ *    @arg @c kGTLRDeveloperConnect_PullRequestReviewComment_Side_Head The side
+ *        of the diff after changes (added or modified lines). (Value: "HEAD")
+ */
+@property(nonatomic, copy, nullable) NSString *side;
+
+/** Output only. When the comment was updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
  *  RuntimeConfig represents the runtimes where the application is deployed.
  */
 @interface GTLRDeveloperConnect_RuntimeConfig : GTLRObject
@@ -2506,6 +3022,32 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_StartOAuthResponse_Syst
  *  the cluster name. For Cloud Run, this is the service name.
  */
 @property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  SCMCommit represents commit metadata.
+ */
+@interface GTLRDeveloperConnect_SCMCommit : GTLRObject
+
+/** The author's display name. */
+@property(nonatomic, copy, nullable) NSString *author;
+
+/** The author's email address. */
+@property(nonatomic, copy, nullable) NSString *authorEmail;
+
+/** Timestamp when the commit was authored. */
+@property(nonatomic, strong, nullable) GTLRDateTime *commitTime;
+
+/** Commit message text. */
+@property(nonatomic, copy, nullable) NSString *message;
+
+/** Full 40-character SCM commit SHA. */
+@property(nonatomic, copy, nullable) NSString *sha;
+
+/** The SCM provider's HTML URL link for this commit. */
+@property(nonatomic, copy, nullable) NSString *url;
 
 @end
 

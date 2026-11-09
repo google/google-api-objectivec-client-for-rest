@@ -1005,6 +1005,64 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Updates the parameters of a single Exadata Infrastructure.
+ *
+ *  Method: oracledatabase.projects.locations.cloudExadataInfrastructures.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeOracleDatabaseCloudPlatform
+ */
+@interface GTLROracleDatabaseQuery_ProjectsLocationsCloudExadataInfrastructuresPatch : GTLROracleDatabaseQuery
+
+/**
+ *  Identifier. The name of the Exadata Infrastructure resource with the format:
+ *  projects/{project}/locations/{region}/cloudExadataInfrastructures/{cloud_exadata_infrastructure}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional ID to identify the request. This value is used to
+ *  identify duplicate requests. If you make a request with the same request ID
+ *  and the original request is still in progress or completed, the server
+ *  ignores the second request. This prevents clients from accidentally creating
+ *  duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Optional. Field mask is used to specify the fields to be overwritten in the
+ *  Exadata resource by the update. The fields specified in the `update_mask`
+ *  are relative to the resource, not the full request. A field will be
+ *  overwritten if it is in the mask. If the user does not provide a mask then
+ *  the service treats this as an implied field mask equivalent to all fields
+ *  that are populated (have a non-empty value). To clear or unset a field, the
+ *  field must be explicitly specified in the `update_mask`.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLROracleDatabase_Operation.
+ *
+ *  Updates the parameters of a single Exadata Infrastructure.
+ *
+ *  @param object The @c GTLROracleDatabase_CloudExadataInfrastructure to
+ *    include in the query.
+ *  @param name Identifier. The name of the Exadata Infrastructure resource with
+ *    the format:
+ *    projects/{project}/locations/{region}/cloudExadataInfrastructures/{cloud_exadata_infrastructure}
+ *
+ *  @return GTLROracleDatabaseQuery_ProjectsLocationsCloudExadataInfrastructuresPatch
+ */
++ (instancetype)queryWithObject:(GTLROracleDatabase_CloudExadataInfrastructure *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Creates a new VM Cluster in a given project and location.
  *
  *  Method: oracledatabase.projects.locations.cloudVmClusters.create
@@ -1152,6 +1210,76 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Disables the Workload Identity Connector for a Cloud VM Cluster.
+ *
+ *  Method: oracledatabase.projects.locations.cloudVmClusters.disableIdentityConnector
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeOracleDatabaseCloudPlatform
+ */
+@interface GTLROracleDatabaseQuery_ProjectsLocationsCloudVmClustersDisableIdentityConnector : GTLROracleDatabaseQuery
+
+/**
+ *  Required. The name of the Cloud VM Cluster in the following format:
+ *  projects/{project}/locations/{location}/cloudVmClusters/{cloud_vm_cluster}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLROracleDatabase_Operation.
+ *
+ *  Disables the Workload Identity Connector for a Cloud VM Cluster.
+ *
+ *  @param object The @c
+ *    GTLROracleDatabase_DisableCloudVmClusterIdentityConnectorRequest to
+ *    include in the query.
+ *  @param name Required. The name of the Cloud VM Cluster in the following
+ *    format:
+ *    projects/{project}/locations/{location}/cloudVmClusters/{cloud_vm_cluster}
+ *
+ *  @return GTLROracleDatabaseQuery_ProjectsLocationsCloudVmClustersDisableIdentityConnector
+ */
++ (instancetype)queryWithObject:(GTLROracleDatabase_DisableCloudVmClusterIdentityConnectorRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Enables the Workload Identity Connector for a Cloud VM Cluster.
+ *
+ *  Method: oracledatabase.projects.locations.cloudVmClusters.enableIdentityConnector
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeOracleDatabaseCloudPlatform
+ */
+@interface GTLROracleDatabaseQuery_ProjectsLocationsCloudVmClustersEnableIdentityConnector : GTLROracleDatabaseQuery
+
+/**
+ *  Required. The name of the Cloud VM Cluster in the following format:
+ *  projects/{project}/locations/{location}/cloudVmClusters/{cloud_vm_cluster}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLROracleDatabase_Operation.
+ *
+ *  Enables the Workload Identity Connector for a Cloud VM Cluster.
+ *
+ *  @param object The @c
+ *    GTLROracleDatabase_EnableCloudVmClusterIdentityConnectorRequest to include
+ *    in the query.
+ *  @param name Required. The name of the Cloud VM Cluster in the following
+ *    format:
+ *    projects/{project}/locations/{location}/cloudVmClusters/{cloud_vm_cluster}
+ *
+ *  @return GTLROracleDatabaseQuery_ProjectsLocationsCloudVmClustersEnableIdentityConnector
+ */
++ (instancetype)queryWithObject:(GTLROracleDatabase_EnableCloudVmClusterIdentityConnectorRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Gets details of a single VM Cluster.
  *
  *  Method: oracledatabase.projects.locations.cloudVmClusters.get
@@ -1229,6 +1357,61 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Updates the parameters of a single Vm Cluster.
+ *
+ *  Method: oracledatabase.projects.locations.cloudVmClusters.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeOracleDatabaseCloudPlatform
+ */
+@interface GTLROracleDatabaseQuery_ProjectsLocationsCloudVmClustersPatch : GTLROracleDatabaseQuery
+
+/**
+ *  Identifier. The name of the VM Cluster resource with the format:
+ *  projects/{project}/locations/{region}/cloudVmClusters/{cloud_vm_cluster}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional ID to identify the request. This value is used to
+ *  identify duplicate requests. If you make a request with the same request ID
+ *  and the original request is still in progress or completed, the server
+ *  ignores the second request. This prevents clients from accidentally creating
+ *  duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Optional. A mask specifying which fields in the VM Cluster should be
+ *  updated. A field specified in the mask is overwritten. If a mask isn't
+ *  provided, the service treats this as an implied field mask equivalent to all
+ *  fields that are populated (have a non-empty value). To clear or unset a
+ *  field, the field must be explicitly specified in the `update_mask`.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLROracleDatabase_Operation.
+ *
+ *  Updates the parameters of a single Vm Cluster.
+ *
+ *  @param object The @c GTLROracleDatabase_CloudVmCluster to include in the
+ *    query.
+ *  @param name Identifier. The name of the VM Cluster resource with the format:
+ *    projects/{project}/locations/{region}/cloudVmClusters/{cloud_vm_cluster}
+ *
+ *  @return GTLROracleDatabaseQuery_ProjectsLocationsCloudVmClustersPatch
+ */
++ (instancetype)queryWithObject:(GTLROracleDatabase_CloudVmCluster *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  List DatabaseCharacterSets for the given project and location.
  *
  *  Method: oracledatabase.projects.locations.databaseCharacterSets.list
@@ -1283,6 +1466,302 @@ NS_ASSUME_NONNULL_BEGIN
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Creates a new DatabaseConnection in a given project and location.
+ *
+ *  Method: oracledatabase.projects.locations.databaseConnections.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeOracleDatabaseCloudPlatform
+ */
+@interface GTLROracleDatabaseQuery_ProjectsLocationsDatabaseConnectionsCreate : GTLROracleDatabaseQuery
+
+/**
+ *  Required. The ID of the DatabaseConnection to create. This value is
+ *  restricted to (^[a-z]([a-z0-9-]{0,61}[a-z0-9])?$) and must be a maximum of
+ *  63 characters in length. The value must start with a letter and end with a
+ *  letter or a number.
+ */
+@property(nonatomic, copy, nullable) NSString *databaseConnectionId;
+
+/**
+ *  Required. The parent value for the DatabaseConnection in the following
+ *  format: projects/{project}/locations/{location}.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. An optional ID to identify the request. This value is used to
+ *  identify duplicate requests. If you make a request with the same request ID
+ *  and the original request is still in progress or completed, the server
+ *  ignores the second request. This prevents clients from accidentally creating
+ *  duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLROracleDatabase_Operation.
+ *
+ *  Creates a new DatabaseConnection in a given project and location.
+ *
+ *  @param object The @c GTLROracleDatabase_DatabaseConnection to include in the
+ *    query.
+ *  @param parent Required. The parent value for the DatabaseConnection in the
+ *    following format: projects/{project}/locations/{location}.
+ *
+ *  @return GTLROracleDatabaseQuery_ProjectsLocationsDatabaseConnectionsCreate
+ */
++ (instancetype)queryWithObject:(GTLROracleDatabase_DatabaseConnection *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a single DatabaseConnection.
+ *
+ *  Method: oracledatabase.projects.locations.databaseConnections.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeOracleDatabaseCloudPlatform
+ */
+@interface GTLROracleDatabaseQuery_ProjectsLocationsDatabaseConnectionsDelete : GTLROracleDatabaseQuery
+
+/**
+ *  Required. The name of the resource in the following format:
+ *  projects/{project}/locations/{location}/databaseConnections/{database_connection}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional ID to identify the request. This value is used to
+ *  identify duplicate requests. If you make a request with the same request ID
+ *  and the original request is still in progress or completed, the server
+ *  ignores the second request. This prevents clients from accidentally creating
+ *  duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLROracleDatabase_Operation.
+ *
+ *  Deletes a single DatabaseConnection.
+ *
+ *  @param name Required. The name of the resource in the following format:
+ *    projects/{project}/locations/{location}/databaseConnections/{database_connection}.
+ *
+ *  @return GTLROracleDatabaseQuery_ProjectsLocationsDatabaseConnectionsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Executes a SQL statement on a DatabaseConnection.
+ *
+ *  Method: oracledatabase.projects.locations.databaseConnections.executeSql
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeOracleDatabaseCloudPlatform
+ */
+@interface GTLROracleDatabaseQuery_ProjectsLocationsDatabaseConnectionsExecuteSql : GTLROracleDatabaseQuery
+
+/**
+ *  Required. The name of the DatabaseConnection in the following format:
+ *  projects/{project}/locations/{location}/databaseConnections/{database_connection}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLROracleDatabase_ExecuteSqlResponse.
+ *
+ *  Executes a SQL statement on a DatabaseConnection.
+ *
+ *  @param object The @c GTLROracleDatabase_ExecuteSqlRequest to include in the
+ *    query.
+ *  @param name Required. The name of the DatabaseConnection in the following
+ *    format:
+ *    projects/{project}/locations/{location}/databaseConnections/{database_connection}.
+ *
+ *  @return GTLROracleDatabaseQuery_ProjectsLocationsDatabaseConnectionsExecuteSql
+ */
++ (instancetype)queryWithObject:(GTLROracleDatabase_ExecuteSqlRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of a single DatabaseConnection.
+ *
+ *  Method: oracledatabase.projects.locations.databaseConnections.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeOracleDatabaseCloudPlatform
+ */
+@interface GTLROracleDatabaseQuery_ProjectsLocationsDatabaseConnectionsGet : GTLROracleDatabaseQuery
+
+/**
+ *  Required. The name of the DatabaseConnection in the following format:
+ *  projects/{project}/locations/{location}/databaseConnections/{database_connection}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLROracleDatabase_DatabaseConnection.
+ *
+ *  Gets details of a single DatabaseConnection.
+ *
+ *  @param name Required. The name of the DatabaseConnection in the following
+ *    format:
+ *    projects/{project}/locations/{location}/databaseConnections/{database_connection}.
+ *
+ *  @return GTLROracleDatabaseQuery_ProjectsLocationsDatabaseConnectionsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists DatabaseConnections in a given project and location.
+ *
+ *  Method: oracledatabase.projects.locations.databaseConnections.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeOracleDatabaseCloudPlatform
+ */
+@interface GTLROracleDatabaseQuery_ProjectsLocationsDatabaseConnectionsList : GTLROracleDatabaseQuery
+
+/** Optional. An expression for filtering the results of the request. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Optional. An expression for ordering the results of the request. */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. The maximum number of items to return. If unspecified, at most 50
+ *  DatabaseConnections will be returned. The maximum value is 1000; values
+ *  above 1000 will be coerced to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A token identifying a page of results the server should return.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent value for the DatabaseConnection in the following
+ *  format: projects/{project}/locations/{location}.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLROracleDatabase_ListDatabaseConnectionsResponse.
+ *
+ *  Lists DatabaseConnections in a given project and location.
+ *
+ *  @param parent Required. The parent value for the DatabaseConnection in the
+ *    following format: projects/{project}/locations/{location}.
+ *
+ *  @return GTLROracleDatabaseQuery_ProjectsLocationsDatabaseConnectionsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates the parameters of a single DatabaseConnection.
+ *
+ *  Method: oracledatabase.projects.locations.databaseConnections.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeOracleDatabaseCloudPlatform
+ */
+@interface GTLROracleDatabaseQuery_ProjectsLocationsDatabaseConnectionsPatch : GTLROracleDatabaseQuery
+
+/**
+ *  Identifier. The resource name of the DatabaseConnection. Format:
+ *  projects/{project}/locations/{location}/databaseConnections/{database_connection}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional ID to identify the request. This value is used to
+ *  identify duplicate requests. If you make a request with the same request ID
+ *  and the original request is still in progress or completed, the server
+ *  ignores the second request. This prevents clients from accidentally creating
+ *  duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Optional. A mask specifying which fields in the DatabaseConnection should be
+ *  updated. A field specified in the mask is overwritten. If a mask isn't
+ *  provided then all the fields in the DatabaseConnection are overwritten.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLROracleDatabase_Operation.
+ *
+ *  Updates the parameters of a single DatabaseConnection.
+ *
+ *  @param object The @c GTLROracleDatabase_DatabaseConnection to include in the
+ *    query.
+ *  @param name Identifier. The resource name of the DatabaseConnection. Format:
+ *    projects/{project}/locations/{location}/databaseConnections/{database_connection}
+ *
+ *  @return GTLROracleDatabaseQuery_ProjectsLocationsDatabaseConnectionsPatch
+ */
++ (instancetype)queryWithObject:(GTLROracleDatabase_DatabaseConnection *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Tests connectivity of a DatabaseConnection.
+ *
+ *  Method: oracledatabase.projects.locations.databaseConnections.test
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeOracleDatabaseCloudPlatform
+ */
+@interface GTLROracleDatabaseQuery_ProjectsLocationsDatabaseConnectionsTest : GTLROracleDatabaseQuery
+
+/**
+ *  Required. The name of the DatabaseConnection to test. Format:
+ *  projects/{project}/locations/{location}/databaseConnections/{database_connection}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLROracleDatabase_TestDatabaseConnectionResponse.
+ *
+ *  Tests connectivity of a DatabaseConnection.
+ *
+ *  @param object The @c GTLROracleDatabase_TestDatabaseConnectionRequest to
+ *    include in the query.
+ *  @param name Required. The name of the DatabaseConnection to test. Format:
+ *    projects/{project}/locations/{location}/databaseConnections/{database_connection}
+ *
+ *  @return GTLROracleDatabaseQuery_ProjectsLocationsDatabaseConnectionsTest
+ */
++ (instancetype)queryWithObject:(GTLROracleDatabase_TestDatabaseConnectionRequest *)object
+                           name:(NSString *)name;
 
 @end
 
@@ -1363,6 +1842,61 @@ NS_ASSUME_NONNULL_BEGIN
  *    projects/{project}/locations/{region}
  *
  *  @return GTLROracleDatabaseQuery_ProjectsLocationsDatabasesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Lists all the DbSystemComputePerformances for the given project and
+ *  location.
+ *
+ *  Method: oracledatabase.projects.locations.dbSystemComputePerformances.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeOracleDatabaseCloudPlatform
+ */
+@interface GTLROracleDatabaseQuery_ProjectsLocationsDbSystemComputePerformancesList : GTLROracleDatabaseQuery
+
+/**
+ *  Optional. An expression for filtering the results of the request. Only the
+ *  `db_system_shape` field is supported in the following format:
+ *  `db_system_shape="{db_system_shape}"`.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. Requested page size. Server may return fewer items than requested.
+ *  If unspecified, server will pick an appropriate default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A token identifying a page of results the server should return.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Parent value for ListDbSystemComputePerformancesRequest Format:
+ *  projects/{project}/locations/{location}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLROracleDatabase_ListDbSystemComputePerformancesResponse.
+ *
+ *  Lists all the DbSystemComputePerformances for the given project and
+ *  location.
+ *
+ *  @param parent Required. Parent value for
+ *    ListDbSystemComputePerformancesRequest Format:
+ *    projects/{project}/locations/{location}
+ *
+ *  @return GTLROracleDatabaseQuery_ProjectsLocationsDbSystemComputePerformancesList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -1656,6 +2190,59 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Updates the `labels` of a single DbSystem.
+ *
+ *  Method: oracledatabase.projects.locations.dbSystems.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeOracleDatabaseCloudPlatform
+ */
+@interface GTLROracleDatabaseQuery_ProjectsLocationsDbSystemsPatch : GTLROracleDatabaseQuery
+
+/**
+ *  Identifier. The name of the DbSystem resource in the following format:
+ *  projects/{project}/locations/{region}/dbSystems/{db_system}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional ID to identify the request. This value is used to
+ *  identify duplicate requests. If you make a request with the same request ID
+ *  and the original request is still in progress or completed, the server
+ *  ignores the second request. This prevents clients from accidentally creating
+ *  duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Optional. A mask specifying which fields in the DbSystem should be updated.
+ *  A field specified in the mask is updated. If a mask isn't provided, the
+ *  service treats this as an implied field mask equivalent to all fields that
+ *  are populated (have a non-empty value).
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLROracleDatabase_Operation.
+ *
+ *  Updates the `labels` of a single DbSystem.
+ *
+ *  @param object The @c GTLROracleDatabase_DbSystem to include in the query.
+ *  @param name Identifier. The name of the DbSystem resource in the following
+ *    format: projects/{project}/locations/{region}/dbSystems/{db_system}
+ *
+ *  @return GTLROracleDatabaseQuery_ProjectsLocationsDbSystemsPatch
+ */
++ (instancetype)queryWithObject:(GTLROracleDatabase_DbSystem *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  List DbVersions for the given project and location.
  *
  *  Method: oracledatabase.projects.locations.dbVersions.list
@@ -1897,6 +2484,76 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLROracleDatabaseQuery_ProjectsLocationsExadbVmClustersDelete
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Disables the Workload Identity Connector for an Exadb VM Cluster.
+ *
+ *  Method: oracledatabase.projects.locations.exadbVmClusters.disableIdentityConnector
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeOracleDatabaseCloudPlatform
+ */
+@interface GTLROracleDatabaseQuery_ProjectsLocationsExadbVmClustersDisableIdentityConnector : GTLROracleDatabaseQuery
+
+/**
+ *  Required. The name of the Exadb VM Cluster in the following format:
+ *  projects/{project}/locations/{location}/exadbVmClusters/{exadb_vm_cluster}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLROracleDatabase_Operation.
+ *
+ *  Disables the Workload Identity Connector for an Exadb VM Cluster.
+ *
+ *  @param object The @c
+ *    GTLROracleDatabase_DisableExadbVmClusterIdentityConnectorRequest to
+ *    include in the query.
+ *  @param name Required. The name of the Exadb VM Cluster in the following
+ *    format:
+ *    projects/{project}/locations/{location}/exadbVmClusters/{exadb_vm_cluster}
+ *
+ *  @return GTLROracleDatabaseQuery_ProjectsLocationsExadbVmClustersDisableIdentityConnector
+ */
++ (instancetype)queryWithObject:(GTLROracleDatabase_DisableExadbVmClusterIdentityConnectorRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Enables the Workload Identity Connector for an Exadb VM Cluster.
+ *
+ *  Method: oracledatabase.projects.locations.exadbVmClusters.enableIdentityConnector
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeOracleDatabaseCloudPlatform
+ */
+@interface GTLROracleDatabaseQuery_ProjectsLocationsExadbVmClustersEnableIdentityConnector : GTLROracleDatabaseQuery
+
+/**
+ *  Required. The name of the Exadb VM Cluster in the following format:
+ *  projects/{project}/locations/{location}/exadbVmClusters/{exadb_vm_cluster}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLROracleDatabase_Operation.
+ *
+ *  Enables the Workload Identity Connector for an Exadb VM Cluster.
+ *
+ *  @param object The @c
+ *    GTLROracleDatabase_EnableExadbVmClusterIdentityConnectorRequest to include
+ *    in the query.
+ *  @param name Required. The name of the Exadb VM Cluster in the following
+ *    format:
+ *    projects/{project}/locations/{location}/exadbVmClusters/{exadb_vm_cluster}
+ *
+ *  @return GTLROracleDatabaseQuery_ProjectsLocationsExadbVmClustersEnableIdentityConnector
+ */
++ (instancetype)queryWithObject:(GTLROracleDatabase_EnableExadbVmClusterIdentityConnectorRequest *)object
+                           name:(NSString *)name;
 
 @end
 
@@ -2266,6 +2923,113 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Updates the `labels` of a single ExascaleDbStorageVault.
+ *
+ *  Method: oracledatabase.projects.locations.exascaleDbStorageVaults.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeOracleDatabaseCloudPlatform
+ */
+@interface GTLROracleDatabaseQuery_ProjectsLocationsExascaleDbStorageVaultsPatch : GTLROracleDatabaseQuery
+
+/**
+ *  Identifier. The resource name of the ExascaleDbStorageVault. Format:
+ *  projects/{project}/locations/{location}/exascaleDbStorageVaults/{exascale_db_storage_vault}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional ID to identify the request. This value is used to
+ *  identify duplicate requests. If you make a request with the same request ID
+ *  and the original request is still in progress or completed, the server
+ *  ignores the second request. This prevents clients from accidentally creating
+ *  duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Optional. A mask specifying which fields in the ExascaleDbStorageVault
+ *  should be updated. A field specified in the mask is updated. If a mask isn't
+ *  provided, the service treats this as an implied field mask equivalent to all
+ *  fields that are populated (have a non-empty value). To clear or unset a
+ *  field, the field must be explicitly specified in the `update_mask`.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLROracleDatabase_Operation.
+ *
+ *  Updates the `labels` of a single ExascaleDbStorageVault.
+ *
+ *  @param object The @c GTLROracleDatabase_ExascaleDbStorageVault to include in
+ *    the query.
+ *  @param name Identifier. The resource name of the ExascaleDbStorageVault.
+ *    Format:
+ *    projects/{project}/locations/{location}/exascaleDbStorageVaults/{exascale_db_storage_vault}
+ *
+ *  @return GTLROracleDatabaseQuery_ProjectsLocationsExascaleDbStorageVaultsPatch
+ */
++ (instancetype)queryWithObject:(GTLROracleDatabase_ExascaleDbStorageVault *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Lists Flex Components in a given project and location.
+ *
+ *  Method: oracledatabase.projects.locations.flexComponents.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeOracleDatabaseCloudPlatform
+ */
+@interface GTLROracleDatabaseQuery_ProjectsLocationsFlexComponentsList : GTLROracleDatabaseQuery
+
+/**
+ *  Optional. An expression for filtering the results of the request. Only the
+ *  `shape` field is supported in the following format: `shape="{shape}"`.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. Requested page size. Server may return fewer items than requested.
+ *  If unspecified, server will pick an appropriate default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A token identifying a page of results the server should return.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Parent value for ListFlexComponentsRequest Format:
+ *  projects/{project}/locations/{location}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLROracleDatabase_ListFlexComponentsResponse.
+ *
+ *  Lists Flex Components in a given project and location.
+ *
+ *  @param parent Required. Parent value for ListFlexComponentsRequest Format:
+ *    projects/{project}/locations/{location}
+ *
+ *  @return GTLROracleDatabaseQuery_ProjectsLocationsFlexComponentsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Gets information about a location.
  *
  *  Method: oracledatabase.projects.locations.get
@@ -2602,6 +3366,64 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Updates the `labels` of a single GoldengateConnectionAssignment.
+ *
+ *  Method: oracledatabase.projects.locations.goldengateConnectionAssignments.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeOracleDatabaseCloudPlatform
+ */
+@interface GTLROracleDatabaseQuery_ProjectsLocationsGoldengateConnectionAssignmentsPatch : GTLROracleDatabaseQuery
+
+/**
+ *  Identifier. The name of the GoldengateConnectionAssignment resource in the
+ *  following format:
+ *  projects/{project}/locations/{region}/goldengateConnectionAssignments/{goldengate_connection_assignment}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional ID to identify the request. This value is used to
+ *  identify duplicate requests. If you make a request with the same request ID
+ *  and the original request is still in progress or completed, the server
+ *  ignores the second request. This prevents clients from accidentally creating
+ *  duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Optional. A mask specifying which fields in the
+ *  GoldengateConnectionAssignment should be updated. A field specified in the
+ *  mask is updated. If a mask isn't provided, the service treats this as an
+ *  implied field mask equivalent to all fields that are populated (have a
+ *  non-empty value). To clear or unset a field, the field must be explicitly
+ *  specified in the `update_mask`.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLROracleDatabase_Operation.
+ *
+ *  Updates the `labels` of a single GoldengateConnectionAssignment.
+ *
+ *  @param object The @c GTLROracleDatabase_GoldengateConnectionAssignment to
+ *    include in the query.
+ *  @param name Identifier. The name of the GoldengateConnectionAssignment
+ *    resource in the following format:
+ *    projects/{project}/locations/{region}/goldengateConnectionAssignments/{goldengate_connection_assignment}
+ *
+ *  @return GTLROracleDatabaseQuery_ProjectsLocationsGoldengateConnectionAssignmentsPatch
+ */
++ (instancetype)queryWithObject:(GTLROracleDatabase_GoldengateConnectionAssignment *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Tests a single GoldengateConnectionAssignment.
  *
  *  Method: oracledatabase.projects.locations.goldengateConnectionAssignments.test
@@ -2815,6 +3637,63 @@ NS_ASSUME_NONNULL_BEGIN
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates the `labels` of a single GoldengateConnection.
+ *
+ *  Method: oracledatabase.projects.locations.goldengateConnections.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeOracleDatabaseCloudPlatform
+ */
+@interface GTLROracleDatabaseQuery_ProjectsLocationsGoldengateConnectionsPatch : GTLROracleDatabaseQuery
+
+/**
+ *  Identifier. The name of the GoldengateConnection resource in the following
+ *  format:
+ *  projects/{project}/locations/{region}/goldengateConnections/{goldengate_connection}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional ID to identify the request. This value is used to
+ *  identify duplicate requests. If you make a request with the same request ID
+ *  and the original request is still in progress or completed, the server
+ *  ignores the second request. This prevents clients from accidentally creating
+ *  duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Optional. A mask specifying which fields in the GoldengateConnection should
+ *  be updated. A field specified in the mask is updated. If a mask isn't
+ *  provided, the service treats this as an implied field mask equivalent to all
+ *  fields that are populated (have a non-empty value). To clear or unset a
+ *  field, the field must be explicitly specified in the `update_mask`.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLROracleDatabase_Operation.
+ *
+ *  Updates the `labels` of a single GoldengateConnection.
+ *
+ *  @param object The @c GTLROracleDatabase_GoldengateConnection to include in
+ *    the query.
+ *  @param name Identifier. The name of the GoldengateConnection resource in the
+ *    following format:
+ *    projects/{project}/locations/{region}/goldengateConnections/{goldengate_connection}
+ *
+ *  @return GTLROracleDatabaseQuery_ProjectsLocationsGoldengateConnectionsPatch
+ */
++ (instancetype)queryWithObject:(GTLROracleDatabase_GoldengateConnection *)object
+                           name:(NSString *)name;
 
 @end
 
@@ -3099,6 +3978,63 @@ NS_ASSUME_NONNULL_BEGIN
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates the `labels` of a single GoldengateDeployment.
+ *
+ *  Method: oracledatabase.projects.locations.goldengateDeployments.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeOracleDatabaseCloudPlatform
+ */
+@interface GTLROracleDatabaseQuery_ProjectsLocationsGoldengateDeploymentsPatch : GTLROracleDatabaseQuery
+
+/**
+ *  Identifier. The name of the GoldengateDeployment resource in the following
+ *  format:
+ *  projects/{project}/locations/{region}/goldengateDeployments/{goldengate_deployment}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional ID to identify the request. This value is used to
+ *  identify duplicate requests. If you make a request with the same request ID
+ *  and the original request is still in progress or completed, the server
+ *  ignores the second request. This prevents clients from accidentally creating
+ *  duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Optional. A mask specifying which fields in the GoldengateDeployment should
+ *  be updated. A field specified in the mask is updated. If a mask isn't
+ *  provided, the service treats this as an implied field mask equivalent to all
+ *  fields that are populated (have a non-empty value). To clear or unset a
+ *  field, the field must be explicitly specified in the `update_mask`.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLROracleDatabase_Operation.
+ *
+ *  Updates the `labels` of a single GoldengateDeployment.
+ *
+ *  @param object The @c GTLROracleDatabase_GoldengateDeployment to include in
+ *    the query.
+ *  @param name Identifier. The name of the GoldengateDeployment resource in the
+ *    following format:
+ *    projects/{project}/locations/{region}/goldengateDeployments/{goldengate_deployment}
+ *
+ *  @return GTLROracleDatabaseQuery_ProjectsLocationsGoldengateDeploymentsPatch
+ */
++ (instancetype)queryWithObject:(GTLROracleDatabase_GoldengateDeployment *)object
+                           name:(NSString *)name;
 
 @end
 
@@ -3532,6 +4468,180 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Creates a new ODB DNS Zone in a given ODB Network.
+ *
+ *  Method: oracledatabase.projects.locations.odbNetworks.odbDnsZones.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeOracleDatabaseCloudPlatform
+ */
+@interface GTLROracleDatabaseQuery_ProjectsLocationsOdbNetworksOdbDnsZonesCreate : GTLROracleDatabaseQuery
+
+/**
+ *  Required. The ID of the OdbDnsZone to create. This value is restricted to
+ *  (^[a-z]([a-z0-9-]{0,61}[a-z0-9])?$) and must be a maximum of 63 characters
+ *  in length. The value must start with a letter and end with a letter or a
+ *  number.
+ */
+@property(nonatomic, copy, nullable) NSString *odbDnsZoneId;
+
+/**
+ *  Required. The parent value for the OdbDnsZone in the following format:
+ *  projects/{project}/locations/{location}/odbNetworks/{odb_network}.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. An optional ID to identify the request. This value is used to
+ *  identify duplicate requests. If you make a request with the same request ID
+ *  and the original request is still in progress or completed, the server
+ *  ignores the second request. This prevents clients from accidentally creating
+ *  duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLROracleDatabase_Operation.
+ *
+ *  Creates a new ODB DNS Zone in a given ODB Network.
+ *
+ *  @param object The @c GTLROracleDatabase_OdbDnsZone to include in the query.
+ *  @param parent Required. The parent value for the OdbDnsZone in the following
+ *    format: projects/{project}/locations/{location}/odbNetworks/{odb_network}.
+ *
+ *  @return GTLROracleDatabaseQuery_ProjectsLocationsOdbNetworksOdbDnsZonesCreate
+ */
++ (instancetype)queryWithObject:(GTLROracleDatabase_OdbDnsZone *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a single ODB DNS Zone.
+ *
+ *  Method: oracledatabase.projects.locations.odbNetworks.odbDnsZones.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeOracleDatabaseCloudPlatform
+ */
+@interface GTLROracleDatabaseQuery_ProjectsLocationsOdbNetworksOdbDnsZonesDelete : GTLROracleDatabaseQuery
+
+/**
+ *  Required. The name of the resource in the following format:
+ *  projects/{project}/locations/{location}/odbNetworks/{odb_network}/odbDnsZones/{odb_dns_zone}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional ID to identify the request. This value is used to
+ *  identify duplicate requests. If you make a request with the same request ID
+ *  and the original request is still in progress or completed, the server
+ *  ignores the second request. This prevents clients from accidentally creating
+ *  duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLROracleDatabase_Operation.
+ *
+ *  Deletes a single ODB DNS Zone.
+ *
+ *  @param name Required. The name of the resource in the following format:
+ *    projects/{project}/locations/{location}/odbNetworks/{odb_network}/odbDnsZones/{odb_dns_zone}.
+ *
+ *  @return GTLROracleDatabaseQuery_ProjectsLocationsOdbNetworksOdbDnsZonesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of a single ODB DNS Zone.
+ *
+ *  Method: oracledatabase.projects.locations.odbNetworks.odbDnsZones.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeOracleDatabaseCloudPlatform
+ */
+@interface GTLROracleDatabaseQuery_ProjectsLocationsOdbNetworksOdbDnsZonesGet : GTLROracleDatabaseQuery
+
+/**
+ *  Required. The name of the OdbDnsZone in the following format:
+ *  projects/{project}/locations/{location}/odbNetworks/{odb_network}/odbDnsZones/{odb_dns_zone}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLROracleDatabase_OdbDnsZone.
+ *
+ *  Gets details of a single ODB DNS Zone.
+ *
+ *  @param name Required. The name of the OdbDnsZone in the following format:
+ *    projects/{project}/locations/{location}/odbNetworks/{odb_network}/odbDnsZones/{odb_dns_zone}.
+ *
+ *  @return GTLROracleDatabaseQuery_ProjectsLocationsOdbNetworksOdbDnsZonesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists all the ODB DNS Zones in a given ODB Network.
+ *
+ *  Method: oracledatabase.projects.locations.odbNetworks.odbDnsZones.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeOracleDatabaseCloudPlatform
+ */
+@interface GTLROracleDatabaseQuery_ProjectsLocationsOdbNetworksOdbDnsZonesList : GTLROracleDatabaseQuery
+
+/** Optional. An expression for filtering the results of the request. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Optional. An expression for ordering the results of the request. */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. The maximum number of items to return. If unspecified, at most 50
+ *  OdbDnsZones will be returned. The maximum value is 1000; values above 1000
+ *  will be coerced to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A token identifying a page of results the server should return.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent value for the OdbDnsZone in the following format:
+ *  projects/{project}/locations/{location}/odbNetworks/{odb_network}.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLROracleDatabase_ListOdbDnsZonesResponse.
+ *
+ *  Lists all the ODB DNS Zones in a given ODB Network.
+ *
+ *  @param parent Required. The parent value for the OdbDnsZone in the following
+ *    format: projects/{project}/locations/{location}/odbNetworks/{odb_network}.
+ *
+ *  @return GTLROracleDatabaseQuery_ProjectsLocationsOdbNetworksOdbDnsZonesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Creates a new ODB Subnet in a given ODB Network.
  *
  *  Method: oracledatabase.projects.locations.odbNetworks.odbSubnets.create
@@ -3702,6 +4812,117 @@ NS_ASSUME_NONNULL_BEGIN
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates the `labels` of a single ODB Subnet.
+ *
+ *  Method: oracledatabase.projects.locations.odbNetworks.odbSubnets.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeOracleDatabaseCloudPlatform
+ */
+@interface GTLROracleDatabaseQuery_ProjectsLocationsOdbNetworksOdbSubnetsPatch : GTLROracleDatabaseQuery
+
+/**
+ *  Identifier. The name of the OdbSubnet resource in the following format:
+ *  projects/{project}/locations/{location}/odbNetworks/{odb_network}/odbSubnets/{odb_subnet}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional ID to identify the request. This value is used to
+ *  identify duplicate requests. If you make a request with the same request ID
+ *  and the original request is still in progress or completed, the server
+ *  ignores the second request. This prevents clients from accidentally creating
+ *  duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Optional. A mask specifying which fields in the OdbSubnet should be updated.
+ *  A field specified in the mask is updated. If a mask isn't provided, the
+ *  service treats this as an implied field mask equivalent to all fields that
+ *  are populated (have a non-empty value). To clear or unset a field, the field
+ *  must be explicitly specified in the `update_mask`.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLROracleDatabase_Operation.
+ *
+ *  Updates the `labels` of a single ODB Subnet.
+ *
+ *  @param object The @c GTLROracleDatabase_OdbSubnet to include in the query.
+ *  @param name Identifier. The name of the OdbSubnet resource in the following
+ *    format:
+ *    projects/{project}/locations/{location}/odbNetworks/{odb_network}/odbSubnets/{odb_subnet}
+ *
+ *  @return GTLROracleDatabaseQuery_ProjectsLocationsOdbNetworksOdbSubnetsPatch
+ */
++ (instancetype)queryWithObject:(GTLROracleDatabase_OdbSubnet *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Updates the `labels` and `service_connectivity_config` of a single
+ *  OdbNetwork.
+ *
+ *  Method: oracledatabase.projects.locations.odbNetworks.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeOracleDatabaseCloudPlatform
+ */
+@interface GTLROracleDatabaseQuery_ProjectsLocationsOdbNetworksPatch : GTLROracleDatabaseQuery
+
+/**
+ *  Identifier. The name of the OdbNetwork resource in the following format:
+ *  projects/{project}/locations/{region}/odbNetworks/{odb_network}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional ID to identify the request. This value is used to
+ *  identify duplicate requests. If you make a request with the same request ID
+ *  and the original request is still in progress or completed, the server
+ *  ignores the second request. This prevents clients from accidentally creating
+ *  duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Optional. A mask specifying which fields in the OdbNetwork should be
+ *  updated. A field specified in the mask is updated. If a mask isn't provided,
+ *  the service treats this as an implied field mask equivalent to all fields
+ *  that are populated (have a non-empty value). To clear or unset a field, the
+ *  field must be explicitly specified in the `update_mask`.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLROracleDatabase_Operation.
+ *
+ *  Updates the `labels` and `service_connectivity_config` of a single
+ *  OdbNetwork.
+ *
+ *  @param object The @c GTLROracleDatabase_OdbNetwork to include in the query.
+ *  @param name Identifier. The name of the OdbNetwork resource in the following
+ *    format: projects/{project}/locations/{region}/odbNetworks/{odb_network}
+ *
+ *  @return GTLROracleDatabaseQuery_ProjectsLocationsOdbNetworksPatch
+ */
++ (instancetype)queryWithObject:(GTLROracleDatabase_OdbNetwork *)object
+                           name:(NSString *)name;
 
 @end
 

@@ -61,6 +61,7 @@
 @class GTLRSecurityCommandCenter_CloudDlpDataProfile;
 @class GTLRSecurityCommandCenter_CloudDlpInspection;
 @class GTLRSecurityCommandCenter_CloudLoggingEntry;
+@class GTLRSecurityCommandCenter_CloudRun;
 @class GTLRSecurityCommandCenter_Compliance;
 @class GTLRSecurityCommandCenter_ComplianceDetails;
 @class GTLRSecurityCommandCenter_Connection;
@@ -169,6 +170,7 @@
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2CloudDlpDataProfile;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2CloudDlpInspection;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2CloudLoggingEntry;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2CloudRun;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Compliance;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ComplianceDetails;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Connection;
@@ -4198,6 +4200,16 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 
 
 /**
+ *  GTLRSecurityCommandCenter_CloudRun
+ */
+@interface GTLRSecurityCommandCenter_CloudRun : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<NSString *> *revisions;
+
+@end
+
+
+/**
  *  GTLRSecurityCommandCenter_Compliance
  */
 @interface GTLRSecurityCommandCenter_Compliance : GTLRObject
@@ -5174,6 +5186,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_CloudArmor *cloudArmor;
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_CloudDlpDataProfile *cloudDlpDataProfile;
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_CloudDlpInspection *cloudDlpInspection;
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_CloudRun *cloudRun;
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_ComplianceDetails *complianceDetails;
 @property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_Compliance *> *compliances;
 @property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_Connection *> *connections;
@@ -5468,6 +5481,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 @property(nonatomic, copy, nullable) NSString *dataset;
 
 /**
+ *  deletionNotificationsEnabled
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *deletionNotificationsEnabled;
+
+/**
  *  descriptionProperty
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
@@ -5675,6 +5695,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  *  GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1NotificationMessage
  */
 @interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1NotificationMessage : GTLRObject
+
+/**
+ *  deletedFinding
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *deletedFinding;
 
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_Finding *finding;
 @property(nonatomic, copy, nullable) NSString *notificationConfigName;
@@ -6685,6 +6712,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 @property(nonatomic, copy, nullable) NSString *dataset;
 
 /**
+ *  deletionNotificationsEnabled
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *deletionNotificationsEnabled;
+
+/**
  *  descriptionProperty
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
@@ -6835,6 +6869,16 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 @property(nonatomic, copy, nullable) NSString *logId;
 @property(nonatomic, copy, nullable) NSString *resourceContainer;
 @property(nonatomic, strong, nullable) GTLRDateTime *timestamp;
+
+@end
+
+
+/**
+ *  GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2CloudRun
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2CloudRun : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<NSString *> *revisions;
 
 @end
 
@@ -7634,6 +7678,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2CloudArmor *cloudArmor;
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2CloudDlpDataProfile *cloudDlpDataProfile;
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2CloudDlpInspection *cloudDlpInspection;
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2CloudRun *cloudRun;
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ComplianceDetails *complianceDetails;
 @property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Compliance *> *compliances;
 @property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Connection *> *connections;
@@ -8748,6 +8793,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  *  GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2NotificationMessage
  */
 @interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2NotificationMessage : GTLRObject
+
+/**
+ *  deletedFinding
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *deletedFinding;
 
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Finding *finding;
 @property(nonatomic, copy, nullable) NSString *notificationConfigName;
@@ -10625,6 +10677,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  *  GTLRSecurityCommandCenter_NotificationConfig
  */
 @interface GTLRSecurityCommandCenter_NotificationConfig : GTLRObject
+
+/**
+ *  deletionNotificationsEnabled
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *deletionNotificationsEnabled;
 
 /**
  *  descriptionProperty

@@ -38,6 +38,29 @@ NSString * const kGTLRFirebaseCloudMessaging_AndroidNotification_Visibility_Publ
 NSString * const kGTLRFirebaseCloudMessaging_AndroidNotification_Visibility_Secret = @"SECRET";
 NSString * const kGTLRFirebaseCloudMessaging_AndroidNotification_Visibility_VisibilityUnspecified = @"VISIBILITY_UNSPECIFIED";
 
+// GTLRFirebaseCloudMessaging_AndroidNotificationV2.notificationPriority
+NSString * const kGTLRFirebaseCloudMessaging_AndroidNotificationV2_NotificationPriority_PriorityDefault = @"PRIORITY_DEFAULT";
+NSString * const kGTLRFirebaseCloudMessaging_AndroidNotificationV2_NotificationPriority_PriorityHigh = @"PRIORITY_HIGH";
+NSString * const kGTLRFirebaseCloudMessaging_AndroidNotificationV2_NotificationPriority_PriorityLow = @"PRIORITY_LOW";
+NSString * const kGTLRFirebaseCloudMessaging_AndroidNotificationV2_NotificationPriority_PriorityMax = @"PRIORITY_MAX";
+NSString * const kGTLRFirebaseCloudMessaging_AndroidNotificationV2_NotificationPriority_PriorityMin = @"PRIORITY_MIN";
+NSString * const kGTLRFirebaseCloudMessaging_AndroidNotificationV2_NotificationPriority_PriorityUnspecified = @"PRIORITY_UNSPECIFIED";
+
+// GTLRFirebaseCloudMessaging_AndroidNotificationV2.visibility
+NSString * const kGTLRFirebaseCloudMessaging_AndroidNotificationV2_Visibility_Private = @"PRIVATE";
+NSString * const kGTLRFirebaseCloudMessaging_AndroidNotificationV2_Visibility_Public = @"PUBLIC";
+NSString * const kGTLRFirebaseCloudMessaging_AndroidNotificationV2_Visibility_Secret = @"SECRET";
+NSString * const kGTLRFirebaseCloudMessaging_AndroidNotificationV2_Visibility_VisibilityUnspecified = @"VISIBILITY_UNSPECIFIED";
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirebaseCloudMessaging_AndroidBackgroundSyncMessage
+//
+
+@implementation GTLRFirebaseCloudMessaging_AndroidBackgroundSyncMessage
+@end
+
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRFirebaseCloudMessaging_AndroidConfig
@@ -56,6 +79,32 @@ NSString * const kGTLRFirebaseCloudMessaging_AndroidNotification_Visibility_Visi
 //
 
 @implementation GTLRFirebaseCloudMessaging_AndroidConfig_Data
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirebaseCloudMessaging_AndroidConfigV2
+//
+
+@implementation GTLRFirebaseCloudMessaging_AndroidConfigV2
+@dynamic backgroundSync, bandwidthConstrainedOk, collapseKey, data,
+         directBootOk, fcmOptions, remoteNotification, restrictedPackageName,
+         restrictedSatelliteOk, ttl;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirebaseCloudMessaging_AndroidConfigV2_Data
+//
+
+@implementation GTLRFirebaseCloudMessaging_AndroidConfigV2_Data
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
@@ -96,6 +145,44 @@ NSString * const kGTLRFirebaseCloudMessaging_AndroidNotification_Visibility_Visi
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirebaseCloudMessaging_AndroidNotificationV2
+//
+
+@implementation GTLRFirebaseCloudMessaging_AndroidNotificationV2
+@dynamic body, bodyLocArgs, bodyLocKey, channelId, clickAction, color,
+         defaultLightSettings, defaultSound, defaultVibrateTimings, eventTime,
+         icon, identifier, image, lightSettings, localOnly, notificationCount,
+         notificationPriority, sound, sticky, tag, ticker, title, titleLocArgs,
+         titleLocKey, vibrateTimings, visibility;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"bodyLocArgs" : [NSString class],
+    @"titleLocArgs" : [NSString class],
+    @"vibrateTimings" : [GTLRDuration class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirebaseCloudMessaging_AndroidRemoteNotification
+//
+
+@implementation GTLRFirebaseCloudMessaging_AndroidRemoteNotification
+@dynamic mutableContent, notification, useAsV1DataMessage;
 @end
 
 
@@ -178,6 +265,16 @@ NSString * const kGTLRFirebaseCloudMessaging_AndroidNotification_Visibility_Visi
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRFirebaseCloudMessaging_GoogleFirebaseFcmV1AndroidNotificationV2LightSettings
+//
+
+@implementation GTLRFirebaseCloudMessaging_GoogleFirebaseFcmV1AndroidNotificationV2LightSettings
+@dynamic color, lightOffDuration, lightOnDuration;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRFirebaseCloudMessaging_LightSettings
 //
 
@@ -214,8 +311,8 @@ NSString * const kGTLRFirebaseCloudMessaging_AndroidNotification_Visibility_Visi
 //
 
 @implementation GTLRFirebaseCloudMessaging_Message
-@dynamic android, apns, condition, data, fcmOptions, fid, name, notification,
-         token, topic, webpush;
+@dynamic android, androidV2, apns, condition, data, fcmOptions, fid, name,
+         notification, token, topic, webpush;
 @end
 
 

@@ -13,6 +13,8 @@
 
 // GTLRAgentIdentity_AccessSummary.authProviderType
 NSString * const kGTLRAgentIdentity_AccessSummary_AuthProviderType_AuthProviderTypeApiKey = @"AUTH_PROVIDER_TYPE_API_KEY";
+NSString * const kGTLRAgentIdentity_AccessSummary_AuthProviderType_AuthProviderTypeConnectorReference = @"AUTH_PROVIDER_TYPE_CONNECTOR_REFERENCE";
+NSString * const kGTLRAgentIdentity_AccessSummary_AuthProviderType_AuthProviderTypeCrossAppAccess = @"AUTH_PROVIDER_TYPE_CROSS_APP_ACCESS";
 NSString * const kGTLRAgentIdentity_AccessSummary_AuthProviderType_AuthProviderTypeGeminiEnterprise = @"AUTH_PROVIDER_TYPE_GEMINI_ENTERPRISE";
 NSString * const kGTLRAgentIdentity_AccessSummary_AuthProviderType_AuthProviderTypeThreeLeggedOauth = @"AUTH_PROVIDER_TYPE_THREE_LEGGED_OAUTH";
 NSString * const kGTLRAgentIdentity_AccessSummary_AuthProviderType_AuthProviderTypeTwoLeggedOauth = @"AUTH_PROVIDER_TYPE_TWO_LEGGED_OAUTH";
@@ -177,7 +179,8 @@ NSString * const kGTLRAgentIdentity_AuthProvider_State_StateUnspecified = @"STAT
 //
 
 @implementation GTLRAgentIdentity_AuthProviderTypeParams
-@dynamic apiKey, geAuthProvider, threeLeggedOauth, twoLeggedOauth;
+@dynamic apiKey, connectorReferenceAuthProvider, geAuthProvider,
+         threeLeggedOauth, twoLeggedOauth, xaaAuthProvider;
 @end
 
 
@@ -196,6 +199,103 @@ NSString * const kGTLRAgentIdentity_AuthProvider_State_StateUnspecified = @"STAT
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAgentIdentity_ClientAssertionJwtAuth
+//
+
+@implementation GTLRAgentIdentity_ClientAssertionJwtAuth
+@dynamic clientId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAgentIdentity_ClientSecretAuth
+//
+
+@implementation GTLRAgentIdentity_ClientSecretAuth
+@dynamic clientId, clientSecret;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAgentIdentity_ConnectorReferenceAuthProvider
+//
+
+@implementation GTLRAgentIdentity_ConnectorReferenceAuthProvider
+@dynamic authorizationDetails, connector;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"authorizationDetails" : [GTLRAgentIdentity_ConnectorReferenceAuthProvider_AuthorizationDetails_Item class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAgentIdentity_ConnectorReferenceAuthProvider_AuthorizationDetails_Item
+//
+
+@implementation GTLRAgentIdentity_ConnectorReferenceAuthProvider_AuthorizationDetails_Item
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAgentIdentity_CrossAppAccessAuthProvider
+//
+
+@implementation GTLRAgentIdentity_CrossAppAccessAuthProvider
+@dynamic additionalParameters, clientAssertionJwtAuth, clientSecretAuth,
+         customIssuer, googleAccount, idJagInput, idTokenInput,
+         workforceIdentityFederation;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAgentIdentity_CrossAppAccessAuthProvider_AdditionalParameters
+//
+
+@implementation GTLRAgentIdentity_CrossAppAccessAuthProvider_AdditionalParameters
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAgentIdentity_CustomIssuer
+//
+
+@implementation GTLRAgentIdentity_CustomIssuer
+@dynamic issuer, tokenUrl;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAgentIdentity_DirectIdJagInput
+//
+
+@implementation GTLRAgentIdentity_DirectIdJagInput
 @end
 
 
@@ -249,6 +349,39 @@ NSString * const kGTLRAgentIdentity_AuthProvider_State_StateUnspecified = @"STAT
 //
 
 @implementation GTLRAgentIdentity_GeminiEnterpriseAuthProviderParams
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAgentIdentity_GoogleAccount
+//
+
+@implementation GTLRAgentIdentity_GoogleAccount
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAgentIdentity_IdTokenProcessingConfig
+//
+
+@implementation GTLRAgentIdentity_IdTokenProcessingConfig
+@dynamic agentIdentityPool, idJagAdditionalClaims, idJagAuthProvider;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAgentIdentity_IdTokenProcessingConfig_IdJagAdditionalClaims
+//
+
+@implementation GTLRAgentIdentity_IdTokenProcessingConfig_IdJagAdditionalClaims
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
 @end
 
 
@@ -406,6 +539,15 @@ NSString * const kGTLRAgentIdentity_AuthProvider_State_StateUnspecified = @"STAT
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAgentIdentity_Pool
+//
+
+@implementation GTLRAgentIdentity_Pool
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAgentIdentity_QueryAuthProvidersResponse
 //
 
@@ -437,6 +579,26 @@ NSString * const kGTLRAgentIdentity_AuthProvider_State_StateUnspecified = @"STAT
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAgentIdentity_ResolveAuthorizationRequest
+//
+
+@implementation GTLRAgentIdentity_ResolveAuthorizationRequest
+@dynamic clientUserId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAgentIdentity_ResolveAuthorizationResponse
+//
+
+@implementation GTLRAgentIdentity_ResolveAuthorizationResponse
+@dynamic authorization;
 @end
 
 
@@ -533,4 +695,13 @@ NSString * const kGTLRAgentIdentity_AuthProvider_State_StateUnspecified = @"STAT
 
 @implementation GTLRAgentIdentity_UndeleteAuthProviderRequest
 @dynamic requestId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAgentIdentity_WorkforceIdentityFederation
+//
+
+@implementation GTLRAgentIdentity_WorkforceIdentityFederation
 @end

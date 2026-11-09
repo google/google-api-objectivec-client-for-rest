@@ -83,6 +83,225 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Creates a Boundary under a parent Folder or Organization. Creating a
+ *  Boundary triggers the creation of a Management Project if one is not
+ *  supplied.
+ *
+ *  Method: cloudresourcemanager.folders.boundaries.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudResourceManagerCloudPlatform
+ */
+@interface GTLRCloudResourceManagerQuery_FoldersBoundariesCreate : GTLRCloudResourceManagerQuery
+
+/**
+ *  Required. The user-assigned ID for the Boundary, which will become the final
+ *  component of the Boundary's resource name. Must be unique within the parent
+ *  resource. It must be 6 to 30 lowercase ASCII letters, digits, or hyphens. It
+ *  must start with a letter. Trailing hyphens are prohibited. Example:
+ *  `my-boundary-123`
+ */
+@property(nonatomic, copy, nullable) NSString *boundaryId;
+
+/**
+ *  Required. The parent resource under which the Boundary will be created.
+ *  Format: `organizations/{organization_id}` or `folders/{folder_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudResourceManager_Operation.
+ *
+ *  Creates a Boundary under a parent Folder or Organization. Creating a
+ *  Boundary triggers the creation of a Management Project if one is not
+ *  supplied.
+ *
+ *  @param object The @c GTLRCloudResourceManager_Boundary to include in the
+ *    query.
+ *  @param parent Required. The parent resource under which the Boundary will be
+ *    created. Format: `organizations/{organization_id}` or
+ *    `folders/{folder_id}`
+ *
+ *  @return GTLRCloudResourceManagerQuery_FoldersBoundariesCreate
+ */
++ (instancetype)queryWithObject:(GTLRCloudResourceManager_Boundary *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes the Boundary identified by the specified `name` (for example,
+ *  `folders/123456789/boundaries/my-boundary`).
+ *
+ *  Method: cloudresourcemanager.folders.boundaries.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudResourceManagerCloudPlatform
+ */
+@interface GTLRCloudResourceManagerQuery_FoldersBoundariesDelete : GTLRCloudResourceManagerQuery
+
+/**
+ *  Required. The name of the Boundary to delete. Format:
+ *  `organizations/{organization_id}/boundaries/{boundary_id}` or
+ *  `folders/{folder_id}/boundaries/{boundary_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudResourceManager_Operation.
+ *
+ *  Deletes the Boundary identified by the specified `name` (for example,
+ *  `folders/123456789/boundaries/my-boundary`).
+ *
+ *  @param name Required. The name of the Boundary to delete. Format:
+ *    `organizations/{organization_id}/boundaries/{boundary_id}` or
+ *    `folders/{folder_id}/boundaries/{boundary_id}`
+ *
+ *  @return GTLRCloudResourceManagerQuery_FoldersBoundariesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Retrieves the Boundary identified by the specified `name` (for example,
+ *  `folders/123456789/boundaries/my-boundary`).
+ *
+ *  Method: cloudresourcemanager.folders.boundaries.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudResourceManagerCloudPlatform
+ *    @c kGTLRAuthScopeCloudResourceManagerCloudPlatformReadOnly
+ */
+@interface GTLRCloudResourceManagerQuery_FoldersBoundariesGet : GTLRCloudResourceManagerQuery
+
+/**
+ *  Required. The name of the Boundary to retrieve. Format:
+ *  `organizations/{organization_id}/boundaries/{boundary_id}` or
+ *  `folders/{folder_id}/boundaries/{boundary_id}` Example:
+ *  `folders/123456789/boundaries/my-boundary`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudResourceManager_Boundary.
+ *
+ *  Retrieves the Boundary identified by the specified `name` (for example,
+ *  `folders/123456789/boundaries/my-boundary`).
+ *
+ *  @param name Required. The name of the Boundary to retrieve. Format:
+ *    `organizations/{organization_id}/boundaries/{boundary_id}` or
+ *    `folders/{folder_id}/boundaries/{boundary_id}` Example:
+ *    `folders/123456789/boundaries/my-boundary`
+ *
+ *  @return GTLRCloudResourceManagerQuery_FoldersBoundariesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists Boundaries that are direct children of the specified organization or
+ *  folder resource.
+ *
+ *  Method: cloudresourcemanager.folders.boundaries.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudResourceManagerCloudPlatform
+ *    @c kGTLRAuthScopeCloudResourceManagerCloudPlatformReadOnly
+ */
+@interface GTLRCloudResourceManagerQuery_FoldersBoundariesList : GTLRCloudResourceManagerQuery
+
+/**
+ *  Optional. The maximum number of Boundaries to return in the response. The
+ *  service may return fewer Boundaries than requested. If unspecified, at most
+ *  100 Boundaries will be returned. The maximum value is 100; values above 100
+ *  will be coerced to 100.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A pagination token received from a previous call to
+ *  `ListBoundaries` that indicates from where listing should continue. Provide
+ *  this to retrieve the subsequent page.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The name of the parent resource whose Boundaries are being listed.
+ *  Format: `organizations/{organization_id}` or `folders/{folder_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudResourceManager_ListBoundariesResponse.
+ *
+ *  Lists Boundaries that are direct children of the specified organization or
+ *  folder resource.
+ *
+ *  @param parent Required. The name of the parent resource whose Boundaries are
+ *    being listed. Format: `organizations/{organization_id}` or
+ *    `folders/{folder_id}`
+ *
+ *  @return GTLRCloudResourceManagerQuery_FoldersBoundariesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates the `display_name` and `resource_filter.tag_filter.tag_value` of the
+ *  Boundary identified by the specified `name` (for example,
+ *  `folders/123456789/boundaries/my-boundary`).
+ *
+ *  Method: cloudresourcemanager.folders.boundaries.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudResourceManagerCloudPlatform
+ */
+@interface GTLRCloudResourceManagerQuery_FoldersBoundariesPatch : GTLRCloudResourceManagerQuery
+
+/**
+ *  Identifier. The unique resource name of the Boundary. Format: -
+ *  `organizations/{organization_id}/boundaries/{boundary_id}` -
+ *  `folders/{folder_id}/boundaries/{boundary_id}` Example:
+ *  `folders/123456789/boundaries/my-boundary`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The list of fields to update.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRCloudResourceManager_Operation.
+ *
+ *  Updates the `display_name` and `resource_filter.tag_filter.tag_value` of the
+ *  Boundary identified by the specified `name` (for example,
+ *  `folders/123456789/boundaries/my-boundary`).
+ *
+ *  @param object The @c GTLRCloudResourceManager_Boundary to include in the
+ *    query.
+ *  @param name Identifier. The unique resource name of the Boundary. Format: -
+ *    `organizations/{organization_id}/boundaries/{boundary_id}` -
+ *    `folders/{folder_id}/boundaries/{boundary_id}` Example:
+ *    `folders/123456789/boundaries/my-boundary`
+ *
+ *  @return GTLRCloudResourceManagerQuery_FoldersBoundariesPatch
+ */
++ (instancetype)queryWithObject:(GTLRCloudResourceManager_Boundary *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Retrieves the Capability identified by the supplied resource name.
  *
  *  Method: cloudresourcemanager.folders.capabilities.get
@@ -521,6 +740,43 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Retrieves the BoundaryConfig identified by the specified `name` (for
+ *  example, `folders/123456789/boundaryConfig`).
+ *
+ *  Method: cloudresourcemanager.folders.getBoundaryConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudResourceManagerCloudPlatform
+ *    @c kGTLRAuthScopeCloudResourceManagerCloudPlatformReadOnly
+ */
+@interface GTLRCloudResourceManagerQuery_FoldersGetBoundaryConfig : GTLRCloudResourceManagerQuery
+
+/**
+ *  Required. The name of the BoundaryConfig to retrieve. Format:
+ *  `organizations/{organization}/boundaryConfig` or
+ *  `folders/{folder}/boundaryConfig` Example:
+ *  `folders/123456789/boundaryConfig`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudResourceManager_BoundaryConfig.
+ *
+ *  Retrieves the BoundaryConfig identified by the specified `name` (for
+ *  example, `folders/123456789/boundaryConfig`).
+ *
+ *  @param name Required. The name of the BoundaryConfig to retrieve. Format:
+ *    `organizations/{organization}/boundaryConfig` or
+ *    `folders/{folder}/boundaryConfig` Example:
+ *    `folders/123456789/boundaryConfig`
+ *
+ *  @return GTLRCloudResourceManagerQuery_FoldersGetBoundaryConfig
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Gets the access control policy for a folder. The returned policy may be
  *  empty if no such policy or resource exists. The `resource` field should be
  *  the folder's resource name, for example: "folders/1234". The caller must
@@ -744,10 +1000,10 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Search for folders that match specific filter criteria. `search()` provides
- *  an eventually consistent view of the folders a user has access to which meet
- *  the specified filter criteria. This will only return folders on which the
- *  caller has the permission `resourcemanager.folders.get`.
+ *  Searches for folders that match specific filter criteria. `search()`
+ *  provides an eventually consistent view of the folders a user has access to
+ *  which meet the specified filter criteria. This will only return folders on
+ *  which the caller has the permission `resourcemanager.folders.get`.
  *
  *  Method: cloudresourcemanager.folders.search
  *
@@ -795,10 +1051,10 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudResourceManager_SearchFoldersResponse.
  *
- *  Search for folders that match specific filter criteria. `search()` provides
- *  an eventually consistent view of the folders a user has access to which meet
- *  the specified filter criteria. This will only return folders on which the
- *  caller has the permission `resourcemanager.folders.get`.
+ *  Searches for folders that match specific filter criteria. `search()`
+ *  provides an eventually consistent view of the folders a user has access to
+ *  which meet the specified filter criteria. This will only return folders on
+ *  which the caller has the permission `resourcemanager.folders.get`.
  *
  *  @return GTLRCloudResourceManagerQuery_FoldersSearch
  *
@@ -938,7 +1194,53 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Create a Lien which applies to the resource denoted by the `parent` field.
+ *  Updates the BoundaryConfig identified by the specified `name` (for example,
+ *  `folders/123456789/boundaryConfig`).
+ *
+ *  Method: cloudresourcemanager.folders.updateBoundaryConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudResourceManagerCloudPlatform
+ */
+@interface GTLRCloudResourceManagerQuery_FoldersUpdateBoundaryConfig : GTLRCloudResourceManagerQuery
+
+/**
+ *  Identifier. The unique resource name of the BoundaryConfig. Format: -
+ *  `organizations/{organization}/boundaryConfig` -
+ *  `folders/{folder}/boundaryConfig` Example:
+ *  `folders/123456789/boundaryConfig`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The list of fields to update.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRCloudResourceManager_Operation.
+ *
+ *  Updates the BoundaryConfig identified by the specified `name` (for example,
+ *  `folders/123456789/boundaryConfig`).
+ *
+ *  @param object The @c GTLRCloudResourceManager_BoundaryConfig to include in
+ *    the query.
+ *  @param name Identifier. The unique resource name of the BoundaryConfig.
+ *    Format: - `organizations/{organization}/boundaryConfig` -
+ *    `folders/{folder}/boundaryConfig` Example:
+ *    `folders/123456789/boundaryConfig`
+ *
+ *  @return GTLRCloudResourceManagerQuery_FoldersUpdateBoundaryConfig
+ */
++ (instancetype)queryWithObject:(GTLRCloudResourceManager_BoundaryConfig *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a Lien which applies to the resource denoted by the `parent` field.
  *  Callers of this method will require permission on the `parent` resource. For
  *  example, applying to `projects/1234` requires permission
  *  `resourcemanager.projects.updateLiens`. NOTE: Some resources may limit the
@@ -955,7 +1257,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudResourceManager_Lien.
  *
- *  Create a Lien which applies to the resource denoted by the `parent` field.
+ *  Creates a Lien which applies to the resource denoted by the `parent` field.
  *  Callers of this method will require permission on the `parent` resource. For
  *  example, applying to `projects/1234` requires permission
  *  `resourcemanager.projects.updateLiens`. NOTE: Some resources may limit the
@@ -970,7 +1272,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Delete a Lien by `name`. Callers of this method will require permission on
+ *  Deletes a Lien by `name`. Callers of this method will require permission on
  *  the `parent` resource. For example, a Lien with a `parent` of
  *  `projects/1234` requires permission `resourcemanager.projects.updateLiens`.
  *
@@ -988,7 +1290,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudResourceManager_Empty.
  *
- *  Delete a Lien by `name`. Callers of this method will require permission on
+ *  Deletes a Lien by `name`. Callers of this method will require permission on
  *  the `parent` resource. For example, a Lien with a `parent` of
  *  `projects/1234` requires permission `resourcemanager.projects.updateLiens`.
  *
@@ -1001,8 +1303,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Retrieve a Lien by `name`. Callers of this method will require permission on
- *  the `parent` resource. For example, a Lien with a `parent` of
+ *  Retrieves a Lien by `name`. Callers of this method will require permission
+ *  on the `parent` resource. For example, a Lien with a `parent` of
  *  `projects/1234` requires permission `resourcemanager.projects.get`
  *
  *  Method: cloudresourcemanager.liens.get
@@ -1019,8 +1321,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudResourceManager_Lien.
  *
- *  Retrieve a Lien by `name`. Callers of this method will require permission on
- *  the `parent` resource. For example, a Lien with a `parent` of
+ *  Retrieves a Lien by `name`. Callers of this method will require permission
+ *  on the `parent` resource. For example, a Lien with a `parent` of
  *  `projects/1234` requires permission `resourcemanager.projects.get`
  *
  *  @param name Required. The name/identifier of the Lien.
@@ -1032,8 +1334,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  List all Liens applied to the `parent` resource. Callers of this method will
- *  require permission on the `parent` resource. For example, a Lien with a
+ *  Lists all Liens applied to the `parent` resource. Callers of this method
+ *  will require permission on the `parent` resource. For example, a Lien with a
  *  `parent` of `projects/1234` requires permission
  *  `resourcemanager.projects.get`.
  *
@@ -1068,8 +1370,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudResourceManager_ListLiensResponse.
  *
- *  List all Liens applied to the `parent` resource. Callers of this method will
- *  require permission on the `parent` resource. For example, a Lien with a
+ *  Lists all Liens applied to the `parent` resource. Callers of this method
+ *  will require permission on the `parent` resource. For example, a Lien with a
  *  `parent` of `projects/1234` requires permission
  *  `resourcemanager.projects.get`.
  *
@@ -1235,6 +1537,225 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRCloudResourceManagerQuery_OperationsGet
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a Boundary under a parent Folder or Organization. Creating a
+ *  Boundary triggers the creation of a Management Project if one is not
+ *  supplied.
+ *
+ *  Method: cloudresourcemanager.organizations.boundaries.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudResourceManagerCloudPlatform
+ */
+@interface GTLRCloudResourceManagerQuery_OrganizationsBoundariesCreate : GTLRCloudResourceManagerQuery
+
+/**
+ *  Required. The user-assigned ID for the Boundary, which will become the final
+ *  component of the Boundary's resource name. Must be unique within the parent
+ *  resource. It must be 6 to 30 lowercase ASCII letters, digits, or hyphens. It
+ *  must start with a letter. Trailing hyphens are prohibited. Example:
+ *  `my-boundary-123`
+ */
+@property(nonatomic, copy, nullable) NSString *boundaryId;
+
+/**
+ *  Required. The parent resource under which the Boundary will be created.
+ *  Format: `organizations/{organization_id}` or `folders/{folder_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudResourceManager_Operation.
+ *
+ *  Creates a Boundary under a parent Folder or Organization. Creating a
+ *  Boundary triggers the creation of a Management Project if one is not
+ *  supplied.
+ *
+ *  @param object The @c GTLRCloudResourceManager_Boundary to include in the
+ *    query.
+ *  @param parent Required. The parent resource under which the Boundary will be
+ *    created. Format: `organizations/{organization_id}` or
+ *    `folders/{folder_id}`
+ *
+ *  @return GTLRCloudResourceManagerQuery_OrganizationsBoundariesCreate
+ */
++ (instancetype)queryWithObject:(GTLRCloudResourceManager_Boundary *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes the Boundary identified by the specified `name` (for example,
+ *  `folders/123456789/boundaries/my-boundary`).
+ *
+ *  Method: cloudresourcemanager.organizations.boundaries.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudResourceManagerCloudPlatform
+ */
+@interface GTLRCloudResourceManagerQuery_OrganizationsBoundariesDelete : GTLRCloudResourceManagerQuery
+
+/**
+ *  Required. The name of the Boundary to delete. Format:
+ *  `organizations/{organization_id}/boundaries/{boundary_id}` or
+ *  `folders/{folder_id}/boundaries/{boundary_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudResourceManager_Operation.
+ *
+ *  Deletes the Boundary identified by the specified `name` (for example,
+ *  `folders/123456789/boundaries/my-boundary`).
+ *
+ *  @param name Required. The name of the Boundary to delete. Format:
+ *    `organizations/{organization_id}/boundaries/{boundary_id}` or
+ *    `folders/{folder_id}/boundaries/{boundary_id}`
+ *
+ *  @return GTLRCloudResourceManagerQuery_OrganizationsBoundariesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Retrieves the Boundary identified by the specified `name` (for example,
+ *  `folders/123456789/boundaries/my-boundary`).
+ *
+ *  Method: cloudresourcemanager.organizations.boundaries.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudResourceManagerCloudPlatform
+ *    @c kGTLRAuthScopeCloudResourceManagerCloudPlatformReadOnly
+ */
+@interface GTLRCloudResourceManagerQuery_OrganizationsBoundariesGet : GTLRCloudResourceManagerQuery
+
+/**
+ *  Required. The name of the Boundary to retrieve. Format:
+ *  `organizations/{organization_id}/boundaries/{boundary_id}` or
+ *  `folders/{folder_id}/boundaries/{boundary_id}` Example:
+ *  `folders/123456789/boundaries/my-boundary`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudResourceManager_Boundary.
+ *
+ *  Retrieves the Boundary identified by the specified `name` (for example,
+ *  `folders/123456789/boundaries/my-boundary`).
+ *
+ *  @param name Required. The name of the Boundary to retrieve. Format:
+ *    `organizations/{organization_id}/boundaries/{boundary_id}` or
+ *    `folders/{folder_id}/boundaries/{boundary_id}` Example:
+ *    `folders/123456789/boundaries/my-boundary`
+ *
+ *  @return GTLRCloudResourceManagerQuery_OrganizationsBoundariesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists Boundaries that are direct children of the specified organization or
+ *  folder resource.
+ *
+ *  Method: cloudresourcemanager.organizations.boundaries.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudResourceManagerCloudPlatform
+ *    @c kGTLRAuthScopeCloudResourceManagerCloudPlatformReadOnly
+ */
+@interface GTLRCloudResourceManagerQuery_OrganizationsBoundariesList : GTLRCloudResourceManagerQuery
+
+/**
+ *  Optional. The maximum number of Boundaries to return in the response. The
+ *  service may return fewer Boundaries than requested. If unspecified, at most
+ *  100 Boundaries will be returned. The maximum value is 100; values above 100
+ *  will be coerced to 100.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A pagination token received from a previous call to
+ *  `ListBoundaries` that indicates from where listing should continue. Provide
+ *  this to retrieve the subsequent page.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The name of the parent resource whose Boundaries are being listed.
+ *  Format: `organizations/{organization_id}` or `folders/{folder_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudResourceManager_ListBoundariesResponse.
+ *
+ *  Lists Boundaries that are direct children of the specified organization or
+ *  folder resource.
+ *
+ *  @param parent Required. The name of the parent resource whose Boundaries are
+ *    being listed. Format: `organizations/{organization_id}` or
+ *    `folders/{folder_id}`
+ *
+ *  @return GTLRCloudResourceManagerQuery_OrganizationsBoundariesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates the `display_name` and `resource_filter.tag_filter.tag_value` of the
+ *  Boundary identified by the specified `name` (for example,
+ *  `folders/123456789/boundaries/my-boundary`).
+ *
+ *  Method: cloudresourcemanager.organizations.boundaries.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudResourceManagerCloudPlatform
+ */
+@interface GTLRCloudResourceManagerQuery_OrganizationsBoundariesPatch : GTLRCloudResourceManagerQuery
+
+/**
+ *  Identifier. The unique resource name of the Boundary. Format: -
+ *  `organizations/{organization_id}/boundaries/{boundary_id}` -
+ *  `folders/{folder_id}/boundaries/{boundary_id}` Example:
+ *  `folders/123456789/boundaries/my-boundary`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The list of fields to update.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRCloudResourceManager_Operation.
+ *
+ *  Updates the `display_name` and `resource_filter.tag_filter.tag_value` of the
+ *  Boundary identified by the specified `name` (for example,
+ *  `folders/123456789/boundaries/my-boundary`).
+ *
+ *  @param object The @c GTLRCloudResourceManager_Boundary to include in the
+ *    query.
+ *  @param name Identifier. The unique resource name of the Boundary. Format: -
+ *    `organizations/{organization_id}/boundaries/{boundary_id}` -
+ *    `folders/{folder_id}/boundaries/{boundary_id}` Example:
+ *    `folders/123456789/boundaries/my-boundary`
+ *
+ *  @return GTLRCloudResourceManagerQuery_OrganizationsBoundariesPatch
+ */
++ (instancetype)queryWithObject:(GTLRCloudResourceManager_Boundary *)object
+                           name:(NSString *)name;
 
 @end
 
@@ -1497,6 +2018,43 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Retrieves the BoundaryConfig identified by the specified `name` (for
+ *  example, `folders/123456789/boundaryConfig`).
+ *
+ *  Method: cloudresourcemanager.organizations.getBoundaryConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudResourceManagerCloudPlatform
+ *    @c kGTLRAuthScopeCloudResourceManagerCloudPlatformReadOnly
+ */
+@interface GTLRCloudResourceManagerQuery_OrganizationsGetBoundaryConfig : GTLRCloudResourceManagerQuery
+
+/**
+ *  Required. The name of the BoundaryConfig to retrieve. Format:
+ *  `organizations/{organization}/boundaryConfig` or
+ *  `folders/{folder}/boundaryConfig` Example:
+ *  `folders/123456789/boundaryConfig`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudResourceManager_BoundaryConfig.
+ *
+ *  Retrieves the BoundaryConfig identified by the specified `name` (for
+ *  example, `folders/123456789/boundaryConfig`).
+ *
+ *  @param name Required. The name of the BoundaryConfig to retrieve. Format:
+ *    `organizations/{organization}/boundaryConfig` or
+ *    `folders/{folder}/boundaryConfig` Example:
+ *    `folders/123456789/boundaryConfig`
+ *
+ *  @return GTLRCloudResourceManagerQuery_OrganizationsGetBoundaryConfig
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Gets the access control policy for an organization resource. The policy may
  *  be empty if no such policy or resource exists. The `resource` field should
  *  be the organization's resource name, for example: "organizations/123".
@@ -1689,6 +2247,52 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRCloudResourceManager_TestIamPermissionsRequest *)object
                        resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Updates the BoundaryConfig identified by the specified `name` (for example,
+ *  `folders/123456789/boundaryConfig`).
+ *
+ *  Method: cloudresourcemanager.organizations.updateBoundaryConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudResourceManagerCloudPlatform
+ */
+@interface GTLRCloudResourceManagerQuery_OrganizationsUpdateBoundaryConfig : GTLRCloudResourceManagerQuery
+
+/**
+ *  Identifier. The unique resource name of the BoundaryConfig. Format: -
+ *  `organizations/{organization}/boundaryConfig` -
+ *  `folders/{folder}/boundaryConfig` Example:
+ *  `folders/123456789/boundaryConfig`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The list of fields to update.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRCloudResourceManager_Operation.
+ *
+ *  Updates the BoundaryConfig identified by the specified `name` (for example,
+ *  `folders/123456789/boundaryConfig`).
+ *
+ *  @param object The @c GTLRCloudResourceManager_BoundaryConfig to include in
+ *    the query.
+ *  @param name Identifier. The unique resource name of the BoundaryConfig.
+ *    Format: - `organizations/{organization}/boundaryConfig` -
+ *    `folders/{folder}/boundaryConfig` Example:
+ *    `folders/123456789/boundaryConfig`
+ *
+ *  @return GTLRCloudResourceManagerQuery_OrganizationsUpdateBoundaryConfig
+ */
++ (instancetype)queryWithObject:(GTLRCloudResourceManager_BoundaryConfig *)object
+                           name:(NSString *)name;
 
 @end
 
@@ -1918,7 +2522,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Request that a new project be created. The result is an `Operation` which
+ *  Requests that a new project be created. The result is an `Operation` which
  *  can be used to track the creation process. This process usually takes a few
  *  seconds, but can sometimes take much longer. The tracking `Operation` is
  *  automatically deleted after a few hours, so there is no need to call
@@ -1934,7 +2538,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudResourceManager_Operation.
  *
- *  Request that a new project be created. The result is an `Operation` which
+ *  Requests that a new project be created. The result is an `Operation` which
  *  can be used to track the creation process. This process usually takes a few
  *  seconds, but can sometimes take much longer. The tracking `Operation` is
  *  automatically deleted after a few hours, so there is no need to call
@@ -2034,8 +2638,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Returns the IAM access control policy for the specified project, in the
- *  format `projects/{ProjectIdOrNumber}` e.g. projects/123. Permission is
- *  denied if the policy or the resource do not exist.
+ *  format `projects/{ProjectIdOrNumber}`, for example, `projects/123`.
+ *  Permission is denied if the policy or the resource do not exist.
  *
  *  Method: cloudresourcemanager.projects.getIamPolicy
  *
@@ -2056,8 +2660,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCloudResourceManager_Policy.
  *
  *  Returns the IAM access control policy for the specified project, in the
- *  format `projects/{ProjectIdOrNumber}` e.g. projects/123. Permission is
- *  denied if the policy or the resource do not exist.
+ *  format `projects/{ProjectIdOrNumber}`, for example, `projects/123`.
+ *  Permission is denied if the policy or the resource do not exist.
  *
  *  @param object The @c GTLRCloudResourceManager_GetIamPolicyRequest to include
  *    in the query.
@@ -2137,7 +2741,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Move a project to another place in your resource hierarchy, under a new
+ *  Moves a project to another place in your resource hierarchy, under a new
  *  resource parent. Returns an operation which can be used to track the process
  *  of the project move workflow. Upon success, the `Operation.response` field
  *  will be populated with the moved project. The caller must have
@@ -2159,7 +2763,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudResourceManager_Operation.
  *
- *  Move a project to another place in your resource hierarchy, under a new
+ *  Moves a project to another place in your resource hierarchy, under a new
  *  resource parent. Returns an operation which can be used to track the process
  *  of the project move workflow. Upon success, the `Operation.response` field
  *  will be populated with the moved project. The caller must have
@@ -2227,13 +2831,13 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Search for projects that the caller has the `resourcemanager.projects.get`
- *  permission on, and also satisfy the specified query. This method returns
- *  projects in an unspecified order. This method is eventually consistent with
- *  project mutations; this means that a newly created project may not appear in
- *  the results or recent updates to an existing project may not be reflected in
- *  the results. To retrieve the latest state of a project, use the GetProject
- *  method.
+ *  Searches for projects on which the caller has the
+ *  `resourcemanager.projects.get` permission and that match the specified
+ *  query. This method returns projects in an unspecified order. This method is
+ *  eventually consistent with project mutations; this means that a newly
+ *  created project may not appear in the results or recent updates to an
+ *  existing project may not be reflected in the results. To retrieve the latest
+ *  state of a project, use the GetProject method.
  *
  *  Method: cloudresourcemanager.projects.search
  *
@@ -2286,13 +2890,13 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudResourceManager_SearchProjectsResponse.
  *
- *  Search for projects that the caller has the `resourcemanager.projects.get`
- *  permission on, and also satisfy the specified query. This method returns
- *  projects in an unspecified order. This method is eventually consistent with
- *  project mutations; this means that a newly created project may not appear in
- *  the results or recent updates to an existing project may not be reflected in
- *  the results. To retrieve the latest state of a project, use the GetProject
- *  method.
+ *  Searches for projects on which the caller has the
+ *  `resourcemanager.projects.get` permission and that match the specified
+ *  query. This method returns projects in an unspecified order. This method is
+ *  eventually consistent with project mutations; this means that a newly
+ *  created project may not appear in the results or recent updates to an
+ *  existing project may not be reflected in the results. To retrieve the latest
+ *  state of a project, use the GetProject method.
  *
  *  @return GTLRCloudResourceManagerQuery_ProjectsSearch
  *
@@ -2306,32 +2910,33 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Sets the IAM access control policy for the specified project, in the format
- *  `projects/{ProjectIdOrNumber}` e.g. projects/123. CAUTION: This method will
- *  replace the existing policy, and cannot be used to append additional IAM
- *  settings. Note: Removing service accounts from policies or changing their
- *  roles can render services completely inoperable. It is important to
- *  understand how the service account is being used before removing or updating
- *  its roles. The following constraints apply when using `setIamPolicy()`: +
- *  Project does not support `allUsers` and `allAuthenticatedUsers` as `members`
- *  in a `Binding` of a `Policy`. + The owner role can be granted to a `user`,
- *  `serviceAccount`, or a group that is part of an organization. For example,
- *  group\@myownpersonaldomain.com could be added as an owner to a project in
- *  the myownpersonaldomain.com organization, but not the examplepetstore.com
- *  organization. + Service accounts can be made owners of a project directly
- *  without any restrictions. However, to be added as an owner, a user must be
- *  invited using the Cloud Platform console and must accept the invitation. + A
- *  user cannot be granted the owner role using `setIamPolicy()`. The user must
- *  be granted the owner role using the Cloud Platform Console and must
- *  explicitly accept the invitation. + Invitations to grant the owner role
- *  cannot be sent using `setIamPolicy()`; they must be sent only using the
- *  Cloud Platform Console. + If the project is not part of an organization,
- *  there must be at least one owner who has accepted the Terms of Service (ToS)
- *  agreement in the policy. Calling `setIamPolicy()` to remove the last
- *  ToS-accepted owner from the policy will fail. This restriction also applies
- *  to legacy projects that no longer have owners who have accepted the ToS.
- *  Edits to IAM policies will be rejected until the lack of a ToS-accepting
- *  owner is rectified. If the project is part of an organization, you can
- *  remove all owners, potentially making the organization inaccessible.
+ *  `projects/{ProjectIdOrNumber}`, for example, `projects/123`. CAUTION: This
+ *  method will replace the existing policy, and cannot be used to append
+ *  additional IAM settings. Note: Removing service accounts from policies or
+ *  changing their roles can render services completely inoperable. It is
+ *  important to understand how the service account is being used before
+ *  removing or updating its roles. The following constraints apply when using
+ *  `setIamPolicy()`: + Project does not support `allUsers` and
+ *  `allAuthenticatedUsers` as `members` in a `Binding` of a `Policy`. + The
+ *  owner role can be granted to a `user`, `serviceAccount`, or a group that is
+ *  part of an organization. For example, group\@myownpersonaldomain.com could
+ *  be added as an owner to a project in the myownpersonaldomain.com
+ *  organization, but not the examplepetstore.com organization. + Service
+ *  accounts can be made owners of a project directly without any restrictions.
+ *  However, to be added as an owner, a user must be invited using the Cloud
+ *  Platform console and must accept the invitation. + A user cannot be granted
+ *  the owner role using `setIamPolicy()`. The user must be granted the owner
+ *  role using the Cloud Platform Console and must explicitly accept the
+ *  invitation. + Invitations to grant the owner role cannot be sent using
+ *  `setIamPolicy()`; they must be sent only using the Cloud Platform Console. +
+ *  If the project is not part of an organization, there must be at least one
+ *  owner who has accepted the Terms of Service (ToS) agreement in the policy.
+ *  Calling `setIamPolicy()` to remove the last ToS-accepted owner from the
+ *  policy will fail. This restriction also applies to legacy projects that no
+ *  longer have owners who have accepted the ToS. Edits to IAM policies will be
+ *  rejected until the lack of a ToS-accepting owner is rectified. If the
+ *  project is part of an organization, you can remove all owners, potentially
+ *  making the organization inaccessible.
  *
  *  Method: cloudresourcemanager.projects.setIamPolicy
  *
@@ -2351,32 +2956,33 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCloudResourceManager_Policy.
  *
  *  Sets the IAM access control policy for the specified project, in the format
- *  `projects/{ProjectIdOrNumber}` e.g. projects/123. CAUTION: This method will
- *  replace the existing policy, and cannot be used to append additional IAM
- *  settings. Note: Removing service accounts from policies or changing their
- *  roles can render services completely inoperable. It is important to
- *  understand how the service account is being used before removing or updating
- *  its roles. The following constraints apply when using `setIamPolicy()`: +
- *  Project does not support `allUsers` and `allAuthenticatedUsers` as `members`
- *  in a `Binding` of a `Policy`. + The owner role can be granted to a `user`,
- *  `serviceAccount`, or a group that is part of an organization. For example,
- *  group\@myownpersonaldomain.com could be added as an owner to a project in
- *  the myownpersonaldomain.com organization, but not the examplepetstore.com
- *  organization. + Service accounts can be made owners of a project directly
- *  without any restrictions. However, to be added as an owner, a user must be
- *  invited using the Cloud Platform console and must accept the invitation. + A
- *  user cannot be granted the owner role using `setIamPolicy()`. The user must
- *  be granted the owner role using the Cloud Platform Console and must
- *  explicitly accept the invitation. + Invitations to grant the owner role
- *  cannot be sent using `setIamPolicy()`; they must be sent only using the
- *  Cloud Platform Console. + If the project is not part of an organization,
- *  there must be at least one owner who has accepted the Terms of Service (ToS)
- *  agreement in the policy. Calling `setIamPolicy()` to remove the last
- *  ToS-accepted owner from the policy will fail. This restriction also applies
- *  to legacy projects that no longer have owners who have accepted the ToS.
- *  Edits to IAM policies will be rejected until the lack of a ToS-accepting
- *  owner is rectified. If the project is part of an organization, you can
- *  remove all owners, potentially making the organization inaccessible.
+ *  `projects/{ProjectIdOrNumber}`, for example, `projects/123`. CAUTION: This
+ *  method will replace the existing policy, and cannot be used to append
+ *  additional IAM settings. Note: Removing service accounts from policies or
+ *  changing their roles can render services completely inoperable. It is
+ *  important to understand how the service account is being used before
+ *  removing or updating its roles. The following constraints apply when using
+ *  `setIamPolicy()`: + Project does not support `allUsers` and
+ *  `allAuthenticatedUsers` as `members` in a `Binding` of a `Policy`. + The
+ *  owner role can be granted to a `user`, `serviceAccount`, or a group that is
+ *  part of an organization. For example, group\@myownpersonaldomain.com could
+ *  be added as an owner to a project in the myownpersonaldomain.com
+ *  organization, but not the examplepetstore.com organization. + Service
+ *  accounts can be made owners of a project directly without any restrictions.
+ *  However, to be added as an owner, a user must be invited using the Cloud
+ *  Platform console and must accept the invitation. + A user cannot be granted
+ *  the owner role using `setIamPolicy()`. The user must be granted the owner
+ *  role using the Cloud Platform Console and must explicitly accept the
+ *  invitation. + Invitations to grant the owner role cannot be sent using
+ *  `setIamPolicy()`; they must be sent only using the Cloud Platform Console. +
+ *  If the project is not part of an organization, there must be at least one
+ *  owner who has accepted the Terms of Service (ToS) agreement in the policy.
+ *  Calling `setIamPolicy()` to remove the last ToS-accepted owner from the
+ *  policy will fail. This restriction also applies to legacy projects that no
+ *  longer have owners who have accepted the ToS. Edits to IAM policies will be
+ *  rejected until the lack of a ToS-accepting owner is rectified. If the
+ *  project is part of an organization, you can remove all owners, potentially
+ *  making the organization inaccessible.
  *
  *  @param object The @c GTLRCloudResourceManager_SetIamPolicyRequest to include
  *    in the query.
@@ -2394,7 +3000,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Returns permissions that a caller has on the specified project, in the
- *  format `projects/{ProjectIdOrNumber}` e.g. projects/123..
+ *  format `projects/{ProjectIdOrNumber}`, for example, `projects/123`.
  *
  *  Method: cloudresourcemanager.projects.testIamPermissions
  *
@@ -2415,7 +3021,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCloudResourceManager_TestIamPermissionsResponse.
  *
  *  Returns permissions that a caller has on the specified project, in the
- *  format `projects/{ProjectIdOrNumber}` e.g. projects/123..
+ *  format `projects/{ProjectIdOrNumber}`, for example, `projects/123`.
  *
  *  @param object The @c GTLRCloudResourceManager_TestIamPermissionsRequest to
  *    include in the query.

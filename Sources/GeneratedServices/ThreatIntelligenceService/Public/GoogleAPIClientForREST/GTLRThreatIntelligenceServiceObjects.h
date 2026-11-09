@@ -25,6 +25,7 @@
 @class GTLRThreatIntelligenceService_Configuration;
 @class GTLRThreatIntelligenceService_ConfigurationDetail;
 @class GTLRThreatIntelligenceService_ConfigurationRevision;
+@class GTLRThreatIntelligenceService_CustomerProfileBrand;
 @class GTLRThreatIntelligenceService_CustomerProfileCitation;
 @class GTLRThreatIntelligenceService_CustomerProfileCitedString;
 @class GTLRThreatIntelligenceService_CustomerProfileCompany;
@@ -1401,6 +1402,9 @@ FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_VulnerabilityM
 /** Output only. Time when the origin source collected the intel. */
 @property(nonatomic, strong, nullable) GTLRDateTime *collectionTime;
 
+/** Output only. Platform identifiers of the message, thread and channel. */
+@property(nonatomic, strong, nullable) GTLRThreatIntelligenceService_CommunicationContext *communicationContext;
+
 /** Output only. The content of the document. */
 @property(nonatomic, copy, nullable) NSString *content;
 
@@ -1577,6 +1581,9 @@ FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_VulnerabilityM
 /** Optional. URL of the communication channel. */
 @property(nonatomic, copy, nullable) NSString *channelUrl;
 
+/** Optional. Message or post identifier on the originating platform. */
+@property(nonatomic, copy, nullable) NSString *messageId;
+
 /**
  *  Optional. Service from the collection event origin (e.g. forum or chat
  *  service name).
@@ -1704,6 +1711,27 @@ FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_VulnerabilityM
 
 
 /**
+ *  Brand information for the customer profile.
+ */
+@interface GTLRThreatIntelligenceService_CustomerProfileBrand : GTLRObject
+
+/** Required. The name of the brand. */
+@property(nonatomic, copy, nullable) NSString *brand;
+
+/** Optional. The citation ids for the brand. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *citationIds;
+
+/**
+ *  Optional. The unique identifier for the brand.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+@end
+
+
+/**
  *  Citation information for the customer profile.
  */
 @interface GTLRThreatIntelligenceService_CustomerProfileCitation : GTLRObject
@@ -1761,6 +1789,9 @@ FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_VulnerabilityM
  *  CustomerProfileConfig is the configuration for the customer profile.
  */
 @interface GTLRThreatIntelligenceService_CustomerProfileConfig : GTLRObject
+
+/** Optional. Brands associated with the organization. */
+@property(nonatomic, strong, nullable) NSArray<GTLRThreatIntelligenceService_CustomerProfileBrand *> *brands;
 
 /** Optional. Citations for the organization profile. */
 @property(nonatomic, strong, nullable) NSArray<GTLRThreatIntelligenceService_CustomerProfileCitation *> *citations;
@@ -3629,8 +3660,13 @@ FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_VulnerabilityM
 @property(nonatomic, strong, nullable) GTLRThreatIntelligenceService_TechnologyWatchListAlertThreshold *alertThreshold;
 
 /**
- *  Optional. List of vendor, technology or cpe fingerprint. example: Microsoft
- *  office 360 Apache Server 3.5 cpe:2.3:a:microsoft:outlook:*:*:*:*:*:*:*:*
+ *  Optional. List of technologies to watch, one per entry, in the form `
+ *  [version]`, using the vendor and product names from the Google Threat
+ *  Intelligence products and fixes section. example: `microsoft outlook`
+ *  `apache http_server 2.4.54` CPE strings such as
+ *  `cpe:2.3:a:microsoft:outlook:*:*:*:*:*:*:*:*` are only parsed through the
+ *  Google Threat Intelligence interface and are not available through the API.
+ *  Send the vendor and product pair instead.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *technologies;
 
@@ -3742,8 +3778,9 @@ FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_VulnerabilityM
 @property(nonatomic, strong, nullable) NSArray<NSString *> *exploitationVectors;
 
 /**
- *  Optional. The specific technologies from the configured watchlist that
- *  triggered the match. Ex: "Apache Struts".
+ *  Optional. The entries from the configured watchlist that triggered the
+ *  match, exactly as written in `TechnologyWatchListConfig.technologies`. Ex:
+ *  `apache http_server 2.4.54`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *matchedTechnologies;
 
@@ -3801,8 +3838,9 @@ FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_VulnerabilityM
 @property(nonatomic, copy, nullable) NSString *riskRating;
 
 /**
- *  Required. All technologies affected by the vulnerability. Ex: "Apache
- *  Struts".
+ *  Required. All technologies affected by the vulnerability, using the vendor
+ *  and product names of its affected products, optionally followed by a
+ *  version. Ex: `Apache Struts 2.2.3`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *technologies;
 

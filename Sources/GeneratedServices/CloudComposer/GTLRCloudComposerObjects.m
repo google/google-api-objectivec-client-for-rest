@@ -67,6 +67,7 @@ NSString * const kGTLRCloudComposer_EnvironmentConfig_EnvironmentSize_Environmen
 NSString * const kGTLRCloudComposer_EnvironmentConfig_EnvironmentSize_EnvironmentSizeMedium = @"ENVIRONMENT_SIZE_MEDIUM";
 NSString * const kGTLRCloudComposer_EnvironmentConfig_EnvironmentSize_EnvironmentSizeSmall = @"ENVIRONMENT_SIZE_SMALL";
 NSString * const kGTLRCloudComposer_EnvironmentConfig_EnvironmentSize_EnvironmentSizeUnspecified = @"ENVIRONMENT_SIZE_UNSPECIFIED";
+NSString * const kGTLRCloudComposer_EnvironmentConfig_EnvironmentSize_EnvironmentSizeXExtraLarge = @"ENVIRONMENT_SIZE_X_EXTRA_LARGE";
 
 // GTLRCloudComposer_EnvironmentConfig.resilienceMode
 NSString * const kGTLRCloudComposer_EnvironmentConfig_ResilienceMode_HighResilience = @"HIGH_RESILIENCE";
@@ -408,12 +409,21 @@ NSString * const kGTLRCloudComposer_TaskLogsRetentionConfig_StorageMode_TaskLogs
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudComposer_HibernateEnvironmentRequest
+//
+
+@implementation GTLRCloudComposer_HibernateEnvironmentRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudComposer_ImageVersion
 //
 
 @implementation GTLRCloudComposer_ImageVersion
-@dynamic creationDisabled, imageVersionId, isDefault, releaseDate,
-         supportedPythonVersions, upgradeDisabled;
+@dynamic creationDisabled, devModeSupported, imageVersionId, isDefault,
+         releaseDate, supportedPythonVersions, upgradeDisabled;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -422,6 +432,16 @@ NSString * const kGTLRCloudComposer_TaskLogsRetentionConfig_StorageMode_TaskLogs
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudComposer_ImageVersionRollbackTarget
+//
+
+@implementation GTLRCloudComposer_ImageVersionRollbackTarget
+@dynamic imageVersion, lastActiveTime;
 @end
 
 
@@ -780,6 +800,15 @@ NSString * const kGTLRCloudComposer_TaskLogsRetentionConfig_StorageMode_TaskLogs
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudComposer_ResumeEnvironmentRequest
+//
+
+@implementation GTLRCloudComposer_ResumeEnvironmentRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudComposer_SaveSnapshotRequest
 //
 
@@ -825,8 +854,17 @@ NSString * const kGTLRCloudComposer_TaskLogsRetentionConfig_StorageMode_TaskLogs
 
 @implementation GTLRCloudComposer_SoftwareConfig
 @dynamic airflowConfigOverrides, auditLogsReplicationMode,
-         cloudDataLineageIntegration, envVariables, imageVersion, pypiPackages,
-         pythonVersion, schedulerCount, webServerPluginsMode;
+         cloudDataLineageIntegration, envVariables, imageVersion,
+         imageVersionRollbackTargets, pypiPackages, pythonVersion,
+         schedulerCount, webServerPluginsMode;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"imageVersionRollbackTargets" : [GTLRCloudComposer_ImageVersionRollbackTarget class]
+  };
+  return map;
+}
+
 @end
 
 

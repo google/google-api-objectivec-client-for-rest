@@ -15,6 +15,9 @@
 
 #import <GoogleAPIClientForREST/GTLRBeyondCorpQuery.h>
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-implementations"
+
 @implementation GTLRBeyondCorpQuery
 
 @dynamic fields;
@@ -105,33 +108,6 @@
 
 @end
 
-@implementation GTLRBeyondCorpQuery_ProjectsLocationsAppConnectionsCreate
-
-@dynamic appConnectionId, parent, requestId, validateOnly;
-
-+ (instancetype)queryWithObject:(GTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectionsV1AppConnection *)object
-                         parent:(NSString *)parent {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1/{+parent}/appConnections";
-  GTLRBeyondCorpQuery_ProjectsLocationsAppConnectionsCreate *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRBeyondCorp_GoogleLongrunningOperation class];
-  query.loggingName = @"beyondcorp.projects.locations.appConnections.create";
-  return query;
-}
-
-@end
-
 @implementation GTLRBeyondCorpQuery_ProjectsLocationsAppConnectionsDelete
 
 @dynamic name, requestId, validateOnly;
@@ -212,33 +188,6 @@
 
 @end
 
-@implementation GTLRBeyondCorpQuery_ProjectsLocationsAppConnectionsPatch
-
-@dynamic allowMissing, name, requestId, updateMask, validateOnly;
-
-+ (instancetype)queryWithObject:(GTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectionsV1AppConnection *)object
-                           name:(NSString *)name {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
-  GTLRBeyondCorpQuery_ProjectsLocationsAppConnectionsPatch *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"PATCH"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.name = name;
-  query.expectedObjectClass = [GTLRBeyondCorp_GoogleLongrunningOperation class];
-  query.loggingName = @"beyondcorp.projects.locations.appConnections.patch";
-  return query;
-}
-
-@end
-
 @implementation GTLRBeyondCorpQuery_ProjectsLocationsAppConnectionsResolve
 
 @dynamic appConnectorId, pageSize, pageToken, parent;
@@ -307,33 +256,6 @@
   query.resource = resource;
   query.expectedObjectClass = [GTLRBeyondCorp_GoogleIamV1TestIamPermissionsResponse class];
   query.loggingName = @"beyondcorp.projects.locations.appConnections.testIamPermissions";
-  return query;
-}
-
-@end
-
-@implementation GTLRBeyondCorpQuery_ProjectsLocationsAppConnectorsCreate
-
-@dynamic appConnectorId, parent, requestId, validateOnly;
-
-+ (instancetype)queryWithObject:(GTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectorsV1AppConnector *)object
-                         parent:(NSString *)parent {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1/{+parent}/appConnectors";
-  GTLRBeyondCorpQuery_ProjectsLocationsAppConnectorsCreate *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRBeyondCorp_GoogleLongrunningOperation class];
-  query.loggingName = @"beyondcorp.projects.locations.appConnectors.create";
   return query;
 }
 
@@ -419,60 +341,6 @@
 
 @end
 
-@implementation GTLRBeyondCorpQuery_ProjectsLocationsAppConnectorsPatch
-
-@dynamic name, requestId, updateMask, validateOnly;
-
-+ (instancetype)queryWithObject:(GTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectorsV1AppConnector *)object
-                           name:(NSString *)name {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
-  GTLRBeyondCorpQuery_ProjectsLocationsAppConnectorsPatch *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"PATCH"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.name = name;
-  query.expectedObjectClass = [GTLRBeyondCorp_GoogleLongrunningOperation class];
-  query.loggingName = @"beyondcorp.projects.locations.appConnectors.patch";
-  return query;
-}
-
-@end
-
-@implementation GTLRBeyondCorpQuery_ProjectsLocationsAppConnectorsReportStatus
-
-@dynamic appConnector;
-
-+ (instancetype)queryWithObject:(GTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectorsV1ReportStatusRequest *)object
-                   appConnector:(NSString *)appConnector {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"appConnector" ];
-  NSString *pathURITemplate = @"v1/{+appConnector}:reportStatus";
-  GTLRBeyondCorpQuery_ProjectsLocationsAppConnectorsReportStatus *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.appConnector = appConnector;
-  query.expectedObjectClass = [GTLRBeyondCorp_GoogleLongrunningOperation class];
-  query.loggingName = @"beyondcorp.projects.locations.appConnectors.reportStatus";
-  return query;
-}
-
-@end
-
 @implementation GTLRBeyondCorpQuery_ProjectsLocationsAppConnectorsResolveInstanceConfig
 
 @dynamic appConnector;
@@ -541,33 +409,6 @@
   query.resource = resource;
   query.expectedObjectClass = [GTLRBeyondCorp_GoogleIamV1TestIamPermissionsResponse class];
   query.loggingName = @"beyondcorp.projects.locations.appConnectors.testIamPermissions";
-  return query;
-}
-
-@end
-
-@implementation GTLRBeyondCorpQuery_ProjectsLocationsAppGatewaysCreate
-
-@dynamic appGatewayId, parent, requestId, validateOnly;
-
-+ (instancetype)queryWithObject:(GTLRBeyondCorp_AppGateway *)object
-                         parent:(NSString *)parent {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1/{+parent}/appGateways";
-  GTLRBeyondCorpQuery_ProjectsLocationsAppGatewaysCreate *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRBeyondCorp_GoogleLongrunningOperation class];
-  query.loggingName = @"beyondcorp.projects.locations.appGateways.create";
   return query;
 }
 
@@ -1211,3 +1052,5 @@
 }
 
 @end
+
+#pragma clang diagnostic pop

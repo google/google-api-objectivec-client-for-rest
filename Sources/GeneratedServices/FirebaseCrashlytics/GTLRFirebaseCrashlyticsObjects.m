@@ -26,6 +26,15 @@ NSString * const kGTLRFirebaseCrashlytics_Device_FormFactor_Watch = @"WATCH";
 NSString * const kGTLRFirebaseCrashlytics_FirebaseSessionEvent_EventType_SessionEventTypeUnknown = @"SESSION_EVENT_TYPE_UNKNOWN";
 NSString * const kGTLRFirebaseCrashlytics_FirebaseSessionEvent_EventType_SessionStart = @"SESSION_START";
 
+// GTLRFirebaseCrashlytics_GenerateAlertPolicyRequest.alertType
+NSString * const kGTLRFirebaseCrashlytics_GenerateAlertPolicyRequest_AlertType_AlertTypeNewIssue = @"ALERT_TYPE_NEW_ISSUE";
+NSString * const kGTLRFirebaseCrashlytics_GenerateAlertPolicyRequest_AlertType_AlertTypeRegressedIssue = @"ALERT_TYPE_REGRESSED_ISSUE";
+NSString * const kGTLRFirebaseCrashlytics_GenerateAlertPolicyRequest_AlertType_AlertTypeUnspecified = @"ALERT_TYPE_UNSPECIFIED";
+
+// GTLRFirebaseCrashlytics_GenerateAlertPolicyRequest.language
+NSString * const kGTLRFirebaseCrashlytics_GenerateAlertPolicyRequest_Language_EnUs = @"EN_US";
+NSString * const kGTLRFirebaseCrashlytics_GenerateAlertPolicyRequest_Language_UserPreference = @"USER_PREFERENCE";
+
 // GTLRFirebaseCrashlytics_Issue.errorType
 NSString * const kGTLRFirebaseCrashlytics_Issue_ErrorType_Anr  = @"ANR";
 NSString * const kGTLRFirebaseCrashlytics_Issue_ErrorType_ErrorTypeUnspecified = @"ERROR_TYPE_UNSPECIFIED";
@@ -154,6 +163,16 @@ NSString * const kGTLRFirebaseCrashlytics_Thread_ThreadState_ThreadStateWaiting 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRFirebaseCrashlytics_CustomAttribute
+//
+
+@implementation GTLRFirebaseCrashlytics_CustomAttribute
+@dynamic key, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRFirebaseCrashlytics_DeleteUserCrashReportsResponse
 //
 
@@ -277,6 +296,26 @@ NSString * const kGTLRFirebaseCrashlytics_Thread_ThreadState_ThreadStateWaiting 
 
 @implementation GTLRFirebaseCrashlytics_Frame
 @dynamic address, blamed, column, file, library, line, offset, owner, symbol;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirebaseCrashlytics_GenerateAlertPolicyRequest
+//
+
+@implementation GTLRFirebaseCrashlytics_GenerateAlertPolicyRequest
+@dynamic alertType, language;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirebaseCrashlytics_GenerateAlertPolicyResponse
+//
+
+@implementation GTLRFirebaseCrashlytics_GenerateAlertPolicyResponse
+@dynamic alertPolicy;
 @end
 
 
@@ -461,6 +500,16 @@ NSString * const kGTLRFirebaseCrashlytics_Thread_ThreadState_ThreadStateWaiting 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRFirebaseCrashlytics_ProfilingManagerConfig
+//
+
+@implementation GTLRFirebaseCrashlytics_ProfilingManagerConfig
+@dynamic bucket, heapDumpCollectionEnabled, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRFirebaseCrashlytics_Report
 //
 
@@ -487,8 +536,8 @@ NSString * const kGTLRFirebaseCrashlytics_Thread_ThreadState_ThreadStateWaiting 
 //
 
 @implementation GTLRFirebaseCrashlytics_ReportGroup
-@dynamic browser, device, issue, metrics, operatingSystem, subgroups, variant,
-         version, webMetricsGroup;
+@dynamic browser, customAttribute, device, issue, metrics, operatingSystem,
+         subgroups, variant, version, webMetricsGroup;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

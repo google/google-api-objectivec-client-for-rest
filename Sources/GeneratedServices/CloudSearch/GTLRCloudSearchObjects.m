@@ -2952,7 +2952,7 @@ NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusCode_TooManyM
 
 @implementation GTLRCloudSearch_RequestOptions
 @dynamic clientDisplayLanguageCode, countryCode, debugOptions, languageCode,
-         searchApplicationId, timeZone;
+         queryLanguageCode, searchApplicationId, timeZone;
 @end
 
 

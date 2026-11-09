@@ -220,8 +220,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocsSuggestionsViewModeSuggestionsInline
  *  comments_view_mode to COMMENTS_VIEW_MODE_INCLUDED or
  *  COMMENTS_VIEW_MODE_DEFAULT_FOR_CURRENT_ACCESS, you may not set
  *  suggestions_view_mode to PREVIEW_WITHOUT_SUGGESTIONS or
- *  PREVIEW_SUGGESTIONS_ACCEPTED. [Developer
- *  Preview](https://developers.google.com/workspace/preview).
+ *  PREVIEW_SUGGESTIONS_ACCEPTED.
  *
  *  Likely values:
  *    @arg @c kGTLRDocsCommentsViewModeCommentsViewModeUnspecified The

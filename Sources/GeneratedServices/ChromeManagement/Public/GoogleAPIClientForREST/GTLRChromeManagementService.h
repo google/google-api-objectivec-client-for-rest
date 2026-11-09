@@ -35,6 +35,33 @@ NS_ASSUME_NONNULL_BEGIN
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeChromeManagementChromeManagementAppdetailsReadonly;
 /**
  *  Authorization scope: See, edit, delete, and take other necessary actions on
+ *  Chrome browsers managed by your organization
+ *
+ *  Value "https://www.googleapis.com/auth/chrome.management.browsers"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeChromeManagementChromeManagementBrowsers;
+/**
+ *  Authorization scope: See Chrome browsers managed by your organization
+ *
+ *  Value "https://www.googleapis.com/auth/chrome.management.browsers.readonly"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeChromeManagementChromeManagementBrowsersReadonly;
+/**
+ *  Authorization scope: See, edit, revoke, and take other necessary actions on
+ *  Chrome enrollment tokens managed by your organization
+ *
+ *  Value "https://www.googleapis.com/auth/chrome.management.enrollmenttokens"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeChromeManagementChromeManagementEnrollmenttokens;
+/**
+ *  Authorization scope: See Chrome enrollment tokens managed by your
+ *  organization
+ *
+ *  Value "https://www.googleapis.com/auth/chrome.management.enrollmenttokens.readonly"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeChromeManagementChromeManagementEnrollmenttokensReadonly;
+/**
+ *  Authorization scope: See, edit, delete, and take other necessary actions on
  *  Chrome browser profiles managed by your organization
  *
  *  Value "https://www.googleapis.com/auth/chrome.management.profiles"

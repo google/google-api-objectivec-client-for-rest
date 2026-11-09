@@ -2183,6 +2183,24 @@ NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnapshot_CloudProvider_
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSecurityCommandCenter_CloudRun
+//
+
+@implementation GTLRSecurityCommandCenter_CloudRun
+@dynamic revisions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"revisions" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSecurityCommandCenter_Compliance
 //
 
@@ -2736,8 +2754,8 @@ NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnapshot_CloudProvider_
          agentSessions, aiModel, application, artifactGuardPolicies,
          attackExposure, backupDisasterRecovery, canonicalName, category,
          chokepoint, cloudArmor, cloudDlpDataProfile, cloudDlpInspection,
-         complianceDetails, compliances, connections, contacts, containers,
-         createTime, dataAccessEvents, database, dataFlowEvents,
+         cloudRun, complianceDetails, compliances, connections, contacts,
+         containers, createTime, dataAccessEvents, database, dataFlowEvents,
          dataRetentionDeletionEvents, descriptionProperty, discoveredWorkload,
          disk, eventTime, exfiltration, externalExposure, externalSystems,
          externalUri, files, findingClass, groupMemberships, iamBindings,
@@ -2914,8 +2932,8 @@ NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnapshot_CloudProvider_
 //
 
 @implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1BigQueryExport
-@dynamic createTime, dataset, descriptionProperty, filter, mostRecentEditor,
-         name, principal, updateTime;
+@dynamic createTime, dataset, deletionNotificationsEnabled, descriptionProperty,
+         filter, mostRecentEditor, name, principal, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -3065,7 +3083,7 @@ NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnapshot_CloudProvider_
 //
 
 @implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1NotificationMessage
-@dynamic finding, notificationConfigName, resource;
+@dynamic deletedFinding, finding, notificationConfigName, resource;
 @end
 
 
@@ -3736,8 +3754,9 @@ NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnapshot_CloudProvider_
 //
 
 @implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2BigQueryExport
-@dynamic createTime, cryptoKeyName, dataset, descriptionProperty, filter,
-         mostRecentEditor, name, principal, updateTime;
+@dynamic createTime, cryptoKeyName, dataset, deletionNotificationsEnabled,
+         descriptionProperty, filter, mostRecentEditor, name, principal,
+         updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -3847,6 +3866,24 @@ NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnapshot_CloudProvider_
 
 @implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2CloudLoggingEntry
 @dynamic insertId, logId, resourceContainer, timestamp;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2CloudRun
+//
+
+@implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2CloudRun
+@dynamic revisions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"revisions" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -4279,18 +4316,18 @@ NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnapshot_CloudProvider_
          agentSessions, aiModel, application, artifactGuardPolicies,
          attackExposure, backupDisasterRecovery, canonicalName, category,
          chokepoint, cloudArmor, cloudDlpDataProfile, cloudDlpInspection,
-         complianceDetails, compliances, connections, contacts, containers,
-         createTime, cryptoKeyName, dataAccessEvents, database, dataFlowEvents,
-         dataRetentionDeletionEvents, descriptionProperty, discoveredWorkload,
-         disk, eventTime, exfiltration, externalExposure, externalSystems,
-         externalUri, files, findingClass, groupMemberships, iamBindings,
-         iamDetails, indicator, ipRules, job, kernelRootkit, kubernetes,
-         loadBalancers, logEntries, mitreAttack, moduleName, mute, muteInfo,
-         muteInitiator, muteUpdateTime, name, networks, nextSteps, notebook,
-         orgPolicies, parent, parentDisplayName, policyViolationSummary,
-         processes, resourceName, secret, securityMarks, securityPosture,
-         severity, sourceProperties, state, toxicCombination, vertexAi,
-         vulnerability;
+         cloudRun, complianceDetails, compliances, connections, contacts,
+         containers, createTime, cryptoKeyName, dataAccessEvents, database,
+         dataFlowEvents, dataRetentionDeletionEvents, descriptionProperty,
+         discoveredWorkload, disk, eventTime, exfiltration, externalExposure,
+         externalSystems, externalUri, files, findingClass, groupMemberships,
+         iamBindings, iamDetails, indicator, ipRules, job, kernelRootkit,
+         kubernetes, loadBalancers, logEntries, mitreAttack, moduleName, mute,
+         muteInfo, muteInitiator, muteUpdateTime, name, networks, nextSteps,
+         notebook, orgPolicies, parent, parentDisplayName,
+         policyViolationSummary, processes, resourceName, secret, securityMarks,
+         securityPosture, severity, sourceProperties, state, toxicCombination,
+         vertexAi, vulnerability;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -5024,7 +5061,7 @@ NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnapshot_CloudProvider_
 //
 
 @implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2NotificationMessage
-@dynamic finding, notificationConfigName, resource;
+@dynamic deletedFinding, finding, notificationConfigName, resource;
 @end
 
 
@@ -6358,8 +6395,8 @@ NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnapshot_CloudProvider_
 //
 
 @implementation GTLRSecurityCommandCenter_NotificationConfig
-@dynamic descriptionProperty, name, pubsubTopic, serviceAccount,
-         streamingConfig;
+@dynamic deletionNotificationsEnabled, descriptionProperty, name, pubsubTopic,
+         serviceAccount, streamingConfig;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

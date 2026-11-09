@@ -101,10 +101,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_Approval_FileContentChangeBehavior
  */
 FOUNDATION_EXTERN NSString * const kGTLRDrive_Approval_FileContentChangeBehavior_NoApprovalAction;
 /**
- *  Any ReviewerResponse with a Response of APPROVED will be reset to
- *  NO_DECISION when the file content changes while the approval has a Status of
- *  IN_PROGRESS. When the approval has a Status of APPROVED and RESET_APPROVAL
- *  is selected, the file is locked.
+ *  Any ReviewerResponse with a Response of `APPROVED` will be reset to
+ *  `NO_DECISION` when the file content changes while the approval has a Status
+ *  of `IN_PROGRESS`. When the approval has a Status of `APPROVED` and
+ *  `RESET_APPROVAL` is selected, the file is locked.
  *
  *  Value: "RESET_APPROVAL"
  */
@@ -211,10 +211,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_StartApprovalRequest_FileContentCh
  */
 FOUNDATION_EXTERN NSString * const kGTLRDrive_StartApprovalRequest_FileContentChangeBehavior_NoApprovalAction;
 /**
- *  Any ReviewerResponse with a Response of APPROVED will be reset to
- *  NO_DECISION when the file content changes while the approval has a Status of
- *  IN_PROGRESS. When the approval has a Status of APPROVED and RESET_APPROVAL
- *  is selected, the file is locked.
+ *  Any ReviewerResponse with a Response of `APPROVED` will be reset to
+ *  `NO_DECISION` when the file content changes while the approval has a Status
+ *  of `IN_PROGRESS`. When the approval has a Status of `APPROVED` and
+ *  `RESET_APPROVAL` is selected, the file is locked.
  *
  *  Value: "RESET_APPROVAL"
  */
@@ -690,17 +690,23 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_StartApprovalRequest_FileContentCh
 /** The approval ID. */
 @property(nonatomic, copy, nullable) NSString *approvalId;
 
-/** Output only. The time the approval was completed. */
+/**
+ *  The revision ID of the file when the approval completed successfully. This
+ *  is only set when the approval status is APPROVED.
+ */
+@property(nonatomic, copy, nullable) NSString *approvedRevisionId;
+
+/** The time the approval was completed. */
 @property(nonatomic, strong, nullable) GTLRDateTime *completeTime;
 
-/** Output only. The time the approval was created. */
+/** The time the approval was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /** The time that the approval is due. */
 @property(nonatomic, strong, nullable) GTLRDateTime *dueTime;
 
 /**
- *  Output only. The behavior of the approval when the file content changes.
+ *  The behavior of the approval when the file content changes.
  *
  *  Likely values:
  *    @arg @c kGTLRDrive_Approval_FileContentChangeBehavior_FileContentChangeBehaviorUnspecified
@@ -710,10 +716,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_StartApprovalRequest_FileContentCh
  *        action is taken when the file content changes. (Value:
  *        "NO_APPROVAL_ACTION")
  *    @arg @c kGTLRDrive_Approval_FileContentChangeBehavior_ResetApproval Any
- *        ReviewerResponse with a Response of APPROVED will be reset to
- *        NO_DECISION when the file content changes while the approval has a
- *        Status of IN_PROGRESS. When the approval has a Status of APPROVED and
- *        RESET_APPROVAL is selected, the file is locked. (Value:
+ *        ReviewerResponse with a Response of `APPROVED` will be reset to
+ *        `NO_DECISION` when the file content changes while the approval has a
+ *        Status of `IN_PROGRESS`. When the approval has a Status of `APPROVED`
+ *        and `RESET_APPROVAL` is selected, the file is locked. (Value:
  *        "RESET_APPROVAL")
  */
 @property(nonatomic, copy, nullable) NSString *fileContentChangeBehavior;
@@ -724,15 +730,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_StartApprovalRequest_FileContentCh
 /** This is always drive#approval. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
-/** Output only. The most recent time the approval was modified. */
+/** The most recent time the approval was modified. */
 @property(nonatomic, strong, nullable) GTLRDateTime *modifyTime;
 
 /** The responses made on the approval by reviewers. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDrive_ReviewerResponse *> *reviewerResponses;
 
 /**
- *  Output only. The status of the approval at the time this resource was
- *  requested.
+ *  The status of the approval at the time this resource was requested.
  *
  *  Likely values:
  *    @arg @c kGTLRDrive_Approval_Status_Approved The approval process is
@@ -3925,10 +3930,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_StartApprovalRequest_FileContentCh
  *        No action is taken when the file content changes. (Value:
  *        "NO_APPROVAL_ACTION")
  *    @arg @c kGTLRDrive_StartApprovalRequest_FileContentChangeBehavior_ResetApproval
- *        Any ReviewerResponse with a Response of APPROVED will be reset to
- *        NO_DECISION when the file content changes while the approval has a
- *        Status of IN_PROGRESS. When the approval has a Status of APPROVED and
- *        RESET_APPROVAL is selected, the file is locked. (Value:
+ *        Any ReviewerResponse with a Response of `APPROVED` will be reset to
+ *        `NO_DECISION` when the file content changes while the approval has a
+ *        Status of `IN_PROGRESS`. When the approval has a Status of `APPROVED`
+ *        and `RESET_APPROVAL` is selected, the file is locked. (Value:
  *        "RESET_APPROVAL")
  */
 @property(nonatomic, copy, nullable) NSString *fileContentChangeBehavior;

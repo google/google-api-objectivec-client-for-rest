@@ -1262,6 +1262,9 @@ FOUNDATION_EXTERN NSString * const kGTLRTravelImpactModel_Scope3FlightSegment_Ca
 /** Identifier. Matches the flight identifiers in the request. */
 @property(nonatomic, strong, nullable) GTLRTravelImpactModel_Scope3FlightSegment *flight;
 
+/** Optional. The model version under which the emissions were computed. */
+@property(nonatomic, strong, nullable) GTLRTravelImpactModel_ModelVersion *modelVersion;
+
 /**
  *  Optional. The source of the emissions data.
  *
@@ -1363,8 +1366,8 @@ FOUNDATION_EXTERN NSString * const kGTLRTravelImpactModel_Scope3FlightSegment_Ca
 @property(nonatomic, copy, nullable) NSString *destination;
 
 /**
- *  Optional. Distance in kilometers, e.g. `2423`, from [1, 2.5e16) km. This is
- *  used to match a flight to distance-based emissions when origin and
+ *  Optional. Distance in kilometers, e.g. `2423`, from [`1`, `1e12`) km. This
+ *  is used to match a flight to distance-based emissions when origin and
  *  destination are not provided or there are no matching typical flights.
  *
  *  Uses NSNumber of longLongValue.

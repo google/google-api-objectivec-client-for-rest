@@ -608,6 +608,15 @@
 @class GTLRDialogflow_GoogleCloudDialogflowV2QueryResult_DiagnosticInfo;
 @class GTLRDialogflow_GoogleCloudDialogflowV2QueryResult_Parameters;
 @class GTLRDialogflow_GoogleCloudDialogflowV2QueryResult_WebhookPayload;
+@class GTLRDialogflow_GoogleCloudDialogflowV2ResponseMessage;
+@class GTLRDialogflow_GoogleCloudDialogflowV2ResponseMessage_Payload;
+@class GTLRDialogflow_GoogleCloudDialogflowV2ResponseMessageEndInteraction;
+@class GTLRDialogflow_GoogleCloudDialogflowV2ResponseMessageLiveAgentHandoff;
+@class GTLRDialogflow_GoogleCloudDialogflowV2ResponseMessageLiveAgentHandoff_Metadata;
+@class GTLRDialogflow_GoogleCloudDialogflowV2ResponseMessageMixedAudio;
+@class GTLRDialogflow_GoogleCloudDialogflowV2ResponseMessageMixedAudioSegment;
+@class GTLRDialogflow_GoogleCloudDialogflowV2ResponseMessageTelephonyTransferCall;
+@class GTLRDialogflow_GoogleCloudDialogflowV2ResponseMessageText;
 @class GTLRDialogflow_GoogleCloudDialogflowV2SearchEntryPoint;
 @class GTLRDialogflow_GoogleCloudDialogflowV2Segment;
 @class GTLRDialogflow_GoogleCloudDialogflowV2Sentiment;
@@ -13782,6 +13791,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 @interface GTLRDialogflow_GoogleCloudDialogflowV2beta1SentimentAnalysisResult : GTLRObject
 
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1Sentiment *queryTextSentiment;
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleRpcStatus *status;
 
 @end
 
@@ -16196,6 +16206,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  */
 @property(nonatomic, copy, nullable) NSString *participantRole;
 
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2ResponseMessage *> *responseMessages;
 @property(nonatomic, strong, nullable) GTLRDateTime *sendTime;
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2SentimentAnalysisResult *sentimentAnalysis;
 
@@ -16332,6 +16343,118 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 
 /**
+ *  GTLRDialogflow_GoogleCloudDialogflowV2ResponseMessage
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2ResponseMessage : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2ResponseMessageEndInteraction *endInteraction;
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2ResponseMessageLiveAgentHandoff *liveAgentHandoff;
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2ResponseMessageMixedAudio *mixedAudio;
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2ResponseMessage_Payload *payload;
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2ResponseMessageTelephonyTransferCall *telephonyTransferCall;
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2ResponseMessageText *text;
+
+@end
+
+
+/**
+ *  GTLRDialogflow_GoogleCloudDialogflowV2ResponseMessage_Payload
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2ResponseMessage_Payload : GTLRObject
+@end
+
+
+/**
+ *  GTLRDialogflow_GoogleCloudDialogflowV2ResponseMessageEndInteraction
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2ResponseMessageEndInteraction : GTLRObject
+@end
+
+
+/**
+ *  GTLRDialogflow_GoogleCloudDialogflowV2ResponseMessageLiveAgentHandoff
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2ResponseMessageLiveAgentHandoff : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2ResponseMessageLiveAgentHandoff_Metadata *metadata;
+
+@end
+
+
+/**
+ *  GTLRDialogflow_GoogleCloudDialogflowV2ResponseMessageLiveAgentHandoff_Metadata
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2ResponseMessageLiveAgentHandoff_Metadata : GTLRObject
+@end
+
+
+/**
+ *  GTLRDialogflow_GoogleCloudDialogflowV2ResponseMessageMixedAudio
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2ResponseMessageMixedAudio : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2ResponseMessageMixedAudioSegment *> *segments;
+
+@end
+
+
+/**
+ *  GTLRDialogflow_GoogleCloudDialogflowV2ResponseMessageMixedAudioSegment
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2ResponseMessageMixedAudioSegment : GTLRObject
+
+/**
+ *  allowPlaybackInterruption
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allowPlaybackInterruption;
+
+/**
+ *  audio
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *audio;
+
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  GTLRDialogflow_GoogleCloudDialogflowV2ResponseMessageTelephonyTransferCall
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2ResponseMessageTelephonyTransferCall : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *phoneNumber;
+@property(nonatomic, copy, nullable) NSString *sipUri;
+
+@end
+
+
+/**
+ *  GTLRDialogflow_GoogleCloudDialogflowV2ResponseMessageText
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2ResponseMessageText : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<NSString *> *text;
+
+@end
+
+
+/**
  *  GTLRDialogflow_GoogleCloudDialogflowV2SearchEntryPoint
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2SearchEntryPoint : GTLRObject
@@ -16393,6 +16516,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 @interface GTLRDialogflow_GoogleCloudDialogflowV2SentimentAnalysisResult : GTLRObject
 
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2Sentiment *queryTextSentiment;
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleRpcStatus *status;
 
 @end
 

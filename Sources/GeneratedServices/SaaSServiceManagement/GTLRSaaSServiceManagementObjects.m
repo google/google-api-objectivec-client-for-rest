@@ -6,7 +6,7 @@
 // Description:
 //   Model, deploy, and operate your SaaS at scale.
 // Documentation:
-//   https://cloud.google.com/saas-runtime/docs
+//   https://docs.cloud.google.com/app-lifecycle-manager
 
 #import <GoogleAPIClientForREST/GTLRSaaSServiceManagementObjects.h>
 
@@ -53,6 +53,11 @@ NSString * const kGTLRSaaSServiceManagement_SaasCondition_Status_StatusUnspecifi
 NSString * const kGTLRSaaSServiceManagement_SaasCondition_Type_TypeReady = @"TYPE_READY";
 NSString * const kGTLRSaaSServiceManagement_SaasCondition_Type_TypeSynchronized = @"TYPE_SYNCHRONIZED";
 NSString * const kGTLRSaaSServiceManagement_SaasCondition_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
+
+// GTLRSaaSServiceManagement_Scope.type
+NSString * const kGTLRSaaSServiceManagement_Scope_Type_TypeGlobal = @"TYPE_GLOBAL";
+NSString * const kGTLRSaaSServiceManagement_Scope_Type_TypeRegional = @"TYPE_REGIONAL";
+NSString * const kGTLRSaaSServiceManagement_Scope_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
 // GTLRSaaSServiceManagement_Unit.managementMode
 NSString * const kGTLRSaaSServiceManagement_Unit_ManagementMode_ManagementModeSystem = @"MANAGEMENT_MODE_SYSTEM";
@@ -148,11 +153,41 @@ NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_TypeUnspecified = 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSaaSServiceManagement_AppParams
+//
+
+@implementation GTLRSaaSServiceManagement_AppParams
+@dynamic group, scope;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSaaSServiceManagement_Blueprint
 //
 
 @implementation GTLRSaaSServiceManagement_Blueprint
 @dynamic engine, package, version;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSaaSServiceManagement_ComponentRef
+//
+
+@implementation GTLRSaaSServiceManagement_ComponentRef
+@dynamic component, compositeRef, revision;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSaaSServiceManagement_CompositeRef
+//
+
+@implementation GTLRSaaSServiceManagement_CompositeRef
+@dynamic applicationTemplate, revision, syncOperation;
 @end
 
 
@@ -187,6 +222,16 @@ NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_TypeUnspecified = 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSaaSServiceManagement_DurationLimits
+//
+
+@implementation GTLRSaaSServiceManagement_DurationLimits
+@dynamic unitOperationTimeout;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSaaSServiceManagement_Empty
 //
 
@@ -201,16 +246,6 @@ NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_TypeUnspecified = 
 
 @implementation GTLRSaaSServiceManagement_ErrorBudget
 @dynamic allowedCount, allowedPercentage;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRSaaSServiceManagement_FlagUpdate
-//
-
-@implementation GTLRSaaSServiceManagement_FlagUpdate
-@dynamic flagRelease;
 @end
 
 
@@ -516,9 +551,9 @@ NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_TypeUnspecified = 
 //
 
 @implementation GTLRSaaSServiceManagement_Release
-@dynamic annotations, blueprint, createTime, ETag, inputVariableDefaults,
-         inputVariables, labels, name, outputVariables, releaseRequirements,
-         uid, unitKind, updateTime;
+@dynamic annotations, applicationTemplateComponent, blueprint, createTime, ETag,
+         inputVariableDefaults, inputVariables, labels, name, outputVariables,
+         releaseRequirements, uid, unitKind, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -589,10 +624,10 @@ NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_TypeUnspecified = 
 
 @implementation GTLRSaaSServiceManagement_Rollout
 @dynamic annotations, control, createTime, deleteTime, effectiveUnitFilter,
-         endTime, ETag, flagRelease, labels, name, parentRollout,
-         releaseProperty, rolloutKind, rolloutOrchestrationStrategy,
-         rootRollout, startTime, state, stateMessage, stateTransitionTime,
-         stats, uid, unitFilter, updateTime;
+         endTime, ETag, labels, name, parentRollout, releaseProperty,
+         rolloutKind, rolloutOrchestrationStrategy, rootRollout, startTime,
+         state, stateMessage, stateTransitionTime, stats, uid, unitFilter,
+         updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -722,8 +757,9 @@ NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_TypeUnspecified = 
 //
 
 @implementation GTLRSaaSServiceManagement_Saas
-@dynamic annotations, conditions, createTime, error, ETag, labels, locations,
-         name, state, uid, updateTime;
+@dynamic annotations, applicationTemplate, blueprintRepo, conditions,
+         createTime, error, ETag, labels, locations, name, state, uid,
+         updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -785,6 +821,16 @@ NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_TypeUnspecified = 
 
 @implementation GTLRSaaSServiceManagement_Schedule
 @dynamic startTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSaaSServiceManagement_Scope
+//
+
+@implementation GTLRSaaSServiceManagement_Scope
+@dynamic type;
 @end
 
 
@@ -880,8 +926,8 @@ NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_TypeUnspecified = 
 //
 
 @implementation GTLRSaaSServiceManagement_Unit
-@dynamic annotations, conditions, createTime, dependencies, dependents, ETag,
-         flagRevisions, inputVariables, labels, maintenance, managementMode,
+@dynamic annotations, application, conditions, createTime, dependencies,
+         dependents, ETag, inputVariables, labels, maintenance, managementMode,
          name, ongoingOperations, outputVariables, pendingOperations,
          releaseProperty, satisfiesPzi, satisfiesPzs, scheduledOperations,
          state, systemCleanupAt, systemManagedState, tenant, uid, unitKind,
@@ -900,7 +946,6 @@ NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_TypeUnspecified = 
     @"conditions" : [GTLRSaaSServiceManagement_UnitCondition class],
     @"dependencies" : [GTLRSaaSServiceManagement_UnitDependency class],
     @"dependents" : [GTLRSaaSServiceManagement_UnitDependency class],
-    @"flagRevisions" : [NSString class],
     @"inputVariables" : [GTLRSaaSServiceManagement_UnitVariable class],
     @"ongoingOperations" : [NSString class],
     @"outputVariables" : [GTLRSaaSServiceManagement_UnitVariable class],
@@ -967,9 +1012,10 @@ NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_TypeUnspecified = 
 //
 
 @implementation GTLRSaaSServiceManagement_UnitKind
-@dynamic annotations, boundaryType, createTime, defaultFlagRevisions,
-         defaultRelease, deleteTime, dependencies, ETag, inputVariableMappings,
-         labels, name, outputVariableMappings, saas, uid, updateTime;
+@dynamic annotations, applicationTemplateComponent, appParams, boundaryType,
+         createTime, defaultRelease, deleteTime, dependencies, durationLimits,
+         ETag, inputVariableMappings, labels, name, outputVariableMappings,
+         saas, uid, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -977,7 +1023,6 @@ NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_TypeUnspecified = 
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"defaultFlagRevisions" : [NSString class],
     @"dependencies" : [GTLRSaaSServiceManagement_Dependency class],
     @"inputVariableMappings" : [GTLRSaaSServiceManagement_VariableMapping class],
     @"outputVariableMappings" : [GTLRSaaSServiceManagement_VariableMapping class]
@@ -1023,7 +1068,7 @@ NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_TypeUnspecified = 
 
 @implementation GTLRSaaSServiceManagement_UnitOperation
 @dynamic annotations, cancel, conditions, createTime, deleteTime, deprovision,
-         engineState, errorCategory, ETag, flagUpdate, labels, name,
+         durationLimits, engineState, errorCategory, ETag, labels, name,
          parentUnitOperation, provision, rollout, schedule, state, uid, unit,
          updateTime, upgrade;
 

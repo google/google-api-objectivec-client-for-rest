@@ -594,36 +594,6 @@ NSString * const kGTLRStorage_RapidCachePolicy_IngestOnWrite_Unspecified = @"uns
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRStorage_Channel
-//
-
-@implementation GTLRStorage_Channel
-@dynamic address, expiration, identifier, kind, params, payload, resourceId,
-         resourceUri, token, type;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"identifier" : @"id" };
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRStorage_Channel_Params
-//
-
-@implementation GTLRStorage_Channel_Params
-
-+ (Class)classForAdditionalProperties {
-  return [NSString class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRStorage_ComposeRequest
 //
 

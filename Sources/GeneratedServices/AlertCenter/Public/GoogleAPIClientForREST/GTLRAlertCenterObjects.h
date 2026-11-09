@@ -19,6 +19,7 @@
 @class GTLRAlertCenter_ActionInfo;
 @class GTLRAlertCenter_Alert;
 @class GTLRAlertCenter_Alert_Data;
+@class GTLRAlertCenter_AlertDetail;
 @class GTLRAlertCenter_AlertFeedback;
 @class GTLRAlertCenter_AlertMetadata;
 @class GTLRAlertCenter_Attachment;
@@ -53,6 +54,7 @@
 @class GTLRAlertCenter_SuperAdminPasswordResetEvent;
 @class GTLRAlertCenter_SupportTicket;
 @class GTLRAlertCenter_SuspiciousActivitySecurityDetail;
+@class GTLRAlertCenter_SystemDefinedAlertDataAlertDetailFieldValue;
 @class GTLRAlertCenter_TransferError;
 @class GTLRAlertCenter_TransferMisconfiguration;
 @class GTLRAlertCenter_User;
@@ -1629,6 +1631,20 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_VoiceMisconfiguration_Entity
 
 
 /**
+ *  The alert data relevant for this alert
+ */
+@interface GTLRAlertCenter_AlertDetail : GTLRObject
+
+/** Audit data key */
+@property(nonatomic, copy, nullable) NSString *fieldName;
+
+/** Audit data values */
+@property(nonatomic, strong, nullable) NSArray<GTLRAlertCenter_SystemDefinedAlertDataAlertDetailFieldValue *> *fieldValues;
+
+@end
+
+
+/**
  *  A customer feedback about an alert.
  */
 @interface GTLRAlertCenter_AlertFeedback : GTLRObject
@@ -3122,6 +3138,45 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_VoiceMisconfiguration_Entity
 
 /** The serial number of the device. */
 @property(nonatomic, copy, nullable) NSString *serialNumber;
+
+@end
+
+
+/**
+ *  System defined alerts which trigger when an relevant audit event occures.
+ */
+@interface GTLRAlertCenter_SystemDefinedAlertData : GTLRObject
+
+/** Details of the conditions which led to alert being created */
+@property(nonatomic, strong, nullable) NSArray<GTLRAlertCenter_AlertDetail *> *alertDetails;
+
+@end
+
+
+/**
+ *  Audit data value
+ */
+@interface GTLRAlertCenter_SystemDefinedAlertDataAlertDetailFieldValue : GTLRObject
+
+/**
+ *  Value if the type is boolean
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *boolValue;
+
+/**
+ *  Value if the type is integer
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *intValue;
+
+/** Value if the type is string */
+@property(nonatomic, copy, nullable) NSString *stringValue;
+
+/** Value is the type is a timestamp */
+@property(nonatomic, strong, nullable) GTLRDateTime *timestampValue;
 
 @end
 

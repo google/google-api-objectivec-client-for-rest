@@ -2415,7 +2415,8 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
 @implementation GTLRBigquery_JobConfigurationExtract
 @dynamic compression, destinationFormat, destinationUri, destinationUris,
          fieldDelimiter, modelExtractOptions, nativeGeographyExportEnabled,
-         printHeader, sourceModel, sourceTable, useAvroLogicalTypes;
+         printHeader, secureContext, sourceModel, sourceTable,
+         useAvroLogicalTypes;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

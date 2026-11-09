@@ -135,10 +135,10 @@ NSString * const kGTLRSecretManager_SecretVersion_State_StateUnspecified = @"STA
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRSecretManager_CloudSQLSingleUserCredentials
+//   GTLRSecretManager_CloudSqlSingleUserCredentials
 //
 
-@implementation GTLRSecretManager_CloudSQLSingleUserCredentials
+@implementation GTLRSecretManager_CloudSqlSingleUserCredentials
 @dynamic instanceId, password, username;
 @end
 

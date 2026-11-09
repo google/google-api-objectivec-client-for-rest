@@ -6,7 +6,7 @@
 // Description:
 //   Model, deploy, and operate your SaaS at scale.
 // Documentation:
-//   https://cloud.google.com/saas-runtime/docs
+//   https://docs.cloud.google.com/app-lifecycle-manager
 
 #import <GoogleAPIClientForREST/GTLRService.h>
 

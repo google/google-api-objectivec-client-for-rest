@@ -69,7 +69,7 @@
 @implementation GTLRCalendar_Calendar
 @dynamic autoAcceptInvitations, conferenceProperties, dataOwner,
          descriptionProperty, ETag, identifier, kind, labelProperties, location,
-         summary, timeZone;
+         summary, timeZone, workingHours;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -80,6 +80,34 @@
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCalendar_Calendar_WorkingHours
+//
+
+@implementation GTLRCalendar_Calendar_WorkingHours
+@dynamic availableTimes, workingHoursEnabled;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"availableTimes" : [GTLRCalendar_Calendar_WorkingHours_AvailableTimes_Item class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCalendar_Calendar_WorkingHours_AvailableTimes_Item
+//
+
+@implementation GTLRCalendar_Calendar_WorkingHours_AvailableTimes_Item
+@dynamic dayOfWeek, periodEnd, periodStart;
 @end
 
 

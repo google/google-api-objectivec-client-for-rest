@@ -40,6 +40,7 @@
 @class GTLRCloudHealthcare_ConsentStore;
 @class GTLRCloudHealthcare_ConsentStore_Labels;
 @class GTLRCloudHealthcare_CryptoHashConfig;
+@class GTLRCloudHealthcare_CustomRegex;
 @class GTLRCloudHealthcare_Dataset;
 @class GTLRCloudHealthcare_DateShiftConfig;
 @class GTLRCloudHealthcare_DeidentifiedStoreDestination;
@@ -2513,6 +2514,25 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 
 
 /**
+ *  Defines a custom regular expression pattern to detect and redact in the
+ *  image.
+ */
+@interface GTLRCloudHealthcare_CustomRegex : GTLRObject
+
+/**
+ *  Optional. The capturing group indexes to redact.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *groupIndexes;
+
+/** Optional. The regular expression pattern to match. */
+@property(nonatomic, copy, nullable) NSString *pattern;
+
+@end
+
+
+/**
  *  A message representing a health dataset. A health dataset represents a
  *  collection of healthcare data pertaining to one or more patients. This may
  *  include multiple modalities of healthcare data, such as electronic medical
@@ -4791,6 +4811,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
  *  Specifies how to handle de-identification of image pixels.
  */
 @interface GTLRCloudHealthcare_ImageConfig : GTLRObject
+
+/** Optional. Custom regex patterns to redact from the image. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudHealthcare_CustomRegex *> *customRegexes;
 
 /**
  *  Optional. Determines how to redact text from image.

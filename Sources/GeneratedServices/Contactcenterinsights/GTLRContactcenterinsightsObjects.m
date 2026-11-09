@@ -114,6 +114,8 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1al
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataRequest_ExportSchemaVersion_ExportV15 = @"EXPORT_V15";
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataRequest_ExportSchemaVersion_ExportV16 = @"EXPORT_V16";
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataRequest_ExportSchemaVersion_ExportV17 = @"EXPORT_V17";
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataRequest_ExportSchemaVersion_ExportV18 = @"EXPORT_V18";
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataRequest_ExportSchemaVersion_ExportV19 = @"EXPORT_V19";
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataRequest_ExportSchemaVersion_ExportV2 = @"EXPORT_V2";
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataRequest_ExportSchemaVersion_ExportV3 = @"EXPORT_V3";
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataRequest_ExportSchemaVersion_ExportV4 = @"EXPORT_V4";
@@ -201,16 +203,6 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1As
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Assessment_State_Finalized = @"FINALIZED";
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Assessment_State_Published = @"PUBLISHED";
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Assessment_State_StateUnspecified = @"STATE_UNSPECIFIED";
-
-// GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AssistantMessage.role
-NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AssistantMessage_Role_Model = @"MODEL";
-NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AssistantMessage_Role_RoleUnspecified = @"ROLE_UNSPECIFIED";
-NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AssistantMessage_Role_User = @"USER";
-
-// GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AssistantSession.state
-NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AssistantSession_State_Idle = @"IDLE";
-NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AssistantSession_State_Processing = @"PROCESSING";
-NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AssistantSession_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
 // GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AutoLabelingRule.labelKeyType
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AutoLabelingRule_LabelKeyType_LabelKeyTypeCustom = @"LABEL_KEY_TYPE_CUSTOM";
@@ -350,6 +342,8 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ex
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportInsightsDataRequest_ExportSchemaVersion_ExportV15 = @"EXPORT_V15";
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportInsightsDataRequest_ExportSchemaVersion_ExportV16 = @"EXPORT_V16";
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportInsightsDataRequest_ExportSchemaVersion_ExportV17 = @"EXPORT_V17";
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportInsightsDataRequest_ExportSchemaVersion_ExportV18 = @"EXPORT_V18";
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportInsightsDataRequest_ExportSchemaVersion_ExportV19 = @"EXPORT_V19";
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportInsightsDataRequest_ExportSchemaVersion_ExportV2 = @"EXPORT_V2";
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportInsightsDataRequest_ExportSchemaVersion_ExportV3 = @"EXPORT_V3";
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportInsightsDataRequest_ExportSchemaVersion_ExportV4 = @"EXPORT_V4";
@@ -525,6 +519,8 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ma
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainExportInsightsDataRequest_ExportSchemaVersion_ExportV15 = @"EXPORT_V15";
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainExportInsightsDataRequest_ExportSchemaVersion_ExportV16 = @"EXPORT_V16";
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainExportInsightsDataRequest_ExportSchemaVersion_ExportV17 = @"EXPORT_V17";
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainExportInsightsDataRequest_ExportSchemaVersion_ExportV18 = @"EXPORT_V18";
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainExportInsightsDataRequest_ExportSchemaVersion_ExportV19 = @"EXPORT_V19";
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainExportInsightsDataRequest_ExportSchemaVersion_ExportV2 = @"EXPORT_V2";
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainExportInsightsDataRequest_ExportSchemaVersion_ExportV3 = @"EXPORT_V3";
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainExportInsightsDataRequest_ExportSchemaVersion_ExportV4 = @"EXPORT_V4";
@@ -626,6 +622,7 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Qa
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestionPredefinedQuestionConfig_Type_ConversationOutcome = @"CONVERSATION_OUTCOME";
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestionPredefinedQuestionConfig_Type_ConversationOutcomeAiAversion = @"CONVERSATION_OUTCOME_AI_AVERSION";
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestionPredefinedQuestionConfig_Type_ConversationOutcomeEscalationInitiatorRole = @"CONVERSATION_OUTCOME_ESCALATION_INITIATOR_ROLE";
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestionPredefinedQuestionConfig_Type_ConversationOutcomeEscalationReason = @"CONVERSATION_OUTCOME_ESCALATION_REASON";
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestionPredefinedQuestionConfig_Type_PredefinedQuestionTypeUnspecified = @"PREDEFINED_QUESTION_TYPE_UNSPECIFIED";
 
 // GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestionTuningMetadata.datasetValidationWarnings
@@ -842,8 +839,8 @@ NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLogConfig_LogType_Lo
 //
 
 @implementation GTLRContactcenterinsights_GoogleCloudCesV1mainToolCall
-@dynamic agentName, args, displayName, identifier, parentToolCallId, tool,
-         toolsetTool;
+@dynamic agentName, args, displayName, identifier, parentToolCallId, targetApp,
+         tool, toolsetTool;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -872,8 +869,8 @@ NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLogConfig_LogType_Lo
 //
 
 @implementation GTLRContactcenterinsights_GoogleCloudCesV1mainToolResponse
-@dynamic agentName, displayName, identifier, parentToolCallId, response, tool,
-         toolsetTool;
+@dynamic agentName, displayName, identifier, parentToolCallId, response,
+         targetApp, tool, toolsetTool;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -1470,7 +1467,7 @@ NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLogConfig_LogType_Lo
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationQualityMetadataAgentInfo
 @dynamic agentId, agentType, deploymentDisplayName, deploymentId, displayName,
          dispositionCode, entrySubagentDisplayName, entrySubagentId, location,
-         team, teams, versionDisplayName, versionId;
+         studyArmId, studyId, team, teams, versionDisplayName, versionId;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2424,7 +2421,7 @@ NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLogConfig_LogType_Lo
 //
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1GenerativeInsightsResponse
-@dynamic generativeResponses, transcript;
+@dynamic generativeResponses, timeZone, transcript;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -3690,52 +3687,6 @@ NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLogConfig_LogType_Lo
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AssistantChunk
-//
-
-@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AssistantChunk
-@dynamic text;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AssistantMessage
-//
-
-@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AssistantMessage
-@dynamic chunks, eventTime, role;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"chunks" : [GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AssistantChunk class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AssistantSession
-//
-
-@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AssistantSession
-@dynamic createTime, displayName, messages, name, requester, state, updateTime;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"messages" : [GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AssistantMessage class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AuthorizedView
 //
 
@@ -4465,7 +4416,7 @@ NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLogConfig_LogType_Lo
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationQualityMetadataAgentInfo
 @dynamic agentId, agentType, deploymentDisplayName, deploymentId, displayName,
          dispositionCode, entrySubagentDisplayName, entrySubagentId, location,
-         team, teams, versionDisplayName, versionId;
+         studyArmId, studyId, team, teams, versionDisplayName, versionId;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -5669,7 +5620,7 @@ NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLogConfig_LogType_Lo
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerativeInsightsRequest
 @dynamic chart, comparisonFilter, filter, naturalLanguageQuery, revisionId,
-         sessionId, sqlComparisonKey, sqlQuery, userProvidedChartSpec;
+         sessionId, sqlComparisonKey, sqlQuery, timeZone, userProvidedChartSpec;
 @end
 
 
@@ -5693,7 +5644,7 @@ NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLogConfig_LogType_Lo
 //
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerativeInsightsResponse
-@dynamic generativeResponses, transcript;
+@dynamic generativeResponses, timeZone, transcript;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -6181,28 +6132,6 @@ NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLogConfig_LogType_Lo
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ListAssistantSessionsResponse
-//
-
-@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ListAssistantSessionsResponse
-@dynamic assistantSessions, nextPageToken;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"assistantSessions" : [GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AssistantSession class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"assistantSessions";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ListAuthorizedViewSetsResponse
 //
 
@@ -6262,28 +6191,6 @@ NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLogConfig_LogType_Lo
 
 + (NSString *)collectionItemsKey {
   return @"autoLabelingRules";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ListChartsResponse
-//
-
-@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ListChartsResponse
-@dynamic charts, nextPageToken;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"charts" : [GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Chart class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"charts";
 }
 
 @end
@@ -7217,7 +7124,7 @@ NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLogConfig_LogType_Lo
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversationQualityMetadataAgentInfo
 @dynamic agentId, agentType, deploymentDisplayName, deploymentId, displayName,
          dispositionCode, entrySubagentDisplayName, entrySubagentId, location,
-         team, teams, versionDisplayName, versionId;
+         studyArmId, studyId, team, teams, versionDisplayName, versionId;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -8171,7 +8078,7 @@ NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLogConfig_LogType_Lo
 //
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainGenerativeInsightsResponse
-@dynamic generativeResponses, transcript;
+@dynamic generativeResponses, timeZone, transcript;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -10120,26 +10027,6 @@ NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLogConfig_LogType_Lo
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SpeechConfig
 @dynamic disableWordTimeOffsets, speechRecognizer;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1StreamChatRequest
-//
-
-@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1StreamChatRequest
-@dynamic message;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1StreamChatResponse
-//
-
-@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1StreamChatResponse
-@dynamic chunk, eventId, eventTime, statusMessage;
 @end
 
 

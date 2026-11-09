@@ -29,50 +29,6 @@ NSString * const kGTLRAssuredworkloadsViewViolationViewUnspecified = @"VIOLATION
 
 @end
 
-@implementation GTLRAssuredworkloadsQuery_AssuredworkloadsArchiveResourceEvents
-
-+ (instancetype)queryWithObject:(GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ArchiveResourceEventsRequest *)object {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSString *pathURITemplate = @"v1/assuredworkloads:archiveResourceEvents";
-  GTLRAssuredworkloadsQuery_AssuredworkloadsArchiveResourceEvents *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:nil];
-  query.bodyObject = object;
-  query.expectedObjectClass = [GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ArchiveResourceEventsResponse class];
-  query.loggingName = @"assuredworkloads.assuredworkloads.archiveResourceEvents";
-  return query;
-}
-
-@end
-
-@implementation GTLRAssuredworkloadsQuery_AssuredworkloadsRevertArchivedResourceEvents
-
-+ (instancetype)queryWithObject:(GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1RevertArchivedResourceEventsRequest *)object {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSString *pathURITemplate = @"v1/assuredworkloads:revertArchivedResourceEvents";
-  GTLRAssuredworkloadsQuery_AssuredworkloadsRevertArchivedResourceEvents *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:nil];
-  query.bodyObject = object;
-  query.expectedObjectClass = [GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1RevertArchivedResourceEventsResponse class];
-  query.loggingName = @"assuredworkloads.assuredworkloads.revertArchivedResourceEvents";
-  return query;
-}
-
-@end
-
 @implementation GTLRAssuredworkloadsQuery_FoldersLocationsDbFindingSummariesList
 
 @dynamic filter, pageSize, pageToken, parent;

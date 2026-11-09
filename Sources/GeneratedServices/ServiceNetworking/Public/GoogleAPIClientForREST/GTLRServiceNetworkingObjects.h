@@ -2120,9 +2120,12 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
 @interface GTLRServiceNetworking_CommonLanguageSettings : GTLRObject
 
 /**
- *  The destination where API teams want this client library to be published.
+ *  Deprecated: Client libraries are published for all supported languages by
+ *  default when a `library_settings` entry is present with a `version` and
+ *  `launch_stage`. The destination where API teams want this client library to
+ *  be published.
  */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *destinations;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *destinations GTLR_DEPRECATED;
 
 /**
  *  Link to automatically generated reference documentation. Example:

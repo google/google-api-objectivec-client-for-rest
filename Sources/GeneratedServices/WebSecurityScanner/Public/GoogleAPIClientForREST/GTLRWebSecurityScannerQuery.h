@@ -178,7 +178,10 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates a ScanConfig. This method support partial update of a ScanConfig.
+ *  Updates a ScanConfig. This method supports partial update of a ScanConfig.
+ *  Authorization requires the following
+ *  [IAM](https://cloud.google.com/iam/docs/) permission on the specified
+ *  resource `scan_config.name`: - `cloudsecurityscanner.scans.update`
  *
  *  Method: websecurityscanner.projects.scanConfigs.patch
  *
@@ -206,7 +209,10 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRWebSecurityScanner_ScanConfig.
  *
- *  Updates a ScanConfig. This method support partial update of a ScanConfig.
+ *  Updates a ScanConfig. This method supports partial update of a ScanConfig.
+ *  Authorization requires the following
+ *  [IAM](https://cloud.google.com/iam/docs/) permission on the specified
+ *  resource `scan_config.name`: - `cloudsecurityscanner.scans.update`
  *
  *  @param object The @c GTLRWebSecurityScanner_ScanConfig to include in the
  *    query.

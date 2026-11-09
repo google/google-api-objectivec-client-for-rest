@@ -73,6 +73,25 @@
 
 @end
 
+@implementation GTLRChromewebstoreQuery_PublishersItemsFetchReviews
+
+@dynamic filter, name, orderBy, pageSize, pageToken;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}:fetchReviews";
+  GTLRChromewebstoreQuery_PublishersItemsFetchReviews *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRChromewebstore_FetchItemReviewsResponse class];
+  query.loggingName = @"chromewebstore.publishers.items.fetchReviews";
+  return query;
+}
+
+@end
+
 @implementation GTLRChromewebstoreQuery_PublishersItemsFetchStatus
 
 @dynamic name;
@@ -87,6 +106,25 @@
   query.name = name;
   query.expectedObjectClass = [GTLRChromewebstore_FetchItemStatusResponse class];
   query.loggingName = @"chromewebstore.publishers.items.fetchStatus";
+  return query;
+}
+
+@end
+
+@implementation GTLRChromewebstoreQuery_PublishersItemsGetRatingSummary
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRChromewebstoreQuery_PublishersItemsGetRatingSummary *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRChromewebstore_RatingSummary class];
+  query.loggingName = @"chromewebstore.publishers.items.getRatingSummary";
   return query;
 }
 
@@ -114,6 +152,74 @@
   query.name = name;
   query.expectedObjectClass = [GTLRChromewebstore_PublishItemResponse class];
   query.loggingName = @"chromewebstore.publishers.items.publish";
+  return query;
+}
+
+@end
+
+@implementation GTLRChromewebstoreQuery_PublishersItemsQueryMetrics
+
+@dynamic dimensions, metrics, name, pageSize, pageToken, timeSpecFirstDateDay,
+         timeSpecFirstDateMonth, timeSpecFirstDateYear, timeSpecLastDateDay,
+         timeSpecLastDateMonth, timeSpecLastDateYear;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"timeSpecFirstDateDay" : @"timeSpec.firstDate.day",
+    @"timeSpecFirstDateMonth" : @"timeSpec.firstDate.month",
+    @"timeSpecFirstDateYear" : @"timeSpec.firstDate.year",
+    @"timeSpecLastDateDay" : @"timeSpec.lastDate.day",
+    @"timeSpecLastDateMonth" : @"timeSpec.lastDate.month",
+    @"timeSpecLastDateYear" : @"timeSpec.lastDate.year"
+  };
+  return map;
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"dimensions" : [NSString class],
+    @"metrics" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}:queryMetrics";
+  GTLRChromewebstoreQuery_PublishersItemsQueryMetrics *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRChromewebstore_QueryItemMetricsResponse class];
+  query.loggingName = @"chromewebstore.publishers.items.queryMetrics";
+  return query;
+}
+
+@end
+
+@implementation GTLRChromewebstoreQuery_PublishersItemsRollback
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRChromewebstore_RollbackItemRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}:rollback";
+  GTLRChromewebstoreQuery_PublishersItemsRollback *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRChromewebstore_RollbackItemResponse class];
+  query.loggingName = @"chromewebstore.publishers.items.rollback";
   return query;
 }
 

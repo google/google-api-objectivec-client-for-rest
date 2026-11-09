@@ -15,6 +15,8 @@
 #endif
 
 @class GTLRSolar_BuildingInsightsDetectedArrays;
+@class GTLRSolar_BuildingInsightsDetectedArraysSolarArray;
+@class GTLRSolar_BuildingInsightsDetectedArraysSolarArray_PolygonGeojson;
 @class GTLRSolar_CashPurchaseSavings;
 @class GTLRSolar_Date;
 @class GTLRSolar_FinancedPurchaseSavings;
@@ -251,6 +253,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSolar_Panel_Orientation_SolarPanelOrient
  */
 @interface GTLRSolar_BuildingInsightsDetectedArrays : GTLRObject
 
+/** A list of solar arrays detected on the building. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSolar_BuildingInsightsDetectedArraysSolarArray *> *arrays;
+
 /**
  *  Indicates the detection status of solar arrays for this building.
  *
@@ -272,6 +277,39 @@ FOUNDATION_EXTERN NSString * const kGTLRSolar_Panel_Orientation_SolarPanelOrient
 /** The date indicating when the latest solar array data was captured. */
 @property(nonatomic, strong, nullable) GTLRSolar_Date *latestCaptureDate;
 
+@end
+
+
+/**
+ *  Details of a single detected solar array.
+ */
+@interface GTLRSolar_BuildingInsightsDetectedArraysSolarArray : GTLRObject
+
+/**
+ *  A GeoJSON representation of the building area where solar panels were
+ *  detected. The GeoJSON data must be in RFC 7946 format and represent a
+ *  Polygon for a single contiguous area. The Polygon will be represented by
+ *  several loops when it contains holes. Example: { "type": "Polygon",
+ *  "coordinates": [ [ [-1, -1], [-1, 0], [0, 0], [-1, -1] ] ] }
+ */
+@property(nonatomic, strong, nullable) GTLRSolar_BuildingInsightsDetectedArraysSolarArray_PolygonGeojson *polygonGeojson;
+
+@end
+
+
+/**
+ *  A GeoJSON representation of the building area where solar panels were
+ *  detected. The GeoJSON data must be in RFC 7946 format and represent a
+ *  Polygon for a single contiguous area. The Polygon will be represented by
+ *  several loops when it contains holes. Example: { "type": "Polygon",
+ *  "coordinates": [ [ [-1, -1], [-1, 0], [0, 0], [-1, -1] ] ] }
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRSolar_BuildingInsightsDetectedArraysSolarArray_PolygonGeojson : GTLRObject
 @end
 
 

@@ -45,8 +45,11 @@
 @class GTLRCloudBatch_Environment_SecretVariables;
 @class GTLRCloudBatch_Environment_Variables;
 @class GTLRCloudBatch_GCS;
+@class GTLRCloudBatch_InstanceFlexibilityPolicy;
+@class GTLRCloudBatch_InstanceFlexibilityPolicy_InstanceSelections;
 @class GTLRCloudBatch_InstancePolicy;
 @class GTLRCloudBatch_InstancePolicyOrTemplate;
+@class GTLRCloudBatch_InstanceSelection;
 @class GTLRCloudBatch_InstanceStatus;
 @class GTLRCloudBatch_Job;
 @class GTLRCloudBatch_Job_Labels;
@@ -1189,6 +1192,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
 @interface GTLRCloudBatch_AllocationPolicy : GTLRObject
 
 /**
+ *  Optional. The instance flexibility policy for the job. This configuration
+ *  overrides the `instances` configuration. Only allowed in job level. Not
+ *  allowed in task group level.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudBatch_InstanceFlexibilityPolicy *instanceFlexibilityPolicy;
+
+/**
  *  Describe instances that can be created by this AllocationPolicy. Only
  *  instances[0] is supported now.
  */
@@ -1650,6 +1660,46 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
 
 
 /**
+ *  Allows creating VMs from multiple types of machines. Instance flexibility
+ *  configuration overrides instances configuration.
+ */
+@interface GTLRCloudBatch_InstanceFlexibilityPolicy : GTLRObject
+
+/**
+ *  Required. Named instance selections configuring properties that the group
+ *  will use when creating new VMs. The map key is a user-specified name for the
+ *  instance selection. The key must be 1-63 characters long, and comply with
+ *  [RFC1035](https://www.ietf.org/rfc/rfc1035.txt). Specifically, the key must
+ *  consist of lowercase letters, numbers, and hyphens. The first character must
+ *  be a lowercase letter, and the last character must be a lowercase letter or
+ *  number. The maximum number of instance selections is 50. Exceeding this
+ *  limit results in a validation error with code `INVALID_ARGUMENT`.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudBatch_InstanceFlexibilityPolicy_InstanceSelections *instanceSelections;
+
+@end
+
+
+/**
+ *  Required. Named instance selections configuring properties that the group
+ *  will use when creating new VMs. The map key is a user-specified name for the
+ *  instance selection. The key must be 1-63 characters long, and comply with
+ *  [RFC1035](https://www.ietf.org/rfc/rfc1035.txt). Specifically, the key must
+ *  consist of lowercase letters, numbers, and hyphens. The first character must
+ *  be a lowercase letter, and the last character must be a lowercase letter or
+ *  number. The maximum number of instance selections is 50. Exceeding this
+ *  limit results in a validation error with code `INVALID_ARGUMENT`.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRCloudBatch_InstanceSelection. Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRCloudBatch_InstanceFlexibilityPolicy_InstanceSelections : GTLRObject
+@end
+
+
+/**
  *  InstancePolicy describes an instance type and resources attached to each VM
  *  created by this InstancePolicy.
  */
@@ -1766,15 +1816,62 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
 @property(nonatomic, strong, nullable) NSNumber *installOpsAgent;
 
 /**
- *  Name of an instance template used to create VMs. Named the field as
- *  'instance_template' instead of 'template' to avoid C++ keyword conflict.
- *  Batch only supports global instance templates from the same project as the
- *  job. You can specify the global instance template as a full or partial URL.
+ *  An instance template used to create VMs. Batch supports global and regional
+ *  instance templates from the same project as the job. In case of a regional
+ *  instance template, the job and the instance template must be in the same
+ *  region. As shown in the following examples, you can specify the instance
+ *  template as either only its ID, only its name (not unique), or a partial or
+ *  full URL. If you specify only its name, then Batch checks for a global
+ *  instance template first. The following formats are valid for global instance
+ *  templates: * `{instance_template_id_number}` * `{instance_template_name}`
+ *  (not unique) *
+ *  `projects/{project}/global/instanceTemplates/{instance_template_id_number}`
+ *  * `projects/{project}/global/instanceTemplates/{instance_template_name}` *
+ *  `https://www.googleapis.com/compute/v1/projects/{project}/global/instanceTemplates/{instance_template_id_number}`
+ *  *
+ *  `https://www.googleapis.com/compute/v1/projects/{project}/global/instanceTemplates/{instance_template_name}`
+ *  The following formats are valid for regional instance templates: *
+ *  `{instance_template_id_number}` * `{instance_template_name}` (not unique) *
+ *  `projects/{project}/regions/{region}/instanceTemplates/{instance_template_id_number}`
+ *  *
+ *  `projects/{project}/regions/{region}/instanceTemplates/{instance_template_name}`
+ *  *
+ *  `https://www.googleapis.com/compute/v1/projects/{project}/regions/{region}/instanceTemplates/{instance_template_id_number}`
+ *  *
+ *  `https://www.googleapis.com/compute/v1/projects/{project}/regions/{region}/instanceTemplates/{instance_template_name}`
  */
 @property(nonatomic, copy, nullable) NSString *instanceTemplate;
 
 /** InstancePolicy. */
 @property(nonatomic, strong, nullable) GTLRCloudBatch_InstancePolicy *policy;
+
+@end
+
+
+/**
+ *  Defines an instance selection for a given instance flexibility policy.
+ */
+@interface GTLRCloudBatch_InstanceSelection : GTLRObject
+
+/**
+ *  Required. The Compute Engine machine type IDs. Only the machine type ID is
+ *  supported, such as `n1-standard-16`. Full or partial URLs are not accepted.
+ *  The total maximum number of machine types across all instance selections is
+ *  200. Exceeding this limit results in a validation error with code
+ *  `INVALID_ARGUMENT`.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *machineTypes;
+
+/**
+ *  Optional. Indicates the preference of this instance selection. Lower number
+ *  means higher preference. First try is to create a VM based on the
+ *  machine-type with lowest rank and fallback to next rank based on
+ *  availability. Machine types and instance selections with the same rank have
+ *  the same preference.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *rank;
 
 @end
 

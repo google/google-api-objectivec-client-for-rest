@@ -26,6 +26,12 @@ NSString * const kGTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoExperiment
 NSString * const kGTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoExperimentsOutpaintConfig_OutputSpec_OUTPUTSPEC960X544x432 = @"OUTPUT_SPEC_960X544x432";
 NSString * const kGTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoExperimentsOutpaintConfig_OutputSpec_OutputSpecUnspecified = @"OUTPUT_SPEC_UNSPECIFIED";
 
+// GTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoExperimentsSuperResConfig.mode
+NSString * const kGTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoExperimentsSuperResConfig_Mode_Mode4k = @"MODE_4K";
+NSString * const kGTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoExperimentsSuperResConfig_Mode_Mode4kPro = @"MODE_4K_PRO";
+NSString * const kGTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoExperimentsSuperResConfig_Mode_Mode8k = @"MODE_8K";
+NSString * const kGTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoExperimentsSuperResConfig_Mode_ModeUnspecified = @"MODE_UNSPECIFIED";
+
 // GTLRAiplatform_CloudAiPlatformCommonCreatePipelineJobApiErrorDetail.errorCause
 NSString * const kGTLRAiplatform_CloudAiPlatformCommonCreatePipelineJobApiErrorDetail_ErrorCause_CloudApiNotEnabled = @"CLOUD_API_NOT_ENABLED";
 NSString * const kGTLRAiplatform_CloudAiPlatformCommonCreatePipelineJobApiErrorDetail_ErrorCause_ErrorCauseUnspecified = @"ERROR_CAUSE_UNSPECIFIED";
@@ -52,6 +58,361 @@ NSString * const kGTLRAiplatform_CloudAiPlatformCommonCreatePipelineJobApiErrorD
 NSString * const kGTLRAiplatform_CloudAiPlatformCommonCreatePipelineJobApiErrorDetail_ErrorCause_InvalidResolverSpec = @"INVALID_RESOLVER_SPEC";
 NSString * const kGTLRAiplatform_CloudAiPlatformCommonCreatePipelineJobApiErrorDetail_ErrorCause_InvalidRuntimeParameters = @"INVALID_RUNTIME_PARAMETERS";
 NSString * const kGTLRAiplatform_CloudAiPlatformCommonCreatePipelineJobApiErrorDetail_ErrorCause_InvalidServiceAccountSetup = @"INVALID_SERVICE_ACCOUNT_SETUP";
+
+// GTLRAiplatform_GenaiVertexV1AllowedTools.mode
+NSString * const kGTLRAiplatform_GenaiVertexV1AllowedTools_Mode_Any = @"ANY";
+NSString * const kGTLRAiplatform_GenaiVertexV1AllowedTools_Mode_Auto = @"AUTO";
+NSString * const kGTLRAiplatform_GenaiVertexV1AllowedTools_Mode_None = @"NONE";
+NSString * const kGTLRAiplatform_GenaiVertexV1AllowedTools_Mode_ToolChoiceTypeUnspecified = @"TOOL_CHOICE_TYPE_UNSPECIFIED";
+NSString * const kGTLRAiplatform_GenaiVertexV1AllowedTools_Mode_Validated = @"VALIDATED";
+
+// GTLRAiplatform_GenaiVertexV1AudioDelta.mimeType
+NSString * const kGTLRAiplatform_GenaiVertexV1AudioDelta_MimeType_TypeAac = @"TYPE_AAC";
+NSString * const kGTLRAiplatform_GenaiVertexV1AudioDelta_MimeType_TypeAiff = @"TYPE_AIFF";
+NSString * const kGTLRAiplatform_GenaiVertexV1AudioDelta_MimeType_TypeAlaw = @"TYPE_ALAW";
+NSString * const kGTLRAiplatform_GenaiVertexV1AudioDelta_MimeType_TypeFlac = @"TYPE_FLAC";
+NSString * const kGTLRAiplatform_GenaiVertexV1AudioDelta_MimeType_TypeL16 = @"TYPE_L16";
+NSString * const kGTLRAiplatform_GenaiVertexV1AudioDelta_MimeType_TypeM4a = @"TYPE_M4A";
+NSString * const kGTLRAiplatform_GenaiVertexV1AudioDelta_MimeType_TypeMp3 = @"TYPE_MP3";
+NSString * const kGTLRAiplatform_GenaiVertexV1AudioDelta_MimeType_TypeMpeg = @"TYPE_MPEG";
+NSString * const kGTLRAiplatform_GenaiVertexV1AudioDelta_MimeType_TypeMulaw = @"TYPE_MULAW";
+NSString * const kGTLRAiplatform_GenaiVertexV1AudioDelta_MimeType_TypeOgg = @"TYPE_OGG";
+NSString * const kGTLRAiplatform_GenaiVertexV1AudioDelta_MimeType_TypeOpus = @"TYPE_OPUS";
+NSString * const kGTLRAiplatform_GenaiVertexV1AudioDelta_MimeType_TypeUnspecified = @"TYPE_UNSPECIFIED";
+NSString * const kGTLRAiplatform_GenaiVertexV1AudioDelta_MimeType_TypeWav = @"TYPE_WAV";
+NSString * const kGTLRAiplatform_GenaiVertexV1AudioDelta_MimeType_TypeWebm = @"TYPE_WEBM";
+
+// GTLRAiplatform_GenaiVertexV1AudioResponseFormat.delivery
+NSString * const kGTLRAiplatform_GenaiVertexV1AudioResponseFormat_Delivery_DeliveryUnspecified = @"DELIVERY_UNSPECIFIED";
+NSString * const kGTLRAiplatform_GenaiVertexV1AudioResponseFormat_Delivery_Inline = @"INLINE";
+NSString * const kGTLRAiplatform_GenaiVertexV1AudioResponseFormat_Delivery_Uri = @"URI";
+
+// GTLRAiplatform_GenaiVertexV1AudioResponseFormat.mimeType
+NSString * const kGTLRAiplatform_GenaiVertexV1AudioResponseFormat_MimeType_TypeAlaw = @"TYPE_ALAW";
+NSString * const kGTLRAiplatform_GenaiVertexV1AudioResponseFormat_MimeType_TypeL16 = @"TYPE_L16";
+NSString * const kGTLRAiplatform_GenaiVertexV1AudioResponseFormat_MimeType_TypeMp3 = @"TYPE_MP3";
+NSString * const kGTLRAiplatform_GenaiVertexV1AudioResponseFormat_MimeType_TypeMulaw = @"TYPE_MULAW";
+NSString * const kGTLRAiplatform_GenaiVertexV1AudioResponseFormat_MimeType_TypeOggOpus = @"TYPE_OGG_OPUS";
+NSString * const kGTLRAiplatform_GenaiVertexV1AudioResponseFormat_MimeType_TypeUnspecified = @"TYPE_UNSPECIFIED";
+NSString * const kGTLRAiplatform_GenaiVertexV1AudioResponseFormat_MimeType_TypeWav = @"TYPE_WAV";
+
+// GTLRAiplatform_GenaiVertexV1CodeExecutionCallContentCodeExecutionCallArguments.language
+NSString * const kGTLRAiplatform_GenaiVertexV1CodeExecutionCallContentCodeExecutionCallArguments_Language_Bash = @"BASH";
+NSString * const kGTLRAiplatform_GenaiVertexV1CodeExecutionCallContentCodeExecutionCallArguments_Language_LanguageUnspecified = @"LANGUAGE_UNSPECIFIED";
+NSString * const kGTLRAiplatform_GenaiVertexV1CodeExecutionCallContentCodeExecutionCallArguments_Language_Python = @"PYTHON";
+
+// GTLRAiplatform_GenaiVertexV1CodeExecutionCallStepCodeExecutionCallStepArguments.language
+NSString * const kGTLRAiplatform_GenaiVertexV1CodeExecutionCallStepCodeExecutionCallStepArguments_Language_Bash = @"BASH";
+NSString * const kGTLRAiplatform_GenaiVertexV1CodeExecutionCallStepCodeExecutionCallStepArguments_Language_LanguageUnspecified = @"LANGUAGE_UNSPECIFIED";
+NSString * const kGTLRAiplatform_GenaiVertexV1CodeExecutionCallStepCodeExecutionCallStepArguments_Language_Python = @"PYTHON";
+
+// GTLRAiplatform_GenaiVertexV1CodeMenderAgentConfigFindRequest.mode
+NSString * const kGTLRAiplatform_GenaiVertexV1CodeMenderAgentConfigFindRequest_Mode_ModeScan = @"MODE_SCAN";
+NSString * const kGTLRAiplatform_GenaiVertexV1CodeMenderAgentConfigFindRequest_Mode_ModeUnspecified = @"MODE_UNSPECIFIED";
+NSString * const kGTLRAiplatform_GenaiVertexV1CodeMenderAgentConfigFindRequest_Mode_ModeVerify = @"MODE_VERIFY";
+
+// GTLRAiplatform_GenaiVertexV1ComputerUse.disabledSafetyPolicies
+NSString * const kGTLRAiplatform_GenaiVertexV1ComputerUse_DisabledSafetyPolicies_AccountCreation = @"ACCOUNT_CREATION";
+NSString * const kGTLRAiplatform_GenaiVertexV1ComputerUse_DisabledSafetyPolicies_CommunicationTool = @"COMMUNICATION_TOOL";
+NSString * const kGTLRAiplatform_GenaiVertexV1ComputerUse_DisabledSafetyPolicies_DataModification = @"DATA_MODIFICATION";
+NSString * const kGTLRAiplatform_GenaiVertexV1ComputerUse_DisabledSafetyPolicies_FinancialTransactions = @"FINANCIAL_TRANSACTIONS";
+NSString * const kGTLRAiplatform_GenaiVertexV1ComputerUse_DisabledSafetyPolicies_LegalTermsAndAgreements = @"LEGAL_TERMS_AND_AGREEMENTS";
+NSString * const kGTLRAiplatform_GenaiVertexV1ComputerUse_DisabledSafetyPolicies_SafetyPolicyUnspecified = @"SAFETY_POLICY_UNSPECIFIED";
+NSString * const kGTLRAiplatform_GenaiVertexV1ComputerUse_DisabledSafetyPolicies_SensitiveDataModification = @"SENSITIVE_DATA_MODIFICATION";
+NSString * const kGTLRAiplatform_GenaiVertexV1ComputerUse_DisabledSafetyPolicies_UserConsentManagement = @"USER_CONSENT_MANAGEMENT";
+
+// GTLRAiplatform_GenaiVertexV1ComputerUse.environment
+NSString * const kGTLRAiplatform_GenaiVertexV1ComputerUse_Environment_Browser = @"BROWSER";
+NSString * const kGTLRAiplatform_GenaiVertexV1ComputerUse_Environment_Desktop = @"DESKTOP";
+NSString * const kGTLRAiplatform_GenaiVertexV1ComputerUse_Environment_EnvironmentUnspecified = @"ENVIRONMENT_UNSPECIFIED";
+NSString * const kGTLRAiplatform_GenaiVertexV1ComputerUse_Environment_Mobile = @"MOBILE";
+
+// GTLRAiplatform_GenaiVertexV1DeepResearchAgentConfig.thinkingSummaries
+NSString * const kGTLRAiplatform_GenaiVertexV1DeepResearchAgentConfig_ThinkingSummaries_ThinkingSummariesAuto = @"THINKING_SUMMARIES_AUTO";
+NSString * const kGTLRAiplatform_GenaiVertexV1DeepResearchAgentConfig_ThinkingSummaries_ThinkingSummariesNone = @"THINKING_SUMMARIES_NONE";
+NSString * const kGTLRAiplatform_GenaiVertexV1DeepResearchAgentConfig_ThinkingSummaries_ThinkingSummariesUnspecified = @"THINKING_SUMMARIES_UNSPECIFIED";
+
+// GTLRAiplatform_GenaiVertexV1DeepResearchAgentConfig.visualization
+NSString * const kGTLRAiplatform_GenaiVertexV1DeepResearchAgentConfig_Visualization_Auto = @"AUTO";
+NSString * const kGTLRAiplatform_GenaiVertexV1DeepResearchAgentConfig_Visualization_Off = @"OFF";
+NSString * const kGTLRAiplatform_GenaiVertexV1DeepResearchAgentConfig_Visualization_Unspecified = @"UNSPECIFIED";
+
+// GTLRAiplatform_GenaiVertexV1DocumentDelta.mimeType
+NSString * const kGTLRAiplatform_GenaiVertexV1DocumentDelta_MimeType_TypeCsv = @"TYPE_CSV";
+NSString * const kGTLRAiplatform_GenaiVertexV1DocumentDelta_MimeType_TypePdf = @"TYPE_PDF";
+NSString * const kGTLRAiplatform_GenaiVertexV1DocumentDelta_MimeType_TypeUnspecified = @"TYPE_UNSPECIFIED";
+
+// GTLRAiplatform_GenaiVertexV1GenerationConfig.thinkingLevel
+NSString * const kGTLRAiplatform_GenaiVertexV1GenerationConfig_ThinkingLevel_ThinkingLevelHigh = @"THINKING_LEVEL_HIGH";
+NSString * const kGTLRAiplatform_GenaiVertexV1GenerationConfig_ThinkingLevel_ThinkingLevelLow = @"THINKING_LEVEL_LOW";
+NSString * const kGTLRAiplatform_GenaiVertexV1GenerationConfig_ThinkingLevel_ThinkingLevelMedium = @"THINKING_LEVEL_MEDIUM";
+NSString * const kGTLRAiplatform_GenaiVertexV1GenerationConfig_ThinkingLevel_ThinkingLevelMinimal = @"THINKING_LEVEL_MINIMAL";
+NSString * const kGTLRAiplatform_GenaiVertexV1GenerationConfig_ThinkingLevel_ThinkingLevelUnspecified = @"THINKING_LEVEL_UNSPECIFIED";
+
+// GTLRAiplatform_GenaiVertexV1GenerationConfig.thinkingSummaries
+NSString * const kGTLRAiplatform_GenaiVertexV1GenerationConfig_ThinkingSummaries_ThinkingSummariesAuto = @"THINKING_SUMMARIES_AUTO";
+NSString * const kGTLRAiplatform_GenaiVertexV1GenerationConfig_ThinkingSummaries_ThinkingSummariesNone = @"THINKING_SUMMARIES_NONE";
+NSString * const kGTLRAiplatform_GenaiVertexV1GenerationConfig_ThinkingSummaries_ThinkingSummariesUnspecified = @"THINKING_SUMMARIES_UNSPECIFIED";
+
+// GTLRAiplatform_GenaiVertexV1GenerationConfig.toolChoiceMode
+NSString * const kGTLRAiplatform_GenaiVertexV1GenerationConfig_ToolChoiceMode_Any = @"ANY";
+NSString * const kGTLRAiplatform_GenaiVertexV1GenerationConfig_ToolChoiceMode_Auto = @"AUTO";
+NSString * const kGTLRAiplatform_GenaiVertexV1GenerationConfig_ToolChoiceMode_None = @"NONE";
+NSString * const kGTLRAiplatform_GenaiVertexV1GenerationConfig_ToolChoiceMode_ToolChoiceTypeUnspecified = @"TOOL_CHOICE_TYPE_UNSPECIFIED";
+NSString * const kGTLRAiplatform_GenaiVertexV1GenerationConfig_ToolChoiceMode_Validated = @"VALIDATED";
+
+// GTLRAiplatform_GenaiVertexV1GoogleSearch.searchTypes
+NSString * const kGTLRAiplatform_GenaiVertexV1GoogleSearch_SearchTypes_SearchTypeEnterpriseWebSearch = @"SEARCH_TYPE_ENTERPRISE_WEB_SEARCH";
+NSString * const kGTLRAiplatform_GenaiVertexV1GoogleSearch_SearchTypes_SearchTypeImageSearch = @"SEARCH_TYPE_IMAGE_SEARCH";
+NSString * const kGTLRAiplatform_GenaiVertexV1GoogleSearch_SearchTypes_SearchTypeUnspecified = @"SEARCH_TYPE_UNSPECIFIED";
+NSString * const kGTLRAiplatform_GenaiVertexV1GoogleSearch_SearchTypes_SearchTypeWebSearch = @"SEARCH_TYPE_WEB_SEARCH";
+
+// GTLRAiplatform_GenaiVertexV1GoogleSearchCallStep.searchType
+NSString * const kGTLRAiplatform_GenaiVertexV1GoogleSearchCallStep_SearchType_SearchTypeEnterpriseWebSearch = @"SEARCH_TYPE_ENTERPRISE_WEB_SEARCH";
+NSString * const kGTLRAiplatform_GenaiVertexV1GoogleSearchCallStep_SearchType_SearchTypeImageSearch = @"SEARCH_TYPE_IMAGE_SEARCH";
+NSString * const kGTLRAiplatform_GenaiVertexV1GoogleSearchCallStep_SearchType_SearchTypeUnspecified = @"SEARCH_TYPE_UNSPECIFIED";
+NSString * const kGTLRAiplatform_GenaiVertexV1GoogleSearchCallStep_SearchType_SearchTypeWebSearch = @"SEARCH_TYPE_WEB_SEARCH";
+
+// GTLRAiplatform_GenaiVertexV1ImageContent.resolution
+NSString * const kGTLRAiplatform_GenaiVertexV1ImageContent_Resolution_High = @"HIGH";
+NSString * const kGTLRAiplatform_GenaiVertexV1ImageContent_Resolution_Low = @"LOW";
+NSString * const kGTLRAiplatform_GenaiVertexV1ImageContent_Resolution_MediaResolutionUnspecified = @"MEDIA_RESOLUTION_UNSPECIFIED";
+NSString * const kGTLRAiplatform_GenaiVertexV1ImageContent_Resolution_Medium = @"MEDIUM";
+NSString * const kGTLRAiplatform_GenaiVertexV1ImageContent_Resolution_UltraHigh = @"ULTRA_HIGH";
+
+// GTLRAiplatform_GenaiVertexV1ImageDelta.mimeType
+NSString * const kGTLRAiplatform_GenaiVertexV1ImageDelta_MimeType_TypeBmp = @"TYPE_BMP";
+NSString * const kGTLRAiplatform_GenaiVertexV1ImageDelta_MimeType_TypeGif = @"TYPE_GIF";
+NSString * const kGTLRAiplatform_GenaiVertexV1ImageDelta_MimeType_TypeHeic = @"TYPE_HEIC";
+NSString * const kGTLRAiplatform_GenaiVertexV1ImageDelta_MimeType_TypeHeif = @"TYPE_HEIF";
+NSString * const kGTLRAiplatform_GenaiVertexV1ImageDelta_MimeType_TypeJpeg = @"TYPE_JPEG";
+NSString * const kGTLRAiplatform_GenaiVertexV1ImageDelta_MimeType_TypePng = @"TYPE_PNG";
+NSString * const kGTLRAiplatform_GenaiVertexV1ImageDelta_MimeType_TypeTiff = @"TYPE_TIFF";
+NSString * const kGTLRAiplatform_GenaiVertexV1ImageDelta_MimeType_TypeUnspecified = @"TYPE_UNSPECIFIED";
+NSString * const kGTLRAiplatform_GenaiVertexV1ImageDelta_MimeType_TypeWebp = @"TYPE_WEBP";
+
+// GTLRAiplatform_GenaiVertexV1ImageDelta.resolution
+NSString * const kGTLRAiplatform_GenaiVertexV1ImageDelta_Resolution_High = @"HIGH";
+NSString * const kGTLRAiplatform_GenaiVertexV1ImageDelta_Resolution_Low = @"LOW";
+NSString * const kGTLRAiplatform_GenaiVertexV1ImageDelta_Resolution_MediaResolutionUnspecified = @"MEDIA_RESOLUTION_UNSPECIFIED";
+NSString * const kGTLRAiplatform_GenaiVertexV1ImageDelta_Resolution_Medium = @"MEDIUM";
+NSString * const kGTLRAiplatform_GenaiVertexV1ImageDelta_Resolution_UltraHigh = @"ULTRA_HIGH";
+
+// GTLRAiplatform_GenaiVertexV1ImageResponseFormat.aspectRatio
+NSString * const kGTLRAiplatform_GenaiVertexV1ImageResponseFormat_AspectRatio_AspectRatioEightByOne = @"ASPECT_RATIO_EIGHT_BY_ONE";
+NSString * const kGTLRAiplatform_GenaiVertexV1ImageResponseFormat_AspectRatio_AspectRatioFiveByFour = @"ASPECT_RATIO_FIVE_BY_FOUR";
+NSString * const kGTLRAiplatform_GenaiVertexV1ImageResponseFormat_AspectRatio_AspectRatioFourByFive = @"ASPECT_RATIO_FOUR_BY_FIVE";
+NSString * const kGTLRAiplatform_GenaiVertexV1ImageResponseFormat_AspectRatio_AspectRatioFourByOne = @"ASPECT_RATIO_FOUR_BY_ONE";
+NSString * const kGTLRAiplatform_GenaiVertexV1ImageResponseFormat_AspectRatio_AspectRatioFourByThree = @"ASPECT_RATIO_FOUR_BY_THREE";
+NSString * const kGTLRAiplatform_GenaiVertexV1ImageResponseFormat_AspectRatio_AspectRatioNineBySixteen = @"ASPECT_RATIO_NINE_BY_SIXTEEN";
+NSString * const kGTLRAiplatform_GenaiVertexV1ImageResponseFormat_AspectRatio_AspectRatioOneByEight = @"ASPECT_RATIO_ONE_BY_EIGHT";
+NSString * const kGTLRAiplatform_GenaiVertexV1ImageResponseFormat_AspectRatio_AspectRatioOneByFour = @"ASPECT_RATIO_ONE_BY_FOUR";
+NSString * const kGTLRAiplatform_GenaiVertexV1ImageResponseFormat_AspectRatio_AspectRatioOneByOne = @"ASPECT_RATIO_ONE_BY_ONE";
+NSString * const kGTLRAiplatform_GenaiVertexV1ImageResponseFormat_AspectRatio_AspectRatioSixteenByNine = @"ASPECT_RATIO_SIXTEEN_BY_NINE";
+NSString * const kGTLRAiplatform_GenaiVertexV1ImageResponseFormat_AspectRatio_AspectRatioThreeByFour = @"ASPECT_RATIO_THREE_BY_FOUR";
+NSString * const kGTLRAiplatform_GenaiVertexV1ImageResponseFormat_AspectRatio_AspectRatioThreeByTwo = @"ASPECT_RATIO_THREE_BY_TWO";
+NSString * const kGTLRAiplatform_GenaiVertexV1ImageResponseFormat_AspectRatio_AspectRatioTwentyOneByNine = @"ASPECT_RATIO_TWENTY_ONE_BY_NINE";
+NSString * const kGTLRAiplatform_GenaiVertexV1ImageResponseFormat_AspectRatio_AspectRatioTwoByThree = @"ASPECT_RATIO_TWO_BY_THREE";
+NSString * const kGTLRAiplatform_GenaiVertexV1ImageResponseFormat_AspectRatio_AspectRatioUnspecified = @"ASPECT_RATIO_UNSPECIFIED";
+
+// GTLRAiplatform_GenaiVertexV1ImageResponseFormat.delivery
+NSString * const kGTLRAiplatform_GenaiVertexV1ImageResponseFormat_Delivery_DeliveryUnspecified = @"DELIVERY_UNSPECIFIED";
+NSString * const kGTLRAiplatform_GenaiVertexV1ImageResponseFormat_Delivery_Inline = @"INLINE";
+NSString * const kGTLRAiplatform_GenaiVertexV1ImageResponseFormat_Delivery_Uri = @"URI";
+
+// GTLRAiplatform_GenaiVertexV1ImageResponseFormat.imageSize
+NSString * const kGTLRAiplatform_GenaiVertexV1ImageResponseFormat_ImageSize_ImageSizeFiveTwelve = @"IMAGE_SIZE_FIVE_TWELVE";
+NSString * const kGTLRAiplatform_GenaiVertexV1ImageResponseFormat_ImageSize_ImageSizeFourK = @"IMAGE_SIZE_FOUR_K";
+NSString * const kGTLRAiplatform_GenaiVertexV1ImageResponseFormat_ImageSize_ImageSizeOneK = @"IMAGE_SIZE_ONE_K";
+NSString * const kGTLRAiplatform_GenaiVertexV1ImageResponseFormat_ImageSize_ImageSizeTwoK = @"IMAGE_SIZE_TWO_K";
+NSString * const kGTLRAiplatform_GenaiVertexV1ImageResponseFormat_ImageSize_ImageSizeUnspecified = @"IMAGE_SIZE_UNSPECIFIED";
+
+// GTLRAiplatform_GenaiVertexV1ImageResponseFormat.mimeType
+NSString * const kGTLRAiplatform_GenaiVertexV1ImageResponseFormat_MimeType_TypeJpeg = @"TYPE_JPEG";
+NSString * const kGTLRAiplatform_GenaiVertexV1ImageResponseFormat_MimeType_TypeUnspecified = @"TYPE_UNSPECIFIED";
+
+// GTLRAiplatform_GenaiVertexV1Interaction.serviceTier
+NSString * const kGTLRAiplatform_GenaiVertexV1Interaction_ServiceTier_ServiceTierDeferred = @"SERVICE_TIER_DEFERRED";
+NSString * const kGTLRAiplatform_GenaiVertexV1Interaction_ServiceTier_ServiceTierFlex = @"SERVICE_TIER_FLEX";
+NSString * const kGTLRAiplatform_GenaiVertexV1Interaction_ServiceTier_ServiceTierPriority = @"SERVICE_TIER_PRIORITY";
+NSString * const kGTLRAiplatform_GenaiVertexV1Interaction_ServiceTier_ServiceTierStandard = @"SERVICE_TIER_STANDARD";
+NSString * const kGTLRAiplatform_GenaiVertexV1Interaction_ServiceTier_ServiceTierUnspecified = @"SERVICE_TIER_UNSPECIFIED";
+
+// GTLRAiplatform_GenaiVertexV1Interaction.status
+NSString * const kGTLRAiplatform_GenaiVertexV1Interaction_Status_Cancelled = @"CANCELLED";
+NSString * const kGTLRAiplatform_GenaiVertexV1Interaction_Status_Completed = @"COMPLETED";
+NSString * const kGTLRAiplatform_GenaiVertexV1Interaction_Status_Failed = @"FAILED";
+NSString * const kGTLRAiplatform_GenaiVertexV1Interaction_Status_Incomplete = @"INCOMPLETE";
+NSString * const kGTLRAiplatform_GenaiVertexV1Interaction_Status_InProgress = @"IN_PROGRESS";
+NSString * const kGTLRAiplatform_GenaiVertexV1Interaction_Status_Queued = @"QUEUED";
+NSString * const kGTLRAiplatform_GenaiVertexV1Interaction_Status_RequiresAction = @"REQUIRES_ACTION";
+NSString * const kGTLRAiplatform_GenaiVertexV1Interaction_Status_RequiresContinuation = @"REQUIRES_CONTINUATION";
+NSString * const kGTLRAiplatform_GenaiVertexV1Interaction_Status_Unspecified = @"UNSPECIFIED";
+
+// GTLRAiplatform_GenaiVertexV1InteractionStatusUpdate.status
+NSString * const kGTLRAiplatform_GenaiVertexV1InteractionStatusUpdate_Status_Cancelled = @"CANCELLED";
+NSString * const kGTLRAiplatform_GenaiVertexV1InteractionStatusUpdate_Status_Completed = @"COMPLETED";
+NSString * const kGTLRAiplatform_GenaiVertexV1InteractionStatusUpdate_Status_Failed = @"FAILED";
+NSString * const kGTLRAiplatform_GenaiVertexV1InteractionStatusUpdate_Status_Incomplete = @"INCOMPLETE";
+NSString * const kGTLRAiplatform_GenaiVertexV1InteractionStatusUpdate_Status_InProgress = @"IN_PROGRESS";
+NSString * const kGTLRAiplatform_GenaiVertexV1InteractionStatusUpdate_Status_Queued = @"QUEUED";
+NSString * const kGTLRAiplatform_GenaiVertexV1InteractionStatusUpdate_Status_RequiresAction = @"REQUIRES_ACTION";
+NSString * const kGTLRAiplatform_GenaiVertexV1InteractionStatusUpdate_Status_RequiresContinuation = @"REQUIRES_CONTINUATION";
+NSString * const kGTLRAiplatform_GenaiVertexV1InteractionStatusUpdate_Status_Unspecified = @"UNSPECIFIED";
+
+// GTLRAiplatform_GenaiVertexV1InteractionUsageGroundingToolCount.type
+NSString * const kGTLRAiplatform_GenaiVertexV1InteractionUsageGroundingToolCount_Type_GoogleMaps = @"GOOGLE_MAPS";
+NSString * const kGTLRAiplatform_GenaiVertexV1InteractionUsageGroundingToolCount_Type_GoogleSearch = @"GOOGLE_SEARCH";
+NSString * const kGTLRAiplatform_GenaiVertexV1InteractionUsageGroundingToolCount_Type_Retrieval = @"RETRIEVAL";
+NSString * const kGTLRAiplatform_GenaiVertexV1InteractionUsageGroundingToolCount_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
+
+// GTLRAiplatform_GenaiVertexV1InteractionUsageModalityTokens.modality
+NSString * const kGTLRAiplatform_GenaiVertexV1InteractionUsageModalityTokens_Modality_Audio = @"AUDIO";
+NSString * const kGTLRAiplatform_GenaiVertexV1InteractionUsageModalityTokens_Modality_Document = @"DOCUMENT";
+NSString * const kGTLRAiplatform_GenaiVertexV1InteractionUsageModalityTokens_Modality_Image = @"IMAGE";
+NSString * const kGTLRAiplatform_GenaiVertexV1InteractionUsageModalityTokens_Modality_ResponseModalityUnspecified = @"RESPONSE_MODALITY_UNSPECIFIED";
+NSString * const kGTLRAiplatform_GenaiVertexV1InteractionUsageModalityTokens_Modality_Text = @"TEXT";
+NSString * const kGTLRAiplatform_GenaiVertexV1InteractionUsageModalityTokens_Modality_Video = @"VIDEO";
+
+// GTLRAiplatform_GenaiVertexV1Retrieval.retrievalTypes
+NSString * const kGTLRAiplatform_GenaiVertexV1Retrieval_RetrievalTypes_RetrievalTypeExaAiSearch = @"RETRIEVAL_TYPE_EXA_AI_SEARCH";
+NSString * const kGTLRAiplatform_GenaiVertexV1Retrieval_RetrievalTypes_RetrievalTypeParallelAiSearch = @"RETRIEVAL_TYPE_PARALLEL_AI_SEARCH";
+NSString * const kGTLRAiplatform_GenaiVertexV1Retrieval_RetrievalTypes_RetrievalTypeRagStore = @"RETRIEVAL_TYPE_RAG_STORE";
+NSString * const kGTLRAiplatform_GenaiVertexV1Retrieval_RetrievalTypes_RetrievalTypeUnspecified = @"RETRIEVAL_TYPE_UNSPECIFIED";
+NSString * const kGTLRAiplatform_GenaiVertexV1Retrieval_RetrievalTypes_RetrievalTypeVertexAiSearch = @"RETRIEVAL_TYPE_VERTEX_AI_SEARCH";
+
+// GTLRAiplatform_GenaiVertexV1RetrievalCallDelta.retrievalType
+NSString * const kGTLRAiplatform_GenaiVertexV1RetrievalCallDelta_RetrievalType_RetrievalTypeExaAiSearch = @"RETRIEVAL_TYPE_EXA_AI_SEARCH";
+NSString * const kGTLRAiplatform_GenaiVertexV1RetrievalCallDelta_RetrievalType_RetrievalTypeParallelAiSearch = @"RETRIEVAL_TYPE_PARALLEL_AI_SEARCH";
+NSString * const kGTLRAiplatform_GenaiVertexV1RetrievalCallDelta_RetrievalType_RetrievalTypeRagStore = @"RETRIEVAL_TYPE_RAG_STORE";
+NSString * const kGTLRAiplatform_GenaiVertexV1RetrievalCallDelta_RetrievalType_RetrievalTypeUnspecified = @"RETRIEVAL_TYPE_UNSPECIFIED";
+NSString * const kGTLRAiplatform_GenaiVertexV1RetrievalCallDelta_RetrievalType_RetrievalTypeVertexAiSearch = @"RETRIEVAL_TYPE_VERTEX_AI_SEARCH";
+
+// GTLRAiplatform_GenaiVertexV1RetrievalCallStep.retrievalType
+NSString * const kGTLRAiplatform_GenaiVertexV1RetrievalCallStep_RetrievalType_RetrievalTypeExaAiSearch = @"RETRIEVAL_TYPE_EXA_AI_SEARCH";
+NSString * const kGTLRAiplatform_GenaiVertexV1RetrievalCallStep_RetrievalType_RetrievalTypeParallelAiSearch = @"RETRIEVAL_TYPE_PARALLEL_AI_SEARCH";
+NSString * const kGTLRAiplatform_GenaiVertexV1RetrievalCallStep_RetrievalType_RetrievalTypeRagStore = @"RETRIEVAL_TYPE_RAG_STORE";
+NSString * const kGTLRAiplatform_GenaiVertexV1RetrievalCallStep_RetrievalType_RetrievalTypeUnspecified = @"RETRIEVAL_TYPE_UNSPECIFIED";
+NSString * const kGTLRAiplatform_GenaiVertexV1RetrievalCallStep_RetrievalType_RetrievalTypeVertexAiSearch = @"RETRIEVAL_TYPE_VERTEX_AI_SEARCH";
+
+// GTLRAiplatform_GenaiVertexV1SafetySetting.method
+NSString * const kGTLRAiplatform_GenaiVertexV1SafetySetting_Method_HarmBlockMethodUnspecified = @"HARM_BLOCK_METHOD_UNSPECIFIED";
+NSString * const kGTLRAiplatform_GenaiVertexV1SafetySetting_Method_Probability = @"PROBABILITY";
+NSString * const kGTLRAiplatform_GenaiVertexV1SafetySetting_Method_Severity = @"SEVERITY";
+
+// GTLRAiplatform_GenaiVertexV1SafetySetting.threshold
+NSString * const kGTLRAiplatform_GenaiVertexV1SafetySetting_Threshold_BlockLowAndAbove = @"BLOCK_LOW_AND_ABOVE";
+NSString * const kGTLRAiplatform_GenaiVertexV1SafetySetting_Threshold_BlockMediumAndAbove = @"BLOCK_MEDIUM_AND_ABOVE";
+NSString * const kGTLRAiplatform_GenaiVertexV1SafetySetting_Threshold_BlockNone = @"BLOCK_NONE";
+NSString * const kGTLRAiplatform_GenaiVertexV1SafetySetting_Threshold_BlockOnlyHigh = @"BLOCK_ONLY_HIGH";
+NSString * const kGTLRAiplatform_GenaiVertexV1SafetySetting_Threshold_HarmBlockThresholdUnspecified = @"HARM_BLOCK_THRESHOLD_UNSPECIFIED";
+NSString * const kGTLRAiplatform_GenaiVertexV1SafetySetting_Threshold_Off = @"OFF";
+
+// GTLRAiplatform_GenaiVertexV1SafetySetting.type
+NSString * const kGTLRAiplatform_GenaiVertexV1SafetySetting_Type_HarmCategoryCivicIntegrity = @"HARM_CATEGORY_CIVIC_INTEGRITY";
+NSString * const kGTLRAiplatform_GenaiVertexV1SafetySetting_Type_HarmCategoryDangerousContent = @"HARM_CATEGORY_DANGEROUS_CONTENT";
+NSString * const kGTLRAiplatform_GenaiVertexV1SafetySetting_Type_HarmCategoryHarassment = @"HARM_CATEGORY_HARASSMENT";
+NSString * const kGTLRAiplatform_GenaiVertexV1SafetySetting_Type_HarmCategoryHateSpeech = @"HARM_CATEGORY_HATE_SPEECH";
+NSString * const kGTLRAiplatform_GenaiVertexV1SafetySetting_Type_HarmCategoryImageDangerousContent = @"HARM_CATEGORY_IMAGE_DANGEROUS_CONTENT";
+NSString * const kGTLRAiplatform_GenaiVertexV1SafetySetting_Type_HarmCategoryImageHarassment = @"HARM_CATEGORY_IMAGE_HARASSMENT";
+NSString * const kGTLRAiplatform_GenaiVertexV1SafetySetting_Type_HarmCategoryImageHate = @"HARM_CATEGORY_IMAGE_HATE";
+NSString * const kGTLRAiplatform_GenaiVertexV1SafetySetting_Type_HarmCategoryImageSexuallyExplicit = @"HARM_CATEGORY_IMAGE_SEXUALLY_EXPLICIT";
+NSString * const kGTLRAiplatform_GenaiVertexV1SafetySetting_Type_HarmCategoryJailbreak = @"HARM_CATEGORY_JAILBREAK";
+NSString * const kGTLRAiplatform_GenaiVertexV1SafetySetting_Type_HarmCategorySexuallyExplicit = @"HARM_CATEGORY_SEXUALLY_EXPLICIT";
+NSString * const kGTLRAiplatform_GenaiVertexV1SafetySetting_Type_HarmCategoryUnspecified = @"HARM_CATEGORY_UNSPECIFIED";
+
+// GTLRAiplatform_GenaiVertexV1TextResponseFormat.mimeType
+NSString * const kGTLRAiplatform_GenaiVertexV1TextResponseFormat_MimeType_TypeApplicationJson = @"TYPE_APPLICATION_JSON";
+NSString * const kGTLRAiplatform_GenaiVertexV1TextResponseFormat_MimeType_TypeTextPlain = @"TYPE_TEXT_PLAIN";
+NSString * const kGTLRAiplatform_GenaiVertexV1TextResponseFormat_MimeType_TypeUnspecified = @"TYPE_UNSPECIFIED";
+
+// GTLRAiplatform_GenaiVertexV1UrlContextResultContentUrlContextResult.status
+NSString * const kGTLRAiplatform_GenaiVertexV1UrlContextResultContentUrlContextResult_Status_Error = @"ERROR";
+NSString * const kGTLRAiplatform_GenaiVertexV1UrlContextResultContentUrlContextResult_Status_Paywall = @"PAYWALL";
+NSString * const kGTLRAiplatform_GenaiVertexV1UrlContextResultContentUrlContextResult_Status_StatusUnspecified = @"STATUS_UNSPECIFIED";
+NSString * const kGTLRAiplatform_GenaiVertexV1UrlContextResultContentUrlContextResult_Status_Success = @"SUCCESS";
+NSString * const kGTLRAiplatform_GenaiVertexV1UrlContextResultContentUrlContextResult_Status_Unsafe = @"UNSAFE";
+
+// GTLRAiplatform_GenaiVertexV1UrlContextResultStepUrlContextResultItem.status
+NSString * const kGTLRAiplatform_GenaiVertexV1UrlContextResultStepUrlContextResultItem_Status_Error = @"ERROR";
+NSString * const kGTLRAiplatform_GenaiVertexV1UrlContextResultStepUrlContextResultItem_Status_Paywall = @"PAYWALL";
+NSString * const kGTLRAiplatform_GenaiVertexV1UrlContextResultStepUrlContextResultItem_Status_StatusUnspecified = @"STATUS_UNSPECIFIED";
+NSString * const kGTLRAiplatform_GenaiVertexV1UrlContextResultStepUrlContextResultItem_Status_Success = @"SUCCESS";
+NSString * const kGTLRAiplatform_GenaiVertexV1UrlContextResultStepUrlContextResultItem_Status_Unsafe = @"UNSAFE";
+
+// GTLRAiplatform_GenaiVertexV1Value.nullValue
+NSString * const kGTLRAiplatform_GenaiVertexV1Value_NullValue_NullValue = @"NULL_VALUE";
+
+// GTLRAiplatform_GenaiVertexV1VideoConfig.task
+NSString * const kGTLRAiplatform_GenaiVertexV1VideoConfig_Task_Edit = @"EDIT";
+NSString * const kGTLRAiplatform_GenaiVertexV1VideoConfig_Task_Extend = @"EXTEND";
+NSString * const kGTLRAiplatform_GenaiVertexV1VideoConfig_Task_ImageToVideo = @"IMAGE_TO_VIDEO";
+NSString * const kGTLRAiplatform_GenaiVertexV1VideoConfig_Task_ReferenceToVideo = @"REFERENCE_TO_VIDEO";
+NSString * const kGTLRAiplatform_GenaiVertexV1VideoConfig_Task_TaskUnspecified = @"TASK_UNSPECIFIED";
+NSString * const kGTLRAiplatform_GenaiVertexV1VideoConfig_Task_TextToVideo = @"TEXT_TO_VIDEO";
+NSString * const kGTLRAiplatform_GenaiVertexV1VideoConfig_Task_Upscale = @"UPSCALE";
+
+// GTLRAiplatform_GenaiVertexV1VideoContent.processingType
+NSString * const kGTLRAiplatform_GenaiVertexV1VideoContent_ProcessingType_Agentic = @"AGENTIC";
+NSString * const kGTLRAiplatform_GenaiVertexV1VideoContent_ProcessingType_ProcessingUnspecified = @"PROCESSING_UNSPECIFIED";
+NSString * const kGTLRAiplatform_GenaiVertexV1VideoContent_ProcessingType_Static = @"STATIC";
+
+// GTLRAiplatform_GenaiVertexV1VideoContent.resolution
+NSString * const kGTLRAiplatform_GenaiVertexV1VideoContent_Resolution_High = @"HIGH";
+NSString * const kGTLRAiplatform_GenaiVertexV1VideoContent_Resolution_Low = @"LOW";
+NSString * const kGTLRAiplatform_GenaiVertexV1VideoContent_Resolution_MediaResolutionUnspecified = @"MEDIA_RESOLUTION_UNSPECIFIED";
+NSString * const kGTLRAiplatform_GenaiVertexV1VideoContent_Resolution_Medium = @"MEDIUM";
+NSString * const kGTLRAiplatform_GenaiVertexV1VideoContent_Resolution_UltraHigh = @"ULTRA_HIGH";
+
+// GTLRAiplatform_GenaiVertexV1VideoDelta.mimeType
+NSString * const kGTLRAiplatform_GenaiVertexV1VideoDelta_MimeType_Type3gpp = @"TYPE_3GPP";
+NSString * const kGTLRAiplatform_GenaiVertexV1VideoDelta_MimeType_TypeAvi = @"TYPE_AVI";
+NSString * const kGTLRAiplatform_GenaiVertexV1VideoDelta_MimeType_TypeJpeg2000 = @"TYPE_JPEG2000";
+NSString * const kGTLRAiplatform_GenaiVertexV1VideoDelta_MimeType_TypeMov = @"TYPE_MOV";
+NSString * const kGTLRAiplatform_GenaiVertexV1VideoDelta_MimeType_TypeMp4 = @"TYPE_MP4";
+NSString * const kGTLRAiplatform_GenaiVertexV1VideoDelta_MimeType_TypeMpeg = @"TYPE_MPEG";
+NSString * const kGTLRAiplatform_GenaiVertexV1VideoDelta_MimeType_TypeMpg = @"TYPE_MPG";
+NSString * const kGTLRAiplatform_GenaiVertexV1VideoDelta_MimeType_TypeUnspecified = @"TYPE_UNSPECIFIED";
+NSString * const kGTLRAiplatform_GenaiVertexV1VideoDelta_MimeType_TypeWebm = @"TYPE_WEBM";
+NSString * const kGTLRAiplatform_GenaiVertexV1VideoDelta_MimeType_TypeWmv = @"TYPE_WMV";
+NSString * const kGTLRAiplatform_GenaiVertexV1VideoDelta_MimeType_TypeXFlv = @"TYPE_X_FLV";
+
+// GTLRAiplatform_GenaiVertexV1VideoDelta.resolution
+NSString * const kGTLRAiplatform_GenaiVertexV1VideoDelta_Resolution_High = @"HIGH";
+NSString * const kGTLRAiplatform_GenaiVertexV1VideoDelta_Resolution_Low = @"LOW";
+NSString * const kGTLRAiplatform_GenaiVertexV1VideoDelta_Resolution_MediaResolutionUnspecified = @"MEDIA_RESOLUTION_UNSPECIFIED";
+NSString * const kGTLRAiplatform_GenaiVertexV1VideoDelta_Resolution_Medium = @"MEDIUM";
+NSString * const kGTLRAiplatform_GenaiVertexV1VideoDelta_Resolution_UltraHigh = @"ULTRA_HIGH";
+
+// GTLRAiplatform_GenaiVertexV1VideoResponseFormat.aspectRatio
+NSString * const kGTLRAiplatform_GenaiVertexV1VideoResponseFormat_AspectRatio_AspectRatioNineBySixteen = @"ASPECT_RATIO_NINE_BY_SIXTEEN";
+NSString * const kGTLRAiplatform_GenaiVertexV1VideoResponseFormat_AspectRatio_AspectRatioSixteenByNine = @"ASPECT_RATIO_SIXTEEN_BY_NINE";
+NSString * const kGTLRAiplatform_GenaiVertexV1VideoResponseFormat_AspectRatio_AspectRatioUnspecified = @"ASPECT_RATIO_UNSPECIFIED";
+
+// GTLRAiplatform_GenaiVertexV1VideoResponseFormat.delivery
+NSString * const kGTLRAiplatform_GenaiVertexV1VideoResponseFormat_Delivery_DeliveryUnspecified = @"DELIVERY_UNSPECIFIED";
+NSString * const kGTLRAiplatform_GenaiVertexV1VideoResponseFormat_Delivery_Inline = @"INLINE";
+NSString * const kGTLRAiplatform_GenaiVertexV1VideoResponseFormat_Delivery_Uri = @"URI";
+
+// GTLRAiplatform_GenaiVertexV1VideoResponseFormat.resolution
+NSString * const kGTLRAiplatform_GenaiVertexV1VideoResponseFormat_Resolution_ResolutionFourK = @"RESOLUTION_FOUR_K";
+NSString * const kGTLRAiplatform_GenaiVertexV1VideoResponseFormat_Resolution_ResolutionSevenTwentyP = @"RESOLUTION_SEVEN_TWENTY_P";
+NSString * const kGTLRAiplatform_GenaiVertexV1VideoResponseFormat_Resolution_ResolutionTenEightyP = @"RESOLUTION_TEN_EIGHTY_P";
+NSString * const kGTLRAiplatform_GenaiVertexV1VideoResponseFormat_Resolution_ResolutionThreeSixtyP = @"RESOLUTION_THREE_SIXTY_P";
+NSString * const kGTLRAiplatform_GenaiVertexV1VideoResponseFormat_Resolution_ResolutionUnspecified = @"RESOLUTION_UNSPECIFIED";
+
+// GTLRAiplatform_GoogleCloudAiplatformV1AgentStatus.state
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1AgentStatus_State_Active = @"ACTIVE";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1AgentStatus_State_Archived = @"ARCHIVED";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1AgentStatus_State_Deleted = @"DELETED";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1AgentStatus_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1AgentStatus_State_Suspended = @"SUSPENDED";
+
+// GTLRAiplatform_GoogleCloudAiplatformV1AgentStatusSuspensionReason.reason
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1AgentStatusSuspensionReason_Reason_Abuse = @"ABUSE";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1AgentStatusSuspensionReason_Reason_Admin = @"ADMIN";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1AgentStatusSuspensionReason_Reason_ReasonUnspecified = @"REASON_UNSPECIFIED";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1AgentStatusSuspensionReason_Reason_UserInitiated = @"USER_INITIATED";
 
 // GTLRAiplatform_GoogleCloudAiplatformV1AggregationResult.aggregationMetric
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1AggregationResult_AggregationMetric_AggregationMetricUnspecified = @"AGGREGATION_METRIC_UNSPECIFIED";
@@ -132,12 +493,14 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1CacheConfigRetentionConf
 
 // GTLRAiplatform_GoogleCloudAiplatformV1Candidate.finishReason
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Candidate_FinishReason_Blocklist = @"BLOCKLIST";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Candidate_FinishReason_Continuation = @"CONTINUATION";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Candidate_FinishReason_FinishReasonUnspecified = @"FINISH_REASON_UNSPECIFIED";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Candidate_FinishReason_ImageOther = @"IMAGE_OTHER";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Candidate_FinishReason_ImageProhibitedContent = @"IMAGE_PROHIBITED_CONTENT";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Candidate_FinishReason_ImageRecitation = @"IMAGE_RECITATION";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Candidate_FinishReason_ImageSafety = @"IMAGE_SAFETY";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Candidate_FinishReason_MalformedFunctionCall = @"MALFORMED_FUNCTION_CALL";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Candidate_FinishReason_MalformedResponse = @"MALFORMED_RESPONSE";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Candidate_FinishReason_MaxTokens = @"MAX_TOKENS";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Candidate_FinishReason_ModelArmor = @"MODEL_ARMOR";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Candidate_FinishReason_NoImage = @"NO_IMAGE";
@@ -147,6 +510,7 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Candidate_FinishReason_R
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Candidate_FinishReason_Safety = @"SAFETY";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Candidate_FinishReason_Spii = @"SPII";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Candidate_FinishReason_Stop = @"STOP";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Candidate_FinishReason_TooManyToolCalls = @"TOO_MANY_TOOL_CALLS";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Candidate_FinishReason_UnexpectedToolCall = @"UNEXPECTED_TOOL_CALL";
 
 // GTLRAiplatform_GoogleCloudAiplatformV1CodeExecutionResult.outcome
@@ -986,6 +1350,10 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Presets_Modality_Text = 
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Presets_Query_Fast = @"FAST";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Presets_Query_Precise = @"PRECISE";
 
+// GTLRAiplatform_GoogleCloudAiplatformV1Principal.type
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Principal_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Principal_Type_User = @"USER";
+
 // GTLRAiplatform_GoogleCloudAiplatformV1PSCAutomationConfig.state
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1PSCAutomationConfig_State_PscAutomationStateFailed = @"PSC_AUTOMATION_STATE_FAILED";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1PSCAutomationConfig_State_PscAutomationStateSuccessful = @"PSC_AUTOMATION_STATE_SUCCESSFUL";
@@ -1343,6 +1711,16 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1SupervisedHyperParameter
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1SupervisedHyperParameters_AdapterSize_AdapterSizeTwo = @"ADAPTER_SIZE_TWO";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1SupervisedHyperParameters_AdapterSize_AdapterSizeUnspecified = @"ADAPTER_SIZE_UNSPECIFIED";
 
+// GTLRAiplatform_GoogleCloudAiplatformV1Teammate.expansionMode
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Teammate_ExpansionMode_Expanded = @"EXPANDED";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Teammate_ExpansionMode_ExpansionModeUnspecified = @"EXPANSION_MODE_UNSPECIFIED";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Teammate_ExpansionMode_Infer = @"INFER";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Teammate_ExpansionMode_NonExpanded = @"NON_EXPANDED";
+
+// GTLRAiplatform_GoogleCloudAiplatformV1Tenant.type
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Tenant_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Tenant_Type_WorkspaceCustomer = @"WORKSPACE_CUSTOMER";
+
 // GTLRAiplatform_GoogleCloudAiplatformV1Tensor.dtype
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Tensor_Dtype_Bool = @"BOOL";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Tensor_Dtype_DataTypeUnspecified = @"DATA_TYPE_UNSPECIFIED";
@@ -1488,10 +1866,11 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1VideoResponseFormat_Deli
 @implementation GTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoExperiments
 @dynamic allowMeteredBilling, anchorLastFrame, audioControl, cfgScale, codec,
          colorAlignment, conditioningFrames, customParameters,
-         exrColorSpaceOverride, humanPose, modelEndpointOverride, modelName,
-         numDiffusionSteps, omniRewriter, originalRequestJson, outpaintConfig,
-         proEdit, promptInputs, requestOriginTag, schedulingConfig, seamless,
-         spatialAlignment, truncateInputVideo, videoTransform,
+         exrColorSpaceOverride, humanPose, loraConfig, modelEndpointOverride,
+         modelName, numDiffusionSteps, omniRewriter, originalRequestJson,
+         outpaintConfig, perfEstimationConfig, proEdit, promptInputs,
+         requestOriginTag, schedulingConfig, seamless, spatialAlignment,
+         superResConfig, truncateInputVideo, videoTransform,
          videoTransformMaskGcsUri, videoTransformStrength;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
@@ -1530,6 +1909,16 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1VideoResponseFormat_Deli
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoExperimentsBoundingBox
+//
+
+@implementation GTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoExperimentsBoundingBox
+@dynamic bottom, frameIndex, left, right, top;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoExperimentsColorAlignmentConfig
 //
 
@@ -1545,6 +1934,39 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1VideoResponseFormat_Deli
 
 @implementation GTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoExperimentsConditioningFrame
 @dynamic frameNum, image;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoExperimentsLoraConfig
+//
+
+@implementation GTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoExperimentsLoraConfig
+@dynamic adapters;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"adapters" : [GTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoExperimentsLoraConfigAdapter class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoExperimentsLoraConfigAdapter
+//
+
+@implementation GTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoExperimentsLoraConfigAdapter
+@dynamic identifier, resolvedPath, weight;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
 @end
 
 
@@ -1588,6 +2010,35 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1VideoResponseFormat_Deli
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoExperimentsPerfEstimationConfig
+//
+
+@implementation GTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoExperimentsPerfEstimationConfig
+@dynamic exportUsd, sourceBoundingBox, sourceVideo, targetCharacterReferences,
+         temporalSmoothness;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"targetCharacterReferences" : [GTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoExperimentsPerfEstimationConfigCharacterReference class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoExperimentsPerfEstimationConfigCharacterReference
+//
+
+@implementation GTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoExperimentsPerfEstimationConfigCharacterReference
+@dynamic boundingBox, referenceImage, referenceVideo;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoExperimentsProEditConfig
 //
 
@@ -1603,6 +2054,16 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1VideoResponseFormat_Deli
 
 @implementation GTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoExperimentsSpatialAlignmentConfig
 @dynamic enable;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoExperimentsSuperResConfig
+//
+
+@implementation GTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoExperimentsSuperResConfig
+@dynamic mode, steps, tileSmoothing;
 @end
 
 
@@ -1892,6 +2353,1964 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1VideoResponseFormat_Deli
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAiplatform_GenaiVertexV1AgentInteraction
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1AgentInteraction
+@dynamic agent, antigravityConfig, codeMenderConfig, deepResearchConfig,
+         dynamicConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1AllowedTools
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1AllowedTools
+@dynamic mode, tools;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"tools" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1AntigravityAgentConfig
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1AntigravityAgentConfig
+@dynamic maxTotalTokens, model;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1ArgumentsDelta
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1ArgumentsDelta
+@dynamic arguments;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1AudioContent
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1AudioContent
+@dynamic channels, data, mimeTypeString, sampleRate, uri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1AudioDelta
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1AudioDelta
+@dynamic channels, data, mimeType, sampleRate, uri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1AudioResponseFormat
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1AudioResponseFormat
+@dynamic bitRate, delivery, mimeType, sampleRate;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1CodeExecution
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1CodeExecution
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1CodeExecutionCallContentCodeExecutionCallArguments
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1CodeExecutionCallContentCodeExecutionCallArguments
+@dynamic code, language;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1CodeExecutionCallDelta
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1CodeExecutionCallDelta
+@dynamic arguments;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1CodeExecutionCallStep
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1CodeExecutionCallStep
+@dynamic arguments;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1CodeExecutionCallStepCodeExecutionCallStepArguments
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1CodeExecutionCallStepCodeExecutionCallStepArguments
+@dynamic code, language;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1CodeExecutionResultDelta
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1CodeExecutionResultDelta
+@dynamic isError, result;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1CodeExecutionResultStep
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1CodeExecutionResultStep
+@dynamic isError, result;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1CodeMenderAgentConfig
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1CodeMenderAgentConfig
+@dynamic findRequest, fixRequest, model, sessionConfig, sessionId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1CodeMenderAgentConfigFileContent
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1CodeMenderAgentConfigFileContent
+@dynamic content, path;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1CodeMenderAgentConfigFindRequest
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1CodeMenderAgentConfigFindRequest
+@dynamic descriptionProperty, findingId, mode, sourceFiles;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"sourceFiles" : [GTLRAiplatform_GenaiVertexV1CodeMenderAgentConfigFileContent class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1CodeMenderAgentConfigFixRequest
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1CodeMenderAgentConfigFixRequest
+@dynamic descriptionProperty, findingId, sourceFiles;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"sourceFiles" : [GTLRAiplatform_GenaiVertexV1CodeMenderAgentConfigFileContent class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1CodeMenderAgentConfigSessionConfig
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1CodeMenderAgentConfigSessionConfig
+@dynamic maxRounds;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1ComputerUse
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1ComputerUse
+@dynamic disabledSafetyPolicies, enablePromptInjectionDetection, environment,
+         excludedPredefinedFunctions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"disabledSafetyPolicies" : [NSString class],
+    @"excludedPredefinedFunctions" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1Content
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1Content
+@dynamic audio, document, image, text, video;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1ContentList
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1ContentList
+@dynamic contents;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"contents" : [GTLRAiplatform_GenaiVertexV1Content class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1CreateInteractionHttpRequest
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1CreateInteractionHttpRequest
+@dynamic httpBody;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1CreateInteractionRequest
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1CreateInteractionRequest
+@dynamic background, interaction, store, stream;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1DeepResearchAgentConfig
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1DeepResearchAgentConfig
+@dynamic collaborativePlanning, enableBigqueryTool, thinkingSummaries,
+         visualization;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1DeleteInteractionResponse
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1DeleteInteractionResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1DocumentContent
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1DocumentContent
+@dynamic data, mimeTypeString, uri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1DocumentDelta
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1DocumentDelta
+@dynamic data, mimeType, uri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1DynamicAgentConfig
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1DynamicAgentConfig
+@dynamic config;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1Error
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1Error
+@dynamic code, message;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1ErrorEvent
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1ErrorEvent
+@dynamic error;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1ExaAISearchConfig
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1ExaAISearchConfig
+@dynamic apiKey, customConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1ExaAISearchConfig_CustomConfig
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1ExaAISearchConfig_CustomConfig
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1Field
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1Field
+@dynamic name, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1FileCitation
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1FileCitation
+@dynamic customMetadata, documentUri, fileName, mediaId, pageNumber, source;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1FileCitation_CustomMetadata
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1FileCitation_CustomMetadata
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1FileSearch
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1FileSearch
+@dynamic fileSearchStoreNames, metadataFilter, topK;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"fileSearchStoreNames" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1FileSearchCallDelta
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1FileSearchCallDelta
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1FileSearchCallStep
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1FileSearchCallStep
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1FileSearchResultContentFileSearchResult
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1FileSearchResultContentFileSearchResult
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1FileSearchResultDelta
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1FileSearchResultDelta
+@dynamic result;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"result" : [GTLRAiplatform_GenaiVertexV1FileSearchResultContentFileSearchResult class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1FileSearchResultStep
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1FileSearchResultStep
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1Function
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1Function
+@dynamic descriptionProperty, name, parameters;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1FunctionCallStep
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1FunctionCallStep
+@dynamic arguments, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1FunctionResultDelta
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1FunctionResultDelta
+@dynamic isError, name, result;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1FunctionResultStep
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1FunctionResultStep
+@dynamic isError, name, result;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1GenerationConfig
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1GenerationConfig
+@dynamic maxOutputTokens, seed, stopSequences, structuredSpeechConfig,
+         temperature, thinkingLevel, thinkingSummaries, toolChoiceConfig,
+         toolChoiceMode, topP, transcriptionConfig, videoConfig;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"stopSequences" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1GoogleMaps
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1GoogleMaps
+@dynamic enableWidget, latitude, longitude;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1GoogleMapsCallContentGoogleMapsCallArguments
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1GoogleMapsCallContentGoogleMapsCallArguments
+@dynamic queries;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"queries" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1GoogleMapsCallDelta
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1GoogleMapsCallDelta
+@dynamic arguments;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1GoogleMapsCallStep
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1GoogleMapsCallStep
+@dynamic arguments;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1GoogleMapsCallStepGoogleMapsCallStepArguments
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1GoogleMapsCallStepGoogleMapsCallStepArguments
+@dynamic queries;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"queries" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1GoogleMapsResultContentGoogleMapsResult
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1GoogleMapsResultContentGoogleMapsResult
+@dynamic places, widgetContextToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"places" : [GTLRAiplatform_GenaiVertexV1GoogleMapsResultContentGoogleMapsResultPlaces class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1GoogleMapsResultContentGoogleMapsResultPlaces
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1GoogleMapsResultContentGoogleMapsResultPlaces
+@dynamic name, placeId, reviewSnippets, url;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"reviewSnippets" : [GTLRAiplatform_GenaiVertexV1ReviewSnippet class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1GoogleMapsResultDelta
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1GoogleMapsResultDelta
+@dynamic result;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"result" : [GTLRAiplatform_GenaiVertexV1GoogleMapsResultContentGoogleMapsResult class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1GoogleMapsResultStep
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1GoogleMapsResultStep
+@dynamic result;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"result" : [GTLRAiplatform_GenaiVertexV1GoogleMapsResultStepGoogleMapsResultItem class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1GoogleMapsResultStepGoogleMapsResultItem
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1GoogleMapsResultStepGoogleMapsResultItem
+@dynamic places, widgetContextToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"places" : [GTLRAiplatform_GenaiVertexV1GoogleMapsResultStepGoogleMapsResultItemGoogleMapsResultPlaces class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1GoogleMapsResultStepGoogleMapsResultItemGoogleMapsResultPlaces
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1GoogleMapsResultStepGoogleMapsResultItemGoogleMapsResultPlaces
+@dynamic name, placeId, reviewSnippets, url;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"reviewSnippets" : [GTLRAiplatform_GenaiVertexV1ReviewSnippet class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1GoogleSearch
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1GoogleSearch
+@dynamic searchTypes;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"searchTypes" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1GoogleSearchCallContentGoogleSearchCallArguments
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1GoogleSearchCallContentGoogleSearchCallArguments
+@dynamic queries;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"queries" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1GoogleSearchCallDelta
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1GoogleSearchCallDelta
+@dynamic arguments;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1GoogleSearchCallStep
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1GoogleSearchCallStep
+@dynamic arguments, searchType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1GoogleSearchCallStepGoogleSearchCallStepArguments
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1GoogleSearchCallStepGoogleSearchCallStepArguments
+@dynamic queries;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"queries" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1GoogleSearchResultContentGoogleSearchResult
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1GoogleSearchResultContentGoogleSearchResult
+@dynamic searchSuggestions;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1GoogleSearchResultDelta
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1GoogleSearchResultDelta
+@dynamic isError, result;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"result" : [GTLRAiplatform_GenaiVertexV1GoogleSearchResultContentGoogleSearchResult class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1GoogleSearchResultStep
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1GoogleSearchResultStep
+@dynamic isError, result;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"result" : [GTLRAiplatform_GenaiVertexV1GoogleSearchResultStepGoogleSearchResultItem class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1GoogleSearchResultStepGoogleSearchResultItem
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1GoogleSearchResultStepGoogleSearchResultItem
+@dynamic searchSuggestions;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1ImageContent
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1ImageContent
+@dynamic data, mimeTypeString, resolution, uri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1ImageDelta
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1ImageDelta
+@dynamic data, mimeType, resolution, uri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1ImageResponseFormat
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1ImageResponseFormat
+@dynamic aspectRatio, delivery, imageSize, mimeType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1Interaction
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1Interaction
+@dynamic agentInteraction, content, created, envId, environmentId, errors,
+         identifier, labels, modelInteraction, previousInteractionId,
+         responseFormatList, responseFormatSingleton, safetySettings,
+         serviceTier, status, stepList, steps, stringContent, systemInstruction,
+         tools, updated, usage;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"errors" : [GTLRAiplatform_GenaiVertexV1Error class],
+    @"safetySettings" : [GTLRAiplatform_GenaiVertexV1SafetySetting class],
+    @"steps" : [GTLRAiplatform_GenaiVertexV1Step class],
+    @"tools" : [GTLRAiplatform_GenaiVertexV1Tool class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1Interaction_Labels
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1Interaction_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1InteractionCompletedSseEvent
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1InteractionCompletedSseEvent
+@dynamic interaction;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1InteractionCreatedSseEvent
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1InteractionCreatedSseEvent
+@dynamic interaction;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1InteractionStatusUpdate
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1InteractionStatusUpdate
+@dynamic interactionId, status, usage;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1InteractionStreamingEvent
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1InteractionStreamingEvent
+@dynamic errorEvent, eventId, interactionCompletedEvent,
+         interactionCreatedEvent, interactionStatusUpdate, stepDelta, stepStart,
+         stepStop;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1InteractionUsage
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1InteractionUsage
+@dynamic cachedTokensByModality, groundingToolCount, initialInputTokens,
+         inputTokensByModality, outputTokensByModality, toolUseTokensByModality,
+         totalCachedTokens, totalInputTokens, totalOutputTokens,
+         totalThoughtTokens, totalTokens, totalToolUseTokens;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"cachedTokensByModality" : [GTLRAiplatform_GenaiVertexV1InteractionUsageModalityTokens class],
+    @"groundingToolCount" : [GTLRAiplatform_GenaiVertexV1InteractionUsageGroundingToolCount class],
+    @"inputTokensByModality" : [GTLRAiplatform_GenaiVertexV1InteractionUsageModalityTokens class],
+    @"outputTokensByModality" : [GTLRAiplatform_GenaiVertexV1InteractionUsageModalityTokens class],
+    @"toolUseTokensByModality" : [GTLRAiplatform_GenaiVertexV1InteractionUsageModalityTokens class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1InteractionUsageGroundingToolCount
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1InteractionUsageGroundingToolCount
+@dynamic count, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1InteractionUsageModalityTokens
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1InteractionUsageModalityTokens
+@dynamic modality, tokens;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1ListValue
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1ListValue
+@dynamic values;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"values" : [GTLRAiplatform_GenaiVertexV1Value class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1McpServer
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1McpServer
+@dynamic allowedTools, headers, name, url;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"allowedTools" : [GTLRAiplatform_GenaiVertexV1AllowedTools class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1McpServer_Headers
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1McpServer_Headers
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1ModelInteraction
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1ModelInteraction
+@dynamic generationConfig, model;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1ModelOutputStep
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1ModelOutputStep
+@dynamic content, error;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"content" : [GTLRAiplatform_GenaiVertexV1Content class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1ParallelAISearchConfig
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1ParallelAISearchConfig
+@dynamic apiKey, customConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1ParallelAISearchConfig_CustomConfig
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1ParallelAISearchConfig_CustomConfig
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1PlaceCitation
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1PlaceCitation
+@dynamic name, placeId, reviewSnippets, url;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"reviewSnippets" : [GTLRAiplatform_GenaiVertexV1ReviewSnippet class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1ProcessingCallDelta
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1ProcessingCallDelta
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1ProcessingCallStep
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1ProcessingCallStep
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1ProcessingResultDelta
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1ProcessingResultDelta
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1ProcessingResultStep
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1ProcessingResultStep
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1RagStoreConfig
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1RagStoreConfig
+@dynamic ragResources, ragRetrievalConfig;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"ragResources" : [GTLRAiplatform_GenaiVertexV1RagStoreConfigRagResource class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1RagStoreConfigRagResource
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1RagStoreConfigRagResource
+@dynamic ragCorpus, ragFileIds;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"ragFileIds" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1RagStoreConfigRagRetrievalConfig
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1RagStoreConfigRagRetrievalConfig
+@dynamic filter, hybridSearch, ranking, topK;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1RagStoreConfigRagRetrievalConfigFilter
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1RagStoreConfigRagRetrievalConfigFilter
+@dynamic metadataFilter, vectorDistanceThreshold, vectorSimilarityThreshold;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1RagStoreConfigRagRetrievalConfigHybridSearch
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1RagStoreConfigRagRetrievalConfigHybridSearch
+@dynamic alpha;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1RagStoreConfigRagRetrievalConfigRanking
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1RagStoreConfigRagRetrievalConfigRanking
+@dynamic rankService;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1RagStoreConfigRagRetrievalConfigRankingRankService
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1RagStoreConfigRagRetrievalConfigRankingRankService
+@dynamic modelName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1ResponseFormat
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1ResponseFormat
+@dynamic audio, image, structValue, text, video;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1ResponseFormatList
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1ResponseFormatList
+@dynamic responseFormats;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"responseFormats" : [GTLRAiplatform_GenaiVertexV1ResponseFormat class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1Retrieval
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1Retrieval
+@dynamic exaAiSearchConfig, parallelAiSearchConfig, ragStoreConfig,
+         retrievalTypes, vertexAiSearchConfig;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"retrievalTypes" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1RetrievalCallDelta
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1RetrievalCallDelta
+@dynamic arguments, retrievalType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1RetrievalCallStep
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1RetrievalCallStep
+@dynamic arguments, retrievalType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1RetrievalCallStepRetrievalStepArguments
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1RetrievalCallStepRetrievalStepArguments
+@dynamic queries;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"queries" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1RetrievalResultDelta
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1RetrievalResultDelta
+@dynamic isError;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1RetrievalResultStep
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1RetrievalResultStep
+@dynamic isError;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1ReviewSnippet
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1ReviewSnippet
+@dynamic reviewId, title, url;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1SafetySetting
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1SafetySetting
+@dynamic method, threshold, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1ServerToolCallDelta
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1ServerToolCallDelta
+@dynamic codeExecutionCall, fileSearchCall, googleMapsCall, googleSearchCall,
+         processingCall, retrievalCall, signature, urlContextCall;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1ServerToolResultDelta
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1ServerToolResultDelta
+@dynamic codeExecutionResult, fileSearchResult, googleMapsResult,
+         googleSearchResult, processingResult, retrievalResult, signature,
+         urlContextResult;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1SpeakerConfig
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1SpeakerConfig
+@dynamic speakers;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"speakers" : [GTLRAiplatform_GenaiVertexV1SpeechConfig class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1SpeechAnnotation
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1SpeechAnnotation
+@dynamic speaker, style;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1SpeechConfig
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1SpeechConfig
+@dynamic language, speaker, voice;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1Step
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1Step
+@dynamic modelOutput, thought, toolCall, toolResult, userInput;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1StepDelta
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1StepDelta
+@dynamic delta, index;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1StepDeltaData
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1StepDeltaData
+@dynamic argumentsDelta, audio, document, functionResult, image, serverToolCall,
+         serverToolResult, text, textAnnotationDelta, thoughtSignature,
+         thoughtSummary, video;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1StepList
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1StepList
+@dynamic steps;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"steps" : [GTLRAiplatform_GenaiVertexV1Step class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1StepStart
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1StepStart
+@dynamic index, step;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1StepStop
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1StepStop
+@dynamic index, stepUsage, usage;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1Struct
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1Struct
+@dynamic fields;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"fields" : [GTLRAiplatform_GenaiVertexV1Field class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1TextAnnotationDelta
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1TextAnnotationDelta
+@dynamic annotations;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"annotations" : [GTLRAiplatform_GenaiVertexV1TextContentAnnotation class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1TextContent
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1TextContent
+@dynamic annotations, text;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"annotations" : [GTLRAiplatform_GenaiVertexV1TextContentAnnotation class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1TextContentAnnotation
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1TextContentAnnotation
+@dynamic endIndex, fileCitation, placeCitation, speechMetadata, startIndex,
+         urlCitation, wordInfo;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1TextDelta
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1TextDelta
+@dynamic text;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1TextResponseFormat
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1TextResponseFormat
+@dynamic mimeType, schema;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1ThoughtSignatureDelta
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1ThoughtSignatureDelta
+@dynamic signature;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1ThoughtStep
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1ThoughtStep
+@dynamic signature, summary;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"summary" : [GTLRAiplatform_GenaiVertexV1Content class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1ThoughtSummaryDelta
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1ThoughtSummaryDelta
+@dynamic content;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1Tool
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1Tool
+@dynamic codeExecution, computerUse, fileSearch, function, googleMaps,
+         googleSearch, mcpServer, retrieval, urlContext;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1ToolCallStep
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1ToolCallStep
+@dynamic codeExecutionCall, fileSearchCall, functionCall, googleMapsCall,
+         googleSearchCall, identifier, processingCall, retrievalCall, signature,
+         urlContextCall;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1ToolChoiceConfig
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1ToolChoiceConfig
+@dynamic allowedTools;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1ToolResultStep
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1ToolResultStep
+@dynamic callId, codeExecutionResult, fileSearchResult, functionResult,
+         googleMapsResult, googleSearchResult, processingResult,
+         retrievalResult, signature, urlContextResult;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1TranscriptionConfig
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1TranscriptionConfig
+@dynamic adaptationPhrases, customVocabulary, diarizationMode, languageCodes,
+         timestampGranularities;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"adaptationPhrases" : [NSString class],
+    @"customVocabulary" : [NSString class],
+    @"languageCodes" : [NSString class],
+    @"timestampGranularities" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1UrlCitation
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1UrlCitation
+@dynamic title, url;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1UrlContext
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1UrlContext
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1UrlContextCallContentUrlContextCallArguments
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1UrlContextCallContentUrlContextCallArguments
+@dynamic urls;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"urls" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1UrlContextCallDelta
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1UrlContextCallDelta
+@dynamic arguments;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1UrlContextCallStep
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1UrlContextCallStep
+@dynamic arguments;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1UrlContextCallStepUrlContextCallStepArguments
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1UrlContextCallStepUrlContextCallStepArguments
+@dynamic urls;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"urls" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1UrlContextResultContentUrlContextResult
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1UrlContextResultContentUrlContextResult
+@dynamic status, url;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1UrlContextResultDelta
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1UrlContextResultDelta
+@dynamic isError, result;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"result" : [GTLRAiplatform_GenaiVertexV1UrlContextResultContentUrlContextResult class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1UrlContextResultStep
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1UrlContextResultStep
+@dynamic isError, result;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"result" : [GTLRAiplatform_GenaiVertexV1UrlContextResultStepUrlContextResultItem class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1UrlContextResultStepUrlContextResultItem
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1UrlContextResultStepUrlContextResultItem
+@dynamic status, url;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1UserInputStep
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1UserInputStep
+@dynamic contentList, contentString;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1Value
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1Value
+@dynamic boolValue, contentValue, listValue, nullValue, numberValue,
+         stringValue, structValue;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1VertexAISearchConfig
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1VertexAISearchConfig
+@dynamic datastores, engine;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"datastores" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1VideoConfig
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1VideoConfig
+@dynamic task;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1VideoContent
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1VideoContent
+@dynamic data, mimeTypeString, name, processingConfig, processingType,
+         resolution, uri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1VideoContentMediaProcessing
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1VideoContentMediaProcessing
+@dynamic staticProperty;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"staticProperty" : @"static" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1VideoContentStaticMediaProcessing
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1VideoContentStaticMediaProcessing
+@dynamic endOffset, fps, startOffset;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1VideoDelta
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1VideoDelta
+@dynamic data, mimeType, resolution, uri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1VideoResponseFormat
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1VideoResponseFormat
+@dynamic aspectRatio, delivery, duration, gcsUri, resolution;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GenaiVertexV1WordInfo
+//
+
+@implementation GTLRAiplatform_GenaiVertexV1WordInfo
+@dynamic endOffset, speaker, startOffset, text;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAiplatform_GoogleApiHttpBody
 //
 
@@ -2049,9 +4468,11 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1VideoResponseFormat_Deli
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1Agent
-@dynamic baseAgent, baseEnvironment, created, descriptionProperty, identifier,
-         metadata, name, object, observabilityConfig, systemInstruction, tools,
-         updated;
+@dynamic agentIdentity, aiApplication, allowedTeammates, baseAgent,
+         baseEnvironment, created, descriptionProperty, effectiveIdentity,
+         encryptionSpec, identifier, memoryConfig, metadata, modelConfig, name,
+         object, observabilityConfig, owner, persona, status, systemInstruction,
+         tools, updated;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -2177,11 +4598,61 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1VideoResponseFormat_Deli
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAiplatform_GoogleCloudAiplatformV1AgentIdentity
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1AgentIdentity
+@dynamic email, gaiaId, tenant;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1AgentMemoryConfig
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1AgentMemoryConfig
+@dynamic disableMemory;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1AgentModelConfig
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1AgentModelConfig
+@dynamic model, temperature;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAiplatform_GoogleCloudAiplatformV1AgentResponseCustomization
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1AgentResponseCustomization
 @dynamic denialMessage;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1AgentStatus
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1AgentStatus
+@dynamic deleteTime, state, suspensionReason;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1AgentStatusSuspensionReason
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1AgentStatusSuspensionReason
+@dynamic reason, suspensionTime;
 @end
 
 
@@ -2236,6 +4707,24 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1VideoResponseFormat_Deli
 @dynamic aggregationMetric, bleuMetricValue, customCodeExecutionResult,
          exactMatchMetricValue, pairwiseMetricResult, pointwiseMetricResult,
          rougeMetricValue;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1AllowedTeammates
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1AllowedTeammates
+@dynamic teammates;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"teammates" : [GTLRAiplatform_GoogleCloudAiplatformV1Teammate class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -2491,7 +4980,7 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1VideoResponseFormat_Deli
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1AudioTranscriptionConfig
 @dynamic adaptationPhrases, customVocabulary, diarization, languageAuto,
-         languageCodes, languageHints, mode, wordTimestamp;
+         languageCodes, languageHints, mode, sourceText, wordTimestamp;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2865,6 +5354,60 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1VideoResponseFormat_Deli
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"names" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1BatchEmbedContentsRequest
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1BatchEmbedContentsRequest
+@dynamic requests;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"requests" : [GTLRAiplatform_GoogleCloudAiplatformV1EmbedContentRequest class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1BatchEmbedContentsResponse
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1BatchEmbedContentsResponse
+@dynamic embeddings, usageMetadata;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"embeddings" : [GTLRAiplatform_GoogleCloudAiplatformV1BatchEmbedContentsResponseEmbedding class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1BatchEmbedContentsResponseEmbedding
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1BatchEmbedContentsResponseEmbedding
+@dynamic values;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"values" : [NSNumber class]
   };
   return map;
 }
@@ -3492,9 +6035,9 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1VideoResponseFormat_Deli
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1Candidate
-@dynamic avgLogprobs, citationMetadata, content, finishMessage, finishReason,
-         groundingMetadata, index, logprobsResult, safetyRatings,
-         urlContextMetadata;
+@dynamic avgLogprobs, citationMetadata, content, continuationToken,
+         finishMessage, finishReason, groundingMetadata, index, logprobsResult,
+         safetyRatings, urlContextMetadata;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -3623,6 +6166,29 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1VideoResponseFormat_Deli
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"factIndexes" : [NSNumber class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1ClaudeFile
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1ClaudeFile
+@dynamic createdAt, downloadable, expiresAt, filename, identifier, mimeType,
+         sizeBytes, type;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"createdAt" : @"created_at",
+    @"expiresAt" : @"expires_at",
+    @"identifier" : @"id",
+    @"mimeType" : @"mime_type",
+    @"sizeBytes" : @"size_bytes"
   };
   return map;
 }
@@ -4316,6 +6882,15 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1VideoResponseFormat_Deli
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAiplatform_GoogleCloudAiplatformV1CreateFileRequest
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1CreateFileRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAiplatform_GoogleCloudAiplatformV1CreateIndexEndpointOperationMetadata
 //
 
@@ -4584,6 +7159,16 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1VideoResponseFormat_Deli
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1CustomOutputFormatConfig
 @dynamic returnRawOutput;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1DataAgentConfig
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1DataAgentConfig
+@dynamic dataAgent;
 @end
 
 
@@ -4869,6 +7454,21 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1VideoResponseFormat_Deli
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1DeleteFeatureValuesResponseSelectTimeRangeAndFeature
 @dynamic impactedFeatureCount, offlineStorageModifiedEntityRowCount,
          onlineStorageModifiedEntityCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1DeleteFileResponse
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1DeleteFileResponse
+@dynamic identifier, type;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
 @end
 
 
@@ -5324,6 +7924,15 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1VideoResponseFormat_Deli
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAiplatform_GoogleCloudAiplatformV1DownloadFileResponse
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1DownloadFileResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAiplatform_GoogleCloudAiplatformV1DynamicRetrievalConfig
 //
 
@@ -5338,7 +7947,7 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1VideoResponseFormat_Deli
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1EmbedContentRequest
-@dynamic autoTruncate, content, embedContentConfig, outputDimensionality,
+@dynamic autoTruncate, content, embedContentConfig, model, outputDimensionality,
          taskType, title;
 @end
 
@@ -5629,10 +8238,11 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1VideoResponseFormat_Deli
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1EvaluateInstancesRequest
-@dynamic autoraterConfig, bleuInput, coherenceInput, cometInput,
-         exactMatchInput, fluencyInput, fulfillmentInput, groundednessInput,
-         instance, location, metrics, metricSources, metricxInput,
-         pairwiseMetricInput, pairwiseQuestionAnsweringQualityInput,
+@dynamic allowCrossRegionModel, autoraterConfig, bleuInput, coherenceInput,
+         cometInput, exactMatchInput, fluencyInput, fulfillmentInput,
+         groundednessInput, instance, location, metrics, metricSources,
+         metricxInput, pairwiseMetricInput,
+         pairwiseQuestionAnsweringQualityInput,
          pairwiseSummarizationQualityInput, pointwiseMetricInput,
          questionAnsweringCorrectnessInput, questionAnsweringHelpfulnessInput,
          questionAnsweringQualityInput, questionAnsweringRelevanceInput,
@@ -5723,8 +8333,8 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1VideoResponseFormat_Deli
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1EvaluationInstance
-@dynamic agentData, interactionsDataSource, otherData, prompt, reference,
-         response, rubricGroups;
+@dynamic agentData, agentEvalData, interactionsDataSource, otherData, prompt,
+         reference, response, rubricGroups;
 @end
 
 
@@ -6162,7 +8772,7 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1VideoResponseFormat_Deli
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRun
 @dynamic completionTime, createTime, dataSource, displayName, encryptionSpec,
          error, evaluationConfig, evaluationResults, evaluationSetSnapshot,
-         inferenceConfigs, labels, metadata, name, state;
+         inferenceConfigs, labels, metadata, name, serviceAccount, state;
 @end
 
 
@@ -6210,9 +8820,9 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1VideoResponseFormat_Deli
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunEvaluationConfig
-@dynamic autoraterConfig, cloudLoggingConfig, datasetCustomMetrics,
-         lossAnalysisConfig, metrics, outputConfig, promptTemplate,
-         rubricConfigs;
+@dynamic allowCrossRegionModel, autoraterConfig, cloudLoggingConfig,
+         datasetCustomMetrics, lossAnalysisConfig, metrics, outputConfig,
+         promptTemplate, rubricConfigs;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -6288,7 +8898,8 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1VideoResponseFormat_Deli
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunInferenceConfigAgentRunConfig
-@dynamic agentEngine, geminiAgentConfig, sessionInput, userSimulatorConfig;
+@dynamic agentEngine, dataAgentConfig, geminiAgentConfig, sessionInput,
+         userSimulatorConfig;
 @end
 
 
@@ -8581,8 +11192,9 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1VideoResponseFormat_Deli
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1GenerateContentRequest
-@dynamic cachedContent, contents, generationConfig, labels, modelArmorConfig,
-         safetySettings, systemInstruction, toolConfig, tools;
+@dynamic cachedContent, contents, continuationToken, generationConfig, labels,
+         modelArmorConfig, outputConfig, safetySettings, systemInstruction,
+         toolConfig, tools;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -8607,6 +11219,16 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1VideoResponseFormat_Deli
   return [NSString class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1GenerateContentRequestOutputConfig
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1GenerateContentRequestOutputConfig
+@dynamic outputUriPrefix;
 @end
 
 
@@ -10745,6 +13367,28 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1VideoResponseFormat_Deli
 
 + (NSString *)collectionItemsKey {
   return @"featureViewSyncs";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1ListFilesResponse
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1ListFilesResponse
+@dynamic data, nextPage;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"nextPage" : @"next_page" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"data" : [GTLRAiplatform_GoogleCloudAiplatformV1ClaudeFile class]
+  };
+  return map;
 }
 
 @end
@@ -13833,8 +16477,26 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1VideoResponseFormat_Deli
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1OnlineEvaluatorCloudObservabilitySessionScopePredicate
-@dynamic duration, modelCallErrors, modelCalls, toolCallErrors, toolCalls,
-         totalTokenUsage, userTurns;
+@dynamic duration, modelCallErrors, modelCalls, serviceVersion, toolCallErrors,
+         toolCalls, totalTokenUsage, userTurns;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1OnlineEvaluatorCloudObservabilityStringPredicate
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1OnlineEvaluatorCloudObservabilityStringPredicate
+@dynamic values;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"values" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -13862,7 +16524,7 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1VideoResponseFormat_Deli
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1OnlineEvaluatorCloudObservabilityTraceScopePredicate
-@dynamic duration, totalTokenUsage;
+@dynamic duration, serviceVersion, totalTokenUsage;
 @end
 
 
@@ -14149,6 +16811,16 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1VideoResponseFormat_Deli
   return [NSString class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1Persona
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1Persona
+@dynamic avatarUrl, displayName, personality, role;
 @end
 
 
@@ -14684,6 +17356,21 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1VideoResponseFormat_Deli
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1PreTunedModel
 @dynamic baseModel, checkpointId, tunedModelName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1Principal
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1Principal
+@dynamic identifier, type;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
 @end
 
 
@@ -16284,8 +18971,8 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1VideoResponseFormat_Deli
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngineSpecSourceCodeSpec
-@dynamic agentConfigSource, developerConnectSource, imageSpec, inlineSource,
-         pythonSpec;
+@dynamic agentConfigSource, developerConnectSource, gitSource, imageSpec,
+         inlineSource, pythonSpec;
 @end
 
 
@@ -16340,6 +19027,16 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1VideoResponseFormat_Deli
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngineSpecSourceCodeSpecDeveloperConnectSource
 @dynamic config;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngineSpecSourceCodeSpecGitSource
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngineSpecSourceCodeSpecGitSource
+@dynamic dir, revision, url;
 @end
 
 
@@ -18427,6 +21124,16 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1VideoResponseFormat_Deli
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAiplatform_GoogleCloudAiplatformV1SchemaPromptSpecContentMetadata
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1SchemaPromptSpecContentMetadata
+@dynamic citationMetadata, groundingMetadata;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAiplatform_GoogleCloudAiplatformV1SchemaPromptSpecInteractionData
 //
 
@@ -18477,8 +21184,8 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1VideoResponseFormat_Deli
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1SchemaPromptSpecPromptMessage
-@dynamic contents, generationConfig, model, safetySettings, systemInstruction,
-         toolConfig, tools;
+@dynamic contents, generationConfig, model, outputConfig, safetySettings,
+         systemInstruction, toolConfig, tools;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -18489,6 +21196,16 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1VideoResponseFormat_Deli
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1SchemaPromptSpecPromptMessageOutputConfig
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1SchemaPromptSpecPromptMessageOutputConfig
+@dynamic outputUriPrefix;
 @end
 
 
@@ -18526,12 +21243,13 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1VideoResponseFormat_Deli
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1SchemaPromptSpecStructuredPrompt
-@dynamic appBuilderData, context, examples, infillPrefix, infillSuffix,
-         inputPrefixes, interactionData, outputPrefixes, predictionInputs,
-         promptMessage;
+@dynamic appBuilderData, contentMetadata, context, examples, infillPrefix,
+         infillSuffix, inputPrefixes, interactionData, outputPrefixes,
+         predictionInputs, promptMessage;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"contentMetadata" : [GTLRAiplatform_GoogleCloudAiplatformV1SchemaPromptSpecContentMetadata class],
     @"examples" : [GTLRAiplatform_GoogleCloudAiplatformV1SchemaPromptSpecPartList class],
     @"inputPrefixes" : [NSString class],
     @"outputPrefixes" : [NSString class],
@@ -20103,6 +22821,26 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1VideoResponseFormat_Deli
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAiplatform_GoogleCloudAiplatformV1SetDefaultNotebookRuntimeTemplateRequest
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1SetDefaultNotebookRuntimeTemplateRequest
+@dynamic name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1SetDefaultNotebookRuntimeTemplateResponse
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1SetDefaultNotebookRuntimeTemplateResponse
+@dynamic notebookRuntimeTemplate;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAiplatform_GoogleCloudAiplatformV1SharePointSources
 //
 
@@ -21039,6 +23777,31 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1VideoResponseFormat_Deli
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1TaskDescriptionStrategy
 @dynamic taskDescription;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1Teammate
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1Teammate
+@dynamic email, expansionMode, gaiaId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1Tenant
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1Tenant
+@dynamic identifier, type;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
 @end
 
 

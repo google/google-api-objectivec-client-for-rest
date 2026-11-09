@@ -278,7 +278,8 @@ FOUNDATION_EXTERN NSString * const kGTLRTasks_AssignmentInfo_SurfaceType_Space;
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  Task list identifier.
+ *  Task list identifier. In requests, the authenticated user's default task
+ *  list can also be referred to as "\@default".
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */

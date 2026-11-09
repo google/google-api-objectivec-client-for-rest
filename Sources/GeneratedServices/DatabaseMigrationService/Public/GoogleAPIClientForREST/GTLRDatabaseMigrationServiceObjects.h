@@ -69,6 +69,7 @@
 @class GTLRDatabaseMigrationService_ForwardSshTunnelConnectivity;
 @class GTLRDatabaseMigrationService_FunctionEntity;
 @class GTLRDatabaseMigrationService_FunctionEntity_CustomFeatures;
+@class GTLRDatabaseMigrationService_GcsSource;
 @class GTLRDatabaseMigrationService_GoogleCloudClouddmsV1OperationMetadata_Metadata;
 @class GTLRDatabaseMigrationService_HeterogeneousMetadata;
 @class GTLRDatabaseMigrationService_ImportRulesJobDetails;
@@ -235,6 +236,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_AlloyDbSettings
  *  Value: "POSTGRES_18"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_AlloyDbSettings_DatabaseVersion_Postgres18;
+/**
+ *  The database version is Postgres 19.
+ *
+ *  Value: "POSTGRES_19"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_AlloyDbSettings_DatabaseVersion_Postgres19;
 
 // ----------------------------------------------------------------------------
 // GTLRDatabaseMigrationService_AuditLogConfig.logType
@@ -4064,6 +4071,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
  *        The database version is Postgres 17. (Value: "POSTGRES_17")
  *    @arg @c kGTLRDatabaseMigrationService_AlloyDbSettings_DatabaseVersion_Postgres18
  *        The database version is Postgres 18. (Value: "POSTGRES_18")
+ *    @arg @c kGTLRDatabaseMigrationService_AlloyDbSettings_DatabaseVersion_Postgres19
+ *        The database version is Postgres 19. (Value: "POSTGRES_19")
  */
 @property(nonatomic, copy, nullable) NSString *databaseVersion;
 
@@ -6618,6 +6627,24 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRDatabaseMigrationService_FunctionEntity_CustomFeatures : GTLRObject
+@end
+
+
+/**
+ *  Cloud Storage source details for seeding.
+ */
+@interface GTLRDatabaseMigrationService_GcsSource : GTLRObject
+
+/** Required. The Cloud Storage bucket containing the schema report files. */
+@property(nonatomic, copy, nullable) NSString *bucket;
+
+/**
+ *  Required. The prefix for the report paths in the bucket. Different seed
+ *  versions (report versions) might reside in the same bucket, the prefix
+ *  allows to identify the correct seed version.
+ */
+@property(nonatomic, copy, nullable) NSString *prefix;
+
 @end
 
 
@@ -9537,6 +9564,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
  */
 @interface GTLRDatabaseMigrationService_PromoteMigrationJobRequest : GTLRObject
 
+/**
+ *  Optional. If true, the promote operation will perform a failback promote
+ *  from destination back to source (only supported when the migration job is in
+ *  FAILBACK phase).
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *failback;
+
 /** Optional. The object filter to apply to the migration job. */
 @property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_MigrationJobObjectsConfig *objectsFilter;
 
@@ -9957,6 +9993,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
  *  Optional. Fully qualified (Uri) name of the destination connection profile.
  */
 @property(nonatomic, copy, nullable) NSString *destinationConnectionProfile;
+
+/** Optional. Cloud Storage source details for seeding. */
+@property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_GcsSource *gcsSource;
 
 /** Optional. Fully qualified (Uri) name of the source connection profile. */
 @property(nonatomic, copy, nullable) NSString *sourceConnectionProfile;
@@ -10451,7 +10490,13 @@ GTLR_DEPRECATED
  */
 @interface GTLRDatabaseMigrationService_SourceObjectsConfig : GTLRObject
 
-/** Optional. The list of the objects to be migrated. */
+/**
+ *  Optional. The list of the objects to be excluded from the migration.
+ *  Exclusion takes precedence over inclusion in `object_configs`.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDatabaseMigrationService_SourceObjectConfig *> *excludedObjectConfigs;
+
+/** Optional. The list of the objects to be included in the migration. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDatabaseMigrationService_SourceObjectConfig *> *objectConfigs;
 
 /**
@@ -10910,8 +10955,9 @@ GTLR_DEPRECATED
 /**
  *  Optional. SSL flags used for establishing SSL connection to the source
  *  database. Only source specific flags are supported. An object containing a
- *  list of "key": "value" pairs. Example: { "server_certificate_hostname":
- *  "server.com"}.
+ *  list of "key": "value" pairs. Examples: { "server_certificate_dn":
+ *  "CN=server.com,OU=RDS,O=Amazon.com,C=US"} or {
+ *  "server_certificate_hostname": "server.com"}.
  */
 @property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_SslConfig_SslFlags *sslFlags;
 
@@ -10941,8 +10987,9 @@ GTLR_DEPRECATED
 /**
  *  Optional. SSL flags used for establishing SSL connection to the source
  *  database. Only source specific flags are supported. An object containing a
- *  list of "key": "value" pairs. Example: { "server_certificate_hostname":
- *  "server.com"}.
+ *  list of "key": "value" pairs. Examples: { "server_certificate_dn":
+ *  "CN=server.com,OU=RDS,O=Amazon.com,C=US"} or {
+ *  "server_certificate_hostname": "server.com"}.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list

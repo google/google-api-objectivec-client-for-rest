@@ -158,6 +158,52 @@ NSString * const kGTLRFirebaseCrashlyticsViewReportViewUnspecified = @"REPORT_VI
 
 @end
 
+@implementation GTLRFirebaseCrashlyticsQuery_ProjectsAppsGenerateAlertPolicy
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRFirebaseCrashlytics_GenerateAlertPolicyRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1alpha/{+name}:generateAlertPolicy";
+  GTLRFirebaseCrashlyticsQuery_ProjectsAppsGenerateAlertPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRFirebaseCrashlytics_GenerateAlertPolicyResponse class];
+  query.loggingName = @"firebasecrashlytics.projects.apps.generateAlertPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRFirebaseCrashlyticsQuery_ProjectsAppsGetProfilingManagerConfig
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1alpha/{+name}";
+  GTLRFirebaseCrashlyticsQuery_ProjectsAppsGetProfilingManagerConfig *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRFirebaseCrashlytics_ProfilingManagerConfig class];
+  query.loggingName = @"firebasecrashlytics.projects.apps.getProfilingManagerConfig";
+  return query;
+}
+
+@end
+
 @implementation GTLRFirebaseCrashlyticsQuery_ProjectsAppsIssuesBatchUpdate
 
 @dynamic parent;
@@ -303,8 +349,8 @@ NSString * const kGTLRFirebaseCrashlyticsViewReportViewUnspecified = @"REPORT_VI
          filterIntervalStartTime, filterIssueContent, filterIssueErrorTypes,
          filterIssueId, filterIssueSignals, filterIssueState, filterIssueStates,
          filterIssueVariantId, filterOperatingSystemDisplayNames,
-         filterVersionDisplayNames, granularity, metricsMode, name, pageSize,
-         pageToken, view;
+         filterVersionDisplayNames, filterExpression, granularity, metricsMode,
+         name, pageSize, pageToken, view;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -369,6 +415,33 @@ NSString * const kGTLRFirebaseCrashlyticsViewReportViewUnspecified = @"REPORT_VI
   query.parent = parent;
   query.expectedObjectClass = [GTLRFirebaseCrashlytics_ListReportsResponse class];
   query.loggingName = @"firebasecrashlytics.projects.apps.reports.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRFirebaseCrashlyticsQuery_ProjectsAppsUpdateProfilingManagerConfig
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRFirebaseCrashlytics_ProfilingManagerConfig *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1alpha/{+name}";
+  GTLRFirebaseCrashlyticsQuery_ProjectsAppsUpdateProfilingManagerConfig *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRFirebaseCrashlytics_ProfilingManagerConfig class];
+  query.loggingName = @"firebasecrashlytics.projects.apps.updateProfilingManagerConfig";
   return query;
 }
 

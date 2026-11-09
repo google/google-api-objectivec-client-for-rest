@@ -2172,7 +2172,7 @@ NSString * const kGTLRSQLAdminViewDetailed                     = @"DETAILED";
 
 @dynamic instance, project;
 
-+ (instancetype)queryWithObject:(GTLRSQLAdmin_SqlWorkloadCapturesStartRequest *)object
++ (instancetype)queryWithObject:(GTLRSQLAdmin_WorkloadCapturesStartRequest *)object
                         project:(NSString *)project
                        instance:(NSString *)instance {
   if (object == nil) {
@@ -2203,7 +2203,7 @@ NSString * const kGTLRSQLAdminViewDetailed                     = @"DETAILED";
 
 @dynamic instance, project, workloadId;
 
-+ (instancetype)queryWithObject:(GTLRSQLAdmin_SqlWorkloadCapturesStartReplayRequest *)object
++ (instancetype)queryWithObject:(GTLRSQLAdmin_WorkloadCapturesStartReplayRequest *)object
                         project:(NSString *)project
                        instance:(NSString *)instance
                      workloadId:(NSString *)workloadId {
@@ -2236,7 +2236,7 @@ NSString * const kGTLRSQLAdminViewDetailed                     = @"DETAILED";
 
 @dynamic instance, project;
 
-+ (instancetype)queryWithObject:(GTLRSQLAdmin_SqlWorkloadCapturesStopRequest *)object
++ (instancetype)queryWithObject:(GTLRSQLAdmin_WorkloadCapturesStopRequest *)object
                         project:(NSString *)project
                        instance:(NSString *)instance {
   if (object == nil) {
@@ -2265,12 +2265,11 @@ NSString * const kGTLRSQLAdminViewDetailed                     = @"DETAILED";
 
 @implementation GTLRSQLAdminQuery_WorkloadCapturesStopReplay
 
-@dynamic instance, project, workloadId;
+@dynamic instance, project;
 
-+ (instancetype)queryWithObject:(GTLRSQLAdmin_SqlWorkloadCapturesStopReplayRequest *)object
++ (instancetype)queryWithObject:(GTLRSQLAdmin_WorkloadCapturesStopReplayRequest *)object
                         project:(NSString *)project
-                       instance:(NSString *)instance
-                     workloadId:(NSString *)workloadId {
+                       instance:(NSString *)instance {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
     NSAssert(object != nil, @"Got a nil object");
@@ -2278,9 +2277,9 @@ NSString * const kGTLRSQLAdminViewDetailed                     = @"DETAILED";
     return nil;
   }
   NSArray *pathParams = @[
-    @"instance", @"project", @"workloadId"
+    @"instance", @"project"
   ];
-  NSString *pathURITemplate = @"v1/projects/{project}/instances/{instance}/workloadCaptures/{workloadId}:stopReplay";
+  NSString *pathURITemplate = @"v1/projects/{project}/instances/{instance}/workloadCaptures:stopReplay";
   GTLRSQLAdminQuery_WorkloadCapturesStopReplay *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -2288,7 +2287,6 @@ NSString * const kGTLRSQLAdminViewDetailed                     = @"DETAILED";
   query.bodyObject = object;
   query.project = project;
   query.instance = instance;
-  query.workloadId = workloadId;
   query.expectedObjectClass = [GTLRSQLAdmin_Operation class];
   query.loggingName = @"sql.workloadCaptures.stopReplay";
   return query;

@@ -26,6 +26,7 @@ NSString * const kGTLRHomeGraphService_EveUtilityTrait_AcceptedCommandList_Comma
 NSString * const kGTLRHomeGraphService_QueryRequest_DeviceView_DeviceViewUnspecified = @"DEVICE_VIEW_UNSPECIFIED";
 NSString * const kGTLRHomeGraphService_QueryRequest_DeviceView_HomeTraitAndSmartHomeTrait = @"HOME_TRAIT_AND_SMART_HOME_TRAIT";
 NSString * const kGTLRHomeGraphService_QueryRequest_DeviceView_HomeTraitOnly = @"HOME_TRAIT_ONLY";
+NSString * const kGTLRHomeGraphService_QueryRequest_DeviceView_JsonTraitOnly = @"JSON_TRAIT_ONLY";
 NSString * const kGTLRHomeGraphService_QueryRequest_DeviceView_SmartHomeTraitOnly = @"SMART_HOME_TRAIT_ONLY";
 
 // GTLRHomeGraphService_StructurePresenceStateChangeEvent.presenceState
@@ -263,7 +264,7 @@ NSString * const kGTLRHomeGraphService_UserBlameStruct_BlameType_UserBlameTypeEn
 //
 
 @implementation GTLRHomeGraphService_EventData
-@dynamic event, eventId, eventTime;
+@dynamic event, eventId, eventTime, jsonTraitEvent;
 @end
 
 
@@ -362,6 +363,64 @@ NSString * const kGTLRHomeGraphService_UserBlameStruct_BlameType_UserBlameTypeEn
     @"components" : [GTLRHomeGraphService_ComponentTraitUpdates class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHomeGraphService_JsonTrait
+//
+
+@implementation GTLRHomeGraphService_JsonTrait
+@dynamic data, identifier;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHomeGraphService_JsonTrait_Data
+//
+
+@implementation GTLRHomeGraphService_JsonTrait_Data
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHomeGraphService_JsonTraitEvent
+//
+
+@implementation GTLRHomeGraphService_JsonTraitEvent
+@dynamic data, identifier;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHomeGraphService_JsonTraitEvent_Data
+//
+
+@implementation GTLRHomeGraphService_JsonTraitEvent_Data
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
 }
 
 @end
@@ -738,7 +797,7 @@ NSString * const kGTLRHomeGraphService_UserBlameStruct_BlameType_UserBlameTypeEn
 //
 
 @implementation GTLRHomeGraphService_TraitData
-@dynamic commitTime, providerUpdateTime, trait;
+@dynamic commitTime, jsonTrait, providerUpdateTime, trait;
 @end
 
 

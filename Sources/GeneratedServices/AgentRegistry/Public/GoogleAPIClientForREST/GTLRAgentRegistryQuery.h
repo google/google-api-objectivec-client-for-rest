@@ -25,6 +25,35 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+// ----------------------------------------------------------------------------
+// Constants - For some of the query classes' properties below.
+
+// ----------------------------------------------------------------------------
+// searchType
+
+/**
+ *  Search for a keyword across all searchable fields.
+ *
+ *  Value: "KEYWORD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAgentRegistrySearchTypeKeyword;
+/**
+ *  Invalid search type.
+ *
+ *  Value: "SEARCH_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAgentRegistrySearchTypeSearchTypeUnspecified;
+/**
+ *  Search based on the meaning and intent of a natural language query.
+ *
+ *  Value: "SEMANTIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAgentRegistrySearchTypeSemantic;
+
+// ----------------------------------------------------------------------------
+// Query Classes
+//
+
 /**
  *  Parent class for other Agent Registry query classes.
  */
@@ -151,6 +180,205 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Gets details of a single Agent under an AI Application.
+ *
+ *  Method: agentregistry.projects.locations.aiApplications.agents.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAgentRegistryCloudPlatform
+ *    @c kGTLRAuthScopeAgentRegistryCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeAgentRegistryReadOnly
+ *    @c kGTLRAuthScopeAgentRegistryReadWrite
+ */
+@interface GTLRAgentRegistryQuery_ProjectsLocationsAiApplicationsAgentsGet : GTLRAgentRegistryQuery
+
+/**
+ *  Required. Name of the resource. Format:
+ *  `projects/{project}/locations/{location}/aiApplications/{ai_application}/agents/{agent}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAgentRegistry_Agent.
+ *
+ *  Gets details of a single Agent under an AI Application.
+ *
+ *  @param name Required. Name of the resource. Format:
+ *    `projects/{project}/locations/{location}/aiApplications/{ai_application}/agents/{agent}`
+ *
+ *  @return GTLRAgentRegistryQuery_ProjectsLocationsAiApplicationsAgentsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists Agents under an AI Application.
+ *
+ *  Method: agentregistry.projects.locations.aiApplications.agents.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAgentRegistryCloudPlatform
+ *    @c kGTLRAuthScopeAgentRegistryCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeAgentRegistryReadOnly
+ *    @c kGTLRAuthScopeAgentRegistryReadWrite
+ */
+@interface GTLRAgentRegistryQuery_ProjectsLocationsAiApplicationsAgentsList : GTLRAgentRegistryQuery
+
+/**
+ *  Optional. Requested page size. Server may return fewer items than requested.
+ *  If unspecified, server will pick an appropriate default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A token identifying a page of results the server should return.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Parent value (AI Application) for ListAiApplicationAgentsRequest.
+ *  Format:
+ *  `projects/{project}/locations/{location}/aiApplications/{ai_application}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRAgentRegistry_ListAiApplicationAgentsResponse.
+ *
+ *  Lists Agents under an AI Application.
+ *
+ *  @param parent Required. Parent value (AI Application) for
+ *    ListAiApplicationAgentsRequest. Format:
+ *    `projects/{project}/locations/{location}/aiApplications/{ai_application}`
+ *
+ *  @return GTLRAgentRegistryQuery_ProjectsLocationsAiApplicationsAgentsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Gets details of a single Endpoint under an AI Application.
+ *
+ *  Method: agentregistry.projects.locations.aiApplications.endpoints.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAgentRegistryCloudPlatform
+ *    @c kGTLRAuthScopeAgentRegistryCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeAgentRegistryReadOnly
+ *    @c kGTLRAuthScopeAgentRegistryReadWrite
+ */
+@interface GTLRAgentRegistryQuery_ProjectsLocationsAiApplicationsEndpointsGet : GTLRAgentRegistryQuery
+
+/**
+ *  Required. Name of the resource. Format:
+ *  `projects/{project}/locations/{location}/aiApplications/{ai_application}/endpoints/{endpoint}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAgentRegistry_Endpoint.
+ *
+ *  Gets details of a single Endpoint under an AI Application.
+ *
+ *  @param name Required. Name of the resource. Format:
+ *    `projects/{project}/locations/{location}/aiApplications/{ai_application}/endpoints/{endpoint}`
+ *
+ *  @return GTLRAgentRegistryQuery_ProjectsLocationsAiApplicationsEndpointsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists Endpoints under an AI Application.
+ *
+ *  Method: agentregistry.projects.locations.aiApplications.endpoints.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAgentRegistryCloudPlatform
+ *    @c kGTLRAuthScopeAgentRegistryCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeAgentRegistryReadOnly
+ *    @c kGTLRAuthScopeAgentRegistryReadWrite
+ */
+@interface GTLRAgentRegistryQuery_ProjectsLocationsAiApplicationsEndpointsList : GTLRAgentRegistryQuery
+
+/**
+ *  Optional. Requested page size. Server may return fewer items than requested.
+ *  If unspecified, server will pick an appropriate default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A token identifying a page of results the server should return.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Parent value (AI Application) for
+ *  ListAiApplicationEndpointsRequest. Format:
+ *  `projects/{project}/locations/{location}/aiApplications/{ai_application}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRAgentRegistry_ListAiApplicationEndpointsResponse.
+ *
+ *  Lists Endpoints under an AI Application.
+ *
+ *  @param parent Required. Parent value (AI Application) for
+ *    ListAiApplicationEndpointsRequest. Format:
+ *    `projects/{project}/locations/{location}/aiApplications/{ai_application}`
+ *
+ *  @return GTLRAgentRegistryQuery_ProjectsLocationsAiApplicationsEndpointsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Gets details of a single AI Application.
+ *
+ *  Method: agentregistry.projects.locations.aiApplications.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAgentRegistryCloudPlatform
+ *    @c kGTLRAuthScopeAgentRegistryCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeAgentRegistryReadOnly
+ *    @c kGTLRAuthScopeAgentRegistryReadWrite
+ */
+@interface GTLRAgentRegistryQuery_ProjectsLocationsAiApplicationsGet : GTLRAgentRegistryQuery
+
+/**
+ *  Required. Target AI Application resource name. Format:
+ *  `projects/{project}/locations/{location}/aiApplications/{ai_application}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAgentRegistry_AiApplication.
+ *
+ *  Gets details of a single AI Application.
+ *
+ *  @param name Required. Target AI Application resource name. Format:
+ *    `projects/{project}/locations/{location}/aiApplications/{ai_application}`
+ *
+ *  @return GTLRAgentRegistryQuery_ProjectsLocationsAiApplicationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Gets the access control policy for a resource. Returns an empty policy if
  *  the resource exists and does not have a policy set.
  *
@@ -199,6 +427,143 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRAgentRegistryQuery_ProjectsLocationsAiApplicationsGetIamPolicy
  */
 + (instancetype)queryWithResource:(NSString *)resource;
+
+@end
+
+/**
+ *  Lists AI Applications in a given project and location.
+ *
+ *  Method: agentregistry.projects.locations.aiApplications.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAgentRegistryCloudPlatform
+ *    @c kGTLRAuthScopeAgentRegistryCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeAgentRegistryReadOnly
+ *    @c kGTLRAuthScopeAgentRegistryReadWrite
+ */
+@interface GTLRAgentRegistryQuery_ProjectsLocationsAiApplicationsList : GTLRAgentRegistryQuery
+
+/** Optional. Filtering results. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Optional. Hint for how to order the results. */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. Requested page size. Server may return fewer items than requested.
+ *  If unspecified, server will pick an appropriate default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A token identifying a page of results the server should return.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Parent project and location to query. Format:
+ *  `projects/{project}/locations/{location}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRAgentRegistry_ListAiApplicationsResponse.
+ *
+ *  Lists AI Applications in a given project and location.
+ *
+ *  @param parent Required. Parent project and location to query. Format:
+ *    `projects/{project}/locations/{location}`
+ *
+ *  @return GTLRAgentRegistryQuery_ProjectsLocationsAiApplicationsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Gets details of a single McpServer under an AI Application.
+ *
+ *  Method: agentregistry.projects.locations.aiApplications.mcpServers.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAgentRegistryCloudPlatform
+ *    @c kGTLRAuthScopeAgentRegistryCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeAgentRegistryReadOnly
+ *    @c kGTLRAuthScopeAgentRegistryReadWrite
+ */
+@interface GTLRAgentRegistryQuery_ProjectsLocationsAiApplicationsMcpServersGet : GTLRAgentRegistryQuery
+
+/**
+ *  Required. Name of the resource. Format:
+ *  `projects/{project}/locations/{location}/aiApplications/{ai_application}/mcpServers/{mcp_server}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAgentRegistry_McpServer.
+ *
+ *  Gets details of a single McpServer under an AI Application.
+ *
+ *  @param name Required. Name of the resource. Format:
+ *    `projects/{project}/locations/{location}/aiApplications/{ai_application}/mcpServers/{mcp_server}`
+ *
+ *  @return GTLRAgentRegistryQuery_ProjectsLocationsAiApplicationsMcpServersGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists McpServers under an AI Application.
+ *
+ *  Method: agentregistry.projects.locations.aiApplications.mcpServers.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAgentRegistryCloudPlatform
+ *    @c kGTLRAuthScopeAgentRegistryCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeAgentRegistryReadOnly
+ *    @c kGTLRAuthScopeAgentRegistryReadWrite
+ */
+@interface GTLRAgentRegistryQuery_ProjectsLocationsAiApplicationsMcpServersList : GTLRAgentRegistryQuery
+
+/**
+ *  Optional. Requested page size. Server may return fewer items than requested.
+ *  If unspecified, server will pick an appropriate default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A token identifying a page of results the server should return.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Parent value (AI Application) for
+ *  ListAiApplicationMcpServersRequest. Format:
+ *  `projects/{project}/locations/{location}/aiApplications/{ai_application}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRAgentRegistry_ListAiApplicationMcpServersResponse.
+ *
+ *  Lists McpServers under an AI Application.
+ *
+ *  @param parent Required. Parent value (AI Application) for
+ *    ListAiApplicationMcpServersRequest. Format:
+ *    `projects/{project}/locations/{location}/aiApplications/{ai_application}`
+ *
+ *  @return GTLRAgentRegistryQuery_ProjectsLocationsAiApplicationsMcpServersList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 
@@ -703,6 +1068,93 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Gets details of a single Finding.
+ *
+ *  Method: agentregistry.projects.locations.findings.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAgentRegistryCloudPlatform
+ *    @c kGTLRAuthScopeAgentRegistryCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeAgentRegistryReadOnly
+ *    @c kGTLRAuthScopeAgentRegistryReadWrite
+ */
+@interface GTLRAgentRegistryQuery_ProjectsLocationsFindingsGet : GTLRAgentRegistryQuery
+
+/**
+ *  Required. The name of the Finding to retrieve. Format:
+ *  `projects/{project}/locations/{location}/findings/{finding}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAgentRegistry_Finding.
+ *
+ *  Gets details of a single Finding.
+ *
+ *  @param name Required. The name of the Finding to retrieve. Format:
+ *    `projects/{project}/locations/{location}/findings/{finding}`.
+ *
+ *  @return GTLRAgentRegistryQuery_ProjectsLocationsFindingsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists Findings in a given project and location.
+ *
+ *  Method: agentregistry.projects.locations.findings.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAgentRegistryCloudPlatform
+ *    @c kGTLRAuthScopeAgentRegistryCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeAgentRegistryReadOnly
+ *    @c kGTLRAuthScopeAgentRegistryReadWrite
+ */
+@interface GTLRAgentRegistryQuery_ProjectsLocationsFindingsList : GTLRAgentRegistryQuery
+
+/** Optional. Filtering results */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Optional. Hint for how to order the results */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. Requested page size. Server may return fewer items than requested.
+ *  If unspecified, server will pick an appropriate default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A token identifying a page of results the server should return.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Parent value for ListFindingsRequest. Format:
+ *  `projects/{project}/locations/{location}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRAgentRegistry_ListFindingsResponse.
+ *
+ *  Lists Findings in a given project and location.
+ *
+ *  @param parent Required. Parent value for ListFindingsRequest. Format:
+ *    `projects/{project}/locations/{location}`.
+ *
+ *  @return GTLRAgentRegistryQuery_ProjectsLocationsFindingsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Gets information about a location.
  *
  *  Method: agentregistry.projects.locations.get
@@ -1096,6 +1548,82 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Fetches details of a specific Publisher.
+ *
+ *  Method: agentregistry.projects.locations.publishers.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAgentRegistryCloudPlatform
+ *    @c kGTLRAuthScopeAgentRegistryCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeAgentRegistryReadOnly
+ *    @c kGTLRAuthScopeAgentRegistryReadWrite
+ */
+@interface GTLRAgentRegistryQuery_ProjectsLocationsPublishersGet : GTLRAgentRegistryQuery
+
+/**
+ *  Required. Target publisher resource name. Format:
+ *  `projects/{project}/locations/{location}/publishers/{publisher}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAgentRegistry_Publisher.
+ *
+ *  Fetches details of a specific Publisher.
+ *
+ *  @param name Required. Target publisher resource name. Format:
+ *    `projects/{project}/locations/{location}/publishers/{publisher}`
+ *
+ *  @return GTLRAgentRegistryQuery_ProjectsLocationsPublishersGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists all Publishers in a location.
+ *
+ *  Method: agentregistry.projects.locations.publishers.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAgentRegistryCloudPlatform
+ *    @c kGTLRAuthScopeAgentRegistryCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeAgentRegistryReadOnly
+ *    @c kGTLRAuthScopeAgentRegistryReadWrite
+ */
+@interface GTLRAgentRegistryQuery_ProjectsLocationsPublishersList : GTLRAgentRegistryQuery
+
+/** Optional. Page limit size. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** Optional. Page offset token. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Parent location to query. Format:
+ *  `projects/{project}/locations/{location}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRAgentRegistry_ListPublishersResponse.
+ *
+ *  Lists all Publishers in a location.
+ *
+ *  @param parent Required. Parent location to query. Format:
+ *    `projects/{project}/locations/{location}`
+ *
+ *  @return GTLRAgentRegistryQuery_ProjectsLocationsPublishersList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Creates a new Service in a given project and location.
  *
  *  Method: agentregistry.projects.locations.services.create
@@ -1349,6 +1877,644 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRAgentRegistry_Service *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  ========================================================================= #
+ *  Skills Collection APIs Creates a Skill resource container, optionally
+ *  publishing the initial SkillRevision inline in a single, atomic CRUD
+ *  roundtrip.
+ *
+ *  Method: agentregistry.projects.locations.skills.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAgentRegistryCloudPlatform
+ *    @c kGTLRAuthScopeAgentRegistryCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeAgentRegistryReadOnly
+ *    @c kGTLRAuthScopeAgentRegistryReadWrite
+ */
+@interface GTLRAgentRegistryQuery_ProjectsLocationsSkillsCreate : GTLRAgentRegistryQuery
+
+/** Required. The project and location location to bootstrap. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/** Optional. Signed UUID request idempotency token. */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Required. Custom, user-defined unique container identifier. Must be unique
+ *  within the parent project and location. This value should be 4-64
+ *  characters, and valid characters are `/a-z-/`.
+ */
+@property(nonatomic, copy, nullable) NSString *skillId;
+
+/**
+ *  Fetches a @c GTLRAgentRegistry_Operation.
+ *
+ *  ========================================================================= #
+ *  Skills Collection APIs Creates a Skill resource container, optionally
+ *  publishing the initial SkillRevision inline in a single, atomic CRUD
+ *  roundtrip.
+ *
+ *  @param object The @c GTLRAgentRegistry_Skill to include in the query.
+ *  @param parent Required. The project and location location to bootstrap.
+ *
+ *  @return GTLRAgentRegistryQuery_ProjectsLocationsSkillsCreate
+ */
++ (instancetype)queryWithObject:(GTLRAgentRegistry_Skill *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a Skill container along with all its revisions.
+ *
+ *  Method: agentregistry.projects.locations.skills.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAgentRegistryCloudPlatform
+ *    @c kGTLRAuthScopeAgentRegistryCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeAgentRegistryReadOnly
+ *    @c kGTLRAuthScopeAgentRegistryReadWrite
+ */
+@interface GTLRAgentRegistryQuery_ProjectsLocationsSkillsDelete : GTLRAgentRegistryQuery
+
+/**
+ *  Optional. If set to true, any child SkillRevisions under this Skill will
+ *  also be deleted. Otherwise, the request will only succeed if the Skill has
+ *  no child SkillRevisions.
+ */
+@property(nonatomic, assign) BOOL force;
+
+/** Required. Target Skill container name to remove. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Optional. Signed UUID request idempotency token. */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRAgentRegistry_Operation.
+ *
+ *  Deletes a Skill container along with all its revisions.
+ *
+ *  @param name Required. Target Skill container name to remove.
+ *
+ *  @return GTLRAgentRegistryQuery_ProjectsLocationsSkillsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Fetches the active configuration and metadata of a Skill.
+ *
+ *  Method: agentregistry.projects.locations.skills.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAgentRegistryCloudPlatform
+ *    @c kGTLRAuthScopeAgentRegistryCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeAgentRegistryReadOnly
+ *    @c kGTLRAuthScopeAgentRegistryReadWrite
+ */
+@interface GTLRAgentRegistryQuery_ProjectsLocationsSkillsGet : GTLRAgentRegistryQuery
+
+/** Required. Target resource container name. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAgentRegistry_Skill.
+ *
+ *  Fetches the active configuration and metadata of a Skill.
+ *
+ *  @param name Required. Target resource container name.
+ *
+ *  @return GTLRAgentRegistryQuery_ProjectsLocationsSkillsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+/**
+ *  Fetches the requested resource data as a @c GTLRDataObject.
+ *
+ *  Fetches the active configuration and metadata of a Skill.
+ *
+ *  @param name Required. Target resource container name.
+ *
+ *  @return GTLRAgentRegistryQuery_ProjectsLocationsSkillsGet
+ */
++ (instancetype)queryForMediaWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  Method: agentregistry.projects.locations.skills.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAgentRegistryCloudPlatform
+ *    @c kGTLRAuthScopeAgentRegistryCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeAgentRegistryReadOnly
+ *    @c kGTLRAuthScopeAgentRegistryReadWrite
+ */
+@interface GTLRAgentRegistryQuery_ProjectsLocationsSkillsGetIamPolicy : GTLRAgentRegistryQuery
+
+/**
+ *  Optional. The maximum policy version that will be used to format the policy.
+ *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
+ *  rejected. Requests for policies with any conditional role bindings must
+ *  specify version 3. Policies with no conditional role bindings may specify
+ *  any valid value or leave the field unset. The policy in the response might
+ *  use the policy version that you specified, or it might use a lower policy
+ *  version. For example, if you specify version 3, but the policy has no
+ *  conditional role bindings, the response uses version 1. To learn which
+ *  resources support conditions in their IAM policies, see the [IAM
+ *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
+ */
+@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
+
+/**
+ *  REQUIRED: The resource for which the policy is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRAgentRegistry_GoogleIamV1Policy.
+ *
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRAgentRegistryQuery_ProjectsLocationsSkillsGetIamPolicy
+ */
++ (instancetype)queryWithResource:(NSString *)resource;
+
+@end
+
+/**
+ *  Lists logical Skills available in a project.
+ *
+ *  Method: agentregistry.projects.locations.skills.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAgentRegistryCloudPlatform
+ *    @c kGTLRAuthScopeAgentRegistryCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeAgentRegistryReadOnly
+ *    @c kGTLRAuthScopeAgentRegistryReadWrite
+ */
+@interface GTLRAgentRegistryQuery_ProjectsLocationsSkillsList : GTLRAgentRegistryQuery
+
+/**
+ *  Optional. Use this field to specify filter criteria on list results. Filter
+ *  expressions can be used to restrict results based upon filterable fields,
+ *  where equality operators can be used. See
+ *  [instructions](https://docs.cloud.google.com/agent-registry/search-agents-and-tools)
+ *  for more details. Allowed operators: `=`, `<`, `>`, `NOT`, `AND`, `OR`, and
+ *  `()`. | Field | `=` | `<`, `>` | |--------------|-----|----------| | state |
+ *  Yes | No | | targetState | Yes | No | | createTime | Yes | Yes | |
+ *  updateTime | Yes | Yes | Examples: * `state=ACTIVE` to restrict results to
+ *  skills in the `ACTIVE` state.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Optional. Hint for how to order the results */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. Requested page size. Server may return fewer items than requested.
+ *  If unspecified, server will pick an appropriate default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A token identifying a page of results the server should return.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. Parent value for ListSkillsRequest */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRAgentRegistry_ListSkillsResponse.
+ *
+ *  Lists logical Skills available in a project.
+ *
+ *  @param parent Required. Parent value for ListSkillsRequest
+ *
+ *  @return GTLRAgentRegistryQuery_ProjectsLocationsSkillsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates Skill metadata or overrides active pointers/state using REST
+ *  standard PATCH.
+ *
+ *  Method: agentregistry.projects.locations.skills.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAgentRegistryCloudPlatform
+ *    @c kGTLRAuthScopeAgentRegistryCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeAgentRegistryReadOnly
+ *    @c kGTLRAuthScopeAgentRegistryReadWrite
+ */
+@interface GTLRAgentRegistryQuery_ProjectsLocationsSkillsPatch : GTLRAgentRegistryQuery
+
+/**
+ *  Identifier. Resource name of the Skill. Format:
+ *  `projects/{project}/locations/{location}/skills/{skill}` The `{skill}`
+ *  segment acts as the resource ID. If the skill is associated with a
+ *  Publisher, this segment typically uses a hyphenated namespace prefix
+ *  corresponding to the publisher (e.g., `google-workspace-create-docs`).
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Optional. Signed UUID request idempotency token. */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Optional. Standard update target mask mapping relative fields.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRAgentRegistry_Operation.
+ *
+ *  Updates Skill metadata or overrides active pointers/state using REST
+ *  standard PATCH.
+ *
+ *  @param object The @c GTLRAgentRegistry_Skill to include in the query.
+ *  @param name Identifier. Resource name of the Skill. Format:
+ *    `projects/{project}/locations/{location}/skills/{skill}` The `{skill}`
+ *    segment acts as the resource ID. If the skill is associated with a
+ *    Publisher, this segment typically uses a hyphenated namespace prefix
+ *    corresponding to the publisher (e.g., `google-workspace-create-docs`).
+ *
+ *  @return GTLRAgentRegistryQuery_ProjectsLocationsSkillsPatch
+ */
++ (instancetype)queryWithObject:(GTLRAgentRegistry_Skill *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a new immutable revision and triggers validation pipelines.
+ *
+ *  Method: agentregistry.projects.locations.skills.revisions.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAgentRegistryCloudPlatform
+ *    @c kGTLRAuthScopeAgentRegistryCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeAgentRegistryReadOnly
+ *    @c kGTLRAuthScopeAgentRegistryReadWrite
+ */
+@interface GTLRAgentRegistryQuery_ProjectsLocationsSkillsRevisionsCreate : GTLRAgentRegistryQuery
+
+/** Required. Parent logical container name. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/** Optional. Signed UUID request idempotency token. */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Optional. Custom, user-defined unique revision identifier. Format: 4-63
+ *  characters, matching regex `^[a-z]([a-z0-9-]{0,61}[a-z0-9])?$`
+ */
+@property(nonatomic, copy, nullable) NSString *skillRevisionId;
+
+/**
+ *  Fetches a @c GTLRAgentRegistry_Operation.
+ *
+ *  Creates a new immutable revision and triggers validation pipelines.
+ *
+ *  @param object The @c GTLRAgentRegistry_SkillRevision to include in the
+ *    query.
+ *  @param parent Required. Parent logical container name.
+ *
+ *  @return GTLRAgentRegistryQuery_ProjectsLocationsSkillsRevisionsCreate
+ */
++ (instancetype)queryWithObject:(GTLRAgentRegistry_SkillRevision *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a specific revision (restricted to admins to purge accidentally
+ *  committed secrets).
+ *
+ *  Method: agentregistry.projects.locations.skills.revisions.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAgentRegistryCloudPlatform
+ *    @c kGTLRAuthScopeAgentRegistryCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeAgentRegistryReadOnly
+ *    @c kGTLRAuthScopeAgentRegistryReadWrite
+ */
+@interface GTLRAgentRegistryQuery_ProjectsLocationsSkillsRevisionsDelete : GTLRAgentRegistryQuery
+
+/** Required. Target revision name to remove. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Optional. Signed UUID request idempotency token. */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRAgentRegistry_Operation.
+ *
+ *  Deletes a specific revision (restricted to admins to purge accidentally
+ *  committed secrets).
+ *
+ *  @param name Required. Target revision name to remove.
+ *
+ *  @return GTLRAgentRegistryQuery_ProjectsLocationsSkillsRevisionsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of a single immutable Revision.
+ *
+ *  Method: agentregistry.projects.locations.skills.revisions.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAgentRegistryCloudPlatform
+ *    @c kGTLRAuthScopeAgentRegistryCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeAgentRegistryReadOnly
+ *    @c kGTLRAuthScopeAgentRegistryReadWrite
+ */
+@interface GTLRAgentRegistryQuery_ProjectsLocationsSkillsRevisionsGet : GTLRAgentRegistryQuery
+
+/** Required. Target revision name. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAgentRegistry_SkillRevision.
+ *
+ *  Gets details of a single immutable Revision.
+ *
+ *  @param name Required. Target revision name.
+ *
+ *  @return GTLRAgentRegistryQuery_ProjectsLocationsSkillsRevisionsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+/**
+ *  Fetches the requested resource data as a @c GTLRDataObject.
+ *
+ *  Gets details of a single immutable Revision.
+ *
+ *  @param name Required. Target revision name.
+ *
+ *  @return GTLRAgentRegistryQuery_ProjectsLocationsSkillsRevisionsGet
+ */
++ (instancetype)queryForMediaWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists all revisions belonging to a parent Skill.
+ *
+ *  Method: agentregistry.projects.locations.skills.revisions.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAgentRegistryCloudPlatform
+ *    @c kGTLRAuthScopeAgentRegistryCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeAgentRegistryReadOnly
+ *    @c kGTLRAuthScopeAgentRegistryReadWrite
+ */
+@interface GTLRAgentRegistryQuery_ProjectsLocationsSkillsRevisionsList : GTLRAgentRegistryQuery
+
+/** Optional. Page limit size. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** Optional. Page offset token. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. Parent logical container name to query. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRAgentRegistry_ListSkillRevisionsResponse.
+ *
+ *  Lists all revisions belonging to a parent Skill.
+ *
+ *  @param parent Required. Parent logical container name to query.
+ *
+ *  @return GTLRAgentRegistryQuery_ProjectsLocationsSkillsRevisionsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Custom deep-search method to filter by frontmatter or query SKILL.md text
+ *  blobs.
+ *
+ *  Method: agentregistry.projects.locations.skills.search
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAgentRegistryCloudPlatform
+ *    @c kGTLRAuthScopeAgentRegistryCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeAgentRegistryReadOnly
+ *    @c kGTLRAuthScopeAgentRegistryReadWrite
+ */
+@interface GTLRAgentRegistryQuery_ProjectsLocationsSkillsSearch : GTLRAgentRegistryQuery
+
+/**
+ *  Optional. Use this field to specify additional filter criteria on search
+ *  results. Filter expressions can be used to restrict results based upon
+ *  filterable fields, where equality operators can be used. See
+ *  [instructions](https://docs.cloud.google.com/agent-registry/search-agents-and-tools)
+ *  for more details. Allowed operators: `=`, `<`, `>`, `NOT`, `AND`, `OR`, and
+ *  `()`. | Field | `=` | `<`, `>` | |--------------|-----|----------| | state |
+ *  Yes | No | | targetState | Yes | No | | createTime | Yes | Yes | |
+ *  updateTime | Yes | Yes | Examples: * `state=ACTIVE` to restrict results to
+ *  skills in the `ACTIVE` state.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. The maximum number of search results to return per page. The page
+ *  size is capped at `100`, even if a larger value is specified. A negative
+ *  value will result in an `INVALID_ARGUMENT` error. If unspecified or set to
+ *  `0`, a default value of `20` will be used. The server may return fewer
+ *  results than requested.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. If present, retrieve the next batch of results from the preceding
+ *  call to this method. `page_token` must be the value of `next_page_token`
+ *  from the previous response. The values of all other method parameters, must
+ *  be identical to those in the previous call.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Parent value for SearchSkillsRequest. Format:
+ *  `projects/{project}/locations/{location}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. Search criteria used to select the Skills to return. If no search
+ *  criteria is specified then all accessible Skills will be returned. Search
+ *  expressions can be used to restrict results based upon searchable fields,
+ *  where the operators can be used along with the suffix wildcard symbol `*`.
+ *  See
+ *  [instructions](https://docs.cloud.google.com/agent-registry/search-agents-and-tools)
+ *  for more details. Allowed operators: `=`, `:`, `NOT`, `AND`, `OR`, and `()`.
+ *  Searchable fields: | Field | `=` | `:` | `*` | Keyword Search |
+ *  |---------------------------|-----|-----|-----|----------------| | skillId |
+ *  Yes | Yes | Yes | Included | | name | No | Yes | Yes | Included | |
+ *  displayName | No | Yes | Yes | Included | | description | No | Yes | No |
+ *  Included | | frontmatter.name | No | Yes | No | Included | |
+ *  frontmatter.description | No | Yes | No | Included | |
+ *  frontmatter.compatibility | No | Yes | No | Included | | frontmatter.license
+ *  | No | Yes | No | Included | Examples: *
+ *  `skillId="urn:skill:projects-1234:locations:global:private-important-skill"`
+ *  to find the skill with the specified skill ID. * `name:important` to find
+ *  skills whose name contains `important` as a word. * `displayName:works*` to
+ *  find skills whose display name contains words that start with `works`.
+ */
+@property(nonatomic, copy, nullable) NSString *searchString;
+
+/**
+ *  Optional. The type of search.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAgentRegistrySearchTypeSearchTypeUnspecified Invalid search
+ *        type. (Value: "SEARCH_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRAgentRegistrySearchTypeKeyword Search for a keyword across
+ *        all searchable fields. (Value: "KEYWORD")
+ *    @arg @c kGTLRAgentRegistrySearchTypeSemantic Search based on the meaning
+ *        and intent of a natural language query. (Value: "SEMANTIC")
+ */
+@property(nonatomic, copy, nullable) NSString *searchType;
+
+/**
+ *  Fetches a @c GTLRAgentRegistry_SearchSkillsResponse.
+ *
+ *  Custom deep-search method to filter by frontmatter or query SKILL.md text
+ *  blobs.
+ *
+ *  @param parent Required. Parent value for SearchSkillsRequest. Format:
+ *    `projects/{project}/locations/{location}`.
+ *
+ *  @return GTLRAgentRegistryQuery_ProjectsLocationsSkillsSearch
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+ *  `PERMISSION_DENIED` errors.
+ *
+ *  Method: agentregistry.projects.locations.skills.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAgentRegistryCloudPlatform
+ *    @c kGTLRAuthScopeAgentRegistryReadWrite
+ */
+@interface GTLRAgentRegistryQuery_ProjectsLocationsSkillsSetIamPolicy : GTLRAgentRegistryQuery
+
+/**
+ *  REQUIRED: The resource for which the policy is being specified. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRAgentRegistry_GoogleIamV1Policy.
+ *
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+ *  `PERMISSION_DENIED` errors.
+ *
+ *  @param object The @c GTLRAgentRegistry_GoogleIamV1SetIamPolicyRequest to
+ *    include in the query.
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    specified. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRAgentRegistryQuery_ProjectsLocationsSkillsSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRAgentRegistry_GoogleIamV1SetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  Method: agentregistry.projects.locations.skills.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAgentRegistryCloudPlatform
+ *    @c kGTLRAuthScopeAgentRegistryCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeAgentRegistryReadOnly
+ *    @c kGTLRAuthScopeAgentRegistryReadWrite
+ */
+@interface GTLRAgentRegistryQuery_ProjectsLocationsSkillsTestIamPermissions : GTLRAgentRegistryQuery
+
+/**
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRAgentRegistry_GoogleIamV1TestIamPermissionsResponse.
+ *
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  @param object The @c GTLRAgentRegistry_GoogleIamV1TestIamPermissionsRequest
+ *    to include in the query.
+ *  @param resource REQUIRED: The resource for which the policy detail is being
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRAgentRegistryQuery_ProjectsLocationsSkillsTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLRAgentRegistry_GoogleIamV1TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource;
 
 @end
 

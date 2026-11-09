@@ -1968,7 +1968,12 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseDataConnect_PostgreSql_SchemaVal
 /** Optional. Stores small amounts of arbitrary data. */
 @property(nonatomic, strong, nullable) GTLRFirebaseDataConnect_Service_Annotations *annotations;
 
-/** Output only. The list of connectors in this service. */
+/**
+ *  Output only. The list of connectors in this service. Connectors returned in
+ *  this collection are a summary view. Authoritative lifecycle metadata and
+ *  entity tags are omitted from embedded representations. Call `GetConnector`
+ *  to retrieve the complete resource.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRFirebaseDataConnect_Connector *> *connectors;
 
 /** Output only. [Output only] Create time stamp. */
@@ -1984,6 +1989,12 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseDataConnect_PostgreSql_SchemaVal
  *  [AIP-154](https://google.aip.dev/154)
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Optional. Input only. The GraphQL source files like `dataconnect.yaml` and
+ *  `*.gql`.
+ */
+@property(nonatomic, strong, nullable) GTLRFirebaseDataConnect_Source *graphqlSource;
 
 /** Optional. Labels as key value pairs. */
 @property(nonatomic, strong, nullable) GTLRFirebaseDataConnect_Service_Labels *labels;
@@ -2005,13 +2016,25 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseDataConnect_PostgreSql_SchemaVal
  */
 @property(nonatomic, strong, nullable) NSNumber *reconciling;
 
-/** Output only. The list of schemas in this service. */
+/**
+ *  Optional. The list of schemas in this service. Schemas returned in this
+ *  collection are a summary view. Authoritative lifecycle metadata and entity
+ *  tags are omitted from embedded representations. Call `GetSchema` to retrieve
+ *  the complete resource.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRFirebaseDataConnect_Schema *> *schemas;
 
 /**
- *  Optional. Input only. The source files for service, schemas, and connectors.
+ *  Optional. Input only. Deprecated: Use `sql_source` or `graphql_source`
+ *  instead. The source files for service, schemas, and connectors.
  */
-@property(nonatomic, strong, nullable) GTLRFirebaseDataConnect_Source *source;
+@property(nonatomic, strong, nullable) GTLRFirebaseDataConnect_Source *source GTLR_DEPRECATED;
+
+/**
+ *  Optional. Input only. The SQL source files like `*.sql` for deploying a
+ *  PostgREST service.
+ */
+@property(nonatomic, strong, nullable) GTLRFirebaseDataConnect_Source *sqlSource;
 
 /** Output only. System-assigned, unique identifier. */
 @property(nonatomic, copy, nullable) NSString *uid;

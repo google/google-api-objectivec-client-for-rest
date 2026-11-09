@@ -28,6 +28,35 @@ NS_ASSUME_NONNULL_BEGIN
 // Constants - For some of the query classes' properties below.
 
 // ----------------------------------------------------------------------------
+// cloudDeploymentType
+
+/**
+ *  Deploys using Azure Bicep. Supported only for `AZURE_VM` deployments.
+ *
+ *  Value: "BICEP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagementCloudDeploymentTypeBicep;
+/**
+ *  Default value. If unspecified, defaults to `TERRAFORM` for `GCE_VM`, `BICEP`
+ *  for `AZURE_VM`, and `CLOUD_FORMATION` for `AWS_EC2`.
+ *
+ *  Value: "CLOUD_DEPLOYMENT_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagementCloudDeploymentTypeCloudDeploymentTypeUnspecified;
+/**
+ *  Deploys using AWS Cloud Formation. Supported only for `AWS_EC2` deployments.
+ *
+ *  Value: "CLOUD_FORMATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagementCloudDeploymentTypeCloudFormation;
+/**
+ *  Deploys using Terraform.
+ *
+ *  Value: "TERRAFORM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagementCloudDeploymentTypeTerraform;
+
+// ----------------------------------------------------------------------------
 // monitoringPointType
 
 /**
@@ -632,7 +661,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagementMonitoringPointTypeVmwa
  *  resources in the network, or you don't have read permissions to the network
  *  configurations of listed projects), then the reachability result returns a
  *  value of `UNKNOWN`. If the endpoint specifications in `ConnectivityTest` are
- *  incomplete, the reachability result returns a value of AMBIGUOUS. For more
+ *  incomplete, the reachability result returns a value of `AMBIGUOUS`. For more
  *  information, see the Connectivity Test documentation.
  *
  *  Method: networkmanagement.projects.locations.global.connectivityTests.create
@@ -667,7 +696,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagementMonitoringPointTypeVmwa
  *  resources in the network, or you don't have read permissions to the network
  *  configurations of listed projects), then the reachability result returns a
  *  value of `UNKNOWN`. If the endpoint specifications in `ConnectivityTest` are
- *  incomplete, the reachability result returns a value of AMBIGUOUS. For more
+ *  incomplete, the reachability result returns a value of `AMBIGUOUS`. For more
  *  information, see the Connectivity Test documentation.
  *
  *  @param object The @c GTLRNetworkManagement_ConnectivityTest to include in
@@ -802,25 +831,29 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagementMonitoringPointTypeVmwa
 @interface GTLRNetworkManagementQuery_ProjectsLocationsGlobalConnectivityTestsList : GTLRNetworkManagementQuery
 
 /**
- *  Lists the `ConnectivityTests` that match the filter expression. A filter
- *  expression filters the resources listed in the response. The expression must
- *  be of the form ` ` where operators: `<`, `>`, `<=`, `>=`, `!=`, `=`, `:` are
- *  supported (colon `:` represents a HAS operator which is roughly synonymous
- *  with equality). can refer to a proto or JSON field, or a synthetic field.
- *  Field names can be camelCase or snake_case. Examples: - Filter by name: name
- *  = "projects/proj-1/locations/global/connectivityTests/test-1 - Filter by
+ *  Optional. Lists the `ConnectivityTests` that match the filter expression. A
+ *  filter expression filters the resources listed in the response. The
+ *  expression must be of the form ` ` where operators: `<`, `>`, `<=`, `>=`,
+ *  `!=`, `=`, `:` are supported (colon `:` represents a HAS operator which is
+ *  roughly synonymous with equality). can refer to a proto or JSON field, or a
+ *  synthetic field. Field names can be camelCase or snake_case. Examples: -
+ *  Filter by name: name =
+ *  "projects/proj-1/locations/global/connectivityTests/test-1 - Filter by
  *  labels: - Resources that have a key called `foo` labels.foo:* - Resources
  *  that have a key called `foo` whose value is `bar` labels.foo = bar
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
-/** Field to use to sort the list. */
+/** Optional. Field to use to sort the list. */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
-/** Number of `ConnectivityTests` to return. */
+/** Optional. Number of `ConnectivityTests` to return. */
 @property(nonatomic, assign) NSInteger pageSize;
 
-/** Page token from an earlier query, as returned in `next_page_token`. */
+/**
+ *  Optional. Page token from an earlier query, as returned in
+ *  `next_page_token`.
+ */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
@@ -855,7 +888,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagementMonitoringPointTypeVmwa
  *  the endpoint specifications in `ConnectivityTest` are invalid (for example,
  *  they contain non-existent resources in the network, or the user does not
  *  have read permissions to the network configurations of listed projects),
- *  then the reachability result returns a value of UNKNOWN. If the endpoint
+ *  then the reachability result returns a value of `UNKNOWN`. If the endpoint
  *  specifications in `ConnectivityTest` are incomplete, the reachability result
  *  returns a value of `AMBIGUOUS`. See the documentation in `ConnectivityTest`
  *  for more details.
@@ -891,7 +924,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagementMonitoringPointTypeVmwa
  *  the endpoint specifications in `ConnectivityTest` are invalid (for example,
  *  they contain non-existent resources in the network, or the user does not
  *  have read permissions to the network configurations of listed projects),
- *  then the reachability result returns a value of UNKNOWN. If the endpoint
+ *  then the reachability result returns a value of `UNKNOWN`. If the endpoint
  *  specifications in `ConnectivityTest` are incomplete, the reachability result
  *  returns a value of `AMBIGUOUS`. See the documentation in `ConnectivityTest`
  *  for more details.
@@ -1523,6 +1556,24 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagementMonitoringPointTypeVmwa
 
 /** Optional. Password for logging into the MonitoringPoint. */
 @property(nonatomic, copy, nullable) NSString *xPassword;
+
+/**
+ *  Optional. The deployment type for Cloud Monitoring Points.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkManagementCloudDeploymentTypeCloudDeploymentTypeUnspecified
+ *        Default value. If unspecified, defaults to `TERRAFORM` for `GCE_VM`,
+ *        `BICEP` for `AZURE_VM`, and `CLOUD_FORMATION` for `AWS_EC2`. (Value:
+ *        "CLOUD_DEPLOYMENT_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRNetworkManagementCloudDeploymentTypeTerraform Deploys using
+ *        Terraform. (Value: "TERRAFORM")
+ *    @arg @c kGTLRNetworkManagementCloudDeploymentTypeCloudFormation Deploys
+ *        using AWS Cloud Formation. Supported only for `AWS_EC2` deployments.
+ *        (Value: "CLOUD_FORMATION")
+ *    @arg @c kGTLRNetworkManagementCloudDeploymentTypeBicep Deploys using Azure
+ *        Bicep. Supported only for `AZURE_VM` deployments. (Value: "BICEP")
+ */
+@property(nonatomic, copy, nullable) NSString *cloudDeploymentType;
 
 /** Required. The hostname of the MonitoringPoint, e.g. "test-vm" */
 @property(nonatomic, copy, nullable) NSString *hostname;

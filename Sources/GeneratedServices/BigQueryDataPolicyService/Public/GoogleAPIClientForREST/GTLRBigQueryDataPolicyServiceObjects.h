@@ -545,6 +545,15 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataPolicyService_DataPolicy_Ver
 @property(nonatomic, strong, nullable) NSArray<NSString *> *grantees;
 
 /**
+ *  Optional. Matching condition specified as a SQL expression string. Data
+ *  Governance Tag matcher functions are: `COLUMN_HAS_TAG_KEY(keyName STRING) ->
+ *  BOOL` `COLUMN_MATCH_TAG(keyName STRING, valueShortName STRING) -> BOOL` For
+ *  example: `COLUMN_HAS_TAG_KEY('project-id/pii') AND
+ *  COLUMN_MATCH_TAG('project-id/pii', 'ssn')`
+ */
+@property(nonatomic, copy, nullable) NSString *matchingCondition;
+
+/**
  *  Identifier. Resource name of this data policy, in the format of
  *  `projects/{project_number}/locations/{location_id}/dataPolicies/{data_policy_id}`.
  */

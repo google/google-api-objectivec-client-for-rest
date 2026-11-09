@@ -688,7 +688,7 @@ NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Type_UserWithFreeFor
 //
 
 @implementation GTLRHangoutsChat_CardWithId
-@dynamic card, cardId;
+@dynamic card, cardId, ownerUser;
 @end
 
 
@@ -719,6 +719,38 @@ NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Type_UserWithFreeFor
 
 @implementation GTLRHangoutsChat_ChatSpaceLinkData
 @dynamic message, space, thread;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHangoutsChat_Citation
+//
+
+@implementation GTLRHangoutsChat_Citation
+@dynamic citedSources, identifier;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"citedSources" : [GTLRHangoutsChat_CitedSource class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHangoutsChat_CitedSource
+//
+
+@implementation GTLRHangoutsChat_CitedSource
+@dynamic footer, snippet, title, uri;
 @end
 
 
@@ -924,6 +956,35 @@ NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Type_UserWithFreeFor
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRHangoutsChat_Elements
+//
+
+@implementation GTLRHangoutsChat_Elements
+@dynamic citations, citedSources;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"citations" : [GTLRHangoutsChat_Citation class],
+    @"citedSources" : [GTLRHangoutsChat_CitedSource class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHangoutsChat_ElementsImage
+//
+
+@implementation GTLRHangoutsChat_ElementsImage
+@dynamic imageUri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRHangoutsChat_Emoji
 //
 
@@ -970,6 +1031,16 @@ NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Type_UserWithFreeFor
   return @"spaces";
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHangoutsChat_Footer
+//
+
+@implementation GTLRHangoutsChat_Footer
+@dynamic text;
 @end
 
 
@@ -2114,10 +2185,11 @@ NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Type_UserWithFreeFor
 @implementation GTLRHangoutsChat_Message
 @dynamic accessoryWidgets, actionResponse, annotations, argumentText,
          attachedGifs, attachment, cards, cardsV2, clientAssignedMessageId,
-         createTime, deleteTime, deletionMetadata, emojiReactionSummaries,
-         fallbackText, formattedText, lastUpdateTime, markupSyntax, matchedUrl,
-         name, privateMessageViewer, quotedMessageMetadata, sender, silent,
-         slashCommand, space, text, thread, threadReply;
+         createTime, deleteTime, deletionMetadata, elements,
+         emojiReactionSummaries, fallbackText, formattedText, lastUpdateTime,
+         markupSyntax, matchedUrl, name, privateMessageViewer,
+         quotedMessageMetadata, sender, silent, slashCommand, space, text,
+         thread, threadReply;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2419,6 +2491,33 @@ NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Type_UserWithFreeFor
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRHangoutsChat_ReplaceMessageCardsRequest
+//
+
+@implementation GTLRHangoutsChat_ReplaceMessageCardsRequest
+@dynamic cardsV2;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"cardsV2" : [GTLRHangoutsChat_CardWithId class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHangoutsChat_ReplaceMessageCardsResponse
+//
+
+@implementation GTLRHangoutsChat_ReplaceMessageCardsResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRHangoutsChat_RichLinkMetadata
 //
 
@@ -2580,6 +2679,16 @@ NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Type_UserWithFreeFor
 
 @implementation GTLRHangoutsChat_SlashCommandMetadata
 @dynamic bot, commandId, commandName, triggersDialog, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHangoutsChat_Snippet
+//
+
+@implementation GTLRHangoutsChat_Snippet
+@dynamic imagePreview, text;
 @end
 
 

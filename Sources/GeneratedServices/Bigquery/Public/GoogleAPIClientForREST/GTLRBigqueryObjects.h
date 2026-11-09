@@ -8952,6 +8952,14 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  */
 @property(nonatomic, strong, nullable) NSNumber *printHeader;
 
+/**
+ *  Optional. A set of key-value pairs representing the secure context. This can
+ *  be used to pass sensitive or context-specific information. They can be
+ *  retrieved via the SECURE_CONTEXT() function and used to modify the run-time
+ *  behavior of an extract job on tables with row access policies.
+ */
+@property(nonatomic, strong, nullable) GTLRBigquery_SecureContext *secureContext;
+
 /** A reference to the model being exported. */
 @property(nonatomic, strong, nullable) GTLRBigquery_ModelReference *sourceModel;
 

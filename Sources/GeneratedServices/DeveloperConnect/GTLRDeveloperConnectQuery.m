@@ -18,6 +18,11 @@ NSString * const kGTLRDeveloperConnectRefTypeBranch            = @"BRANCH";
 NSString * const kGTLRDeveloperConnectRefTypeRefTypeUnspecified = @"REF_TYPE_UNSPECIFIED";
 NSString * const kGTLRDeveloperConnectRefTypeTag               = @"TAG";
 
+// view
+NSString * const kGTLRDeveloperConnectViewBasic                = @"BASIC";
+NSString * const kGTLRDeveloperConnectViewCommitViewUnspecified = @"COMMIT_VIEW_UNSPECIFIED";
+NSString * const kGTLRDeveloperConnectViewFull                 = @"FULL";
+
 // ----------------------------------------------------------------------------
 // Query Classes
 //
@@ -433,6 +438,60 @@ NSString * const kGTLRDeveloperConnectRefTypeTag               = @"TAG";
 
 @end
 
+@implementation GTLRDeveloperConnectQuery_ProjectsLocationsConnectionsGitRepositoryLinksAddPullRequestComment
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRDeveloperConnect_AddGitRepositoryLinkPullRequestCommentRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:addPullRequestComment";
+  GTLRDeveloperConnectQuery_ProjectsLocationsConnectionsGitRepositoryLinksAddPullRequestComment *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRDeveloperConnect_PullRequestComment class];
+  query.loggingName = @"developerconnect.projects.locations.connections.gitRepositoryLinks.addPullRequestComment";
+  return query;
+}
+
+@end
+
+@implementation GTLRDeveloperConnectQuery_ProjectsLocationsConnectionsGitRepositoryLinksAddPullRequestReviewComment
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRDeveloperConnect_AddGitRepositoryLinkPullRequestReviewCommentRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:addPullRequestReviewComment";
+  GTLRDeveloperConnectQuery_ProjectsLocationsConnectionsGitRepositoryLinksAddPullRequestReviewComment *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRDeveloperConnect_PullRequestReviewComment class];
+  query.loggingName = @"developerconnect.projects.locations.connections.gitRepositoryLinks.addPullRequestReviewComment";
+  return query;
+}
+
+@end
+
 @implementation GTLRDeveloperConnectQuery_ProjectsLocationsConnectionsGitRepositoryLinksCreate
 
 @dynamic gitRepositoryLinkId, parent, requestId, validateOnly;
@@ -483,6 +542,96 @@ NSString * const kGTLRDeveloperConnectRefTypeTag               = @"TAG";
 
 @end
 
+@implementation GTLRDeveloperConnectQuery_ProjectsLocationsConnectionsGitRepositoryLinksDiffCommit
+
+@dynamic baseSha, headSha, name, pathFilters;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"pathFilters" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:diffCommit";
+  GTLRDeveloperConnectQuery_ProjectsLocationsConnectionsGitRepositoryLinksDiffCommit *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDeveloperConnect_DiffGitRepositoryLinkCommitResponse class];
+  query.loggingName = @"developerconnect.projects.locations.connections.gitRepositoryLinks.diffCommit";
+  return query;
+}
+
+@end
+
+@implementation GTLRDeveloperConnectQuery_ProjectsLocationsConnectionsGitRepositoryLinksFetchCommit
+
+@dynamic commitSha, name, pathFilters, view;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"pathFilters" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:fetchCommit";
+  GTLRDeveloperConnectQuery_ProjectsLocationsConnectionsGitRepositoryLinksFetchCommit *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDeveloperConnect_FetchGitRepositoryLinkCommitResponse class];
+  query.loggingName = @"developerconnect.projects.locations.connections.gitRepositoryLinks.fetchCommit";
+  return query;
+}
+
+@end
+
+@implementation GTLRDeveloperConnectQuery_ProjectsLocationsConnectionsGitRepositoryLinksFetchCommitList
+
+@dynamic name, pageSize, pageToken, ref, view;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:fetchCommitList";
+  GTLRDeveloperConnectQuery_ProjectsLocationsConnectionsGitRepositoryLinksFetchCommitList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDeveloperConnect_FetchGitRepositoryLinkCommitListResponse class];
+  query.loggingName = @"developerconnect.projects.locations.connections.gitRepositoryLinks.fetchCommitList";
+  return query;
+}
+
+@end
+
+@implementation GTLRDeveloperConnectQuery_ProjectsLocationsConnectionsGitRepositoryLinksFetchFileBlame
+
+@dynamic firstLine, lastLine, name, path, ref;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:fetchFileBlame";
+  GTLRDeveloperConnectQuery_ProjectsLocationsConnectionsGitRepositoryLinksFetchFileBlame *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDeveloperConnect_FetchGitRepositoryLinkFileBlameResponse class];
+  query.loggingName = @"developerconnect.projects.locations.connections.gitRepositoryLinks.fetchFileBlame";
+  return query;
+}
+
+@end
+
 @implementation GTLRDeveloperConnectQuery_ProjectsLocationsConnectionsGitRepositoryLinksFetchGitRefs
 
 @dynamic gitRepositoryLink, pageSize, pageToken, refType;
@@ -497,6 +646,44 @@ NSString * const kGTLRDeveloperConnectRefTypeTag               = @"TAG";
   query.gitRepositoryLink = gitRepositoryLink;
   query.expectedObjectClass = [GTLRDeveloperConnect_FetchGitRefsResponse class];
   query.loggingName = @"developerconnect.projects.locations.connections.gitRepositoryLinks.fetchGitRefs";
+  return query;
+}
+
+@end
+
+@implementation GTLRDeveloperConnectQuery_ProjectsLocationsConnectionsGitRepositoryLinksFetchPullRequest
+
+@dynamic name, pullRequestId;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:fetchPullRequest";
+  GTLRDeveloperConnectQuery_ProjectsLocationsConnectionsGitRepositoryLinksFetchPullRequest *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDeveloperConnect_PullRequest class];
+  query.loggingName = @"developerconnect.projects.locations.connections.gitRepositoryLinks.fetchPullRequest";
+  return query;
+}
+
+@end
+
+@implementation GTLRDeveloperConnectQuery_ProjectsLocationsConnectionsGitRepositoryLinksFetchPullRequestList
+
+@dynamic filter, name, pageSize, pageToken;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:fetchPullRequestList";
+  GTLRDeveloperConnectQuery_ProjectsLocationsConnectionsGitRepositoryLinksFetchPullRequestList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDeveloperConnect_FetchGitRepositoryLinkPullRequestListResponse class];
+  query.loggingName = @"developerconnect.projects.locations.connections.gitRepositoryLinks.fetchPullRequestList";
   return query;
 }
 
@@ -589,6 +776,60 @@ NSString * const kGTLRDeveloperConnectRefTypeTag               = @"TAG";
   query.parent = parent;
   query.expectedObjectClass = [GTLRDeveloperConnect_ListGitRepositoryLinksResponse class];
   query.loggingName = @"developerconnect.projects.locations.connections.gitRepositoryLinks.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRDeveloperConnectQuery_ProjectsLocationsConnectionsGitRepositoryLinksModifyPullRequest
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRDeveloperConnect_ModifyGitRepositoryLinkPullRequestRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:modifyPullRequest";
+  GTLRDeveloperConnectQuery_ProjectsLocationsConnectionsGitRepositoryLinksModifyPullRequest *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRDeveloperConnect_PullRequest class];
+  query.loggingName = @"developerconnect.projects.locations.connections.gitRepositoryLinks.modifyPullRequest";
+  return query;
+}
+
+@end
+
+@implementation GTLRDeveloperConnectQuery_ProjectsLocationsConnectionsGitRepositoryLinksOpenPullRequest
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRDeveloperConnect_OpenGitRepositoryLinkPullRequestRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:openPullRequest";
+  GTLRDeveloperConnectQuery_ProjectsLocationsConnectionsGitRepositoryLinksOpenPullRequest *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRDeveloperConnect_PullRequest class];
+  query.loggingName = @"developerconnect.projects.locations.connections.gitRepositoryLinks.openPullRequest";
   return query;
 }
 

@@ -48,6 +48,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  `Code.CANCELLED`.
  *
  *  Method: firebasehosting.operations.cancel
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirebaseHostingCloudPlatform
+ *    @c kGTLRAuthScopeFirebaseHostingFirebase
  */
 @interface GTLRFirebaseHostingQuery_OperationsCancel : GTLRFirebaseHostingQuery
 
@@ -85,6 +89,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  `google.rpc.Code.UNIMPLEMENTED`.
  *
  *  Method: firebasehosting.operations.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirebaseHostingCloudPlatform
+ *    @c kGTLRAuthScopeFirebaseHostingFirebase
  */
 @interface GTLRFirebaseHostingQuery_OperationsDelete : GTLRFirebaseHostingQuery
 
@@ -112,6 +120,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  server doesn't support this method, it returns `UNIMPLEMENTED`.
  *
  *  Method: firebasehosting.operations.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirebaseHostingCloudPlatform
+ *    @c kGTLRAuthScopeFirebaseHostingCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeFirebaseHostingFirebase
+ *    @c kGTLRAuthScopeFirebaseHostingFirebaseReadonly
  */
 @interface GTLRFirebaseHostingQuery_OperationsList : GTLRFirebaseHostingQuery
 

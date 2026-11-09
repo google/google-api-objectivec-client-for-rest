@@ -5725,36 +5725,47 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 
 /**
  *  The ID of the playlist that contains the channel"s favorite videos. Use the
- *  playlistItems.insert and playlistItems.delete to add or remove items from
- *  that list.
+ *  [`playlistItems.insert`](https://developers.google.com/youtube/data/reference/rest/v3/playlistItems/insert)
+ *  and
+ *  [`playlistItems.delete`](https://developers.google.com/youtube/data/reference/rest/v3/playlistItems/delete)
+ *  to add or remove items from that list.
  */
 @property(nonatomic, copy, nullable) NSString *favorites GTLR_DEPRECATED;
 
 /**
  *  The ID of the playlist that contains the channel"s liked videos. Use the
- *  playlistItems.insert and playlistItems.delete to add or remove items from
- *  that list.
+ *  [`playlistItems.insert`](https://developers.google.com/youtube/data/reference/rest/v3/playlistItems/insert)
+ *  and
+ *  [`playlistItems.delete`](https://developers.google.com/youtube/data/reference/rest/v3/playlistItems/delete)
+ *  to add or remove items from that list.
  */
 @property(nonatomic, copy, nullable) NSString *likes;
 
 /**
  *  The ID of the playlist that contains the channel"s uploaded videos. Use the
- *  videos.insert method to upload new videos and the videos.delete method to
- *  delete previously uploaded videos.
+ *  [`videos.insert`](https://developers.google.com/youtube/data/reference/rest/v3/videos/insert)
+ *  method to upload new videos and the
+ *  [`videos.delete`](https://developers.google.com/youtube/data/reference/rest/v3/videos/delete)
+ *  method to delete previously uploaded videos.
  */
 @property(nonatomic, copy, nullable) NSString *uploads;
 
 /**
  *  The ID of the playlist that contains the channel"s watch history. Use the
- *  playlistItems.insert and playlistItems.delete to add or remove items from
- *  that list.
+ *  [`playlistItems.insert`](https://developers.google.com/youtube/data/reference/rest/v3/playlistItems/insert)
+ *  and
+ *  [`playlistItems.delete`](https://developers.google.com/youtube/data/reference/rest/v3/playlistItems/delete)
+ *  to add or remove items from that list.
  */
 @property(nonatomic, copy, nullable) NSString *watchHistory GTLR_DEPRECATED;
 
 /**
  *  The ID of the playlist that contains the channel"s watch later playlist. Use
- *  the playlistItems.insert and playlistItems.delete to add or remove items
- *  from that list.
+ *  the
+ *  [`playlistItems.insert`](https://developers.google.com/youtube/data/reference/rest/v3/playlistItems/insert)
+ *  and
+ *  [`playlistItems.delete`](https://developers.google.com/youtube/data/reference/rest/v3/playlistItems/delete)
+ *  to add or remove items from that list.
  */
 @property(nonatomic, copy, nullable) NSString *watchLater GTLR_DEPRECATED;
 
@@ -8921,7 +8932,11 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, strong, nullable) GTLRYouTube_AvailabilityConfig *availabilityConfig;
 
-/** This value uniquely identifies the live stream bound to the broadcast. */
+/**
+ *  This value uniquely identifies the [`live
+ *  stream`](https://developers.google.com/youtube/data/live/reference/rest/v3/liveStreams)
+ *  bound to the broadcast.
+ */
 @property(nonatomic, copy, nullable) NSString *boundStreamId;
 
 /**
@@ -9034,9 +9049,10 @@ GTLR_DEPRECATED
 /**
  *  The mesh for projecting the video if projection is mesh. The mesh value must
  *  be a UTF-8 string containing the base-64 encoding of 3D mesh data that
- *  follows the Spherical Video V2 RFC specification for an mshp box, excluding
- *  the box size and type but including the following four reserved zero bytes
- *  for the version and flags.
+ *  follows the [Spherical Video V2 RFC
+ *  specification](https://github.com/google/spatial-media/blob/master/docs/spherical-video-v2-rfc.md)
+ *  for an mshp box, excluding the box size and type but including the following
+ *  four reserved zero bytes for the version and flags.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -9080,10 +9096,13 @@ GTLR_DEPRECATED
 
 /**
  *  This setting indicates whether the broadcast should automatically begin with
- *  an in-stream slate when you update the broadcast's status to live. After
- *  updating the status, you then need to send a liveCuepoints.insert request
- *  that sets the cuepoint's eventState to end to remove the in-stream slate and
- *  make your broadcast stream visible to viewers.
+ *  an [in-stream
+ *  slate](https://developers.google.com/youtube/data/live/getting-started#Displaying_Slates)
+ *  when you update the broadcast's status to live. After updating the status,
+ *  you then need to send a
+ *  [`liveCuepoints.insert`](https://developers.google.com/youtube/data/live/reference/rest/v3/liveCuepoints/insert)
+ *  request that sets the cuepoint's eventState to end to remove the in-stream
+ *  slate and make your broadcast stream visible to viewers.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -9187,7 +9206,11 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *actualStartTime;
 
-/** The YouTube video category associated with the video broadcast. */
+/**
+ *  The YouTube [video
+ *  category](https://developers.google.com/youtube/data/reference/rest/v3/videoCategories/list)
+ *  associated with the video broadcast.
+ */
 @property(nonatomic, copy, nullable) NSString *categoryId;
 
 /**
@@ -9198,8 +9221,9 @@ GTLR_DEPRECATED
 
 /**
  *  The broadcast's description. As with the title, you can set this field by
- *  modifying the broadcast resource or by setting the description field of the
- *  corresponding video resource.
+ *  modifying the broadcast resource or by setting the
+ *  [`description`](https://developers.google.com/youtube/data/reference/rest/v3/videos#snippet.description)
+ *  field of the corresponding video resource.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
@@ -9237,7 +9261,9 @@ GTLR_DEPRECATED
 /**
  *  The broadcast's title. Note that the broadcast represents exactly one
  *  YouTube video. You can set this field by modifying the broadcast resource or
- *  by setting the title field of the corresponding video resource.
+ *  by setting the
+ *  [`title`](https://developers.google.com/youtube/data/reference/rest/v3/videos#snippet.title)
+ *  field of the corresponding video resource.
  */
 @property(nonatomic, copy, nullable) NSString *title;
 
@@ -9273,7 +9299,8 @@ GTLR_DEPRECATED
 
 /**
  *  The broadcast's status. The status can be updated using the API's
- *  liveBroadcasts.transition method.
+ *  [`liveBroadcasts.transition`](https://developers.google.com/youtube/data/live/reference/rest/v3/liveBroadcasts/transition)
+ *  method.
  *
  *  Likely values:
  *    @arg @c kGTLRYouTube_LiveBroadcastStatus_LifeCycleStatus_Complete The
@@ -9328,8 +9355,9 @@ GTLR_DEPRECATED
  *  The broadcast's privacy status. Note that the broadcast represents exactly
  *  one YouTube video, so the privacy settings are identical to those supported
  *  for videos. In addition, you can set this field by modifying the broadcast
- *  resource or by setting the privacyStatus field of the corresponding video
- *  resource.
+ *  resource or by setting the
+ *  [`privacyStatus`](https://developers.google.com/youtube/data/reference/rest/v3/videos#status.privacyStatus)
+ *  field of the corresponding video resource.
  *
  *  Likely values:
  *    @arg @c kGTLRYouTube_LiveBroadcastStatus_PrivacyStatus_Private Value
@@ -9456,7 +9484,7 @@ GTLR_DEPRECATED
 
 
 /**
- *  Details about the gift event, this is only set if the type is 'giftEvent'.
+ *  Details about the gift event, this is only set if the type is `giftEvent`.
  */
 @interface GTLRYouTube_LiveChatGiftDetails : GTLRObject
 
@@ -9507,7 +9535,7 @@ GTLR_DEPRECATED
 /**
  *  The ID of the membership gifting message that is related to this gift
  *  membership. This ID will always refer to a message whose type is
- *  'membershipGiftingEvent'.
+ *  `membershipGiftingEvent`.
  */
 @property(nonatomic, copy, nullable) NSString *associatedMembershipGiftingMessageId;
 
@@ -9703,7 +9731,7 @@ GTLR_DEPRECATED
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "youtube#liveChatMessageListResponse".
+ *  `"youtube#liveChatMessageListResponse"`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -9724,7 +9752,7 @@ GTLR_DEPRECATED
 
 @property(nonatomic, strong, nullable) GTLRYouTube_TokenPagination *tokenPagination GTLR_DEPRECATED;
 
-/** The visitorId identifies the visitor. */
+/** Identifies the visitor. */
 @property(nonatomic, copy, nullable) NSString *visitorId GTLR_DEPRECATED;
 
 @end
@@ -9770,18 +9798,18 @@ GTLR_DEPRECATED
 
 /**
  *  Details about the funding event, this is only set if the type is
- *  'fanFundingEvent'.
+ *  `fanFundingEvent`.
  */
 @property(nonatomic, strong, nullable) GTLRYouTube_LiveChatFanFundingEventDetails *fanFundingEventDetails GTLR_DEPRECATED;
 
 /**
- *  Details about the gift event, this is only set if the type is 'giftEvent'.
+ *  Details about the gift event, this is only set if the type is `giftEvent`.
  */
 @property(nonatomic, strong, nullable) GTLRYouTube_LiveChatGiftDetails *giftDetails;
 
 /**
  *  Details about the Gift Membership Received event, this is only set if the
- *  type is 'giftMembershipReceivedEvent'.
+ *  type is `giftMembershipReceivedEvent`.
  */
 @property(nonatomic, strong, nullable) GTLRYouTube_LiveChatGiftMembershipReceivedDetails *giftMembershipReceivedDetails;
 
@@ -9796,13 +9824,13 @@ GTLR_DEPRECATED
 
 /**
  *  Details about the Member Milestone Chat event, this is only set if the type
- *  is 'memberMilestoneChatEvent'.
+ *  is `memberMilestoneChatEvent`.
  */
 @property(nonatomic, strong, nullable) GTLRYouTube_LiveChatMemberMilestoneChatDetails *memberMilestoneChatDetails;
 
 /**
  *  Details about the Membership Gifting event, this is only set if the type is
- *  'membershipGiftingEvent'.
+ *  `membershipGiftingEvent`.
  */
 @property(nonatomic, strong, nullable) GTLRYouTube_LiveChatMembershipGiftingDetails *membershipGiftingDetails;
 
@@ -9811,13 +9839,12 @@ GTLR_DEPRECATED
 
 /**
  *  Details about the New Member Announcement event, this is only set if the
- *  type is 'newSponsorEvent'. Please note that "member" is the new term for
- *  "sponsor".
+ *  type is `newSponsorEvent`. The term "member" replaces "sponsor".
  */
 @property(nonatomic, strong, nullable) GTLRYouTube_LiveChatNewSponsorDetails *newSponsorDetails NS_RETURNS_NOT_RETAINED;
 
 /**
- *  Details about the poll event, this is only set if the type is 'pollEvent'.
+ *  Details about the poll event, this is only set if the type is `pollEvent`.
  */
 @property(nonatomic, strong, nullable) GTLRYouTube_LiveChatPollDetails *pollDetails;
 
@@ -9826,19 +9853,19 @@ GTLR_DEPRECATED
 
 /**
  *  Details about the Super Chat event, this is only set if the type is
- *  'superChatEvent'.
+ *  `superChatEvent`.
  */
 @property(nonatomic, strong, nullable) GTLRYouTube_LiveChatSuperChatDetails *superChatDetails;
 
 /**
  *  Details about the Super Sticker event, this is only set if the type is
- *  'superStickerEvent'.
+ *  `superStickerEvent`.
  */
 @property(nonatomic, strong, nullable) GTLRYouTube_LiveChatSuperStickerDetails *superStickerDetails;
 
 /**
  *  Details about the text message, this is only set if the type is
- *  'textMessageEvent'.
+ *  `textMessageEvent`.
  */
 @property(nonatomic, strong, nullable) GTLRYouTube_LiveChatTextMessageDetails *textMessageDetails;
 
@@ -10082,7 +10109,7 @@ GTLR_DEPRECATED
 
 /**
  *  The tier in which the amount belongs. Lower amounts belong to lower tiers.
- *  The lowest tier is 1.
+ *  The lowest tier is `1`.
  *
  *  Uses NSNumber of unsignedIntValue.
  */
@@ -10119,7 +10146,7 @@ GTLR_DEPRECATED
 
 /**
  *  The tier in which the amount belongs. Lower amounts belong to lower tiers.
- *  The lowest tier is 1.
+ *  The lowest tier is `1`.
  *
  *  Uses NSNumber of unsignedIntValue.
  */
@@ -10145,8 +10172,8 @@ GTLR_DEPRECATED
 @interface GTLRYouTube_LiveChatUserBannedMessageDetails : GTLRObject
 
 /**
- *  The duration of the ban. This property is only present if the banType is
- *  temporary.
+ *  The duration of the ban. This property is only present if the `banType` is
+ *  `temporary`.
  *
  *  Uses NSNumber of unsignedLongLongValue.
  */
@@ -10335,9 +10362,10 @@ GTLR_DEPRECATED
  *  stream for many different broadcasts if those broadcasts occur at different
  *  times. If you set this value to false, then the stream will not be reusable,
  *  which means that it can only be bound to one broadcast. Non-reusable streams
- *  differ from reusable streams in the following ways: - A non-reusable stream
- *  can only be bound to one broadcast. - A non-reusable stream might be deleted
- *  by an automated process after the broadcast ends. - The liveStreams.list
+ *  differ from reusable streams in the following ways: * A non-reusable stream
+ *  can only be bound to one broadcast. * A non-reusable stream might be deleted
+ *  by an automated process after the broadcast ends. * The
+ *  [`liveStreams.list`](https://developers.google.com/youtube/data/live/reference/rest/v3/liveStreams/list)
  *  method does not list non-reusable streams if you call the method and set the
  *  mine parameter to true. The only way to use that method to retrieve the
  *  resource for a non-reusable stream is to use the id parameter to identify
@@ -10771,8 +10799,10 @@ GTLR_DEPRECATED
 @interface GTLRYouTube_MonitorStreamInfo : GTLRObject
 
 /**
- *  If you have set the enableMonitorStream property to true, then this property
- *  determines the length of the live broadcast delay.
+ *  If you have set the
+ *  [`enableMonitorStream`](https://developers.google.com/youtube/data/live/reference/rest/v3/liveBroadcasts#contentDetails.monitorStream.enableMonitorStream)
+ *  property to true, then this property determines the length of the live
+ *  broadcast delay.
  *
  *  Uses NSNumber of unsignedIntValue.
  */
@@ -10828,14 +10858,20 @@ GTLR_DEPRECATED
  *  the number of playlists that each user creates. By default, playlists are
  *  publicly visible to other users, but playlists can be public or private.
  *  YouTube also uses playlists to identify special collections of videos for a
- *  channel, such as: - uploaded videos - favorite videos - positively rated
- *  (liked) videos - watch history - watch later To be more specific, these
+ *  channel, such as: * uploaded videos * favorite videos * positively rated
+ *  (liked) videos * watch history * watch later To be more specific, these
  *  lists are associated with a channel, which is a collection of a person,
  *  group, or company's videos, playlists, and other YouTube information. You
- *  can retrieve the playlist IDs for each of these lists from the channel
- *  resource for a given channel. You can then use the playlistItems.list method
- *  to retrieve any of those lists. You can also add or remove items from those
- *  lists by calling the playlistItems.insert and playlistItems.delete methods.
+ *  can retrieve the playlist IDs for each of these lists from the [`channel
+ *  resource`](https://developers.google.com/youtube/data/reference/rest/v3/channels)
+ *  for a given channel. You can then use the
+ *  [`playlistItems.list`](https://developers.google.com/youtube/data/reference/rest/v3/playlistItems/list)
+ *  method to retrieve any of those lists. You can also add or remove items from
+ *  those lists by calling the
+ *  [`playlistItems.insert`](https://developers.google.com/youtube/data/reference/rest/v3/playlistItems/insert)
+ *  and
+ *  [`playlistItems.delete`](https://developers.google.com/youtube/data/reference/rest/v3/playlistItems/delete)
+ *  methods.
  */
 @interface GTLRYouTube_Playlist : GTLRObject
 
@@ -10976,15 +11012,21 @@ GTLR_DEPRECATED
  *  that is associated with a playlist. In addition, the playlistImage resource
  *  contains details about the included resource that pertain specifically to
  *  how that resource is used in that playlist. YouTube uses playlists to
- *  identify special collections of videos for a channel, such as: - uploaded
- *  videos - favorite videos - positively rated (liked) videos - watch history
+ *  identify special collections of videos for a channel, such as: * uploaded
+ *  videos * favorite videos * positively rated (liked) videos * watch history
  *  To be more specific, these lists are associated with a channel, which is a
  *  collection of a person, group, or company's videos, playlists, and other
  *  YouTube information. You can retrieve the playlist IDs for each of these
- *  lists from the channel resource for a given channel. You can then use the
- *  playlistImages.list method to retrieve image data for any of those
- *  playlists. You can also add or remove images from those lists by calling the
- *  playlistImages.insert and playlistImages.delete methods.
+ *  lists from the [`channel
+ *  resource`](https://developers.google.com/youtube/data/reference/rest/v3/channels)
+ *  for a given channel. You can then use the
+ *  [`playlistImages.list`](https://developers.google.com/youtube/data/reference/rest/v3/playlistImages/list)
+ *  method to retrieve image data for any of those playlists. You can also add
+ *  or remove images from those lists by calling the
+ *  [`playlistImages.insert`](https://developers.google.com/youtube/data/reference/rest/v3/playlistImages/insert)
+ *  and
+ *  [`playlistImages.delete`](https://developers.google.com/youtube/data/reference/rest/v3/playlistImages/delete)
+ *  methods.
  */
 @interface GTLRYouTube_PlaylistImageSnippet : GTLRObject
 
@@ -11022,17 +11064,23 @@ GTLR_DEPRECATED
  *  is included in a playlist. In addition, the playlistItem resource contains
  *  details about the included resource that pertain specifically to how that
  *  resource is used in that playlist. YouTube uses playlists to identify
- *  special collections of videos for a channel, such as: - uploaded videos -
- *  favorite videos - positively rated (liked) videos - watch history - watch
+ *  special collections of videos for a channel, such as: * uploaded videos *
+ *  favorite videos * positively rated (liked) videos * watch history * watch
  *  later To be more specific, these lists are associated with a channel, which
  *  is a collection of a person, group, or company's videos, playlists, and
  *  other YouTube information. You can retrieve the playlist IDs for each of
- *  these lists from the channel resource for a given channel. You can then use
- *  the playlistItems.list method to retrieve any of those lists. You can also
- *  add or remove items from those lists by calling the playlistItems.insert and
- *  playlistItems.delete methods. For example, if a user gives a positive rating
- *  to a video, you would insert that video into the liked videos playlist for
- *  that user's channel.
+ *  these lists from the [`channel
+ *  resource`](https://developers.google.com/youtube/data/reference/rest/v3/channels)
+ *  for a given channel. You can then use the
+ *  [`playlistItems.list`](https://developers.google.com/youtube/data/reference/rest/v3/playlistItems/list)
+ *  method to retrieve any of those lists. You can also add or remove items from
+ *  those lists by calling the
+ *  [`playlistItems.insert`](https://developers.google.com/youtube/data/reference/rest/v3/playlistItems/insert)
+ *  and
+ *  [`playlistItems.delete`](https://developers.google.com/youtube/data/reference/rest/v3/playlistItems/delete)
+ *  methods. For example, if a user gives a positive rating to a video, you
+ *  would insert that video into the liked videos playlist for that user's
+ *  channel.
  */
 @interface GTLRYouTube_PlaylistItem : GTLRObject
 
@@ -11100,8 +11148,10 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *startAt GTLR_DEPRECATED;
 
 /**
- *  The ID that YouTube uses to uniquely identify a video. To retrieve the video
- *  resource, set the id query parameter to this value in your API request.
+ *  The ID that YouTube uses to uniquely identify a video. To [retrieve the
+ *  `video`
+ *  resource](https://developers.google.com/youtube/data/reference/rest/v3/videos/list),
+ *  set the id query parameter to this value in your API request.
  */
 @property(nonatomic, copy, nullable) NSString *videoId;
 
@@ -12189,6 +12239,9 @@ GTLR_DEPRECATED
 /** The quad high definition (1440p / 2K) quality image for this resource. */
 @property(nonatomic, strong, nullable) GTLRYouTube_Thumbnail *qhd;
 
+/** The Shorts aspect ratio (9:16) image for this resource. */
+@property(nonatomic, strong, nullable) GTLRYouTube_Thumbnail *shortsAspectRatio;
+
 /** The standard quality image for this resource. */
 @property(nonatomic, strong, nullable) GTLRYouTube_Thumbnail *standard;
 
@@ -12364,8 +12417,8 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) GTLRYouTube_VideoSuggestions *suggestions;
 
 /**
- *  The topicDetails object encapsulates information about Freebase topics
- *  associated with the video.
+ *  The topicDetails object encapsulates information about
+ *  [Freebase](http://www.freebase.com) topics associated with the video.
  */
 @property(nonatomic, strong, nullable) GTLRYouTube_VideoTopicDetails *topicDetails;
 
@@ -13361,7 +13414,11 @@ GTLR_DEPRECATED
  */
 @interface GTLRYouTube_VideoSnippet : GTLRObject
 
-/** The YouTube video category associated with the video. */
+/**
+ *  The YouTube [video
+ *  category](https://developers.google.com/youtube/data/reference/rest/v3/videoCategories/list)
+ *  associated with the video.
+ */
 @property(nonatomic, copy, nullable) NSString *categoryId;
 
 /**
@@ -13610,7 +13667,7 @@ GTLR_DEPRECATED
 
 /**
  *  This value explains why a video failed to upload. This property is only
- *  present if the uploadStatus property indicates that the upload failed.
+ *  present if the `uploadStatus` property indicates that the upload failed.
  *
  *  Likely values:
  *    @arg @c kGTLRYouTube_VideoStatus_FailureReason_Codec Unsupported codec.
@@ -13647,7 +13704,12 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) NSNumber *madeForKids;
 
 /**
- *  The video's privacy status.
+ *  The video's privacy status. In a `videos.insert` request, if you don't
+ *  specify a value for this property, the uploaded video's privacy status
+ *  defaults to `public`. Certain uploads might default to `private` based on
+ *  creator account settings, as explained in the [YouTube Help
+ *  Center](https://support.google.com/youtube/answer/157177). Videos uploaded
+ *  from unverified API projects are not restricted to private viewing mode.
  *
  *  Likely values:
  *    @arg @c kGTLRYouTube_VideoStatus_PrivacyStatus_Private Value "private"
@@ -13674,7 +13736,7 @@ GTLR_DEPRECATED
 
 /**
  *  This value explains why YouTube rejected an uploaded video. This property is
- *  only present if the uploadStatus property indicates that the upload was
+ *  only present if the `uploadStatus` property indicates that the upload was
  *  rejected.
  *
  *  Likely values:

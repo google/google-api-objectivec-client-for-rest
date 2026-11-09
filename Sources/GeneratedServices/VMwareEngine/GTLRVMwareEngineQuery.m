@@ -55,6 +55,25 @@
 
 @end
 
+@implementation GTLRVMwareEngineQuery_ProjectsLocationsCapacityAllocationsList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/capacityAllocations";
+  GTLRVMwareEngineQuery_ProjectsLocationsCapacityAllocationsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRVMwareEngine_ListCapacityAllocationsResponse class];
+  query.loggingName = @"vmwareengine.projects.locations.capacityAllocations.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRVMwareEngineQuery_ProjectsLocationsDatastoresCreate
 
 @dynamic datastoreId, parent, requestId;

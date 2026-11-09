@@ -3737,7 +3737,8 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
 //
 
 @implementation GTLRYouTube_ThumbnailDetails
-@dynamic defaultProperty, fhd, high, maxres, medium, qhd, standard, uhd;
+@dynamic defaultProperty, fhd, high, maxres, medium, qhd, shortsAspectRatio,
+         standard, uhd;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"defaultProperty" : @"default" };

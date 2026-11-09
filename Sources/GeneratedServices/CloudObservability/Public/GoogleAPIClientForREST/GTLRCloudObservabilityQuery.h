@@ -1193,6 +1193,43 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Initiates reprovisioning of a bucket. This is allowed only a single time for
+ *  a bucket and results in data loss. Subsequent calls to this method for the
+ *  same bucket will result in a FAILED_PRECONDITION (400 Bad Request) error.
+ *
+ *  Method: observability.projects.locations.buckets.reprovision
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudObservabilityCloudPlatform
+ */
+@interface GTLRCloudObservabilityQuery_ProjectsLocationsBucketsReprovision : GTLRCloudObservabilityQuery
+
+/**
+ *  Required. Name of the bucket to reprovision. The format is:
+ *  projects/[PROJECT_ID]/locations/[LOCATION]/buckets/[BUCKET_ID]
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudObservability_Operation.
+ *
+ *  Initiates reprovisioning of a bucket. This is allowed only a single time for
+ *  a bucket and results in data loss. Subsequent calls to this method for the
+ *  same bucket will result in a FAILED_PRECONDITION (400 Bad Request) error.
+ *
+ *  @param object The @c GTLRCloudObservability_ReprovisionBucketRequest to
+ *    include in the query.
+ *  @param name Required. Name of the bucket to reprovision. The format is:
+ *    projects/[PROJECT_ID]/locations/[LOCATION]/buckets/[BUCKET_ID]
+ *
+ *  @return GTLRCloudObservabilityQuery_ProjectsLocationsBucketsReprovision
+ */
++ (instancetype)queryWithObject:(GTLRCloudObservability_ReprovisionBucketRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Gets information about a location.
  *
  *  Method: observability.projects.locations.get

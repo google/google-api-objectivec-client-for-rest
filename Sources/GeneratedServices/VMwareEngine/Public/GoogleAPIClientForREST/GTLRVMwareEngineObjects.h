@@ -23,6 +23,7 @@
 @class GTLRVMwareEngine_AutoscalingSettings;
 @class GTLRVMwareEngine_AutoscalingSettings_AutoscalingPolicies;
 @class GTLRVMwareEngine_Binding;
+@class GTLRVMwareEngine_CapacityAllocation;
 @class GTLRVMwareEngine_Cluster;
 @class GTLRVMwareEngine_Cluster_NodeTypeConfigs;
 @class GTLRVMwareEngine_Constraints;
@@ -1996,6 +1997,41 @@ FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_WeeklyTimeInterval_StartDay
 
 
 /**
+ *  Represents a capacity allocation. Capacity allocation is zonal.
+ */
+@interface GTLRVMwareEngine_CapacityAllocation : GTLRObject
+
+/**
+ *  Output only. The allocated capacity for the capacity allocation.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allocatedCapacityCount;
+
+/**
+ *  Output only. The consumed capacity for the capacity allocation.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *consumedCapacityCount;
+
+/** Output only. The machine family of the capacity allocation. */
+@property(nonatomic, copy, nullable) NSString *machineFamily;
+
+/**
+ *  Output only. Identifier. The resource name of the capacity allocation. The
+ *  last segment of the name is the placement group name. For example:
+ *  `projects/my-project/locations/us-central1-a/capacityAllocations/pg-123`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. The private cloud names using the capacity allocation. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *privateClouds;
+
+@end
+
+
+/**
  *  A cluster in a private cloud.
  */
 @interface GTLRVMwareEngine_Cluster : GTLRObject
@@ -2031,6 +2067,15 @@ FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_WeeklyTimeInterval_StartDay
  *  canonical identifier of the node type (corresponds to the `NodeType`).
  */
 @property(nonatomic, strong, nullable) GTLRVMwareEngine_Cluster_NodeTypeConfigs *nodeTypeConfigs;
+
+/**
+ *  Optional. The identifier of the placement group for cluster nodes. A
+ *  placement group is an internal Google identifier for a group of resources
+ *  that are physically located within the same fault domain. If provided, nodes
+ *  for this cluster are placed within the specified placement group. If this
+ *  field is omitted, the system selects an appropriate placement group.
+ */
+@property(nonatomic, copy, nullable) NSString *placementGroup;
 
 /**
  *  Output only. State of the resource.
@@ -2888,6 +2933,39 @@ FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_WeeklyTimeInterval_StartDay
 
 
 /**
+ *  Response message for VmwareEngine.ListCapacityAllocations
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "capacityAllocations" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRVMwareEngine_ListCapacityAllocationsResponse : GTLRCollectionObject
+
+/**
+ *  A list of capacity allocations.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRVMwareEngine_CapacityAllocation *> *capacityAllocations;
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  Unordered list. Locations that could not be reached when making an
+ *  aggregated query using wildcards.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
  *  Response message for VmwareEngine.ListClusters
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -3665,6 +3743,16 @@ FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_WeeklyTimeInterval_StartDay
  *  canonical identifier of the node type (corresponds to the `NodeType`).
  */
 @property(nonatomic, strong, nullable) GTLRVMwareEngine_ManagementCluster_NodeTypeConfigs *nodeTypeConfigs;
+
+/**
+ *  Optional. The identifier of the placement group for management cluster
+ *  nodes. A placement group is an internal Google identifier for a group of
+ *  resources that are physically located within the same fault domain. If
+ *  provided, nodes for this cluster are placed within the specified placement
+ *  group. If this field is omitted, the system selects an appropriate placement
+ *  group.
+ */
+@property(nonatomic, copy, nullable) NSString *placementGroup;
 
 /**
  *  Optional. Configuration of a stretched cluster. Required for STRETCHED
@@ -5249,6 +5337,16 @@ FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_WeeklyTimeInterval_StartDay
 @property(nonatomic, copy, nullable) NSString *preferredLocation;
 
 /**
+ *  Optional. The identifier of the placement group for preferred location
+ *  cluster nodes. A placement group is an internal Google identifier for a
+ *  group of resources that are physically located within the same fault domain.
+ *  If provided, nodes for this cluster are placed within the specified
+ *  placement group. If this field is omitted, the system selects an appropriate
+ *  placement group.
+ */
+@property(nonatomic, copy, nullable) NSString *preferredLocationPlacementGroup;
+
+/**
  *  Required. Additional zone for a higher level of availability and load
  *  balancing. Specify the resource name or ID of a zone that belongs to the
  *  region of the private cloud. For example:
@@ -5256,6 +5354,16 @@ FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_WeeklyTimeInterval_StartDay
  *  `{project}` can either be a project number or a project ID.
  */
 @property(nonatomic, copy, nullable) NSString *secondaryLocation;
+
+/**
+ *  Optional. The identifier of the placement group for secondary location
+ *  cluster nodes. A placement group is an internal Google identifier for a
+ *  group of resources that are physically located within the same fault domain.
+ *  If provided, nodes for this cluster are placed within the specified
+ *  placement group. If this field is omitted, the system selects an appropriate
+ *  placement group.
+ */
+@property(nonatomic, copy, nullable) NSString *secondaryLocationPlacementGroup;
 
 @end
 

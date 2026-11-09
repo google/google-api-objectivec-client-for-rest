@@ -1207,6 +1207,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 @property(nonatomic, copy, nullable) NSString *requestOptionsLanguageCode;
 
 /**
+ *  Optional. The BCP-47 language code representing the language of the query.
+ */
+@property(nonatomic, copy, nullable) NSString *requestOptionsQueryLanguageCode;
+
+/**
  *  The ID generated when you create a search application using the [admin
  *  console](https://support.google.com/a/answer/9043922).
  */

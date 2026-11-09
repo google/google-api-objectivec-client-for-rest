@@ -6,7 +6,7 @@
 // Description:
 //   Model, deploy, and operate your SaaS at scale.
 // Documentation:
-//   https://cloud.google.com/saas-runtime/docs
+//   https://docs.cloud.google.com/app-lifecycle-manager
 
 #import <GoogleAPIClientForREST/GTLRObject.h>
 
@@ -15,12 +15,15 @@
 #endif
 
 @class GTLRSaaSServiceManagement_Aggregate;
+@class GTLRSaaSServiceManagement_AppParams;
 @class GTLRSaaSServiceManagement_Blueprint;
+@class GTLRSaaSServiceManagement_ComponentRef;
+@class GTLRSaaSServiceManagement_CompositeRef;
 @class GTLRSaaSServiceManagement_Decimal;
 @class GTLRSaaSServiceManagement_Dependency;
 @class GTLRSaaSServiceManagement_Deprovision;
+@class GTLRSaaSServiceManagement_DurationLimits;
 @class GTLRSaaSServiceManagement_ErrorBudget;
-@class GTLRSaaSServiceManagement_FlagUpdate;
 @class GTLRSaaSServiceManagement_FromMapping;
 @class GTLRSaaSServiceManagement_GoogleCloudLocationLocation;
 @class GTLRSaaSServiceManagement_GoogleCloudLocationLocation_Labels;
@@ -46,6 +49,7 @@
 @class GTLRSaaSServiceManagement_Saas_Labels;
 @class GTLRSaaSServiceManagement_SaasCondition;
 @class GTLRSaaSServiceManagement_Schedule;
+@class GTLRSaaSServiceManagement_Scope;
 @class GTLRSaaSServiceManagement_Status;
 @class GTLRSaaSServiceManagement_Status_Details_Item;
 @class GTLRSaaSServiceManagement_Tenant;
@@ -282,6 +286,28 @@ FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_SaasCondition_Type
  *  Value: "TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_SaasCondition_Type_TypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSaaSServiceManagement_Scope.type
+
+/**
+ *  Global type.
+ *
+ *  Value: "TYPE_GLOBAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_Scope_Type_TypeGlobal;
+/**
+ *  Regional type.
+ *
+ *  Value: "TYPE_REGIONAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_Scope_Type_TypeRegional;
+/**
+ *  Unspecified type.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_Scope_Type_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRSaaSServiceManagement_Unit.managementMode
@@ -719,6 +745,28 @@ FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_
 
 
 /**
+ *  AppParams contains the parameters for creating an AppHub Application.
+ */
+@interface GTLRSaaSServiceManagement_AppParams : GTLRObject
+
+/**
+ *  Optional. Grouping used to construct the name of the AppHub Application.
+ *  Multiple UnitKinds can specify the same group to use the same Application
+ *  across their respective units. Corresponds to the app_boundary_id in the ADC
+ *  composite ApplicationTemplate. Defaults to UnitKind.name
+ */
+@property(nonatomic, copy, nullable) NSString *group;
+
+/**
+ *  Optional. Corresponds to the scope in the ADC composite ApplicationTemplate.
+ *  Defaults to TYPE_REGIONAL.
+ */
+@property(nonatomic, strong, nullable) GTLRSaaSServiceManagement_Scope *scope;
+
+@end
+
+
+/**
  *  Blueprints are OCI Images that contain all of the artifacts needed to
  *  provision a unit. Metadata such as, type of the engine used to actuate the
  *  blueprint (Terraform, for example) and version will come from the image
@@ -741,6 +789,52 @@ FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_
 
 /** Output only. Version metadata if present on the blueprint. */
 @property(nonatomic, copy, nullable) NSString *version;
+
+@end
+
+
+/**
+ *  ComponentRef represents a reference to a component resource.
+ */
+@interface GTLRSaaSServiceManagement_ComponentRef : GTLRObject
+
+/** Optional. Name of the component in composite.Components */
+@property(nonatomic, copy, nullable) NSString *component;
+
+/** Optional. Reference to the Composite ApplicationTemplate. */
+@property(nonatomic, strong, nullable) GTLRSaaSServiceManagement_CompositeRef *compositeRef;
+
+/**
+ *  Optional. Revision of the component. If the component does not have a
+ *  revision, this field will be explicitly set to the revision of the composite
+ *  ApplicationTemplate.
+ */
+@property(nonatomic, copy, nullable) NSString *revision;
+
+@end
+
+
+/**
+ *  CompositeRef represents a reference to a composite resource.
+ */
+@interface GTLRSaaSServiceManagement_CompositeRef : GTLRObject
+
+/** Required. Reference to the ApplicationTemplate resource. */
+@property(nonatomic, copy, nullable) NSString *applicationTemplate;
+
+/**
+ *  Optional. Revision of the ApplicationTemplate to use. Changes to revision
+ *  will trigger manual resynchronization. If empty, ApplicationTemplate will be
+ *  ignored.
+ */
+@property(nonatomic, copy, nullable) NSString *revision;
+
+/**
+ *  Output only. Reference to on-going AppTemplate import and replication
+ *  operation (i.e. the operation_id for the long-running operation). This field
+ *  is opaque for external usage.
+ */
+@property(nonatomic, copy, nullable) NSString *syncOperation;
 
 @end
 
@@ -821,6 +915,26 @@ FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_
 
 
 /**
+ *  DurationLimits defines the time-related constraints for a UnitOperation's
+ *  execution. This allows users to control how long an operation can run before
+ *  being cancelled by the system.
+ */
+@interface GTLRSaaSServiceManagement_DurationLimits : GTLRObject
+
+/**
+ *  Optional. The maximum duration a UnitOperation is allowed to execute in the
+ *  RUNNING state. - Minimum value: 60 seconds (1 minute) - Maximum value:
+ *  604800 seconds (7 days) If this field is not set, or if the provided value
+ *  falls outside the allowed range, the system will use a default timeout of
+ *  10800 seconds (3 hours). Upon exceeding this time limit, the UnitOperation
+ *  will be best-effort cancelled, and its state will be set to FAILED.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *unitOperationTimeout;
+
+@end
+
+
+/**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance: service Foo { rpc
@@ -851,17 +965,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *allowedPercentage;
-
-@end
-
-
-/**
- *  FlagUpdate is a UnitOperation that pushes new flag values to Units.
- */
-@interface GTLRSaaSServiceManagement_FlagUpdate : GTLRObject
-
-/** Required. Flag release being applied by UnitOperation. */
-@property(nonatomic, copy, nullable) NSString *flagRelease;
 
 @end
 
@@ -1274,6 +1377,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_
 @property(nonatomic, strong, nullable) GTLRSaaSServiceManagement_Release_Annotations *annotations;
 
 /**
+ *  Output only. Reference to component and revision in a composite
+ *  ApplicationTemplate.
+ */
+@property(nonatomic, strong, nullable) GTLRSaaSServiceManagement_ComponentRef *applicationTemplateComponent;
+
+/**
  *  Optional. Blueprints are OCI Images that contain all of the artifacts needed
  *  to provision a unit.
  */
@@ -1448,14 +1557,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_
  *  server agree on the ordering of a resource being written.
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
-
-/**
- *  Optional. Immutable. Name of the FlagRelease to be rolled out to the target
- *  Units. Release and FlagRelease are mutually exclusive. Note: `release`
- *  comment needs to be adjusted to mention that "Release and FlagRelease are
- *  mutually exclusive" when visibility restriction will be lifted.
- */
-@property(nonatomic, copy, nullable) NSString *flagRelease;
 
 /**
  *  Optional. The labels on the resource, which can be used for categorization.
@@ -1849,6 +1950,21 @@ FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_
 @property(nonatomic, strong, nullable) GTLRSaaSServiceManagement_Saas_Annotations *annotations;
 
 /**
+ *  Optional. Reference to composite ApplicationTemplate. When specified, the
+ *  template components will be imported into their equivalent UnitKind, Release
+ *  and Blueprint resources. Deleted references will not delete imported
+ *  resources. Should only be specified on source regions, and be unspecified on
+ *  replica regions.
+ */
+@property(nonatomic, strong, nullable) GTLRSaaSServiceManagement_CompositeRef *applicationTemplate;
+
+/**
+ *  Output only. Name of repository in Artifact Registry for system-generated
+ *  Blueprints, eg. Blueprints of imported ApplicationTemplates.
+ */
+@property(nonatomic, copy, nullable) NSString *blueprintRepo;
+
+/**
  *  Output only. A set of conditions which indicate the various conditions this
  *  resource can have.
  */
@@ -2015,6 +2131,27 @@ FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_
  *  next window. (optional)
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+@end
+
+
+/**
+ *  Scope of an application.
+ */
+@interface GTLRSaaSServiceManagement_Scope : GTLRObject
+
+/**
+ *  Required. Scope Type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSaaSServiceManagement_Scope_Type_TypeGlobal Global type.
+ *        (Value: "TYPE_GLOBAL")
+ *    @arg @c kGTLRSaaSServiceManagement_Scope_Type_TypeRegional Regional type.
+ *        (Value: "TYPE_REGIONAL")
+ *    @arg @c kGTLRSaaSServiceManagement_Scope_Type_TypeUnspecified Unspecified
+ *        type. (Value: "TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -2208,6 +2345,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_
 @property(nonatomic, strong, nullable) GTLRSaaSServiceManagement_Unit_Annotations *annotations;
 
 /**
+ *  Optional. Reference to the AppHub Application this unit belongs to. All
+ *  resources deployed in this Unit will be associated with the specified
+ *  Application.
+ */
+@property(nonatomic, copy, nullable) NSString *application;
+
+/**
  *  Optional. Output only. A set of conditions which indicate the various
  *  conditions this resource can have.
  */
@@ -2231,9 +2375,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_
  *  server agree on the ordering of a resource being written.
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
-
-/** Optional. Output only. Flag revisions used by this Unit. */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *flagRevisions;
 
 /**
  *  Optional. Output only. Indicates the current input variables deployed by the
@@ -2529,6 +2670,18 @@ FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_
 @property(nonatomic, strong, nullable) GTLRSaaSServiceManagement_UnitKind_Annotations *annotations;
 
 /**
+ *  Optional. Reference to component and revision in a composite
+ *  ApplicationTemplate.
+ */
+@property(nonatomic, strong, nullable) GTLRSaaSServiceManagement_ComponentRef *applicationTemplateComponent;
+
+/**
+ *  Optional. AppParams contains the parameters for creating an AppHub
+ *  Application.
+ */
+@property(nonatomic, strong, nullable) GTLRSaaSServiceManagement_AppParams *appParams;
+
+/**
  *  Optional. Output only. BoundaryType describes the type of boundary the Unit
  *  Kind represents.
  *
@@ -2544,12 +2697,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_
 
 /** Output only. The timestamp when the resource was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
-
-/**
- *  Optional. Default revisions of flags for this UnitKind. Newly created units
- *  will use the flag default_flag_revisions present at the time of creation.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *defaultFlagRevisions;
 
 /**
  *  Optional. A reference to the Release object to use as default for creating
@@ -2569,6 +2716,18 @@ FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_
  *  on. Dependencies will be automatically provisioned if not found. Maximum 10.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSaaSServiceManagement_Dependency *> *dependencies;
+
+/**
+ *  Optional. Defines the default duration limits for UnitOperations created
+ *  from this UnitKind. These settings provide a baseline for execution time
+ *  constraints. The limits specified here can be overridden by more specific
+ *  settings on an individual UnitOperation resource. See the DurationLimits
+ *  message definition for details on the constraints like minimum, maximum, and
+ *  system default values for unit_operation_timeout. If not set, UnitOperations
+ *  will use the system default duration limits unless overridden on the
+ *  UnitOperation.
+ */
+@property(nonatomic, strong, nullable) GTLRSaaSServiceManagement_DurationLimits *durationLimits;
 
 /**
  *  Output only. An opaque value that uniquely identifies a version or
@@ -2705,6 +2864,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_
 @property(nonatomic, strong, nullable) GTLRSaaSServiceManagement_Deprovision *deprovision;
 
 /**
+ *  Optional. Defines the duration limits for this specific UnitOperation
+ *  instance. These settings override any default duration limits set on the
+ *  UnitKind. See the DurationLimits message definition for details on the
+ *  constraints like minimum, maximum, and system default values for
+ *  unit_operation_timeout.
+ */
+@property(nonatomic, strong, nullable) GTLRSaaSServiceManagement_DurationLimits *durationLimits;
+
+/**
  *  Optional. Output only. The engine state for on-going deployment engine
  *  operation(s). This field is opaque for external usage.
  */
@@ -2739,9 +2907,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_
  *  server agree on the ordering of a resource being written.
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
-
-/** Optional. Flag update operation. */
-@property(nonatomic, strong, nullable) GTLRSaaSServiceManagement_FlagUpdate *flagUpdate;
 
 /**
  *  Optional. The labels on the resource, which can be used for categorization.

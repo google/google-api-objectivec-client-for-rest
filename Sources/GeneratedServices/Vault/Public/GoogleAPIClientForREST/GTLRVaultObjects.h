@@ -37,6 +37,8 @@
 @class GTLRVault_ExportOptions;
 @class GTLRVault_ExportStats;
 @class GTLRVault_GeminiExportOptions;
+@class GTLRVault_GeminiInWorkspaceExportOptions;
+@class GTLRVault_GeminiInWorkspaceOptions;
 @class GTLRVault_GeminiOptions;
 @class GTLRVault_GroupsCountResult;
 @class GTLRVault_GroupsExportOptions;
@@ -141,7 +143,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_CalendarExportOptions_ExportFormat
  */
 FOUNDATION_EXTERN NSString * const kGTLRVault_CalendarExportOptions_ExportFormat_Ics;
 /**
- *  Export as JSON. Only available for Gemini in Workpace.
+ *  Export as JSON. Only available for Gemini in Workspace.
  *
  *  Value: "JSON"
  */
@@ -160,7 +162,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_CalendarExportOptions_ExportFormat
  */
 FOUNDATION_EXTERN NSString * const kGTLRVault_CalendarExportOptions_ExportFormat_Pst;
 /**
- *  Export as XML. Only available for Gemini.
+ *  Export as XML. Only available for Gemini app.
  *
  *  Value: "XML"
  */
@@ -360,7 +362,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_GeminiExportOptions_ExportFormat_E
  */
 FOUNDATION_EXTERN NSString * const kGTLRVault_GeminiExportOptions_ExportFormat_Ics;
 /**
- *  Export as JSON. Only available for Gemini in Workpace.
+ *  Export as JSON. Only available for Gemini in Workspace.
  *
  *  Value: "JSON"
  */
@@ -379,11 +381,52 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_GeminiExportOptions_ExportFormat_M
  */
 FOUNDATION_EXTERN NSString * const kGTLRVault_GeminiExportOptions_ExportFormat_Pst;
 /**
- *  Export as XML. Only available for Gemini.
+ *  Export as XML. Only available for Gemini app.
  *
  *  Value: "XML"
  */
 FOUNDATION_EXTERN NSString * const kGTLRVault_GeminiExportOptions_ExportFormat_Xml;
+
+// ----------------------------------------------------------------------------
+// GTLRVault_GeminiInWorkspaceExportOptions.exportFormat
+
+/**
+ *  No export format specified.
+ *
+ *  Value: "EXPORT_FORMAT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVault_GeminiInWorkspaceExportOptions_ExportFormat_ExportFormatUnspecified;
+/**
+ *  Export as ICS. Only available for Calendar.
+ *
+ *  Value: "ICS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVault_GeminiInWorkspaceExportOptions_ExportFormat_Ics;
+/**
+ *  Export as JSON. Only available for Gemini in Workspace.
+ *
+ *  Value: "JSON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVault_GeminiInWorkspaceExportOptions_ExportFormat_Json;
+/**
+ *  Export as MBOX. Only available for Gmail, Groups, Hangouts and Voice.
+ *
+ *  Value: "MBOX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVault_GeminiInWorkspaceExportOptions_ExportFormat_Mbox;
+/**
+ *  Export as PST. Only available for Gmail, Groups, Hangouts, Voice and
+ *  Calendar.
+ *
+ *  Value: "PST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVault_GeminiInWorkspaceExportOptions_ExportFormat_Pst;
+/**
+ *  Export as XML. Only available for Gemini app.
+ *
+ *  Value: "XML"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVault_GeminiInWorkspaceExportOptions_ExportFormat_Xml;
 
 // ----------------------------------------------------------------------------
 // GTLRVault_GroupsExportOptions.exportFormat
@@ -401,7 +444,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_GroupsExportOptions_ExportFormat_E
  */
 FOUNDATION_EXTERN NSString * const kGTLRVault_GroupsExportOptions_ExportFormat_Ics;
 /**
- *  Export as JSON. Only available for Gemini in Workpace.
+ *  Export as JSON. Only available for Gemini in Workspace.
  *
  *  Value: "JSON"
  */
@@ -420,7 +463,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_GroupsExportOptions_ExportFormat_M
  */
 FOUNDATION_EXTERN NSString * const kGTLRVault_GroupsExportOptions_ExportFormat_Pst;
 /**
- *  Export as XML. Only available for Gemini.
+ *  Export as XML. Only available for Gemini app.
  *
  *  Value: "XML"
  */
@@ -442,7 +485,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_HangoutsChatExportOptions_ExportFo
  */
 FOUNDATION_EXTERN NSString * const kGTLRVault_HangoutsChatExportOptions_ExportFormat_Ics;
 /**
- *  Export as JSON. Only available for Gemini in Workpace.
+ *  Export as JSON. Only available for Gemini in Workspace.
  *
  *  Value: "JSON"
  */
@@ -461,7 +504,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_HangoutsChatExportOptions_ExportFo
  */
 FOUNDATION_EXTERN NSString * const kGTLRVault_HangoutsChatExportOptions_ExportFormat_Pst;
 /**
- *  Export as XML. Only available for Gemini.
+ *  Export as XML. Only available for Gemini app.
  *
  *  Value: "XML"
  */
@@ -517,11 +560,17 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_Hold_Corpus_CorpusTypeUnspecified;
  */
 FOUNDATION_EXTERN NSString * const kGTLRVault_Hold_Corpus_Drive;
 /**
- *  Gemini.
+ *  Gemini app.
  *
  *  Value: "GEMINI"
  */
 FOUNDATION_EXTERN NSString * const kGTLRVault_Hold_Corpus_Gemini;
+/**
+ *  Gemini in Workspace.
+ *
+ *  Value: "GEMINI_IN_WORKSPACE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVault_Hold_Corpus_GeminiInWorkspace;
 /**
  *  Groups.
  *
@@ -563,7 +612,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_MailExportOptions_ExportFormat_Exp
  */
 FOUNDATION_EXTERN NSString * const kGTLRVault_MailExportOptions_ExportFormat_Ics;
 /**
- *  Export as JSON. Only available for Gemini in Workpace.
+ *  Export as JSON. Only available for Gemini in Workspace.
  *
  *  Value: "JSON"
  */
@@ -582,7 +631,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_MailExportOptions_ExportFormat_Mbo
  */
 FOUNDATION_EXTERN NSString * const kGTLRVault_MailExportOptions_ExportFormat_Pst;
 /**
- *  Export as XML. Only available for Gemini.
+ *  Export as XML. Only available for Gemini app.
  *
  *  Value: "XML"
  */
@@ -717,11 +766,17 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_Query_Corpus_CorpusTypeUnspecified
  */
 FOUNDATION_EXTERN NSString * const kGTLRVault_Query_Corpus_Drive;
 /**
- *  Gemini.
+ *  Gemini app.
  *
  *  Value: "GEMINI"
  */
 FOUNDATION_EXTERN NSString * const kGTLRVault_Query_Corpus_Gemini;
+/**
+ *  Gemini in Workspace.
+ *
+ *  Value: "GEMINI_IN_WORKSPACE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVault_Query_Corpus_GeminiInWorkspace;
 /**
  *  Groups.
  *
@@ -921,7 +976,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceExportOptions_ExportFormat_Ex
  */
 FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceExportOptions_ExportFormat_Ics;
 /**
- *  Export as JSON. Only available for Gemini in Workpace.
+ *  Export as JSON. Only available for Gemini in Workspace.
  *
  *  Value: "JSON"
  */
@@ -940,7 +995,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceExportOptions_ExportFormat_Mb
  */
 FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceExportOptions_ExportFormat_Pst;
 /**
- *  Export as XML. Only available for Gemini.
+ *  Export as XML. Only available for Gemini app.
  *
  *  Value: "XML"
  */
@@ -1123,14 +1178,14 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
  *    @arg @c kGTLRVault_CalendarExportOptions_ExportFormat_Ics Export as ICS.
  *        Only available for Calendar. (Value: "ICS")
  *    @arg @c kGTLRVault_CalendarExportOptions_ExportFormat_Json Export as JSON.
- *        Only available for Gemini in Workpace. (Value: "JSON")
+ *        Only available for Gemini in Workspace. (Value: "JSON")
  *    @arg @c kGTLRVault_CalendarExportOptions_ExportFormat_Mbox Export as MBOX.
  *        Only available for Gmail, Groups, Hangouts and Voice. (Value: "MBOX")
  *    @arg @c kGTLRVault_CalendarExportOptions_ExportFormat_Pst Export as PST.
  *        Only available for Gmail, Groups, Hangouts, Voice and Calendar.
  *        (Value: "PST")
  *    @arg @c kGTLRVault_CalendarExportOptions_ExportFormat_Xml Export as XML.
- *        Only available for Gemini. (Value: "XML")
+ *        Only available for Gemini app. (Value: "XML")
  */
 @property(nonatomic, copy, nullable) NSString *exportFormat;
 
@@ -1273,8 +1328,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
 @property(nonatomic, strong, nullable) GTLRVault_HeldDriveQuery *driveQuery;
 
 /**
- *  Service-specific options for Gemini holds. If set, **CorpusType** must be
- *  **GEMINI**.
+ *  Service-specific options for Gemini app holds. If set, **CorpusType** must
+ *  be **GEMINI**.
  */
 @property(nonatomic, strong, nullable) GTLRVault_HeldGeminiQuery *geminiQuery;
 
@@ -1578,7 +1633,10 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
 /** Options for Drive exports. */
 @property(nonatomic, strong, nullable) GTLRVault_DriveExportOptions *driveOptions;
 
-/** Option available for Gemini export. */
+/** Option available for Gemini in Workspace export. */
+@property(nonatomic, strong, nullable) GTLRVault_GeminiInWorkspaceExportOptions *geminiInWorkspaceOptions;
+
+/** Option available for Gemini app export. */
 @property(nonatomic, strong, nullable) GTLRVault_GeminiExportOptions *geminiOptions;
 
 /** Options for Groups exports. */
@@ -1640,7 +1698,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
 
 
 /**
- *  The options for Gemini exports.
+ *  The options for Gemini app exports.
  */
 @interface GTLRVault_GeminiExportOptions : GTLRObject
 
@@ -1653,14 +1711,14 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
  *    @arg @c kGTLRVault_GeminiExportOptions_ExportFormat_Ics Export as ICS.
  *        Only available for Calendar. (Value: "ICS")
  *    @arg @c kGTLRVault_GeminiExportOptions_ExportFormat_Json Export as JSON.
- *        Only available for Gemini in Workpace. (Value: "JSON")
+ *        Only available for Gemini in Workspace. (Value: "JSON")
  *    @arg @c kGTLRVault_GeminiExportOptions_ExportFormat_Mbox Export as MBOX.
  *        Only available for Gmail, Groups, Hangouts and Voice. (Value: "MBOX")
  *    @arg @c kGTLRVault_GeminiExportOptions_ExportFormat_Pst Export as PST.
  *        Only available for Gmail, Groups, Hangouts, Voice and Calendar.
  *        (Value: "PST")
  *    @arg @c kGTLRVault_GeminiExportOptions_ExportFormat_Xml Export as XML.
- *        Only available for Gemini. (Value: "XML")
+ *        Only available for Gemini app. (Value: "XML")
  */
 @property(nonatomic, copy, nullable) NSString *exportFormat;
 
@@ -1668,7 +1726,43 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
 
 
 /**
- *  Additional options for Gemini search
+ *  The options for Gemini in Workspace exports.
+ */
+@interface GTLRVault_GeminiInWorkspaceExportOptions : GTLRObject
+
+/**
+ *  The file format for exported messages.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRVault_GeminiInWorkspaceExportOptions_ExportFormat_ExportFormatUnspecified
+ *        No export format specified. (Value: "EXPORT_FORMAT_UNSPECIFIED")
+ *    @arg @c kGTLRVault_GeminiInWorkspaceExportOptions_ExportFormat_Ics Export
+ *        as ICS. Only available for Calendar. (Value: "ICS")
+ *    @arg @c kGTLRVault_GeminiInWorkspaceExportOptions_ExportFormat_Json Export
+ *        as JSON. Only available for Gemini in Workspace. (Value: "JSON")
+ *    @arg @c kGTLRVault_GeminiInWorkspaceExportOptions_ExportFormat_Mbox Export
+ *        as MBOX. Only available for Gmail, Groups, Hangouts and Voice. (Value:
+ *        "MBOX")
+ *    @arg @c kGTLRVault_GeminiInWorkspaceExportOptions_ExportFormat_Pst Export
+ *        as PST. Only available for Gmail, Groups, Hangouts, Voice and
+ *        Calendar. (Value: "PST")
+ *    @arg @c kGTLRVault_GeminiInWorkspaceExportOptions_ExportFormat_Xml Export
+ *        as XML. Only available for Gemini app. (Value: "XML")
+ */
+@property(nonatomic, copy, nullable) NSString *exportFormat;
+
+@end
+
+
+/**
+ *  Additional options for Gemini in Workspace search
+ */
+@interface GTLRVault_GeminiInWorkspaceOptions : GTLRObject
+@end
+
+
+/**
+ *  Additional options for Gemini app search
  */
 @interface GTLRVault_GeminiOptions : GTLRObject
 @end
@@ -1724,14 +1818,14 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
  *    @arg @c kGTLRVault_GroupsExportOptions_ExportFormat_Ics Export as ICS.
  *        Only available for Calendar. (Value: "ICS")
  *    @arg @c kGTLRVault_GroupsExportOptions_ExportFormat_Json Export as JSON.
- *        Only available for Gemini in Workpace. (Value: "JSON")
+ *        Only available for Gemini in Workspace. (Value: "JSON")
  *    @arg @c kGTLRVault_GroupsExportOptions_ExportFormat_Mbox Export as MBOX.
  *        Only available for Gmail, Groups, Hangouts and Voice. (Value: "MBOX")
  *    @arg @c kGTLRVault_GroupsExportOptions_ExportFormat_Pst Export as PST.
  *        Only available for Gmail, Groups, Hangouts, Voice and Calendar.
  *        (Value: "PST")
  *    @arg @c kGTLRVault_GroupsExportOptions_ExportFormat_Xml Export as XML.
- *        Only available for Gemini. (Value: "XML")
+ *        Only available for Gemini app. (Value: "XML")
  */
 @property(nonatomic, copy, nullable) NSString *exportFormat;
 
@@ -1752,7 +1846,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
  *    @arg @c kGTLRVault_HangoutsChatExportOptions_ExportFormat_Ics Export as
  *        ICS. Only available for Calendar. (Value: "ICS")
  *    @arg @c kGTLRVault_HangoutsChatExportOptions_ExportFormat_Json Export as
- *        JSON. Only available for Gemini in Workpace. (Value: "JSON")
+ *        JSON. Only available for Gemini in Workspace. (Value: "JSON")
  *    @arg @c kGTLRVault_HangoutsChatExportOptions_ExportFormat_Mbox Export as
  *        MBOX. Only available for Gmail, Groups, Hangouts and Voice. (Value:
  *        "MBOX")
@@ -1760,7 +1854,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
  *        PST. Only available for Gmail, Groups, Hangouts, Voice and Calendar.
  *        (Value: "PST")
  *    @arg @c kGTLRVault_HangoutsChatExportOptions_ExportFormat_Xml Export as
- *        XML. Only available for Gemini. (Value: "XML")
+ *        XML. Only available for Gemini app. (Value: "XML")
  */
 @property(nonatomic, copy, nullable) NSString *exportFormat;
 
@@ -1862,7 +1956,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
 
 
 /**
- *  Options for Gemini holds.
+ *  Options for Gemini app holds.
  */
 @interface GTLRVault_HeldGeminiQuery : GTLRObject
 @end
@@ -1994,7 +2088,9 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
  *        (Value: "CORPUS_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRVault_Hold_Corpus_Drive Drive, including Meet and Sites.
  *        (Value: "DRIVE")
- *    @arg @c kGTLRVault_Hold_Corpus_Gemini Gemini. (Value: "GEMINI")
+ *    @arg @c kGTLRVault_Hold_Corpus_Gemini Gemini app. (Value: "GEMINI")
+ *    @arg @c kGTLRVault_Hold_Corpus_GeminiInWorkspace Gemini in Workspace.
+ *        (Value: "GEMINI_IN_WORKSPACE")
  *    @arg @c kGTLRVault_Hold_Corpus_Groups Groups. (Value: "GROUPS")
  *    @arg @c kGTLRVault_Hold_Corpus_HangoutsChat For export, Google Chat only.
  *        For holds, Google Chat and classic Hangouts. (Value: "HANGOUTS_CHAT")
@@ -2224,14 +2320,14 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
  *    @arg @c kGTLRVault_MailExportOptions_ExportFormat_Ics Export as ICS. Only
  *        available for Calendar. (Value: "ICS")
  *    @arg @c kGTLRVault_MailExportOptions_ExportFormat_Json Export as JSON.
- *        Only available for Gemini in Workpace. (Value: "JSON")
+ *        Only available for Gemini in Workspace. (Value: "JSON")
  *    @arg @c kGTLRVault_MailExportOptions_ExportFormat_Mbox Export as MBOX.
  *        Only available for Gmail, Groups, Hangouts and Voice. (Value: "MBOX")
  *    @arg @c kGTLRVault_MailExportOptions_ExportFormat_Pst Export as PST. Only
  *        available for Gmail, Groups, Hangouts, Voice and Calendar. (Value:
  *        "PST")
  *    @arg @c kGTLRVault_MailExportOptions_ExportFormat_Xml Export as XML. Only
- *        available for Gemini. (Value: "XML")
+ *        available for Gemini app. (Value: "XML")
  */
 @property(nonatomic, copy, nullable) NSString *exportFormat;
 
@@ -2501,7 +2597,9 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
  *        specified. (Value: "CORPUS_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRVault_Query_Corpus_Drive Drive, including Meet and Sites.
  *        (Value: "DRIVE")
- *    @arg @c kGTLRVault_Query_Corpus_Gemini Gemini. (Value: "GEMINI")
+ *    @arg @c kGTLRVault_Query_Corpus_Gemini Gemini app. (Value: "GEMINI")
+ *    @arg @c kGTLRVault_Query_Corpus_GeminiInWorkspace Gemini in Workspace.
+ *        (Value: "GEMINI_IN_WORKSPACE")
  *    @arg @c kGTLRVault_Query_Corpus_Groups Groups. (Value: "GROUPS")
  *    @arg @c kGTLRVault_Query_Corpus_HangoutsChat For export, Google Chat only.
  *        For holds, Google Chat and classic Hangouts. (Value: "HANGOUTS_CHAT")
@@ -2539,7 +2637,10 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
-/** Set Gemini search-specific options. */
+/** Set Gemini in Workspace search-specific options. */
+@property(nonatomic, strong, nullable) GTLRVault_GeminiInWorkspaceOptions *geminiInWorkspaceOptions;
+
+/** Set Gemini app search-specific options. */
 @property(nonatomic, strong, nullable) GTLRVault_GeminiOptions *geminiOptions;
 
 /** Required when **SearchMethod** is **ROOM**. (read-only) */
@@ -2878,14 +2979,14 @@ GTLR_DEPRECATED
  *    @arg @c kGTLRVault_VoiceExportOptions_ExportFormat_Ics Export as ICS. Only
  *        available for Calendar. (Value: "ICS")
  *    @arg @c kGTLRVault_VoiceExportOptions_ExportFormat_Json Export as JSON.
- *        Only available for Gemini in Workpace. (Value: "JSON")
+ *        Only available for Gemini in Workspace. (Value: "JSON")
  *    @arg @c kGTLRVault_VoiceExportOptions_ExportFormat_Mbox Export as MBOX.
  *        Only available for Gmail, Groups, Hangouts and Voice. (Value: "MBOX")
  *    @arg @c kGTLRVault_VoiceExportOptions_ExportFormat_Pst Export as PST. Only
  *        available for Gmail, Groups, Hangouts, Voice and Calendar. (Value:
  *        "PST")
  *    @arg @c kGTLRVault_VoiceExportOptions_ExportFormat_Xml Export as XML. Only
- *        available for Gemini. (Value: "XML")
+ *        available for Gemini app. (Value: "XML")
  */
 @property(nonatomic, copy, nullable) NSString *exportFormat;
 

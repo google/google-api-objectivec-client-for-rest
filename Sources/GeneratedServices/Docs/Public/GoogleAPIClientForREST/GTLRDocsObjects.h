@@ -1500,8 +1500,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
  */
 FOUNDATION_EXTERN NSString * const kGTLRDocs_WriteControl_WriteMode_Edit;
 /**
- *  Apply all updates as suggestions. [Developer
- *  Preview](https://developers.google.com/workspace/preview).
+ *  Apply all updates as suggestions.
  *
  *  Value: "SUGGEST"
  */
@@ -1515,8 +1514,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_WriteControl_WriteMode_WriteModeUns
 
 /**
  *  Accepts a suggestion. Returns a 403 forbidden error if the requesting user
- *  does not have edit access to the document. [Developer
- *  Preview](https://developers.google.com/workspace/preview).
+ *  does not have edit access to the document.
  */
 @interface GTLRDocs_AcceptSuggestionRequest : GTLRObject
 
@@ -1527,8 +1525,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_WriteControl_WriteMode_WriteModeUns
 
 
 /**
- *  Inserts a reply Post into a CommentThread or SuggestionThread. [Developer
- *  Preview](https://developers.google.com/workspace/preview).
+ *  Inserts a reply Post into a CommentThread or SuggestionThread.
  */
 @interface GTLRDocs_AddCommentReplyRequest : GTLRObject
 
@@ -1545,8 +1542,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_WriteControl_WriteMode_WriteModeUns
 
 
 /**
- *  Response message for adding a reply. [Developer
- *  Preview](https://developers.google.com/workspace/preview).
+ *  Response message for adding a reply.
  */
 @interface GTLRDocs_AddCommentReplyResponse : GTLRObject
 
@@ -1684,8 +1680,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_WriteControl_WriteMode_WriteModeUns
 @interface GTLRDocs_BatchUpdateDocumentResponse : GTLRObject
 
 /**
- *  Whether comment updates were applied in the batch request. [Developer
- *  Preview](https://developers.google.com/workspace/preview).
+ *  Whether comment updates were applied in the batch request.
  *
  *  Likely values:
  *    @arg @c kGTLRDocs_BatchUpdateDocumentResponse_CommentUpdateState_AllFailedUnknownReason
@@ -1714,8 +1709,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_WriteControl_WriteMode_WriteModeUns
 
 /**
  *  The suggestions which were affected by each update. This maps 1:1 with the
- *  updates. [Developer
- *  Preview](https://developers.google.com/workspace/preview).
+ *  updates.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDocs_SuggestionResponse *> *suggestionResponses;
 
@@ -1870,7 +1864,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_WriteControl_WriteMode_WriteModeUns
 /**
  *  One or more locations in the document that are tied to CommentThreads with
  *  the same anchorId. Note: Multiple anchors may refer to the same location.
- *  [Developer Preview](https://developers.google.com/workspace/preview).
  */
 @interface GTLRDocs_CommentAnchor : GTLRObject
 
@@ -1884,8 +1877,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_WriteControl_WriteMode_WriteModeUns
 
 
 /**
- *  Represents a single comment thread. [Developer
- *  Preview](https://developers.google.com/workspace/preview).
+ *  Represents a single comment thread.
  */
 @interface GTLRDocs_CommentThread : GTLRObject
 
@@ -2511,7 +2503,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_WriteControl_WriteMode_WriteModeUns
  *  Deletes a reply Post from a CommentThread or SuggestionThread. Returns a 400
  *  bad request error if: - The requesting user is not the author of the post. -
  *  The reply post contains an action. - The reply post contains an assignee.
- *  [Developer Preview](https://developers.google.com/workspace/preview).
  */
 @interface GTLRDocs_DeleteCommentReplyRequest : GTLRObject
 
@@ -2529,8 +2520,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_WriteControl_WriteMode_WriteModeUns
 
 /**
  *  Deletes a CommentThread. Returns a 400 bad request error if the requesting
- *  user is not the author of the headPost. [Developer
- *  Preview](https://developers.google.com/workspace/preview).
+ *  user is not the author of the headPost.
  */
 @interface GTLRDocs_DeleteCommentRequest : GTLRObject
 
@@ -2705,8 +2695,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_WriteControl_WriteMode_WriteModeUns
 
 /**
  *  Deletes a suggestion. Returns a 403 forbidden error if the requesting user
- *  is not the author of the suggestion. [Developer
- *  Preview](https://developers.google.com/workspace/preview).
+ *  is not the author of the suggestion.
  */
 @interface GTLRDocs_DeleteSuggestionRequest : GTLRObject
 
@@ -2802,14 +2791,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_WriteControl_WriteMode_WriteModeUns
 /**
  *  Output only. The comments associated with the document. Only populated if
  *  the commentsViewMode parameter is set to require comments (such as
- *  `COMMENTS_VIEW_MODE_INCLUDED`). [Developer
- *  Preview](https://developers.google.com/workspace/preview).
+ *  `COMMENTS_VIEW_MODE_INCLUDED`).
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDocs_CommentThread *> *comments;
 
 /**
- *  Output only. The comments view mode applied to the document. [Developer
- *  Preview](https://developers.google.com/workspace/preview).
+ *  Output only. The comments view mode applied to the document.
  *
  *  Likely values:
  *    @arg @c kGTLRDocs_Document_CommentsViewMode_CommentsViewModeDefaultForCurrentAccess
@@ -2955,8 +2942,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_WriteControl_WriteMode_WriteModeUns
 /**
  *  Output only. The suggestions associated with the document. Only populated if
  *  the commentsViewMode parameter is set to require comments (such as
- *  `COMMENTS_VIEW_MODE_INCLUDED`). [Developer
- *  Preview](https://developers.google.com/workspace/preview).
+ *  `COMMENTS_VIEW_MODE_INCLUDED`).
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDocs_SuggestionThread *> *suggestions;
 
@@ -3488,8 +3474,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_WriteControl_WriteMode_WriteModeUns
 /**
  *  The comment anchors in a document tab, keyed by anchor ID. Only populated if
  *  the commentsViewMode parameter is set to require comments (such as
- *  `COMMENTS_VIEW_MODE_INCLUDED`). [Developer
- *  Preview](https://developers.google.com/workspace/preview).
+ *  `COMMENTS_VIEW_MODE_INCLUDED`).
  */
 @property(nonatomic, strong, nullable) GTLRDocs_DocumentTab_CommentAnchors *commentAnchors;
 
@@ -3543,8 +3528,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_WriteControl_WriteMode_WriteModeUns
 /**
  *  The comment anchors in a document tab, keyed by anchor ID. Only populated if
  *  the commentsViewMode parameter is set to require comments (such as
- *  `COMMENTS_VIEW_MODE_INCLUDED`). [Developer
- *  Preview](https://developers.google.com/workspace/preview).
+ *  `COMMENTS_VIEW_MODE_INCLUDED`).
  *
  *  @note This class is documented as having more properties of
  *        GTLRDocs_CommentAnchor. Use @c -additionalJSONKeys and @c
@@ -4586,8 +4570,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_WriteControl_WriteMode_WriteModeUns
 
 
 /**
- *  Inserts a CommentThread into the document. [Developer
- *  Preview](https://developers.google.com/workspace/preview).
+ *  Inserts a CommentThread into the document.
  */
 @interface GTLRDocs_InsertCommentRequest : GTLRObject
 
@@ -4612,8 +4595,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_WriteControl_WriteMode_WriteModeUns
 
 
 /**
- *  Response message for inserting a comment. [Developer
- *  Preview](https://developers.google.com/workspace/preview).
+ *  Response message for inserting a comment.
  */
 @interface GTLRDocs_InsertCommentResponse : GTLRObject
 
@@ -6438,8 +6420,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_WriteControl_WriteMode_WriteModeUns
 
 
 /**
- *  Represents a single post in a comment or suggestion thread. [Developer
- *  Preview](https://developers.google.com/workspace/preview).
+ *  Represents a single post in a comment or suggestion thread.
  */
 @interface GTLRDocs_Post : GTLRObject
 
@@ -6543,8 +6524,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_WriteControl_WriteMode_WriteModeUns
 
 
 /**
- *  Represents a user who authored a comment or suggestion post. [Developer
- *  Preview](https://developers.google.com/workspace/preview).
+ *  Represents a user who authored a comment or suggestion post.
  */
 @interface GTLRDocs_PostAuthor : GTLRObject
 
@@ -6622,8 +6602,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_WriteControl_WriteMode_WriteModeUns
 /**
  *  Rejects a suggestion. Returns a 403 forbidden error if the requesting user
  *  does not have edit access to the document and is not the author of the
- *  suggestion. [Developer
- *  Preview](https://developers.google.com/workspace/preview).
+ *  suggestion.
  */
 @interface GTLRDocs_RejectSuggestionRequest : GTLRObject
 
@@ -6769,16 +6748,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_WriteControl_WriteMode_WriteModeUns
  */
 @interface GTLRDocs_Request : GTLRObject
 
-/**
- *  Accepts a suggestion. [Developer
- *  Preview](https://developers.google.com/workspace/preview).
- */
+/** Accepts a suggestion. */
 @property(nonatomic, strong, nullable) GTLRDocs_AcceptSuggestionRequest *acceptSuggestion;
 
-/**
- *  Adds a reply to a CommentThread or SuggestionThread. [Developer
- *  Preview](https://developers.google.com/workspace/preview).
- */
+/** Adds a reply to a CommentThread or SuggestionThread. */
 @property(nonatomic, strong, nullable) GTLRDocs_AddCommentReplyRequest *addCommentReply;
 
 /** Adds a document tab. */
@@ -6802,16 +6775,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_WriteControl_WriteMode_WriteModeUns
 /** Creates bullets for paragraphs. */
 @property(nonatomic, strong, nullable) GTLRDocs_CreateParagraphBulletsRequest *createParagraphBullets;
 
-/**
- *  Deletes a CommentThread. [Developer
- *  Preview](https://developers.google.com/workspace/preview).
- */
+/** Deletes a CommentThread. */
 @property(nonatomic, strong, nullable) GTLRDocs_DeleteCommentRequest *deleteComment;
 
-/**
- *  Deletes a reply Post from a CommentThread or SuggestionThread. [Developer
- *  Preview](https://developers.google.com/workspace/preview).
- */
+/** Deletes a reply Post from a CommentThread or SuggestionThread. */
 @property(nonatomic, strong, nullable) GTLRDocs_DeleteCommentReplyRequest *deleteCommentReply;
 
 /** Deletes content from the document. */
@@ -6835,10 +6802,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_WriteControl_WriteMode_WriteModeUns
 /** Deletes a positioned object from the document. */
 @property(nonatomic, strong, nullable) GTLRDocs_DeletePositionedObjectRequest *deletePositionedObject;
 
-/**
- *  Deletes a suggestion. [Developer
- *  Preview](https://developers.google.com/workspace/preview).
- */
+/** Deletes a suggestion. */
 @property(nonatomic, strong, nullable) GTLRDocs_DeleteSuggestionRequest *deleteSuggestion;
 
 /** Deletes a document tab. */
@@ -6850,10 +6814,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_WriteControl_WriteMode_WriteModeUns
 /** Deletes a row from a table. */
 @property(nonatomic, strong, nullable) GTLRDocs_DeleteTableRowRequest *deleteTableRow;
 
-/**
- *  Inserts a CommentThread into the document. [Developer
- *  Preview](https://developers.google.com/workspace/preview).
- */
+/** Inserts a CommentThread into the document. */
 @property(nonatomic, strong, nullable) GTLRDocs_InsertCommentRequest *insertComment;
 
 /** Inserts a date. */
@@ -6895,10 +6856,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_WriteControl_WriteMode_WriteModeUns
 /** Updates the number of pinned header rows in a table. */
 @property(nonatomic, strong, nullable) GTLRDocs_PinTableHeaderRowsRequest *pinTableHeaderRows;
 
-/**
- *  Rejects a suggestion. [Developer
- *  Preview](https://developers.google.com/workspace/preview).
- */
+/** Rejects a suggestion. */
 @property(nonatomic, strong, nullable) GTLRDocs_RejectSuggestionRequest *rejectSuggestion;
 
 /** Replaces all instances of the specified text. */
@@ -6915,8 +6873,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_WriteControl_WriteMode_WriteModeUns
 
 /**
  *  Updates an existing post (head post or reply) of a CommentThread or
- *  SuggestionThread. [Developer
- *  Preview](https://developers.google.com/workspace/preview).
+ *  SuggestionThread.
  */
 @property(nonatomic, strong, nullable) GTLRDocs_UpdateCommentPostRequest *updateCommentPost;
 
@@ -6961,10 +6918,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_WriteControl_WriteMode_WriteModeUns
  */
 @interface GTLRDocs_Response : GTLRObject
 
-/**
- *  The result of adding a reply to a comment or suggestion. [Developer
- *  Preview](https://developers.google.com/workspace/preview).
- */
+/** The result of adding a reply to a comment or suggestion. */
 @property(nonatomic, strong, nullable) GTLRDocs_AddCommentReplyResponse *addCommentReply;
 
 /** The result of adding a document tab. */
@@ -6985,10 +6939,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_WriteControl_WriteMode_WriteModeUns
 /** The result of creating a named range. */
 @property(nonatomic, strong, nullable) GTLRDocs_CreateNamedRangeResponse *createNamedRange;
 
-/**
- *  The result of inserting a comment. [Developer
- *  Preview](https://developers.google.com/workspace/preview).
- */
+/** The result of inserting a comment. */
 @property(nonatomic, strong, nullable) GTLRDocs_InsertCommentResponse *insertComment;
 
 /** The result of inserting a dropdown. */
@@ -7832,8 +7783,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_WriteControl_WriteMode_WriteModeUns
 
 
 /**
- *  The suggestions which were affected by a given update. [Developer
- *  Preview](https://developers.google.com/workspace/preview).
+ *  The suggestions which were affected by a given update.
  */
 @interface GTLRDocs_SuggestionResponse : GTLRObject
 
@@ -7858,8 +7808,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_WriteControl_WriteMode_WriteModeUns
 /**
  *  Represents a single suggestion thread. Suggestion threads are created as a
  *  byproduct of saving changes to the document while in suggestion mode, and
- *  cannot be created directly. [Developer
- *  Preview](https://developers.google.com/workspace/preview).
+ *  cannot be created directly.
  */
 @interface GTLRDocs_SuggestionThread : GTLRObject
 
@@ -8802,8 +8751,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_WriteControl_WriteMode_WriteModeUns
 /**
  *  Updates a Post in a CommentThread or SuggestionThread. Returns a 400 bad
  *  request error if: - The post is the headPost of a SuggestionThread. - The
- *  requesting user is not the author of the post. [Developer
- *  Preview](https://developers.google.com/workspace/preview).
+ *  requesting user is not the author of the post.
  */
 @interface GTLRDocs_UpdateCommentPostRequest : GTLRObject
 
@@ -9295,16 +9243,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_WriteControl_WriteMode_WriteModeUns
 
 /**
  *  How the request updates should be applied to the document. If unspecified,
- *  the request updates will be applied as normal edits. [Developer
- *  Preview](https://developers.google.com/workspace/preview).
+ *  the request updates will be applied as normal edits.
  *
  *  Likely values:
  *    @arg @c kGTLRDocs_WriteControl_WriteMode_Edit Apply all updates as normal
  *        edits. (Value: "EDIT")
  *    @arg @c kGTLRDocs_WriteControl_WriteMode_Suggest Apply all updates as
- *        suggestions. [Developer
- *        Preview](https://developers.google.com/workspace/preview). (Value:
- *        "SUGGEST")
+ *        suggestions. (Value: "SUGGEST")
  *    @arg @c kGTLRDocs_WriteControl_WriteMode_WriteModeUnspecified The write
  *        mode is unspecified. Defaults to EDIT behavior. (Value:
  *        "WRITE_MODE_UNSPECIFIED")

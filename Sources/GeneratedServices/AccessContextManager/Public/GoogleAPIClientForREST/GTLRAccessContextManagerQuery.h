@@ -39,15 +39,15 @@ NS_ASSUME_NONNULL_BEGIN
 // accessLevelFormat
 
 /**
- *  Uses the format the resource was defined in. BasicLevels are returned as
- *  BasicLevels, CustomLevels are returned as CustomLevels.
+ *  Uses the format the resource was defined in. `BasicLevels` are returned as
+ *  `BasicLevels`, and `CustomLevels` are returned as `CustomLevels`.
  *
  *  Value: "AS_DEFINED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatAsDefined;
 /**
- *  Use Cloud Common Expression Language when returning the resource. Both
- *  BasicLevels and CustomLevels are returned as CustomLevels.
+ *  Uses Cloud Common Expression Language when returning the resource. Both
+ *  `BasicLevels` and `CustomLevels` are returned as `CustomLevels`.
  *
  *  Value: "CEL"
  */
@@ -182,21 +182,22 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerDeletedPrincipalSynt
 
 /**
  *  Whether to return `BasicLevels` in the Cloud Common Expression Language
- *  rather than as `BasicLevels`. Defaults to AS_DEFINED, where Access Levels
+ *  rather than as `BasicLevels`. Defaults to `AS_DEFINED`, where Access Levels
  *  are returned as `BasicLevels` or `CustomLevels` based on how they were
- *  created. If set to CEL, all Access Levels are returned as `CustomLevels`. In
- *  the CEL case, `BasicLevels` are translated to equivalent `CustomLevels`.
+ *  created. If set to `CEL`, all Access Levels are returned as `CustomLevels`.
+ *  In the `CEL` case, `BasicLevels` are translated to equivalent
+ *  `CustomLevels`.
  *
  *  Likely values:
  *    @arg @c kGTLRAccessContextManagerAccessLevelFormatLevelFormatUnspecified
  *        The format was not specified. (Value: "LEVEL_FORMAT_UNSPECIFIED")
  *    @arg @c kGTLRAccessContextManagerAccessLevelFormatAsDefined Uses the
- *        format the resource was defined in. BasicLevels are returned as
- *        BasicLevels, CustomLevels are returned as CustomLevels. (Value:
- *        "AS_DEFINED")
- *    @arg @c kGTLRAccessContextManagerAccessLevelFormatCel Use Cloud Common
- *        Expression Language when returning the resource. Both BasicLevels and
- *        CustomLevels are returned as CustomLevels. (Value: "CEL")
+ *        format the resource was defined in. `BasicLevels` are returned as
+ *        `BasicLevels`, and `CustomLevels` are returned as `CustomLevels`.
+ *        (Value: "AS_DEFINED")
+ *    @arg @c kGTLRAccessContextManagerAccessLevelFormatCel Uses Cloud Common
+ *        Expression Language when returning the resource. Both `BasicLevels`
+ *        and `CustomLevels` are returned as `CustomLevels`. (Value: "CEL")
  */
 @property(nonatomic, copy, nullable) NSString *accessLevelFormat;
 
@@ -231,7 +232,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerDeletedPrincipalSynt
 @interface GTLRAccessContextManagerQuery_AccessPoliciesAccessLevelsList : GTLRAccessContextManagerQuery
 
 /**
- *  Whether to return `BasicLevels` in the Cloud Common Expression language, as
+ *  Whether to return `BasicLevels` in the Cloud Common Expression Language, as
  *  `CustomLevels`, rather than as `BasicLevels`. Defaults to returning
  *  `AccessLevels` in the format they were defined.
  *
@@ -239,12 +240,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerDeletedPrincipalSynt
  *    @arg @c kGTLRAccessContextManagerAccessLevelFormatLevelFormatUnspecified
  *        The format was not specified. (Value: "LEVEL_FORMAT_UNSPECIFIED")
  *    @arg @c kGTLRAccessContextManagerAccessLevelFormatAsDefined Uses the
- *        format the resource was defined in. BasicLevels are returned as
- *        BasicLevels, CustomLevels are returned as CustomLevels. (Value:
- *        "AS_DEFINED")
- *    @arg @c kGTLRAccessContextManagerAccessLevelFormatCel Use Cloud Common
- *        Expression Language when returning the resource. Both BasicLevels and
- *        CustomLevels are returned as CustomLevels. (Value: "CEL")
+ *        format the resource was defined in. `BasicLevels` are returned as
+ *        `BasicLevels`, and `CustomLevels` are returned as `CustomLevels`.
+ *        (Value: "AS_DEFINED")
+ *    @arg @c kGTLRAccessContextManagerAccessLevelFormatCel Uses Cloud Common
+ *        Expression Language when returning the resource. Both `BasicLevels`
+ *        and `CustomLevels` are returned as `CustomLevels`. (Value: "CEL")
  */
 @property(nonatomic, copy, nullable) NSString *accessLevelFormat;
 
@@ -340,8 +341,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerDeletedPrincipalSynt
  *  long-lasting storage. If the replacement contains errors, an error response
  *  is returned for the first error encountered. Upon error, the replacement is
  *  cancelled, and existing access levels are not affected. The
- *  Operation.response field contains ReplaceAccessLevelsResponse. Removing
- *  access levels contained in existing service perimeters result in an error.
+ *  `Operation.response` field contains `ReplaceAccessLevelsResponse`. Removing
+ *  access levels contained in existing service perimeters results in an error.
  *
  *  Method: accesscontextmanager.accessPolicies.accessLevels.replaceAll
  *
@@ -365,8 +366,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerDeletedPrincipalSynt
  *  long-lasting storage. If the replacement contains errors, an error response
  *  is returned for the first error encountered. Upon error, the replacement is
  *  cancelled, and existing access levels are not affected. The
- *  Operation.response field contains ReplaceAccessLevelsResponse. Removing
- *  access levels contained in existing service perimeters result in an error.
+ *  `Operation.response` field contains `ReplaceAccessLevelsResponse`. Removing
+ *  access levels contained in existing service perimeters results in an error.
  *
  *  @param object The @c GTLRAccessContextManager_ReplaceAccessLevelsRequest to
  *    include in the query.
@@ -429,7 +430,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerDeletedPrincipalSynt
 /**
  *  Creates an authorized orgs desc. The long-running operation from this RPC
  *  has a successful status after the authorized orgs desc propagates to
- *  long-lasting storage. If a authorized orgs desc contains errors, an error
+ *  long-lasting storage. If an authorized orgs desc contains errors, an error
  *  response is returned for the first error encountered. The name of this
  *  `AuthorizedOrgsDesc` will be assigned during creation.
  *
@@ -451,7 +452,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerDeletedPrincipalSynt
  *
  *  Creates an authorized orgs desc. The long-running operation from this RPC
  *  has a successful status after the authorized orgs desc propagates to
- *  long-lasting storage. If a authorized orgs desc contains errors, an error
+ *  long-lasting storage. If an authorized orgs desc contains errors, an error
  *  response is returned for the first error encountered. The name of this
  *  `AuthorizedOrgsDesc` will be assigned during creation.
  *
@@ -481,7 +482,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerDeletedPrincipalSynt
 
 /**
  *  Required. Resource name for the Authorized Orgs Desc. Format:
- *  `accessPolicies/{policy_id}/authorizedOrgsDesc/{authorized_orgs_desc_id}`
+ *  `accessPolicies/{policy_id}/authorizedOrgsDescs/{authorized_orgs_desc_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -493,7 +494,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerDeletedPrincipalSynt
  *  desc is removed from long-lasting storage.
  *
  *  @param name Required. Resource name for the Authorized Orgs Desc. Format:
- *    `accessPolicies/{policy_id}/authorizedOrgsDesc/{authorized_orgs_desc_id}`
+ *    `accessPolicies/{policy_id}/authorizedOrgsDescs/{authorized_orgs_desc_id}`
  *
  *  @return GTLRAccessContextManagerQuery_AccessPoliciesAuthorizedOrgsDescsDelete
  */
@@ -513,7 +514,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerDeletedPrincipalSynt
 
 /**
  *  Required. Resource name for the Authorized Orgs Desc. Format:
- *  `accessPolicies/{policy_id}/authorizedOrgsDescs/{authorized_orgs_descs_id}`
+ *  `accessPolicies/{policy_id}/authorizedOrgsDescs/{authorized_orgs_desc_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -523,7 +524,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerDeletedPrincipalSynt
  *  Gets an authorized orgs desc based on the resource name.
  *
  *  @param name Required. Resource name for the Authorized Orgs Desc. Format:
- *    `accessPolicies/{policy_id}/authorizedOrgsDescs/{authorized_orgs_descs_id}`
+ *    `accessPolicies/{policy_id}/authorizedOrgsDescs/{authorized_orgs_desc_id}`
  *
  *  @return GTLRAccessContextManagerQuery_AccessPoliciesAuthorizedOrgsDescsGet
  */
@@ -577,10 +578,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerDeletedPrincipalSynt
 /**
  *  Updates an authorized orgs desc. The long-running operation from this RPC
  *  has a successful status after the authorized orgs desc propagates to
- *  long-lasting storage. If a authorized orgs desc contains errors, an error
+ *  long-lasting storage. If an authorized orgs desc contains errors, an error
  *  response is returned for the first error encountered. Only the organization
- *  list in `AuthorizedOrgsDesc` can be updated. The name, authorization_type,
- *  asset_type and authorization_direction cannot be updated.
+ *  list in `AuthorizedOrgsDesc` can be updated. The `name`,
+ *  `authorization_type`, `asset_type`, and `authorization_direction` cannot be
+ *  updated.
  *
  *  Method: accesscontextmanager.accessPolicies.authorizedOrgsDescs.patch
  *
@@ -610,10 +612,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerDeletedPrincipalSynt
  *
  *  Updates an authorized orgs desc. The long-running operation from this RPC
  *  has a successful status after the authorized orgs desc propagates to
- *  long-lasting storage. If a authorized orgs desc contains errors, an error
+ *  long-lasting storage. If an authorized orgs desc contains errors, an error
  *  response is returned for the first error encountered. Only the organization
- *  list in `AuthorizedOrgsDesc` can be updated. The name, authorization_type,
- *  asset_type and authorization_direction cannot be updated.
+ *  list in `AuthorizedOrgsDesc` can be updated. The `name`,
+ *  `authorization_type`, `asset_type`, and `authorization_direction` cannot be
+ *  updated.
  *
  *  @param object The @c GTLRAccessContextManager_AuthorizedOrgsDesc to include
  *    in the query.
@@ -673,7 +676,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerDeletedPrincipalSynt
 @interface GTLRAccessContextManagerQuery_AccessPoliciesDelete : GTLRAccessContextManagerQuery
 
 /**
- *  Required. Resource name for the access policy to delete. Format
+ *  Required. Resource name for the access policy to delete. Format:
  *  `accessPolicies/{policy_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -685,7 +688,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerDeletedPrincipalSynt
  *  operation has a successful status after the access policy is removed from
  *  long-lasting storage.
  *
- *  @param name Required. Resource name for the access policy to delete. Format
+ *  @param name Required. Resource name for the access policy to delete. Format:
  *    `accessPolicies/{policy_id}`
  *
  *  @return GTLRAccessContextManagerQuery_AccessPoliciesDelete
@@ -705,7 +708,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerDeletedPrincipalSynt
 @interface GTLRAccessContextManagerQuery_AccessPoliciesGet : GTLRAccessContextManagerQuery
 
 /**
- *  Required. Resource name for the access policy to get. Format
+ *  Required. Resource name for the access policy to get. Format:
  *  `accessPolicies/{policy_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -715,7 +718,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerDeletedPrincipalSynt
  *
  *  Returns an access policy based on the name.
  *
- *  @param name Required. Resource name for the access policy to get. Format
+ *  @param name Required. Resource name for the access policy to get. Format:
  *    `accessPolicies/{policy_id}`
  *
  *  @return GTLRAccessContextManagerQuery_AccessPoliciesGet
@@ -853,8 +856,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerDeletedPrincipalSynt
  *  a successful status after the dry-run specifications for all the service
  *  perimeters have been committed. If a commit fails, it causes the
  *  long-running operation to return an error response and the entire commit
- *  operation is cancelled. When successful, the Operation.response field
- *  contains CommitServicePerimetersResponse. The `dry_run` and the `spec`
+ *  operation is cancelled. When successful, the `Operation.response` field
+ *  contains `CommitServicePerimetersResponse`. The `dry_run` and the `spec`
  *  fields are cleared after a successful commit operation.
  *
  *  Method: accesscontextmanager.accessPolicies.servicePerimeters.commit
@@ -882,8 +885,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerDeletedPrincipalSynt
  *  a successful status after the dry-run specifications for all the service
  *  perimeters have been committed. If a commit fails, it causes the
  *  long-running operation to return an error response and the entire commit
- *  operation is cancelled. When successful, the Operation.response field
- *  contains CommitServicePerimetersResponse. The `dry_run` and the `spec`
+ *  operation is cancelled. When successful, the `Operation.response` field
+ *  contains `CommitServicePerimetersResponse`. The `dry_run` and the `spec`
  *  fields are cleared after a successful commit operation.
  *
  *  @param object The @c GTLRAccessContextManager_CommitServicePerimetersRequest
@@ -1002,7 +1005,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerDeletedPrincipalSynt
 
 /**
  *  Required. Resource name for the Service Perimeter. Format:
- *  `accessPolicies/{policy_id}/servicePerimeters/{service_perimeters_id}`
+ *  `accessPolicies/{policy_id}/servicePerimeters/{service_perimeter_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1012,7 +1015,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerDeletedPrincipalSynt
  *  Gets a service perimeter based on the resource name.
  *
  *  @param name Required. Resource name for the Service Perimeter. Format:
- *    `accessPolicies/{policy_id}/servicePerimeters/{service_perimeters_id}`
+ *    `accessPolicies/{policy_id}/servicePerimeters/{service_perimeter_id}`
  *
  *  @return GTLRAccessContextManagerQuery_AccessPoliciesServicePerimetersGet
  */
@@ -1153,13 +1156,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerDeletedPrincipalSynt
 @end
 
 /**
- *  Replace all existing service perimeters in an access policy with the service
- *  perimeters provided. This is done atomically. The long-running operation
- *  from this RPC has a successful status after all replacements propagate to
- *  long-lasting storage. Replacements containing errors result in an error
- *  response for the first error encountered. Upon an error, replacements are
- *  cancelled and existing service perimeters are not affected. The
- *  Operation.response field contains ReplaceServicePerimetersResponse.
+ *  Replaces all existing service perimeters in an access policy with the
+ *  service perimeters provided. This is done atomically. The long-running
+ *  operation from this RPC has a successful status after all replacements
+ *  propagate to long-lasting storage. Replacements containing errors result in
+ *  an error response for the first error encountered. Upon an error,
+ *  replacements are cancelled and existing service perimeters are not affected.
+ *  The `Operation.response` field contains `ReplaceServicePerimetersResponse`.
  *
  *  Method: accesscontextmanager.accessPolicies.servicePerimeters.replaceAll
  *
@@ -1177,13 +1180,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerDeletedPrincipalSynt
 /**
  *  Fetches a @c GTLRAccessContextManager_Operation.
  *
- *  Replace all existing service perimeters in an access policy with the service
- *  perimeters provided. This is done atomically. The long-running operation
- *  from this RPC has a successful status after all replacements propagate to
- *  long-lasting storage. Replacements containing errors result in an error
- *  response for the first error encountered. Upon an error, replacements are
- *  cancelled and existing service perimeters are not affected. The
- *  Operation.response field contains ReplaceServicePerimetersResponse.
+ *  Replaces all existing service perimeters in an access policy with the
+ *  service perimeters provided. This is done atomically. The long-running
+ *  operation from this RPC has a successful status after all replacements
+ *  propagate to long-lasting storage. Replacements containing errors result in
+ *  an error response for the first error encountered. Upon an error,
+ *  replacements are cancelled and existing service perimeters are not affected.
+ *  The `Operation.response` field contains `ReplaceServicePerimetersResponse`.
  *
  *  @param object The @c
  *    GTLRAccessContextManager_ReplaceServicePerimetersRequest to include in the
@@ -1333,8 +1336,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerDeletedPrincipalSynt
 @end
 
 /**
- *  Looks up the configured service perimeter for a given resource Format:
- *  ['projects/{projectNumber}', 'folders/{folderNumber}'].
+ *  Looks up the configured service perimeter for a given resource. Format:
+ *  `['projects/{projectNumber}', 'folders/{folderNumber}']`.
  *
  *  Method: accesscontextmanager.folders.lookupConfiguredServicePerimeter
  *
@@ -1343,18 +1346,21 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerDeletedPrincipalSynt
  */
 @interface GTLRAccessContextManagerQuery_FoldersLookupConfiguredServicePerimeter : GTLRAccessContextManagerQuery
 
-/** Required. The Resource to resolve (e.g. "projects/123", "folders/456"). */
+/**
+ *  Required. The resource to resolve (for example, `projects/123` or
+ *  `folders/456`).
+ */
 @property(nonatomic, copy, nullable) NSString *resource;
 
 /**
  *  Fetches a @c
  *  GTLRAccessContextManager_LookupConfiguredServicePerimeterResponse.
  *
- *  Looks up the configured service perimeter for a given resource Format:
- *  ['projects/{projectNumber}', 'folders/{folderNumber}'].
+ *  Looks up the configured service perimeter for a given resource. Format:
+ *  `['projects/{projectNumber}', 'folders/{folderNumber}']`.
  *
- *  @param resource Required. The Resource to resolve (e.g. "projects/123",
- *    "folders/456").
+ *  @param resource Required. The resource to resolve (for example,
+ *    `projects/123` or `folders/456`).
  *
  *  @return GTLRAccessContextManagerQuery_FoldersLookupConfiguredServicePerimeter
  */
@@ -1631,11 +1637,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerDeletedPrincipalSynt
 @interface GTLRAccessContextManagerQuery_OrganizationsGcpUserAccessBindingsList : GTLRAccessContextManagerQuery
 
 /**
- *  Optional. The literal filter to apply to the results returned. See
- *  https://google.aip.dev/160 for more details. Accepts values: *
- *  `principal:group_key` * `principal:service_account` OR
- *  `principal:service_account_project_number`. If this field is empty or not
- *  one of the above, the default value is `"principal:group_key"`.
+ *  Optional. Filters the results by principal type. Uses the
+ *  [AIP-160](https://google.aip.dev/160) filter syntax. Only the following
+ *  filters are supported: * `principal:group_key`: bindings for groups. This is
+ *  the default when the filter is empty. * `principal:service_account OR
+ *  principal:service_account_project_number`: bindings for service accounts. *
+ *  `principal:federated_principal`: bindings for federated principals. Values
+ *  can be in snake_case or camelCase. Whitespace and the order of `OR` terms
+ *  don't matter. Any other filter returns an `INVALID_ARGUMENT` error.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -1687,12 +1696,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerDeletedPrincipalSynt
  *  Optional. This field controls whether or not certain repeated settings in
  *  the update request overwrite or append to existing settings on the binding.
  *  If true, then append. Otherwise overwrite. So far, only
- *  scoped_access_settings with session_settings supports appending. Global
- *  access_levels, access_levels in scoped_access_settings,
- *  dry_run_access_levels, and session_settings are not compatible with append
- *  functionality, and the request will return an error if append=true when
- *  these settings are in the update_mask. The request will also return an error
- *  if append=true when "scoped_access_settings" is not set in the update_mask.
+ *  `scoped_access_settings` with `session_settings` supports appending. Global
+ *  `access_levels`, `access_levels` in `scoped_access_settings`,
+ *  `dry_run_access_levels`, and `session_settings` are not compatible with
+ *  append functionality, and the request will return an error if `append=true`
+ *  when these settings are in the `update_mask`. The request will also return
+ *  an error if `append=true` when `"scoped_access_settings"` is not set in the
+ *  `update_mask`.
  */
 @property(nonatomic, assign) BOOL append;
 
@@ -1701,13 +1711,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerDeletedPrincipalSynt
  *  arbitrary length and has only URI unreserved characters (as defined by [RFC
  *  3986 Section 2.3](https://tools.ietf.org/html/rfc3986#section-2.3)). Should
  *  not be specified by the client during creation. Example:
- *  "organizations/256/gcpUserAccessBindings/b3-BhcX_Ud5N"
+ *  `"organizations/256/gcpUserAccessBindings/b3-BhcX_Ud5N"`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Required. Only the fields specified in this mask are updated. Because name
- *  and group_key cannot be changed, update_mask is required and may only
+ *  Required. Only the fields specified in this mask are updated. Because `name`
+ *  and `group_key` cannot be changed, `update_mask` is required and may only
  *  contain the following fields: `access_levels`, `dry_run_access_levels`,
  *  `session_settings`, `scoped_access_settings`. update_mask { paths:
  *  "access_levels" }
@@ -1730,7 +1740,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerDeletedPrincipalSynt
  *    defined by [RFC 3986 Section
  *    2.3](https://tools.ietf.org/html/rfc3986#section-2.3)). Should not be
  *    specified by the client during creation. Example:
- *    "organizations/256/gcpUserAccessBindings/b3-BhcX_Ud5N"
+ *    `"organizations/256/gcpUserAccessBindings/b3-BhcX_Ud5N"`
  *
  *  @return GTLRAccessContextManagerQuery_OrganizationsGcpUserAccessBindingsPatch
  */
@@ -1751,8 +1761,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerDeletedPrincipalSynt
 @interface GTLRAccessContextManagerQuery_PermissionsList : GTLRAccessContextManagerQuery
 
 /**
- *  Optional. This flag specifies the maximum number of services to return per
- *  page. Default value is 100.
+ *  Optional. This flag specifies the maximum number of permissions to return
+ *  per page. Default value is 100.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
@@ -1775,8 +1785,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerDeletedPrincipalSynt
 @end
 
 /**
- *  Looks up the configured service perimeter for a given resource Format:
- *  ['projects/{projectNumber}', 'folders/{folderNumber}'].
+ *  Looks up the configured service perimeter for a given resource. Format:
+ *  `['projects/{projectNumber}', 'folders/{folderNumber}']`.
  *
  *  Method: accesscontextmanager.projects.lookupConfiguredServicePerimeter
  *
@@ -1785,18 +1795,21 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerDeletedPrincipalSynt
  */
 @interface GTLRAccessContextManagerQuery_ProjectsLookupConfiguredServicePerimeter : GTLRAccessContextManagerQuery
 
-/** Required. The Resource to resolve (e.g. "projects/123", "folders/456"). */
+/**
+ *  Required. The resource to resolve (for example, `projects/123` or
+ *  `folders/456`).
+ */
 @property(nonatomic, copy, nullable) NSString *resource;
 
 /**
  *  Fetches a @c
  *  GTLRAccessContextManager_LookupConfiguredServicePerimeterResponse.
  *
- *  Looks up the configured service perimeter for a given resource Format:
- *  ['projects/{projectNumber}', 'folders/{folderNumber}'].
+ *  Looks up the configured service perimeter for a given resource. Format:
+ *  `['projects/{projectNumber}', 'folders/{folderNumber}']`.
  *
- *  @param resource Required. The Resource to resolve (e.g. "projects/123",
- *    "folders/456").
+ *  @param resource Required. The resource to resolve (for example,
+ *    `projects/123` or `folders/456`).
  *
  *  @return GTLRAccessContextManagerQuery_ProjectsLookupConfiguredServicePerimeter
  */

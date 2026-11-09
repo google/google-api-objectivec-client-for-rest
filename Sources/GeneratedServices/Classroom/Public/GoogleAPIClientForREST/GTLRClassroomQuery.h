@@ -1517,6 +1517,79 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 @end
 
 /**
+ *  Returns a list of student submissions that the requester is permitted to
+ *  view. This method returns the following error codes: * `PERMISSION_DENIED`
+ *  for access errors. * `INVALID_ARGUMENT` if the request is malformed. *
+ *  `NOT_FOUND` if one of the identified resources does not exist.
+ *
+ *  Method: classroom.courses.courseWork.addOnAttachments.studentSubmissions.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeClassroomAddonsStudent
+ *    @c kGTLRAuthScopeClassroomAddonsTeacher
+ *    @c kGTLRAuthScopeClassroomCourseworkMe
+ *    @c kGTLRAuthScopeClassroomCourseworkMeReadonly
+ *    @c kGTLRAuthScopeClassroomCourseworkStudents
+ *    @c kGTLRAuthScopeClassroomCourseworkStudentsReadonly
+ *    @c kGTLRAuthScopeClassroomStudentSubmissionsMeReadonly
+ *    @c kGTLRAuthScopeClassroomStudentSubmissionsStudentsReadonly
+ */
+@interface GTLRClassroomQuery_CoursesCourseWorkAddOnAttachmentsStudentSubmissionsList : GTLRClassroomQuery
+
+/** Required. Identifier of the add-on attachment. */
+@property(nonatomic, copy, nullable) NSString *attachmentId;
+
+/** Required. Identifier of the course. */
+@property(nonatomic, copy, nullable) NSString *courseId;
+
+/**
+ *  Required. Identifier of the `CourseWork` under which the attachment is
+ *  attached.
+ */
+@property(nonatomic, copy, nullable) NSString *itemId;
+
+/**
+ *  Optional. Maximum number of submissions to return. Zero or unspecified
+ *  indicates that the server may assign a maximum. The server may return fewer
+ *  than the specified number of results.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous
+ *  `ListAddOnAttachmentStudentSubmissions` call. Provide this to retrieve the
+ *  subsequent page. When paginating, all other parameters provided to
+ *  `ListAddOnAttachmentStudentSubmissions` must match the call that provided
+ *  the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRClassroom_ListAddOnAttachmentStudentSubmissionsResponse.
+ *
+ *  Returns a list of student submissions that the requester is permitted to
+ *  view. This method returns the following error codes: * `PERMISSION_DENIED`
+ *  for access errors. * `INVALID_ARGUMENT` if the request is malformed. *
+ *  `NOT_FOUND` if one of the identified resources does not exist.
+ *
+ *  @param courseId Required. Identifier of the course.
+ *  @param itemId Required. Identifier of the `CourseWork` under which the
+ *    attachment is attached.
+ *  @param attachmentId Required. Identifier of the add-on attachment.
+ *
+ *  @return GTLRClassroomQuery_CoursesCourseWorkAddOnAttachmentsStudentSubmissionsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithCourseId:(NSString *)courseId
+                           itemId:(NSString *)itemId
+                     attachmentId:(NSString *)attachmentId;
+
+@end
+
+/**
  *  Updates data associated with an add-on attachment submission. Requires the
  *  add-on to have been the original creator of the attachment and the
  *  attachment to have a positive `max_points` value set. This method returns

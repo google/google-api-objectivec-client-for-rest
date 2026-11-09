@@ -676,27 +676,6 @@ NSString * const kGTLRStorageProjectionNoAcl = @"noAcl";
 
 @end
 
-@implementation GTLRStorageQuery_ChannelsStop
-
-+ (instancetype)queryWithObject:(GTLRStorage_Channel *)object {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSString *pathURITemplate = @"channels/stop";
-  GTLRStorageQuery_ChannelsStop *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:nil];
-  query.bodyObject = object;
-  query.loggingName = @"storage.channels.stop";
-  return query;
-}
-
-@end
-
 @implementation GTLRStorageQuery_DefaultObjectAccessControlsDelete
 
 @dynamic bucket, entity, userProject;

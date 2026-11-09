@@ -14,6 +14,12 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRCloudFTP_LoggingConfig.verbosity
+NSString * const kGTLRCloudFTP_LoggingConfig_Verbosity_AllEvents = @"ALL_EVENTS";
+NSString * const kGTLRCloudFTP_LoggingConfig_Verbosity_ErrorsOnly = @"ERRORS_ONLY";
+NSString * const kGTLRCloudFTP_LoggingConfig_Verbosity_LogVerbosityUnspecified = @"LOG_VERBOSITY_UNSPECIFIED";
+NSString * const kGTLRCloudFTP_LoggingConfig_Verbosity_TransfersAndAuthOnly = @"TRANSFERS_AND_AUTH_ONLY";
+
 // GTLRCloudFTP_Server.accessType
 NSString * const kGTLRCloudFTP_Server_AccessType_AccessTypeUnspecified = @"ACCESS_TYPE_UNSPECIFIED";
 NSString * const kGTLRCloudFTP_Server_AccessType_External      = @"EXTERNAL";
@@ -255,6 +261,16 @@ NSString * const kGTLRCloudFTP_UserCredential_CredentialType_TypeUnspecified = @
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudFTP_LoggingConfig
+//
+
+@implementation GTLRCloudFTP_LoggingConfig
+@dynamic enabled, verbosity;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudFTP_Operation
 //
 
@@ -319,8 +335,8 @@ NSString * const kGTLRCloudFTP_UserCredential_CredentialType_TypeUnspecified = @
 
 @implementation GTLRCloudFTP_Server
 @dynamic accessType, createTime, displayName, externalConfig,
-         googleManagedServerCredential, internalConfig, labels, name,
-         satisfiesPzi, satisfiesPzs, serviceAgent, state, updateTime;
+         googleManagedServerCredential, internalConfig, labels, loggingConfig,
+         name, satisfiesPzi, satisfiesPzs, serviceAgent, state, updateTime;
 @end
 
 

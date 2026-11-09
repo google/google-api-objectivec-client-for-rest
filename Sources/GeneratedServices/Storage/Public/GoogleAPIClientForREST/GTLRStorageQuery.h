@@ -1432,34 +1432,6 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 @end
 
 /**
- *  Stop watching resources through this channel
- *
- *  Method: storage.channels.stop
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeStorageCloudPlatform
- *    @c kGTLRAuthScopeStorageCloudPlatformReadOnly
- *    @c kGTLRAuthScopeStorageDevstorageFullControl
- *    @c kGTLRAuthScopeStorageDevstorageReadOnly
- *    @c kGTLRAuthScopeStorageDevstorageReadWrite
- */
-@interface GTLRStorageQuery_ChannelsStop : GTLRStorageQuery
-
-/**
- *  Upon successful completion, the callback's object and error parameters will
- *  be nil. This query does not fetch an object.
- *
- *  Stop watching resources through this channel
- *
- *  @param object The @c GTLRStorage_Channel to include in the query.
- *
- *  @return GTLRStorageQuery_ChannelsStop
- */
-+ (instancetype)queryWithObject:(GTLRStorage_Channel *)object;
-
-@end
-
-/**
  *  Permanently deletes the default object ACL entry for the specified entity on
  *  the specified bucket.
  *

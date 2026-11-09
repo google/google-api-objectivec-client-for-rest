@@ -218,6 +218,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_AdditionalDetail_SignalTy
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_AdditionalDetail_SignalType_SignalTypeExpensiveCommands;
 /**
+ *  Deprecated: This signal is not supported. Represents if the
+ *  cross_db_ownership_chaining database flag for a Cloud SQL for SQL Server
+ *  instance is not set to off.
+ *
+ *  Value: "SIGNAL_TYPE_EXPOSED_BY_OWNERSHIP_CHAINING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_AdditionalDetail_SignalType_SignalTypeExposedByOwnershipChaining GTLR_DEPRECATED;
+/**
  *  Represents if he external scripts enabled database flag for a Cloud SQL for
  *  SQL Server instance is not set to off.
  *
@@ -385,6 +393,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_AdditionalDetail_SignalTy
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_AdditionalDetail_SignalType_SignalTypeLowCacheHitAndMaintenanceDowntime;
 /**
+ *  Deprecated: This signal is not supported. High number of idle connections.
+ *
+ *  Value: "SIGNAL_TYPE_MANY_IDLE_CONNECTIONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_AdditionalDetail_SignalType_SignalTypeManyIdleConnections GTLR_DEPRECATED;
+/**
  *  Indicates that the instance's max server memory is configured higher than
  *  the recommended value.
  *
@@ -441,6 +455,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_AdditionalDetail_SignalTy
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_AdditionalDetail_SignalType_SignalTypeNoPointInTimeRecovery;
 /**
+ *  Deprecated: This signal is not supported. Represents if a resource has a
+ *  promotable replica.
+ *
+ *  Value: "SIGNAL_TYPE_NO_PROMOTABLE_REPLICA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_AdditionalDetail_SignalType_SignalTypeNoPromotableReplica GTLR_DEPRECATED;
+/**
  *  Represents if a Cloud SQL database has a password configured for the root
  *  account or not.
  *
@@ -480,6 +501,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_AdditionalDetail_SignalTy
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_AdditionalDetail_SignalType_SignalTypeOutdatedMinorVersion;
 /**
+ *  Deprecated: This signal is not supported. Outdated version.
+ *
+ *  Value: "SIGNAL_TYPE_OUTDATED_VERSION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_AdditionalDetail_SignalType_SignalTypeOutdatedVersion GTLR_DEPRECATED;
+/**
  *  Represents out of disk.
  *
  *  Value: "SIGNAL_TYPE_OUT_OF_DISK"
@@ -491,6 +518,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_AdditionalDetail_SignalTy
  *  Value: "SIGNAL_TYPE_OVERPROVISIONED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_AdditionalDetail_SignalType_SignalTypeOverprovisioned;
+/**
+ *  Represents a change in performance KPIs.
+ *
+ *  Value: "SIGNAL_TYPE_PERFORMANCE_KPI_CHANGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_AdditionalDetail_SignalType_SignalTypePerformanceKpiChange;
 /**
  *  Represents if public IP is enabled.
  *
@@ -1030,6 +1063,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_Dimension_ManagementType_
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_Dimension_ProductEngine_EngineAdbServerlessOracle;
 /**
+ *  Deprecated: Use ENGINE_NATIVE instead for PRODUCT_TYPE_SPANNER. Cloud
+ *  Spanner with Google SQL dialect.
+ *
+ *  Value: "ENGINE_CLOUD_SPANNER_WITH_GOOGLESQL_DIALECT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_Dimension_ProductEngine_EngineCloudSpannerWithGooglesqlDialect GTLR_DEPRECATED;
+/**
+ *  Deprecated: Use ENGINE_NATIVE instead for PRODUCT_TYPE_SPANNER. Cloud
+ *  Spanner with PostgreSQL dialect.
+ *
+ *  Value: "ENGINE_CLOUD_SPANNER_WITH_POSTGRES_DIALECT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_Dimension_ProductEngine_EngineCloudSpannerWithPostgresDialect GTLR_DEPRECATED;
+/**
  *  Oracle Exadata engine.
  *
  *  Value: "ENGINE_EXADATA_ORACLE"
@@ -1160,6 +1207,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_Dimension_ProductType_Pro
  *  Value: "PRODUCT_TYPE_MEMORYSTORE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_Dimension_ProductType_ProductTypeMemorystore;
+/**
+ *  Deprecated: Use PRODUCT_TYPE_CLOUDSQL with instance type as EXTERNAL_PRIMARY
+ *  instead. On premises database product.
+ *
+ *  Value: "PRODUCT_TYPE_ON_PREM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_Dimension_ProductType_ProductTypeOnPrem GTLR_DEPRECATED;
 /**
  *  Oracle product area in Google Cloud
  *
@@ -1430,6 +1484,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_IssueStats_SignalType_Sig
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_IssueStats_SignalType_SignalTypeExpensiveCommands;
 /**
+ *  Deprecated: This signal is not supported. Represents if the
+ *  cross_db_ownership_chaining database flag for a Cloud SQL for SQL Server
+ *  instance is not set to off.
+ *
+ *  Value: "SIGNAL_TYPE_EXPOSED_BY_OWNERSHIP_CHAINING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_IssueStats_SignalType_SignalTypeExposedByOwnershipChaining GTLR_DEPRECATED;
+/**
  *  Represents if he external scripts enabled database flag for a Cloud SQL for
  *  SQL Server instance is not set to off.
  *
@@ -1597,6 +1659,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_IssueStats_SignalType_Sig
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_IssueStats_SignalType_SignalTypeLowCacheHitAndMaintenanceDowntime;
 /**
+ *  Deprecated: This signal is not supported. High number of idle connections.
+ *
+ *  Value: "SIGNAL_TYPE_MANY_IDLE_CONNECTIONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_IssueStats_SignalType_SignalTypeManyIdleConnections GTLR_DEPRECATED;
+/**
  *  Indicates that the instance's max server memory is configured higher than
  *  the recommended value.
  *
@@ -1653,6 +1721,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_IssueStats_SignalType_Sig
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_IssueStats_SignalType_SignalTypeNoPointInTimeRecovery;
 /**
+ *  Deprecated: This signal is not supported. Represents if a resource has a
+ *  promotable replica.
+ *
+ *  Value: "SIGNAL_TYPE_NO_PROMOTABLE_REPLICA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_IssueStats_SignalType_SignalTypeNoPromotableReplica GTLR_DEPRECATED;
+/**
  *  Represents if a Cloud SQL database has a password configured for the root
  *  account or not.
  *
@@ -1692,6 +1767,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_IssueStats_SignalType_Sig
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_IssueStats_SignalType_SignalTypeOutdatedMinorVersion;
 /**
+ *  Deprecated: This signal is not supported. Outdated version.
+ *
+ *  Value: "SIGNAL_TYPE_OUTDATED_VERSION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_IssueStats_SignalType_SignalTypeOutdatedVersion GTLR_DEPRECATED;
+/**
  *  Represents out of disk.
  *
  *  Value: "SIGNAL_TYPE_OUT_OF_DISK"
@@ -1703,6 +1784,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_IssueStats_SignalType_Sig
  *  Value: "SIGNAL_TYPE_OVERPROVISIONED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_IssueStats_SignalType_SignalTypeOverprovisioned;
+/**
+ *  Represents a change in performance KPIs.
+ *
+ *  Value: "SIGNAL_TYPE_PERFORMANCE_KPI_CHANGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_IssueStats_SignalType_SignalTypePerformanceKpiChange;
 /**
  *  Represents if public IP is enabled.
  *
@@ -2100,6 +2187,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_MaintenanceInfo_State_Mai
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_Product_Engine_EngineAdbServerlessOracle;
 /**
+ *  Deprecated: Use ENGINE_NATIVE instead for PRODUCT_TYPE_SPANNER. Cloud
+ *  Spanner with Google SQL dialect.
+ *
+ *  Value: "ENGINE_CLOUD_SPANNER_WITH_GOOGLESQL_DIALECT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_Product_Engine_EngineCloudSpannerWithGooglesqlDialect GTLR_DEPRECATED;
+/**
+ *  Deprecated: Use ENGINE_NATIVE instead for PRODUCT_TYPE_SPANNER. Cloud
+ *  Spanner with PostgreSQL dialect.
+ *
+ *  Value: "ENGINE_CLOUD_SPANNER_WITH_POSTGRES_DIALECT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_Product_Engine_EngineCloudSpannerWithPostgresDialect GTLR_DEPRECATED;
+/**
  *  Oracle Exadata engine.
  *
  *  Value: "ENGINE_EXADATA_ORACLE"
@@ -2230,6 +2331,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_Product_Type_ProductTypeF
  *  Value: "PRODUCT_TYPE_MEMORYSTORE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_Product_Type_ProductTypeMemorystore;
+/**
+ *  Deprecated: Use PRODUCT_TYPE_CLOUDSQL with instance type as EXTERNAL_PRIMARY
+ *  instead. On premises database product.
+ *
+ *  Value: "PRODUCT_TYPE_ON_PREM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_Product_Type_ProductTypeOnPrem GTLR_DEPRECATED;
 /**
  *  Oracle product area in Google Cloud
  *
@@ -2596,6 +2704,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_Signal_SignalType_SignalT
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_Signal_SignalType_SignalTypeExpensiveCommands;
 /**
+ *  Deprecated: This signal is not supported. Represents if the
+ *  cross_db_ownership_chaining database flag for a Cloud SQL for SQL Server
+ *  instance is not set to off.
+ *
+ *  Value: "SIGNAL_TYPE_EXPOSED_BY_OWNERSHIP_CHAINING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_Signal_SignalType_SignalTypeExposedByOwnershipChaining GTLR_DEPRECATED;
+/**
  *  Represents if he external scripts enabled database flag for a Cloud SQL for
  *  SQL Server instance is not set to off.
  *
@@ -2763,6 +2879,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_Signal_SignalType_SignalT
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_Signal_SignalType_SignalTypeLowCacheHitAndMaintenanceDowntime;
 /**
+ *  Deprecated: This signal is not supported. High number of idle connections.
+ *
+ *  Value: "SIGNAL_TYPE_MANY_IDLE_CONNECTIONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_Signal_SignalType_SignalTypeManyIdleConnections GTLR_DEPRECATED;
+/**
  *  Indicates that the instance's max server memory is configured higher than
  *  the recommended value.
  *
@@ -2819,6 +2941,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_Signal_SignalType_SignalT
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_Signal_SignalType_SignalTypeNoPointInTimeRecovery;
 /**
+ *  Deprecated: This signal is not supported. Represents if a resource has a
+ *  promotable replica.
+ *
+ *  Value: "SIGNAL_TYPE_NO_PROMOTABLE_REPLICA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_Signal_SignalType_SignalTypeNoPromotableReplica GTLR_DEPRECATED;
+/**
  *  Represents if a Cloud SQL database has a password configured for the root
  *  account or not.
  *
@@ -2858,6 +2987,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_Signal_SignalType_SignalT
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_Signal_SignalType_SignalTypeOutdatedMinorVersion;
 /**
+ *  Deprecated: This signal is not supported. Outdated version.
+ *
+ *  Value: "SIGNAL_TYPE_OUTDATED_VERSION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_Signal_SignalType_SignalTypeOutdatedVersion GTLR_DEPRECATED;
+/**
  *  Represents out of disk.
  *
  *  Value: "SIGNAL_TYPE_OUT_OF_DISK"
@@ -2869,6 +3004,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_Signal_SignalType_SignalT
  *  Value: "SIGNAL_TYPE_OVERPROVISIONED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_Signal_SignalType_SignalTypeOverprovisioned;
+/**
+ *  Represents a change in performance KPIs.
+ *
+ *  Value: "SIGNAL_TYPE_PERFORMANCE_KPI_CHANGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_Signal_SignalType_SignalTypePerformanceKpiChange;
 /**
  *  Represents if public IP is enabled.
  *
@@ -3292,6 +3433,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_SignalFilter_SignalType_S
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_SignalFilter_SignalType_SignalTypeExpensiveCommands;
 /**
+ *  Deprecated: This signal is not supported. Represents if the
+ *  cross_db_ownership_chaining database flag for a Cloud SQL for SQL Server
+ *  instance is not set to off.
+ *
+ *  Value: "SIGNAL_TYPE_EXPOSED_BY_OWNERSHIP_CHAINING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_SignalFilter_SignalType_SignalTypeExposedByOwnershipChaining GTLR_DEPRECATED;
+/**
  *  Represents if he external scripts enabled database flag for a Cloud SQL for
  *  SQL Server instance is not set to off.
  *
@@ -3459,6 +3608,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_SignalFilter_SignalType_S
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_SignalFilter_SignalType_SignalTypeLowCacheHitAndMaintenanceDowntime;
 /**
+ *  Deprecated: This signal is not supported. High number of idle connections.
+ *
+ *  Value: "SIGNAL_TYPE_MANY_IDLE_CONNECTIONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_SignalFilter_SignalType_SignalTypeManyIdleConnections GTLR_DEPRECATED;
+/**
  *  Indicates that the instance's max server memory is configured higher than
  *  the recommended value.
  *
@@ -3515,6 +3670,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_SignalFilter_SignalType_S
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_SignalFilter_SignalType_SignalTypeNoPointInTimeRecovery;
 /**
+ *  Deprecated: This signal is not supported. Represents if a resource has a
+ *  promotable replica.
+ *
+ *  Value: "SIGNAL_TYPE_NO_PROMOTABLE_REPLICA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_SignalFilter_SignalType_SignalTypeNoPromotableReplica GTLR_DEPRECATED;
+/**
  *  Represents if a Cloud SQL database has a password configured for the root
  *  account or not.
  *
@@ -3554,6 +3716,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_SignalFilter_SignalType_S
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_SignalFilter_SignalType_SignalTypeOutdatedMinorVersion;
 /**
+ *  Deprecated: This signal is not supported. Outdated version.
+ *
+ *  Value: "SIGNAL_TYPE_OUTDATED_VERSION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_SignalFilter_SignalType_SignalTypeOutdatedVersion GTLR_DEPRECATED;
+/**
  *  Represents out of disk.
  *
  *  Value: "SIGNAL_TYPE_OUT_OF_DISK"
@@ -3565,6 +3733,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_SignalFilter_SignalType_S
  *  Value: "SIGNAL_TYPE_OVERPROVISIONED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_SignalFilter_SignalType_SignalTypeOverprovisioned;
+/**
+ *  Represents a change in performance KPIs.
+ *
+ *  Value: "SIGNAL_TYPE_PERFORMANCE_KPI_CHANGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_SignalFilter_SignalType_SignalTypePerformanceKpiChange;
 /**
  *  Represents if public IP is enabled.
  *
@@ -3954,6 +4128,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_SignalProductsFilters_Sig
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_SignalProductsFilters_SignalType_SignalTypeExpensiveCommands;
 /**
+ *  Deprecated: This signal is not supported. Represents if the
+ *  cross_db_ownership_chaining database flag for a Cloud SQL for SQL Server
+ *  instance is not set to off.
+ *
+ *  Value: "SIGNAL_TYPE_EXPOSED_BY_OWNERSHIP_CHAINING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_SignalProductsFilters_SignalType_SignalTypeExposedByOwnershipChaining GTLR_DEPRECATED;
+/**
  *  Represents if he external scripts enabled database flag for a Cloud SQL for
  *  SQL Server instance is not set to off.
  *
@@ -4121,6 +4303,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_SignalProductsFilters_Sig
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_SignalProductsFilters_SignalType_SignalTypeLowCacheHitAndMaintenanceDowntime;
 /**
+ *  Deprecated: This signal is not supported. High number of idle connections.
+ *
+ *  Value: "SIGNAL_TYPE_MANY_IDLE_CONNECTIONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_SignalProductsFilters_SignalType_SignalTypeManyIdleConnections GTLR_DEPRECATED;
+/**
  *  Indicates that the instance's max server memory is configured higher than
  *  the recommended value.
  *
@@ -4177,6 +4365,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_SignalProductsFilters_Sig
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_SignalProductsFilters_SignalType_SignalTypeNoPointInTimeRecovery;
 /**
+ *  Deprecated: This signal is not supported. Represents if a resource has a
+ *  promotable replica.
+ *
+ *  Value: "SIGNAL_TYPE_NO_PROMOTABLE_REPLICA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_SignalProductsFilters_SignalType_SignalTypeNoPromotableReplica GTLR_DEPRECATED;
+/**
  *  Represents if a Cloud SQL database has a password configured for the root
  *  account or not.
  *
@@ -4216,6 +4411,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_SignalProductsFilters_Sig
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_SignalProductsFilters_SignalType_SignalTypeOutdatedMinorVersion;
 /**
+ *  Deprecated: This signal is not supported. Outdated version.
+ *
+ *  Value: "SIGNAL_TYPE_OUTDATED_VERSION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_SignalProductsFilters_SignalType_SignalTypeOutdatedVersion GTLR_DEPRECATED;
+/**
  *  Represents out of disk.
  *
  *  Value: "SIGNAL_TYPE_OUT_OF_DISK"
@@ -4227,6 +4428,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_SignalProductsFilters_Sig
  *  Value: "SIGNAL_TYPE_OVERPROVISIONED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_SignalProductsFilters_SignalType_SignalTypeOverprovisioned;
+/**
+ *  Represents a change in performance KPIs.
+ *
+ *  Value: "SIGNAL_TYPE_PERFORMANCE_KPI_CHANGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_SignalProductsFilters_SignalType_SignalTypePerformanceKpiChange;
 /**
  *  Represents if public IP is enabled.
  *
@@ -4616,6 +4823,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_SignalTypeGroup_SignalTyp
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_SignalTypeGroup_SignalTypes_SignalTypeExpensiveCommands;
 /**
+ *  Deprecated: This signal is not supported. Represents if the
+ *  cross_db_ownership_chaining database flag for a Cloud SQL for SQL Server
+ *  instance is not set to off.
+ *
+ *  Value: "SIGNAL_TYPE_EXPOSED_BY_OWNERSHIP_CHAINING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_SignalTypeGroup_SignalTypes_SignalTypeExposedByOwnershipChaining GTLR_DEPRECATED;
+/**
  *  Represents if he external scripts enabled database flag for a Cloud SQL for
  *  SQL Server instance is not set to off.
  *
@@ -4783,6 +4998,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_SignalTypeGroup_SignalTyp
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_SignalTypeGroup_SignalTypes_SignalTypeLowCacheHitAndMaintenanceDowntime;
 /**
+ *  Deprecated: This signal is not supported. High number of idle connections.
+ *
+ *  Value: "SIGNAL_TYPE_MANY_IDLE_CONNECTIONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_SignalTypeGroup_SignalTypes_SignalTypeManyIdleConnections GTLR_DEPRECATED;
+/**
  *  Indicates that the instance's max server memory is configured higher than
  *  the recommended value.
  *
@@ -4839,6 +5060,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_SignalTypeGroup_SignalTyp
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_SignalTypeGroup_SignalTypes_SignalTypeNoPointInTimeRecovery;
 /**
+ *  Deprecated: This signal is not supported. Represents if a resource has a
+ *  promotable replica.
+ *
+ *  Value: "SIGNAL_TYPE_NO_PROMOTABLE_REPLICA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_SignalTypeGroup_SignalTypes_SignalTypeNoPromotableReplica GTLR_DEPRECATED;
+/**
  *  Represents if a Cloud SQL database has a password configured for the root
  *  account or not.
  *
@@ -4878,6 +5106,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_SignalTypeGroup_SignalTyp
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_SignalTypeGroup_SignalTypes_SignalTypeOutdatedMinorVersion;
 /**
+ *  Deprecated: This signal is not supported. Outdated version.
+ *
+ *  Value: "SIGNAL_TYPE_OUTDATED_VERSION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_SignalTypeGroup_SignalTypes_SignalTypeOutdatedVersion GTLR_DEPRECATED;
+/**
  *  Represents out of disk.
  *
  *  Value: "SIGNAL_TYPE_OUT_OF_DISK"
@@ -4889,6 +5123,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_SignalTypeGroup_SignalTyp
  *  Value: "SIGNAL_TYPE_OVERPROVISIONED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_SignalTypeGroup_SignalTypes_SignalTypeOverprovisioned;
+/**
+ *  Represents a change in performance KPIs.
+ *
+ *  Value: "SIGNAL_TYPE_PERFORMANCE_KPI_CHANGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_SignalTypeGroup_SignalTypes_SignalTypePerformanceKpiChange;
 /**
  *  Represents if public IP is enabled.
  *
@@ -5315,6 +5555,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_SignalTypeGroup_SignalTyp
  *        Detects that expensive commands are being run on a database instance
  *        impacting overall performance. (Value:
  *        "SIGNAL_TYPE_EXPENSIVE_COMMANDS")
+ *    @arg @c kGTLRDatabaseCenter_AdditionalDetail_SignalType_SignalTypeExposedByOwnershipChaining
+ *        Deprecated: This signal is not supported. Represents if the
+ *        cross_db_ownership_chaining database flag for a Cloud SQL for SQL
+ *        Server instance is not set to off. (Value:
+ *        "SIGNAL_TYPE_EXPOSED_BY_OWNERSHIP_CHAINING")
  *    @arg @c kGTLRDatabaseCenter_AdditionalDetail_SignalType_SignalTypeExposedToExternalScripts
  *        Represents if he external scripts enabled database flag for a Cloud
  *        SQL for SQL Server instance is not set to off. (Value:
@@ -5404,6 +5649,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_SignalTypeGroup_SignalTyp
  *        Indicates both a low cache hit rate and a risk of maintenance
  *        downtime. (Value:
  *        "SIGNAL_TYPE_LOW_CACHE_HIT_AND_MAINTENANCE_DOWNTIME")
+ *    @arg @c kGTLRDatabaseCenter_AdditionalDetail_SignalType_SignalTypeManyIdleConnections
+ *        Deprecated: This signal is not supported. High number of idle
+ *        connections. (Value: "SIGNAL_TYPE_MANY_IDLE_CONNECTIONS")
  *    @arg @c kGTLRDatabaseCenter_AdditionalDetail_SignalType_SignalTypeMaxServerMemory
  *        Indicates that the instance's max server memory is configured higher
  *        than the recommended value. (Value: "SIGNAL_TYPE_MAX_SERVER_MEMORY")
@@ -5432,6 +5680,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_SignalTypeGroup_SignalTyp
  *    @arg @c kGTLRDatabaseCenter_AdditionalDetail_SignalType_SignalTypeNoPointInTimeRecovery
  *        Detects if a database instance has no point in time recovery enabled.
  *        (Value: "SIGNAL_TYPE_NO_POINT_IN_TIME_RECOVERY")
+ *    @arg @c kGTLRDatabaseCenter_AdditionalDetail_SignalType_SignalTypeNoPromotableReplica
+ *        Deprecated: This signal is not supported. Represents if a resource has
+ *        a promotable replica. (Value: "SIGNAL_TYPE_NO_PROMOTABLE_REPLICA")
  *    @arg @c kGTLRDatabaseCenter_AdditionalDetail_SignalType_SignalTypeNoRootPassword
  *        Represents if a Cloud SQL database has a password configured for the
  *        root account or not. (Value: "SIGNAL_TYPE_NO_ROOT_PASSWORD")
@@ -5451,11 +5702,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_SignalTypeGroup_SignalTyp
  *    @arg @c kGTLRDatabaseCenter_AdditionalDetail_SignalType_SignalTypeOutdatedMinorVersion
  *        Outdated DB minor version. (Value:
  *        "SIGNAL_TYPE_OUTDATED_MINOR_VERSION")
+ *    @arg @c kGTLRDatabaseCenter_AdditionalDetail_SignalType_SignalTypeOutdatedVersion
+ *        Deprecated: This signal is not supported. Outdated version. (Value:
+ *        "SIGNAL_TYPE_OUTDATED_VERSION")
  *    @arg @c kGTLRDatabaseCenter_AdditionalDetail_SignalType_SignalTypeOutOfDisk
  *        Represents out of disk. (Value: "SIGNAL_TYPE_OUT_OF_DISK")
  *    @arg @c kGTLRDatabaseCenter_AdditionalDetail_SignalType_SignalTypeOverprovisioned
  *        Represents instances that are unnecessarily large for given workload.
  *        (Value: "SIGNAL_TYPE_OVERPROVISIONED")
+ *    @arg @c kGTLRDatabaseCenter_AdditionalDetail_SignalType_SignalTypePerformanceKpiChange
+ *        Represents a change in performance KPIs. (Value:
+ *        "SIGNAL_TYPE_PERFORMANCE_KPI_CHANGE")
  *    @arg @c kGTLRDatabaseCenter_AdditionalDetail_SignalType_SignalTypePublicIpEnabled
  *        Represents if public IP is enabled. (Value:
  *        "SIGNAL_TYPE_PUBLIC_IP_ENABLED")
@@ -6321,6 +6578,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_SignalTypeGroup_SignalTyp
  *    @arg @c kGTLRDatabaseCenter_Dimension_ProductEngine_EngineAdbServerlessOracle
  *        Oracle Autonomous DB Serverless engine. (Value:
  *        "ENGINE_ADB_SERVERLESS_ORACLE")
+ *    @arg @c kGTLRDatabaseCenter_Dimension_ProductEngine_EngineCloudSpannerWithGooglesqlDialect
+ *        Deprecated: Use ENGINE_NATIVE instead for PRODUCT_TYPE_SPANNER. Cloud
+ *        Spanner with Google SQL dialect. (Value:
+ *        "ENGINE_CLOUD_SPANNER_WITH_GOOGLESQL_DIALECT")
+ *    @arg @c kGTLRDatabaseCenter_Dimension_ProductEngine_EngineCloudSpannerWithPostgresDialect
+ *        Deprecated: Use ENGINE_NATIVE instead for PRODUCT_TYPE_SPANNER. Cloud
+ *        Spanner with PostgreSQL dialect. (Value:
+ *        "ENGINE_CLOUD_SPANNER_WITH_POSTGRES_DIALECT")
  *    @arg @c kGTLRDatabaseCenter_Dimension_ProductEngine_EngineExadataOracle
  *        Oracle Exadata engine. (Value: "ENGINE_EXADATA_ORACLE")
  *    @arg @c kGTLRDatabaseCenter_Dimension_ProductEngine_EngineFirestoreWithDatastoreMode
@@ -6387,6 +6652,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_SignalTypeGroup_SignalTyp
  *    @arg @c kGTLRDatabaseCenter_Dimension_ProductType_ProductTypeMemorystore
  *        Memorystore product area in Google Cloud (Value:
  *        "PRODUCT_TYPE_MEMORYSTORE")
+ *    @arg @c kGTLRDatabaseCenter_Dimension_ProductType_ProductTypeOnPrem
+ *        Deprecated: Use PRODUCT_TYPE_CLOUDSQL with instance type as
+ *        EXTERNAL_PRIMARY instead. On premises database product. (Value:
+ *        "PRODUCT_TYPE_ON_PREM")
  *    @arg @c kGTLRDatabaseCenter_Dimension_ProductType_ProductTypeOracleOnGcp
  *        Oracle product area in Google Cloud (Value:
  *        "PRODUCT_TYPE_ORACLE_ON_GCP")
@@ -6690,6 +6959,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_SignalTypeGroup_SignalTyp
  *        Detects that expensive commands are being run on a database instance
  *        impacting overall performance. (Value:
  *        "SIGNAL_TYPE_EXPENSIVE_COMMANDS")
+ *    @arg @c kGTLRDatabaseCenter_IssueStats_SignalType_SignalTypeExposedByOwnershipChaining
+ *        Deprecated: This signal is not supported. Represents if the
+ *        cross_db_ownership_chaining database flag for a Cloud SQL for SQL
+ *        Server instance is not set to off. (Value:
+ *        "SIGNAL_TYPE_EXPOSED_BY_OWNERSHIP_CHAINING")
  *    @arg @c kGTLRDatabaseCenter_IssueStats_SignalType_SignalTypeExposedToExternalScripts
  *        Represents if he external scripts enabled database flag for a Cloud
  *        SQL for SQL Server instance is not set to off. (Value:
@@ -6779,6 +7053,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_SignalTypeGroup_SignalTyp
  *        Indicates both a low cache hit rate and a risk of maintenance
  *        downtime. (Value:
  *        "SIGNAL_TYPE_LOW_CACHE_HIT_AND_MAINTENANCE_DOWNTIME")
+ *    @arg @c kGTLRDatabaseCenter_IssueStats_SignalType_SignalTypeManyIdleConnections
+ *        Deprecated: This signal is not supported. High number of idle
+ *        connections. (Value: "SIGNAL_TYPE_MANY_IDLE_CONNECTIONS")
  *    @arg @c kGTLRDatabaseCenter_IssueStats_SignalType_SignalTypeMaxServerMemory
  *        Indicates that the instance's max server memory is configured higher
  *        than the recommended value. (Value: "SIGNAL_TYPE_MAX_SERVER_MEMORY")
@@ -6807,6 +7084,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_SignalTypeGroup_SignalTyp
  *    @arg @c kGTLRDatabaseCenter_IssueStats_SignalType_SignalTypeNoPointInTimeRecovery
  *        Detects if a database instance has no point in time recovery enabled.
  *        (Value: "SIGNAL_TYPE_NO_POINT_IN_TIME_RECOVERY")
+ *    @arg @c kGTLRDatabaseCenter_IssueStats_SignalType_SignalTypeNoPromotableReplica
+ *        Deprecated: This signal is not supported. Represents if a resource has
+ *        a promotable replica. (Value: "SIGNAL_TYPE_NO_PROMOTABLE_REPLICA")
  *    @arg @c kGTLRDatabaseCenter_IssueStats_SignalType_SignalTypeNoRootPassword
  *        Represents if a Cloud SQL database has a password configured for the
  *        root account or not. (Value: "SIGNAL_TYPE_NO_ROOT_PASSWORD")
@@ -6826,11 +7106,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_SignalTypeGroup_SignalTyp
  *    @arg @c kGTLRDatabaseCenter_IssueStats_SignalType_SignalTypeOutdatedMinorVersion
  *        Outdated DB minor version. (Value:
  *        "SIGNAL_TYPE_OUTDATED_MINOR_VERSION")
+ *    @arg @c kGTLRDatabaseCenter_IssueStats_SignalType_SignalTypeOutdatedVersion
+ *        Deprecated: This signal is not supported. Outdated version. (Value:
+ *        "SIGNAL_TYPE_OUTDATED_VERSION")
  *    @arg @c kGTLRDatabaseCenter_IssueStats_SignalType_SignalTypeOutOfDisk
  *        Represents out of disk. (Value: "SIGNAL_TYPE_OUT_OF_DISK")
  *    @arg @c kGTLRDatabaseCenter_IssueStats_SignalType_SignalTypeOverprovisioned
  *        Represents instances that are unnecessarily large for given workload.
  *        (Value: "SIGNAL_TYPE_OVERPROVISIONED")
+ *    @arg @c kGTLRDatabaseCenter_IssueStats_SignalType_SignalTypePerformanceKpiChange
+ *        Represents a change in performance KPIs. (Value:
+ *        "SIGNAL_TYPE_PERFORMANCE_KPI_CHANGE")
  *    @arg @c kGTLRDatabaseCenter_IssueStats_SignalType_SignalTypePublicIpEnabled
  *        Represents if public IP is enabled. (Value:
  *        "SIGNAL_TYPE_PUBLIC_IP_ENABLED")
@@ -7258,6 +7544,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_SignalTypeGroup_SignalTyp
  *    @arg @c kGTLRDatabaseCenter_Product_Engine_EngineAdbServerlessOracle
  *        Oracle Autonomous DB Serverless engine. (Value:
  *        "ENGINE_ADB_SERVERLESS_ORACLE")
+ *    @arg @c kGTLRDatabaseCenter_Product_Engine_EngineCloudSpannerWithGooglesqlDialect
+ *        Deprecated: Use ENGINE_NATIVE instead for PRODUCT_TYPE_SPANNER. Cloud
+ *        Spanner with Google SQL dialect. (Value:
+ *        "ENGINE_CLOUD_SPANNER_WITH_GOOGLESQL_DIALECT")
+ *    @arg @c kGTLRDatabaseCenter_Product_Engine_EngineCloudSpannerWithPostgresDialect
+ *        Deprecated: Use ENGINE_NATIVE instead for PRODUCT_TYPE_SPANNER. Cloud
+ *        Spanner with PostgreSQL dialect. (Value:
+ *        "ENGINE_CLOUD_SPANNER_WITH_POSTGRES_DIALECT")
  *    @arg @c kGTLRDatabaseCenter_Product_Engine_EngineExadataOracle Oracle
  *        Exadata engine. (Value: "ENGINE_EXADATA_ORACLE")
  *    @arg @c kGTLRDatabaseCenter_Product_Engine_EngineFirestoreWithDatastoreMode
@@ -7326,6 +7620,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_SignalTypeGroup_SignalTyp
  *    @arg @c kGTLRDatabaseCenter_Product_Type_ProductTypeMemorystore
  *        Memorystore product area in Google Cloud (Value:
  *        "PRODUCT_TYPE_MEMORYSTORE")
+ *    @arg @c kGTLRDatabaseCenter_Product_Type_ProductTypeOnPrem Deprecated: Use
+ *        PRODUCT_TYPE_CLOUDSQL with instance type as EXTERNAL_PRIMARY instead.
+ *        On premises database product. (Value: "PRODUCT_TYPE_ON_PREM")
  *    @arg @c kGTLRDatabaseCenter_Product_Type_ProductTypeOracleOnGcp Oracle
  *        product area in Google Cloud (Value: "PRODUCT_TYPE_ORACLE_ON_GCP")
  *    @arg @c kGTLRDatabaseCenter_Product_Type_ProductTypeOther Other refers to
@@ -8067,6 +8364,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_SignalTypeGroup_SignalTyp
  *        Detects that expensive commands are being run on a database instance
  *        impacting overall performance. (Value:
  *        "SIGNAL_TYPE_EXPENSIVE_COMMANDS")
+ *    @arg @c kGTLRDatabaseCenter_Signal_SignalType_SignalTypeExposedByOwnershipChaining
+ *        Deprecated: This signal is not supported. Represents if the
+ *        cross_db_ownership_chaining database flag for a Cloud SQL for SQL
+ *        Server instance is not set to off. (Value:
+ *        "SIGNAL_TYPE_EXPOSED_BY_OWNERSHIP_CHAINING")
  *    @arg @c kGTLRDatabaseCenter_Signal_SignalType_SignalTypeExposedToExternalScripts
  *        Represents if he external scripts enabled database flag for a Cloud
  *        SQL for SQL Server instance is not set to off. (Value:
@@ -8155,6 +8457,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_SignalTypeGroup_SignalTyp
  *        Indicates both a low cache hit rate and a risk of maintenance
  *        downtime. (Value:
  *        "SIGNAL_TYPE_LOW_CACHE_HIT_AND_MAINTENANCE_DOWNTIME")
+ *    @arg @c kGTLRDatabaseCenter_Signal_SignalType_SignalTypeManyIdleConnections
+ *        Deprecated: This signal is not supported. High number of idle
+ *        connections. (Value: "SIGNAL_TYPE_MANY_IDLE_CONNECTIONS")
  *    @arg @c kGTLRDatabaseCenter_Signal_SignalType_SignalTypeMaxServerMemory
  *        Indicates that the instance's max server memory is configured higher
  *        than the recommended value. (Value: "SIGNAL_TYPE_MAX_SERVER_MEMORY")
@@ -8183,6 +8488,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_SignalTypeGroup_SignalTyp
  *    @arg @c kGTLRDatabaseCenter_Signal_SignalType_SignalTypeNoPointInTimeRecovery
  *        Detects if a database instance has no point in time recovery enabled.
  *        (Value: "SIGNAL_TYPE_NO_POINT_IN_TIME_RECOVERY")
+ *    @arg @c kGTLRDatabaseCenter_Signal_SignalType_SignalTypeNoPromotableReplica
+ *        Deprecated: This signal is not supported. Represents if a resource has
+ *        a promotable replica. (Value: "SIGNAL_TYPE_NO_PROMOTABLE_REPLICA")
  *    @arg @c kGTLRDatabaseCenter_Signal_SignalType_SignalTypeNoRootPassword
  *        Represents if a Cloud SQL database has a password configured for the
  *        root account or not. (Value: "SIGNAL_TYPE_NO_ROOT_PASSWORD")
@@ -8202,11 +8510,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_SignalTypeGroup_SignalTyp
  *    @arg @c kGTLRDatabaseCenter_Signal_SignalType_SignalTypeOutdatedMinorVersion
  *        Outdated DB minor version. (Value:
  *        "SIGNAL_TYPE_OUTDATED_MINOR_VERSION")
+ *    @arg @c kGTLRDatabaseCenter_Signal_SignalType_SignalTypeOutdatedVersion
+ *        Deprecated: This signal is not supported. Outdated version. (Value:
+ *        "SIGNAL_TYPE_OUTDATED_VERSION")
  *    @arg @c kGTLRDatabaseCenter_Signal_SignalType_SignalTypeOutOfDisk
  *        Represents out of disk. (Value: "SIGNAL_TYPE_OUT_OF_DISK")
  *    @arg @c kGTLRDatabaseCenter_Signal_SignalType_SignalTypeOverprovisioned
  *        Represents instances that are unnecessarily large for given workload.
  *        (Value: "SIGNAL_TYPE_OVERPROVISIONED")
+ *    @arg @c kGTLRDatabaseCenter_Signal_SignalType_SignalTypePerformanceKpiChange
+ *        Represents a change in performance KPIs. (Value:
+ *        "SIGNAL_TYPE_PERFORMANCE_KPI_CHANGE")
  *    @arg @c kGTLRDatabaseCenter_Signal_SignalType_SignalTypePublicIpEnabled
  *        Represents if public IP is enabled. (Value:
  *        "SIGNAL_TYPE_PUBLIC_IP_ENABLED")
@@ -8443,6 +8757,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_SignalTypeGroup_SignalTyp
  *        Detects that expensive commands are being run on a database instance
  *        impacting overall performance. (Value:
  *        "SIGNAL_TYPE_EXPENSIVE_COMMANDS")
+ *    @arg @c kGTLRDatabaseCenter_SignalFilter_SignalType_SignalTypeExposedByOwnershipChaining
+ *        Deprecated: This signal is not supported. Represents if the
+ *        cross_db_ownership_chaining database flag for a Cloud SQL for SQL
+ *        Server instance is not set to off. (Value:
+ *        "SIGNAL_TYPE_EXPOSED_BY_OWNERSHIP_CHAINING")
  *    @arg @c kGTLRDatabaseCenter_SignalFilter_SignalType_SignalTypeExposedToExternalScripts
  *        Represents if he external scripts enabled database flag for a Cloud
  *        SQL for SQL Server instance is not set to off. (Value:
@@ -8532,6 +8851,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_SignalTypeGroup_SignalTyp
  *        Indicates both a low cache hit rate and a risk of maintenance
  *        downtime. (Value:
  *        "SIGNAL_TYPE_LOW_CACHE_HIT_AND_MAINTENANCE_DOWNTIME")
+ *    @arg @c kGTLRDatabaseCenter_SignalFilter_SignalType_SignalTypeManyIdleConnections
+ *        Deprecated: This signal is not supported. High number of idle
+ *        connections. (Value: "SIGNAL_TYPE_MANY_IDLE_CONNECTIONS")
  *    @arg @c kGTLRDatabaseCenter_SignalFilter_SignalType_SignalTypeMaxServerMemory
  *        Indicates that the instance's max server memory is configured higher
  *        than the recommended value. (Value: "SIGNAL_TYPE_MAX_SERVER_MEMORY")
@@ -8560,6 +8882,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_SignalTypeGroup_SignalTyp
  *    @arg @c kGTLRDatabaseCenter_SignalFilter_SignalType_SignalTypeNoPointInTimeRecovery
  *        Detects if a database instance has no point in time recovery enabled.
  *        (Value: "SIGNAL_TYPE_NO_POINT_IN_TIME_RECOVERY")
+ *    @arg @c kGTLRDatabaseCenter_SignalFilter_SignalType_SignalTypeNoPromotableReplica
+ *        Deprecated: This signal is not supported. Represents if a resource has
+ *        a promotable replica. (Value: "SIGNAL_TYPE_NO_PROMOTABLE_REPLICA")
  *    @arg @c kGTLRDatabaseCenter_SignalFilter_SignalType_SignalTypeNoRootPassword
  *        Represents if a Cloud SQL database has a password configured for the
  *        root account or not. (Value: "SIGNAL_TYPE_NO_ROOT_PASSWORD")
@@ -8579,11 +8904,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_SignalTypeGroup_SignalTyp
  *    @arg @c kGTLRDatabaseCenter_SignalFilter_SignalType_SignalTypeOutdatedMinorVersion
  *        Outdated DB minor version. (Value:
  *        "SIGNAL_TYPE_OUTDATED_MINOR_VERSION")
+ *    @arg @c kGTLRDatabaseCenter_SignalFilter_SignalType_SignalTypeOutdatedVersion
+ *        Deprecated: This signal is not supported. Outdated version. (Value:
+ *        "SIGNAL_TYPE_OUTDATED_VERSION")
  *    @arg @c kGTLRDatabaseCenter_SignalFilter_SignalType_SignalTypeOutOfDisk
  *        Represents out of disk. (Value: "SIGNAL_TYPE_OUT_OF_DISK")
  *    @arg @c kGTLRDatabaseCenter_SignalFilter_SignalType_SignalTypeOverprovisioned
  *        Represents instances that are unnecessarily large for given workload.
  *        (Value: "SIGNAL_TYPE_OVERPROVISIONED")
+ *    @arg @c kGTLRDatabaseCenter_SignalFilter_SignalType_SignalTypePerformanceKpiChange
+ *        Represents a change in performance KPIs. (Value:
+ *        "SIGNAL_TYPE_PERFORMANCE_KPI_CHANGE")
  *    @arg @c kGTLRDatabaseCenter_SignalFilter_SignalType_SignalTypePublicIpEnabled
  *        Represents if public IP is enabled. (Value:
  *        "SIGNAL_TYPE_PUBLIC_IP_ENABLED")
@@ -8828,6 +9159,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_SignalTypeGroup_SignalTyp
  *        Detects that expensive commands are being run on a database instance
  *        impacting overall performance. (Value:
  *        "SIGNAL_TYPE_EXPENSIVE_COMMANDS")
+ *    @arg @c kGTLRDatabaseCenter_SignalProductsFilters_SignalType_SignalTypeExposedByOwnershipChaining
+ *        Deprecated: This signal is not supported. Represents if the
+ *        cross_db_ownership_chaining database flag for a Cloud SQL for SQL
+ *        Server instance is not set to off. (Value:
+ *        "SIGNAL_TYPE_EXPOSED_BY_OWNERSHIP_CHAINING")
  *    @arg @c kGTLRDatabaseCenter_SignalProductsFilters_SignalType_SignalTypeExposedToExternalScripts
  *        Represents if he external scripts enabled database flag for a Cloud
  *        SQL for SQL Server instance is not set to off. (Value:
@@ -8917,6 +9253,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_SignalTypeGroup_SignalTyp
  *        Indicates both a low cache hit rate and a risk of maintenance
  *        downtime. (Value:
  *        "SIGNAL_TYPE_LOW_CACHE_HIT_AND_MAINTENANCE_DOWNTIME")
+ *    @arg @c kGTLRDatabaseCenter_SignalProductsFilters_SignalType_SignalTypeManyIdleConnections
+ *        Deprecated: This signal is not supported. High number of idle
+ *        connections. (Value: "SIGNAL_TYPE_MANY_IDLE_CONNECTIONS")
  *    @arg @c kGTLRDatabaseCenter_SignalProductsFilters_SignalType_SignalTypeMaxServerMemory
  *        Indicates that the instance's max server memory is configured higher
  *        than the recommended value. (Value: "SIGNAL_TYPE_MAX_SERVER_MEMORY")
@@ -8945,6 +9284,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_SignalTypeGroup_SignalTyp
  *    @arg @c kGTLRDatabaseCenter_SignalProductsFilters_SignalType_SignalTypeNoPointInTimeRecovery
  *        Detects if a database instance has no point in time recovery enabled.
  *        (Value: "SIGNAL_TYPE_NO_POINT_IN_TIME_RECOVERY")
+ *    @arg @c kGTLRDatabaseCenter_SignalProductsFilters_SignalType_SignalTypeNoPromotableReplica
+ *        Deprecated: This signal is not supported. Represents if a resource has
+ *        a promotable replica. (Value: "SIGNAL_TYPE_NO_PROMOTABLE_REPLICA")
  *    @arg @c kGTLRDatabaseCenter_SignalProductsFilters_SignalType_SignalTypeNoRootPassword
  *        Represents if a Cloud SQL database has a password configured for the
  *        root account or not. (Value: "SIGNAL_TYPE_NO_ROOT_PASSWORD")
@@ -8964,11 +9306,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_SignalTypeGroup_SignalTyp
  *    @arg @c kGTLRDatabaseCenter_SignalProductsFilters_SignalType_SignalTypeOutdatedMinorVersion
  *        Outdated DB minor version. (Value:
  *        "SIGNAL_TYPE_OUTDATED_MINOR_VERSION")
+ *    @arg @c kGTLRDatabaseCenter_SignalProductsFilters_SignalType_SignalTypeOutdatedVersion
+ *        Deprecated: This signal is not supported. Outdated version. (Value:
+ *        "SIGNAL_TYPE_OUTDATED_VERSION")
  *    @arg @c kGTLRDatabaseCenter_SignalProductsFilters_SignalType_SignalTypeOutOfDisk
  *        Represents out of disk. (Value: "SIGNAL_TYPE_OUT_OF_DISK")
  *    @arg @c kGTLRDatabaseCenter_SignalProductsFilters_SignalType_SignalTypeOverprovisioned
  *        Represents instances that are unnecessarily large for given workload.
  *        (Value: "SIGNAL_TYPE_OVERPROVISIONED")
+ *    @arg @c kGTLRDatabaseCenter_SignalProductsFilters_SignalType_SignalTypePerformanceKpiChange
+ *        Represents a change in performance KPIs. (Value:
+ *        "SIGNAL_TYPE_PERFORMANCE_KPI_CHANGE")
  *    @arg @c kGTLRDatabaseCenter_SignalProductsFilters_SignalType_SignalTypePublicIpEnabled
  *        Represents if public IP is enabled. (Value:
  *        "SIGNAL_TYPE_PUBLIC_IP_ENABLED")

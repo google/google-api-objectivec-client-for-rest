@@ -294,6 +294,11 @@ NSString * const kGTLRSQLAdmin_DatabaseInstance_BackendType_FirstGen = @"FIRST_G
 NSString * const kGTLRSQLAdmin_DatabaseInstance_BackendType_SecondGen = @"SECOND_GEN";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_BackendType_SqlBackendTypeUnspecified = @"SQL_BACKEND_TYPE_UNSPECIFIED";
 
+// GTLRSQLAdmin_DatabaseInstance.databaseCenterIntegration
+NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseCenterIntegration_DatabaseCenterIntegrationUnspecified = @"DATABASE_CENTER_INTEGRATION_UNSPECIFIED";
+NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseCenterIntegration_Disabled = @"DISABLED";
+NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseCenterIntegration_Enabled = @"ENABLED";
+
 // GTLRSQLAdmin_DatabaseInstance.databaseVersion
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql51 = @"MYSQL_5_1";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql55 = @"MYSQL_5_5";
@@ -917,6 +922,7 @@ NSString * const kGTLRSQLAdmin_WorkloadCapture_WorkloadCaptureState_Completed = 
 NSString * const kGTLRSQLAdmin_WorkloadCapture_WorkloadCaptureState_Failed = @"FAILED";
 NSString * const kGTLRSQLAdmin_WorkloadCapture_WorkloadCaptureState_Running = @"RUNNING";
 NSString * const kGTLRSQLAdmin_WorkloadCapture_WorkloadCaptureState_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRSQLAdmin_WorkloadCapture_WorkloadCaptureState_Terminated = @"TERMINATED";
 
 // ----------------------------------------------------------------------------
 //
@@ -1324,17 +1330,18 @@ NSString * const kGTLRSQLAdmin_WorkloadCapture_WorkloadCaptureState_StateUnspeci
 
 @implementation GTLRSQLAdmin_DatabaseInstance
 @dynamic availableMaintenanceVersions, backendType, connectionName, createTime,
-         currentDiskSize, databaseCenterIntegrationEnabled,
-         databaseInstalledVersion, databaseVersion, deploymentInfo,
-         diskEncryptionConfiguration, diskEncryptionStatus, dnsName, dnsNames,
-         ETag, failoverReplica, gceZone, geminiConfig,
-         includeReplicasForMajorVersionUpgrade, instanceType, ipAddresses,
-         ipv6Address, kind, maintenanceVersion, masterInstanceName, maxDiskSize,
-         name, nodeCount, nodes, onPremisesConfiguration, outOfDiskReport,
-         primaryDnsName, project, pscServiceAttachmentLink, region,
-         replicaConfiguration, replicaNames, replicationCluster, rootPassword,
-         satisfiesPzi, satisfiesPzs, scheduledMaintenance, secondaryGceZone,
-         selfLink, serverCaCert, serviceAccountEmailAddress, settings,
+         currentDiskSize, databaseCenterIntegration,
+         databaseCenterIntegrationEnabled, databaseInstalledVersion,
+         databaseVersion, deploymentInfo, diskEncryptionConfiguration,
+         diskEncryptionStatus, dnsName, dnsNames, ETag, failoverReplica,
+         gceZone, geminiConfig, includeReplicasForMajorVersionUpgrade,
+         instanceType, ipAddresses, ipv6Address, kind, maintenanceVersion,
+         masterInstanceName, maxDiskSize, name, nodeCount, nodes,
+         onPremisesConfiguration, outOfDiskReport, primaryDnsName, project,
+         pscServiceAttachmentLink, region, replicaConfiguration, replicaNames,
+         replicationCluster, rootPassword, satisfiesPzi, satisfiesPzs,
+         scheduledMaintenance, secondaryGceZone, selfLink, serverCaCert,
+         serviceAccountEmailAddress, settings, skipPrecheck,
          sqlNetworkArchitecture, state, suspensionReason,
          switchTransactionLogsToCloudStorageEnabled, tags,
          upgradableDatabaseVersions, writeEndpoint;
@@ -2598,7 +2605,7 @@ NSString * const kGTLRSQLAdmin_WorkloadCapture_WorkloadCaptureState_StateUnspeci
 //
 
 @implementation GTLRSQLAdmin_PreCheckMajorVersionUpgradeContext
-@dynamic kind, preCheckResponse, targetDatabaseVersion;
+@dynamic kind, maxRuntime, preCheckResponse, targetDatabaseVersion;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -3214,46 +3221,6 @@ NSString * const kGTLRSQLAdmin_WorkloadCapture_WorkloadCaptureState_StateUnspeci
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRSQLAdmin_SqlWorkloadCapturesStartReplayRequest
-//
-
-@implementation GTLRSQLAdmin_SqlWorkloadCapturesStartReplayRequest
-@dynamic startWorkloadReplayContext;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRSQLAdmin_SqlWorkloadCapturesStartRequest
-//
-
-@implementation GTLRSQLAdmin_SqlWorkloadCapturesStartRequest
-@dynamic startWorkloadCaptureContext;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRSQLAdmin_SqlWorkloadCapturesStopReplayRequest
-//
-
-@implementation GTLRSQLAdmin_SqlWorkloadCapturesStopReplayRequest
-@dynamic stopWorkloadReplayContext;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRSQLAdmin_SqlWorkloadCapturesStopRequest
-//
-
-@implementation GTLRSQLAdmin_SqlWorkloadCapturesStopRequest
-@dynamic stopWorkloadCaptureContext;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRSQLAdmin_SslCert
 //
 
@@ -3418,7 +3385,6 @@ NSString * const kGTLRSQLAdmin_WorkloadCapture_WorkloadCaptureState_StateUnspeci
 //
 
 @implementation GTLRSQLAdmin_StopWorkloadReplayContext
-@dynamic replayInstance, workloadId;
 @end
 
 
@@ -3608,8 +3574,8 @@ NSString * const kGTLRSQLAdmin_WorkloadCapture_WorkloadCaptureState_StateUnspeci
 //
 
 @implementation GTLRSQLAdmin_WorkloadCapture
-@dynamic endTime, replayInstance, retentionDays, sourceInstance, startTime,
-         workloadCaptureState, workloadId;
+@dynamic backupId, endTime, replayInstance, retentionDays, sourceInstance,
+         startTime, workloadCaptureState, workloadId;
 @end
 
 
@@ -3634,4 +3600,44 @@ NSString * const kGTLRSQLAdmin_WorkloadCapture_WorkloadCaptureState_StateUnspeci
   return NO;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSQLAdmin_WorkloadCapturesStartReplayRequest
+//
+
+@implementation GTLRSQLAdmin_WorkloadCapturesStartReplayRequest
+@dynamic startWorkloadReplayContext;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSQLAdmin_WorkloadCapturesStartRequest
+//
+
+@implementation GTLRSQLAdmin_WorkloadCapturesStartRequest
+@dynamic startWorkloadCaptureContext;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSQLAdmin_WorkloadCapturesStopReplayRequest
+//
+
+@implementation GTLRSQLAdmin_WorkloadCapturesStopReplayRequest
+@dynamic stopWorkloadReplayContext;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSQLAdmin_WorkloadCapturesStopRequest
+//
+
+@implementation GTLRSQLAdmin_WorkloadCapturesStopRequest
+@dynamic stopWorkloadCaptureContext;
 @end

@@ -42,6 +42,7 @@ NSString * const kGTLRDatabaseCenter_AdditionalDetail_SignalType_SignalTypeExces
 NSString * const kGTLRDatabaseCenter_AdditionalDetail_SignalType_SignalTypeExcessiveLoggingOfParserStats = @"SIGNAL_TYPE_EXCESSIVE_LOGGING_OF_PARSER_STATS";
 NSString * const kGTLRDatabaseCenter_AdditionalDetail_SignalType_SignalTypeExcessiveLoggingOfPlannerStats = @"SIGNAL_TYPE_EXCESSIVE_LOGGING_OF_PLANNER_STATS";
 NSString * const kGTLRDatabaseCenter_AdditionalDetail_SignalType_SignalTypeExpensiveCommands = @"SIGNAL_TYPE_EXPENSIVE_COMMANDS";
+NSString * const kGTLRDatabaseCenter_AdditionalDetail_SignalType_SignalTypeExposedByOwnershipChaining = @"SIGNAL_TYPE_EXPOSED_BY_OWNERSHIP_CHAINING";
 NSString * const kGTLRDatabaseCenter_AdditionalDetail_SignalType_SignalTypeExposedToExternalScripts = @"SIGNAL_TYPE_EXPOSED_TO_EXTERNAL_SCRIPTS";
 NSString * const kGTLRDatabaseCenter_AdditionalDetail_SignalType_SignalTypeExposedToLocalDataLoads = @"SIGNAL_TYPE_EXPOSED_TO_LOCAL_DATA_LOADS";
 NSString * const kGTLRDatabaseCenter_AdditionalDetail_SignalType_SignalTypeExposedToPublicAccess = @"SIGNAL_TYPE_EXPOSED_TO_PUBLIC_ACCESS";
@@ -68,6 +69,7 @@ NSString * const kGTLRDatabaseCenter_AdditionalDetail_SignalType_SignalTypeLoggi
 NSString * const kGTLRDatabaseCenter_AdditionalDetail_SignalType_SignalTypeLoggingQueryStats = @"SIGNAL_TYPE_LOGGING_QUERY_STATS";
 NSString * const kGTLRDatabaseCenter_AdditionalDetail_SignalType_SignalTypeLogsNotOptimizedForTroubleshooting = @"SIGNAL_TYPE_LOGS_NOT_OPTIMIZED_FOR_TROUBLESHOOTING";
 NSString * const kGTLRDatabaseCenter_AdditionalDetail_SignalType_SignalTypeLowCacheHitAndMaintenanceDowntime = @"SIGNAL_TYPE_LOW_CACHE_HIT_AND_MAINTENANCE_DOWNTIME";
+NSString * const kGTLRDatabaseCenter_AdditionalDetail_SignalType_SignalTypeManyIdleConnections = @"SIGNAL_TYPE_MANY_IDLE_CONNECTIONS";
 NSString * const kGTLRDatabaseCenter_AdditionalDetail_SignalType_SignalTypeMaxServerMemory = @"SIGNAL_TYPE_MAX_SERVER_MEMORY";
 NSString * const kGTLRDatabaseCenter_AdditionalDetail_SignalType_SignalTypeMemoryLimit = @"SIGNAL_TYPE_MEMORY_LIMIT";
 NSString * const kGTLRDatabaseCenter_AdditionalDetail_SignalType_SignalTypeMinimalErrorLogging = @"SIGNAL_TYPE_MINIMAL_ERROR_LOGGING";
@@ -77,14 +79,17 @@ NSString * const kGTLRDatabaseCenter_AdditionalDetail_SignalType_SignalTypeNoDel
 NSString * const kGTLRDatabaseCenter_AdditionalDetail_SignalType_SignalTypeNoMaintenancePolicyConfigured = @"SIGNAL_TYPE_NO_MAINTENANCE_POLICY_CONFIGURED";
 NSString * const kGTLRDatabaseCenter_AdditionalDetail_SignalType_SignalTypeNoPasswordPolicy = @"SIGNAL_TYPE_NO_PASSWORD_POLICY";
 NSString * const kGTLRDatabaseCenter_AdditionalDetail_SignalType_SignalTypeNoPointInTimeRecovery = @"SIGNAL_TYPE_NO_POINT_IN_TIME_RECOVERY";
+NSString * const kGTLRDatabaseCenter_AdditionalDetail_SignalType_SignalTypeNoPromotableReplica = @"SIGNAL_TYPE_NO_PROMOTABLE_REPLICA";
 NSString * const kGTLRDatabaseCenter_AdditionalDetail_SignalType_SignalTypeNoRootPassword = @"SIGNAL_TYPE_NO_ROOT_PASSWORD";
 NSString * const kGTLRDatabaseCenter_AdditionalDetail_SignalType_SignalTypeNotLoggingOnlyDdlStatements = @"SIGNAL_TYPE_NOT_LOGGING_ONLY_DDL_STATEMENTS";
 NSString * const kGTLRDatabaseCenter_AdditionalDetail_SignalType_SignalTypeNotLoggingTemporaryFiles = @"SIGNAL_TYPE_NOT_LOGGING_TEMPORARY_FILES";
 NSString * const kGTLRDatabaseCenter_AdditionalDetail_SignalType_SignalTypeNoUserPasswordPolicy = @"SIGNAL_TYPE_NO_USER_PASSWORD_POLICY";
 NSString * const kGTLRDatabaseCenter_AdditionalDetail_SignalType_SignalTypeOutdatedClient = @"SIGNAL_TYPE_OUTDATED_CLIENT";
 NSString * const kGTLRDatabaseCenter_AdditionalDetail_SignalType_SignalTypeOutdatedMinorVersion = @"SIGNAL_TYPE_OUTDATED_MINOR_VERSION";
+NSString * const kGTLRDatabaseCenter_AdditionalDetail_SignalType_SignalTypeOutdatedVersion = @"SIGNAL_TYPE_OUTDATED_VERSION";
 NSString * const kGTLRDatabaseCenter_AdditionalDetail_SignalType_SignalTypeOutOfDisk = @"SIGNAL_TYPE_OUT_OF_DISK";
 NSString * const kGTLRDatabaseCenter_AdditionalDetail_SignalType_SignalTypeOverprovisioned = @"SIGNAL_TYPE_OVERPROVISIONED";
+NSString * const kGTLRDatabaseCenter_AdditionalDetail_SignalType_SignalTypePerformanceKpiChange = @"SIGNAL_TYPE_PERFORMANCE_KPI_CHANGE";
 NSString * const kGTLRDatabaseCenter_AdditionalDetail_SignalType_SignalTypePublicIpEnabled = @"SIGNAL_TYPE_PUBLIC_IP_ENABLED";
 NSString * const kGTLRDatabaseCenter_AdditionalDetail_SignalType_SignalTypeQueryDurationsNotLogged = @"SIGNAL_TYPE_QUERY_DURATIONS_NOT_LOGGED";
 NSString * const kGTLRDatabaseCenter_AdditionalDetail_SignalType_SignalTypeQueryLockWaitsNotLogged = @"SIGNAL_TYPE_QUERY_LOCK_WAITS_NOT_LOGGED";
@@ -183,6 +188,8 @@ NSString * const kGTLRDatabaseCenter_Dimension_ManagementType_ManagementTypeUnsp
 
 // GTLRDatabaseCenter_Dimension.productEngine
 NSString * const kGTLRDatabaseCenter_Dimension_ProductEngine_EngineAdbServerlessOracle = @"ENGINE_ADB_SERVERLESS_ORACLE";
+NSString * const kGTLRDatabaseCenter_Dimension_ProductEngine_EngineCloudSpannerWithGooglesqlDialect = @"ENGINE_CLOUD_SPANNER_WITH_GOOGLESQL_DIALECT";
+NSString * const kGTLRDatabaseCenter_Dimension_ProductEngine_EngineCloudSpannerWithPostgresDialect = @"ENGINE_CLOUD_SPANNER_WITH_POSTGRES_DIALECT";
 NSString * const kGTLRDatabaseCenter_Dimension_ProductEngine_EngineExadataOracle = @"ENGINE_EXADATA_ORACLE";
 NSString * const kGTLRDatabaseCenter_Dimension_ProductEngine_EngineFirestoreWithDatastoreMode = @"ENGINE_FIRESTORE_WITH_DATASTORE_MODE";
 NSString * const kGTLRDatabaseCenter_Dimension_ProductEngine_EngineFirestoreWithMongodbCompatibilityMode = @"ENGINE_FIRESTORE_WITH_MONGODB_COMPATIBILITY_MODE";
@@ -206,6 +213,7 @@ NSString * const kGTLRDatabaseCenter_Dimension_ProductType_ProductTypeCloudSql =
 NSString * const kGTLRDatabaseCenter_Dimension_ProductType_ProductTypeComputeEngine = @"PRODUCT_TYPE_COMPUTE_ENGINE";
 NSString * const kGTLRDatabaseCenter_Dimension_ProductType_ProductTypeFirestore = @"PRODUCT_TYPE_FIRESTORE";
 NSString * const kGTLRDatabaseCenter_Dimension_ProductType_ProductTypeMemorystore = @"PRODUCT_TYPE_MEMORYSTORE";
+NSString * const kGTLRDatabaseCenter_Dimension_ProductType_ProductTypeOnPrem = @"PRODUCT_TYPE_ON_PREM";
 NSString * const kGTLRDatabaseCenter_Dimension_ProductType_ProductTypeOracleOnGcp = @"PRODUCT_TYPE_ORACLE_ON_GCP";
 NSString * const kGTLRDatabaseCenter_Dimension_ProductType_ProductTypeOther = @"PRODUCT_TYPE_OTHER";
 NSString * const kGTLRDatabaseCenter_Dimension_ProductType_ProductTypeSpanner = @"PRODUCT_TYPE_SPANNER";
@@ -254,6 +262,7 @@ NSString * const kGTLRDatabaseCenter_IssueStats_SignalType_SignalTypeExcessiveLo
 NSString * const kGTLRDatabaseCenter_IssueStats_SignalType_SignalTypeExcessiveLoggingOfParserStats = @"SIGNAL_TYPE_EXCESSIVE_LOGGING_OF_PARSER_STATS";
 NSString * const kGTLRDatabaseCenter_IssueStats_SignalType_SignalTypeExcessiveLoggingOfPlannerStats = @"SIGNAL_TYPE_EXCESSIVE_LOGGING_OF_PLANNER_STATS";
 NSString * const kGTLRDatabaseCenter_IssueStats_SignalType_SignalTypeExpensiveCommands = @"SIGNAL_TYPE_EXPENSIVE_COMMANDS";
+NSString * const kGTLRDatabaseCenter_IssueStats_SignalType_SignalTypeExposedByOwnershipChaining = @"SIGNAL_TYPE_EXPOSED_BY_OWNERSHIP_CHAINING";
 NSString * const kGTLRDatabaseCenter_IssueStats_SignalType_SignalTypeExposedToExternalScripts = @"SIGNAL_TYPE_EXPOSED_TO_EXTERNAL_SCRIPTS";
 NSString * const kGTLRDatabaseCenter_IssueStats_SignalType_SignalTypeExposedToLocalDataLoads = @"SIGNAL_TYPE_EXPOSED_TO_LOCAL_DATA_LOADS";
 NSString * const kGTLRDatabaseCenter_IssueStats_SignalType_SignalTypeExposedToPublicAccess = @"SIGNAL_TYPE_EXPOSED_TO_PUBLIC_ACCESS";
@@ -280,6 +289,7 @@ NSString * const kGTLRDatabaseCenter_IssueStats_SignalType_SignalTypeLoggingOnly
 NSString * const kGTLRDatabaseCenter_IssueStats_SignalType_SignalTypeLoggingQueryStats = @"SIGNAL_TYPE_LOGGING_QUERY_STATS";
 NSString * const kGTLRDatabaseCenter_IssueStats_SignalType_SignalTypeLogsNotOptimizedForTroubleshooting = @"SIGNAL_TYPE_LOGS_NOT_OPTIMIZED_FOR_TROUBLESHOOTING";
 NSString * const kGTLRDatabaseCenter_IssueStats_SignalType_SignalTypeLowCacheHitAndMaintenanceDowntime = @"SIGNAL_TYPE_LOW_CACHE_HIT_AND_MAINTENANCE_DOWNTIME";
+NSString * const kGTLRDatabaseCenter_IssueStats_SignalType_SignalTypeManyIdleConnections = @"SIGNAL_TYPE_MANY_IDLE_CONNECTIONS";
 NSString * const kGTLRDatabaseCenter_IssueStats_SignalType_SignalTypeMaxServerMemory = @"SIGNAL_TYPE_MAX_SERVER_MEMORY";
 NSString * const kGTLRDatabaseCenter_IssueStats_SignalType_SignalTypeMemoryLimit = @"SIGNAL_TYPE_MEMORY_LIMIT";
 NSString * const kGTLRDatabaseCenter_IssueStats_SignalType_SignalTypeMinimalErrorLogging = @"SIGNAL_TYPE_MINIMAL_ERROR_LOGGING";
@@ -289,14 +299,17 @@ NSString * const kGTLRDatabaseCenter_IssueStats_SignalType_SignalTypeNoDeletionP
 NSString * const kGTLRDatabaseCenter_IssueStats_SignalType_SignalTypeNoMaintenancePolicyConfigured = @"SIGNAL_TYPE_NO_MAINTENANCE_POLICY_CONFIGURED";
 NSString * const kGTLRDatabaseCenter_IssueStats_SignalType_SignalTypeNoPasswordPolicy = @"SIGNAL_TYPE_NO_PASSWORD_POLICY";
 NSString * const kGTLRDatabaseCenter_IssueStats_SignalType_SignalTypeNoPointInTimeRecovery = @"SIGNAL_TYPE_NO_POINT_IN_TIME_RECOVERY";
+NSString * const kGTLRDatabaseCenter_IssueStats_SignalType_SignalTypeNoPromotableReplica = @"SIGNAL_TYPE_NO_PROMOTABLE_REPLICA";
 NSString * const kGTLRDatabaseCenter_IssueStats_SignalType_SignalTypeNoRootPassword = @"SIGNAL_TYPE_NO_ROOT_PASSWORD";
 NSString * const kGTLRDatabaseCenter_IssueStats_SignalType_SignalTypeNotLoggingOnlyDdlStatements = @"SIGNAL_TYPE_NOT_LOGGING_ONLY_DDL_STATEMENTS";
 NSString * const kGTLRDatabaseCenter_IssueStats_SignalType_SignalTypeNotLoggingTemporaryFiles = @"SIGNAL_TYPE_NOT_LOGGING_TEMPORARY_FILES";
 NSString * const kGTLRDatabaseCenter_IssueStats_SignalType_SignalTypeNoUserPasswordPolicy = @"SIGNAL_TYPE_NO_USER_PASSWORD_POLICY";
 NSString * const kGTLRDatabaseCenter_IssueStats_SignalType_SignalTypeOutdatedClient = @"SIGNAL_TYPE_OUTDATED_CLIENT";
 NSString * const kGTLRDatabaseCenter_IssueStats_SignalType_SignalTypeOutdatedMinorVersion = @"SIGNAL_TYPE_OUTDATED_MINOR_VERSION";
+NSString * const kGTLRDatabaseCenter_IssueStats_SignalType_SignalTypeOutdatedVersion = @"SIGNAL_TYPE_OUTDATED_VERSION";
 NSString * const kGTLRDatabaseCenter_IssueStats_SignalType_SignalTypeOutOfDisk = @"SIGNAL_TYPE_OUT_OF_DISK";
 NSString * const kGTLRDatabaseCenter_IssueStats_SignalType_SignalTypeOverprovisioned = @"SIGNAL_TYPE_OVERPROVISIONED";
+NSString * const kGTLRDatabaseCenter_IssueStats_SignalType_SignalTypePerformanceKpiChange = @"SIGNAL_TYPE_PERFORMANCE_KPI_CHANGE";
 NSString * const kGTLRDatabaseCenter_IssueStats_SignalType_SignalTypePublicIpEnabled = @"SIGNAL_TYPE_PUBLIC_IP_ENABLED";
 NSString * const kGTLRDatabaseCenter_IssueStats_SignalType_SignalTypeQueryDurationsNotLogged = @"SIGNAL_TYPE_QUERY_DURATIONS_NOT_LOGGED";
 NSString * const kGTLRDatabaseCenter_IssueStats_SignalType_SignalTypeQueryLockWaitsNotLogged = @"SIGNAL_TYPE_QUERY_LOCK_WAITS_NOT_LOGGED";
@@ -366,6 +379,8 @@ NSString * const kGTLRDatabaseCenter_MaintenanceInfo_State_MaintenanceStateUnspe
 
 // GTLRDatabaseCenter_Product.engine
 NSString * const kGTLRDatabaseCenter_Product_Engine_EngineAdbServerlessOracle = @"ENGINE_ADB_SERVERLESS_ORACLE";
+NSString * const kGTLRDatabaseCenter_Product_Engine_EngineCloudSpannerWithGooglesqlDialect = @"ENGINE_CLOUD_SPANNER_WITH_GOOGLESQL_DIALECT";
+NSString * const kGTLRDatabaseCenter_Product_Engine_EngineCloudSpannerWithPostgresDialect = @"ENGINE_CLOUD_SPANNER_WITH_POSTGRES_DIALECT";
 NSString * const kGTLRDatabaseCenter_Product_Engine_EngineExadataOracle = @"ENGINE_EXADATA_ORACLE";
 NSString * const kGTLRDatabaseCenter_Product_Engine_EngineFirestoreWithDatastoreMode = @"ENGINE_FIRESTORE_WITH_DATASTORE_MODE";
 NSString * const kGTLRDatabaseCenter_Product_Engine_EngineFirestoreWithMongodbCompatibilityMode = @"ENGINE_FIRESTORE_WITH_MONGODB_COMPATIBILITY_MODE";
@@ -389,6 +404,7 @@ NSString * const kGTLRDatabaseCenter_Product_Type_ProductTypeCloudSql = @"PRODUC
 NSString * const kGTLRDatabaseCenter_Product_Type_ProductTypeComputeEngine = @"PRODUCT_TYPE_COMPUTE_ENGINE";
 NSString * const kGTLRDatabaseCenter_Product_Type_ProductTypeFirestore = @"PRODUCT_TYPE_FIRESTORE";
 NSString * const kGTLRDatabaseCenter_Product_Type_ProductTypeMemorystore = @"PRODUCT_TYPE_MEMORYSTORE";
+NSString * const kGTLRDatabaseCenter_Product_Type_ProductTypeOnPrem = @"PRODUCT_TYPE_ON_PREM";
 NSString * const kGTLRDatabaseCenter_Product_Type_ProductTypeOracleOnGcp = @"PRODUCT_TYPE_ORACLE_ON_GCP";
 NSString * const kGTLRDatabaseCenter_Product_Type_ProductTypeOther = @"PRODUCT_TYPE_OTHER";
 NSString * const kGTLRDatabaseCenter_Product_Type_ProductTypeSpanner = @"PRODUCT_TYPE_SPANNER";
@@ -457,6 +473,7 @@ NSString * const kGTLRDatabaseCenter_Signal_SignalType_SignalTypeExcessiveLoggin
 NSString * const kGTLRDatabaseCenter_Signal_SignalType_SignalTypeExcessiveLoggingOfParserStats = @"SIGNAL_TYPE_EXCESSIVE_LOGGING_OF_PARSER_STATS";
 NSString * const kGTLRDatabaseCenter_Signal_SignalType_SignalTypeExcessiveLoggingOfPlannerStats = @"SIGNAL_TYPE_EXCESSIVE_LOGGING_OF_PLANNER_STATS";
 NSString * const kGTLRDatabaseCenter_Signal_SignalType_SignalTypeExpensiveCommands = @"SIGNAL_TYPE_EXPENSIVE_COMMANDS";
+NSString * const kGTLRDatabaseCenter_Signal_SignalType_SignalTypeExposedByOwnershipChaining = @"SIGNAL_TYPE_EXPOSED_BY_OWNERSHIP_CHAINING";
 NSString * const kGTLRDatabaseCenter_Signal_SignalType_SignalTypeExposedToExternalScripts = @"SIGNAL_TYPE_EXPOSED_TO_EXTERNAL_SCRIPTS";
 NSString * const kGTLRDatabaseCenter_Signal_SignalType_SignalTypeExposedToLocalDataLoads = @"SIGNAL_TYPE_EXPOSED_TO_LOCAL_DATA_LOADS";
 NSString * const kGTLRDatabaseCenter_Signal_SignalType_SignalTypeExposedToPublicAccess = @"SIGNAL_TYPE_EXPOSED_TO_PUBLIC_ACCESS";
@@ -483,6 +500,7 @@ NSString * const kGTLRDatabaseCenter_Signal_SignalType_SignalTypeLoggingOnlyCrit
 NSString * const kGTLRDatabaseCenter_Signal_SignalType_SignalTypeLoggingQueryStats = @"SIGNAL_TYPE_LOGGING_QUERY_STATS";
 NSString * const kGTLRDatabaseCenter_Signal_SignalType_SignalTypeLogsNotOptimizedForTroubleshooting = @"SIGNAL_TYPE_LOGS_NOT_OPTIMIZED_FOR_TROUBLESHOOTING";
 NSString * const kGTLRDatabaseCenter_Signal_SignalType_SignalTypeLowCacheHitAndMaintenanceDowntime = @"SIGNAL_TYPE_LOW_CACHE_HIT_AND_MAINTENANCE_DOWNTIME";
+NSString * const kGTLRDatabaseCenter_Signal_SignalType_SignalTypeManyIdleConnections = @"SIGNAL_TYPE_MANY_IDLE_CONNECTIONS";
 NSString * const kGTLRDatabaseCenter_Signal_SignalType_SignalTypeMaxServerMemory = @"SIGNAL_TYPE_MAX_SERVER_MEMORY";
 NSString * const kGTLRDatabaseCenter_Signal_SignalType_SignalTypeMemoryLimit = @"SIGNAL_TYPE_MEMORY_LIMIT";
 NSString * const kGTLRDatabaseCenter_Signal_SignalType_SignalTypeMinimalErrorLogging = @"SIGNAL_TYPE_MINIMAL_ERROR_LOGGING";
@@ -492,14 +510,17 @@ NSString * const kGTLRDatabaseCenter_Signal_SignalType_SignalTypeNoDeletionProte
 NSString * const kGTLRDatabaseCenter_Signal_SignalType_SignalTypeNoMaintenancePolicyConfigured = @"SIGNAL_TYPE_NO_MAINTENANCE_POLICY_CONFIGURED";
 NSString * const kGTLRDatabaseCenter_Signal_SignalType_SignalTypeNoPasswordPolicy = @"SIGNAL_TYPE_NO_PASSWORD_POLICY";
 NSString * const kGTLRDatabaseCenter_Signal_SignalType_SignalTypeNoPointInTimeRecovery = @"SIGNAL_TYPE_NO_POINT_IN_TIME_RECOVERY";
+NSString * const kGTLRDatabaseCenter_Signal_SignalType_SignalTypeNoPromotableReplica = @"SIGNAL_TYPE_NO_PROMOTABLE_REPLICA";
 NSString * const kGTLRDatabaseCenter_Signal_SignalType_SignalTypeNoRootPassword = @"SIGNAL_TYPE_NO_ROOT_PASSWORD";
 NSString * const kGTLRDatabaseCenter_Signal_SignalType_SignalTypeNotLoggingOnlyDdlStatements = @"SIGNAL_TYPE_NOT_LOGGING_ONLY_DDL_STATEMENTS";
 NSString * const kGTLRDatabaseCenter_Signal_SignalType_SignalTypeNotLoggingTemporaryFiles = @"SIGNAL_TYPE_NOT_LOGGING_TEMPORARY_FILES";
 NSString * const kGTLRDatabaseCenter_Signal_SignalType_SignalTypeNoUserPasswordPolicy = @"SIGNAL_TYPE_NO_USER_PASSWORD_POLICY";
 NSString * const kGTLRDatabaseCenter_Signal_SignalType_SignalTypeOutdatedClient = @"SIGNAL_TYPE_OUTDATED_CLIENT";
 NSString * const kGTLRDatabaseCenter_Signal_SignalType_SignalTypeOutdatedMinorVersion = @"SIGNAL_TYPE_OUTDATED_MINOR_VERSION";
+NSString * const kGTLRDatabaseCenter_Signal_SignalType_SignalTypeOutdatedVersion = @"SIGNAL_TYPE_OUTDATED_VERSION";
 NSString * const kGTLRDatabaseCenter_Signal_SignalType_SignalTypeOutOfDisk = @"SIGNAL_TYPE_OUT_OF_DISK";
 NSString * const kGTLRDatabaseCenter_Signal_SignalType_SignalTypeOverprovisioned = @"SIGNAL_TYPE_OVERPROVISIONED";
+NSString * const kGTLRDatabaseCenter_Signal_SignalType_SignalTypePerformanceKpiChange = @"SIGNAL_TYPE_PERFORMANCE_KPI_CHANGE";
 NSString * const kGTLRDatabaseCenter_Signal_SignalType_SignalTypePublicIpEnabled = @"SIGNAL_TYPE_PUBLIC_IP_ENABLED";
 NSString * const kGTLRDatabaseCenter_Signal_SignalType_SignalTypeQueryDurationsNotLogged = @"SIGNAL_TYPE_QUERY_DURATIONS_NOT_LOGGED";
 NSString * const kGTLRDatabaseCenter_Signal_SignalType_SignalTypeQueryLockWaitsNotLogged = @"SIGNAL_TYPE_QUERY_LOCK_WAITS_NOT_LOGGED";
@@ -569,6 +590,7 @@ NSString * const kGTLRDatabaseCenter_SignalFilter_SignalType_SignalTypeExcessive
 NSString * const kGTLRDatabaseCenter_SignalFilter_SignalType_SignalTypeExcessiveLoggingOfParserStats = @"SIGNAL_TYPE_EXCESSIVE_LOGGING_OF_PARSER_STATS";
 NSString * const kGTLRDatabaseCenter_SignalFilter_SignalType_SignalTypeExcessiveLoggingOfPlannerStats = @"SIGNAL_TYPE_EXCESSIVE_LOGGING_OF_PLANNER_STATS";
 NSString * const kGTLRDatabaseCenter_SignalFilter_SignalType_SignalTypeExpensiveCommands = @"SIGNAL_TYPE_EXPENSIVE_COMMANDS";
+NSString * const kGTLRDatabaseCenter_SignalFilter_SignalType_SignalTypeExposedByOwnershipChaining = @"SIGNAL_TYPE_EXPOSED_BY_OWNERSHIP_CHAINING";
 NSString * const kGTLRDatabaseCenter_SignalFilter_SignalType_SignalTypeExposedToExternalScripts = @"SIGNAL_TYPE_EXPOSED_TO_EXTERNAL_SCRIPTS";
 NSString * const kGTLRDatabaseCenter_SignalFilter_SignalType_SignalTypeExposedToLocalDataLoads = @"SIGNAL_TYPE_EXPOSED_TO_LOCAL_DATA_LOADS";
 NSString * const kGTLRDatabaseCenter_SignalFilter_SignalType_SignalTypeExposedToPublicAccess = @"SIGNAL_TYPE_EXPOSED_TO_PUBLIC_ACCESS";
@@ -595,6 +617,7 @@ NSString * const kGTLRDatabaseCenter_SignalFilter_SignalType_SignalTypeLoggingOn
 NSString * const kGTLRDatabaseCenter_SignalFilter_SignalType_SignalTypeLoggingQueryStats = @"SIGNAL_TYPE_LOGGING_QUERY_STATS";
 NSString * const kGTLRDatabaseCenter_SignalFilter_SignalType_SignalTypeLogsNotOptimizedForTroubleshooting = @"SIGNAL_TYPE_LOGS_NOT_OPTIMIZED_FOR_TROUBLESHOOTING";
 NSString * const kGTLRDatabaseCenter_SignalFilter_SignalType_SignalTypeLowCacheHitAndMaintenanceDowntime = @"SIGNAL_TYPE_LOW_CACHE_HIT_AND_MAINTENANCE_DOWNTIME";
+NSString * const kGTLRDatabaseCenter_SignalFilter_SignalType_SignalTypeManyIdleConnections = @"SIGNAL_TYPE_MANY_IDLE_CONNECTIONS";
 NSString * const kGTLRDatabaseCenter_SignalFilter_SignalType_SignalTypeMaxServerMemory = @"SIGNAL_TYPE_MAX_SERVER_MEMORY";
 NSString * const kGTLRDatabaseCenter_SignalFilter_SignalType_SignalTypeMemoryLimit = @"SIGNAL_TYPE_MEMORY_LIMIT";
 NSString * const kGTLRDatabaseCenter_SignalFilter_SignalType_SignalTypeMinimalErrorLogging = @"SIGNAL_TYPE_MINIMAL_ERROR_LOGGING";
@@ -604,14 +627,17 @@ NSString * const kGTLRDatabaseCenter_SignalFilter_SignalType_SignalTypeNoDeletio
 NSString * const kGTLRDatabaseCenter_SignalFilter_SignalType_SignalTypeNoMaintenancePolicyConfigured = @"SIGNAL_TYPE_NO_MAINTENANCE_POLICY_CONFIGURED";
 NSString * const kGTLRDatabaseCenter_SignalFilter_SignalType_SignalTypeNoPasswordPolicy = @"SIGNAL_TYPE_NO_PASSWORD_POLICY";
 NSString * const kGTLRDatabaseCenter_SignalFilter_SignalType_SignalTypeNoPointInTimeRecovery = @"SIGNAL_TYPE_NO_POINT_IN_TIME_RECOVERY";
+NSString * const kGTLRDatabaseCenter_SignalFilter_SignalType_SignalTypeNoPromotableReplica = @"SIGNAL_TYPE_NO_PROMOTABLE_REPLICA";
 NSString * const kGTLRDatabaseCenter_SignalFilter_SignalType_SignalTypeNoRootPassword = @"SIGNAL_TYPE_NO_ROOT_PASSWORD";
 NSString * const kGTLRDatabaseCenter_SignalFilter_SignalType_SignalTypeNotLoggingOnlyDdlStatements = @"SIGNAL_TYPE_NOT_LOGGING_ONLY_DDL_STATEMENTS";
 NSString * const kGTLRDatabaseCenter_SignalFilter_SignalType_SignalTypeNotLoggingTemporaryFiles = @"SIGNAL_TYPE_NOT_LOGGING_TEMPORARY_FILES";
 NSString * const kGTLRDatabaseCenter_SignalFilter_SignalType_SignalTypeNoUserPasswordPolicy = @"SIGNAL_TYPE_NO_USER_PASSWORD_POLICY";
 NSString * const kGTLRDatabaseCenter_SignalFilter_SignalType_SignalTypeOutdatedClient = @"SIGNAL_TYPE_OUTDATED_CLIENT";
 NSString * const kGTLRDatabaseCenter_SignalFilter_SignalType_SignalTypeOutdatedMinorVersion = @"SIGNAL_TYPE_OUTDATED_MINOR_VERSION";
+NSString * const kGTLRDatabaseCenter_SignalFilter_SignalType_SignalTypeOutdatedVersion = @"SIGNAL_TYPE_OUTDATED_VERSION";
 NSString * const kGTLRDatabaseCenter_SignalFilter_SignalType_SignalTypeOutOfDisk = @"SIGNAL_TYPE_OUT_OF_DISK";
 NSString * const kGTLRDatabaseCenter_SignalFilter_SignalType_SignalTypeOverprovisioned = @"SIGNAL_TYPE_OVERPROVISIONED";
+NSString * const kGTLRDatabaseCenter_SignalFilter_SignalType_SignalTypePerformanceKpiChange = @"SIGNAL_TYPE_PERFORMANCE_KPI_CHANGE";
 NSString * const kGTLRDatabaseCenter_SignalFilter_SignalType_SignalTypePublicIpEnabled = @"SIGNAL_TYPE_PUBLIC_IP_ENABLED";
 NSString * const kGTLRDatabaseCenter_SignalFilter_SignalType_SignalTypeQueryDurationsNotLogged = @"SIGNAL_TYPE_QUERY_DURATIONS_NOT_LOGGED";
 NSString * const kGTLRDatabaseCenter_SignalFilter_SignalType_SignalTypeQueryLockWaitsNotLogged = @"SIGNAL_TYPE_QUERY_LOCK_WAITS_NOT_LOGGED";
@@ -674,6 +700,7 @@ NSString * const kGTLRDatabaseCenter_SignalProductsFilters_SignalType_SignalType
 NSString * const kGTLRDatabaseCenter_SignalProductsFilters_SignalType_SignalTypeExcessiveLoggingOfParserStats = @"SIGNAL_TYPE_EXCESSIVE_LOGGING_OF_PARSER_STATS";
 NSString * const kGTLRDatabaseCenter_SignalProductsFilters_SignalType_SignalTypeExcessiveLoggingOfPlannerStats = @"SIGNAL_TYPE_EXCESSIVE_LOGGING_OF_PLANNER_STATS";
 NSString * const kGTLRDatabaseCenter_SignalProductsFilters_SignalType_SignalTypeExpensiveCommands = @"SIGNAL_TYPE_EXPENSIVE_COMMANDS";
+NSString * const kGTLRDatabaseCenter_SignalProductsFilters_SignalType_SignalTypeExposedByOwnershipChaining = @"SIGNAL_TYPE_EXPOSED_BY_OWNERSHIP_CHAINING";
 NSString * const kGTLRDatabaseCenter_SignalProductsFilters_SignalType_SignalTypeExposedToExternalScripts = @"SIGNAL_TYPE_EXPOSED_TO_EXTERNAL_SCRIPTS";
 NSString * const kGTLRDatabaseCenter_SignalProductsFilters_SignalType_SignalTypeExposedToLocalDataLoads = @"SIGNAL_TYPE_EXPOSED_TO_LOCAL_DATA_LOADS";
 NSString * const kGTLRDatabaseCenter_SignalProductsFilters_SignalType_SignalTypeExposedToPublicAccess = @"SIGNAL_TYPE_EXPOSED_TO_PUBLIC_ACCESS";
@@ -700,6 +727,7 @@ NSString * const kGTLRDatabaseCenter_SignalProductsFilters_SignalType_SignalType
 NSString * const kGTLRDatabaseCenter_SignalProductsFilters_SignalType_SignalTypeLoggingQueryStats = @"SIGNAL_TYPE_LOGGING_QUERY_STATS";
 NSString * const kGTLRDatabaseCenter_SignalProductsFilters_SignalType_SignalTypeLogsNotOptimizedForTroubleshooting = @"SIGNAL_TYPE_LOGS_NOT_OPTIMIZED_FOR_TROUBLESHOOTING";
 NSString * const kGTLRDatabaseCenter_SignalProductsFilters_SignalType_SignalTypeLowCacheHitAndMaintenanceDowntime = @"SIGNAL_TYPE_LOW_CACHE_HIT_AND_MAINTENANCE_DOWNTIME";
+NSString * const kGTLRDatabaseCenter_SignalProductsFilters_SignalType_SignalTypeManyIdleConnections = @"SIGNAL_TYPE_MANY_IDLE_CONNECTIONS";
 NSString * const kGTLRDatabaseCenter_SignalProductsFilters_SignalType_SignalTypeMaxServerMemory = @"SIGNAL_TYPE_MAX_SERVER_MEMORY";
 NSString * const kGTLRDatabaseCenter_SignalProductsFilters_SignalType_SignalTypeMemoryLimit = @"SIGNAL_TYPE_MEMORY_LIMIT";
 NSString * const kGTLRDatabaseCenter_SignalProductsFilters_SignalType_SignalTypeMinimalErrorLogging = @"SIGNAL_TYPE_MINIMAL_ERROR_LOGGING";
@@ -709,14 +737,17 @@ NSString * const kGTLRDatabaseCenter_SignalProductsFilters_SignalType_SignalType
 NSString * const kGTLRDatabaseCenter_SignalProductsFilters_SignalType_SignalTypeNoMaintenancePolicyConfigured = @"SIGNAL_TYPE_NO_MAINTENANCE_POLICY_CONFIGURED";
 NSString * const kGTLRDatabaseCenter_SignalProductsFilters_SignalType_SignalTypeNoPasswordPolicy = @"SIGNAL_TYPE_NO_PASSWORD_POLICY";
 NSString * const kGTLRDatabaseCenter_SignalProductsFilters_SignalType_SignalTypeNoPointInTimeRecovery = @"SIGNAL_TYPE_NO_POINT_IN_TIME_RECOVERY";
+NSString * const kGTLRDatabaseCenter_SignalProductsFilters_SignalType_SignalTypeNoPromotableReplica = @"SIGNAL_TYPE_NO_PROMOTABLE_REPLICA";
 NSString * const kGTLRDatabaseCenter_SignalProductsFilters_SignalType_SignalTypeNoRootPassword = @"SIGNAL_TYPE_NO_ROOT_PASSWORD";
 NSString * const kGTLRDatabaseCenter_SignalProductsFilters_SignalType_SignalTypeNotLoggingOnlyDdlStatements = @"SIGNAL_TYPE_NOT_LOGGING_ONLY_DDL_STATEMENTS";
 NSString * const kGTLRDatabaseCenter_SignalProductsFilters_SignalType_SignalTypeNotLoggingTemporaryFiles = @"SIGNAL_TYPE_NOT_LOGGING_TEMPORARY_FILES";
 NSString * const kGTLRDatabaseCenter_SignalProductsFilters_SignalType_SignalTypeNoUserPasswordPolicy = @"SIGNAL_TYPE_NO_USER_PASSWORD_POLICY";
 NSString * const kGTLRDatabaseCenter_SignalProductsFilters_SignalType_SignalTypeOutdatedClient = @"SIGNAL_TYPE_OUTDATED_CLIENT";
 NSString * const kGTLRDatabaseCenter_SignalProductsFilters_SignalType_SignalTypeOutdatedMinorVersion = @"SIGNAL_TYPE_OUTDATED_MINOR_VERSION";
+NSString * const kGTLRDatabaseCenter_SignalProductsFilters_SignalType_SignalTypeOutdatedVersion = @"SIGNAL_TYPE_OUTDATED_VERSION";
 NSString * const kGTLRDatabaseCenter_SignalProductsFilters_SignalType_SignalTypeOutOfDisk = @"SIGNAL_TYPE_OUT_OF_DISK";
 NSString * const kGTLRDatabaseCenter_SignalProductsFilters_SignalType_SignalTypeOverprovisioned = @"SIGNAL_TYPE_OVERPROVISIONED";
+NSString * const kGTLRDatabaseCenter_SignalProductsFilters_SignalType_SignalTypePerformanceKpiChange = @"SIGNAL_TYPE_PERFORMANCE_KPI_CHANGE";
 NSString * const kGTLRDatabaseCenter_SignalProductsFilters_SignalType_SignalTypePublicIpEnabled = @"SIGNAL_TYPE_PUBLIC_IP_ENABLED";
 NSString * const kGTLRDatabaseCenter_SignalProductsFilters_SignalType_SignalTypeQueryDurationsNotLogged = @"SIGNAL_TYPE_QUERY_DURATIONS_NOT_LOGGED";
 NSString * const kGTLRDatabaseCenter_SignalProductsFilters_SignalType_SignalTypeQueryLockWaitsNotLogged = @"SIGNAL_TYPE_QUERY_LOCK_WAITS_NOT_LOGGED";
@@ -779,6 +810,7 @@ NSString * const kGTLRDatabaseCenter_SignalTypeGroup_SignalTypes_SignalTypeExces
 NSString * const kGTLRDatabaseCenter_SignalTypeGroup_SignalTypes_SignalTypeExcessiveLoggingOfParserStats = @"SIGNAL_TYPE_EXCESSIVE_LOGGING_OF_PARSER_STATS";
 NSString * const kGTLRDatabaseCenter_SignalTypeGroup_SignalTypes_SignalTypeExcessiveLoggingOfPlannerStats = @"SIGNAL_TYPE_EXCESSIVE_LOGGING_OF_PLANNER_STATS";
 NSString * const kGTLRDatabaseCenter_SignalTypeGroup_SignalTypes_SignalTypeExpensiveCommands = @"SIGNAL_TYPE_EXPENSIVE_COMMANDS";
+NSString * const kGTLRDatabaseCenter_SignalTypeGroup_SignalTypes_SignalTypeExposedByOwnershipChaining = @"SIGNAL_TYPE_EXPOSED_BY_OWNERSHIP_CHAINING";
 NSString * const kGTLRDatabaseCenter_SignalTypeGroup_SignalTypes_SignalTypeExposedToExternalScripts = @"SIGNAL_TYPE_EXPOSED_TO_EXTERNAL_SCRIPTS";
 NSString * const kGTLRDatabaseCenter_SignalTypeGroup_SignalTypes_SignalTypeExposedToLocalDataLoads = @"SIGNAL_TYPE_EXPOSED_TO_LOCAL_DATA_LOADS";
 NSString * const kGTLRDatabaseCenter_SignalTypeGroup_SignalTypes_SignalTypeExposedToPublicAccess = @"SIGNAL_TYPE_EXPOSED_TO_PUBLIC_ACCESS";
@@ -805,6 +837,7 @@ NSString * const kGTLRDatabaseCenter_SignalTypeGroup_SignalTypes_SignalTypeLoggi
 NSString * const kGTLRDatabaseCenter_SignalTypeGroup_SignalTypes_SignalTypeLoggingQueryStats = @"SIGNAL_TYPE_LOGGING_QUERY_STATS";
 NSString * const kGTLRDatabaseCenter_SignalTypeGroup_SignalTypes_SignalTypeLogsNotOptimizedForTroubleshooting = @"SIGNAL_TYPE_LOGS_NOT_OPTIMIZED_FOR_TROUBLESHOOTING";
 NSString * const kGTLRDatabaseCenter_SignalTypeGroup_SignalTypes_SignalTypeLowCacheHitAndMaintenanceDowntime = @"SIGNAL_TYPE_LOW_CACHE_HIT_AND_MAINTENANCE_DOWNTIME";
+NSString * const kGTLRDatabaseCenter_SignalTypeGroup_SignalTypes_SignalTypeManyIdleConnections = @"SIGNAL_TYPE_MANY_IDLE_CONNECTIONS";
 NSString * const kGTLRDatabaseCenter_SignalTypeGroup_SignalTypes_SignalTypeMaxServerMemory = @"SIGNAL_TYPE_MAX_SERVER_MEMORY";
 NSString * const kGTLRDatabaseCenter_SignalTypeGroup_SignalTypes_SignalTypeMemoryLimit = @"SIGNAL_TYPE_MEMORY_LIMIT";
 NSString * const kGTLRDatabaseCenter_SignalTypeGroup_SignalTypes_SignalTypeMinimalErrorLogging = @"SIGNAL_TYPE_MINIMAL_ERROR_LOGGING";
@@ -814,14 +847,17 @@ NSString * const kGTLRDatabaseCenter_SignalTypeGroup_SignalTypes_SignalTypeNoDel
 NSString * const kGTLRDatabaseCenter_SignalTypeGroup_SignalTypes_SignalTypeNoMaintenancePolicyConfigured = @"SIGNAL_TYPE_NO_MAINTENANCE_POLICY_CONFIGURED";
 NSString * const kGTLRDatabaseCenter_SignalTypeGroup_SignalTypes_SignalTypeNoPasswordPolicy = @"SIGNAL_TYPE_NO_PASSWORD_POLICY";
 NSString * const kGTLRDatabaseCenter_SignalTypeGroup_SignalTypes_SignalTypeNoPointInTimeRecovery = @"SIGNAL_TYPE_NO_POINT_IN_TIME_RECOVERY";
+NSString * const kGTLRDatabaseCenter_SignalTypeGroup_SignalTypes_SignalTypeNoPromotableReplica = @"SIGNAL_TYPE_NO_PROMOTABLE_REPLICA";
 NSString * const kGTLRDatabaseCenter_SignalTypeGroup_SignalTypes_SignalTypeNoRootPassword = @"SIGNAL_TYPE_NO_ROOT_PASSWORD";
 NSString * const kGTLRDatabaseCenter_SignalTypeGroup_SignalTypes_SignalTypeNotLoggingOnlyDdlStatements = @"SIGNAL_TYPE_NOT_LOGGING_ONLY_DDL_STATEMENTS";
 NSString * const kGTLRDatabaseCenter_SignalTypeGroup_SignalTypes_SignalTypeNotLoggingTemporaryFiles = @"SIGNAL_TYPE_NOT_LOGGING_TEMPORARY_FILES";
 NSString * const kGTLRDatabaseCenter_SignalTypeGroup_SignalTypes_SignalTypeNoUserPasswordPolicy = @"SIGNAL_TYPE_NO_USER_PASSWORD_POLICY";
 NSString * const kGTLRDatabaseCenter_SignalTypeGroup_SignalTypes_SignalTypeOutdatedClient = @"SIGNAL_TYPE_OUTDATED_CLIENT";
 NSString * const kGTLRDatabaseCenter_SignalTypeGroup_SignalTypes_SignalTypeOutdatedMinorVersion = @"SIGNAL_TYPE_OUTDATED_MINOR_VERSION";
+NSString * const kGTLRDatabaseCenter_SignalTypeGroup_SignalTypes_SignalTypeOutdatedVersion = @"SIGNAL_TYPE_OUTDATED_VERSION";
 NSString * const kGTLRDatabaseCenter_SignalTypeGroup_SignalTypes_SignalTypeOutOfDisk = @"SIGNAL_TYPE_OUT_OF_DISK";
 NSString * const kGTLRDatabaseCenter_SignalTypeGroup_SignalTypes_SignalTypeOverprovisioned = @"SIGNAL_TYPE_OVERPROVISIONED";
+NSString * const kGTLRDatabaseCenter_SignalTypeGroup_SignalTypes_SignalTypePerformanceKpiChange = @"SIGNAL_TYPE_PERFORMANCE_KPI_CHANGE";
 NSString * const kGTLRDatabaseCenter_SignalTypeGroup_SignalTypes_SignalTypePublicIpEnabled = @"SIGNAL_TYPE_PUBLIC_IP_ENABLED";
 NSString * const kGTLRDatabaseCenter_SignalTypeGroup_SignalTypes_SignalTypeQueryDurationsNotLogged = @"SIGNAL_TYPE_QUERY_DURATIONS_NOT_LOGGED";
 NSString * const kGTLRDatabaseCenter_SignalTypeGroup_SignalTypes_SignalTypeQueryLockWaitsNotLogged = @"SIGNAL_TYPE_QUERY_LOCK_WAITS_NOT_LOGGED";

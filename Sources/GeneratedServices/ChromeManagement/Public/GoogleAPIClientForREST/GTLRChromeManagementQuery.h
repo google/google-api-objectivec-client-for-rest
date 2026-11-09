@@ -743,6 +743,230 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagementMetricUrlVisitsMetricUns
 @end
 
 /**
+ *  Deletes the data collected from a Chrome browser profile.
+ *
+ *  Method: chromemanagement.customers.chromeBrowsers.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeChromeManagementChromeManagementBrowsers
+ */
+@interface GTLRChromeManagementQuery_CustomersChromeBrowsersDelete : GTLRChromeManagementQuery
+
+/**
+ *  Required. Format:
+ *  customers/{customer_id}/chromeBrowsers/{browser_permanent_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRChromeManagement_GoogleProtobufEmpty.
+ *
+ *  Deletes the data collected from a Chrome browser profile.
+ *
+ *  @param name Required. Format:
+ *    customers/{customer_id}/chromeBrowsers/{browser_permanent_id}
+ *
+ *  @return GTLRChromeManagementQuery_CustomersChromeBrowsersDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Retrieves a single Chrome Browser identified by its customer ID and resource
+ *  ID.
+ *
+ *  Method: chromemanagement.customers.chromeBrowsers.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeChromeManagementChromeManagementBrowsers
+ *    @c kGTLRAuthScopeChromeManagementChromeManagementBrowsersReadonly
+ */
+@interface GTLRChromeManagementQuery_CustomersChromeBrowsersGet : GTLRChromeManagementQuery
+
+/**
+ *  Required. Format:
+ *  customers/{customer_id}/chromeBrowsers/{browser_permanent_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowser.
+ *
+ *  Retrieves a single Chrome Browser identified by its customer ID and resource
+ *  ID.
+ *
+ *  @param name Required. Format:
+ *    customers/{customer_id}/chromeBrowsers/{browser_permanent_id}
+ *
+ *  @return GTLRChromeManagementQuery_CustomersChromeBrowsersGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Retrieves all Chrome Browsers of a customer (paginated).
+ *
+ *  Method: chromemanagement.customers.chromeBrowsers.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeChromeManagementChromeManagementBrowsers
+ *    @c kGTLRAuthScopeChromeManagementChromeManagementBrowsersReadonly
+ */
+@interface GTLRChromeManagementQuery_CustomersChromeBrowsersList : GTLRChromeManagementQuery
+
+/**
+ *  Optional. The filter used to filter browsers. The following fields can be
+ *  used in the filter: * `browser_permanent_id` * `virtual_device_id` *
+ *  `last_policy_fetch_time` * `os_platform` * `os_architecture` * `os_version`
+ *  * `machine_name` * `annotated_location` * `annotated_user` *
+ *  `annotated_asset_id` * `annotated_note` * `org_unit_path` * `org_unit_id` *
+ *  `last_registration_time` * `os_platform_version` * `browser_version` *
+ *  `last_status_report_time` * `extension_count` * `policy_count` *
+ *  `last_device_user` * `last_activity_time` * `device_id_collision` The
+ *  following functions can be used in the filter: * `in_group(string)`: Filters
+ *  browsers that belong to the specified Cloud Identity group resource name
+ *  (e.g. `in_group("groups/{group_id}")`). Any of the above fields or functions
+ *  can be used to specify a filter, and filtering by multiple fields or
+ *  functions is supported with AND operator. String type, Integer type fields
+ *  and enum type fields support `=` and `:` operators. The timestamp type
+ *  fields support `=`, `<=` and `>=` operators. Timestamps expect an RFC-3339
+ *  formatted string enclosed in double quotes (e.g.,
+ *  `"2012-04-21T11:30:00-04:00"`). Wildcard `*` is only supported for
+ *  `machine_name`, `annotated_asset_id`, and `browser_version`. In addition,
+ *  global string literal filtering without a field name is supported: a single
+ *  term (e.g., `ABC`) matches if any indexed string field contains `ABC`, and
+ *  multiple terms joined by `AND` or whitespace (e.g., `machine AND 73` or
+ *  `machine 73`) match browsers where every term appears in at least one
+ *  indexed string field (whereas a single quoted phrase like `"machine 73"`
+ *  matches the contiguous phrase within a single field).
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. The fields used to specify the ordering of the results. The
+ *  supported fields are: * `browser_permanent_id` * `virtual_device_id` *
+ *  `last_policy_fetch_time` * `annotated_user` * `annotated_location` *
+ *  `annotated_asset_id` * `annotated_notes` * `org_unit_path` * `os_version` *
+ *  `last_registration_time` * `extension_count` * `policy_count` *
+ *  `last_device_user` * `machine_name` * `browser_version_channel` *
+ *  `os_platform_version` * `last_activity_time` * `browser_version` By default,
+ *  sorting is in ascending order, to specify descending order for a field, a
+ *  suffix ` desc` should be added to the field name. The default ordering is
+ *  the ascending order of `browser_permanent_id`.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. Maximum number of results to return. Maximum and default are 100.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** Optional. Token to specify next page in the list. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. Format: customers/{customer_id} */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRChromeManagement_GoogleChromeManagementVersionsV1ListChromeBrowsersResponse.
+ *
+ *  Retrieves all Chrome Browsers of a customer (paginated).
+ *
+ *  @param parent Required. Format: customers/{customer_id}
+ *
+ *  @return GTLRChromeManagementQuery_CustomersChromeBrowsersList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Moves managed Chrome Browsers to a new Organizational Unit (OU). If there is
+ *  an error while moving any of the browsers, none of the browsers will be
+ *  moved.
+ *
+ *  Method: chromemanagement.customers.chromeBrowsers.move
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeChromeManagementChromeManagementBrowsers
+ */
+@interface GTLRChromeManagementQuery_CustomersChromeBrowsersMove : GTLRChromeManagementQuery
+
+/** Required. Format: customers/{customer_id} */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRChromeManagement_GoogleChromeManagementVersionsV1MoveChromeBrowsersResponse.
+ *
+ *  Moves managed Chrome Browsers to a new Organizational Unit (OU). If there is
+ *  an error while moving any of the browsers, none of the browsers will be
+ *  moved.
+ *
+ *  @param object The @c
+ *    GTLRChromeManagement_GoogleChromeManagementVersionsV1MoveChromeBrowsersRequest
+ *    to include in the query.
+ *  @param parent Required. Format: customers/{customer_id}
+ *
+ *  @return GTLRChromeManagementQuery_CustomersChromeBrowsersMove
+ */
++ (instancetype)queryWithObject:(GTLRChromeManagement_GoogleChromeManagementVersionsV1MoveChromeBrowsersRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates annotation information for a Chrome Browser.
+ *
+ *  Method: chromemanagement.customers.chromeBrowsers.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeChromeManagementChromeManagementBrowsers
+ */
+@interface GTLRChromeManagementQuery_CustomersChromeBrowsersPatch : GTLRChromeManagementQuery
+
+/**
+ *  Identifier. Format:
+ *  customers/{customer_id}/chromeBrowsers/{browser_permanent_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The update mask that can be used to specify which fields to
+ *  update.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c
+ *  GTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowser.
+ *
+ *  Updates annotation information for a Chrome Browser.
+ *
+ *  @param object The @c
+ *    GTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowser to
+ *    include in the query.
+ *  @param name Identifier. Format:
+ *    customers/{customer_id}/chromeBrowsers/{browser_permanent_id}
+ *
+ *  @return GTLRChromeManagementQuery_CustomersChromeBrowsersPatch
+ */
++ (instancetype)queryWithObject:(GTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowser *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Creates a connector config.
  *
  *  Method: chromemanagement.customers.connectorConfigs.create
@@ -910,6 +1134,173 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagementMetricUrlVisitsMetricUns
  *  @return GTLRChromeManagementQuery_CustomersConnectorConfigsPatch
  */
 + (instancetype)queryWithObject:(GTLRChromeManagement_GoogleChromeManagementVersionsV1ConnectorConfig *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a new enrollment token for a browser device. Creation fails if there
+ *  is already an active token for this customer under the same org unit.
+ *
+ *  Method: chromemanagement.customers.enrollmentTokens.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeChromeManagementChromeManagementEnrollmenttokens
+ */
+@interface GTLRChromeManagementQuery_CustomersEnrollmentTokensCreate : GTLRChromeManagementQuery
+
+/**
+ *  Optional. The ID to use for the enrollment token, which will become the
+ *  final component of the enrollment token's resource name. This value must be
+ *  local-unique under the customer and is optional. If not provided, it will be
+ *  auto-generated. If provided, it must be 1-63 characters long and match the
+ *  regular expression `[a-zA-Z0-9._-]+`.
+ */
+@property(nonatomic, copy, nullable) NSString *enrollmentTokenId;
+
+/**
+ *  Required. The parent resource where this enrollment token will be created.
+ *  Format: customers/{customer}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRChromeManagement_GoogleChromeManagementVersionsV1EnrollmentToken.
+ *
+ *  Creates a new enrollment token for a browser device. Creation fails if there
+ *  is already an active token for this customer under the same org unit.
+ *
+ *  @param object The @c
+ *    GTLRChromeManagement_GoogleChromeManagementVersionsV1EnrollmentToken to
+ *    include in the query.
+ *  @param parent Required. The parent resource where this enrollment token will
+ *    be created. Format: customers/{customer}
+ *
+ *  @return GTLRChromeManagementQuery_CustomersEnrollmentTokensCreate
+ */
++ (instancetype)queryWithObject:(GTLRChromeManagement_GoogleChromeManagementVersionsV1EnrollmentToken *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Gets a browser device enrollment token.
+ *
+ *  Method: chromemanagement.customers.enrollmentTokens.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeChromeManagementChromeManagementEnrollmenttokens
+ *    @c kGTLRAuthScopeChromeManagementChromeManagementEnrollmenttokensReadonly
+ */
+@interface GTLRChromeManagementQuery_CustomersEnrollmentTokensGet : GTLRChromeManagementQuery
+
+/**
+ *  Required. The name of the enrollment token to retrieve. Format:
+ *  customers/{customer}/enrollmentTokens/{token_permanent_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRChromeManagement_GoogleChromeManagementVersionsV1EnrollmentToken.
+ *
+ *  Gets a browser device enrollment token.
+ *
+ *  @param name Required. The name of the enrollment token to retrieve. Format:
+ *    customers/{customer}/enrollmentTokens/{token_permanent_id}
+ *
+ *  @return GTLRChromeManagementQuery_CustomersEnrollmentTokensGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists all browser device enrollment tokens.
+ *
+ *  Method: chromemanagement.customers.enrollmentTokens.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeChromeManagementChromeManagementEnrollmenttokens
+ *    @c kGTLRAuthScopeChromeManagementChromeManagementEnrollmenttokensReadonly
+ */
+@interface GTLRChromeManagementQuery_CustomersEnrollmentTokensList : GTLRChromeManagementQuery
+
+/**
+ *  Optional. Filter to apply to list results. The following fields can be used
+ *  in the filter: * `device_type` (currently only `"CHROME_BROWSER"` is
+ *  supported) * `token_state` (supported values: `"ACTIVE"`, `"EXPIRED"`,
+ *  `"REVOKED"`) * `org_unit_path` The full path of the org unit, such as
+ *  `/Montreal/Sales`. * `org_unit_id` The obfuscated id of the org unit, not
+ *  the full path.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. Maximum number of results to return. Maximum and default are 100.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** Optional. Token to specify next page in the list. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent resource where this enrollment token will be created.
+ *  Format: customers/{customer}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRChromeManagement_GoogleChromeManagementVersionsV1ListEnrollmentTokensResponse.
+ *
+ *  Lists all browser device enrollment tokens.
+ *
+ *  @param parent Required. The parent resource where this enrollment token will
+ *    be created. Format: customers/{customer}
+ *
+ *  @return GTLRChromeManagementQuery_CustomersEnrollmentTokensList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Revokes a browser device enrollment token.
+ *
+ *  Method: chromemanagement.customers.enrollmentTokens.revoke
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeChromeManagementChromeManagementEnrollmenttokens
+ */
+@interface GTLRChromeManagementQuery_CustomersEnrollmentTokensRevoke : GTLRChromeManagementQuery
+
+/**
+ *  Required. The name of the enrollment token to revoke. Format:
+ *  customers/{customer}/enrollmentTokens/{token_permanent_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRChromeManagement_GoogleChromeManagementVersionsV1EnrollmentToken.
+ *
+ *  Revokes a browser device enrollment token.
+ *
+ *  @param object The @c
+ *    GTLRChromeManagement_GoogleChromeManagementVersionsV1RevokeEnrollmentTokenRequest
+ *    to include in the query.
+ *  @param name Required. The name of the enrollment token to revoke. Format:
+ *    customers/{customer}/enrollmentTokens/{token_permanent_id}
+ *
+ *  @return GTLRChromeManagementQuery_CustomersEnrollmentTokensRevoke
+ */
++ (instancetype)queryWithObject:(GTLRChromeManagement_GoogleChromeManagementVersionsV1RevokeEnrollmentTokenRequest *)object
                            name:(NSString *)name;
 
 @end

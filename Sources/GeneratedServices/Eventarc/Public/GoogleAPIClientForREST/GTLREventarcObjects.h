@@ -2863,7 +2863,7 @@ FOUNDATION_EXTERN NSString * const kGTLREventarc_StateCondition_Code_Unknown;
 @property(nonatomic, copy, nullable) NSString *eventDataContentType;
 
 /**
- *  Required. Unordered list. The list of filters that applies to event
+ *  Optional. Unordered list. The list of filters that applies to event
  *  attributes. Only events that match all the provided filters are sent to the
  *  destination.
  */

@@ -1125,14 +1125,16 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBala
 /**
  *  Direct traffic to the nearest region with endpoints and capacity before
  *  spilling over to other regions and spread the traffic from each client to
- *  all the MIGs/NEGs in a region.
+ *  all the MIGs/NEGs in a region. For regional ServiceLbPolicy, traffic stays
+ *  within the configured region and does not spill over to other regions.
  *
  *  Value: "SPRAY_TO_REGION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBalancingAlgorithm_SprayToRegion;
 /**
  *  Balance traffic across all backends across the world proportionally based on
- *  capacity.
+ *  capacity. Only supported for global ServiceLbPolicy with Cloud Service Mesh,
+ *  not supported for regional ServiceLbPolicy.
  *
  *  Value: "SPRAY_TO_WORLD"
  */
@@ -1141,14 +1143,16 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBala
  *  Direct traffic to the nearest region with endpoints and capacity before
  *  spilling over to other regions. All MIGs/NEGs within a region are evenly
  *  loaded but each client might not spread the traffic to all the MIGs/NEGs in
- *  the region.
+ *  the region. For regional ServiceLbPolicy, traffic stays within the
+ *  configured region and does not spill over to other regions.
  *
  *  Value: "WATERFALL_BY_REGION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBalancingAlgorithm_WaterfallByRegion;
 /**
  *  Attempt to keep traffic in a single zone closest to the client, before
- *  spilling over to other zones.
+ *  spilling over to other zones. For regional ServiceLbPolicy, traffic only
+ *  spills over to other zones within the same region.
  *
  *  Value: "WATERFALL_BY_ZONE"
  */
@@ -1246,7 +1250,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinL
 @interface GTLRNetworkServices_AgentConnectivityTemplate : GTLRObject
 
 /**
- *  Required. Immutable. The path of the access. Maps roughly to ingress/egress,
+ *  Optional. Immutable. The path of the access. Maps roughly to ingress/egress,
  *  though we keep CLIENT_TO_AGENT and AGENT_TO_ANYWHERE as carryovers from
  *  Agent Gateway's original resource model. The path is immutable once set.
  *  Exactly one path can be set.
@@ -1289,7 +1293,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinL
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  Required. The deployment model for the gateway.
+ *  Optional. The deployment model for the gateway.
  *
  *  Likely values:
  *    @arg @c kGTLRNetworkServices_AgentConnectivityTemplate_DeploymentModel_Ambient
@@ -2284,9 +2288,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinL
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Optional. Priority of the extension binding. Lower numbers indicate higher
- *  priority. The priority determines the order in which extension bindings are
- *  applied to a request.
+ *  Optional. This field is not supported.
  *
  *  Uses NSNumber of intValue.
  */
@@ -2559,9 +2561,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinL
 /**
  *  Required. A set of extensions to execute for the matching request. At least
  *  one extension is required. Up to 3 extensions can be defined for each
- *  extension chain for `LbTrafficExtension` resource. `LbRouteExtension`,
- *  `LbEdgeExtension`, and `LbTcpExtension` chains are limited to 1 extension
- *  per extension chain.
+ *  extension chain for `LbTrafficExtension` and `CdnEdgeExtension` resources.
+ *  `LbRouteExtension`, `LbEdgeExtension`, and `LbTcpExtension` chains are
+ *  limited to 1 extension per extension chain.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRNetworkServices_ExtensionChainExtension *> *extensions;
 
@@ -2747,7 +2749,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinL
  *  `projects/{project}/locations/{location}/wasmPlugins/{plugin}` or
  *  `//networkservices.googleapis.com/projects/{project}/locations/{location}/wasmPlugins/{wasmPlugin}`.
  *  Plugin extensions are currently supported for the `LbTrafficExtension`, the
- *  `LbRouteExtension`, and the `LbEdgeExtension` resources.
+ *  `LbRouteExtension`, the `LbEdgeExtension`, and the `CdnEdgeExtension`
+ *  resources.
  */
 @property(nonatomic, copy, nullable) NSString *service;
 
@@ -6155,7 +6158,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinL
 @property(nonatomic, copy, nullable) NSString *authority;
 
 /**
- *  Optional. Whether the extension should function in observability mode.
+ *  Optional. This field is not supported.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -6247,8 +6250,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinL
 
 
 /**
- *  ServiceLbPolicy holds global load balancing and traffic distribution
- *  configuration that can be applied to a BackendService.
+ *  ServiceLbPolicy holds load balancing and traffic distribution configuration
+ *  that can be applied to a global or regional BackendService.
  */
 @interface GTLRNetworkServices_ServiceLbPolicy : GTLRObject
 
@@ -6294,18 +6297,26 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinL
  *    @arg @c kGTLRNetworkServices_ServiceLbPolicy_LoadBalancingAlgorithm_SprayToRegion
  *        Direct traffic to the nearest region with endpoints and capacity
  *        before spilling over to other regions and spread the traffic from each
- *        client to all the MIGs/NEGs in a region. (Value: "SPRAY_TO_REGION")
+ *        client to all the MIGs/NEGs in a region. For regional ServiceLbPolicy,
+ *        traffic stays within the configured region and does not spill over to
+ *        other regions. (Value: "SPRAY_TO_REGION")
  *    @arg @c kGTLRNetworkServices_ServiceLbPolicy_LoadBalancingAlgorithm_SprayToWorld
  *        Balance traffic across all backends across the world proportionally
- *        based on capacity. (Value: "SPRAY_TO_WORLD")
+ *        based on capacity. Only supported for global ServiceLbPolicy with
+ *        Cloud Service Mesh, not supported for regional ServiceLbPolicy.
+ *        (Value: "SPRAY_TO_WORLD")
  *    @arg @c kGTLRNetworkServices_ServiceLbPolicy_LoadBalancingAlgorithm_WaterfallByRegion
  *        Direct traffic to the nearest region with endpoints and capacity
  *        before spilling over to other regions. All MIGs/NEGs within a region
  *        are evenly loaded but each client might not spread the traffic to all
- *        the MIGs/NEGs in the region. (Value: "WATERFALL_BY_REGION")
+ *        the MIGs/NEGs in the region. For regional ServiceLbPolicy, traffic
+ *        stays within the configured region and does not spill over to other
+ *        regions. (Value: "WATERFALL_BY_REGION")
  *    @arg @c kGTLRNetworkServices_ServiceLbPolicy_LoadBalancingAlgorithm_WaterfallByZone
  *        Attempt to keep traffic in a single zone closest to the client, before
- *        spilling over to other zones. (Value: "WATERFALL_BY_ZONE")
+ *        spilling over to other zones. For regional ServiceLbPolicy, traffic
+ *        only spills over to other zones within the same region. (Value:
+ *        "WATERFALL_BY_ZONE")
  */
 @property(nonatomic, copy, nullable) NSString *loadBalancingAlgorithm;
 
@@ -6334,8 +6345,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinL
 
 
 /**
- *  Option to specify if an unhealthy IG/NEG should be considered for global
- *  load balancing and traffic routing.
+ *  Option to specify if an unhealthy IG/NEG should be considered for load
+ *  balancing and traffic routing.
  */
 @interface GTLRNetworkServices_ServiceLbPolicyAutoCapacityDrain : GTLRObject
 
@@ -6988,9 +6999,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinL
 /**
  *  Optional. Non-empty default. Specifies the lowest level of the plugin logs
  *  that are exported to Cloud Logging. This setting relates to the logs
- *  generated by using logging statements in your Wasm code. This field is can
- *  be set only if logging is enabled for the plugin. If the field is not
- *  provided when logging is enabled, it is set to `INFO` by default.
+ *  generated by using logging statements in your Wasm code. This field can be
+ *  set only if logging is enabled for the plugin. If the field is not provided
+ *  when logging is enabled, it is set to `INFO` by default.
  *
  *  Likely values:
  *    @arg @c kGTLRNetworkServices_WasmPluginLogConfig_MinLogLevel_Critical

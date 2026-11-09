@@ -214,6 +214,83 @@ NSString * const kGTLRBigLakeServiceViewTableViewUnspecified = @"TABLE_VIEW_UNSP
 
 @end
 
+@implementation GTLRBigLakeServiceQuery_ProjectsCatalogsNamespacesViewsGetIamPolicy
+
+@dynamic optionsRequestedPolicyVersion, resource;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"optionsRequestedPolicyVersion" : @"options.requestedPolicyVersion" };
+}
+
++ (instancetype)queryWithResource:(NSString *)resource {
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:getIamPolicy";
+  GTLRBigLakeServiceQuery_ProjectsCatalogsNamespacesViewsGetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRBigLakeService_Policy class];
+  query.loggingName = @"biglake.projects.catalogs.namespaces.views.getIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRBigLakeServiceQuery_ProjectsCatalogsNamespacesViewsSetIamPolicy
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRBigLakeService_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:setIamPolicy";
+  GTLRBigLakeServiceQuery_ProjectsCatalogsNamespacesViewsSetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRBigLakeService_Policy class];
+  query.loggingName = @"biglake.projects.catalogs.namespaces.views.setIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRBigLakeServiceQuery_ProjectsCatalogsNamespacesViewsTestIamPermissions
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRBigLakeService_TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:testIamPermissions";
+  GTLRBigLakeServiceQuery_ProjectsCatalogsNamespacesViewsTestIamPermissions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRBigLakeService_TestIamPermissionsResponse class];
+  query.loggingName = @"biglake.projects.catalogs.namespaces.views.testIamPermissions";
+  return query;
+}
+
+@end
+
 @implementation GTLRBigLakeServiceQuery_ProjectsCatalogsSetIamPolicy
 
 @dynamic resource;

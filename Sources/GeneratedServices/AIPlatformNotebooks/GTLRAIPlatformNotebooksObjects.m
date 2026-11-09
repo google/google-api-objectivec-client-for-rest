@@ -88,6 +88,7 @@ NSString * const kGTLRAIPlatformNotebooks_Instance_HealthState_Unhealthy = @"UNH
 NSString * const kGTLRAIPlatformNotebooks_Instance_State_Active = @"ACTIVE";
 NSString * const kGTLRAIPlatformNotebooks_Instance_State_Deleted = @"DELETED";
 NSString * const kGTLRAIPlatformNotebooks_Instance_State_Initializing = @"INITIALIZING";
+NSString * const kGTLRAIPlatformNotebooks_Instance_State_Orphaned = @"ORPHANED";
 NSString * const kGTLRAIPlatformNotebooks_Instance_State_Provisioning = @"PROVISIONING";
 NSString * const kGTLRAIPlatformNotebooks_Instance_State_Starting = @"STARTING";
 NSString * const kGTLRAIPlatformNotebooks_Instance_State_StateUnspecified = @"STATE_UNSPECIFIED";
@@ -637,7 +638,7 @@ NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_State_Succeeded = 
 //
 
 @implementation GTLRAIPlatformNotebooks_NetworkInterface
-@dynamic accessConfigs, network, nicType, subnet;
+@dynamic accessConfigs, internalIp, network, nicType, subnet;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -977,5 +978,5 @@ NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_State_Succeeded = 
 //
 
 @implementation GTLRAIPlatformNotebooks_VmImage
-@dynamic family, imageDescription, name, project;
+@dynamic family, imageDescription, imageId, name, project;
 @end

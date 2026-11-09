@@ -31,28 +31,6 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRSubscriptionLinking_ListReaderEntitlementsResponse
-//
-
-@implementation GTLRSubscriptionLinking_ListReaderEntitlementsResponse
-@dynamic nextPageToken, readerEntitlements;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"readerEntitlements" : [GTLRSubscriptionLinking_ReaderEntitlements class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"readerEntitlements";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRSubscriptionLinking_Reader
 //
 

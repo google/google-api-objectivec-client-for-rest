@@ -969,7 +969,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Identifier. Resource name of the member. Format:
- *  spaces/{space}/members/{member}
+ *  `spaces/{space}/members/{member}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -995,7 +995,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRMeet_Member to include in the query.
  *  @param name Identifier. Resource name of the member. Format:
- *    spaces/{space}/members/{member}
+ *    `spaces/{space}/members/{member}`
  *
  *  @return GTLRMeetQuery_SpacesMembersPatch
  */

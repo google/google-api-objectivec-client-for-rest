@@ -114,6 +114,7 @@ NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1OsConstrain
 NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1OsConstraint_OsType_DesktopLinux = @"DESKTOP_LINUX";
 NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1OsConstraint_OsType_DesktopMac = @"DESKTOP_MAC";
 NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1OsConstraint_OsType_DesktopWindows = @"DESKTOP_WINDOWS";
+NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1OsConstraint_OsType_GooglebookOs = @"GOOGLEBOOK_OS";
 NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1OsConstraint_OsType_Ios = @"IOS";
 NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1OsConstraint_OsType_OsUnspecified = @"OS_UNSPECIFIED";
 

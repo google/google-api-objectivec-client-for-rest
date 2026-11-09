@@ -15,6 +15,7 @@
 #endif
 
 @class GTLRClassroom_AddOnAttachment;
+@class GTLRClassroom_AddOnAttachmentStudentSubmission;
 @class GTLRClassroom_Announcement;
 @class GTLRClassroom_Assignment;
 @class GTLRClassroom_AssignmentSubmission;
@@ -785,6 +786,16 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_Turned
  *  specified if `due_date` is specified.
  */
 @property(nonatomic, strong, nullable) GTLRClassroom_TimeOfDay *dueTime;
+
+/**
+ *  Output only. Whether changes to `pointsEarned` values on this attachment's
+ *  student submissions will be copied to the `pointsEarned` field on the
+ *  students' CourseWork submissions. This field can be `true` for at most one
+ *  add-on attachment per stream item.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *gradeSyncEnabled;
 
 /**
  *  Immutable. Classroom-assigned identifier for this attachment, unique per
@@ -2346,6 +2357,33 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_Turned
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRClassroom_AddOnAttachment *> *addOnAttachments;
+
+/**
+ *  A token, which can be sent as `pageToken` to retrieve the next page. If this
+ *  field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Response when listing student submissions for an add-on attachment.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "addOnAttachmentStudentSubmissions" property. If returned as the
+ *        result of a query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRClassroom_ListAddOnAttachmentStudentSubmissionsResponse : GTLRCollectionObject
+
+/**
+ *  Add-on attachment student submissions that match the request.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRClassroom_AddOnAttachmentStudentSubmission *> *addOnAttachmentStudentSubmissions;
 
 /**
  *  A token, which can be sent as `pageToken` to retrieve the next page. If this

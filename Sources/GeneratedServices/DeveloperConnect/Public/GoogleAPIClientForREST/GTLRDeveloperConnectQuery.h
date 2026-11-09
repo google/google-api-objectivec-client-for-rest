@@ -49,6 +49,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnectRefTypeRefTypeUnspecifie
 FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnectRefTypeTag;
 
 // ----------------------------------------------------------------------------
+// view
+
+/**
+ *  Basic view, returns commit metadata but no file diffs.
+ *
+ *  Value: "BASIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnectViewBasic;
+/**
+ *  Unspecified, defaults to BASIC.
+ *
+ *  Value: "COMMIT_VIEW_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnectViewCommitViewUnspecified;
+/**
+ *  Full view, returns commit metadata and file diffs.
+ *
+ *  Value: "FULL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnectViewFull;
+
+// ----------------------------------------------------------------------------
 // Query Classes
 //
 
@@ -261,10 +283,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnectRefTypeTag;
  */
 @interface GTLRDeveloperConnectQuery_ProjectsLocationsAccountConnectorsList : GTLRDeveloperConnectQuery
 
-/** Optional. Filtering results */
+/** Optional. Filtering results. */
 @property(nonatomic, copy, nullable) NSString *filter;
 
-/** Optional. Hint for how to order the results */
+/** Optional. Hint for how to order the results. */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
@@ -562,10 +584,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnectRefTypeTag;
  */
 @interface GTLRDeveloperConnectQuery_ProjectsLocationsAccountConnectorsUsersList : GTLRDeveloperConnectQuery
 
-/** Optional. Filtering results */
+/** Optional. Filtering results. */
 @property(nonatomic, copy, nullable) NSString *filter;
 
-/** Optional. Hint for how to order the results */
+/** Optional. Hint for how to order the results. */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
@@ -640,8 +662,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnectRefTypeTag;
 @interface GTLRDeveloperConnectQuery_ProjectsLocationsConnectionsCreate : GTLRDeveloperConnectQuery
 
 /**
- *  Required. Id of the requesting object If auto-generating Id server-side,
- *  remove this field and connection_id from the method_signature of Create RPC
+ *  Required. The ID to use for the connection, which becomes the final
+ *  component of the connection's resource name.
  */
 @property(nonatomic, copy, nullable) NSString *connectionId;
 
@@ -838,6 +860,74 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnectRefTypeTag;
 @end
 
 /**
+ *  Add a comment to a Pull Request.
+ *
+ *  Method: developerconnect.projects.locations.connections.gitRepositoryLinks.addPullRequestComment
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDeveloperConnectCloudPlatform
+ */
+@interface GTLRDeveloperConnectQuery_ProjectsLocationsConnectionsGitRepositoryLinksAddPullRequestComment : GTLRDeveloperConnectQuery
+
+/**
+ *  Required. The resource name of the GitRepositoryLink in the format
+ *  `projects/ * /locations/ * /connections/ * /gitRepositoryLinks/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDeveloperConnect_PullRequestComment.
+ *
+ *  Add a comment to a Pull Request.
+ *
+ *  @param object The @c
+ *    GTLRDeveloperConnect_AddGitRepositoryLinkPullRequestCommentRequest to
+ *    include in the query.
+ *  @param name Required. The resource name of the GitRepositoryLink in the
+ *    format `projects/ * /locations/ * /connections/ * /gitRepositoryLinks/ *`.
+ *
+ *  @return GTLRDeveloperConnectQuery_ProjectsLocationsConnectionsGitRepositoryLinksAddPullRequestComment
+ */
++ (instancetype)queryWithObject:(GTLRDeveloperConnect_AddGitRepositoryLinkPullRequestCommentRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Add a review comment (inline on diff) to a Pull Request.
+ *
+ *  Method: developerconnect.projects.locations.connections.gitRepositoryLinks.addPullRequestReviewComment
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDeveloperConnectCloudPlatform
+ */
+@interface GTLRDeveloperConnectQuery_ProjectsLocationsConnectionsGitRepositoryLinksAddPullRequestReviewComment : GTLRDeveloperConnectQuery
+
+/**
+ *  Required. The resource name of the GitRepositoryLink in the format
+ *  `projects/ * /locations/ * /connections/ * /gitRepositoryLinks/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDeveloperConnect_PullRequestReviewComment.
+ *
+ *  Add a review comment (inline on diff) to a Pull Request.
+ *
+ *  @param object The @c
+ *    GTLRDeveloperConnect_AddGitRepositoryLinkPullRequestReviewCommentRequest
+ *    to include in the query.
+ *  @param name Required. The resource name of the GitRepositoryLink in the
+ *    format `projects/ * /locations/ * /connections/ * /gitRepositoryLinks/ *`.
+ *
+ *  @return GTLRDeveloperConnectQuery_ProjectsLocationsConnectionsGitRepositoryLinksAddPullRequestReviewComment
+ */
++ (instancetype)queryWithObject:(GTLRDeveloperConnect_AddGitRepositoryLinkPullRequestReviewCommentRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Creates a GitRepositoryLink. Upon linking a Git Repository, Developer
  *  Connect will configure the Git Repository to send webhook events to
  *  Developer Connect. Connections that use Firebase GitHub Application will
@@ -953,6 +1043,231 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnectRefTypeTag;
 @end
 
 /**
+ *  Diff commits for a GitRepositoryLink.
+ *
+ *  Method: developerconnect.projects.locations.connections.gitRepositoryLinks.diffCommit
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDeveloperConnectCloudPlatform
+ */
+@interface GTLRDeveloperConnectQuery_ProjectsLocationsConnectionsGitRepositoryLinksDiffCommit : GTLRDeveloperConnectQuery
+
+/** Required. The base commit SHA or ref. */
+@property(nonatomic, copy, nullable) NSString *baseSha;
+
+/** Required. The head commit SHA or ref. */
+@property(nonatomic, copy, nullable) NSString *headSha;
+
+/** Required. The resource name of the GitRepositoryLink. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Path patterns or exact paths to filter returned files. When
+ *  `path_filters` is specified, `FileDiff.patch` is populated for all matching
+ *  files (use `["**"]` to include patches for all changed files). When
+ *  `path_filters` is omitted or empty, the full list of `FileDiff` is returned
+ *  without patch diffs (`FileDiff.patch` is empty).
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *pathFilters;
+
+/**
+ *  Fetches a @c GTLRDeveloperConnect_DiffGitRepositoryLinkCommitResponse.
+ *
+ *  Diff commits for a GitRepositoryLink.
+ *
+ *  @param name Required. The resource name of the GitRepositoryLink.
+ *
+ *  @return GTLRDeveloperConnectQuery_ProjectsLocationsConnectionsGitRepositoryLinksDiffCommit
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Fetch Commit details from a Git repository link.
+ *
+ *  Method: developerconnect.projects.locations.connections.gitRepositoryLinks.fetchCommit
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDeveloperConnectCloudPlatform
+ */
+@interface GTLRDeveloperConnectQuery_ProjectsLocationsConnectionsGitRepositoryLinksFetchCommit : GTLRDeveloperConnectQuery
+
+/**
+ *  Required. The commit SHA, or symbolic revision (for example, branch name,
+ *  tag, or Git reference).
+ */
+@property(nonatomic, copy, nullable) NSString *commitSha;
+
+/**
+ *  Required. The resource name of the GitRepositoryLink in the format
+ *  `projects/ * /locations/ * /connections/ * /gitRepositoryLinks/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Path patterns or exact paths to filter returned files (only
+ *  applicable in `FULL` view). When `path_filters` is specified,
+ *  `FileDiff.patch` is populated for all matching files (use `["**"]` to
+ *  include patches for all changed files). When `path_filters` is omitted or
+ *  empty, the full list of `FileDiff` is returned without patch diffs
+ *  (`FileDiff.patch` is empty).
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *pathFilters;
+
+/**
+ *  Optional. The level of commit details to return in the response. Defaults to
+ *  `FULL` if unspecified. In `FULL` view, `files` metadata (paths and statuses)
+ *  are returned; `path_filters` must also be specified to populate line patch
+ *  hunks.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDeveloperConnectViewCommitViewUnspecified Unspecified,
+ *        defaults to BASIC. (Value: "COMMIT_VIEW_UNSPECIFIED")
+ *    @arg @c kGTLRDeveloperConnectViewBasic Basic view, returns commit metadata
+ *        but no file diffs. (Value: "BASIC")
+ *    @arg @c kGTLRDeveloperConnectViewFull Full view, returns commit metadata
+ *        and file diffs. (Value: "FULL")
+ */
+@property(nonatomic, copy, nullable) NSString *view;
+
+/**
+ *  Fetches a @c GTLRDeveloperConnect_FetchGitRepositoryLinkCommitResponse.
+ *
+ *  Fetch Commit details from a Git repository link.
+ *
+ *  @param name Required. The resource name of the GitRepositoryLink in the
+ *    format `projects/ * /locations/ * /connections/ * /gitRepositoryLinks/ *`.
+ *
+ *  @return GTLRDeveloperConnectQuery_ProjectsLocationsConnectionsGitRepositoryLinksFetchCommit
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Fetch a list of Commits from a Git repository link.
+ *
+ *  Method: developerconnect.projects.locations.connections.gitRepositoryLinks.fetchCommitList
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDeveloperConnectCloudPlatform
+ */
+@interface GTLRDeveloperConnectQuery_ProjectsLocationsConnectionsGitRepositoryLinksFetchCommitList : GTLRDeveloperConnectQuery
+
+/**
+ *  Required. The resource name of the GitRepositoryLink in the format
+ *  `projects/ * /locations/ * /connections/ * /gitRepositoryLinks/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Number of results to return in the list. Default is 50. Max is
+ *  100.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous
+ *  `FetchGitRepositoryLinkCommitList` call. Provide this to retrieve the
+ *  subsequent page. When paginating, all other parameters provided to
+ *  `FetchGitRepositoryLinkCommitList` must match the call that provided the
+ *  page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Optional. The commit SHA, or symbolic revision (for example, branch name,
+ *  tag, or Git reference) from which to start listing commits.
+ */
+@property(nonatomic, copy, nullable) NSString *ref;
+
+/**
+ *  Optional. The level of commit details to return in the response. Only
+ *  `BASIC` is supported; `FULL` returns `INVALID_ARGUMENT`. Defaults to `BASIC`
+ *  if unspecified. Use `FetchGitRepositoryLinkCommit` to get file diffs for a
+ *  single commit.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDeveloperConnectViewCommitViewUnspecified Unspecified,
+ *        defaults to BASIC. (Value: "COMMIT_VIEW_UNSPECIFIED")
+ *    @arg @c kGTLRDeveloperConnectViewBasic Basic view, returns commit metadata
+ *        but no file diffs. (Value: "BASIC")
+ *    @arg @c kGTLRDeveloperConnectViewFull Full view, returns commit metadata
+ *        and file diffs. (Value: "FULL")
+ */
+@property(nonatomic, copy, nullable) NSString *view;
+
+/**
+ *  Fetches a @c GTLRDeveloperConnect_FetchGitRepositoryLinkCommitListResponse.
+ *
+ *  Fetch a list of Commits from a Git repository link.
+ *
+ *  @param name Required. The resource name of the GitRepositoryLink in the
+ *    format `projects/ * /locations/ * /connections/ * /gitRepositoryLinks/ *`.
+ *
+ *  @return GTLRDeveloperConnectQuery_ProjectsLocationsConnectionsGitRepositoryLinksFetchCommitList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Fetches blame information for a file or line range in a file.
+ *
+ *  Method: developerconnect.projects.locations.connections.gitRepositoryLinks.fetchFileBlame
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDeveloperConnectCloudPlatform
+ */
+@interface GTLRDeveloperConnectQuery_ProjectsLocationsConnectionsGitRepositoryLinksFetchFileBlame : GTLRDeveloperConnectQuery
+
+/**
+ *  Optional. The 1-indexed starting line number of the range to blame
+ *  (inclusive). If not specified, blame begins at line 1.
+ */
+@property(nonatomic, assign) NSInteger firstLine;
+
+/**
+ *  Optional. The 1-indexed ending line number of the range to blame
+ *  (inclusive). If not specified, blame extends to the end of the file.
+ */
+@property(nonatomic, assign) NSInteger lastLine;
+
+/**
+ *  Required. The resource name of the GitRepositoryLink in the format
+ *  `projects/ * /locations/ * /connections/ * /gitRepositoryLinks/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Required. The file path within the repository. */
+@property(nonatomic, copy, nullable) NSString *path;
+
+/**
+ *  Required. The SCM commit SHA, or symbolic revision (for example, branch
+ *  name, tag) from which to fetch the blame.
+ */
+@property(nonatomic, copy, nullable) NSString *ref;
+
+/**
+ *  Fetches a @c GTLRDeveloperConnect_FetchGitRepositoryLinkFileBlameResponse.
+ *
+ *  Fetches blame information for a file or line range in a file.
+ *
+ *  @param name Required. The resource name of the GitRepositoryLink in the
+ *    format `projects/ * /locations/ * /connections/ * /gitRepositoryLinks/ *`.
+ *
+ *  @return GTLRDeveloperConnectQuery_ProjectsLocationsConnectionsGitRepositoryLinksFetchFileBlame
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Fetch the list of branches or tags for a given repository.
  *
  *  Method: developerconnect.projects.locations.connections.gitRepositoryLinks.fetchGitRefs
@@ -998,6 +1313,99 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnectRefTypeTag;
  *  @return GTLRDeveloperConnectQuery_ProjectsLocationsConnectionsGitRepositoryLinksFetchGitRefs
  */
 + (instancetype)queryWithGitRepositoryLink:(NSString *)gitRepositoryLink;
+
+@end
+
+/**
+ *  Fetch Pull Request details from a Git repository link.
+ *
+ *  Method: developerconnect.projects.locations.connections.gitRepositoryLinks.fetchPullRequest
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDeveloperConnectCloudPlatform
+ */
+@interface GTLRDeveloperConnectQuery_ProjectsLocationsConnectionsGitRepositoryLinksFetchPullRequest : GTLRDeveloperConnectQuery
+
+/**
+ *  Required. The resource name of the GitRepositoryLink in the format
+ *  `projects/ * /locations/ * /connections/ * /gitRepositoryLinks/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Required. The ID of the Pull Request. */
+@property(nonatomic, copy, nullable) NSString *pullRequestId;
+
+/**
+ *  Fetches a @c GTLRDeveloperConnect_PullRequest.
+ *
+ *  Fetch Pull Request details from a Git repository link.
+ *
+ *  @param name Required. The resource name of the GitRepositoryLink in the
+ *    format `projects/ * /locations/ * /connections/ * /gitRepositoryLinks/ *`.
+ *
+ *  @return GTLRDeveloperConnectQuery_ProjectsLocationsConnectionsGitRepositoryLinksFetchPullRequest
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Fetches a list of Pull Requests from the remote repository.
+ *
+ *  Method: developerconnect.projects.locations.connections.gitRepositoryLinks.fetchPullRequestList
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDeveloperConnectCloudPlatform
+ */
+@interface GTLRDeveloperConnectQuery_ProjectsLocationsConnectionsGitRepositoryLinksFetchPullRequestList : GTLRDeveloperConnectQuery
+
+/**
+ *  Optional. A filter expression that filters the pull requests returned in the
+ *  response. Only a single equality comparison on `state` is supported, for
+ *  example `state = "OPEN"`. Supported values are `OPEN`, `CLOSED`, and
+ *  `MERGED`. `DECLINED` is only supported for SCM providers that support
+ *  declining pull requests, and returns `INVALID_ARGUMENT` for GitHub, GitHub
+ *  Enterprise, GitLab, and GitLab Enterprise. Other values or expressions
+ *  return `INVALID_ARGUMENT`. Defaults to `state = "OPEN"` if unspecified.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Required. The GitRepositoryLink resource name in the format `projects/ *
+ *  /locations/ * /connections/ * /gitRepositoryLinks/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Number of results to return in the list. Default is 20. Max is
+ *  100. A page may contain fewer than `page_size` results even when more
+ *  results are available; use `next_page_token` to check for more pages.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous
+ *  `FetchGitRepositoryLinkPullRequestList` call. Provide this to retrieve the
+ *  subsequent page.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c
+ *  GTLRDeveloperConnect_FetchGitRepositoryLinkPullRequestListResponse.
+ *
+ *  Fetches a list of Pull Requests from the remote repository.
+ *
+ *  @param name Required. The GitRepositoryLink resource name in the format
+ *    `projects/ * /locations/ * /connections/ * /gitRepositoryLinks/ *`.
+ *
+ *  @return GTLRDeveloperConnectQuery_ProjectsLocationsConnectionsGitRepositoryLinksFetchPullRequestList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithName:(NSString *)name;
 
 @end
 
@@ -1105,10 +1513,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnectRefTypeTag;
  */
 @interface GTLRDeveloperConnectQuery_ProjectsLocationsConnectionsGitRepositoryLinksList : GTLRDeveloperConnectQuery
 
-/** Optional. Filtering results */
+/** Optional. Filtering results. */
 @property(nonatomic, copy, nullable) NSString *filter;
 
-/** Optional. Hint for how to order the results */
+/** Optional. Hint for how to order the results. */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
@@ -1122,7 +1530,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnectRefTypeTag;
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
-/** Required. Parent value for ListGitRepositoryLinksRequest */
+/** Required. Parent value for ListGitRepositoryLinksRequest. */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
@@ -1130,7 +1538,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnectRefTypeTag;
  *
  *  Lists GitRepositoryLinks in a given project, location, and connection.
  *
- *  @param parent Required. Parent value for ListGitRepositoryLinksRequest
+ *  @param parent Required. Parent value for ListGitRepositoryLinksRequest.
  *
  *  @return GTLRDeveloperConnectQuery_ProjectsLocationsConnectionsGitRepositoryLinksList
  *
@@ -1139,6 +1547,78 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnectRefTypeTag;
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Modifies a Pull Request in the remote SCM repository associated with a
+ *  GitRepositoryLink.
+ *
+ *  Method: developerconnect.projects.locations.connections.gitRepositoryLinks.modifyPullRequest
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDeveloperConnectCloudPlatform
+ */
+@interface GTLRDeveloperConnectQuery_ProjectsLocationsConnectionsGitRepositoryLinksModifyPullRequest : GTLRDeveloperConnectQuery
+
+/**
+ *  Required. The GitRepositoryLink resource name in the format `projects/ *
+ *  /locations/ * /connections/ * /gitRepositoryLinks/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDeveloperConnect_PullRequest.
+ *
+ *  Modifies a Pull Request in the remote SCM repository associated with a
+ *  GitRepositoryLink.
+ *
+ *  @param object The @c
+ *    GTLRDeveloperConnect_ModifyGitRepositoryLinkPullRequestRequest to include
+ *    in the query.
+ *  @param name Required. The GitRepositoryLink resource name in the format
+ *    `projects/ * /locations/ * /connections/ * /gitRepositoryLinks/ *`.
+ *
+ *  @return GTLRDeveloperConnectQuery_ProjectsLocationsConnectionsGitRepositoryLinksModifyPullRequest
+ */
++ (instancetype)queryWithObject:(GTLRDeveloperConnect_ModifyGitRepositoryLinkPullRequestRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Opens a Pull Request in the remote SCM repository associated with a
+ *  GitRepositoryLink.
+ *
+ *  Method: developerconnect.projects.locations.connections.gitRepositoryLinks.openPullRequest
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDeveloperConnectCloudPlatform
+ */
+@interface GTLRDeveloperConnectQuery_ProjectsLocationsConnectionsGitRepositoryLinksOpenPullRequest : GTLRDeveloperConnectQuery
+
+/**
+ *  Required. The GitRepositoryLink resource name in the format `projects/ *
+ *  /locations/ * /connections/ * /gitRepositoryLinks/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDeveloperConnect_PullRequest.
+ *
+ *  Opens a Pull Request in the remote SCM repository associated with a
+ *  GitRepositoryLink.
+ *
+ *  @param object The @c
+ *    GTLRDeveloperConnect_OpenGitRepositoryLinkPullRequestRequest to include in
+ *    the query.
+ *  @param name Required. The GitRepositoryLink resource name in the format
+ *    `projects/ * /locations/ * /connections/ * /gitRepositoryLinks/ *`.
+ *
+ *  @return GTLRDeveloperConnectQuery_ProjectsLocationsConnectionsGitRepositoryLinksOpenPullRequest
+ */
++ (instancetype)queryWithObject:(GTLRDeveloperConnect_OpenGitRepositoryLinkPullRequestRequest *)object
+                           name:(NSString *)name;
 
 @end
 
@@ -1285,10 +1765,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnectRefTypeTag;
  */
 @interface GTLRDeveloperConnectQuery_ProjectsLocationsConnectionsList : GTLRDeveloperConnectQuery
 
-/** Optional. Filtering results */
+/** Optional. Filtering results. */
 @property(nonatomic, copy, nullable) NSString *filter;
 
-/** Optional. Hint for how to order the results */
+/** Optional. Hint for how to order the results. */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**

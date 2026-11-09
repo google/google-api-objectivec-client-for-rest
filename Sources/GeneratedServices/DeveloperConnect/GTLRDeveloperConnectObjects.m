@@ -49,6 +49,11 @@ NSString * const kGTLRDeveloperConnect_McpToolVisibility_VisibilityEnforcementSt
 NSString * const kGTLRDeveloperConnect_McpToolVisibility_VisibilityEnforcementStrategy_Override = @"OVERRIDE";
 NSString * const kGTLRDeveloperConnect_McpToolVisibility_VisibilityEnforcementStrategy_VisibilityEnforcementStrategyUnspecified = @"VISIBILITY_ENFORCEMENT_STRATEGY_UNSPECIFIED";
 
+// GTLRDeveloperConnect_ModifyGitRepositoryLinkPullRequestRequest.state
+NSString * const kGTLRDeveloperConnect_ModifyGitRepositoryLinkPullRequestRequest_State_Closed = @"CLOSED";
+NSString * const kGTLRDeveloperConnect_ModifyGitRepositoryLinkPullRequestRequest_State_Open = @"OPEN";
+NSString * const kGTLRDeveloperConnect_ModifyGitRepositoryLinkPullRequestRequest_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
 // GTLRDeveloperConnect_ProviderOAuthConfig.systemProviderId
 NSString * const kGTLRDeveloperConnect_ProviderOAuthConfig_SystemProviderId_BitbucketCloud = @"BITBUCKET_CLOUD";
 NSString * const kGTLRDeveloperConnect_ProviderOAuthConfig_SystemProviderId_Datastax = @"DATASTAX";
@@ -60,6 +65,24 @@ NSString * const kGTLRDeveloperConnect_ProviderOAuthConfig_SystemProviderId_NewR
 NSString * const kGTLRDeveloperConnect_ProviderOAuthConfig_SystemProviderId_Rovo = @"ROVO";
 NSString * const kGTLRDeveloperConnect_ProviderOAuthConfig_SystemProviderId_Sentry = @"SENTRY";
 NSString * const kGTLRDeveloperConnect_ProviderOAuthConfig_SystemProviderId_SystemProviderUnspecified = @"SYSTEM_PROVIDER_UNSPECIFIED";
+
+// GTLRDeveloperConnect_PullRequest.mergeability
+NSString * const kGTLRDeveloperConnect_PullRequest_Mergeability_Computing = @"COMPUTING";
+NSString * const kGTLRDeveloperConnect_PullRequest_Mergeability_Conflicting = @"CONFLICTING";
+NSString * const kGTLRDeveloperConnect_PullRequest_Mergeability_MergeabilityUnspecified = @"MERGEABILITY_UNSPECIFIED";
+NSString * const kGTLRDeveloperConnect_PullRequest_Mergeability_Mergeable = @"MERGEABLE";
+
+// GTLRDeveloperConnect_PullRequest.state
+NSString * const kGTLRDeveloperConnect_PullRequest_State_Closed = @"CLOSED";
+NSString * const kGTLRDeveloperConnect_PullRequest_State_Declined = @"DECLINED";
+NSString * const kGTLRDeveloperConnect_PullRequest_State_Merged = @"MERGED";
+NSString * const kGTLRDeveloperConnect_PullRequest_State_Open  = @"OPEN";
+NSString * const kGTLRDeveloperConnect_PullRequest_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLRDeveloperConnect_PullRequestReviewComment.side
+NSString * const kGTLRDeveloperConnect_PullRequestReviewComment_Side_Base = @"BASE";
+NSString * const kGTLRDeveloperConnect_PullRequestReviewComment_Side_DiffSideUnspecified = @"DIFF_SIDE_UNSPECIFIED";
+NSString * const kGTLRDeveloperConnect_PullRequestReviewComment_Side_Head = @"HEAD";
 
 // GTLRDeveloperConnect_RuntimeConfig.state
 NSString * const kGTLRDeveloperConnect_RuntimeConfig_State_Linked = @"LINKED";
@@ -119,6 +142,26 @@ NSString * const kGTLRDeveloperConnect_StartOAuthResponse_SystemProviderId_Syste
   return [NSString class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDeveloperConnect_AddGitRepositoryLinkPullRequestCommentRequest
+//
+
+@implementation GTLRDeveloperConnect_AddGitRepositoryLinkPullRequestCommentRequest
+@dynamic comment, pullRequestId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDeveloperConnect_AddGitRepositoryLinkPullRequestReviewCommentRequest
+//
+
+@implementation GTLRDeveloperConnect_AddGitRepositoryLinkPullRequestReviewCommentRequest
+@dynamic comment, commitId, pullRequestId;
 @end
 
 
@@ -215,6 +258,16 @@ NSString * const kGTLRDeveloperConnect_StartOAuthResponse_SystemProviderId_Syste
 @implementation GTLRDeveloperConnect_BitbucketDataCenterConfig
 @dynamic authorizerCredential, hostUri, readAuthorizerCredential, serverVersion,
          serviceDirectoryConfig, sslCaCertificate, webhookSecretSecretVersion;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDeveloperConnect_BlameRange
+//
+
+@implementation GTLRDeveloperConnect_BlameRange
+@dynamic commit, firstLine, lastLine;
 @end
 
 
@@ -325,6 +378,24 @@ NSString * const kGTLRDeveloperConnect_StartOAuthResponse_SystemProviderId_Syste
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDeveloperConnect_DiffGitRepositoryLinkCommitResponse
+//
+
+@implementation GTLRDeveloperConnect_DiffGitRepositoryLinkCommitResponse
+@dynamic files;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"files" : [GTLRDeveloperConnect_FileDiff class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDeveloperConnect_Empty
 //
 
@@ -405,6 +476,86 @@ NSString * const kGTLRDeveloperConnect_StartOAuthResponse_SystemProviderId_Syste
     @"refNames" : [NSString class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDeveloperConnect_FetchGitRepositoryLinkCommitListResponse
+//
+
+@implementation GTLRDeveloperConnect_FetchGitRepositoryLinkCommitListResponse
+@dynamic commits, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"commits" : [GTLRDeveloperConnect_SCMCommit class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"commits";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDeveloperConnect_FetchGitRepositoryLinkCommitResponse
+//
+
+@implementation GTLRDeveloperConnect_FetchGitRepositoryLinkCommitResponse
+@dynamic commit, files;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"files" : [GTLRDeveloperConnect_FileDiff class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDeveloperConnect_FetchGitRepositoryLinkFileBlameResponse
+//
+
+@implementation GTLRDeveloperConnect_FetchGitRepositoryLinkFileBlameResponse
+@dynamic ranges;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"ranges" : [GTLRDeveloperConnect_BlameRange class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDeveloperConnect_FetchGitRepositoryLinkPullRequestListResponse
+//
+
+@implementation GTLRDeveloperConnect_FetchGitRepositoryLinkPullRequestListResponse
+@dynamic nextPageToken, pullRequests;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"pullRequests" : [GTLRDeveloperConnect_PullRequest class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"pullRequests";
 }
 
 @end
@@ -499,6 +650,16 @@ NSString * const kGTLRDeveloperConnect_StartOAuthResponse_SystemProviderId_Syste
 
 @implementation GTLRDeveloperConnect_FieldVisibility
 @dynamic restriction, selector;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDeveloperConnect_FileDiff
+//
+
+@implementation GTLRDeveloperConnect_FileDiff
+@dynamic patch, path, status;
 @end
 
 
@@ -1017,11 +1178,31 @@ NSString * const kGTLRDeveloperConnect_StartOAuthResponse_SystemProviderId_Syste
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDeveloperConnect_ModifyGitRepositoryLinkPullRequestRequest
+//
+
+@implementation GTLRDeveloperConnect_ModifyGitRepositoryLinkPullRequestRequest
+@dynamic baseRef, body, pullRequestId, state, title;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDeveloperConnect_OAuthCredential
 //
 
 @implementation GTLRDeveloperConnect_OAuthCredential
 @dynamic oauthTokenSecretVersion, username;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDeveloperConnect_OpenGitRepositoryLinkPullRequestRequest
+//
+
+@implementation GTLRDeveloperConnect_OpenGitRepositoryLinkPullRequestRequest
+@dynamic pullRequest;
 @end
 
 
@@ -1172,11 +1353,68 @@ NSString * const kGTLRDeveloperConnect_StartOAuthResponse_SystemProviderId_Syste
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDeveloperConnect_PullRequest
+//
+
+@implementation GTLRDeveloperConnect_PullRequest
+@dynamic author, baseRef, body, closeTime, createTime, declineTime, headRef,
+         htmlUrl, identifier, mergeability, mergeTime, state, title, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDeveloperConnect_PullRequestComment
+//
+
+@implementation GTLRDeveloperConnect_PullRequestComment
+@dynamic author, body, createTime, identifier, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDeveloperConnect_PullRequestReviewComment
+//
+
+@implementation GTLRDeveloperConnect_PullRequestReviewComment
+@dynamic author, body, commitId, createTime, firstLine, identifier, lastLine,
+         path, side, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDeveloperConnect_RuntimeConfig
 //
 
 @implementation GTLRDeveloperConnect_RuntimeConfig
 @dynamic appHubService, appHubWorkload, gkeWorkload, googleCloudRun, state, uri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDeveloperConnect_SCMCommit
+//
+
+@implementation GTLRDeveloperConnect_SCMCommit
+@dynamic author, authorEmail, commitTime, message, sha, url;
 @end
 
 

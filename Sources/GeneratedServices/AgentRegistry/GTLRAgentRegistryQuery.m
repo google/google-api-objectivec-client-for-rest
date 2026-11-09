@@ -12,6 +12,18 @@
 
 #import <GoogleAPIClientForREST/GTLRAgentRegistryQuery.h>
 
+// ----------------------------------------------------------------------------
+// Constants
+
+// searchType
+NSString * const kGTLRAgentRegistrySearchTypeKeyword           = @"KEYWORD";
+NSString * const kGTLRAgentRegistrySearchTypeSearchTypeUnspecified = @"SEARCH_TYPE_UNSPECIFIED";
+NSString * const kGTLRAgentRegistrySearchTypeSemantic          = @"SEMANTIC";
+
+// ----------------------------------------------------------------------------
+// Query Classes
+//
+
 @implementation GTLRAgentRegistryQuery
 
 @dynamic fields;
@@ -83,6 +95,101 @@
 
 @end
 
+@implementation GTLRAgentRegistryQuery_ProjectsLocationsAiApplicationsAgentsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRAgentRegistryQuery_ProjectsLocationsAiApplicationsAgentsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRAgentRegistry_Agent class];
+  query.loggingName = @"agentregistry.projects.locations.aiApplications.agents.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRAgentRegistryQuery_ProjectsLocationsAiApplicationsAgentsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/agents";
+  GTLRAgentRegistryQuery_ProjectsLocationsAiApplicationsAgentsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRAgentRegistry_ListAiApplicationAgentsResponse class];
+  query.loggingName = @"agentregistry.projects.locations.aiApplications.agents.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRAgentRegistryQuery_ProjectsLocationsAiApplicationsEndpointsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRAgentRegistryQuery_ProjectsLocationsAiApplicationsEndpointsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRAgentRegistry_Endpoint class];
+  query.loggingName = @"agentregistry.projects.locations.aiApplications.endpoints.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRAgentRegistryQuery_ProjectsLocationsAiApplicationsEndpointsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/endpoints";
+  GTLRAgentRegistryQuery_ProjectsLocationsAiApplicationsEndpointsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRAgentRegistry_ListAiApplicationEndpointsResponse class];
+  query.loggingName = @"agentregistry.projects.locations.aiApplications.endpoints.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRAgentRegistryQuery_ProjectsLocationsAiApplicationsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRAgentRegistryQuery_ProjectsLocationsAiApplicationsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRAgentRegistry_AiApplication class];
+  query.loggingName = @"agentregistry.projects.locations.aiApplications.get";
+  return query;
+}
+
+@end
+
 @implementation GTLRAgentRegistryQuery_ProjectsLocationsAiApplicationsGetIamPolicy
 
 @dynamic optionsRequestedPolicyVersion, resource;
@@ -101,6 +208,63 @@
   query.resource = resource;
   query.expectedObjectClass = [GTLRAgentRegistry_GoogleIamV1Policy class];
   query.loggingName = @"agentregistry.projects.locations.aiApplications.getIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRAgentRegistryQuery_ProjectsLocationsAiApplicationsList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/aiApplications";
+  GTLRAgentRegistryQuery_ProjectsLocationsAiApplicationsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRAgentRegistry_ListAiApplicationsResponse class];
+  query.loggingName = @"agentregistry.projects.locations.aiApplications.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRAgentRegistryQuery_ProjectsLocationsAiApplicationsMcpServersGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRAgentRegistryQuery_ProjectsLocationsAiApplicationsMcpServersGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRAgentRegistry_McpServer class];
+  query.loggingName = @"agentregistry.projects.locations.aiApplications.mcpServers.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRAgentRegistryQuery_ProjectsLocationsAiApplicationsMcpServersList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/mcpServers";
+  GTLRAgentRegistryQuery_ProjectsLocationsAiApplicationsMcpServersList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRAgentRegistry_ListAiApplicationMcpServersResponse class];
+  query.loggingName = @"agentregistry.projects.locations.aiApplications.mcpServers.list";
   return query;
 }
 
@@ -328,6 +492,44 @@
 
 @end
 
+@implementation GTLRAgentRegistryQuery_ProjectsLocationsFindingsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRAgentRegistryQuery_ProjectsLocationsFindingsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRAgentRegistry_Finding class];
+  query.loggingName = @"agentregistry.projects.locations.findings.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRAgentRegistryQuery_ProjectsLocationsFindingsList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/findings";
+  GTLRAgentRegistryQuery_ProjectsLocationsFindingsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRAgentRegistry_ListFindingsResponse class];
+  query.loggingName = @"agentregistry.projects.locations.findings.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRAgentRegistryQuery_ProjectsLocationsGet
 
 @dynamic name;
@@ -522,6 +724,44 @@
 
 @end
 
+@implementation GTLRAgentRegistryQuery_ProjectsLocationsPublishersGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRAgentRegistryQuery_ProjectsLocationsPublishersGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRAgentRegistry_Publisher class];
+  query.loggingName = @"agentregistry.projects.locations.publishers.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRAgentRegistryQuery_ProjectsLocationsPublishersList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/publishers";
+  GTLRAgentRegistryQuery_ProjectsLocationsPublishersList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRAgentRegistry_ListPublishersResponse class];
+  query.loggingName = @"agentregistry.projects.locations.publishers.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRAgentRegistryQuery_ProjectsLocationsServicesCreate
 
 @dynamic parent, requestId, serviceId;
@@ -628,6 +868,315 @@
   query.name = name;
   query.expectedObjectClass = [GTLRAgentRegistry_Operation class];
   query.loggingName = @"agentregistry.projects.locations.services.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRAgentRegistryQuery_ProjectsLocationsSkillsCreate
+
+@dynamic parent, requestId, skillId;
+
++ (instancetype)queryWithObject:(GTLRAgentRegistry_Skill *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/skills";
+  GTLRAgentRegistryQuery_ProjectsLocationsSkillsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRAgentRegistry_Operation class];
+  query.loggingName = @"agentregistry.projects.locations.skills.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRAgentRegistryQuery_ProjectsLocationsSkillsDelete
+
+@dynamic force, name, requestId;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRAgentRegistryQuery_ProjectsLocationsSkillsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRAgentRegistry_Operation class];
+  query.loggingName = @"agentregistry.projects.locations.skills.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRAgentRegistryQuery_ProjectsLocationsSkillsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRAgentRegistryQuery_ProjectsLocationsSkillsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRAgentRegistry_Skill class];
+  query.loggingName = @"agentregistry.projects.locations.skills.get";
+  return query;
+}
+
++ (instancetype)queryForMediaWithName:(NSString *)name {
+  GTLRAgentRegistryQuery_ProjectsLocationsSkillsGet *query =
+    [self queryWithName:name];
+  query.downloadAsDataObjectType = @"media";
+  query.useMediaDownloadService = YES;
+  query.loggingName = @"Download agentregistry.projects.locations.skills.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRAgentRegistryQuery_ProjectsLocationsSkillsGetIamPolicy
+
+@dynamic optionsRequestedPolicyVersion, resource;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"optionsRequestedPolicyVersion" : @"options.requestedPolicyVersion" };
+}
+
++ (instancetype)queryWithResource:(NSString *)resource {
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:getIamPolicy";
+  GTLRAgentRegistryQuery_ProjectsLocationsSkillsGetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRAgentRegistry_GoogleIamV1Policy class];
+  query.loggingName = @"agentregistry.projects.locations.skills.getIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRAgentRegistryQuery_ProjectsLocationsSkillsList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/skills";
+  GTLRAgentRegistryQuery_ProjectsLocationsSkillsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRAgentRegistry_ListSkillsResponse class];
+  query.loggingName = @"agentregistry.projects.locations.skills.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRAgentRegistryQuery_ProjectsLocationsSkillsPatch
+
+@dynamic name, requestId, updateMask;
+
++ (instancetype)queryWithObject:(GTLRAgentRegistry_Skill *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRAgentRegistryQuery_ProjectsLocationsSkillsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRAgentRegistry_Operation class];
+  query.loggingName = @"agentregistry.projects.locations.skills.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRAgentRegistryQuery_ProjectsLocationsSkillsRevisionsCreate
+
+@dynamic parent, requestId, skillRevisionId;
+
++ (instancetype)queryWithObject:(GTLRAgentRegistry_SkillRevision *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/revisions";
+  GTLRAgentRegistryQuery_ProjectsLocationsSkillsRevisionsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRAgentRegistry_Operation class];
+  query.loggingName = @"agentregistry.projects.locations.skills.revisions.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRAgentRegistryQuery_ProjectsLocationsSkillsRevisionsDelete
+
+@dynamic name, requestId;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRAgentRegistryQuery_ProjectsLocationsSkillsRevisionsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRAgentRegistry_Operation class];
+  query.loggingName = @"agentregistry.projects.locations.skills.revisions.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRAgentRegistryQuery_ProjectsLocationsSkillsRevisionsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRAgentRegistryQuery_ProjectsLocationsSkillsRevisionsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRAgentRegistry_SkillRevision class];
+  query.loggingName = @"agentregistry.projects.locations.skills.revisions.get";
+  return query;
+}
+
++ (instancetype)queryForMediaWithName:(NSString *)name {
+  GTLRAgentRegistryQuery_ProjectsLocationsSkillsRevisionsGet *query =
+    [self queryWithName:name];
+  query.downloadAsDataObjectType = @"media";
+  query.useMediaDownloadService = YES;
+  query.loggingName = @"Download agentregistry.projects.locations.skills.revisions.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRAgentRegistryQuery_ProjectsLocationsSkillsRevisionsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/revisions";
+  GTLRAgentRegistryQuery_ProjectsLocationsSkillsRevisionsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRAgentRegistry_ListSkillRevisionsResponse class];
+  query.loggingName = @"agentregistry.projects.locations.skills.revisions.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRAgentRegistryQuery_ProjectsLocationsSkillsSearch
+
+@dynamic filter, pageSize, pageToken, parent, searchString, searchType;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/skills:search";
+  GTLRAgentRegistryQuery_ProjectsLocationsSkillsSearch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRAgentRegistry_SearchSkillsResponse class];
+  query.loggingName = @"agentregistry.projects.locations.skills.search";
+  return query;
+}
+
+@end
+
+@implementation GTLRAgentRegistryQuery_ProjectsLocationsSkillsSetIamPolicy
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRAgentRegistry_GoogleIamV1SetIamPolicyRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:setIamPolicy";
+  GTLRAgentRegistryQuery_ProjectsLocationsSkillsSetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRAgentRegistry_GoogleIamV1Policy class];
+  query.loggingName = @"agentregistry.projects.locations.skills.setIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRAgentRegistryQuery_ProjectsLocationsSkillsTestIamPermissions
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRAgentRegistry_GoogleIamV1TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:testIamPermissions";
+  GTLRAgentRegistryQuery_ProjectsLocationsSkillsTestIamPermissions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRAgentRegistry_GoogleIamV1TestIamPermissionsResponse class];
+  query.loggingName = @"agentregistry.projects.locations.skills.testIamPermissions";
   return query;
 }
 

@@ -466,6 +466,10 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_CloudWorkstations"]
         ),
         .library(
+            name: "GoogleAPIClientForREST_Colab",
+            targets: ["GoogleAPIClientForREST_Colab"]
+        ),
+        .library(
             name: "GoogleAPIClientForREST_Compute",
             targets: ["GoogleAPIClientForREST_Compute"]
         ),
@@ -568,6 +572,10 @@ let package = Package(
         .library(
             name: "GoogleAPIClientForREST_DataTransfer",
             targets: ["GoogleAPIClientForREST_DataTransfer"]
+        ),
+        .library(
+            name: "GoogleAPIClientForREST_DeepReview",
+            targets: ["GoogleAPIClientForREST_DeepReview"]
         ),
         .library(
             name: "GoogleAPIClientForREST_DeploymentManager",
@@ -1985,6 +1993,12 @@ let package = Package(
             publicHeadersPath: "Public"
         ),
         .target(
+            name: "GoogleAPIClientForREST_Colab",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Sources/GeneratedServices/Colab",
+            publicHeadersPath: "Public"
+        ),
+        .target(
             name: "GoogleAPIClientForREST_Compute",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/Compute",
@@ -2138,6 +2152,12 @@ let package = Package(
             name: "GoogleAPIClientForREST_DataTransfer",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/DataTransfer",
+            publicHeadersPath: "Public"
+        ),
+        .target(
+            name: "GoogleAPIClientForREST_DeepReview",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Sources/GeneratedServices/DeepReview",
             publicHeadersPath: "Public"
         ),
         .target(

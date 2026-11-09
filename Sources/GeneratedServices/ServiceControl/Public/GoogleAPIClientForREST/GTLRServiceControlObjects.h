@@ -30,6 +30,7 @@
 @class GTLRServiceControl_AuthenticationInfo_LoggableShortLivedCredential;
 @class GTLRServiceControl_AuthenticationInfo_ThirdPartyPrincipal;
 @class GTLRServiceControl_AuthorizationInfo;
+@class GTLRServiceControl_CallerAgent;
 @class GTLRServiceControl_CheckResponse_DynamicMetadata;
 @class GTLRServiceControl_CheckResponse_Headers;
 @class GTLRServiceControl_FirstPartyPrincipal;
@@ -117,6 +118,28 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceControl_AuthorizationInfo_Permiss
  *  Value: "PERMISSION_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRServiceControl_AuthorizationInfo_PermissionType_PermissionTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRServiceControl_CallerAgent.authority
+
+/**
+ *  Default value. Should not be used.
+ *
+ *  Value: "AUTHORITY_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_CallerAgent_Authority_AuthorityTypeUnspecified;
+/**
+ *  Acts on behalf of another authority.
+ *
+ *  Value: "ON_BEHALF_OF"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_CallerAgent_Authority_OnBehalfOf;
+/**
+ *  Acts under its own authority.
+ *
+ *  Value: "SELF"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_CallerAgent_Authority_Self;
 
 // ----------------------------------------------------------------------------
 // GTLRServiceControl_V2LogEntry.severity
@@ -391,6 +414,9 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceControl_ViolationInfo_PolicyType_
  *  permission} tuple.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceControl_AuthorizationInfo *> *authorizationInfo;
+
+/** Information set when the caller is an agent. */
+@property(nonatomic, strong, nullable) GTLRServiceControl_CallerAgent *callerAgent;
 
 /**
  *  Other service-specific data about the request, response, and other
@@ -832,6 +858,37 @@ GTLR_DEPRECATED
  *  look into `AuditLog.request_metadata.request_attributes`.
  */
 @property(nonatomic, strong, nullable) GTLRServiceControl_Resource *resourceAttributes;
+
+@end
+
+
+/**
+ *  Information set when the caller is an agent.
+ */
+@interface GTLRServiceControl_CallerAgent : GTLRObject
+
+/**
+ *  The type of authority for the caller agent.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRServiceControl_CallerAgent_Authority_AuthorityTypeUnspecified
+ *        Default value. Should not be used. (Value:
+ *        "AUTHORITY_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRServiceControl_CallerAgent_Authority_OnBehalfOf Acts on
+ *        behalf of another authority. (Value: "ON_BEHALF_OF")
+ *    @arg @c kGTLRServiceControl_CallerAgent_Authority_Self Acts under its own
+ *        authority. (Value: "SELF")
+ */
+@property(nonatomic, copy, nullable) NSString *authority;
+
+/**
+ *  The agent identifier of the caller agent. This is a globally unique,
+ *  immutable name in Uniform Resource Name (URN) format. Example:
+ *  'urn:agent:projects-123456789:projects:123456789:locations:us-central1:aiplatform:reasoningEngines:987654321'
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 @end
 

@@ -18,6 +18,7 @@
 @class GTLRFirebaseCrashlytics_Breadcrumb;
 @class GTLRFirebaseCrashlytics_Breadcrumb_Params;
 @class GTLRFirebaseCrashlytics_Browser;
+@class GTLRFirebaseCrashlytics_CustomAttribute;
 @class GTLRFirebaseCrashlytics_Device;
 @class GTLRFirebaseCrashlytics_Error;
 @class GTLRFirebaseCrashlytics_Event;
@@ -108,6 +109,45 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseCrashlytics_FirebaseSessionEvent
  *  Value: "SESSION_START"
  */
 FOUNDATION_EXTERN NSString * const kGTLRFirebaseCrashlytics_FirebaseSessionEvent_EventType_SessionStart;
+
+// ----------------------------------------------------------------------------
+// GTLRFirebaseCrashlytics_GenerateAlertPolicyRequest.alertType
+
+/**
+ *  Alert for newly detected issues.
+ *
+ *  Value: "ALERT_TYPE_NEW_ISSUE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseCrashlytics_GenerateAlertPolicyRequest_AlertType_AlertTypeNewIssue;
+/**
+ *  Alert for regressed (reopened) issues.
+ *
+ *  Value: "ALERT_TYPE_REGRESSED_ISSUE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseCrashlytics_GenerateAlertPolicyRequest_AlertType_AlertTypeRegressedIssue;
+/**
+ *  Unknown.
+ *
+ *  Value: "ALERT_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseCrashlytics_GenerateAlertPolicyRequest_AlertType_AlertTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRFirebaseCrashlytics_GenerateAlertPolicyRequest.language
+
+/**
+ *  Force the alert policy to be created in en-US.
+ *
+ *  Value: "EN_US"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseCrashlytics_GenerateAlertPolicyRequest_Language_EnUs;
+/**
+ *  Use the requester's language preference, falling back to en-US if
+ *  unavailable or unsupported.
+ *
+ *  Value: "USER_PREFERENCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseCrashlytics_GenerateAlertPolicyRequest_Language_UserPreference;
 
 // ----------------------------------------------------------------------------
 // GTLRFirebaseCrashlytics_Issue.errorType
@@ -388,6 +428,20 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseCrashlytics_Thread_ThreadState_T
 
 /** Browser display version number. */
 @property(nonatomic, copy, nullable) NSString *displayVersion;
+
+@end
+
+
+/**
+ *  Developer-provided custom key-value pair metadata.
+ */
+@interface GTLRFirebaseCrashlytics_CustomAttribute : GTLRObject
+
+/** Output only. Custom attribute key name. */
+@property(nonatomic, copy, nullable) NSString *key;
+
+/** Output only. Custom attribute value. */
+@property(nonatomic, copy, nullable) NSString *value;
 
 @end
 
@@ -805,6 +859,54 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseCrashlytics_Thread_ThreadState_T
  *  symbol from the device if it could not be hydrated.
  */
 @property(nonatomic, copy, nullable) NSString *symbol;
+
+@end
+
+
+/**
+ *  Request message for the GenerateAlertPolicy method.
+ */
+@interface GTLRFirebaseCrashlytics_GenerateAlertPolicyRequest : GTLRObject
+
+/**
+ *  Required. The type of alert to create.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRFirebaseCrashlytics_GenerateAlertPolicyRequest_AlertType_AlertTypeNewIssue
+ *        Alert for newly detected issues. (Value: "ALERT_TYPE_NEW_ISSUE")
+ *    @arg @c kGTLRFirebaseCrashlytics_GenerateAlertPolicyRequest_AlertType_AlertTypeRegressedIssue
+ *        Alert for regressed (reopened) issues. (Value:
+ *        "ALERT_TYPE_REGRESSED_ISSUE")
+ *    @arg @c kGTLRFirebaseCrashlytics_GenerateAlertPolicyRequest_AlertType_AlertTypeUnspecified
+ *        Unknown. (Value: "ALERT_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *alertType;
+
+/**
+ *  Optional. Language to use for the alert policy. Defaults to USER_PREFERENCE.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRFirebaseCrashlytics_GenerateAlertPolicyRequest_Language_EnUs
+ *        Force the alert policy to be created in en-US. (Value: "EN_US")
+ *    @arg @c kGTLRFirebaseCrashlytics_GenerateAlertPolicyRequest_Language_UserPreference
+ *        Use the requester's language preference, falling back to en-US if
+ *        unavailable or unsupported. (Value: "USER_PREFERENCE")
+ */
+@property(nonatomic, copy, nullable) NSString *language;
+
+@end
+
+
+/**
+ *  Response message for the GenerateAlertPolicy method.
+ */
+@interface GTLRFirebaseCrashlytics_GenerateAlertPolicyResponse : GTLRObject
+
+/**
+ *  The created Cloud Monitoring AlertPolicy resource name. Format:
+ *  "projects/{project}/alertPolicies/{alert_policy_id}".
+ */
+@property(nonatomic, copy, nullable) NSString *alertPolicy;
 
 @end
 
@@ -1262,6 +1364,36 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseCrashlytics_Thread_ThreadState_T
 
 
 /**
+ *  Represents the Android Profiling Manager configuration for a Firebase
+ *  application, used to manage Crashlytics heap dump collection.
+ */
+@interface GTLRFirebaseCrashlytics_ProfilingManagerConfig : GTLRObject
+
+/**
+ *  Optional. Resource name of the Google Cloud Storage bucket where enriched
+ *  heap dumps are stored. Format: "projects/{project}/buckets/{bucket}" (use
+ *  `_` as `{project}` for global buckets, for example
+ *  "projects/_/buckets/my-global-bucket").
+ */
+@property(nonatomic, copy, nullable) NSString *bucket;
+
+/**
+ *  Optional. Whether Crashlytics heap dump collection is enabled for the app.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *heapDumpCollectionEnabled;
+
+/**
+ *  Identifier. The resource name of the Profiling Manager configuration.
+ *  Format: "projects/{project}/apps/{app}/profilingManagerConfig".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
  *  Response message for the GetReport method. A report consists of the results
  *  of a query over an application's events. The events may be filtered by
  *  various criteria defined in the filters proto. The result will consist of a
@@ -1327,6 +1459,9 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseCrashlytics_Thread_ThreadState_T
 
 /** Browser metrics group. */
 @property(nonatomic, strong, nullable) GTLRFirebaseCrashlytics_Browser *browser;
+
+/** Custom attribute metrics group. */
+@property(nonatomic, strong, nullable) GTLRFirebaseCrashlytics_CustomAttribute *customAttribute;
 
 /** Device metrics group. */
 @property(nonatomic, strong, nullable) GTLRFirebaseCrashlytics_Device *device;

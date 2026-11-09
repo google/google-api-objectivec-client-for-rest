@@ -3490,8 +3490,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminViewDetailed;
  *  instance to safely test performance impacts, database upgrades,
  *  configuration changes etc. before applying them to production.
  *
- *  @param object The @c GTLRSQLAdmin_SqlWorkloadCapturesStartRequest to include
- *    in the query.
+ *  @param object The @c GTLRSQLAdmin_WorkloadCapturesStartRequest to include in
+ *    the query.
  *  @param project Required. Project ID of the project that contains the
  *    instance.
  *  @param instance Required. Cloud SQL instance ID. This does not include the
@@ -3499,7 +3499,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminViewDetailed;
  *
  *  @return GTLRSQLAdminQuery_WorkloadCapturesStart
  */
-+ (instancetype)queryWithObject:(GTLRSQLAdmin_SqlWorkloadCapturesStartRequest *)object
++ (instancetype)queryWithObject:(GTLRSQLAdmin_WorkloadCapturesStartRequest *)object
                         project:(NSString *)project
                        instance:(NSString *)instance;
 
@@ -3534,7 +3534,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminViewDetailed;
  *  provisioned for workload replay. This target instance simulates the
  *  production environment without affecting the primary instance.
  *
- *  @param object The @c GTLRSQLAdmin_SqlWorkloadCapturesStartReplayRequest to
+ *  @param object The @c GTLRSQLAdmin_WorkloadCapturesStartReplayRequest to
  *    include in the query.
  *  @param project Required. Project ID of the project that contains the
  *    instance.
@@ -3544,7 +3544,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminViewDetailed;
  *
  *  @return GTLRSQLAdminQuery_WorkloadCapturesStartReplay
  */
-+ (instancetype)queryWithObject:(GTLRSQLAdmin_SqlWorkloadCapturesStartReplayRequest *)object
++ (instancetype)queryWithObject:(GTLRSQLAdmin_WorkloadCapturesStartReplayRequest *)object
                         project:(NSString *)project
                        instance:(NSString *)instance
                      workloadId:(NSString *)workloadId;
@@ -3575,8 +3575,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminViewDetailed;
  *  Stops capturing the query traffic and related operations executed on the
  *  primary instance.
  *
- *  @param object The @c GTLRSQLAdmin_SqlWorkloadCapturesStopRequest to include
- *    in the query.
+ *  @param object The @c GTLRSQLAdmin_WorkloadCapturesStopRequest to include in
+ *    the query.
  *  @param project Required. Project ID of the project that contains the
  *    instance.
  *  @param instance Required. Cloud SQL instance ID. This does not include the
@@ -3584,14 +3584,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminViewDetailed;
  *
  *  @return GTLRSQLAdminQuery_WorkloadCapturesStop
  */
-+ (instancetype)queryWithObject:(GTLRSQLAdmin_SqlWorkloadCapturesStopRequest *)object
++ (instancetype)queryWithObject:(GTLRSQLAdmin_WorkloadCapturesStopRequest *)object
                         project:(NSString *)project
                        instance:(NSString *)instance;
 
 @end
 
 /**
- *  Stops executing a captured workload on the separate Cloud SQL instance.
+ *  Stops an active workload replay on the target Cloud SQL replay instance.
  *
  *  Method: sql.workloadCaptures.stopReplay
  *
@@ -3601,34 +3601,35 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminViewDetailed;
  */
 @interface GTLRSQLAdminQuery_WorkloadCapturesStopReplay : GTLRSQLAdminQuery
 
-/** Required. Cloud SQL instance ID. This does not include the project ID. */
+/**
+ *  Required. Cloud SQL instance ID of the target replay instance. This does not
+ *  include the project ID.
+ */
 @property(nonatomic, copy, nullable) NSString *instance;
 
-/** Required. Project ID of the project that contains the instance. */
+/**
+ *  Required. Project ID of the project that contains the target replay
+ *  instance.
+ */
 @property(nonatomic, copy, nullable) NSString *project;
-
-/** Required. The ID of the workload to replay. */
-@property(nonatomic, copy, nullable) NSString *workloadId;
 
 /**
  *  Fetches a @c GTLRSQLAdmin_Operation.
  *
- *  Stops executing a captured workload on the separate Cloud SQL instance.
+ *  Stops an active workload replay on the target Cloud SQL replay instance.
  *
- *  @param object The @c GTLRSQLAdmin_SqlWorkloadCapturesStopReplayRequest to
+ *  @param object The @c GTLRSQLAdmin_WorkloadCapturesStopReplayRequest to
  *    include in the query.
- *  @param project Required. Project ID of the project that contains the
- *    instance.
- *  @param instance Required. Cloud SQL instance ID. This does not include the
- *    project ID.
- *  @param workloadId Required. The ID of the workload to replay.
+ *  @param project Required. Project ID of the project that contains the target
+ *    replay instance.
+ *  @param instance Required. Cloud SQL instance ID of the target replay
+ *    instance. This does not include the project ID.
  *
  *  @return GTLRSQLAdminQuery_WorkloadCapturesStopReplay
  */
-+ (instancetype)queryWithObject:(GTLRSQLAdmin_SqlWorkloadCapturesStopReplayRequest *)object
++ (instancetype)queryWithObject:(GTLRSQLAdmin_WorkloadCapturesStopReplayRequest *)object
                         project:(NSString *)project
-                       instance:(NSString *)instance
-                     workloadId:(NSString *)workloadId;
+                       instance:(NSString *)instance;
 
 @end
 

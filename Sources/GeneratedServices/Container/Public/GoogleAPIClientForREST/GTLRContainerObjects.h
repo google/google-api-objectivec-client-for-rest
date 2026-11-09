@@ -25,6 +25,7 @@
 @class GTLRContainer_AdvancedDatapathObservabilityConfig;
 @class GTLRContainer_AdvancedMachineFeatures;
 @class GTLRContainer_AgentSandboxConfig;
+@class GTLRContainer_AmbientNetworkingConfig;
 @class GTLRContainer_AnonymousAuthenticationConfig;
 @class GTLRContainer_AuthenticatorGroupsConfig;
 @class GTLRContainer_AutoIpamConfig;
@@ -33,6 +34,7 @@
 @class GTLRContainer_AutopilotCompatibilityIssue;
 @class GTLRContainer_AutopilotConfig;
 @class GTLRContainer_AutoprovisioningNodePoolDefaults;
+@class GTLRContainer_AutoprovisioningRestrictionConfig;
 @class GTLRContainer_AutoscaledRolloutPolicy;
 @class GTLRContainer_AutoUpgradeOptions;
 @class GTLRContainer_BestEffortProvisioning;
@@ -86,6 +88,7 @@
 @class GTLRContainer_EnterpriseConfig;
 @class GTLRContainer_EphemeralLocalSsdProfile;
 @class GTLRContainer_EphemeralStorageLocalSsdConfig;
+@class GTLRContainer_EtcHostsEntry;
 @class GTLRContainer_EvictionGracePeriod;
 @class GTLRContainer_EvictionMinimumReclaim;
 @class GTLRContainer_EvictionSignals;
@@ -118,6 +121,8 @@
 @class GTLRContainer_IPEndpointsConfig;
 @class GTLRContainer_Jwk;
 @class GTLRContainer_K8sBetaAPIConfig;
+@class GTLRContainer_KernelCommandlineOverrides;
+@class GTLRContainer_KernelOverrides;
 @class GTLRContainer_KubeletCertInfo;
 @class GTLRContainer_KubernetesDashboard;
 @class GTLRContainer_LegacyAbac;
@@ -127,6 +132,7 @@
 @class GTLRContainer_LoggingComponentConfig;
 @class GTLRContainer_LoggingConfig;
 @class GTLRContainer_LoggingVariantConfig;
+@class GTLRContainer_LRUGen;
 @class GTLRContainer_LustreCsiDriverConfig;
 @class GTLRContainer_MaintenanceExclusionOptions;
 @class GTLRContainer_MaintenancePolicy;
@@ -204,6 +210,7 @@
 @class GTLRContainer_ReleaseChannelConfig;
 @class GTLRContainer_ReservationAffinity;
 @class GTLRContainer_ReservedResourcesConfig;
+@class GTLRContainer_ResolvedConfEntry;
 @class GTLRContainer_ResourceLabels;
 @class GTLRContainer_ResourceLabels_Labels;
 @class GTLRContainer_ResourceLimit;
@@ -247,6 +254,7 @@
 @class GTLRContainer_VerticalPodAutoscaling;
 @class GTLRContainer_VirtualNIC;
 @class GTLRContainer_WindowsNodeConfig;
+@class GTLRContainer_WizSensorConfig;
 @class GTLRContainer_WorkloadIdentityConfig;
 @class GTLRContainer_WorkloadMetadataConfig;
 @class GTLRContainer_WorkloadPolicyConfig;
@@ -418,6 +426,28 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_AutopilotCompatibilityIssue_In
  *  Value: "UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainer_AutopilotCompatibilityIssue_IncompatibilityType_Unspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRContainer_AutoprovisioningRestrictionConfig.serviceAccountPermissionCheck
+
+/**
+ *  Service account permission check is disabled.
+ *
+ *  Value: "DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_AutoprovisioningRestrictionConfig_ServiceAccountPermissionCheck_Disabled;
+/**
+ *  Service account permission check is enabled.
+ *
+ *  Value: "ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_AutoprovisioningRestrictionConfig_ServiceAccountPermissionCheck_Enabled;
+/**
+ *  Default value. Permission check mode is unspecified.
+ *
+ *  Value: "PERMISSION_CHECK_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_AutoprovisioningRestrictionConfig_ServiceAccountPermissionCheck_PermissionCheckModeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRContainer_BinaryAuthorization.evaluationMode
@@ -652,6 +682,18 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_ClusterUpdate_DesiredDatapathP
  *  Value: "LEGACY_DATAPATH"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainer_ClusterUpdate_DesiredDatapathProvider_LegacyDatapath;
+/**
+ *  Cluster has some existing nodes but new nodes should use ADVANCED_DATAPATH.
+ *
+ *  Value: "MIGRATE_TO_ADVANCED_DATAPATH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_ClusterUpdate_DesiredDatapathProvider_MigrateToAdvancedDatapath;
+/**
+ *  Cluster has some existing nodes but new nodes should use LEGACY_DATAPATH.
+ *
+ *  Value: "MIGRATE_TO_LEGACY_DATAPATH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_ClusterUpdate_DesiredDatapathProvider_MigrateToLegacyDatapath;
 
 // ----------------------------------------------------------------------------
 // GTLRContainer_ClusterUpdate.desiredInTransitEncryptionConfig
@@ -1277,6 +1319,13 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_GPUDriverInstallationConfig_Gp
  *  Value: "LATEST"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainer_GPUDriverInstallationConfig_GpuDriverVersion_Latest;
+/**
+ *  "Specific" GPU driver in COS. If used, the specific_version field must be
+ *  also set.
+ *
+ *  Value: "SPECIFIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_GPUDriverInstallationConfig_GpuDriverVersion_Specific;
 
 // ----------------------------------------------------------------------------
 // GTLRContainer_GPUSharingConfig.gpuSharingStrategy
@@ -1371,6 +1420,38 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_IPAllocationPolicy_StackType_I
  *  Value: "STACK_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainer_IPAllocationPolicy_StackType_StackTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRContainer_KernelCommandlineOverrides.initOnAlloc
+
+/**
+ *  Disable init_on_alloc.
+ *
+ *  Value: "INIT_ON_ALLOC_OFF"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_KernelCommandlineOverrides_InitOnAlloc_InitOnAllocOff;
+/**
+ *  Default value. GKE will not modify the kernel configuration.
+ *
+ *  Value: "INIT_ON_ALLOC_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_KernelCommandlineOverrides_InitOnAlloc_InitOnAllocUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRContainer_KernelCommandlineOverrides.specRstackOverflow
+
+/**
+ *  Disable spec_rstack_overflow.
+ *
+ *  Value: "SPEC_RSTACK_OVERFLOW_OFF"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_KernelCommandlineOverrides_SpecRstackOverflow_SpecRstackOverflowOff;
+/**
+ *  Default value. GKE will not modify the kernel configuration.
+ *
+ *  Value: "SPEC_RSTACK_OVERFLOW_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_KernelCommandlineOverrides_SpecRstackOverflow_SpecRstackOverflowUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRContainer_LinuxNodeConfig.cgroupMode
@@ -1747,6 +1828,18 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_NetworkConfig_DatapathProvider
  *  Value: "LEGACY_DATAPATH"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainer_NetworkConfig_DatapathProvider_LegacyDatapath;
+/**
+ *  Cluster has some existing nodes but new nodes should use ADVANCED_DATAPATH.
+ *
+ *  Value: "MIGRATE_TO_ADVANCED_DATAPATH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_NetworkConfig_DatapathProvider_MigrateToAdvancedDatapath;
+/**
+ *  Cluster has some existing nodes but new nodes should use LEGACY_DATAPATH.
+ *
+ *  Value: "MIGRATE_TO_LEGACY_DATAPATH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_NetworkConfig_DatapathProvider_MigrateToLegacyDatapath;
 
 // ----------------------------------------------------------------------------
 // GTLRContainer_NetworkConfig.inTransitEncryptionConfig
@@ -1988,6 +2081,43 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_NodeKernelModuleLoading_Policy
  *  Value: "POLICY_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainer_NodeKernelModuleLoading_Policy_PolicyUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRContainer_NodeNetworkConfig.datapathProvider
+
+/**
+ *  Use the eBPF based GKE Dataplane V2 with additional features. See the [GKE
+ *  Dataplane V2
+ *  documentation](https://cloud.google.com/kubernetes-engine/docs/how-to/dataplane-v2)
+ *  for more.
+ *
+ *  Value: "ADVANCED_DATAPATH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_NodeNetworkConfig_DatapathProvider_AdvancedDatapath;
+/**
+ *  Default value.
+ *
+ *  Value: "DATAPATH_PROVIDER_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_NodeNetworkConfig_DatapathProvider_DatapathProviderUnspecified;
+/**
+ *  Use the IPTables implementation based on kube-proxy.
+ *
+ *  Value: "LEGACY_DATAPATH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_NodeNetworkConfig_DatapathProvider_LegacyDatapath;
+/**
+ *  Cluster has some existing nodes but new nodes should use ADVANCED_DATAPATH.
+ *
+ *  Value: "MIGRATE_TO_ADVANCED_DATAPATH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_NodeNetworkConfig_DatapathProvider_MigrateToAdvancedDatapath;
+/**
+ *  Cluster has some existing nodes but new nodes should use LEGACY_DATAPATH.
+ *
+ *  Value: "MIGRATE_TO_LEGACY_DATAPATH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_NodeNetworkConfig_DatapathProvider_MigrateToLegacyDatapath;
 
 // ----------------------------------------------------------------------------
 // GTLRContainer_NodePool.status
@@ -2653,12 +2783,15 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_SecurityPostureConfig_Vulnerab
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainer_SecurityPostureConfig_VulnerabilityMode_VulnerabilityDisabled;
 /**
+ *  Deprecated: Advanced vulnerability scanning is no longer supported. For more
+ *  details, see
+ *  https://cloud.google.com/kubernetes-engine/docs/deprecations/posture-management-deprecation.
  *  Applies the Security Posture's vulnerability on cluster Enterprise level
  *  features.
  *
  *  Value: "VULNERABILITY_ENTERPRISE"
  */
-FOUNDATION_EXTERN NSString * const kGTLRContainer_SecurityPostureConfig_VulnerabilityMode_VulnerabilityEnterprise;
+FOUNDATION_EXTERN NSString * const kGTLRContainer_SecurityPostureConfig_VulnerabilityMode_VulnerabilityEnterprise GTLR_DEPRECATED;
 /**
  *  Default value not specified.
  *
@@ -2944,6 +3077,23 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_TaintConfig_ArchitectureTaintB
  *  Value: "NONE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainer_TaintConfig_ArchitectureTaintBehavior_None;
+
+// ----------------------------------------------------------------------------
+// GTLRContainer_UpdateNodePoolRequest.nodeConfigUpdateMode
+
+/**
+ *  Node updates are applied in-place on the running VM without VM recreation
+ *  and without draining workloads/pods.
+ *
+ *  Value: "LIVE_UPDATE_WITHOUT_DRAIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_UpdateNodePoolRequest_NodeConfigUpdateMode_LiveUpdateWithoutDrain;
+/**
+ *  Unspecified.
+ *
+ *  Value: "NODE_CONFIG_UPDATE_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_UpdateNodePoolRequest_NodeConfigUpdateMode_NodeConfigUpdateModeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRContainer_UpgradeAvailableEvent.resourceType
@@ -3504,6 +3654,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 /** Optional. Configuration for the StatefulHA add-on. */
 @property(nonatomic, strong, nullable) GTLRContainer_StatefulHAConfig *statefulHaConfig;
 
+/** Optional. Configuration for the Wiz Sensor add-on. */
+@property(nonatomic, strong, nullable) GTLRContainer_WizSensorConfig *wizSensorConfig;
+
 @end
 
 
@@ -3593,6 +3746,22 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /**
  *  Optional. Whether AgentSandbox is enabled for this cluster.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
+@end
+
+
+/**
+ *  AmbientNetworkingConfig contains the desired config of Ambient Networking on
+ *  this cluster.
+ */
+@interface GTLRContainer_AmbientNetworkingConfig : GTLRObject
+
+/**
+ *  Optional. If true, enable ambient networking for this cluster.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -3849,6 +4018,36 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /** Specifies the upgrade settings for NAP created node pools */
 @property(nonatomic, strong, nullable) GTLRContainer_UpgradeSettings *upgradeSettings;
+
+@end
+
+
+/**
+ *  AutoprovisioningRestrictionConfig configures restrictions related to
+ *  autoprovisioning settings.
+ */
+@interface GTLRContainer_AutoprovisioningRestrictionConfig : GTLRObject
+
+/**
+ *  Optional. Contains the list of service accounts allowed for autoprovisioned
+ *  node pools / Custom ComputeClasses.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *authorizedServiceAccounts;
+
+/**
+ *  Optional. Controls whether service account validation checks are enforced
+ *  for autoprovisioning.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainer_AutoprovisioningRestrictionConfig_ServiceAccountPermissionCheck_Disabled
+ *        Service account permission check is disabled. (Value: "DISABLED")
+ *    @arg @c kGTLRContainer_AutoprovisioningRestrictionConfig_ServiceAccountPermissionCheck_Enabled
+ *        Service account permission check is enabled. (Value: "ENABLED")
+ *    @arg @c kGTLRContainer_AutoprovisioningRestrictionConfig_ServiceAccountPermissionCheck_PermissionCheckModeUnspecified
+ *        Default value. Permission check mode is unspecified. (Value:
+ *        "PERMISSION_CHECK_MODE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *serviceAccountPermissionCheck;
 
 @end
 
@@ -4831,6 +5030,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  */
 @property(nonatomic, strong, nullable) GTLRContainer_AutoprovisioningNodePoolDefaults *autoprovisioningNodePoolDefaults;
 
+/** Optional. Configures restrictions related to autoprovisioning settings. */
+@property(nonatomic, strong, nullable) GTLRContainer_AutoprovisioningRestrictionConfig *autoprovisioningRestrictionConfig;
+
 /**
  *  Defines autoscaling behaviour.
  *
@@ -4940,6 +5142,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 /** Configurations for the various addons available to run in the cluster. */
 @property(nonatomic, strong, nullable) GTLRContainer_AddonsConfig *desiredAddonsConfig;
 
+/** Optional. The desired ambient networking configuration. */
+@property(nonatomic, strong, nullable) GTLRContainer_AmbientNetworkingConfig *desiredAmbientNetworkingConfig;
+
 /**
  *  Configuration for limiting anonymous access to all endpoints except the
  *  health checks.
@@ -5004,6 +5209,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *    @arg @c kGTLRContainer_ClusterUpdate_DesiredDatapathProvider_LegacyDatapath
  *        Use the IPTables implementation based on kube-proxy. (Value:
  *        "LEGACY_DATAPATH")
+ *    @arg @c kGTLRContainer_ClusterUpdate_DesiredDatapathProvider_MigrateToAdvancedDatapath
+ *        Cluster has some existing nodes but new nodes should use
+ *        ADVANCED_DATAPATH. (Value: "MIGRATE_TO_ADVANCED_DATAPATH")
+ *    @arg @c kGTLRContainer_ClusterUpdate_DesiredDatapathProvider_MigrateToLegacyDatapath
+ *        Cluster has some existing nodes but new nodes should use
+ *        LEGACY_DATAPATH. (Value: "MIGRATE_TO_LEGACY_DATAPATH")
  */
 @property(nonatomic, copy, nullable) NSString *desiredDatapathProvider;
 
@@ -6346,6 +6557,14 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) NSNumber *dataCacheCount;
 
 /**
+ *  Capacity set aside for Ephemeral Storage if using mixed Local SSD modes. The
+ *  remaining capacity is Raw Block.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *ephemeralCapacityGb;
+
+/**
  *  Number of local SSDs to use to back ephemeral storage. Uses NVMe interfaces.
  *  A zero (or unset) value has different meanings depending on machine type
  *  being used: 1. For pre-Gen3 machines, which support flexible numbers of
@@ -6364,6 +6583,20 @@ GTLR_DEPRECATED
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *localSsdCount;
+
+@end
+
+
+/**
+ *  Additional entries to be added to /etc/hosts.
+ */
+@interface GTLRContainer_EtcHostsEntry : GTLRObject
+
+/** The hostname of the host. */
+@property(nonatomic, copy, nullable) NSString *host;
+
+/** The IPv4 or IPv6 address of the host. */
+@property(nonatomic, copy, nullable) NSString *ip;
 
 @end
 
@@ -6873,8 +7106,18 @@ GTLR_DEPRECATED
  *        (Value: "INSTALLATION_DISABLED")
  *    @arg @c kGTLRContainer_GPUDriverInstallationConfig_GpuDriverVersion_Latest
  *        "Latest" GPU driver in COS. (Value: "LATEST")
+ *    @arg @c kGTLRContainer_GPUDriverInstallationConfig_GpuDriverVersion_Specific
+ *        "Specific" GPU driver in COS. If used, the specific_version field must
+ *        be also set. (Value: "SPECIFIC")
  */
 @property(nonatomic, copy, nullable) NSString *gpuDriverVersion;
+
+/**
+ *  Optional. The specific version of the GPU driver to install. Use this field
+ *  only with gpu_driver_version set to SPECIFIC. Otherwise, an error will be
+ *  returned.
+ */
+@property(nonatomic, copy, nullable) NSString *specificVersion;
 
 @end
 
@@ -7452,6 +7695,56 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Definition of possible additional kernel command line arguments to be
+ *  configured to the kernel.
+ */
+@interface GTLRContainer_KernelCommandlineOverrides : GTLRObject
+
+/**
+ *  Optional. Defines the change of init_on_alloc.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainer_KernelCommandlineOverrides_InitOnAlloc_InitOnAllocOff
+ *        Disable init_on_alloc. (Value: "INIT_ON_ALLOC_OFF")
+ *    @arg @c kGTLRContainer_KernelCommandlineOverrides_InitOnAlloc_InitOnAllocUnspecified
+ *        Default value. GKE will not modify the kernel configuration. (Value:
+ *        "INIT_ON_ALLOC_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable, getter=valueOf_initOnAlloc) NSString *initOnAlloc;
+
+/**
+ *  Optional. Defines the change of spec_rstack_overflow.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainer_KernelCommandlineOverrides_SpecRstackOverflow_SpecRstackOverflowOff
+ *        Disable spec_rstack_overflow. (Value: "SPEC_RSTACK_OVERFLOW_OFF")
+ *    @arg @c kGTLRContainer_KernelCommandlineOverrides_SpecRstackOverflow_SpecRstackOverflowUnspecified
+ *        Default value. GKE will not modify the kernel configuration. (Value:
+ *        "SPEC_RSTACK_OVERFLOW_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *specRstackOverflow;
+
+@end
+
+
+/**
+ *  Parameters that can be configured on the kernel.
+ */
+@interface GTLRContainer_KernelOverrides : GTLRObject
+
+/**
+ *  Optional. Allow setting for optional kernel command line arguments
+ *  overrides.
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_KernelCommandlineOverrides *kernelCommandlineOverrides;
+
+/** Optional. lrugen (Multi-Gen LRU) options */
+@property(nonatomic, strong, nullable) GTLRContainer_LRUGen *lruGen;
+
+@end
+
+
+/**
  *  Contains expiry information about the kubelet certificate.
  */
 @interface GTLRContainer_KubeletCertInfo : GTLRObject
@@ -7507,6 +7800,15 @@ GTLR_DEPRECATED
 /** Optional. The accurate time configuration for the node pool. */
 @property(nonatomic, strong, nullable) GTLRContainer_AccurateTimeConfig *accurateTimeConfig;
 
+/** Optional. Additional entries to be added to /etc/hosts. */
+@property(nonatomic, strong, nullable) NSArray<GTLRContainer_EtcHostsEntry *> *additionalEtcHosts;
+
+/** Optional. Additional entries to be added to /etc/resolv.conf. */
+@property(nonatomic, strong, nullable) NSArray<GTLRContainer_ResolvedConfEntry *> *additionalEtcResolvConf;
+
+/** Optional. Additional entries to be added to /etc/systemd/resolved.conf. */
+@property(nonatomic, strong, nullable) NSArray<GTLRContainer_ResolvedConfEntry *> *additionalEtcSystemdResolvedConf;
+
 /**
  *  cgroup_mode specifies the cgroup mode to be used on the node.
  *
@@ -7534,6 +7836,12 @@ GTLR_DEPRECATED
 
 /** Optional. Amounts for 2M and 1G hugepages */
 @property(nonatomic, strong, nullable) GTLRContainer_HugepagesConfig *hugepages;
+
+/**
+ *  Optional. Defines the kernel overrides to be applied to the nodes. Note:
+ *  sysctl changes are defined separately in the sysctls fields.
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_KernelOverrides *kernelOverrides;
 
 /**
  *  Optional. Configuration for kernel module loading on nodes. When enabled,
@@ -7579,6 +7887,9 @@ GTLR_DEPRECATED
  *  vm.watermark_scale_factor vm.min_free_kbytes
  */
 @property(nonatomic, strong, nullable) GTLRContainer_LinuxNodeConfig_Sysctls *sysctls;
+
+/** Optional. Configures the timezone of the node. */
+@property(nonatomic, copy, nullable) NSString *timeZone;
 
 /**
  *  Optional. Defines the transparent hugepage defrag configuration on the node.
@@ -7828,6 +8139,30 @@ GTLR_DEPRECATED
  *        Default value. This shouldn't be used. (Value: "VARIANT_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *variant;
+
+@end
+
+
+/**
+ *  lrugen (Multi-Gen LRU) options See
+ *  https://docs.kernel.org/admin-guide/mm/multigen_lru.html
+ */
+@interface GTLRContainer_LRUGen : GTLRObject
+
+/**
+ *  Optional. Enable lrugen.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
+/**
+ *  Optional. Users can write N to min_ttl_ms to prevent the working set of N
+ *  milliseconds from getting evicted.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minTtlMs;
 
 @end
 
@@ -8253,6 +8588,12 @@ GTLR_DEPRECATED
 @interface GTLRContainer_NetworkConfig : GTLRObject
 
 /**
+ *  Optional. Contains the desired config of Ambient Networking mode on this
+ *  cluster.
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_AmbientNetworkingConfig *ambientNetworkingConfig;
+
+/**
  *  The desired datapath provider for this cluster. By default, uses the
  *  IPTables-based kube-proxy implementation.
  *
@@ -8267,6 +8608,12 @@ GTLR_DEPRECATED
  *    @arg @c kGTLRContainer_NetworkConfig_DatapathProvider_LegacyDatapath Use
  *        the IPTables implementation based on kube-proxy. (Value:
  *        "LEGACY_DATAPATH")
+ *    @arg @c kGTLRContainer_NetworkConfig_DatapathProvider_MigrateToAdvancedDatapath
+ *        Cluster has some existing nodes but new nodes should use
+ *        ADVANCED_DATAPATH. (Value: "MIGRATE_TO_ADVANCED_DATAPATH")
+ *    @arg @c kGTLRContainer_NetworkConfig_DatapathProvider_MigrateToLegacyDatapath
+ *        Cluster has some existing nodes but new nodes should use
+ *        LEGACY_DATAPATH. (Value: "MIGRATE_TO_LEGACY_DATAPATH")
  */
 @property(nonatomic, copy, nullable) NSString *datapathProvider;
 
@@ -9081,6 +9428,25 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *containerLogMaxSize;
 
 /**
+ *  Optional. Defines the maximum number of concurrent workers to rotate
+ *  container log files. See
+ *  https://kubernetes.io/docs/concepts/cluster-administration/logging/#log-rotation
+ *  The value must be an integer between 1 and 10, inclusive. The default value
+ *  is 1 if unspecified.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *containerLogMaxWorkers;
+
+/**
+ *  Optional. Specifies the interval at which the container logs are monitored
+ *  for performing the log rotate operation. The value must be a positive
+ *  interval between 3s and 300s, inclusive. The default value is "10s" if
+ *  unspecified.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *containerLogMonitorInterval;
+
+/**
  *  Enable CPU CFS quota enforcement for containers that specify CPU limits.
  *  This option is enabled by default which makes kubelet use CFS quota
  *  (https://www.kernel.org/doc/Documentation/scheduler/sched-bwc.txt) to
@@ -9236,6 +9602,13 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) GTLRContainer_ReservedResourcesConfig *reservedResourcesConfig;
 
 /**
+ *  Optional. The reserved_system_cpus option specifies the CPU list reserved
+ *  for the host system services. Format: a list of CPU IDs (e.g. "0-3", "0,1")
+ *  that can be parsed as a cpuset.
+ */
+@property(nonatomic, copy, nullable) NSString *reservedSystemCpus;
+
+/**
  *  Optional. shutdown_grace_period_critical_pods_seconds is the maximum allowed
  *  grace period (in seconds) used to terminate critical pods during a node
  *  shutdown. This value should be <= shutdown_grace_period_seconds, and is only
@@ -9371,6 +9744,29 @@ GTLR_DEPRECATED
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *createPodRange;
+
+/**
+ *  The datapath provider for this node pool.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainer_NodeNetworkConfig_DatapathProvider_AdvancedDatapath
+ *        Use the eBPF based GKE Dataplane V2 with additional features. See the
+ *        [GKE Dataplane V2
+ *        documentation](https://cloud.google.com/kubernetes-engine/docs/how-to/dataplane-v2)
+ *        for more. (Value: "ADVANCED_DATAPATH")
+ *    @arg @c kGTLRContainer_NodeNetworkConfig_DatapathProvider_DatapathProviderUnspecified
+ *        Default value. (Value: "DATAPATH_PROVIDER_UNSPECIFIED")
+ *    @arg @c kGTLRContainer_NodeNetworkConfig_DatapathProvider_LegacyDatapath
+ *        Use the IPTables implementation based on kube-proxy. (Value:
+ *        "LEGACY_DATAPATH")
+ *    @arg @c kGTLRContainer_NodeNetworkConfig_DatapathProvider_MigrateToAdvancedDatapath
+ *        Cluster has some existing nodes but new nodes should use
+ *        ADVANCED_DATAPATH. (Value: "MIGRATE_TO_ADVANCED_DATAPATH")
+ *    @arg @c kGTLRContainer_NodeNetworkConfig_DatapathProvider_MigrateToLegacyDatapath
+ *        Cluster has some existing nodes but new nodes should use
+ *        LEGACY_DATAPATH. (Value: "MIGRATE_TO_LEGACY_DATAPATH")
+ */
+@property(nonatomic, copy, nullable) NSString *datapathProvider;
 
 /**
  *  Whether nodes have internal IP addresses only. If enable_private_nodes is
@@ -10848,6 +11244,20 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Additional entries to be added to resolved.conf.
+ */
+@interface GTLRContainer_ResolvedConfEntry : GTLRObject
+
+/** The key of resolved.conf */
+@property(nonatomic, copy, nullable) NSString *key;
+
+/** Optional. The value of resolved.conf */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *value;
+
+@end
+
+
+/**
  *  Collection of [Resource Manager
  *  labels](https://cloud.google.com/resource-manager/docs/creating-managing-labels).
  */
@@ -11266,6 +11676,9 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *mode;
 
 /**
+ *  Deprecated: Vulnerability scanning is no longer supported. For more details,
+ *  see
+ *  https://cloud.google.com/kubernetes-engine/docs/deprecations/posture-management-deprecation.
  *  Sets which mode to use for vulnerability scanning.
  *
  *  Likely values:
@@ -11279,12 +11692,15 @@ GTLR_DEPRECATED
  *        Disables vulnerability scanning on the cluster. (Value:
  *        "VULNERABILITY_DISABLED")
  *    @arg @c kGTLRContainer_SecurityPostureConfig_VulnerabilityMode_VulnerabilityEnterprise
+ *        Deprecated: Advanced vulnerability scanning is no longer supported.
+ *        For more details, see
+ *        https://cloud.google.com/kubernetes-engine/docs/deprecations/posture-management-deprecation.
  *        Applies the Security Posture's vulnerability on cluster Enterprise
  *        level features. (Value: "VULNERABILITY_ENTERPRISE")
  *    @arg @c kGTLRContainer_SecurityPostureConfig_VulnerabilityMode_VulnerabilityModeUnspecified
  *        Default value not specified. (Value: "VULNERABILITY_MODE_UNSPECIFIED")
  */
-@property(nonatomic, copy, nullable) NSString *vulnerabilityMode;
+@property(nonatomic, copy, nullable) NSString *vulnerabilityMode GTLR_DEPRECATED;
 
 @end
 
@@ -12724,6 +13140,21 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
+/**
+ *  Optional. Option to specify the rollout strategy to apply node pool
+ *  configuration updates. If unspecified, standard rolling update strategy with
+ *  VM recreation is used as the default behavior.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainer_UpdateNodePoolRequest_NodeConfigUpdateMode_LiveUpdateWithoutDrain
+ *        Node updates are applied in-place on the running VM without VM
+ *        recreation and without draining workloads/pods. (Value:
+ *        "LIVE_UPDATE_WITHOUT_DRAIN")
+ *    @arg @c kGTLRContainer_UpdateNodePoolRequest_NodeConfigUpdateMode_NodeConfigUpdateModeUnspecified
+ *        Unspecified. (Value: "NODE_CONFIG_UPDATE_MODE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *nodeConfigUpdateMode;
+
 /** The desired node drain configuration for nodes in the node pool. */
 @property(nonatomic, strong, nullable) GTLRContainer_NodeDrainConfig *nodeDrainConfig;
 
@@ -13339,6 +13770,43 @@ GTLR_DEPRECATED
  *        When OSVersion is not specified. (Value: "OS_VERSION_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *osVersion;
+
+@end
+
+
+/**
+ *  Configuration for the Wiz Sensor add-on.
+ */
+@interface GTLRContainer_WizSensorConfig : GTLRObject
+
+/**
+ *  Optional. The GCP Secret Manager URI for the Wiz API key secret. Format:
+ *  "projects/{project_id}/secrets/{secret_name}/versions/{version}" or Format:
+ *  "projects/{project_id}/locations/{location_id}/secrets/{secret_name}/versions/{version}"
+ */
+@property(nonatomic, copy, nullable) NSString *apiKeySecretUri;
+
+/**
+ *  Optional. Whether the Wiz Sensor add-on is enabled for this cluster.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
+/**
+ *  Optional. The GCP Secret Manager URI for the Wiz proxy configuration.
+ *  Format: "projects/{project_id}/secrets/{secret_name}/versions/{version}" or
+ *  Format:
+ *  "projects/{project_id}/locations/{location_id}/secrets/{secret_name}/versions/{version}"
+ */
+@property(nonatomic, copy, nullable) NSString *proxySecretUri;
+
+/**
+ *  Optional. The GCP Secret Manager URI for the Wiz registry secret. Format:
+ *  "projects/{project_id}/secrets/{secret_name}/versions/{version}" or Format:
+ *  "projects/{project_id}/locations/{location_id}/secrets/{secret_name}/versions/{version}"
+ */
+@property(nonatomic, copy, nullable) NSString *registrySecretUri;
 
 @end
 

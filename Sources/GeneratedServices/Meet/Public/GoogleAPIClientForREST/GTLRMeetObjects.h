@@ -855,7 +855,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMeet_TranscriptionConfig_AutoTranscripti
 
 /**
  *  Identifier. Resource name of the member. Format:
- *  spaces/{space}/members/{member}
+ *  `spaces/{space}/members/{member}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1404,7 +1404,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMeet_TranscriptionConfig_AutoTranscripti
 
 /**
  *  Output only. Resource name of the entry. Format:
- *  "conferenceRecords/{conference_record}/transcripts/{transcript}/entries/{entry}"
+ *  `conferenceRecords/{conference_record}/transcripts/{transcript}/entries/{entry}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 

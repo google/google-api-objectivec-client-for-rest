@@ -764,6 +764,24 @@ NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies    = @"VARIES";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudHealthcare_CustomRegex
+//
+
+@implementation GTLRCloudHealthcare_CustomRegex
+@dynamic groupIndexes, pattern;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"groupIndexes" : [NSNumber class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudHealthcare_Dataset
 //
 
@@ -1641,7 +1659,15 @@ NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies    = @"VARIES";
 //
 
 @implementation GTLRCloudHealthcare_ImageConfig
-@dynamic textRedactionMode;
+@dynamic customRegexes, textRedactionMode;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"customRegexes" : [GTLRCloudHealthcare_CustomRegex class]
+  };
+  return map;
+}
+
 @end
 
 

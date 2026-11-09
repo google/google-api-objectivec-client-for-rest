@@ -23,8 +23,15 @@
 NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
-// Authorization scope
+// Authorization scopes
 
+/**
+ *  Authorization scope: Private Service:
+ *  https://www.googleapis.com/auth/webcontentpublisher.publications.entitlements.readonly.system
+ *
+ *  Value "https://www.googleapis.com/auth/webcontentpublisher.publications.entitlements.readonly.system"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeWebContentPublisherPublicationsEntitlementsReadonlySystem;
 /**
  *  Authorization scope: Private Service:
  *  https://www.googleapis.com/auth/webcontentpublisher.publications.manage.system

@@ -467,7 +467,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates a new FirewallEndpoint in a given organization and location.
+ *  Creates a new firewall endpoint in a given organization and location.
  *
  *  Method: networksecurity.organizations.locations.firewallEndpoints.create
  *
@@ -477,44 +477,51 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRNetworkSecurityQuery_OrganizationsLocationsFirewallEndpointsCreate : GTLRNetworkSecurityQuery
 
 /**
- *  Required. Id of the requesting object. If auto-generating Id server-side,
- *  remove this field and firewall_endpoint_id from the method_signature of
- *  Create RPC.
+ *  Required. The ID to use for the firewall endpoint, which becomes the final
+ *  component of the endpoint's resource name. This value must be 1-63
+ *  characters long, start with a lowercase letter, contain only lowercase
+ *  letters, numbers, and hyphens, and cannot end with a hyphen.
  */
 @property(nonatomic, copy, nullable) NSString *firewallEndpointId;
 
-/** Required. Value for parent. */
+/**
+ *  Required. The parent resource where this firewall endpoint is created.
+ *  Format: `organizations/{organization}/locations/{location}` or
+ *  `projects/{project}/locations/{location}`.
+ */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Optional. An optional request ID to identify requests. Specify a unique
- *  request ID so that if you must retry your request, the server will know to
- *  ignore the request if it has already been completed. The server will
- *  guarantee that for at least 60 minutes since the first request. For example,
- *  consider a situation where you make an initial request and the request times
- *  out. If you make the request again with the same request ID, the server can
- *  check if original operation with the same request ID was received, and if
- *  so, will ignore the second request. This prevents clients from accidentally
- *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  request ID so that if you must retry your request, the server knows to
+ *  ignore the request if it has already been completed. The server guarantees
+ *  that for at least 60 minutes since the first request. For example, consider
+ *  a situation where you make an initial request and the request times out. If
+ *  you make the request again with the same request ID, the server can check if
+ *  the original operation with the same request ID was received, and if so,
+ *  ignores the second request. This prevents clients from accidentally creating
+ *  duplicate commitments. The request ID must be a valid UUID with the
  *  exception that zero UUID is not supported
- *  (00000000-0000-0000-0000-000000000000).
+ *  (`00000000-0000-0000-0000-000000000000`).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
- *  Optional. If set, validate the request and preview the endpoint, but do not
- *  actually create it.
+ *  Optional. If set, validates the request and previews the endpoint, but does
+ *  not actually create it.
  */
 @property(nonatomic, assign) BOOL validateOnly;
 
 /**
  *  Fetches a @c GTLRNetworkSecurity_Operation.
  *
- *  Creates a new FirewallEndpoint in a given organization and location.
+ *  Creates a new firewall endpoint in a given organization and location.
  *
  *  @param object The @c GTLRNetworkSecurity_FirewallEndpoint to include in the
  *    query.
- *  @param parent Required. Value for parent.
+ *  @param parent Required. The parent resource where this firewall endpoint is
+ *    created. Format: `organizations/{organization}/locations/{location}` or
+ *    `projects/{project}/locations/{location}`.
  *
  *  @return GTLRNetworkSecurityQuery_OrganizationsLocationsFirewallEndpointsCreate
  */
@@ -524,7 +531,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes a single org Endpoint.
+ *  Deletes a single organization endpoint.
  *
  *  Method: networksecurity.organizations.locations.firewallEndpoints.delete
  *
@@ -533,30 +540,30 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRNetworkSecurityQuery_OrganizationsLocationsFirewallEndpointsDelete : GTLRNetworkSecurityQuery
 
-/** Required. Name of the resource */
+/** Required. The name of the resource. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Optional. An optional request ID to identify requests. Specify a unique
- *  request ID so that if you must retry your request, the server will know to
- *  ignore the request if it has already been completed. The server will
- *  guarantee that for at least 60 minutes after the first request. For example,
- *  consider a situation where you make an initial request and the request times
- *  out. If you make the request again with the same request ID, the server can
- *  check if original operation with the same request ID was received, and if
- *  so, will ignore the second request. This prevents clients from accidentally
- *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  request ID so that if you must retry your request, the server knows to
+ *  ignore the request if it has already been completed. The server guarantees
+ *  that for at least 60 minutes after the first request. For example, consider
+ *  a situation where you make an initial request and the request times out. If
+ *  you make the request again with the same request ID, the server can check if
+ *  the original operation with the same request ID was received, and if so,
+ *  ignores the second request. This prevents clients from accidentally creating
+ *  duplicate commitments. The request ID must be a valid UUID with the
  *  exception that zero UUID is not supported
- *  (00000000-0000-0000-0000-000000000000).
+ *  (`00000000-0000-0000-0000-000000000000`).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
  *  Fetches a @c GTLRNetworkSecurity_Operation.
  *
- *  Deletes a single org Endpoint.
+ *  Deletes a single organization endpoint.
  *
- *  @param name Required. Name of the resource
+ *  @param name Required. The name of the resource.
  *
  *  @return GTLRNetworkSecurityQuery_OrganizationsLocationsFirewallEndpointsDelete
  */
@@ -565,7 +572,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets details of a single org Endpoint.
+ *  Gets details of a single organization endpoint.
  *
  *  Method: networksecurity.organizations.locations.firewallEndpoints.get
  *
@@ -574,15 +581,15 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRNetworkSecurityQuery_OrganizationsLocationsFirewallEndpointsGet : GTLRNetworkSecurityQuery
 
-/** Required. Name of the resource */
+/** Required. The name of the resource. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRNetworkSecurity_FirewallEndpoint.
  *
- *  Gets details of a single org Endpoint.
+ *  Gets details of a single organization endpoint.
  *
- *  @param name Required. Name of the resource
+ *  @param name Required. The name of the resource.
  *
  *  @return GTLRNetworkSecurityQuery_OrganizationsLocationsFirewallEndpointsGet
  */
@@ -591,7 +598,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists FirewallEndpoints in a given organization and location.
+ *  Lists firewall endpoints in a given organization and location.
  *
  *  Method: networksecurity.organizations.locations.firewallEndpoints.list
  *
@@ -600,30 +607,43 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRNetworkSecurityQuery_OrganizationsLocationsFirewallEndpointsList : GTLRNetworkSecurityQuery
 
-/** Optional. Filtering results */
+/** Optional. Filtering results. */
 @property(nonatomic, copy, nullable) NSString *filter;
 
-/** Hint for how to order the results */
+/** Optional. Hint for how to order the results. */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Optional. Requested page size. Server may return fewer items than requested.
- *  If unspecified, server will pick an appropriate default.
+ *  Optional. Requested page size. The server might return fewer items than
+ *  requested. The maximum value is 1000; values above 1000 are coerced to 1000.
+ *  If unspecified, the server picks an appropriate default.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
-/** A token identifying a page of results the server should return. */
+/**
+ *  A page token, received from a previous `ListFirewallEndpoints` call. Provide
+ *  this to retrieve the subsequent page. When paginating, all other parameters
+ *  provided to `ListFirewallEndpoints` must match the call that provided the
+ *  page token.
+ */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
-/** Required. Parent value for ListEndpointsRequest */
+/**
+ *  Required. The parent resource from which the firewall endpoints are listed.
+ *  Format: `organizations/{organization}/locations/{location}` or
+ *  `projects/{project}/locations/{location}`.
+ */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRNetworkSecurity_ListFirewallEndpointsResponse.
  *
- *  Lists FirewallEndpoints in a given organization and location.
+ *  Lists firewall endpoints in a given organization and location.
  *
- *  @param parent Required. Parent value for ListEndpointsRequest
+ *  @param parent Required. The parent resource from which the firewall
+ *    endpoints are listed. Format:
+ *    `organizations/{organization}/locations/{location}` or
+ *    `projects/{project}/locations/{location}`.
  *
  *  @return GTLRNetworkSecurityQuery_OrganizationsLocationsFirewallEndpointsList
  *
@@ -636,7 +656,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Update a single org Endpoint.
+ *  Updates a single organization endpoint.
  *
  *  Method: networksecurity.organizations.locations.firewallEndpoints.patch
  *
@@ -645,30 +665,30 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRNetworkSecurityQuery_OrganizationsLocationsFirewallEndpointsPatch : GTLRNetworkSecurityQuery
 
-/** Immutable. Identifier. Name of resource. */
+/** Immutable. Identifier. The name of the resource. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Optional. An optional request ID to identify requests. Specify a unique
- *  request ID so that if you must retry your request, the server will know to
- *  ignore the request if it has already been completed. The server will
- *  guarantee that for at least 60 minutes since the first request. For example,
- *  consider a situation where you make an initial request and the request times
- *  out. If you make the request again with the same request ID, the server can
- *  check if original operation with the same request ID was received, and if
- *  so, will ignore the second request. This prevents clients from accidentally
- *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  request ID so that if you must retry your request, the server knows to
+ *  ignore the request if it has already been completed. The server guarantees
+ *  that for at least 60 minutes since the first request. For example, consider
+ *  a situation where you make an initial request and the request times out. If
+ *  you make the request again with the same request ID, the server can check if
+ *  the original operation with the same request ID was received, and if so,
+ *  ignores the second request. This prevents clients from accidentally creating
+ *  duplicate commitments. The request ID must be a valid UUID with the
  *  exception that zero UUID is not supported
- *  (00000000-0000-0000-0000-000000000000).
+ *  (`00000000-0000-0000-0000-000000000000`).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
- *  Required. Field mask is used to specify the fields to be overwritten in the
- *  Endpoint resource by the update. The fields specified in the update_mask are
- *  relative to the resource, not the full request. A field will be overwritten
- *  if it is in the mask. If the user does not provide a mask then all fields
- *  will be overwritten.
+ *  Required. Field mask used to specify the fields to be overwritten in the
+ *  `FirewallEndpoint` resource by the update. The fields specified in the
+ *  `update_mask` are relative to the resource, not the full request. A field is
+ *  overwritten if it is in the mask. If the user does not provide a mask, then
+ *  all fields present in the request are overwritten.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -677,11 +697,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRNetworkSecurity_Operation.
  *
- *  Update a single org Endpoint.
+ *  Updates a single organization endpoint.
  *
  *  @param object The @c GTLRNetworkSecurity_FirewallEndpoint to include in the
  *    query.
- *  @param name Immutable. Identifier. Name of resource.
+ *  @param name Immutable. Identifier. The name of the resource.
  *
  *  @return GTLRNetworkSecurityQuery_OrganizationsLocationsFirewallEndpointsPatch
  */
@@ -691,8 +711,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Create WildfireVerdictChangeRequest in a given Firewall Endpoint in an
- *  organization and location.
+ *  Creates an Advanced malware sandbox verdict change request in a given
+ *  firewall endpoint in an organization and location.
  *
  *  Method: networksecurity.organizations.locations.firewallEndpoints.wildfireVerdictChangeRequests.create
  *
@@ -702,24 +722,28 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRNetworkSecurityQuery_OrganizationsLocationsFirewallEndpointsWildfireVerdictChangeRequestsCreate : GTLRNetworkSecurityQuery
 
 /**
- *  Required. Parent value for CreateWildfireVerdictChangeRequestRequest. The
+ *  Required. Parent value for `CreateWildfireVerdictChangeRequestRequest`. The
  *  parent is a firewall endpoint resource. Format:
- *  organizations|projects/{project_or_organization}/locations/{location}/firewallEndpoints/{firewall_endpoint}
+ *  `organizations/{organization}/locations/{location}/firewallEndpoints/{firewall_endpoint}`
+ *  or
+ *  `projects/{project}/locations/{location}/firewallEndpoints/{firewall_endpoint}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRNetworkSecurity_WildfireVerdictChangeRequest.
  *
- *  Create WildfireVerdictChangeRequest in a given Firewall Endpoint in an
- *  organization and location.
+ *  Creates an Advanced malware sandbox verdict change request in a given
+ *  firewall endpoint in an organization and location.
  *
  *  @param object The @c GTLRNetworkSecurity_WildfireVerdictChangeRequest to
  *    include in the query.
  *  @param parent Required. Parent value for
- *    CreateWildfireVerdictChangeRequestRequest. The parent is a firewall
+ *    `CreateWildfireVerdictChangeRequestRequest`. The parent is a firewall
  *    endpoint resource. Format:
- *    organizations|projects/{project_or_organization}/locations/{location}/firewallEndpoints/{firewall_endpoint}
+ *    `organizations/{organization}/locations/{location}/firewallEndpoints/{firewall_endpoint}`
+ *    or
+ *    `projects/{project}/locations/{location}/firewallEndpoints/{firewall_endpoint}`.
  *
  *  @return GTLRNetworkSecurityQuery_OrganizationsLocationsFirewallEndpointsWildfireVerdictChangeRequestsCreate
  */
@@ -729,8 +753,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Get WildfireVerdictChangeRequest in a given Firewall Endpoint in an
- *  organization and location.
+ *  Gets an Advanced malware sandbox verdict change request in a given firewall
+ *  endpoint in an organization and location.
  *
  *  Method: networksecurity.organizations.locations.firewallEndpoints.wildfireVerdictChangeRequests.get
  *
@@ -740,24 +764,29 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRNetworkSecurityQuery_OrganizationsLocationsFirewallEndpointsWildfireVerdictChangeRequestsGet : GTLRNetworkSecurityQuery
 
 /**
- *  Required. Name of the WildfireVerdictChangeRequest to retrieve. Format:
- *  organizations|projects/{project_or_organization}/locations/{location}/firewallEndpoints/{firewall_endpoint}/wildfireVerdictChangeRequests/{wildfire_verdict_change_request_id}
- *  Where {wildfire_verdict_change_request_id} is the ID in the format:
- *  ^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$
+ *  Required. The name of the `WildfireVerdictChangeRequest` to retrieve.
+ *  Format:
+ *  `organizations/{organization}/locations/{location}/firewallEndpoints/{firewall_endpoint}/wildfireVerdictChangeRequests/{wildfire_verdict_change_request_id}`
+ *  or
+ *  `projects/{project}/locations/{location}/firewallEndpoints/{firewall_endpoint}/wildfireVerdictChangeRequests/{wildfire_verdict_change_request_id}`.
+ *  Where `{wildfire_verdict_change_request_id}` is an ID in the format
+ *  `^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRNetworkSecurity_WildfireVerdictChangeRequest.
  *
- *  Get WildfireVerdictChangeRequest in a given Firewall Endpoint in an
- *  organization and location.
+ *  Gets an Advanced malware sandbox verdict change request in a given firewall
+ *  endpoint in an organization and location.
  *
- *  @param name Required. Name of the WildfireVerdictChangeRequest to retrieve.
- *    Format:
- *    organizations|projects/{project_or_organization}/locations/{location}/firewallEndpoints/{firewall_endpoint}/wildfireVerdictChangeRequests/{wildfire_verdict_change_request_id}
- *    Where {wildfire_verdict_change_request_id} is the ID in the format:
- *    ^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$
+ *  @param name Required. The name of the `WildfireVerdictChangeRequest` to
+ *    retrieve. Format:
+ *    `organizations/{organization}/locations/{location}/firewallEndpoints/{firewall_endpoint}/wildfireVerdictChangeRequests/{wildfire_verdict_change_request_id}`
+ *    or
+ *    `projects/{project}/locations/{location}/firewallEndpoints/{firewall_endpoint}/wildfireVerdictChangeRequests/{wildfire_verdict_change_request_id}`.
+ *    Where `{wildfire_verdict_change_request_id}` is an ID in the format
+ *    `^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$`.
  *
  *  @return GTLRNetworkSecurityQuery_OrganizationsLocationsFirewallEndpointsWildfireVerdictChangeRequestsGet
  */
@@ -766,8 +795,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists WildfireVerdictChangeRequests in a given Firewall Endpoint in an
- *  organization and location.
+ *  Lists the Advanced malware sandbox (WildFire) verdict change requests in a
+ *  given firewall endpoint in an organization and location.
  *
  *  Method: networksecurity.organizations.locations.firewallEndpoints.wildfireVerdictChangeRequests.list
  *
@@ -777,42 +806,53 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRNetworkSecurityQuery_OrganizationsLocationsFirewallEndpointsWildfireVerdictChangeRequestsList : GTLRNetworkSecurityQuery
 
 /**
- *  Optional. Filter expression to filter the results. See AIP-160 for filtering
- *  syntax. Supported fields are: - `sha256` (string, equality only, e.g.
- *  `sha256 = "..."`) - `state` (enum, equality only, e.g. `state = "ACTIVE"`) -
- *  `create_time` (timestamp, comparisons, e.g. `create_time >
- *  "2026-01-01T00:00:00Z"`)
+ *  Optional. Filter expression to filter the results. Supported fields are: -
+ *  `sha256` (string, equality only, for example, `sha256 = "..."`) - `state`
+ *  (enum, equality only, valid values are `OPEN`, `CLOSED`, or `PENDING`, for
+ *  example, `state = "PENDING"`) - `create_time` (timestamp, comparisons, for
+ *  example, `create_time >= "2026-01-01T00:00:00Z" AND create_time <=
+ *  "2026-01-31T23:59:59Z"`). If filtering by `create_time`, you must specify
+ *  both a start time and an end time. If `create_time` is not specified, the
+ *  query defaults to the past 30 days.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  Optional. Requested page size. Server may return fewer items than requested.
- *  If unspecified, server will pick an appropriate default.
+ *  Optional. Requested page size. The server might return fewer items than
+ *  requested. If unspecified, the server picks an appropriate default.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Optional. A token identifying a page of results the server should return.
+ *  Optional. A page token, received from a previous
+ *  `ListWildfireVerdictChangeRequests` call. Provide this to retrieve the
+ *  subsequent page. When paginating, all other parameters provided to
+ *  `ListWildfireVerdictChangeRequests` must match the call that provided the
+ *  page token.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. Parent value for ListWildfireVerdictChangeRequestsRequest. The
+ *  Required. Parent value for `ListWildfireVerdictChangeRequestsRequest`. The
  *  parent is a firewall endpoint resource. Format:
- *  organizations|projects/{project_or_organization}/locations/{location}/firewallEndpoints/{firewall_endpoint}
+ *  `organizations/{organization}/locations/{location}/firewallEndpoints/{firewall_endpoint}`
+ *  or
+ *  `projects/{project}/locations/{location}/firewallEndpoints/{firewall_endpoint}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRNetworkSecurity_ListWildfireVerdictChangeRequestsResponse.
  *
- *  Lists WildfireVerdictChangeRequests in a given Firewall Endpoint in an
- *  organization and location.
+ *  Lists the Advanced malware sandbox (WildFire) verdict change requests in a
+ *  given firewall endpoint in an organization and location.
  *
  *  @param parent Required. Parent value for
- *    ListWildfireVerdictChangeRequestsRequest. The parent is a firewall
+ *    `ListWildfireVerdictChangeRequestsRequest`. The parent is a firewall
  *    endpoint resource. Format:
- *    organizations|projects/{project_or_organization}/locations/{location}/firewallEndpoints/{firewall_endpoint}
+ *    `organizations/{organization}/locations/{location}/firewallEndpoints/{firewall_endpoint}`
+ *    or
+ *    `projects/{project}/locations/{location}/firewallEndpoints/{firewall_endpoint}`.
  *
  *  @return GTLRNetworkSecurityQuery_OrganizationsLocationsFirewallEndpointsWildfireVerdictChangeRequestsList
  *
@@ -1085,7 +1125,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates a new SecurityProfileGroup in a given organization and location.
+ *  Creates a new security profile group in a given organization and location.
  *
  *  Method: networksecurity.organizations.locations.securityProfileGroups.create
  *
@@ -1095,28 +1135,30 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRNetworkSecurityQuery_OrganizationsLocationsSecurityProfileGroupsCreate : GTLRNetworkSecurityQuery
 
 /**
- *  Required. The parent resource of the SecurityProfileGroup. Must be in the
- *  format `projects|organizations/ * /locations/{location}`.
+ *  Required. The parent resource of the `SecurityProfileGroup`. Format:
+ *  `organizations/{organization}/locations/{location}` or
+ *  `projects/{project}/locations/{location}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Required. Short name of the SecurityProfileGroup resource to be created.
- *  This value should be 1-63 characters long, containing only letters, numbers,
- *  hyphens, and underscores, and should not start with a number. E.g.
- *  "security_profile_group1".
+ *  Required. Short name of the `SecurityProfileGroup` resource to be created.
+ *  This value must be 1 to 63 characters long, contain only lowercase letters,
+ *  numbers, and hyphens, and must not start with a number. For example,
+ *  `security-profile-group1`.
  */
 @property(nonatomic, copy, nullable) NSString *securityProfileGroupId;
 
 /**
  *  Fetches a @c GTLRNetworkSecurity_Operation.
  *
- *  Creates a new SecurityProfileGroup in a given organization and location.
+ *  Creates a new security profile group in a given organization and location.
  *
  *  @param object The @c GTLRNetworkSecurity_SecurityProfileGroup to include in
  *    the query.
- *  @param parent Required. The parent resource of the SecurityProfileGroup.
- *    Must be in the format `projects|organizations/ * /locations/{location}`.
+ *  @param parent Required. The parent resource of the `SecurityProfileGroup`.
+ *    Format: `organizations/{organization}/locations/{location}` or
+ *    `projects/{project}/locations/{location}`.
  *
  *  @return GTLRNetworkSecurityQuery_OrganizationsLocationsSecurityProfileGroupsCreate
  */
@@ -1126,7 +1168,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes a single SecurityProfileGroup.
+ *  Deletes a single security profile group.
  *
  *  Method: networksecurity.organizations.locations.securityProfileGroups.delete
  *
@@ -1136,26 +1178,29 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRNetworkSecurityQuery_OrganizationsLocationsSecurityProfileGroupsDelete : GTLRNetworkSecurityQuery
 
 /**
- *  Optional. If client provided etag is out of date, delete will return
- *  FAILED_PRECONDITION error.
+ *  Optional. If the client-provided `etag` is out of date, the delete request
+ *  returns an `ABORTED` error.
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  Required. A name of the SecurityProfileGroup to delete. Must be in the
- *  format `projects|organizations/ *
- *  /locations/{location}/securityProfileGroups/{security_profile_group}`.
+ *  Required. The name of the `SecurityProfileGroup` to delete. Format:
+ *  `organizations/{organization}/locations/{location}/securityProfileGroups/{security_profile_group}`
+ *  or
+ *  `projects/{project}/locations/{location}/securityProfileGroups/{security_profile_group}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRNetworkSecurity_Operation.
  *
- *  Deletes a single SecurityProfileGroup.
+ *  Deletes a single security profile group.
  *
- *  @param name Required. A name of the SecurityProfileGroup to delete. Must be
- *    in the format `projects|organizations/ *
- *    /locations/{location}/securityProfileGroups/{security_profile_group}`.
+ *  @param name Required. The name of the `SecurityProfileGroup` to delete.
+ *    Format:
+ *    `organizations/{organization}/locations/{location}/securityProfileGroups/{security_profile_group}`
+ *    or
+ *    `projects/{project}/locations/{location}/securityProfileGroups/{security_profile_group}`.
  *
  *  @return GTLRNetworkSecurityQuery_OrganizationsLocationsSecurityProfileGroupsDelete
  */
@@ -1164,7 +1209,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets details of a single SecurityProfileGroup.
+ *  Gets details of a single security profile group.
  *
  *  Method: networksecurity.organizations.locations.securityProfileGroups.get
  *
@@ -1174,20 +1219,22 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRNetworkSecurityQuery_OrganizationsLocationsSecurityProfileGroupsGet : GTLRNetworkSecurityQuery
 
 /**
- *  Required. A name of the SecurityProfileGroup to get. Must be in the format
- *  `projects|organizations/ *
- *  /locations/{location}/securityProfileGroups/{security_profile_group}`.
+ *  Required. The name of the `SecurityProfileGroup` to get. Format:
+ *  `organizations/{organization}/locations/{location}/securityProfileGroups/{security_profile_group}`
+ *  or
+ *  `projects/{project}/locations/{location}/securityProfileGroups/{security_profile_group}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRNetworkSecurity_SecurityProfileGroup.
  *
- *  Gets details of a single SecurityProfileGroup.
+ *  Gets details of a single security profile group.
  *
- *  @param name Required. A name of the SecurityProfileGroup to get. Must be in
- *    the format `projects|organizations/ *
- *    /locations/{location}/securityProfileGroups/{security_profile_group}`.
+ *  @param name Required. The name of the `SecurityProfileGroup` to get. Format:
+ *    `organizations/{organization}/locations/{location}/securityProfileGroups/{security_profile_group}`
+ *    or
+ *    `projects/{project}/locations/{location}/securityProfileGroups/{security_profile_group}`.
  *
  *  @return GTLRNetworkSecurityQuery_OrganizationsLocationsSecurityProfileGroupsGet
  */
@@ -1196,7 +1243,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists SecurityProfileGroups in a given organization and location.
+ *  Lists security profile group resources in a given organization and location.
  *
  *  Method: networksecurity.organizations.locations.securityProfileGroups.list
  *
@@ -1205,31 +1252,38 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRNetworkSecurityQuery_OrganizationsLocationsSecurityProfileGroupsList : GTLRNetworkSecurityQuery
 
-/** Optional. Maximum number of SecurityProfileGroups to return per call. */
+/**
+ *  Optional. Maximum number of `SecurityProfileGroup` resources to return per
+ *  call. The maximum value is 1000; values above 1000 are coerced to 1000. If
+ *  unspecified, the server picks an appropriate default.
+ */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Optional. The value returned by the last `ListSecurityProfileGroupsResponse`
- *  Indicates that this is a continuation of a prior `ListSecurityProfileGroups`
- *  call, and that the system should return the next page of data.
+ *  Optional. A page token, received from a previous `ListSecurityProfileGroups`
+ *  call. Provide this to retrieve the subsequent page. When paginating, all
+ *  other parameters provided to `ListSecurityProfileGroups` must match the call
+ *  that provided the page token.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Required. The project or organization and location from which the
- *  SecurityProfileGroups should be listed, specified in the format
- *  `projects|organizations/ * /locations/{location}`.
+ *  `SecurityProfileGroup` resources are listed. Format:
+ *  `organizations/{organization}/locations/{location}` or
+ *  `projects/{project}/locations/{location}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRNetworkSecurity_ListSecurityProfileGroupsResponse.
  *
- *  Lists SecurityProfileGroups in a given organization and location.
+ *  Lists security profile group resources in a given organization and location.
  *
  *  @param parent Required. The project or organization and location from which
- *    the SecurityProfileGroups should be listed, specified in the format
- *    `projects|organizations/ * /locations/{location}`.
+ *    the `SecurityProfileGroup` resources are listed. Format:
+ *    `organizations/{organization}/locations/{location}` or
+ *    `projects/{project}/locations/{location}`.
  *
  *  @return GTLRNetworkSecurityQuery_OrganizationsLocationsSecurityProfileGroupsList
  *
@@ -1242,7 +1296,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates the parameters of a single SecurityProfileGroup.
+ *  Updates the parameters of a single security profile group.
  *
  *  Method: networksecurity.organizations.locations.securityProfileGroups.patch
  *
@@ -1252,17 +1306,18 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRNetworkSecurityQuery_OrganizationsLocationsSecurityProfileGroupsPatch : GTLRNetworkSecurityQuery
 
 /**
- *  Immutable. Identifier. Name of the SecurityProfileGroup resource. It matches
- *  pattern `projects|organizations/ *
- *  /locations/{location}/securityProfileGroups/{security_profile_group}`.
+ *  Immutable. Identifier. Name of the `SecurityProfileGroup` resource. Format:
+ *  `organizations/{organization}/locations/{location}/securityProfileGroups/{security_profile_group}`
+ *  or
+ *  `projects/{project}/locations/{location}/securityProfileGroups/{security_profile_group}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Required. Field mask is used to specify the fields to be overwritten in the
- *  SecurityProfileGroup resource by the update. The fields specified in the
- *  update_mask are relative to the resource, not the full request. A field will
- *  be overwritten if it is in the mask.
+ *  `SecurityProfileGroup` resource by the update. The fields specified in the
+ *  `update_mask` are relative to the resource, not the full request. A field is
+ *  overwritten if it is in the mask.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -1271,13 +1326,15 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRNetworkSecurity_Operation.
  *
- *  Updates the parameters of a single SecurityProfileGroup.
+ *  Updates the parameters of a single security profile group.
  *
  *  @param object The @c GTLRNetworkSecurity_SecurityProfileGroup to include in
  *    the query.
- *  @param name Immutable. Identifier. Name of the SecurityProfileGroup
- *    resource. It matches pattern `projects|organizations/ *
- *    /locations/{location}/securityProfileGroups/{security_profile_group}`.
+ *  @param name Immutable. Identifier. Name of the `SecurityProfileGroup`
+ *    resource. Format:
+ *    `organizations/{organization}/locations/{location}/securityProfileGroups/{security_profile_group}`
+ *    or
+ *    `projects/{project}/locations/{location}/securityProfileGroups/{security_profile_group}`.
  *
  *  @return GTLRNetworkSecurityQuery_OrganizationsLocationsSecurityProfileGroupsPatch
  */
@@ -1287,7 +1344,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates a new SecurityProfile in a given organization and location.
+ *  Creates a new security profile in a given organization and location.
  *
  *  Method: networksecurity.organizations.locations.securityProfiles.create
  *
@@ -1297,28 +1354,30 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRNetworkSecurityQuery_OrganizationsLocationsSecurityProfilesCreate : GTLRNetworkSecurityQuery
 
 /**
- *  Required. The parent resource of the SecurityProfile. Must be in the format
- *  `projects|organizations/ * /locations/{location}`.
+ *  Required. The parent resource of the `SecurityProfile`. Format:
+ *  `organizations/{organization}/locations/{location}` or
+ *  `projects/{project}/locations/{location}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Required. Short name of the SecurityProfile resource to be created. This
- *  value should be 1-63 characters long, containing only letters, numbers,
- *  hyphens, and underscores, and should not start with a number. E.g.
- *  "security_profile1".
+ *  Required. Short name of the `SecurityProfile` resource to be created. This
+ *  value must be 1 to 63 characters long, contain only lowercase letters,
+ *  numbers, and hyphens, and must not start with a number. For example,
+ *  `security-profile1`.
  */
 @property(nonatomic, copy, nullable) NSString *securityProfileId;
 
 /**
  *  Fetches a @c GTLRNetworkSecurity_Operation.
  *
- *  Creates a new SecurityProfile in a given organization and location.
+ *  Creates a new security profile in a given organization and location.
  *
  *  @param object The @c GTLRNetworkSecurity_SecurityProfile to include in the
  *    query.
- *  @param parent Required. The parent resource of the SecurityProfile. Must be
- *    in the format `projects|organizations/ * /locations/{location}`.
+ *  @param parent Required. The parent resource of the `SecurityProfile`.
+ *    Format: `organizations/{organization}/locations/{location}` or
+ *    `projects/{project}/locations/{location}`.
  *
  *  @return GTLRNetworkSecurityQuery_OrganizationsLocationsSecurityProfilesCreate
  */
@@ -1328,7 +1387,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes a single SecurityProfile.
+ *  Deletes a single security profile.
  *
  *  Method: networksecurity.organizations.locations.securityProfiles.delete
  *
@@ -1338,26 +1397,28 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRNetworkSecurityQuery_OrganizationsLocationsSecurityProfilesDelete : GTLRNetworkSecurityQuery
 
 /**
- *  Optional. If client provided etag is out of date, delete will return
- *  FAILED_PRECONDITION error.
+ *  Optional. If the client-provided `etag` is out of date, the delete request
+ *  returns an `ABORTED` error.
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  Required. A name of the SecurityProfile to delete. Must be in the format
- *  `projects|organizations/ *
- *  /locations/{location}/securityProfiles/{security_profile_id}`.
+ *  Required. The name of the `SecurityProfile` to delete. Format:
+ *  `organizations/{organization}/locations/{location}/securityProfiles/{security_profile}`
+ *  or
+ *  `projects/{project}/locations/{location}/securityProfiles/{security_profile}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRNetworkSecurity_Operation.
  *
- *  Deletes a single SecurityProfile.
+ *  Deletes a single security profile.
  *
- *  @param name Required. A name of the SecurityProfile to delete. Must be in
- *    the format `projects|organizations/ *
- *    /locations/{location}/securityProfiles/{security_profile_id}`.
+ *  @param name Required. The name of the `SecurityProfile` to delete. Format:
+ *    `organizations/{organization}/locations/{location}/securityProfiles/{security_profile}`
+ *    or
+ *    `projects/{project}/locations/{location}/securityProfiles/{security_profile}`.
  *
  *  @return GTLRNetworkSecurityQuery_OrganizationsLocationsSecurityProfilesDelete
  */
@@ -1366,7 +1427,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets details of a single SecurityProfile.
+ *  Gets details of a single security profile.
  *
  *  Method: networksecurity.organizations.locations.securityProfiles.get
  *
@@ -1376,20 +1437,22 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRNetworkSecurityQuery_OrganizationsLocationsSecurityProfilesGet : GTLRNetworkSecurityQuery
 
 /**
- *  Required. A name of the SecurityProfile to get. Must be in the format
- *  `projects|organizations/ *
- *  /locations/{location}/securityProfiles/{security_profile_id}`.
+ *  Required. The name of the `SecurityProfile` to get. Format:
+ *  `organizations/{organization}/locations/{location}/securityProfiles/{security_profile}`
+ *  or
+ *  `projects/{project}/locations/{location}/securityProfiles/{security_profile}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRNetworkSecurity_SecurityProfile.
  *
- *  Gets details of a single SecurityProfile.
+ *  Gets details of a single security profile.
  *
- *  @param name Required. A name of the SecurityProfile to get. Must be in the
- *    format `projects|organizations/ *
- *    /locations/{location}/securityProfiles/{security_profile_id}`.
+ *  @param name Required. The name of the `SecurityProfile` to get. Format:
+ *    `organizations/{organization}/locations/{location}/securityProfiles/{security_profile}`
+ *    or
+ *    `projects/{project}/locations/{location}/securityProfiles/{security_profile}`.
  *
  *  @return GTLRNetworkSecurityQuery_OrganizationsLocationsSecurityProfilesGet
  */
@@ -1398,7 +1461,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists SecurityProfiles in a given organization and location.
+ *  Lists security profile resources in a given organization and location.
  *
  *  Method: networksecurity.organizations.locations.securityProfiles.list
  *
@@ -1407,31 +1470,38 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRNetworkSecurityQuery_OrganizationsLocationsSecurityProfilesList : GTLRNetworkSecurityQuery
 
-/** Optional. Maximum number of SecurityProfiles to return per call. */
+/**
+ *  Optional. Maximum number of `SecurityProfile` resources to return per call.
+ *  The maximum value is 1000; values above 1000 are coerced to 1000. If
+ *  unspecified, the server picks an appropriate default.
+ */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Optional. The value returned by the last `ListSecurityProfilesResponse`
- *  Indicates that this is a continuation of a prior `ListSecurityProfiles`
- *  call, and that the system should return the next page of data.
+ *  Optional. A page token, received from a previous `ListSecurityProfiles`
+ *  call. Provide this to retrieve the subsequent page. When paginating, all
+ *  other parameters provided to `ListSecurityProfiles` must match the call that
+ *  provided the page token.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Required. The project or organization and location from which the
- *  SecurityProfiles should be listed, specified in the format
- *  `projects|organizations/ * /locations/{location}`.
+ *  `SecurityProfile` resources are listed. Format:
+ *  `organizations/{organization}/locations/{location}` or
+ *  `projects/{project}/locations/{location}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRNetworkSecurity_ListSecurityProfilesResponse.
  *
- *  Lists SecurityProfiles in a given organization and location.
+ *  Lists security profile resources in a given organization and location.
  *
  *  @param parent Required. The project or organization and location from which
- *    the SecurityProfiles should be listed, specified in the format
- *    `projects|organizations/ * /locations/{location}`.
+ *    the `SecurityProfile` resources are listed. Format:
+ *    `organizations/{organization}/locations/{location}` or
+ *    `projects/{project}/locations/{location}`.
  *
  *  @return GTLRNetworkSecurityQuery_OrganizationsLocationsSecurityProfilesList
  *
@@ -1444,7 +1514,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates the parameters of a single SecurityProfile.
+ *  Updates the parameters of a single security profile.
  *
  *  Method: networksecurity.organizations.locations.securityProfiles.patch
  *
@@ -1454,17 +1524,18 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRNetworkSecurityQuery_OrganizationsLocationsSecurityProfilesPatch : GTLRNetworkSecurityQuery
 
 /**
- *  Immutable. Identifier. Name of the SecurityProfile resource. It matches
- *  pattern `projects|organizations/ *
- *  /locations/{location}/securityProfiles/{security_profile}`.
+ *  Immutable. Identifier. Name of the `SecurityProfile` resource. Format:
+ *  `organizations/{organization}/locations/{location}/securityProfiles/{security_profile}`
+ *  or
+ *  `projects/{project}/locations/{location}/securityProfiles/{security_profile}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Required. Field mask is used to specify the fields to be overwritten in the
- *  SecurityProfile resource by the update. The fields specified in the
- *  update_mask are relative to the resource, not the full request. A field will
- *  be overwritten if it is in the mask.
+ *  `SecurityProfile` resource by the update. The fields specified in the
+ *  `update_mask` are relative to the resource, not the full request. A field is
+ *  overwritten if it is in the mask.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -1473,13 +1544,15 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRNetworkSecurity_Operation.
  *
- *  Updates the parameters of a single SecurityProfile.
+ *  Updates the parameters of a single security profile.
  *
  *  @param object The @c GTLRNetworkSecurity_SecurityProfile to include in the
  *    query.
- *  @param name Immutable. Identifier. Name of the SecurityProfile resource. It
- *    matches pattern `projects|organizations/ *
- *    /locations/{location}/securityProfiles/{security_profile}`.
+ *  @param name Immutable. Identifier. Name of the `SecurityProfile` resource.
+ *    Format:
+ *    `organizations/{organization}/locations/{location}/securityProfiles/{security_profile}`
+ *    or
+ *    `projects/{project}/locations/{location}/securityProfiles/{security_profile}`.
  *
  *  @return GTLRNetworkSecurityQuery_OrganizationsLocationsSecurityProfilesPatch
  */
@@ -3419,7 +3492,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates a new FirewallEndpointAssociation in a given project and location.
+ *  Creates a new firewall endpoint association in a given project and location.
  *
  *  Method: networksecurity.projects.locations.firewallEndpointAssociations.create
  *
@@ -3429,38 +3502,43 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRNetworkSecurityQuery_ProjectsLocationsFirewallEndpointAssociationsCreate : GTLRNetworkSecurityQuery
 
 /**
- *  Optional. Id of the requesting object. If auto-generating Id server-side,
- *  remove this field and firewall_endpoint_association_id from the
- *  method_signature of Create RPC.
+ *  Optional. The ID to use for the firewall endpoint association, which becomes
+ *  the final component of the association's resource name. This value must be
+ *  1-63 characters long, start with a lowercase letter, contain only lowercase
+ *  letters, numbers, and hyphens, and cannot end with a hyphen.
  */
 @property(nonatomic, copy, nullable) NSString *firewallEndpointAssociationId;
 
-/** Required. Value for parent. */
+/**
+ *  Required. The parent resource where this firewall endpoint association is
+ *  created. Format: `projects/{project}/locations/{location}`.
+ */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Optional. An optional request ID to identify requests. Specify a unique
- *  request ID so that if you must retry your request, the server will know to
- *  ignore the request if it has already been completed. The server will
- *  guarantee that for at least 60 minutes since the first request. For example,
- *  consider a situation where you make an initial request and the request times
- *  out. If you make the request again with the same request ID, the server can
- *  check if original operation with the same request ID was received, and if
- *  so, will ignore the second request. This prevents clients from accidentally
- *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  request ID so that if you must retry your request, the server knows to
+ *  ignore the request if it has already been completed. The server guarantees
+ *  that for at least 60 minutes since the first request. For example, consider
+ *  a situation where you make an initial request and the request times out. If
+ *  you make the request again with the same request ID, the server can check if
+ *  the original operation with the same request ID was received, and if so,
+ *  ignores the second request. This prevents clients from accidentally creating
+ *  duplicate commitments. The request ID must be a valid UUID with the
  *  exception that zero UUID is not supported
- *  (00000000-0000-0000-0000-000000000000).
+ *  (`00000000-0000-0000-0000-000000000000`).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
  *  Fetches a @c GTLRNetworkSecurity_Operation.
  *
- *  Creates a new FirewallEndpointAssociation in a given project and location.
+ *  Creates a new firewall endpoint association in a given project and location.
  *
  *  @param object The @c GTLRNetworkSecurity_FirewallEndpointAssociation to
  *    include in the query.
- *  @param parent Required. Value for parent.
+ *  @param parent Required. The parent resource where this firewall endpoint
+ *    association is created. Format: `projects/{project}/locations/{location}`.
  *
  *  @return GTLRNetworkSecurityQuery_ProjectsLocationsFirewallEndpointAssociationsCreate
  */
@@ -3470,7 +3548,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes a single FirewallEndpointAssociation.
+ *  Deletes a single firewall endpoint association.
  *
  *  Method: networksecurity.projects.locations.firewallEndpointAssociations.delete
  *
@@ -3479,30 +3557,30 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRNetworkSecurityQuery_ProjectsLocationsFirewallEndpointAssociationsDelete : GTLRNetworkSecurityQuery
 
-/** Required. Name of the resource */
+/** Required. The name of the resource. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Optional. An optional request ID to identify requests. Specify a unique
- *  request ID so that if you must retry your request, the server will know to
- *  ignore the request if it has already been completed. The server will
- *  guarantee that for at least 60 minutes after the first request. For example,
- *  consider a situation where you make an initial request and the request times
- *  out. If you make the request again with the same request ID, the server can
- *  check if original operation with the same request ID was received, and if
- *  so, will ignore the second request. This prevents clients from accidentally
- *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  request ID so that if you must retry your request, the server knows to
+ *  ignore the request if it has already been completed. The server guarantees
+ *  that for at least 60 minutes after the first request. For example, consider
+ *  a situation where you make an initial request and the request times out. If
+ *  you make the request again with the same request ID, the server can check if
+ *  the original operation with the same request ID was received, and if so,
+ *  ignores the second request. This prevents clients from accidentally creating
+ *  duplicate commitments. The request ID must be a valid UUID with the
  *  exception that zero UUID is not supported
- *  (00000000-0000-0000-0000-000000000000).
+ *  (`00000000-0000-0000-0000-000000000000`).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
  *  Fetches a @c GTLRNetworkSecurity_Operation.
  *
- *  Deletes a single FirewallEndpointAssociation.
+ *  Deletes a single firewall endpoint association.
  *
- *  @param name Required. Name of the resource
+ *  @param name Required. The name of the resource.
  *
  *  @return GTLRNetworkSecurityQuery_ProjectsLocationsFirewallEndpointAssociationsDelete
  */
@@ -3511,7 +3589,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets details of a single FirewallEndpointAssociation.
+ *  Gets details of a single firewall endpoint association.
  *
  *  Method: networksecurity.projects.locations.firewallEndpointAssociations.get
  *
@@ -3520,15 +3598,15 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRNetworkSecurityQuery_ProjectsLocationsFirewallEndpointAssociationsGet : GTLRNetworkSecurityQuery
 
-/** Required. Name of the resource */
+/** Required. The name of the resource. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRNetworkSecurity_FirewallEndpointAssociation.
  *
- *  Gets details of a single FirewallEndpointAssociation.
+ *  Gets details of a single firewall endpoint association.
  *
- *  @param name Required. Name of the resource
+ *  @param name Required. The name of the resource.
  *
  *  @return GTLRNetworkSecurityQuery_ProjectsLocationsFirewallEndpointAssociationsGet
  */
@@ -3537,7 +3615,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists Associations in a given project and location.
+ *  Lists associations in a given project and location.
  *
  *  Method: networksecurity.projects.locations.firewallEndpointAssociations.list
  *
@@ -3546,30 +3624,41 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRNetworkSecurityQuery_ProjectsLocationsFirewallEndpointAssociationsList : GTLRNetworkSecurityQuery
 
-/** Optional. Filtering results */
+/** Optional. Filtering results. */
 @property(nonatomic, copy, nullable) NSString *filter;
 
-/** Hint for how to order the results */
+/** Hint for how to order the results. */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Optional. Requested page size. Server may return fewer items than requested.
- *  If unspecified, server will pick an appropriate default.
+ *  Optional. Requested page size. The server might return fewer items than
+ *  requested. The maximum value is 1000; values above 1000 are coerced to 1000.
+ *  If unspecified, the server picks an appropriate default.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
-/** A token identifying a page of results the server should return. */
+/**
+ *  A page token, received from a previous `ListFirewallEndpointAssociations`
+ *  call. Provide this to retrieve the subsequent page. When paginating, all
+ *  other parameters provided to `ListFirewallEndpointAssociations` must match
+ *  the call that provided the page token.
+ */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
-/** Required. Parent value for ListAssociationsRequest */
+/**
+ *  Required. The parent resource from which the firewall endpoint associations
+ *  are listed. Format: `projects/{project}/locations/{location}`.
+ */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRNetworkSecurity_ListFirewallEndpointAssociationsResponse.
  *
- *  Lists Associations in a given project and location.
+ *  Lists associations in a given project and location.
  *
- *  @param parent Required. Parent value for ListAssociationsRequest
+ *  @param parent Required. The parent resource from which the firewall endpoint
+ *    associations are listed. Format:
+ *    `projects/{project}/locations/{location}`.
  *
  *  @return GTLRNetworkSecurityQuery_ProjectsLocationsFirewallEndpointAssociationsList
  *
@@ -3582,7 +3671,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Update a single FirewallEndpointAssociation.
+ *  Updates a single firewall endpoint association.
  *
  *  Method: networksecurity.projects.locations.firewallEndpointAssociations.patch
  *
@@ -3591,30 +3680,30 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRNetworkSecurityQuery_ProjectsLocationsFirewallEndpointAssociationsPatch : GTLRNetworkSecurityQuery
 
-/** Immutable. Identifier. name of resource */
+/** Immutable. Identifier. The name of the resource. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Optional. An optional request ID to identify requests. Specify a unique
- *  request ID so that if you must retry your request, the server will know to
- *  ignore the request if it has already been completed. The server will
- *  guarantee that for at least 60 minutes since the first request. For example,
- *  consider a situation where you make an initial request and the request times
- *  out. If you make the request again with the same request ID, the server can
- *  check if original operation with the same request ID was received, and if
- *  so, will ignore the second request. This prevents clients from accidentally
- *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  request ID so that if you must retry your request, the server knows to
+ *  ignore the request if it has already been completed. The server guarantees
+ *  that for at least 60 minutes since the first request. For example, consider
+ *  a situation where you make an initial request and the request times out. If
+ *  you make the request again with the same request ID, the server can check if
+ *  the original operation with the same request ID was received, and if so,
+ *  ignores the second request. This prevents clients from accidentally creating
+ *  duplicate commitments. The request ID must be a valid UUID with the
  *  exception that zero UUID is not supported
- *  (00000000-0000-0000-0000-000000000000).
+ *  (`00000000-0000-0000-0000-000000000000`).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
- *  Required. Field mask is used to specify the fields to be overwritten in the
- *  Association resource by the update. The fields specified in the update_mask
- *  are relative to the resource, not the full request. A field will be
- *  overwritten if it is in the mask. If the user does not provide a mask then
- *  all fields will be overwritten.
+ *  Required. Field mask used to specify the fields to be overwritten in the
+ *  `FirewallEndpointAssociation` resource by the update. The fields specified
+ *  in the `update_mask` are relative to the resource, not the full request. A
+ *  field is overwritten if it is in the mask. If the user does not provide a
+ *  mask, then all fields present in the request are overwritten.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -3623,11 +3712,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRNetworkSecurity_Operation.
  *
- *  Update a single FirewallEndpointAssociation.
+ *  Updates a single firewall endpoint association.
  *
  *  @param object The @c GTLRNetworkSecurity_FirewallEndpointAssociation to
  *    include in the query.
- *  @param name Immutable. Identifier. name of resource
+ *  @param name Immutable. Identifier. The name of the resource.
  *
  *  @return GTLRNetworkSecurityQuery_ProjectsLocationsFirewallEndpointAssociationsPatch
  */
@@ -3637,7 +3726,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates a new FirewallEndpoint in a given project and location.
+ *  Creates a new firewall endpoint in a given project and location.
  *
  *  Method: networksecurity.projects.locations.firewallEndpoints.create
  *
@@ -3647,44 +3736,51 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRNetworkSecurityQuery_ProjectsLocationsFirewallEndpointsCreate : GTLRNetworkSecurityQuery
 
 /**
- *  Required. Id of the requesting object. If auto-generating Id server-side,
- *  remove this field and firewall_endpoint_id from the method_signature of
- *  Create RPC.
+ *  Required. The ID to use for the firewall endpoint, which becomes the final
+ *  component of the endpoint's resource name. This value must be 1-63
+ *  characters long, start with a lowercase letter, contain only lowercase
+ *  letters, numbers, and hyphens, and cannot end with a hyphen.
  */
 @property(nonatomic, copy, nullable) NSString *firewallEndpointId;
 
-/** Required. Value for parent. */
+/**
+ *  Required. The parent resource where this firewall endpoint is created.
+ *  Format: `organizations/{organization}/locations/{location}` or
+ *  `projects/{project}/locations/{location}`.
+ */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Optional. An optional request ID to identify requests. Specify a unique
- *  request ID so that if you must retry your request, the server will know to
- *  ignore the request if it has already been completed. The server will
- *  guarantee that for at least 60 minutes since the first request. For example,
- *  consider a situation where you make an initial request and the request times
- *  out. If you make the request again with the same request ID, the server can
- *  check if original operation with the same request ID was received, and if
- *  so, will ignore the second request. This prevents clients from accidentally
- *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  request ID so that if you must retry your request, the server knows to
+ *  ignore the request if it has already been completed. The server guarantees
+ *  that for at least 60 minutes since the first request. For example, consider
+ *  a situation where you make an initial request and the request times out. If
+ *  you make the request again with the same request ID, the server can check if
+ *  the original operation with the same request ID was received, and if so,
+ *  ignores the second request. This prevents clients from accidentally creating
+ *  duplicate commitments. The request ID must be a valid UUID with the
  *  exception that zero UUID is not supported
- *  (00000000-0000-0000-0000-000000000000).
+ *  (`00000000-0000-0000-0000-000000000000`).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
- *  Optional. If set, validate the request and preview the endpoint, but do not
- *  actually create it.
+ *  Optional. If set, validates the request and previews the endpoint, but does
+ *  not actually create it.
  */
 @property(nonatomic, assign) BOOL validateOnly;
 
 /**
  *  Fetches a @c GTLRNetworkSecurity_Operation.
  *
- *  Creates a new FirewallEndpoint in a given project and location.
+ *  Creates a new firewall endpoint in a given project and location.
  *
  *  @param object The @c GTLRNetworkSecurity_FirewallEndpoint to include in the
  *    query.
- *  @param parent Required. Value for parent.
+ *  @param parent Required. The parent resource where this firewall endpoint is
+ *    created. Format: `organizations/{organization}/locations/{location}` or
+ *    `projects/{project}/locations/{location}`.
  *
  *  @return GTLRNetworkSecurityQuery_ProjectsLocationsFirewallEndpointsCreate
  */
@@ -3694,7 +3790,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes a single project Endpoint.
+ *  Deletes a single project endpoint.
  *
  *  Method: networksecurity.projects.locations.firewallEndpoints.delete
  *
@@ -3703,30 +3799,30 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRNetworkSecurityQuery_ProjectsLocationsFirewallEndpointsDelete : GTLRNetworkSecurityQuery
 
-/** Required. Name of the resource */
+/** Required. The name of the resource. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Optional. An optional request ID to identify requests. Specify a unique
- *  request ID so that if you must retry your request, the server will know to
- *  ignore the request if it has already been completed. The server will
- *  guarantee that for at least 60 minutes after the first request. For example,
- *  consider a situation where you make an initial request and the request times
- *  out. If you make the request again with the same request ID, the server can
- *  check if original operation with the same request ID was received, and if
- *  so, will ignore the second request. This prevents clients from accidentally
- *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  request ID so that if you must retry your request, the server knows to
+ *  ignore the request if it has already been completed. The server guarantees
+ *  that for at least 60 minutes after the first request. For example, consider
+ *  a situation where you make an initial request and the request times out. If
+ *  you make the request again with the same request ID, the server can check if
+ *  the original operation with the same request ID was received, and if so,
+ *  ignores the second request. This prevents clients from accidentally creating
+ *  duplicate commitments. The request ID must be a valid UUID with the
  *  exception that zero UUID is not supported
- *  (00000000-0000-0000-0000-000000000000).
+ *  (`00000000-0000-0000-0000-000000000000`).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
  *  Fetches a @c GTLRNetworkSecurity_Operation.
  *
- *  Deletes a single project Endpoint.
+ *  Deletes a single project endpoint.
  *
- *  @param name Required. Name of the resource
+ *  @param name Required. The name of the resource.
  *
  *  @return GTLRNetworkSecurityQuery_ProjectsLocationsFirewallEndpointsDelete
  */
@@ -3735,7 +3831,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets details of a single project Endpoint.
+ *  Gets details of a single project endpoint.
  *
  *  Method: networksecurity.projects.locations.firewallEndpoints.get
  *
@@ -3744,15 +3840,15 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRNetworkSecurityQuery_ProjectsLocationsFirewallEndpointsGet : GTLRNetworkSecurityQuery
 
-/** Required. Name of the resource */
+/** Required. The name of the resource. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRNetworkSecurity_FirewallEndpoint.
  *
- *  Gets details of a single project Endpoint.
+ *  Gets details of a single project endpoint.
  *
- *  @param name Required. Name of the resource
+ *  @param name Required. The name of the resource.
  *
  *  @return GTLRNetworkSecurityQuery_ProjectsLocationsFirewallEndpointsGet
  */
@@ -3761,7 +3857,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists FirewallEndpoints in a given project and location.
+ *  Lists firewall endpoints in a given project and location.
  *
  *  Method: networksecurity.projects.locations.firewallEndpoints.list
  *
@@ -3770,30 +3866,43 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRNetworkSecurityQuery_ProjectsLocationsFirewallEndpointsList : GTLRNetworkSecurityQuery
 
-/** Optional. Filtering results */
+/** Optional. Filtering results. */
 @property(nonatomic, copy, nullable) NSString *filter;
 
-/** Hint for how to order the results */
+/** Optional. Hint for how to order the results. */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Optional. Requested page size. Server may return fewer items than requested.
- *  If unspecified, server will pick an appropriate default.
+ *  Optional. Requested page size. The server might return fewer items than
+ *  requested. The maximum value is 1000; values above 1000 are coerced to 1000.
+ *  If unspecified, the server picks an appropriate default.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
-/** A token identifying a page of results the server should return. */
+/**
+ *  A page token, received from a previous `ListFirewallEndpoints` call. Provide
+ *  this to retrieve the subsequent page. When paginating, all other parameters
+ *  provided to `ListFirewallEndpoints` must match the call that provided the
+ *  page token.
+ */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
-/** Required. Parent value for ListEndpointsRequest */
+/**
+ *  Required. The parent resource from which the firewall endpoints are listed.
+ *  Format: `organizations/{organization}/locations/{location}` or
+ *  `projects/{project}/locations/{location}`.
+ */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRNetworkSecurity_ListFirewallEndpointsResponse.
  *
- *  Lists FirewallEndpoints in a given project and location.
+ *  Lists firewall endpoints in a given project and location.
  *
- *  @param parent Required. Parent value for ListEndpointsRequest
+ *  @param parent Required. The parent resource from which the firewall
+ *    endpoints are listed. Format:
+ *    `organizations/{organization}/locations/{location}` or
+ *    `projects/{project}/locations/{location}`.
  *
  *  @return GTLRNetworkSecurityQuery_ProjectsLocationsFirewallEndpointsList
  *
@@ -3806,7 +3915,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Update a single project Endpoint.
+ *  Updates a single project endpoint.
  *
  *  Method: networksecurity.projects.locations.firewallEndpoints.patch
  *
@@ -3815,30 +3924,30 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRNetworkSecurityQuery_ProjectsLocationsFirewallEndpointsPatch : GTLRNetworkSecurityQuery
 
-/** Immutable. Identifier. Name of resource. */
+/** Immutable. Identifier. The name of the resource. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Optional. An optional request ID to identify requests. Specify a unique
- *  request ID so that if you must retry your request, the server will know to
- *  ignore the request if it has already been completed. The server will
- *  guarantee that for at least 60 minutes since the first request. For example,
- *  consider a situation where you make an initial request and the request times
- *  out. If you make the request again with the same request ID, the server can
- *  check if original operation with the same request ID was received, and if
- *  so, will ignore the second request. This prevents clients from accidentally
- *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  request ID so that if you must retry your request, the server knows to
+ *  ignore the request if it has already been completed. The server guarantees
+ *  that for at least 60 minutes since the first request. For example, consider
+ *  a situation where you make an initial request and the request times out. If
+ *  you make the request again with the same request ID, the server can check if
+ *  the original operation with the same request ID was received, and if so,
+ *  ignores the second request. This prevents clients from accidentally creating
+ *  duplicate commitments. The request ID must be a valid UUID with the
  *  exception that zero UUID is not supported
- *  (00000000-0000-0000-0000-000000000000).
+ *  (`00000000-0000-0000-0000-000000000000`).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
- *  Required. Field mask is used to specify the fields to be overwritten in the
- *  Endpoint resource by the update. The fields specified in the update_mask are
- *  relative to the resource, not the full request. A field will be overwritten
- *  if it is in the mask. If the user does not provide a mask then all fields
- *  will be overwritten.
+ *  Required. Field mask used to specify the fields to be overwritten in the
+ *  `FirewallEndpoint` resource by the update. The fields specified in the
+ *  `update_mask` are relative to the resource, not the full request. A field is
+ *  overwritten if it is in the mask. If the user does not provide a mask, then
+ *  all fields present in the request are overwritten.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -3847,11 +3956,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRNetworkSecurity_Operation.
  *
- *  Update a single project Endpoint.
+ *  Updates a single project endpoint.
  *
  *  @param object The @c GTLRNetworkSecurity_FirewallEndpoint to include in the
  *    query.
- *  @param name Immutable. Identifier. Name of resource.
+ *  @param name Immutable. Identifier. The name of the resource.
  *
  *  @return GTLRNetworkSecurityQuery_ProjectsLocationsFirewallEndpointsPatch
  */
@@ -3861,8 +3970,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Create WildfireVerdictChangeRequest in a given Firewall Endpoint in a
- *  project and location.
+ *  Creates an Advanced malware sandbox verdict change request in a given
+ *  firewall endpoint in a project and location.
  *
  *  Method: networksecurity.projects.locations.firewallEndpoints.wildfireVerdictChangeRequests.create
  *
@@ -3872,24 +3981,28 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRNetworkSecurityQuery_ProjectsLocationsFirewallEndpointsWildfireVerdictChangeRequestsCreate : GTLRNetworkSecurityQuery
 
 /**
- *  Required. Parent value for CreateWildfireVerdictChangeRequestRequest. The
+ *  Required. Parent value for `CreateWildfireVerdictChangeRequestRequest`. The
  *  parent is a firewall endpoint resource. Format:
- *  organizations|projects/{project_or_organization}/locations/{location}/firewallEndpoints/{firewall_endpoint}
+ *  `organizations/{organization}/locations/{location}/firewallEndpoints/{firewall_endpoint}`
+ *  or
+ *  `projects/{project}/locations/{location}/firewallEndpoints/{firewall_endpoint}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRNetworkSecurity_WildfireVerdictChangeRequest.
  *
- *  Create WildfireVerdictChangeRequest in a given Firewall Endpoint in a
- *  project and location.
+ *  Creates an Advanced malware sandbox verdict change request in a given
+ *  firewall endpoint in a project and location.
  *
  *  @param object The @c GTLRNetworkSecurity_WildfireVerdictChangeRequest to
  *    include in the query.
  *  @param parent Required. Parent value for
- *    CreateWildfireVerdictChangeRequestRequest. The parent is a firewall
+ *    `CreateWildfireVerdictChangeRequestRequest`. The parent is a firewall
  *    endpoint resource. Format:
- *    organizations|projects/{project_or_organization}/locations/{location}/firewallEndpoints/{firewall_endpoint}
+ *    `organizations/{organization}/locations/{location}/firewallEndpoints/{firewall_endpoint}`
+ *    or
+ *    `projects/{project}/locations/{location}/firewallEndpoints/{firewall_endpoint}`.
  *
  *  @return GTLRNetworkSecurityQuery_ProjectsLocationsFirewallEndpointsWildfireVerdictChangeRequestsCreate
  */
@@ -3899,8 +4012,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Get WildfireVerdictChangeRequest in a given Firewall Endpoint in a project
- *  and location.
+ *  Gets an Advanced malware sandbox verdict change request in a given firewall
+ *  endpoint in a project and location.
  *
  *  Method: networksecurity.projects.locations.firewallEndpoints.wildfireVerdictChangeRequests.get
  *
@@ -3910,24 +4023,29 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRNetworkSecurityQuery_ProjectsLocationsFirewallEndpointsWildfireVerdictChangeRequestsGet : GTLRNetworkSecurityQuery
 
 /**
- *  Required. Name of the WildfireVerdictChangeRequest to retrieve. Format:
- *  organizations|projects/{project_or_organization}/locations/{location}/firewallEndpoints/{firewall_endpoint}/wildfireVerdictChangeRequests/{wildfire_verdict_change_request_id}
- *  Where {wildfire_verdict_change_request_id} is the ID in the format:
- *  ^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$
+ *  Required. The name of the `WildfireVerdictChangeRequest` to retrieve.
+ *  Format:
+ *  `organizations/{organization}/locations/{location}/firewallEndpoints/{firewall_endpoint}/wildfireVerdictChangeRequests/{wildfire_verdict_change_request_id}`
+ *  or
+ *  `projects/{project}/locations/{location}/firewallEndpoints/{firewall_endpoint}/wildfireVerdictChangeRequests/{wildfire_verdict_change_request_id}`.
+ *  Where `{wildfire_verdict_change_request_id}` is an ID in the format
+ *  `^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRNetworkSecurity_WildfireVerdictChangeRequest.
  *
- *  Get WildfireVerdictChangeRequest in a given Firewall Endpoint in a project
- *  and location.
+ *  Gets an Advanced malware sandbox verdict change request in a given firewall
+ *  endpoint in a project and location.
  *
- *  @param name Required. Name of the WildfireVerdictChangeRequest to retrieve.
- *    Format:
- *    organizations|projects/{project_or_organization}/locations/{location}/firewallEndpoints/{firewall_endpoint}/wildfireVerdictChangeRequests/{wildfire_verdict_change_request_id}
- *    Where {wildfire_verdict_change_request_id} is the ID in the format:
- *    ^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$
+ *  @param name Required. The name of the `WildfireVerdictChangeRequest` to
+ *    retrieve. Format:
+ *    `organizations/{organization}/locations/{location}/firewallEndpoints/{firewall_endpoint}/wildfireVerdictChangeRequests/{wildfire_verdict_change_request_id}`
+ *    or
+ *    `projects/{project}/locations/{location}/firewallEndpoints/{firewall_endpoint}/wildfireVerdictChangeRequests/{wildfire_verdict_change_request_id}`.
+ *    Where `{wildfire_verdict_change_request_id}` is an ID in the format
+ *    `^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$`.
  *
  *  @return GTLRNetworkSecurityQuery_ProjectsLocationsFirewallEndpointsWildfireVerdictChangeRequestsGet
  */
@@ -3936,8 +4054,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists WildfireVerdictChangeRequests in a given Firewall Endpoint in a
- *  project and location.
+ *  Lists the Advanced malware sandbox verdict change requests in a given
+ *  firewall endpoint in a project and location.
  *
  *  Method: networksecurity.projects.locations.firewallEndpoints.wildfireVerdictChangeRequests.list
  *
@@ -3947,42 +4065,53 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRNetworkSecurityQuery_ProjectsLocationsFirewallEndpointsWildfireVerdictChangeRequestsList : GTLRNetworkSecurityQuery
 
 /**
- *  Optional. Filter expression to filter the results. See AIP-160 for filtering
- *  syntax. Supported fields are: - `sha256` (string, equality only, e.g.
- *  `sha256 = "..."`) - `state` (enum, equality only, e.g. `state = "ACTIVE"`) -
- *  `create_time` (timestamp, comparisons, e.g. `create_time >
- *  "2026-01-01T00:00:00Z"`)
+ *  Optional. Filter expression to filter the results. Supported fields are: -
+ *  `sha256` (string, equality only, for example, `sha256 = "..."`) - `state`
+ *  (enum, equality only, valid values are `OPEN`, `CLOSED`, or `PENDING`, for
+ *  example, `state = "PENDING"`) - `create_time` (timestamp, comparisons, for
+ *  example, `create_time >= "2026-01-01T00:00:00Z" AND create_time <=
+ *  "2026-01-31T23:59:59Z"`). If filtering by `create_time`, you must specify
+ *  both a start time and an end time. If `create_time` is not specified, the
+ *  query defaults to the past 30 days.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  Optional. Requested page size. Server may return fewer items than requested.
- *  If unspecified, server will pick an appropriate default.
+ *  Optional. Requested page size. The server might return fewer items than
+ *  requested. If unspecified, the server picks an appropriate default.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Optional. A token identifying a page of results the server should return.
+ *  Optional. A page token, received from a previous
+ *  `ListWildfireVerdictChangeRequests` call. Provide this to retrieve the
+ *  subsequent page. When paginating, all other parameters provided to
+ *  `ListWildfireVerdictChangeRequests` must match the call that provided the
+ *  page token.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. Parent value for ListWildfireVerdictChangeRequestsRequest. The
+ *  Required. Parent value for `ListWildfireVerdictChangeRequestsRequest`. The
  *  parent is a firewall endpoint resource. Format:
- *  organizations|projects/{project_or_organization}/locations/{location}/firewallEndpoints/{firewall_endpoint}
+ *  `organizations/{organization}/locations/{location}/firewallEndpoints/{firewall_endpoint}`
+ *  or
+ *  `projects/{project}/locations/{location}/firewallEndpoints/{firewall_endpoint}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRNetworkSecurity_ListWildfireVerdictChangeRequestsResponse.
  *
- *  Lists WildfireVerdictChangeRequests in a given Firewall Endpoint in a
- *  project and location.
+ *  Lists the Advanced malware sandbox verdict change requests in a given
+ *  firewall endpoint in a project and location.
  *
  *  @param parent Required. Parent value for
- *    ListWildfireVerdictChangeRequestsRequest. The parent is a firewall
+ *    `ListWildfireVerdictChangeRequestsRequest`. The parent is a firewall
  *    endpoint resource. Format:
- *    organizations|projects/{project_or_organization}/locations/{location}/firewallEndpoints/{firewall_endpoint}
+ *    `organizations/{organization}/locations/{location}/firewallEndpoints/{firewall_endpoint}`
+ *    or
+ *    `projects/{project}/locations/{location}/firewallEndpoints/{firewall_endpoint}`.
  *
  *  @return GTLRNetworkSecurityQuery_ProjectsLocationsFirewallEndpointsWildfireVerdictChangeRequestsList
  *
@@ -6864,7 +6993,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates a new SecurityProfileGroup in a given project and location.
+ *  Creates a new security profile group in a given project and location.
  *
  *  Method: networksecurity.projects.locations.securityProfileGroups.create
  *
@@ -6874,28 +7003,30 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRNetworkSecurityQuery_ProjectsLocationsSecurityProfileGroupsCreate : GTLRNetworkSecurityQuery
 
 /**
- *  Required. The parent resource of the SecurityProfileGroup. Must be in the
- *  format `projects|organizations/ * /locations/{location}`.
+ *  Required. The parent resource of the `SecurityProfileGroup`. Format:
+ *  `organizations/{organization}/locations/{location}` or
+ *  `projects/{project}/locations/{location}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Required. Short name of the SecurityProfileGroup resource to be created.
- *  This value should be 1-63 characters long, containing only letters, numbers,
- *  hyphens, and underscores, and should not start with a number. E.g.
- *  "security_profile_group1".
+ *  Required. Short name of the `SecurityProfileGroup` resource to be created.
+ *  This value must be 1 to 63 characters long, contain only lowercase letters,
+ *  numbers, and hyphens, and must not start with a number. For example,
+ *  `security-profile-group1`.
  */
 @property(nonatomic, copy, nullable) NSString *securityProfileGroupId;
 
 /**
  *  Fetches a @c GTLRNetworkSecurity_Operation.
  *
- *  Creates a new SecurityProfileGroup in a given project and location.
+ *  Creates a new security profile group in a given project and location.
  *
  *  @param object The @c GTLRNetworkSecurity_SecurityProfileGroup to include in
  *    the query.
- *  @param parent Required. The parent resource of the SecurityProfileGroup.
- *    Must be in the format `projects|organizations/ * /locations/{location}`.
+ *  @param parent Required. The parent resource of the `SecurityProfileGroup`.
+ *    Format: `organizations/{organization}/locations/{location}` or
+ *    `projects/{project}/locations/{location}`.
  *
  *  @return GTLRNetworkSecurityQuery_ProjectsLocationsSecurityProfileGroupsCreate
  */
@@ -6905,7 +7036,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes a single SecurityProfileGroup.
+ *  Deletes a single security profile group.
  *
  *  Method: networksecurity.projects.locations.securityProfileGroups.delete
  *
@@ -6915,26 +7046,29 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRNetworkSecurityQuery_ProjectsLocationsSecurityProfileGroupsDelete : GTLRNetworkSecurityQuery
 
 /**
- *  Optional. If client provided etag is out of date, delete will return
- *  FAILED_PRECONDITION error.
+ *  Optional. If the client-provided `etag` is out of date, the delete request
+ *  returns an `ABORTED` error.
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  Required. A name of the SecurityProfileGroup to delete. Must be in the
- *  format `projects|organizations/ *
- *  /locations/{location}/securityProfileGroups/{security_profile_group}`.
+ *  Required. The name of the `SecurityProfileGroup` to delete. Format:
+ *  `organizations/{organization}/locations/{location}/securityProfileGroups/{security_profile_group}`
+ *  or
+ *  `projects/{project}/locations/{location}/securityProfileGroups/{security_profile_group}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRNetworkSecurity_Operation.
  *
- *  Deletes a single SecurityProfileGroup.
+ *  Deletes a single security profile group.
  *
- *  @param name Required. A name of the SecurityProfileGroup to delete. Must be
- *    in the format `projects|organizations/ *
- *    /locations/{location}/securityProfileGroups/{security_profile_group}`.
+ *  @param name Required. The name of the `SecurityProfileGroup` to delete.
+ *    Format:
+ *    `organizations/{organization}/locations/{location}/securityProfileGroups/{security_profile_group}`
+ *    or
+ *    `projects/{project}/locations/{location}/securityProfileGroups/{security_profile_group}`.
  *
  *  @return GTLRNetworkSecurityQuery_ProjectsLocationsSecurityProfileGroupsDelete
  */
@@ -6943,7 +7077,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets details of a single SecurityProfileGroup.
+ *  Gets details of a single security profile group.
  *
  *  Method: networksecurity.projects.locations.securityProfileGroups.get
  *
@@ -6953,20 +7087,22 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRNetworkSecurityQuery_ProjectsLocationsSecurityProfileGroupsGet : GTLRNetworkSecurityQuery
 
 /**
- *  Required. A name of the SecurityProfileGroup to get. Must be in the format
- *  `projects|organizations/ *
- *  /locations/{location}/securityProfileGroups/{security_profile_group}`.
+ *  Required. The name of the `SecurityProfileGroup` to get. Format:
+ *  `organizations/{organization}/locations/{location}/securityProfileGroups/{security_profile_group}`
+ *  or
+ *  `projects/{project}/locations/{location}/securityProfileGroups/{security_profile_group}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRNetworkSecurity_SecurityProfileGroup.
  *
- *  Gets details of a single SecurityProfileGroup.
+ *  Gets details of a single security profile group.
  *
- *  @param name Required. A name of the SecurityProfileGroup to get. Must be in
- *    the format `projects|organizations/ *
- *    /locations/{location}/securityProfileGroups/{security_profile_group}`.
+ *  @param name Required. The name of the `SecurityProfileGroup` to get. Format:
+ *    `organizations/{organization}/locations/{location}/securityProfileGroups/{security_profile_group}`
+ *    or
+ *    `projects/{project}/locations/{location}/securityProfileGroups/{security_profile_group}`.
  *
  *  @return GTLRNetworkSecurityQuery_ProjectsLocationsSecurityProfileGroupsGet
  */
@@ -6975,7 +7111,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists SecurityProfileGroups in a given project and location.
+ *  Lists security profile group resources in a given project and location.
  *
  *  Method: networksecurity.projects.locations.securityProfileGroups.list
  *
@@ -6984,31 +7120,38 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRNetworkSecurityQuery_ProjectsLocationsSecurityProfileGroupsList : GTLRNetworkSecurityQuery
 
-/** Optional. Maximum number of SecurityProfileGroups to return per call. */
+/**
+ *  Optional. Maximum number of `SecurityProfileGroup` resources to return per
+ *  call. The maximum value is 1000; values above 1000 are coerced to 1000. If
+ *  unspecified, the server picks an appropriate default.
+ */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Optional. The value returned by the last `ListSecurityProfileGroupsResponse`
- *  Indicates that this is a continuation of a prior `ListSecurityProfileGroups`
- *  call, and that the system should return the next page of data.
+ *  Optional. A page token, received from a previous `ListSecurityProfileGroups`
+ *  call. Provide this to retrieve the subsequent page. When paginating, all
+ *  other parameters provided to `ListSecurityProfileGroups` must match the call
+ *  that provided the page token.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Required. The project or organization and location from which the
- *  SecurityProfileGroups should be listed, specified in the format
- *  `projects|organizations/ * /locations/{location}`.
+ *  `SecurityProfileGroup` resources are listed. Format:
+ *  `organizations/{organization}/locations/{location}` or
+ *  `projects/{project}/locations/{location}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRNetworkSecurity_ListSecurityProfileGroupsResponse.
  *
- *  Lists SecurityProfileGroups in a given project and location.
+ *  Lists security profile group resources in a given project and location.
  *
  *  @param parent Required. The project or organization and location from which
- *    the SecurityProfileGroups should be listed, specified in the format
- *    `projects|organizations/ * /locations/{location}`.
+ *    the `SecurityProfileGroup` resources are listed. Format:
+ *    `organizations/{organization}/locations/{location}` or
+ *    `projects/{project}/locations/{location}`.
  *
  *  @return GTLRNetworkSecurityQuery_ProjectsLocationsSecurityProfileGroupsList
  *
@@ -7021,7 +7164,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates the parameters of a single SecurityProfileGroup.
+ *  Updates the parameters of a single security profile group.
  *
  *  Method: networksecurity.projects.locations.securityProfileGroups.patch
  *
@@ -7031,17 +7174,18 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRNetworkSecurityQuery_ProjectsLocationsSecurityProfileGroupsPatch : GTLRNetworkSecurityQuery
 
 /**
- *  Immutable. Identifier. Name of the SecurityProfileGroup resource. It matches
- *  pattern `projects|organizations/ *
- *  /locations/{location}/securityProfileGroups/{security_profile_group}`.
+ *  Immutable. Identifier. Name of the `SecurityProfileGroup` resource. Format:
+ *  `organizations/{organization}/locations/{location}/securityProfileGroups/{security_profile_group}`
+ *  or
+ *  `projects/{project}/locations/{location}/securityProfileGroups/{security_profile_group}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Required. Field mask is used to specify the fields to be overwritten in the
- *  SecurityProfileGroup resource by the update. The fields specified in the
- *  update_mask are relative to the resource, not the full request. A field will
- *  be overwritten if it is in the mask.
+ *  `SecurityProfileGroup` resource by the update. The fields specified in the
+ *  `update_mask` are relative to the resource, not the full request. A field is
+ *  overwritten if it is in the mask.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -7050,13 +7194,15 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRNetworkSecurity_Operation.
  *
- *  Updates the parameters of a single SecurityProfileGroup.
+ *  Updates the parameters of a single security profile group.
  *
  *  @param object The @c GTLRNetworkSecurity_SecurityProfileGroup to include in
  *    the query.
- *  @param name Immutable. Identifier. Name of the SecurityProfileGroup
- *    resource. It matches pattern `projects|organizations/ *
- *    /locations/{location}/securityProfileGroups/{security_profile_group}`.
+ *  @param name Immutable. Identifier. Name of the `SecurityProfileGroup`
+ *    resource. Format:
+ *    `organizations/{organization}/locations/{location}/securityProfileGroups/{security_profile_group}`
+ *    or
+ *    `projects/{project}/locations/{location}/securityProfileGroups/{security_profile_group}`.
  *
  *  @return GTLRNetworkSecurityQuery_ProjectsLocationsSecurityProfileGroupsPatch
  */
@@ -7066,7 +7212,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates a new SecurityProfile in a given project and location.
+ *  Creates a new security profile in a given project and location.
  *
  *  Method: networksecurity.projects.locations.securityProfiles.create
  *
@@ -7076,28 +7222,30 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRNetworkSecurityQuery_ProjectsLocationsSecurityProfilesCreate : GTLRNetworkSecurityQuery
 
 /**
- *  Required. The parent resource of the SecurityProfile. Must be in the format
- *  `projects|organizations/ * /locations/{location}`.
+ *  Required. The parent resource of the `SecurityProfile`. Format:
+ *  `organizations/{organization}/locations/{location}` or
+ *  `projects/{project}/locations/{location}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Required. Short name of the SecurityProfile resource to be created. This
- *  value should be 1-63 characters long, containing only letters, numbers,
- *  hyphens, and underscores, and should not start with a number. E.g.
- *  "security_profile1".
+ *  Required. Short name of the `SecurityProfile` resource to be created. This
+ *  value must be 1 to 63 characters long, contain only lowercase letters,
+ *  numbers, and hyphens, and must not start with a number. For example,
+ *  `security-profile1`.
  */
 @property(nonatomic, copy, nullable) NSString *securityProfileId;
 
 /**
  *  Fetches a @c GTLRNetworkSecurity_Operation.
  *
- *  Creates a new SecurityProfile in a given project and location.
+ *  Creates a new security profile in a given project and location.
  *
  *  @param object The @c GTLRNetworkSecurity_SecurityProfile to include in the
  *    query.
- *  @param parent Required. The parent resource of the SecurityProfile. Must be
- *    in the format `projects|organizations/ * /locations/{location}`.
+ *  @param parent Required. The parent resource of the `SecurityProfile`.
+ *    Format: `organizations/{organization}/locations/{location}` or
+ *    `projects/{project}/locations/{location}`.
  *
  *  @return GTLRNetworkSecurityQuery_ProjectsLocationsSecurityProfilesCreate
  */
@@ -7107,7 +7255,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes a single SecurityProfile.
+ *  Deletes a single security profile.
  *
  *  Method: networksecurity.projects.locations.securityProfiles.delete
  *
@@ -7117,26 +7265,28 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRNetworkSecurityQuery_ProjectsLocationsSecurityProfilesDelete : GTLRNetworkSecurityQuery
 
 /**
- *  Optional. If client provided etag is out of date, delete will return
- *  FAILED_PRECONDITION error.
+ *  Optional. If the client-provided `etag` is out of date, the delete request
+ *  returns an `ABORTED` error.
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  Required. A name of the SecurityProfile to delete. Must be in the format
- *  `projects|organizations/ *
- *  /locations/{location}/securityProfiles/{security_profile_id}`.
+ *  Required. The name of the `SecurityProfile` to delete. Format:
+ *  `organizations/{organization}/locations/{location}/securityProfiles/{security_profile}`
+ *  or
+ *  `projects/{project}/locations/{location}/securityProfiles/{security_profile}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRNetworkSecurity_Operation.
  *
- *  Deletes a single SecurityProfile.
+ *  Deletes a single security profile.
  *
- *  @param name Required. A name of the SecurityProfile to delete. Must be in
- *    the format `projects|organizations/ *
- *    /locations/{location}/securityProfiles/{security_profile_id}`.
+ *  @param name Required. The name of the `SecurityProfile` to delete. Format:
+ *    `organizations/{organization}/locations/{location}/securityProfiles/{security_profile}`
+ *    or
+ *    `projects/{project}/locations/{location}/securityProfiles/{security_profile}`.
  *
  *  @return GTLRNetworkSecurityQuery_ProjectsLocationsSecurityProfilesDelete
  */
@@ -7145,7 +7295,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets details of a single SecurityProfile.
+ *  Gets details of a single security profile.
  *
  *  Method: networksecurity.projects.locations.securityProfiles.get
  *
@@ -7155,20 +7305,22 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRNetworkSecurityQuery_ProjectsLocationsSecurityProfilesGet : GTLRNetworkSecurityQuery
 
 /**
- *  Required. A name of the SecurityProfile to get. Must be in the format
- *  `projects|organizations/ *
- *  /locations/{location}/securityProfiles/{security_profile_id}`.
+ *  Required. The name of the `SecurityProfile` to get. Format:
+ *  `organizations/{organization}/locations/{location}/securityProfiles/{security_profile}`
+ *  or
+ *  `projects/{project}/locations/{location}/securityProfiles/{security_profile}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRNetworkSecurity_SecurityProfile.
  *
- *  Gets details of a single SecurityProfile.
+ *  Gets details of a single security profile.
  *
- *  @param name Required. A name of the SecurityProfile to get. Must be in the
- *    format `projects|organizations/ *
- *    /locations/{location}/securityProfiles/{security_profile_id}`.
+ *  @param name Required. The name of the `SecurityProfile` to get. Format:
+ *    `organizations/{organization}/locations/{location}/securityProfiles/{security_profile}`
+ *    or
+ *    `projects/{project}/locations/{location}/securityProfiles/{security_profile}`.
  *
  *  @return GTLRNetworkSecurityQuery_ProjectsLocationsSecurityProfilesGet
  */
@@ -7177,7 +7329,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists SecurityProfiles in a given project and location.
+ *  Lists security profiles in a given project and location.
  *
  *  Method: networksecurity.projects.locations.securityProfiles.list
  *
@@ -7186,31 +7338,38 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRNetworkSecurityQuery_ProjectsLocationsSecurityProfilesList : GTLRNetworkSecurityQuery
 
-/** Optional. Maximum number of SecurityProfiles to return per call. */
+/**
+ *  Optional. Maximum number of `SecurityProfile` resources to return per call.
+ *  The maximum value is 1000; values above 1000 are coerced to 1000. If
+ *  unspecified, the server picks an appropriate default.
+ */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Optional. The value returned by the last `ListSecurityProfilesResponse`
- *  Indicates that this is a continuation of a prior `ListSecurityProfiles`
- *  call, and that the system should return the next page of data.
+ *  Optional. A page token, received from a previous `ListSecurityProfiles`
+ *  call. Provide this to retrieve the subsequent page. When paginating, all
+ *  other parameters provided to `ListSecurityProfiles` must match the call that
+ *  provided the page token.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Required. The project or organization and location from which the
- *  SecurityProfiles should be listed, specified in the format
- *  `projects|organizations/ * /locations/{location}`.
+ *  `SecurityProfile` resources are listed. Format:
+ *  `organizations/{organization}/locations/{location}` or
+ *  `projects/{project}/locations/{location}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRNetworkSecurity_ListSecurityProfilesResponse.
  *
- *  Lists SecurityProfiles in a given project and location.
+ *  Lists security profiles in a given project and location.
  *
  *  @param parent Required. The project or organization and location from which
- *    the SecurityProfiles should be listed, specified in the format
- *    `projects|organizations/ * /locations/{location}`.
+ *    the `SecurityProfile` resources are listed. Format:
+ *    `organizations/{organization}/locations/{location}` or
+ *    `projects/{project}/locations/{location}`.
  *
  *  @return GTLRNetworkSecurityQuery_ProjectsLocationsSecurityProfilesList
  *
@@ -7223,7 +7382,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates the parameters of a single SecurityProfile.
+ *  Updates the parameters of a single security profile.
  *
  *  Method: networksecurity.projects.locations.securityProfiles.patch
  *
@@ -7233,17 +7392,18 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRNetworkSecurityQuery_ProjectsLocationsSecurityProfilesPatch : GTLRNetworkSecurityQuery
 
 /**
- *  Immutable. Identifier. Name of the SecurityProfile resource. It matches
- *  pattern `projects|organizations/ *
- *  /locations/{location}/securityProfiles/{security_profile}`.
+ *  Immutable. Identifier. Name of the `SecurityProfile` resource. Format:
+ *  `organizations/{organization}/locations/{location}/securityProfiles/{security_profile}`
+ *  or
+ *  `projects/{project}/locations/{location}/securityProfiles/{security_profile}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Required. Field mask is used to specify the fields to be overwritten in the
- *  SecurityProfile resource by the update. The fields specified in the
- *  update_mask are relative to the resource, not the full request. A field will
- *  be overwritten if it is in the mask.
+ *  `SecurityProfile` resource by the update. The fields specified in the
+ *  `update_mask` are relative to the resource, not the full request. A field is
+ *  overwritten if it is in the mask.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -7252,13 +7412,15 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRNetworkSecurity_Operation.
  *
- *  Updates the parameters of a single SecurityProfile.
+ *  Updates the parameters of a single security profile.
  *
  *  @param object The @c GTLRNetworkSecurity_SecurityProfile to include in the
  *    query.
- *  @param name Immutable. Identifier. Name of the SecurityProfile resource. It
- *    matches pattern `projects|organizations/ *
- *    /locations/{location}/securityProfiles/{security_profile}`.
+ *  @param name Immutable. Identifier. Name of the `SecurityProfile` resource.
+ *    Format:
+ *    `organizations/{organization}/locations/{location}/securityProfiles/{security_profile}`
+ *    or
+ *    `projects/{project}/locations/{location}/securityProfiles/{security_profile}`.
  *
  *  @return GTLRNetworkSecurityQuery_ProjectsLocationsSecurityProfilesPatch
  */

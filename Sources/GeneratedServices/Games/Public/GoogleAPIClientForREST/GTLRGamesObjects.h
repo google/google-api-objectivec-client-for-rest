@@ -25,6 +25,7 @@
 @class GTLRGames_ApplicationPlayerId;
 @class GTLRGames_BatchRecordEventsResponse_FailedRequests;
 @class GTLRGames_Category;
+@class GTLRGames_DeveloperIntegrityVerdict;
 @class GTLRGames_EventBatchRecordFailure;
 @class GTLRGames_EventChild;
 @class GTLRGames_EventDefinition;
@@ -209,6 +210,74 @@ FOUNDATION_EXTERN NSString * const kGTLRGames_AchievementUpdateResponse_CurrentS
  *  Value: "SNAPSHOTS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRGames_Application_EnabledFeatures_Snapshots;
+
+// ----------------------------------------------------------------------------
+// GTLRGames_DeveloperIntegrityVerdict.category
+
+/**
+ *  Account did not acquire game through Play.
+ *
+ *  Value: "ACCOUNT_UNLICENSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGames_DeveloperIntegrityVerdict_Category_AccountUnlicensed;
+/**
+ *  Binary is modified, cracked, or tampered.
+ *
+ *  Value: "APP_UNRECOGNIZED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGames_DeveloperIntegrityVerdict_Category_AppUnrecognized;
+/**
+ *  Default value. Do not use.
+ *
+ *  Value: "CATEGORY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGames_DeveloperIntegrityVerdict_Category_CategoryUnspecified;
+/**
+ *  Phone is rooted or compromised.
+ *
+ *  Value: "DEVICE_UNTRUSTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGames_DeveloperIntegrityVerdict_Category_DeviceUntrusted;
+/**
+ *  Automated bot or malicious app detected.
+ *
+ *  Value: "ENVIRONMENT_RISK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGames_DeveloperIntegrityVerdict_Category_EnvironmentRisk;
+/**
+ *  Physically impossible gameplay detected for player.
+ *
+ *  Value: "IMPOSSIBLE_GAMEPLAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGames_DeveloperIntegrityVerdict_Category_ImpossibleGameplay;
+/**
+ *  Other abuse category.
+ *
+ *  Value: "OTHER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGames_DeveloperIntegrityVerdict_Category_Other;
+
+// ----------------------------------------------------------------------------
+// GTLRGames_DeveloperIntegrityVerdict.source
+
+/**
+ *  Developer's proprietary anti-cheat system.
+ *
+ *  Value: "DEVELOPER_INTERNAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGames_DeveloperIntegrityVerdict_Source_DeveloperInternal;
+/**
+ *  Google Play Integrity API.
+ *
+ *  Value: "PLAY_INTEGRITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGames_DeveloperIntegrityVerdict_Source_PlayIntegrity;
+/**
+ *  Default value. Do not use.
+ *
+ *  Value: "SOURCE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGames_DeveloperIntegrityVerdict_Source_SourceUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRGames_EventBatchRecordFailure.failureCause
@@ -1139,7 +1208,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGames_Snapshot_Type_SaveGame;
 
 
 /**
- *  Request message for PlayerGameEvents.BatchRecordEvents Next ID: 7
+ *  Request message for PlayerGameEvents.BatchRecordEvents Next ID: 8
  */
 @interface GTLRGames_BatchRecordEventsRequest : GTLRObject
 
@@ -1154,6 +1223,12 @@ FOUNDATION_EXTERN NSString * const kGTLRGames_Snapshot_Type_SaveGame;
  *  per batch request.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRGames_PlayerGameEvent *> *events;
+
+/**
+ *  Optional. Developer-provided fraud or integrity verdicts passed as a request
+ *  parameter. Maximum of 10 integrity verdicts per batch request.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRGames_DeveloperIntegrityVerdict *> *integrityVerdicts;
 
 /** Required. Application package name (e.g., "com.example.game"). */
 @property(nonatomic, copy, nullable) NSString *packageName;
@@ -1252,6 +1327,60 @@ FOUNDATION_EXTERN NSString * const kGTLRGames_Snapshot_Type_SaveGame;
 
 /** Token corresponding to the next page of results. */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Represents a developer-provided fraud or integrity verdict.
+ */
+@interface GTLRGames_DeveloperIntegrityVerdict : GTLRObject
+
+/**
+ *  Required. The standardized verdict category.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGames_DeveloperIntegrityVerdict_Category_AccountUnlicensed
+ *        Account did not acquire game through Play. (Value:
+ *        "ACCOUNT_UNLICENSED")
+ *    @arg @c kGTLRGames_DeveloperIntegrityVerdict_Category_AppUnrecognized
+ *        Binary is modified, cracked, or tampered. (Value: "APP_UNRECOGNIZED")
+ *    @arg @c kGTLRGames_DeveloperIntegrityVerdict_Category_CategoryUnspecified
+ *        Default value. Do not use. (Value: "CATEGORY_UNSPECIFIED")
+ *    @arg @c kGTLRGames_DeveloperIntegrityVerdict_Category_DeviceUntrusted
+ *        Phone is rooted or compromised. (Value: "DEVICE_UNTRUSTED")
+ *    @arg @c kGTLRGames_DeveloperIntegrityVerdict_Category_EnvironmentRisk
+ *        Automated bot or malicious app detected. (Value: "ENVIRONMENT_RISK")
+ *    @arg @c kGTLRGames_DeveloperIntegrityVerdict_Category_ImpossibleGameplay
+ *        Physically impossible gameplay detected for player. (Value:
+ *        "IMPOSSIBLE_GAMEPLAY")
+ *    @arg @c kGTLRGames_DeveloperIntegrityVerdict_Category_Other Other abuse
+ *        category. (Value: "OTHER")
+ */
+@property(nonatomic, copy, nullable) NSString *category;
+
+/**
+ *  Optional. Free-form diagnostic description or internal error code. Maximum
+ *  length: 128 characters. Stored for console debugging; never shown to
+ *  players.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Required. The source that issued the verdict.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGames_DeveloperIntegrityVerdict_Source_DeveloperInternal
+ *        Developer's proprietary anti-cheat system. (Value:
+ *        "DEVELOPER_INTERNAL")
+ *    @arg @c kGTLRGames_DeveloperIntegrityVerdict_Source_PlayIntegrity Google
+ *        Play Integrity API. (Value: "PLAY_INTEGRITY")
+ *    @arg @c kGTLRGames_DeveloperIntegrityVerdict_Source_SourceUnspecified
+ *        Default value. Do not use. (Value: "SOURCE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *source;
 
 @end
 
