@@ -420,6 +420,12 @@ NSString * const kGTLRDfareporting_CreativeAsset_Role_AdditionalFlash = @"ADDITI
 NSString * const kGTLRDfareporting_CreativeAsset_Role_AdditionalImage = @"ADDITIONAL_IMAGE";
 NSString * const kGTLRDfareporting_CreativeAsset_Role_AlternateVideo = @"ALTERNATE_VIDEO";
 NSString * const kGTLRDfareporting_CreativeAsset_Role_BackupImage = @"BACKUP_IMAGE";
+NSString * const kGTLRDfareporting_CreativeAsset_Role_CallToAction = @"CALL_TO_ACTION";
+NSString * const kGTLRDfareporting_CreativeAsset_Role_CoverImage = @"COVER_IMAGE";
+NSString * const kGTLRDfareporting_CreativeAsset_Role_Description = @"DESCRIPTION";
+NSString * const kGTLRDfareporting_CreativeAsset_Role_Headline = @"HEADLINE";
+NSString * const kGTLRDfareporting_CreativeAsset_Role_LongDescription = @"LONG_DESCRIPTION";
+NSString * const kGTLRDfareporting_CreativeAsset_Role_LongHeadline = @"LONG_HEADLINE";
 NSString * const kGTLRDfareporting_CreativeAsset_Role_Other    = @"OTHER";
 NSString * const kGTLRDfareporting_CreativeAsset_Role_ParentAudio = @"PARENT_AUDIO";
 NSString * const kGTLRDfareporting_CreativeAsset_Role_ParentVideo = @"PARENT_VIDEO";
@@ -1938,6 +1944,30 @@ NSString * const kGTLRDfareporting_YoutubeSettings_CallToActions_CallToActionWat
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDfareporting_AdditionalAsset
+//
+
+@implementation GTLRDfareporting_AdditionalAsset
+@dynamic callToActions, coverImages, descriptions, displayUrl, headlines,
+         longDescriptions, longHeadlines;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"callToActions" : [NSString class],
+    @"coverImages" : [GTLRDfareporting_CreativeAsset class],
+    @"descriptions" : [NSString class],
+    @"headlines" : [NSString class],
+    @"longDescriptions" : [NSString class],
+    @"longHeadlines" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDfareporting_AdsListResponse
 //
 
@@ -3067,8 +3097,8 @@ NSString * const kGTLRDfareporting_YoutubeSettings_CallToActions_CallToActionWat
 //
 
 @implementation GTLRDfareporting_Creative
-@dynamic accountId, active, additionalSizes, adParameters, adTagKeys,
-         advertiserId, allowScriptAccess, archived, artworkType,
+@dynamic accountId, active, additionalAsset, additionalSizes, adParameters,
+         adTagKeys, advertiserId, allowScriptAccess, archived, artworkType,
          authoringSource, authoringTool, autoAdvanceImages, backgroundColor,
          backupImageClickThroughUrl, backupImageFeatures,
          backupImageReportingLabel, backupImageTargetWindow, clickTags,

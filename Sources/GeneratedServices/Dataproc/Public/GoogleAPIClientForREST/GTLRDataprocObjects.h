@@ -79,6 +79,7 @@
 @class GTLRDataproc_ExecutorSummary_Resources;
 @class GTLRDataproc_Expr;
 @class GTLRDataproc_FallbackReason;
+@class GTLRDataproc_FlexibleInstanceGroupConfig;
 @class GTLRDataproc_FlinkJob;
 @class GTLRDataproc_FlinkJob_Properties;
 @class GTLRDataproc_GceClusterConfig;
@@ -193,6 +194,7 @@
 @class GTLRDataproc_RuntimeConfig_Properties;
 @class GTLRDataproc_RuntimeInfo;
 @class GTLRDataproc_RuntimeInfo_Endpoints;
+@class GTLRDataproc_SchedulingConfig;
 @class GTLRDataproc_SecurityConfig;
 @class GTLRDataproc_Session;
 @class GTLRDataproc_Session_Labels;
@@ -849,6 +851,44 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_DiagnoseClusterRequest_TarballA
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_DiagnoseClusterRequest_TarballAccess_TarballAccessUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRDataproc_FlexibleInstanceGroupConfig.hardwareClass
+
+/**
+ *  Unspecified hardware class.
+ *
+ *  Value: "HARDWARE_CLASS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_FlexibleInstanceGroupConfig_HardwareClass_HardwareClassUnspecified;
+/**
+ *  Performance hardware class. Provides a high-performance configuration with
+ *  approximately 8GB of memory per vCPU (e.g. high-memory machine types) and
+ *  higher-tier disk configurations (e.g. higher IOPS and throughput).Candidate
+ *  machine types include n4-highmem, n4d-highmem, n2-highmem, and n2d-highmem
+ *  (Rank 0), and c4-highmem and c4d-highmem (Rank 1) (for requested core counts
+ *  2, 4, 8, 16, 32). n4, n4d, c4, and c4d use Hyperdisk Balanced with
+ *  provisioned storage, whereas n2 and n2d use SSD persistent disks.Warning:
+ *  The specific machine families and types selected for this hardware class are
+ *  subject to change. Users should not take a dependency on the underlying
+ *  machine type selection.
+ *
+ *  Value: "PERFORMANCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_FlexibleInstanceGroupConfig_HardwareClass_Performance;
+/**
+ *  Standard hardware class. Provides a balanced compute configuration with
+ *  approximately 4GB of memory per vCPU and standard disk storage
+ *  tiers.Candidate machine types include n4-standard, n4d-standard,
+ *  n2-standard, and n2d-standard (Rank 0), and c4-standard and c4d-standard
+ *  (Rank 1) (for requested core counts 2, 4, 8, 16, 32).Warning: The specific
+ *  machine families and types selected for this hardware class are subject to
+ *  change. Users should not take a dependency on the underlying machine type
+ *  selection.
+ *
+ *  Value: "STANDARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_FlexibleInstanceGroupConfig_HardwareClass_Standard;
+
+// ----------------------------------------------------------------------------
 // GTLRDataproc_GceClusterConfig.privateIpv6GoogleAccess
 
 /**
@@ -1490,6 +1530,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_SessionStateHistory_State_Termi
 // ----------------------------------------------------------------------------
 // GTLRDataproc_SoftwareConfig.optionalComponents
 
+/**
+ *  The AlloyDB Connector.
+ *
+ *  Value: "ALLOYDB_CONNECTOR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_AlloydbConnector;
 /**
  *  The Anaconda component is no longer supported or applicable to supported
  *  Dataproc on Compute Engine image versions
@@ -3292,14 +3338,45 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  */
 @property(nonatomic, strong, nullable) GTLRDataproc_InstanceGroupConfig *masterConfig;
 
+/**
+ *  Optional. The High Obtainability (HO) config settings for the cluster's
+ *  master instances.In High Obtainability (HO) mode, flexible configs are the
+ *  single source of truth for desired cluster configuration across node groups:
+ *  * For single-node clusters: master_flexible_config must be specified, and no
+ *  worker configs should be set. * For multi-node (standard) clusters: both
+ *  master_flexible_config and worker_flexible_config must be specified. Mixing
+ *  standard and flexible configs across node groups is not allowed.Only one of
+ *  master_config or master_flexible_config can be set.
+ */
+@property(nonatomic, strong, nullable) GTLRDataproc_FlexibleInstanceGroupConfig *masterFlexibleConfig;
+
 /** Optional. Metastore configuration. */
 @property(nonatomic, strong, nullable) GTLRDataproc_MetastoreConfig *metastoreConfig;
+
+/**
+ *  Optional. Config for scheduling the resources to be allocated when
+ *  available.
+ */
+@property(nonatomic, strong, nullable) GTLRDataproc_SchedulingConfig *schedulingConfig;
 
 /**
  *  Optional. The Compute Engine config settings for a cluster's secondary
  *  worker instances
  */
 @property(nonatomic, strong, nullable) GTLRDataproc_InstanceGroupConfig *secondaryWorkerConfig;
+
+/**
+ *  Optional. The High Obtainability (HO) config settings for a cluster's
+ *  secondary worker instances.In High Obtainability (HO) mode, flexible configs
+ *  are the single source of truth for desired cluster configuration.
+ *  num_instances represents the desired capacity of the secondary worker group
+ *  and is mutable via cluster updates and autoscaling.Only one of
+ *  secondary_worker_config or secondary_worker_flexible_config can be set.In
+ *  High Obtainability (HO) mode, secondary workers are optional. If secondary
+ *  workers are used in an HO cluster, they must be configured using
+ *  secondary_worker_flexible_config (not secondary_worker_config).
+ */
+@property(nonatomic, strong, nullable) GTLRDataproc_FlexibleInstanceGroupConfig *secondaryWorkerFlexibleConfig;
 
 /** Optional. Security settings for the cluster. */
 @property(nonatomic, strong, nullable) GTLRDataproc_SecurityConfig *securityConfig;
@@ -3327,6 +3404,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *  instances.
  */
 @property(nonatomic, strong, nullable) GTLRDataproc_InstanceGroupConfig *workerConfig;
+
+/**
+ *  Optional. The High Obtainability (HO) config settings for the cluster's
+ *  worker instances.In High Obtainability (HO) mode, flexible configs are the
+ *  single source of truth for desired cluster configuration. num_instances
+ *  represents the desired capacity of the worker group and is mutable via
+ *  cluster updates and autoscaling.Only one of worker_config or
+ *  worker_flexible_config can be set.In High Obtainability (HO) mode, for
+ *  multi-node (standard) clusters, both master_flexible_config and
+ *  worker_flexible_config must be specified. Mixing standard and flexible
+ *  configs across node groups is not allowed. Single-node clusters do not
+ *  specify worker configs.
+ */
+@property(nonatomic, strong, nullable) GTLRDataproc_FlexibleInstanceGroupConfig *workerFlexibleConfig;
 
 @end
 
@@ -4735,6 +4826,75 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 /** Optional. Fallback to Spark reason. */
 @property(nonatomic, copy, nullable) NSString *fallbackReason;
+
+@end
+
+
+/**
+ *  The configuration for High Obtainability (HO) flexible instance groups.
+ *  Flexible instance group configs serve as the single source of truth for
+ *  desired state.
+ */
+@interface GTLRDataproc_FlexibleInstanceGroupConfig : GTLRObject
+
+/**
+ *  Optional. The boot disk size in GB. This is a create-time specification and
+ *  is not currently mutable via update masks.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *bootDiskSizeGb;
+
+/**
+ *  Optional. The number of vCPUs per instance. Must be a power of 2 (2, 4, 8,
+ *  16, 32). This is a create-time specification and is not currently mutable
+ *  via update masks.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *coreCount;
+
+/**
+ *  Optional. The hardware class of the instances. This is a create-time
+ *  specification and is not currently mutable via update masks.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataproc_FlexibleInstanceGroupConfig_HardwareClass_HardwareClassUnspecified
+ *        Unspecified hardware class. (Value: "HARDWARE_CLASS_UNSPECIFIED")
+ *    @arg @c kGTLRDataproc_FlexibleInstanceGroupConfig_HardwareClass_Performance
+ *        Performance hardware class. Provides a high-performance configuration
+ *        with approximately 8GB of memory per vCPU (e.g. high-memory machine
+ *        types) and higher-tier disk configurations (e.g. higher IOPS and
+ *        throughput).Candidate machine types include n4-highmem, n4d-highmem,
+ *        n2-highmem, and n2d-highmem (Rank 0), and c4-highmem and c4d-highmem
+ *        (Rank 1) (for requested core counts 2, 4, 8, 16, 32). n4, n4d, c4, and
+ *        c4d use Hyperdisk Balanced with provisioned storage, whereas n2 and
+ *        n2d use SSD persistent disks.Warning: The specific machine families
+ *        and types selected for this hardware class are subject to change.
+ *        Users should not take a dependency on the underlying machine type
+ *        selection. (Value: "PERFORMANCE")
+ *    @arg @c kGTLRDataproc_FlexibleInstanceGroupConfig_HardwareClass_Standard
+ *        Standard hardware class. Provides a balanced compute configuration
+ *        with approximately 4GB of memory per vCPU and standard disk storage
+ *        tiers.Candidate machine types include n4-standard, n4d-standard,
+ *        n2-standard, and n2d-standard (Rank 0), and c4-standard and
+ *        c4d-standard (Rank 1) (for requested core counts 2, 4, 8, 16,
+ *        32).Warning: The specific machine families and types selected for this
+ *        hardware class are subject to change. Users should not take a
+ *        dependency on the underlying machine type selection. (Value:
+ *        "STANDARD")
+ */
+@property(nonatomic, copy, nullable) NSString *hardwareClass;
+
+/**
+ *  Optional. The number of VM instances requested.For master instances, this
+ *  must be 1. For worker and secondary worker instances, this represents the
+ *  desired capacity of the group and is mutable via cluster update operations
+ *  and autoscaling.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numInstances;
 
 @end
 
@@ -8852,6 +9012,29 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Config for scheduling the request to create Compute Engine resources for the
+ *  cluster, when available.
+ */
+@interface GTLRDataproc_SchedulingConfig : GTLRObject
+
+/**
+ *  Optional. Required lifetime of the resources, once provisioned. Min 10 mins,
+ *  Max/Default 7 days . Note that the cluster can still be deleted before
+ *  reaching this time. This time is a maximum amount of time before the cluster
+ *  is forcibly deleted. Lower times are more likely to start running sooner.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *requestedRunDuration;
+
+/**
+ *  Optional. How long to wait for worker resources to be allocated before
+ *  failing the cluster creation request. Max/Default value: 13 days
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *schedulingTimeout;
+
+@end
+
+
+/**
  *  List of Executors associated with a Spark Application.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -9593,6 +9776,12 @@ GTLR_DEPRECATED
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Optional. User-friendly display name for the session template. Can be up to
+ *  63 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
 
 /** Optional. Environment configuration for session execution. */
 @property(nonatomic, strong, nullable) GTLRDataproc_EnvironmentConfig *environmentConfig;

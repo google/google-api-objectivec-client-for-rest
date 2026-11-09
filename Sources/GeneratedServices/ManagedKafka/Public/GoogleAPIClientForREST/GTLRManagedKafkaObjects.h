@@ -828,8 +828,9 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedKafka_UpdateSchemaModeRequest_Mod
 @property(nonatomic, strong, nullable) GTLRManagedKafka_GcpConfig *gcpConfig;
 
 /**
- *  Optional. The Apache Kafka version of the cluster (for example, `3.7.x`,
- *  `4.3.x`). If not specified during cluster creation, defaults to `3.7.x`.
+ *  Optional. The Apache Kafka version of the cluster. Specifically, this value
+ *  is the finalized metadata version. If not specified during cluster creation,
+ *  defaults to `3.7.x`. Supported values: `3.7.x`.
  */
 @property(nonatomic, copy, nullable) NSString *kafkaVersion;
 

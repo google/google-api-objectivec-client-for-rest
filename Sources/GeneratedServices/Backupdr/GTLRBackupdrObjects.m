@@ -27,6 +27,12 @@ NSString * const kGTLRBackupdr_AllocationAffinity_ConsumeReservationType_NoReser
 NSString * const kGTLRBackupdr_AllocationAffinity_ConsumeReservationType_SpecificReservation = @"SPECIFIC_RESERVATION";
 NSString * const kGTLRBackupdr_AllocationAffinity_ConsumeReservationType_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
+// GTLRBackupdr_AppliedAutoProtectionPolicy.status
+NSString * const kGTLRBackupdr_AppliedAutoProtectionPolicy_Status_Active = @"ACTIVE";
+NSString * const kGTLRBackupdr_AppliedAutoProtectionPolicy_Status_Creating = @"CREATING";
+NSString * const kGTLRBackupdr_AppliedAutoProtectionPolicy_Status_DeletionInitiated = @"DELETION_INITIATED";
+NSString * const kGTLRBackupdr_AppliedAutoProtectionPolicy_Status_StateUnspecified = @"STATE_UNSPECIFIED";
+
 // GTLRBackupdr_AttachedDisk.diskInterface
 NSString * const kGTLRBackupdr_AttachedDisk_DiskInterface_DiskInterfaceUnspecified = @"DISK_INTERFACE_UNSPECIFIED";
 NSString * const kGTLRBackupdr_AttachedDisk_DiskInterface_Iscsi = @"ISCSI";
@@ -59,6 +65,26 @@ NSString * const kGTLRBackupdr_AuditLogConfig_LogType_AdminRead = @"ADMIN_READ";
 NSString * const kGTLRBackupdr_AuditLogConfig_LogType_DataRead = @"DATA_READ";
 NSString * const kGTLRBackupdr_AuditLogConfig_LogType_DataWrite = @"DATA_WRITE";
 NSString * const kGTLRBackupdr_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG_TYPE_UNSPECIFIED";
+
+// GTLRBackupdr_AutoProtectionDetails.state
+NSString * const kGTLRBackupdr_AutoProtectionDetails_State_Protected = @"PROTECTED";
+NSString * const kGTLRBackupdr_AutoProtectionDetails_State_ProtectionFailed = @"PROTECTION_FAILED";
+NSString * const kGTLRBackupdr_AutoProtectionDetails_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRBackupdr_AutoProtectionDetails_State_Unprotecting = @"UNPROTECTING";
+NSString * const kGTLRBackupdr_AutoProtectionDetails_State_UnprotectionFailed = @"UNPROTECTION_FAILED";
+
+// GTLRBackupdr_AutoProtectionPolicy.state
+NSString * const kGTLRBackupdr_AutoProtectionPolicy_State_Active = @"ACTIVE";
+NSString * const kGTLRBackupdr_AutoProtectionPolicy_State_Creating = @"CREATING";
+NSString * const kGTLRBackupdr_AutoProtectionPolicy_State_Deleting = @"DELETING";
+NSString * const kGTLRBackupdr_AutoProtectionPolicy_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRBackupdr_AutoProtectionPolicy_State_Updating = @"UPDATING";
+
+// GTLRBackupdr_AutoProtectionPolicyBinding.state
+NSString * const kGTLRBackupdr_AutoProtectionPolicyBinding_State_Active = @"ACTIVE";
+NSString * const kGTLRBackupdr_AutoProtectionPolicyBinding_State_Creating = @"CREATING";
+NSString * const kGTLRBackupdr_AutoProtectionPolicyBinding_State_DeletionInitiated = @"DELETION_INITIATED";
+NSString * const kGTLRBackupdr_AutoProtectionPolicyBinding_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
 // GTLRBackupdr_Backup.backupRetentionInheritance
 NSString * const kGTLRBackupdr_Backup_BackupRetentionInheritance_BackupRetentionInheritanceUnspecified = @"BACKUP_RETENTION_INHERITANCE_UNSPECIFIED";
@@ -149,6 +175,16 @@ NSString * const kGTLRBackupdr_BackupVault_State_Error         = @"ERROR";
 NSString * const kGTLRBackupdr_BackupVault_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRBackupdr_BackupVault_State_Updating      = @"UPDATING";
 
+// GTLRBackupdr_CleanupPhaseInfo.phaseState
+NSString * const kGTLRBackupdr_CleanupPhaseInfo_PhaseState_Failed = @"FAILED";
+NSString * const kGTLRBackupdr_CleanupPhaseInfo_PhaseState_Pending = @"PENDING";
+NSString * const kGTLRBackupdr_CleanupPhaseInfo_PhaseState_PhaseStateUnspecified = @"PHASE_STATE_UNSPECIFIED";
+NSString * const kGTLRBackupdr_CleanupPhaseInfo_PhaseState_Running = @"RUNNING";
+NSString * const kGTLRBackupdr_CleanupPhaseInfo_PhaseState_Skipped = @"SKIPPED";
+NSString * const kGTLRBackupdr_CleanupPhaseInfo_PhaseState_Succeeded = @"SUCCEEDED";
+NSString * const kGTLRBackupdr_CleanupPhaseInfo_PhaseState_TimedOut = @"TIMED_OUT";
+NSString * const kGTLRBackupdr_CleanupPhaseInfo_PhaseState_Waiting = @"WAITING";
+
 // GTLRBackupdr_CloudSqlInstanceInitializationConfig.edition
 NSString * const kGTLRBackupdr_CloudSqlInstanceInitializationConfig_Edition_EditionUnspecified = @"EDITION_UNSPECIFIED";
 NSString * const kGTLRBackupdr_CloudSqlInstanceInitializationConfig_Edition_Enterprise = @"ENTERPRISE";
@@ -215,6 +251,13 @@ NSString * const kGTLRBackupdr_DiskRestoreProperties_Architecture_X8664 = @"X86_
 NSString * const kGTLRBackupdr_EndTrialRequest_EndReason_Discontinued = @"DISCONTINUED";
 NSString * const kGTLRBackupdr_EndTrialRequest_EndReason_EndReasonUnspecified = @"END_REASON_UNSPECIFIED";
 NSString * const kGTLRBackupdr_EndTrialRequest_EndReason_MoveToPaid = @"MOVE_TO_PAID";
+
+// GTLRBackupdr_ExecutionSummary.lastExecutionState
+NSString * const kGTLRBackupdr_ExecutionSummary_LastExecutionState_Deleting = @"DELETING";
+NSString * const kGTLRBackupdr_ExecutionSummary_LastExecutionState_ExecutionStateUnspecified = @"EXECUTION_STATE_UNSPECIFIED";
+NSString * const kGTLRBackupdr_ExecutionSummary_LastExecutionState_Failed = @"FAILED";
+NSString * const kGTLRBackupdr_ExecutionSummary_LastExecutionState_Running = @"RUNNING";
+NSString * const kGTLRBackupdr_ExecutionSummary_LastExecutionState_Succeeded = @"SUCCEEDED";
 
 // GTLRBackupdr_GuestOsFeature.type
 NSString * const kGTLRBackupdr_GuestOsFeature_Type_BareMetalLinuxCompatible = @"BARE_METAL_LINUX_COMPATIBLE";
@@ -292,6 +335,36 @@ NSString * const kGTLRBackupdr_NodeAffinity_OperatorProperty_In = @"IN";
 NSString * const kGTLRBackupdr_NodeAffinity_OperatorProperty_NotIn = @"NOT_IN";
 NSString * const kGTLRBackupdr_NodeAffinity_OperatorProperty_OperatorUnspecified = @"OPERATOR_UNSPECIFIED";
 
+// GTLRBackupdr_PostRestorePhaseInfo.phaseState
+NSString * const kGTLRBackupdr_PostRestorePhaseInfo_PhaseState_Failed = @"FAILED";
+NSString * const kGTLRBackupdr_PostRestorePhaseInfo_PhaseState_Pending = @"PENDING";
+NSString * const kGTLRBackupdr_PostRestorePhaseInfo_PhaseState_PhaseStateUnspecified = @"PHASE_STATE_UNSPECIFIED";
+NSString * const kGTLRBackupdr_PostRestorePhaseInfo_PhaseState_Running = @"RUNNING";
+NSString * const kGTLRBackupdr_PostRestorePhaseInfo_PhaseState_Skipped = @"SKIPPED";
+NSString * const kGTLRBackupdr_PostRestorePhaseInfo_PhaseState_Succeeded = @"SUCCEEDED";
+NSString * const kGTLRBackupdr_PostRestorePhaseInfo_PhaseState_TimedOut = @"TIMED_OUT";
+NSString * const kGTLRBackupdr_PostRestorePhaseInfo_PhaseState_Waiting = @"WAITING";
+
+// GTLRBackupdr_PreparePhaseInfo.phaseState
+NSString * const kGTLRBackupdr_PreparePhaseInfo_PhaseState_Failed = @"FAILED";
+NSString * const kGTLRBackupdr_PreparePhaseInfo_PhaseState_Pending = @"PENDING";
+NSString * const kGTLRBackupdr_PreparePhaseInfo_PhaseState_PhaseStateUnspecified = @"PHASE_STATE_UNSPECIFIED";
+NSString * const kGTLRBackupdr_PreparePhaseInfo_PhaseState_Running = @"RUNNING";
+NSString * const kGTLRBackupdr_PreparePhaseInfo_PhaseState_Skipped = @"SKIPPED";
+NSString * const kGTLRBackupdr_PreparePhaseInfo_PhaseState_Succeeded = @"SUCCEEDED";
+NSString * const kGTLRBackupdr_PreparePhaseInfo_PhaseState_TimedOut = @"TIMED_OUT";
+NSString * const kGTLRBackupdr_PreparePhaseInfo_PhaseState_Waiting = @"WAITING";
+
+// GTLRBackupdr_PreRestorePhaseInfo.phaseState
+NSString * const kGTLRBackupdr_PreRestorePhaseInfo_PhaseState_Failed = @"FAILED";
+NSString * const kGTLRBackupdr_PreRestorePhaseInfo_PhaseState_Pending = @"PENDING";
+NSString * const kGTLRBackupdr_PreRestorePhaseInfo_PhaseState_PhaseStateUnspecified = @"PHASE_STATE_UNSPECIFIED";
+NSString * const kGTLRBackupdr_PreRestorePhaseInfo_PhaseState_Running = @"RUNNING";
+NSString * const kGTLRBackupdr_PreRestorePhaseInfo_PhaseState_Skipped = @"SKIPPED";
+NSString * const kGTLRBackupdr_PreRestorePhaseInfo_PhaseState_Succeeded = @"SUCCEEDED";
+NSString * const kGTLRBackupdr_PreRestorePhaseInfo_PhaseState_TimedOut = @"TIMED_OUT";
+NSString * const kGTLRBackupdr_PreRestorePhaseInfo_PhaseState_Waiting = @"WAITING";
+
 // GTLRBackupdr_ResourceBackupConfig.targetResourceType
 NSString * const kGTLRBackupdr_ResourceBackupConfig_TargetResourceType_CloudSqlInstance = @"CLOUD_SQL_INSTANCE";
 NSString * const kGTLRBackupdr_ResourceBackupConfig_TargetResourceType_ComputeEngineDisk = @"COMPUTE_ENGINE_DISK";
@@ -299,6 +372,63 @@ NSString * const kGTLRBackupdr_ResourceBackupConfig_TargetResourceType_ComputeEn
 NSString * const kGTLRBackupdr_ResourceBackupConfig_TargetResourceType_ComputeEngineVm = @"COMPUTE_ENGINE_VM";
 NSString * const kGTLRBackupdr_ResourceBackupConfig_TargetResourceType_FilestoreInstance = @"FILESTORE_INSTANCE";
 NSString * const kGTLRBackupdr_ResourceBackupConfig_TargetResourceType_ResourceTypeUnspecified = @"RESOURCE_TYPE_UNSPECIFIED";
+
+// GTLRBackupdr_RestorePhaseInfo.phaseState
+NSString * const kGTLRBackupdr_RestorePhaseInfo_PhaseState_Failed = @"FAILED";
+NSString * const kGTLRBackupdr_RestorePhaseInfo_PhaseState_Pending = @"PENDING";
+NSString * const kGTLRBackupdr_RestorePhaseInfo_PhaseState_PhaseStateUnspecified = @"PHASE_STATE_UNSPECIFIED";
+NSString * const kGTLRBackupdr_RestorePhaseInfo_PhaseState_Running = @"RUNNING";
+NSString * const kGTLRBackupdr_RestorePhaseInfo_PhaseState_Skipped = @"SKIPPED";
+NSString * const kGTLRBackupdr_RestorePhaseInfo_PhaseState_Succeeded = @"SUCCEEDED";
+NSString * const kGTLRBackupdr_RestorePhaseInfo_PhaseState_TimedOut = @"TIMED_OUT";
+NSString * const kGTLRBackupdr_RestorePhaseInfo_PhaseState_Waiting = @"WAITING";
+
+// GTLRBackupdr_RestoreTemplate.state
+NSString * const kGTLRBackupdr_RestoreTemplate_State_Active    = @"ACTIVE";
+NSString * const kGTLRBackupdr_RestoreTemplate_State_Creating  = @"CREATING";
+NSString * const kGTLRBackupdr_RestoreTemplate_State_Deleting  = @"DELETING";
+NSString * const kGTLRBackupdr_RestoreTemplate_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRBackupdr_RestoreTemplate_State_Updating  = @"UPDATING";
+
+// GTLRBackupdr_RestoreTemplateExecution.phase
+NSString * const kGTLRBackupdr_RestoreTemplateExecution_Phase_CleaningUp = @"CLEANING_UP";
+NSString * const kGTLRBackupdr_RestoreTemplateExecution_Phase_Completed = @"COMPLETED";
+NSString * const kGTLRBackupdr_RestoreTemplateExecution_Phase_ExecutingPostRestoreAction = @"EXECUTING_POST_RESTORE_ACTION";
+NSString * const kGTLRBackupdr_RestoreTemplateExecution_Phase_ExecutingPreRestoreAction = @"EXECUTING_PRE_RESTORE_ACTION";
+NSString * const kGTLRBackupdr_RestoreTemplateExecution_Phase_ExecutionPhaseUnspecified = @"EXECUTION_PHASE_UNSPECIFIED";
+NSString * const kGTLRBackupdr_RestoreTemplateExecution_Phase_Preparing = @"PREPARING";
+NSString * const kGTLRBackupdr_RestoreTemplateExecution_Phase_Restoring = @"RESTORING";
+NSString * const kGTLRBackupdr_RestoreTemplateExecution_Phase_Verifying = @"VERIFYING";
+
+// GTLRBackupdr_RestoreTemplateExecution.state
+NSString * const kGTLRBackupdr_RestoreTemplateExecution_State_Deleting = @"DELETING";
+NSString * const kGTLRBackupdr_RestoreTemplateExecution_State_ExecutionStateUnspecified = @"EXECUTION_STATE_UNSPECIFIED";
+NSString * const kGTLRBackupdr_RestoreTemplateExecution_State_Failed = @"FAILED";
+NSString * const kGTLRBackupdr_RestoreTemplateExecution_State_Running = @"RUNNING";
+NSString * const kGTLRBackupdr_RestoreTemplateExecution_State_Succeeded = @"SUCCEEDED";
+
+// GTLRBackupdr_RestoreTemplateExecution.type
+NSString * const kGTLRBackupdr_RestoreTemplateExecution_Type_ExecutionTypeUnspecified = @"EXECUTION_TYPE_UNSPECIFIED";
+NSString * const kGTLRBackupdr_RestoreTemplateExecution_Type_OnDemand = @"ON_DEMAND";
+NSString * const kGTLRBackupdr_RestoreTemplateExecution_Type_Scheduled = @"SCHEDULED";
+
+// GTLRBackupdr_RestoreVerificationPlan.state
+NSString * const kGTLRBackupdr_RestoreVerificationPlan_State_Active = @"ACTIVE";
+NSString * const kGTLRBackupdr_RestoreVerificationPlan_State_Creating = @"CREATING";
+NSString * const kGTLRBackupdr_RestoreVerificationPlan_State_Deleting = @"DELETING";
+NSString * const kGTLRBackupdr_RestoreVerificationPlan_State_Error = @"ERROR";
+NSString * const kGTLRBackupdr_RestoreVerificationPlan_State_Inactive = @"INACTIVE";
+NSString * const kGTLRBackupdr_RestoreVerificationPlan_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRBackupdr_RestoreVerificationPlan_State_Updating = @"UPDATING";
+
+// GTLRBackupdr_RestoreVerificationPlanAssociation.state
+NSString * const kGTLRBackupdr_RestoreVerificationPlanAssociation_State_Active = @"ACTIVE";
+NSString * const kGTLRBackupdr_RestoreVerificationPlanAssociation_State_Creating = @"CREATING";
+NSString * const kGTLRBackupdr_RestoreVerificationPlanAssociation_State_Deleting = @"DELETING";
+NSString * const kGTLRBackupdr_RestoreVerificationPlanAssociation_State_Error = @"ERROR";
+NSString * const kGTLRBackupdr_RestoreVerificationPlanAssociation_State_Inactive = @"INACTIVE";
+NSString * const kGTLRBackupdr_RestoreVerificationPlanAssociation_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRBackupdr_RestoreVerificationPlanAssociation_State_Updating = @"UPDATING";
 
 // GTLRBackupdr_RuleConfigInfo.lastBackupState
 NSString * const kGTLRBackupdr_RuleConfigInfo_LastBackupState_Failed = @"FAILED";
@@ -373,6 +503,21 @@ NSString * const kGTLRBackupdr_Trial_State_NotEligible      = @"NOT_ELIGIBLE";
 NSString * const kGTLRBackupdr_Trial_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRBackupdr_Trial_State_Subscribed       = @"SUBSCRIBED";
 NSString * const kGTLRBackupdr_Trial_State_Unsubscribed     = @"UNSUBSCRIBED";
+
+// GTLRBackupdr_VerificationPhaseInfo.phaseState
+NSString * const kGTLRBackupdr_VerificationPhaseInfo_PhaseState_Failed = @"FAILED";
+NSString * const kGTLRBackupdr_VerificationPhaseInfo_PhaseState_Pending = @"PENDING";
+NSString * const kGTLRBackupdr_VerificationPhaseInfo_PhaseState_PhaseStateUnspecified = @"PHASE_STATE_UNSPECIFIED";
+NSString * const kGTLRBackupdr_VerificationPhaseInfo_PhaseState_Running = @"RUNNING";
+NSString * const kGTLRBackupdr_VerificationPhaseInfo_PhaseState_Skipped = @"SKIPPED";
+NSString * const kGTLRBackupdr_VerificationPhaseInfo_PhaseState_Succeeded = @"SUCCEEDED";
+NSString * const kGTLRBackupdr_VerificationPhaseInfo_PhaseState_TimedOut = @"TIMED_OUT";
+NSString * const kGTLRBackupdr_VerificationPhaseInfo_PhaseState_Waiting = @"WAITING";
+
+// GTLRBackupdr_VerificationSummary.lastVerificationState
+NSString * const kGTLRBackupdr_VerificationSummary_LastVerificationState_Failed = @"FAILED";
+NSString * const kGTLRBackupdr_VerificationSummary_LastVerificationState_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRBackupdr_VerificationSummary_LastVerificationState_Succeeded = @"SUCCEEDED";
 
 // GTLRBackupdr_WeekDayOfMonth.dayOfWeek
 NSString * const kGTLRBackupdr_WeekDayOfMonth_DayOfWeek_DayOfWeekUnspecified = @"DAY_OF_WEEK_UNSPECIFIED";
@@ -527,6 +672,25 @@ NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_WeekOfMonthUnspecified
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBackupdr_AppliedAutoProtectionPolicy
+//
+
+@implementation GTLRBackupdr_AppliedAutoProtectionPolicy
+@dynamic backupPlanDetails, bindingEvaluationSummary, createTime, criteria,
+         name, sourceBinding, status, updateTime;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"backupPlanDetails" : [GTLRBackupdr_BackupPlanDetail class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBackupdr_AttachedDisk
 //
 
@@ -590,6 +754,64 @@ NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_WeekOfMonthUnspecified
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBackupdr_AutoProtectionDetails
+//
+
+@implementation GTLRBackupdr_AutoProtectionDetails
+@dynamic backupPlanAssociation, dataSource, error, state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupdr_AutoProtectionPolicy
+//
+
+@implementation GTLRBackupdr_AutoProtectionPolicy
+@dynamic backupPlanDetails, bindingSummary, createTime, criteria,
+         descriptionProperty, ETag, name, policyEvaluationSummary, state,
+         updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"descriptionProperty" : @"description",
+    @"ETag" : @"etag"
+  };
+  return map;
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"backupPlanDetails" : [GTLRBackupdr_BackupPlanDetail class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupdr_AutoProtectionPolicyBinding
+//
+
+@implementation GTLRBackupdr_AutoProtectionPolicyBinding
+@dynamic bindingEvaluationSummary, createTime, descriptionProperty, ETag, name,
+         scope, state, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"descriptionProperty" : @"description",
+    @"ETag" : @"etag"
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBackupdr_Backup
 //
 
@@ -600,8 +822,9 @@ NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_WeekOfMonthUnspecified
          consistencyTime, createTime, descriptionProperty, diskBackupProperties,
          enforcedRetentionEndTime, ETag, expireTime,
          filestoreInstanceBackupProperties, gcpBackupPlanInfo, gcpResource,
-         kmsKeyVersions, labels, name, resourceSizeBytes, satisfiesPzi,
-         satisfiesPzs, serviceLocks, state, updateTime;
+         kmsKeyVersions, labels, name, netappVolumeBackupProperties,
+         resourceSizeBytes, satisfiesPzi, satisfiesPzs, serviceLocks, state,
+         updateTime, verificationSummary;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -782,11 +1005,13 @@ NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_WeekOfMonthUnspecified
 //
 
 @implementation GTLRBackupdr_BackupPlanAssociation
-@dynamic alloydbClusterBackupPlanAssociationProperties, backupPlan,
-         backupPlanRevisionId, backupPlanRevisionName,
+@dynamic alloydbClusterBackupPlanAssociationProperties,
+         autoProtectionPolicyBinding, backupPlan, backupPlanRevisionId,
+         backupPlanRevisionName,
          cloudSqlInstanceBackupPlanAssociationProperties, createTime,
          dataSource, filestoreInstanceBackupPlanAssociationProperties, name,
-         resource, resourceType, rulesConfigInfo, state, updateTime;
+         netappVolumeBackupPlanAssociationProperties, resource, resourceType,
+         rulesConfigInfo, state, updateTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -795,6 +1020,16 @@ NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_WeekOfMonthUnspecified
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupdr_BackupPlanDetail
+//
+
+@implementation GTLRBackupdr_BackupPlanDetail
+@dynamic backupPlan, resourceType;
 @end
 
 
@@ -815,6 +1050,16 @@ NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_WeekOfMonthUnspecified
 
 @implementation GTLRBackupdr_BackupRule
 @dynamic backupRetentionDays, ruleId, standardSchedule;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupdr_BackupSelectionConfig
+//
+
+@implementation GTLRBackupdr_BackupSelectionConfig
+@dynamic dataSource;
 @end
 
 
@@ -899,10 +1144,51 @@ NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_WeekOfMonthUnspecified
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBackupdr_BindingEvaluationSummary
+//
+
+@implementation GTLRBackupdr_BindingEvaluationSummary
+@dynamic failedResourceCount, matchingResourceCount, protectedResourceCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupdr_BindingMatchingResource
+//
+
+@implementation GTLRBackupdr_BindingMatchingResource
+@dynamic autoProtectionDetails, lastEvaluationTime, name, resource;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupdr_BindingSummary
+//
+
+@implementation GTLRBackupdr_BindingSummary
+@dynamic projectCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBackupdr_CancelOperationRequest
 //
 
 @implementation GTLRBackupdr_CancelOperationRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupdr_CleanupPhaseInfo
+//
+
+@implementation GTLRBackupdr_CleanupPhaseInfo
+@dynamic cleanupDuration, cleanupTime, endTime, error, failureCleanupRule,
+         phaseState, startTime, successCleanupRule;
 @end
 
 
@@ -1100,6 +1386,24 @@ NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_WeekOfMonthUnspecified
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBackupdr_Criteria
+//
+
+@implementation GTLRBackupdr_Criteria
+@dynamic matchingConditions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"matchingConditions" : [GTLRBackupdr_MatchingCondition class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBackupdr_CustomerEncryptionKey
 //
 
@@ -1170,7 +1474,8 @@ NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_WeekOfMonthUnspecified
 @dynamic alloyDbClusterDatasourceProperties,
          cloudSqlInstanceDatasourceProperties,
          computeInstanceDatasourceProperties, diskDatasourceProperties,
-         filestoreInstanceDatasourceProperties, gcpResourcename, location, type;
+         filestoreInstanceDatasourceProperties, gcpResourcename, location,
+         netappVolumeDatasourceProperties, type;
 @end
 
 
@@ -1181,7 +1486,8 @@ NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_WeekOfMonthUnspecified
 
 @implementation GTLRBackupdr_DataSourceGcpResourceInfo
 @dynamic alloyDbClusterProperties, cloudSqlInstanceProperties,
-         filestoreInstanceProperties, gcpResourcename, location, type;
+         filestoreInstanceProperties, gcpResourcename, location,
+         netappVolumeProperties, type;
 @end
 
 
@@ -1403,6 +1709,16 @@ NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_WeekOfMonthUnspecified
 
 @implementation GTLRBackupdr_Entry
 @dynamic key, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupdr_ExecutionSummary
+//
+
+@implementation GTLRBackupdr_ExecutionSummary
+@dynamic lastExecution, lastExecutionState;
 @end
 
 
@@ -1634,8 +1950,9 @@ NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_WeekOfMonthUnspecified
 //
 
 @implementation GTLRBackupdr_GcpBackupConfig
-@dynamic backupPlan, backupPlanAssociation, backupPlanDescription,
-         backupPlanRevisionId, backupPlanRevisionName, backupPlanRules;
+@dynamic autoProtectionPolicyBinding, backupPlan, backupPlanAssociation,
+         backupPlanDescription, backupPlanRevisionId, backupPlanRevisionName,
+         backupPlanRules;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1754,6 +2071,21 @@ NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_WeekOfMonthUnspecified
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBackupdr_InitiateDeleteAutoProtectionPolicyBindingRequest
+//
+
+@implementation GTLRBackupdr_InitiateDeleteAutoProtectionPolicyBindingRequest
+@dynamic ETag, requestId;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBackupdr_InstanceParams
 //
 
@@ -1778,11 +2110,98 @@ NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_WeekOfMonthUnspecified
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBackupdr_KeyValuePair
+//
+
+@implementation GTLRBackupdr_KeyValuePair
+@dynamic key, values;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"values" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBackupdr_LabelKeyValPair
 //
 
 @implementation GTLRBackupdr_LabelKeyValPair
 @dynamic key, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupdr_ListAppliedAutoProtectionPoliciesResponse
+//
+
+@implementation GTLRBackupdr_ListAppliedAutoProtectionPoliciesResponse
+@dynamic appliedAutoProtectionPolicies, nextPageToken, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"appliedAutoProtectionPolicies" : [GTLRBackupdr_AppliedAutoProtectionPolicy class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"appliedAutoProtectionPolicies";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupdr_ListAutoProtectionPoliciesResponse
+//
+
+@implementation GTLRBackupdr_ListAutoProtectionPoliciesResponse
+@dynamic autoProtectionPolicies, nextPageToken, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"autoProtectionPolicies" : [GTLRBackupdr_AutoProtectionPolicy class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"autoProtectionPolicies";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupdr_ListAutoProtectionPolicyBindingsResponse
+//
+
+@implementation GTLRBackupdr_ListAutoProtectionPolicyBindingsResponse
+@dynamic autoProtectionPolicyBindings, nextPageToken, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"autoProtectionPolicyBindings" : [GTLRBackupdr_AutoProtectionPolicyBinding class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"autoProtectionPolicyBindings";
+}
+
 @end
 
 
@@ -1896,6 +2315,28 @@ NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_WeekOfMonthUnspecified
 
 + (NSString *)collectionItemsKey {
   return @"backupVaults";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupdr_ListBindingMatchingResourcesResponse
+//
+
+@implementation GTLRBackupdr_ListBindingMatchingResourcesResponse
+@dynamic matchingResources, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"matchingResources" : [GTLRBackupdr_BindingMatchingResource class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"matchingResources";
 }
 
 @end
@@ -2039,6 +2480,98 @@ NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_WeekOfMonthUnspecified
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBackupdr_ListRestoreTemplateExecutionsResponse
+//
+
+@implementation GTLRBackupdr_ListRestoreTemplateExecutionsResponse
+@dynamic nextPageToken, restoreTemplateExecutions, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"restoreTemplateExecutions" : [GTLRBackupdr_RestoreTemplateExecution class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"restoreTemplateExecutions";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupdr_ListRestoreTemplatesResponse
+//
+
+@implementation GTLRBackupdr_ListRestoreTemplatesResponse
+@dynamic nextPageToken, restoreTemplates, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"restoreTemplates" : [GTLRBackupdr_RestoreTemplate class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"restoreTemplates";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupdr_ListRestoreVerificationPlanAssociationsResponse
+//
+
+@implementation GTLRBackupdr_ListRestoreVerificationPlanAssociationsResponse
+@dynamic nextPageToken, restoreVerificationPlanAssociations, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"restoreVerificationPlanAssociations" : [GTLRBackupdr_RestoreVerificationPlanAssociation class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"restoreVerificationPlanAssociations";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupdr_ListRestoreVerificationPlansResponse
+//
+
+@implementation GTLRBackupdr_ListRestoreVerificationPlansResponse
+@dynamic nextPageToken, restoreVerificationPlans, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"restoreVerificationPlans" : [GTLRBackupdr_RestoreVerificationPlan class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"restoreVerificationPlans";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBackupdr_Location
 //
 
@@ -2150,6 +2683,16 @@ NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_WeekOfMonthUnspecified
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBackupdr_MatchingCondition
+//
+
+@implementation GTLRBackupdr_MatchingCondition
+@dynamic labelCondition;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBackupdr_Metadata
 //
 
@@ -2163,6 +2706,46 @@ NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_WeekOfMonthUnspecified
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupdr_NetAppVolumeBackupPlanAssociationProperties
+//
+
+@implementation GTLRBackupdr_NetAppVolumeBackupPlanAssociationProperties
+@dynamic sourceResourceCreateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupdr_NetAppVolumeBackupProperties
+//
+
+@implementation GTLRBackupdr_NetAppVolumeBackupProperties
+@dynamic sourceResource;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupdr_NetAppVolumeDataSourceProperties
+//
+
+@implementation GTLRBackupdr_NetAppVolumeDataSourceProperties
+@dynamic sourceResource, sourceResourceCreateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupdr_NetAppVolumeDataSourceReferenceProperties
+//
+
+@implementation GTLRBackupdr_NetAppVolumeDataSourceReferenceProperties
+@dynamic sourceResource, sourceResourceCreateTime;
 @end
 
 
@@ -2332,6 +2915,70 @@ NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_WeekOfMonthUnspecified
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBackupdr_PolicyEvaluationSummary
+//
+
+@implementation GTLRBackupdr_PolicyEvaluationSummary
+@dynamic failedResourceCount, matchingResourceCount, protectedResourceCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupdr_PostRestoreConfig
+//
+
+@implementation GTLRBackupdr_PostRestoreConfig
+@dynamic cloudRunJob, timeout;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupdr_PostRestorePhaseInfo
+//
+
+@implementation GTLRBackupdr_PostRestorePhaseInfo
+@dynamic cloudRunExecution, endTime, error, phaseState, postRestoreConfig,
+         startTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupdr_PreparePhaseInfo
+//
+
+@implementation GTLRBackupdr_PreparePhaseInfo
+@dynamic backup, backupSelectionConfig, endTime, error,
+         isBackupExplicitlyPassed, phaseState,
+         restoreVerificationPlanAssociation, startTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupdr_PreRestoreConfig
+//
+
+@implementation GTLRBackupdr_PreRestoreConfig
+@dynamic cloudRunJob, timeout;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupdr_PreRestorePhaseInfo
+//
+
+@implementation GTLRBackupdr_PreRestorePhaseInfo
+@dynamic cloudRunExecution, endTime, error, phaseState, preRestoreConfig,
+         startTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBackupdr_RegionDiskTargetEnvironment
 //
 
@@ -2426,12 +3073,178 @@ NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_WeekOfMonthUnspecified
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBackupdr_RestorePhaseInfo
+//
+
+@implementation GTLRBackupdr_RestorePhaseInfo
+@dynamic endTime, error, phaseState, restoreDuration, restoreProperties,
+         restoreResource, startTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupdr_RestorePhaseInfo_RestoreProperties
+//
+
+@implementation GTLRBackupdr_RestorePhaseInfo_RestoreProperties
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupdr_RestoreTemplate
+//
+
+@implementation GTLRBackupdr_RestoreTemplate
+@dynamic backupSelectionConfig, createTime, descriptionProperty, ETag,
+         executionSummary, labels, name, postRestoreConfig, preRestoreConfig,
+         resourceType, restoreProperties, state, updateTime, verificationConfig;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"descriptionProperty" : @"description",
+    @"ETag" : @"etag"
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupdr_RestoreTemplate_Labels
+//
+
+@implementation GTLRBackupdr_RestoreTemplate_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupdr_RestoreTemplate_RestoreProperties
+//
+
+@implementation GTLRBackupdr_RestoreTemplate_RestoreProperties
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupdr_RestoreTemplateExecution
+//
+
+@implementation GTLRBackupdr_RestoreTemplateExecution
+@dynamic cleanupPhaseInfo, createTime, name, phase, postRestorePhaseInfo,
+         preparePhaseInfo, preRestorePhaseInfo, resourceType, restorePhaseInfo,
+         state, type, updateTime, verificationPhaseInfo;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupdr_RestoreVerificationCleanupRule
+//
+
+@implementation GTLRBackupdr_RestoreVerificationCleanupRule
+@dynamic cleanupDelay, skipCleanup;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupdr_RestoreVerificationPlan
+//
+
+@implementation GTLRBackupdr_RestoreVerificationPlan
+@dynamic createTime, descriptionProperty, failureCleanupRule, labels, name,
+         schedule, state, successCleanupRule, timeZone, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupdr_RestoreVerificationPlan_Labels
+//
+
+@implementation GTLRBackupdr_RestoreVerificationPlan_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupdr_RestoreVerificationPlanAssociation
+//
+
+@implementation GTLRBackupdr_RestoreVerificationPlanAssociation
+@dynamic createTime, descriptionProperty, labels, name, resourceType,
+         restoreTemplate, state, triggerSummary, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupdr_RestoreVerificationPlanAssociation_Labels
+//
+
+@implementation GTLRBackupdr_RestoreVerificationPlanAssociation_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBackupdr_RuleConfigInfo
 //
 
 @implementation GTLRBackupdr_RuleConfigInfo
 @dynamic lastBackupError, lastBackupState, lastSuccessfulBackupConsistencyTime,
          ruleId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupdr_RunRestoreTemplateRequest
+//
+
+@implementation GTLRBackupdr_RunRestoreTemplateRequest
+@dynamic backup, requestId;
 @end
 
 
@@ -2689,6 +3502,68 @@ NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_WeekOfMonthUnspecified
   return [NSString class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupdr_TriggerRestoreCleanupRequest
+//
+
+@implementation GTLRBackupdr_TriggerRestoreCleanupRequest
+@dynamic requestId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupdr_TriggerRestoreVerificationRequest
+//
+
+@implementation GTLRBackupdr_TriggerRestoreVerificationRequest
+@dynamic requestId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupdr_TriggerSummary
+//
+
+@implementation GTLRBackupdr_TriggerSummary
+@dynamic lastTriggerError, lastTriggerTime, lastVerificationExecution,
+         nextTriggerTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupdr_VerificationConfig
+//
+
+@implementation GTLRBackupdr_VerificationConfig
+@dynamic cloudRunJob, timeout;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupdr_VerificationPhaseInfo
+//
+
+@implementation GTLRBackupdr_VerificationPhaseInfo
+@dynamic cloudRunExecution, endTime, error, phaseState, startTime,
+         verificationConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupdr_VerificationSummary
+//
+
+@implementation GTLRBackupdr_VerificationSummary
+@dynamic lastVerificationExecution, lastVerificationState, lastVerificationTime;
 @end
 
 

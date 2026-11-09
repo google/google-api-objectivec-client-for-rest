@@ -460,12 +460,32 @@ NSString * const kGTLRVMwareEngine_WeeklyTimeInterval_StartDay_Wednesday = @"WED
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRVMwareEngine_CapacityAllocation
+//
+
+@implementation GTLRVMwareEngine_CapacityAllocation
+@dynamic allocatedCapacityCount, consumedCapacityCount, machineFamily, name,
+         privateClouds;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"privateClouds" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRVMwareEngine_Cluster
 //
 
 @implementation GTLRVMwareEngine_Cluster
 @dynamic autoscalingSettings, createTime, datastoreMountConfig, management,
-         name, nodeTypeConfigs, state, stretchedClusterConfig, uid, updateTime;
+         name, nodeTypeConfigs, placementGroup, state, stretchedClusterConfig,
+         uid, updateTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -815,6 +835,29 @@ NSString * const kGTLRVMwareEngine_WeeklyTimeInterval_StartDay_Wednesday = @"WED
 
 + (NSString *)collectionItemsKey {
   return @"announcements";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMwareEngine_ListCapacityAllocationsResponse
+//
+
+@implementation GTLRVMwareEngine_ListCapacityAllocationsResponse
+@dynamic capacityAllocations, nextPageToken, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"capacityAllocations" : [GTLRVMwareEngine_CapacityAllocation class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"capacityAllocations";
 }
 
 @end
@@ -1349,7 +1392,7 @@ NSString * const kGTLRVMwareEngine_WeeklyTimeInterval_StartDay_Wednesday = @"WED
 //
 
 @implementation GTLRVMwareEngine_ManagementCluster
-@dynamic clusterId, nodeTypeConfigs, stretchedClusterConfig;
+@dynamic clusterId, nodeTypeConfigs, placementGroup, stretchedClusterConfig;
 @end
 
 
@@ -1792,7 +1835,8 @@ NSString * const kGTLRVMwareEngine_WeeklyTimeInterval_StartDay_Wednesday = @"WED
 //
 
 @implementation GTLRVMwareEngine_StretchedClusterConfig
-@dynamic preferredLocation, secondaryLocation;
+@dynamic preferredLocation, preferredLocationPlacementGroup, secondaryLocation,
+         secondaryLocationPlacementGroup;
 @end
 
 

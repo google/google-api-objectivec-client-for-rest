@@ -45,12 +45,8 @@
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1DataSourceConnectionSpec;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1Entry;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Labels;
-@class GTLRDataCatalog_GoogleCloudDatacatalogV1EntryGroup;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1EntryOverview;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1FeatureOnlineStoreSpec;
-@class GTLRDataCatalog_GoogleCloudDatacatalogV1FieldType;
-@class GTLRDataCatalog_GoogleCloudDatacatalogV1FieldTypeEnumType;
-@class GTLRDataCatalog_GoogleCloudDatacatalogV1FieldTypeEnumTypeEnumValue;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1FilesetSpec;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1GcsFilesetSpec;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1GcsFileSpec;
@@ -95,8 +91,6 @@
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1TagField;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1TagFieldEnumValue;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1TaggedEntry;
-@class GTLRDataCatalog_GoogleCloudDatacatalogV1TagTemplate_Fields;
-@class GTLRDataCatalog_GoogleCloudDatacatalogV1TagTemplateField;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1Taxonomy;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1TaxonomyService;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1UsageSignal;
@@ -621,46 +615,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Feat
 FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1FeatureOnlineStoreSpec_StorageType_StorageTypeUnspecified;
 
 // ----------------------------------------------------------------------------
-// GTLRDataCatalog_GoogleCloudDatacatalogV1FieldType.primitiveType
-
-/**
- *  A boolean value.
- *
- *  Value: "BOOL"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1FieldType_PrimitiveType_Bool;
-/**
- *  A double precision number.
- *
- *  Value: "DOUBLE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1FieldType_PrimitiveType_Double;
-/**
- *  The default invalid value for a type.
- *
- *  Value: "PRIMITIVE_TYPE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1FieldType_PrimitiveType_PrimitiveTypeUnspecified;
-/**
- *  A Richtext description.
- *
- *  Value: "RICHTEXT"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1FieldType_PrimitiveType_Richtext;
-/**
- *  An UTF-8 string.
- *
- *  Value: "STRING"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1FieldType_PrimitiveType_String;
-/**
- *  A timestamp.
- *
- *  Value: "TIMESTAMP"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1FieldType_PrimitiveType_Timestamp;
-
-// ----------------------------------------------------------------------------
 // GTLRDataCatalog_GoogleCloudDatacatalogV1GraphSpecGraphElementTable.inputSource
 
 /**
@@ -1063,35 +1017,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Tag_
  *  Value: "TRANSFERRED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Tag_DataplexTransferStatus_Transferred;
-
-// ----------------------------------------------------------------------------
-// GTLRDataCatalog_GoogleCloudDatacatalogV1TagTemplate.dataplexTransferStatus
-
-/**
- *  Default value. TagTemplate and its tags are only visible and editable in
- *  Data Catalog.
- *
- *  Value: "DATAPLEX_TRANSFER_STATUS_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1TagTemplate_DataplexTransferStatus_DataplexTransferStatusUnspecified;
-/**
- *  TagTemplate and its tags are auto-copied to Dataplex Universal Catalog
- *  service. Visible in both services. Editable in Data Catalog, read-only in
- *  Dataplex Universal Catalog. Deprecated: Individual TagTemplate migration is
- *  deprecated in favor of organization or project wide TagTemplate migration
- *  opt-in.
- *
- *  Value: "MIGRATED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1TagTemplate_DataplexTransferStatus_Migrated GTLR_DEPRECATED;
-/**
- *  TagTemplate and its tags are auto-copied to Dataplex Universal Catalog
- *  service. Visible in both services. Editable in Dataplex Universal Catalog,
- *  read-only in Data Catalog.
- *
- *  Value: "TRANSFERRED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1TagTemplate_DataplexTransferStatus_Transferred;
 
 // ----------------------------------------------------------------------------
 // GTLRDataCatalog_GoogleCloudDatacatalogV1Taxonomy.activatedPolicyTypes
@@ -2371,50 +2296,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Vert
 
 
 /**
- *  Entry group metadata. An `EntryGroup` resource represents a logical grouping
- *  of zero or more Data Catalog Entry resources.
- */
-@interface GTLRDataCatalog_GoogleCloudDatacatalogV1EntryGroup : GTLRObject
-
-/** Output only. Timestamps of the entry group. Default value is empty. */
-@property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1SystemTimestamps *dataCatalogTimestamps;
-
-/**
- *  Entry group description. Can consist of several sentences or paragraphs that
- *  describe the entry group contents. Default value is an empty string.
- *
- *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
- */
-@property(nonatomic, copy, nullable) NSString *descriptionProperty;
-
-/**
- *  A short name to identify the entry group, for example, "analytics data - jan
- *  2011". Default value is an empty string.
- */
-@property(nonatomic, copy, nullable) NSString *displayName;
-
-/**
- *  Identifier. The resource name of the entry group in URL format. Note: The
- *  entry group itself and its child resources might not be stored in the
- *  location specified in its name.
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Optional. When set to [true], it means DataCatalog EntryGroup was
- *  transferred to Dataplex Universal Catalog. It makes EntryGroup and its
- *  Entries to be read-only in DataCatalog. However, new Tags on EntryGroup and
- *  its Entries can be created. After setting the flag to [true] it cannot be
- *  unset.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *transferredToDataplex;
-
-@end
-
-
-/**
  *  Entry overview fields for rich text descriptions of entries.
  */
 @interface GTLRDataCatalog_GoogleCloudDatacatalogV1EntryOverview : GTLRObject
@@ -2460,71 +2341,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Vert
  *        Should not be used. (Value: "STORAGE_TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *storageType;
-
-@end
-
-
-/**
- *  GTLRDataCatalog_GoogleCloudDatacatalogV1FieldType
- */
-@interface GTLRDataCatalog_GoogleCloudDatacatalogV1FieldType : GTLRObject
-
-/** An enum type. */
-@property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1FieldTypeEnumType *enumType;
-
-/**
- *  Primitive types, such as string, boolean, etc.
- *
- *  Likely values:
- *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1FieldType_PrimitiveType_Bool
- *        A boolean value. (Value: "BOOL")
- *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1FieldType_PrimitiveType_Double
- *        A double precision number. (Value: "DOUBLE")
- *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1FieldType_PrimitiveType_PrimitiveTypeUnspecified
- *        The default invalid value for a type. (Value:
- *        "PRIMITIVE_TYPE_UNSPECIFIED")
- *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1FieldType_PrimitiveType_Richtext
- *        A Richtext description. (Value: "RICHTEXT")
- *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1FieldType_PrimitiveType_String
- *        An UTF-8 string. (Value: "STRING")
- *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1FieldType_PrimitiveType_Timestamp
- *        A timestamp. (Value: "TIMESTAMP")
- */
-@property(nonatomic, copy, nullable) NSString *primitiveType;
-
-@end
-
-
-/**
- *  GTLRDataCatalog_GoogleCloudDatacatalogV1FieldTypeEnumType
- */
-@interface GTLRDataCatalog_GoogleCloudDatacatalogV1FieldTypeEnumType : GTLRObject
-
-/**
- *  The set of allowed values for this enum. This set must not be empty and can
- *  include up to 100 allowed values. The display names of the values in this
- *  set must not be empty and must be case-insensitively unique within this set.
- *  The order of items in this set is preserved. This field can be used to
- *  create, remove, and reorder enum values. To rename enum values, use the
- *  `RenameTagTemplateFieldEnumValue` method.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRDataCatalog_GoogleCloudDatacatalogV1FieldTypeEnumTypeEnumValue *> *allowedValues;
-
-@end
-
-
-/**
- *  GTLRDataCatalog_GoogleCloudDatacatalogV1FieldTypeEnumTypeEnumValue
- */
-@interface GTLRDataCatalog_GoogleCloudDatacatalogV1FieldTypeEnumTypeEnumValue : GTLRObject
-
-/**
- *  Required. The display name of the enum value. Must not be an empty string.
- *  The name must contain only Unicode letters, numbers (0-9), underscores (_),
- *  dashes (-), spaces ( ), and can't start or end with spaces. The maximum
- *  length is 200 characters.
- */
-@property(nonatomic, copy, nullable) NSString *displayName;
 
 @end
 
@@ -2778,25 +2594,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Vert
 
 
 /**
- *  Request message for ImportEntries method.
- */
-@interface GTLRDataCatalog_GoogleCloudDatacatalogV1ImportEntriesRequest : GTLRObject
-
-/**
- *  Path to a Cloud Storage bucket that contains a dump ready for ingestion.
- */
-@property(nonatomic, copy, nullable) NSString *gcsBucketPath;
-
-/**
- *  Optional. (Optional) Dataplex Universal Catalog task job id, if specified
- *  will be used as part of ImportEntries LRO ID
- */
-@property(nonatomic, copy, nullable) NSString *jobId;
-
-@end
-
-
-/**
  *  Response message for long-running operation returned by the ImportEntries.
  */
 @interface GTLRDataCatalog_GoogleCloudDatacatalogV1ImportEntriesResponse : GTLRObject
@@ -2856,60 +2653,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Vert
 
 
 /**
- *  Response message for ListEntries.
- *
- *  @note This class supports NSFastEnumeration and indexed subscripting over
- *        its "entries" property. If returned as the result of a query, it
- *        should support automatic pagination (when @c shouldFetchNextPages is
- *        enabled).
- */
-@interface GTLRDataCatalog_GoogleCloudDatacatalogV1ListEntriesResponse : GTLRCollectionObject
-
-/**
- *  Entry details.
- *
- *  @note This property is used to support NSFastEnumeration and indexed
- *        subscripting on this class.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRDataCatalog_GoogleCloudDatacatalogV1Entry *> *entries;
-
-/**
- *  Pagination token of the next results page. Empty if there are no more items
- *  in results.
- */
-@property(nonatomic, copy, nullable) NSString *nextPageToken;
-
-@end
-
-
-/**
- *  Response message for ListEntryGroups.
- *
- *  @note This class supports NSFastEnumeration and indexed subscripting over
- *        its "entryGroups" property. If returned as the result of a query, it
- *        should support automatic pagination (when @c shouldFetchNextPages is
- *        enabled).
- */
-@interface GTLRDataCatalog_GoogleCloudDatacatalogV1ListEntryGroupsResponse : GTLRCollectionObject
-
-/**
- *  Entry group details.
- *
- *  @note This property is used to support NSFastEnumeration and indexed
- *        subscripting on this class.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRDataCatalog_GoogleCloudDatacatalogV1EntryGroup *> *entryGroups;
-
-/**
- *  Pagination token to specify in the next call to retrieve the next page of
- *  results. Empty if there are no more items.
- */
-@property(nonatomic, copy, nullable) NSString *nextPageToken;
-
-@end
-
-
-/**
  *  Response message for ListPolicyTags.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -2932,33 +2675,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Vert
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataCatalog_GoogleCloudDatacatalogV1PolicyTag *> *policyTags;
-
-@end
-
-
-/**
- *  Response message for ListTags.
- *
- *  @note This class supports NSFastEnumeration and indexed subscripting over
- *        its "tags" property. If returned as the result of a query, it should
- *        support automatic pagination (when @c shouldFetchNextPages is
- *        enabled).
- */
-@interface GTLRDataCatalog_GoogleCloudDatacatalogV1ListTagsResponse : GTLRCollectionObject
-
-/**
- *  Pagination token of the next results page. Empty if there are no more items
- *  in results.
- */
-@property(nonatomic, copy, nullable) NSString *nextPageToken;
-
-/**
- *  Tag details.
- *
- *  @note This property is used to support NSFastEnumeration and indexed
- *        subscripting on this class.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRDataCatalog_GoogleCloudDatacatalogV1Tag *> *tags;
 
 @end
 
@@ -3086,28 +2802,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Vert
 
 /** Specification for vertex model resources. */
 @property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1VertexModelSpec *vertexModelSpec;
-
-@end
-
-
-/**
- *  Request message for ModifyEntryContacts.
- */
-@interface GTLRDataCatalog_GoogleCloudDatacatalogV1ModifyEntryContactsRequest : GTLRObject
-
-/** Required. The new value for the Contacts. */
-@property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1Contacts *contacts;
-
-@end
-
-
-/**
- *  Request message for ModifyEntryOverview.
- */
-@interface GTLRDataCatalog_GoogleCloudDatacatalogV1ModifyEntryOverviewRequest : GTLRObject
-
-/** Required. The new value for the Entry Overview. */
-@property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1EntryOverview *entryOverview;
 
 @end
 
@@ -3335,33 +3029,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Vert
 
 
 /**
- *  Request message for ReconcileTags.
- */
-@interface GTLRDataCatalog_GoogleCloudDatacatalogV1ReconcileTagsRequest : GTLRObject
-
-/**
- *  forceDeleteMissing
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *forceDeleteMissing;
-
-/**
- *  A list of tags to apply to an entry. A tag can specify a tag template, which
- *  must be the template specified in the `ReconcileTagsRequest`. The sole entry
- *  and each of its columns must be mentioned at most once.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRDataCatalog_GoogleCloudDatacatalogV1Tag *> *tags;
-
-/**
- *  Required. The name of the tag template, which is used for reconciliation.
- */
-@property(nonatomic, copy, nullable) NSString *tagTemplate;
-
-@end
-
-
-/**
  *  Long-running operation response message returned by ReconcileTags.
  */
 @interface GTLRDataCatalog_GoogleCloudDatacatalogV1ReconcileTagsResponse : GTLRObject
@@ -3386,34 +3053,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Vert
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *updatedTagsCount;
-
-@end
-
-
-/**
- *  Request message for RenameTagTemplateFieldEnumValue.
- */
-@interface GTLRDataCatalog_GoogleCloudDatacatalogV1RenameTagTemplateFieldEnumValueRequest : GTLRObject
-
-/**
- *  Required. The new display name of the enum value. For example,
- *  `my_new_enum_value`.
- */
-@property(nonatomic, copy, nullable) NSString *newEnumValueDisplayName NS_RETURNS_NOT_RETAINED;
-
-@end
-
-
-/**
- *  Request message for RenameTagTemplateField.
- */
-@interface GTLRDataCatalog_GoogleCloudDatacatalogV1RenameTagTemplateFieldRequest : GTLRObject
-
-/**
- *  Required. The new ID of this tag template field. For example,
- *  `my_new_field`.
- */
-@property(nonatomic, copy, nullable) NSString *newTagTemplateFieldId NS_RETURNS_NOT_RETAINED;
 
 @end
 
@@ -4013,20 +3652,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Vert
 
 
 /**
- *  Request message for StarEntry.
- */
-@interface GTLRDataCatalog_GoogleCloudDatacatalogV1StarEntryRequest : GTLRObject
-@end
-
-
-/**
- *  Response message for StarEntry. Empty for now
- */
-@interface GTLRDataCatalog_GoogleCloudDatacatalogV1StarEntryResponse : GTLRObject
-@end
-
-
-/**
  *  Details the properties of the underlying storage.
  */
 @interface GTLRDataCatalog_GoogleCloudDatacatalogV1StorageProperties : GTLRObject
@@ -4269,150 +3894,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Vert
 
 
 /**
- *  A tag template defines a tag that can have one or more typed fields. The
- *  template is used to create tags that are attached to Google Cloud resources.
- *  [Tag template roles]
- *  (https://cloud.google.com/iam/docs/roles-permissions/datacatalog) provide
- *  permissions to create, edit, and use the template. For example, see the
- *  [TagTemplate User]
- *  (https://cloud.google.com/data-catalog/docs/how-to/template-user) role that
- *  includes a permission to use the tag template to tag resources.
- */
-@interface GTLRDataCatalog_GoogleCloudDatacatalogV1TagTemplate : GTLRObject
-
-/**
- *  Optional. Transfer status of the TagTemplate
- *
- *  Likely values:
- *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1TagTemplate_DataplexTransferStatus_DataplexTransferStatusUnspecified
- *        Default value. TagTemplate and its tags are only visible and editable
- *        in Data Catalog. (Value: "DATAPLEX_TRANSFER_STATUS_UNSPECIFIED")
- *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1TagTemplate_DataplexTransferStatus_Migrated
- *        TagTemplate and its tags are auto-copied to Dataplex Universal Catalog
- *        service. Visible in both services. Editable in Data Catalog, read-only
- *        in Dataplex Universal Catalog. Deprecated: Individual TagTemplate
- *        migration is deprecated in favor of organization or project wide
- *        TagTemplate migration opt-in. (Value: "MIGRATED")
- *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1TagTemplate_DataplexTransferStatus_Transferred
- *        TagTemplate and its tags are auto-copied to Dataplex Universal Catalog
- *        service. Visible in both services. Editable in Dataplex Universal
- *        Catalog, read-only in Data Catalog. (Value: "TRANSFERRED")
- */
-@property(nonatomic, copy, nullable) NSString *dataplexTransferStatus;
-
-/**
- *  Display name for this template. Defaults to an empty string. The name must
- *  contain only Unicode letters, numbers (0-9), underscores (_), dashes (-),
- *  spaces ( ), and can't start or end with spaces. The maximum length is 200
- *  characters.
- */
-@property(nonatomic, copy, nullable) NSString *displayName;
-
-/**
- *  Required. Map of tag template field IDs to the settings for the field. This
- *  map is an exhaustive list of the allowed fields. The map must contain at
- *  least one field and at most 500 fields. The keys to this map are tag
- *  template field IDs. The IDs have the following limitations: * Can contain
- *  uppercase and lowercase letters, numbers (0-9) and underscores (_). * Must
- *  be at least 1 character and at most 64 characters long. * Must start with a
- *  letter or underscore.
- */
-@property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1TagTemplate_Fields *fields;
-
-/**
- *  Indicates whether tags created with this template are public. Public tags do
- *  not require tag template access to appear in ListTags API response.
- *  Additionally, you can search for a public tag by value with a simple search
- *  query in addition to using a ``tag:`` predicate.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *isPubliclyReadable;
-
-/**
- *  Identifier. The resource name of the tag template in URL format. Note: The
- *  tag template itself and its child resources might not be stored in the
- *  location specified in its name.
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-@end
-
-
-/**
- *  Required. Map of tag template field IDs to the settings for the field. This
- *  map is an exhaustive list of the allowed fields. The map must contain at
- *  least one field and at most 500 fields. The keys to this map are tag
- *  template field IDs. The IDs have the following limitations: * Can contain
- *  uppercase and lowercase letters, numbers (0-9) and underscores (_). * Must
- *  be at least 1 character and at most 64 characters long. * Must start with a
- *  letter or underscore.
- *
- *  @note This class is documented as having more properties of
- *        GTLRDataCatalog_GoogleCloudDatacatalogV1TagTemplateField. Use @c
- *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
- *        of properties and then fetch them; or @c -additionalProperties to
- *        fetch them all at once.
- */
-@interface GTLRDataCatalog_GoogleCloudDatacatalogV1TagTemplate_Fields : GTLRObject
-@end
-
-
-/**
- *  The template for an individual field within a tag template.
- */
-@interface GTLRDataCatalog_GoogleCloudDatacatalogV1TagTemplateField : GTLRObject
-
-/**
- *  The description for this field. Defaults to an empty string.
- *
- *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
- */
-@property(nonatomic, copy, nullable) NSString *descriptionProperty;
-
-/**
- *  The display name for this field. Defaults to an empty string. The name must
- *  contain only Unicode letters, numbers (0-9), underscores (_), dashes (-),
- *  spaces ( ), and can't start or end with spaces. The maximum length is 200
- *  characters.
- */
-@property(nonatomic, copy, nullable) NSString *displayName;
-
-/**
- *  If true, this field is required. Defaults to false.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *isRequired;
-
-/**
- *  Identifier. The resource name of the tag template field in URL format.
- *  Example:
- *  `projects/{PROJECT_ID}/locations/{LOCATION}/tagTemplates/{TAG_TEMPLATE}/fields/{FIELD}`
- *  Note: The tag template field itself might not be stored in the location
- *  specified in its name. The name must contain only letters (a-z, A-Z),
- *  numbers (0-9), or underscores (_), and must start with a letter or
- *  underscore. The maximum length is 64 characters.
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  The order of this field with respect to other fields in this tag template.
- *  For example, a higher value can indicate a more important field. The value
- *  can be negative. Multiple fields can have the same order and field orders
- *  within a tag don't have to be sequential.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *order;
-
-/** Required. The type of value this tag field can contain. */
-@property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1FieldType *type;
-
-@end
-
-
-/**
  *  A taxonomy is a collection of hierarchical policy tags that classify data
  *  along a common axis. For example, a "data sensitivity" taxonomy might
  *  contain the following policy tags: ``` + PII + Account number + Age + SSN +
@@ -4493,20 +3974,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Vert
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
-@end
-
-
-/**
- *  Request message for UnstarEntry.
- */
-@interface GTLRDataCatalog_GoogleCloudDatacatalogV1UnstarEntryRequest : GTLRObject
-@end
-
-
-/**
- *  Response message for UnstarEntry. Empty for now
- */
-@interface GTLRDataCatalog_GoogleCloudDatacatalogV1UnstarEntryResponse : GTLRObject
 @end
 
 

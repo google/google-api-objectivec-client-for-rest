@@ -155,8 +155,9 @@ NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn = @"TURNED_IN";
 //
 
 @implementation GTLRClassroom_AddOnAttachment
-@dynamic copyHistory, courseId, dueDate, dueTime, identifier, itemId, maxPoints,
-         postId, studentViewUri, studentWorkReviewUri, teacherViewUri, title;
+@dynamic copyHistory, courseId, dueDate, dueTime, gradeSyncEnabled, identifier,
+         itemId, maxPoints, postId, studentViewUri, studentWorkReviewUri,
+         teacherViewUri, title;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -733,6 +734,28 @@ NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn = @"TURNED_IN";
 
 + (NSString *)collectionItemsKey {
   return @"addOnAttachments";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRClassroom_ListAddOnAttachmentStudentSubmissionsResponse
+//
+
+@implementation GTLRClassroom_ListAddOnAttachmentStudentSubmissionsResponse
+@dynamic addOnAttachmentStudentSubmissions, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"addOnAttachmentStudentSubmissions" : [GTLRClassroom_AddOnAttachmentStudentSubmission class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"addOnAttachmentStudentSubmissions";
 }
 
 @end

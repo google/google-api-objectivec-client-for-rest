@@ -5465,6 +5465,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping;
 /** Output only. The time at which this node pool was last updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
+/** The validation check for the node pool. */
+@property(nonatomic, strong, nullable) GTLRGKEOnPrem_ValidationCheck *validationCheck;
+
 @end
 
 

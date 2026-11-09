@@ -885,6 +885,42 @@ FOUNDATION_EXTERN NSString * const kGTLRDataformViewDirectoryContentsViewUnspeci
 @end
 
 /**
+ *  Creates a new CompilationResult in a given project and location
+ *  asynchronously.
+ *
+ *  Method: dataform.projects.locations.repositories.compilationResults.createLongRunning
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
+ *    @c kGTLRAuthScopeDataformCloudPlatform
+ */
+@interface GTLRDataformQuery_ProjectsLocationsRepositoriesCompilationResultsCreateLongRunning : GTLRDataformQuery
+
+/**
+ *  Required. The repository in which to create the compilation result. Must be
+ *  in the format `projects/ * /locations/ * /repositories/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDataform_Operation.
+ *
+ *  Creates a new CompilationResult in a given project and location
+ *  asynchronously.
+ *
+ *  @param object The @c GTLRDataform_CompilationResult to include in the query.
+ *  @param parent Required. The repository in which to create the compilation
+ *    result. Must be in the format `projects/ * /locations/ * /repositories/
+ *    *`.
+ *
+ *  @return GTLRDataformQuery_ProjectsLocationsRepositoriesCompilationResultsCreateLongRunning
+ */
++ (instancetype)queryWithObject:(GTLRDataform_CompilationResult *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
  *  Fetches a single CompilationResult.
  *
  *  Method: dataform.projects.locations.repositories.compilationResults.get

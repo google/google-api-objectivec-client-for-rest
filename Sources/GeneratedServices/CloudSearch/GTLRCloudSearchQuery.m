@@ -587,8 +587,8 @@ NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMappingsFound = @"TO
 
 @dynamic pageToken, requestOptionsClientDisplayLanguageCode,
          requestOptionsCountryCode, requestOptionsDebugOptionsEnableDebugging,
-         requestOptionsLanguageCode, requestOptionsSearchApplicationId,
-         requestOptionsTimeZone;
+         requestOptionsLanguageCode, requestOptionsQueryLanguageCode,
+         requestOptionsSearchApplicationId, requestOptionsTimeZone;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -596,6 +596,7 @@ NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMappingsFound = @"TO
     @"requestOptionsCountryCode" : @"requestOptions.countryCode",
     @"requestOptionsDebugOptionsEnableDebugging" : @"requestOptions.debugOptions.enableDebugging",
     @"requestOptionsLanguageCode" : @"requestOptions.languageCode",
+    @"requestOptionsQueryLanguageCode" : @"requestOptions.queryLanguageCode",
     @"requestOptionsSearchApplicationId" : @"requestOptions.searchApplicationId",
     @"requestOptionsTimeZone" : @"requestOptions.timeZone"
   };

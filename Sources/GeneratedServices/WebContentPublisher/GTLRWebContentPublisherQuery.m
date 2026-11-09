@@ -155,6 +155,25 @@
 
 @end
 
+@implementation GTLRWebContentPublisherQuery_OrganizationsPublicationsGetSurveyQuestionCatalog
+
+@dynamic languageCode, name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRWebContentPublisherQuery_OrganizationsPublicationsGetSurveyQuestionCatalog *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRWebContentPublisher_SurveyQuestionCatalog class];
+  query.loggingName = @"webcontentpublisher.organizations.publications.getSurveyQuestionCatalog";
+  return query;
+}
+
+@end
+
 @implementation GTLRWebContentPublisherQuery_OrganizationsPublicationsList
 
 @dynamic filter, pageSize, pageToken, parent;
@@ -215,6 +234,25 @@
   query.name = name;
   query.expectedObjectClass = [GTLRWebContentPublisher_CheckFreeAccessResponse class];
   query.loggingName = @"webcontentpublisher.publications.checkFreeAccess";
+  return query;
+}
+
+@end
+
+@implementation GTLRWebContentPublisherQuery_PublicationsCheckProgramAccess
+
+@dynamic name, productId, swgUserToken;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:checkProgramAccess";
+  GTLRWebContentPublisherQuery_PublicationsCheckProgramAccess *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRWebContentPublisher_CheckProgramAccessResponse class];
+  query.loggingName = @"webcontentpublisher.publications.checkProgramAccess";
   return query;
 }
 

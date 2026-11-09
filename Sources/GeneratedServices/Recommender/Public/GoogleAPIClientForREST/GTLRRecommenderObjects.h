@@ -227,6 +227,14 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommender_CloudRecommendationsRecommen
 FOUNDATION_EXTERN NSString * const kGTLRRecommender_CloudRecommendationsRecommendersDatabasesV1CtaConfig_Label_StringKeyInnodbLogBufferSizeCurrentValue;
 /** Value: "STRING_KEY_INNODB_LOG_BUFFER_SIZE_RECOMMENDED_VALUE" */
 FOUNDATION_EXTERN NSString * const kGTLRRecommender_CloudRecommendationsRecommendersDatabasesV1CtaConfig_Label_StringKeyInnodbLogBufferSizeRecommendedValue;
+/** Value: "STRING_KEY_INNODB_LOG_FILE_SIZE_CURRENT_VALUE" */
+FOUNDATION_EXTERN NSString * const kGTLRRecommender_CloudRecommendationsRecommendersDatabasesV1CtaConfig_Label_StringKeyInnodbLogFileSizeCurrentValue;
+/** Value: "STRING_KEY_INNODB_LOG_FILE_SIZE_RECOMMENDED_VALUE" */
+FOUNDATION_EXTERN NSString * const kGTLRRecommender_CloudRecommendationsRecommendersDatabasesV1CtaConfig_Label_StringKeyInnodbLogFileSizeRecommendedValue;
+/** Value: "STRING_KEY_INNODB_REDO_LOG_CAPACITY_CURRENT_VALUE" */
+FOUNDATION_EXTERN NSString * const kGTLRRecommender_CloudRecommendationsRecommendersDatabasesV1CtaConfig_Label_StringKeyInnodbRedoLogCapacityCurrentValue;
+/** Value: "STRING_KEY_INNODB_REDO_LOG_CAPACITY_RECOMMENDED_VALUE" */
+FOUNDATION_EXTERN NSString * const kGTLRRecommender_CloudRecommendationsRecommendersDatabasesV1CtaConfig_Label_StringKeyInnodbRedoLogCapacityRecommendedValue;
 /** Value: "STRING_KEY_INSECURE_RULES_AUTHENTICATION" */
 FOUNDATION_EXTERN NSString * const kGTLRRecommender_CloudRecommendationsRecommendersDatabasesV1CtaConfig_Label_StringKeyInsecureRulesAuthentication;
 /** Value: "STRING_KEY_INSECURE_RULES_DETECTED" */
@@ -673,6 +681,14 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommender_CloudRecommendationsRecommen
 FOUNDATION_EXTERN NSString * const kGTLRRecommender_CloudRecommendationsRecommendersDatabasesV1PlaybookLink_Label_StringKeyInnodbLogBufferSizeCurrentValue;
 /** Value: "STRING_KEY_INNODB_LOG_BUFFER_SIZE_RECOMMENDED_VALUE" */
 FOUNDATION_EXTERN NSString * const kGTLRRecommender_CloudRecommendationsRecommendersDatabasesV1PlaybookLink_Label_StringKeyInnodbLogBufferSizeRecommendedValue;
+/** Value: "STRING_KEY_INNODB_LOG_FILE_SIZE_CURRENT_VALUE" */
+FOUNDATION_EXTERN NSString * const kGTLRRecommender_CloudRecommendationsRecommendersDatabasesV1PlaybookLink_Label_StringKeyInnodbLogFileSizeCurrentValue;
+/** Value: "STRING_KEY_INNODB_LOG_FILE_SIZE_RECOMMENDED_VALUE" */
+FOUNDATION_EXTERN NSString * const kGTLRRecommender_CloudRecommendationsRecommendersDatabasesV1PlaybookLink_Label_StringKeyInnodbLogFileSizeRecommendedValue;
+/** Value: "STRING_KEY_INNODB_REDO_LOG_CAPACITY_CURRENT_VALUE" */
+FOUNDATION_EXTERN NSString * const kGTLRRecommender_CloudRecommendationsRecommendersDatabasesV1PlaybookLink_Label_StringKeyInnodbRedoLogCapacityCurrentValue;
+/** Value: "STRING_KEY_INNODB_REDO_LOG_CAPACITY_RECOMMENDED_VALUE" */
+FOUNDATION_EXTERN NSString * const kGTLRRecommender_CloudRecommendationsRecommendersDatabasesV1PlaybookLink_Label_StringKeyInnodbRedoLogCapacityRecommendedValue;
 /** Value: "STRING_KEY_INSECURE_RULES_AUTHENTICATION" */
 FOUNDATION_EXTERN NSString * const kGTLRRecommender_CloudRecommendationsRecommendersDatabasesV1PlaybookLink_Label_StringKeyInsecureRulesAuthentication;
 /** Value: "STRING_KEY_INSECURE_RULES_DETECTED" */
@@ -1049,6 +1065,14 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommender_CloudRecommendationsRecommen
 FOUNDATION_EXTERN NSString * const kGTLRRecommender_CloudRecommendationsRecommendersDatabasesV1SimpleValue_EnumValue_StringKeyInnodbLogBufferSizeCurrentValue;
 /** Value: "STRING_KEY_INNODB_LOG_BUFFER_SIZE_RECOMMENDED_VALUE" */
 FOUNDATION_EXTERN NSString * const kGTLRRecommender_CloudRecommendationsRecommendersDatabasesV1SimpleValue_EnumValue_StringKeyInnodbLogBufferSizeRecommendedValue;
+/** Value: "STRING_KEY_INNODB_LOG_FILE_SIZE_CURRENT_VALUE" */
+FOUNDATION_EXTERN NSString * const kGTLRRecommender_CloudRecommendationsRecommendersDatabasesV1SimpleValue_EnumValue_StringKeyInnodbLogFileSizeCurrentValue;
+/** Value: "STRING_KEY_INNODB_LOG_FILE_SIZE_RECOMMENDED_VALUE" */
+FOUNDATION_EXTERN NSString * const kGTLRRecommender_CloudRecommendationsRecommendersDatabasesV1SimpleValue_EnumValue_StringKeyInnodbLogFileSizeRecommendedValue;
+/** Value: "STRING_KEY_INNODB_REDO_LOG_CAPACITY_CURRENT_VALUE" */
+FOUNDATION_EXTERN NSString * const kGTLRRecommender_CloudRecommendationsRecommendersDatabasesV1SimpleValue_EnumValue_StringKeyInnodbRedoLogCapacityCurrentValue;
+/** Value: "STRING_KEY_INNODB_REDO_LOG_CAPACITY_RECOMMENDED_VALUE" */
+FOUNDATION_EXTERN NSString * const kGTLRRecommender_CloudRecommendationsRecommendersDatabasesV1SimpleValue_EnumValue_StringKeyInnodbRedoLogCapacityRecommendedValue;
 /** Value: "STRING_KEY_INSECURE_RULES_AUTHENTICATION" */
 FOUNDATION_EXTERN NSString * const kGTLRRecommender_CloudRecommendationsRecommendersDatabasesV1SimpleValue_EnumValue_StringKeyInsecureRulesAuthentication;
 /** Value: "STRING_KEY_INSECURE_RULES_DETECTED" */
@@ -1425,6 +1449,14 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommender_CloudRecommendationsRecommen
 FOUNDATION_EXTERN NSString * const kGTLRRecommender_CloudRecommendationsRecommendersDatabasesV1Table_Headers_StringKeyInnodbLogBufferSizeCurrentValue;
 /** Value: "STRING_KEY_INNODB_LOG_BUFFER_SIZE_RECOMMENDED_VALUE" */
 FOUNDATION_EXTERN NSString * const kGTLRRecommender_CloudRecommendationsRecommendersDatabasesV1Table_Headers_StringKeyInnodbLogBufferSizeRecommendedValue;
+/** Value: "STRING_KEY_INNODB_LOG_FILE_SIZE_CURRENT_VALUE" */
+FOUNDATION_EXTERN NSString * const kGTLRRecommender_CloudRecommendationsRecommendersDatabasesV1Table_Headers_StringKeyInnodbLogFileSizeCurrentValue;
+/** Value: "STRING_KEY_INNODB_LOG_FILE_SIZE_RECOMMENDED_VALUE" */
+FOUNDATION_EXTERN NSString * const kGTLRRecommender_CloudRecommendationsRecommendersDatabasesV1Table_Headers_StringKeyInnodbLogFileSizeRecommendedValue;
+/** Value: "STRING_KEY_INNODB_REDO_LOG_CAPACITY_CURRENT_VALUE" */
+FOUNDATION_EXTERN NSString * const kGTLRRecommender_CloudRecommendationsRecommendersDatabasesV1Table_Headers_StringKeyInnodbRedoLogCapacityCurrentValue;
+/** Value: "STRING_KEY_INNODB_REDO_LOG_CAPACITY_RECOMMENDED_VALUE" */
+FOUNDATION_EXTERN NSString * const kGTLRRecommender_CloudRecommendationsRecommendersDatabasesV1Table_Headers_StringKeyInnodbRedoLogCapacityRecommendedValue;
 /** Value: "STRING_KEY_INSECURE_RULES_AUTHENTICATION" */
 FOUNDATION_EXTERN NSString * const kGTLRRecommender_CloudRecommendationsRecommendersDatabasesV1Table_Headers_StringKeyInsecureRulesAuthentication;
 /** Value: "STRING_KEY_INSECURE_RULES_DETECTED" */
@@ -1801,6 +1833,14 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommender_CloudRecommendationsRecommen
 FOUNDATION_EXTERN NSString * const kGTLRRecommender_CloudRecommendationsRecommendersDatabasesV1TableField_Key_StringKeyInnodbLogBufferSizeCurrentValue;
 /** Value: "STRING_KEY_INNODB_LOG_BUFFER_SIZE_RECOMMENDED_VALUE" */
 FOUNDATION_EXTERN NSString * const kGTLRRecommender_CloudRecommendationsRecommendersDatabasesV1TableField_Key_StringKeyInnodbLogBufferSizeRecommendedValue;
+/** Value: "STRING_KEY_INNODB_LOG_FILE_SIZE_CURRENT_VALUE" */
+FOUNDATION_EXTERN NSString * const kGTLRRecommender_CloudRecommendationsRecommendersDatabasesV1TableField_Key_StringKeyInnodbLogFileSizeCurrentValue;
+/** Value: "STRING_KEY_INNODB_LOG_FILE_SIZE_RECOMMENDED_VALUE" */
+FOUNDATION_EXTERN NSString * const kGTLRRecommender_CloudRecommendationsRecommendersDatabasesV1TableField_Key_StringKeyInnodbLogFileSizeRecommendedValue;
+/** Value: "STRING_KEY_INNODB_REDO_LOG_CAPACITY_CURRENT_VALUE" */
+FOUNDATION_EXTERN NSString * const kGTLRRecommender_CloudRecommendationsRecommendersDatabasesV1TableField_Key_StringKeyInnodbRedoLogCapacityCurrentValue;
+/** Value: "STRING_KEY_INNODB_REDO_LOG_CAPACITY_RECOMMENDED_VALUE" */
+FOUNDATION_EXTERN NSString * const kGTLRRecommender_CloudRecommendationsRecommendersDatabasesV1TableField_Key_StringKeyInnodbRedoLogCapacityRecommendedValue;
 /** Value: "STRING_KEY_INSECURE_RULES_AUTHENTICATION" */
 FOUNDATION_EXTERN NSString * const kGTLRRecommender_CloudRecommendationsRecommendersDatabasesV1TableField_Key_StringKeyInsecureRulesAuthentication;
 /** Value: "STRING_KEY_INSECURE_RULES_DETECTED" */
@@ -2473,6 +2513,14 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Reli
  *        Value "STRING_KEY_INNODB_LOG_BUFFER_SIZE_CURRENT_VALUE"
  *    @arg @c kGTLRRecommender_CloudRecommendationsRecommendersDatabasesV1CtaConfig_Label_StringKeyInnodbLogBufferSizeRecommendedValue
  *        Value "STRING_KEY_INNODB_LOG_BUFFER_SIZE_RECOMMENDED_VALUE"
+ *    @arg @c kGTLRRecommender_CloudRecommendationsRecommendersDatabasesV1CtaConfig_Label_StringKeyInnodbLogFileSizeCurrentValue
+ *        Value "STRING_KEY_INNODB_LOG_FILE_SIZE_CURRENT_VALUE"
+ *    @arg @c kGTLRRecommender_CloudRecommendationsRecommendersDatabasesV1CtaConfig_Label_StringKeyInnodbLogFileSizeRecommendedValue
+ *        Value "STRING_KEY_INNODB_LOG_FILE_SIZE_RECOMMENDED_VALUE"
+ *    @arg @c kGTLRRecommender_CloudRecommendationsRecommendersDatabasesV1CtaConfig_Label_StringKeyInnodbRedoLogCapacityCurrentValue
+ *        Value "STRING_KEY_INNODB_REDO_LOG_CAPACITY_CURRENT_VALUE"
+ *    @arg @c kGTLRRecommender_CloudRecommendationsRecommendersDatabasesV1CtaConfig_Label_StringKeyInnodbRedoLogCapacityRecommendedValue
+ *        Value "STRING_KEY_INNODB_REDO_LOG_CAPACITY_RECOMMENDED_VALUE"
  *    @arg @c kGTLRRecommender_CloudRecommendationsRecommendersDatabasesV1CtaConfig_Label_StringKeyInsecureRulesAuthentication
  *        Value "STRING_KEY_INSECURE_RULES_AUTHENTICATION"
  *    @arg @c kGTLRRecommender_CloudRecommendationsRecommendersDatabasesV1CtaConfig_Label_StringKeyInsecureRulesDetected
@@ -2988,6 +3036,14 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Reli
  *        Value "STRING_KEY_INNODB_LOG_BUFFER_SIZE_CURRENT_VALUE"
  *    @arg @c kGTLRRecommender_CloudRecommendationsRecommendersDatabasesV1PlaybookLink_Label_StringKeyInnodbLogBufferSizeRecommendedValue
  *        Value "STRING_KEY_INNODB_LOG_BUFFER_SIZE_RECOMMENDED_VALUE"
+ *    @arg @c kGTLRRecommender_CloudRecommendationsRecommendersDatabasesV1PlaybookLink_Label_StringKeyInnodbLogFileSizeCurrentValue
+ *        Value "STRING_KEY_INNODB_LOG_FILE_SIZE_CURRENT_VALUE"
+ *    @arg @c kGTLRRecommender_CloudRecommendationsRecommendersDatabasesV1PlaybookLink_Label_StringKeyInnodbLogFileSizeRecommendedValue
+ *        Value "STRING_KEY_INNODB_LOG_FILE_SIZE_RECOMMENDED_VALUE"
+ *    @arg @c kGTLRRecommender_CloudRecommendationsRecommendersDatabasesV1PlaybookLink_Label_StringKeyInnodbRedoLogCapacityCurrentValue
+ *        Value "STRING_KEY_INNODB_REDO_LOG_CAPACITY_CURRENT_VALUE"
+ *    @arg @c kGTLRRecommender_CloudRecommendationsRecommendersDatabasesV1PlaybookLink_Label_StringKeyInnodbRedoLogCapacityRecommendedValue
+ *        Value "STRING_KEY_INNODB_REDO_LOG_CAPACITY_RECOMMENDED_VALUE"
  *    @arg @c kGTLRRecommender_CloudRecommendationsRecommendersDatabasesV1PlaybookLink_Label_StringKeyInsecureRulesAuthentication
  *        Value "STRING_KEY_INSECURE_RULES_AUTHENTICATION"
  *    @arg @c kGTLRRecommender_CloudRecommendationsRecommendersDatabasesV1PlaybookLink_Label_StringKeyInsecureRulesDetected
@@ -3379,6 +3435,14 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Reli
  *        Value "STRING_KEY_INNODB_LOG_BUFFER_SIZE_CURRENT_VALUE"
  *    @arg @c kGTLRRecommender_CloudRecommendationsRecommendersDatabasesV1SimpleValue_EnumValue_StringKeyInnodbLogBufferSizeRecommendedValue
  *        Value "STRING_KEY_INNODB_LOG_BUFFER_SIZE_RECOMMENDED_VALUE"
+ *    @arg @c kGTLRRecommender_CloudRecommendationsRecommendersDatabasesV1SimpleValue_EnumValue_StringKeyInnodbLogFileSizeCurrentValue
+ *        Value "STRING_KEY_INNODB_LOG_FILE_SIZE_CURRENT_VALUE"
+ *    @arg @c kGTLRRecommender_CloudRecommendationsRecommendersDatabasesV1SimpleValue_EnumValue_StringKeyInnodbLogFileSizeRecommendedValue
+ *        Value "STRING_KEY_INNODB_LOG_FILE_SIZE_RECOMMENDED_VALUE"
+ *    @arg @c kGTLRRecommender_CloudRecommendationsRecommendersDatabasesV1SimpleValue_EnumValue_StringKeyInnodbRedoLogCapacityCurrentValue
+ *        Value "STRING_KEY_INNODB_REDO_LOG_CAPACITY_CURRENT_VALUE"
+ *    @arg @c kGTLRRecommender_CloudRecommendationsRecommendersDatabasesV1SimpleValue_EnumValue_StringKeyInnodbRedoLogCapacityRecommendedValue
+ *        Value "STRING_KEY_INNODB_REDO_LOG_CAPACITY_RECOMMENDED_VALUE"
  *    @arg @c kGTLRRecommender_CloudRecommendationsRecommendersDatabasesV1SimpleValue_EnumValue_StringKeyInsecureRulesAuthentication
  *        Value "STRING_KEY_INSECURE_RULES_AUTHENTICATION"
  *    @arg @c kGTLRRecommender_CloudRecommendationsRecommendersDatabasesV1SimpleValue_EnumValue_StringKeyInsecureRulesDetected
@@ -3806,6 +3870,14 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Reli
  *        Value "STRING_KEY_INNODB_LOG_BUFFER_SIZE_CURRENT_VALUE"
  *    @arg @c kGTLRRecommender_CloudRecommendationsRecommendersDatabasesV1TableField_Key_StringKeyInnodbLogBufferSizeRecommendedValue
  *        Value "STRING_KEY_INNODB_LOG_BUFFER_SIZE_RECOMMENDED_VALUE"
+ *    @arg @c kGTLRRecommender_CloudRecommendationsRecommendersDatabasesV1TableField_Key_StringKeyInnodbLogFileSizeCurrentValue
+ *        Value "STRING_KEY_INNODB_LOG_FILE_SIZE_CURRENT_VALUE"
+ *    @arg @c kGTLRRecommender_CloudRecommendationsRecommendersDatabasesV1TableField_Key_StringKeyInnodbLogFileSizeRecommendedValue
+ *        Value "STRING_KEY_INNODB_LOG_FILE_SIZE_RECOMMENDED_VALUE"
+ *    @arg @c kGTLRRecommender_CloudRecommendationsRecommendersDatabasesV1TableField_Key_StringKeyInnodbRedoLogCapacityCurrentValue
+ *        Value "STRING_KEY_INNODB_REDO_LOG_CAPACITY_CURRENT_VALUE"
+ *    @arg @c kGTLRRecommender_CloudRecommendationsRecommendersDatabasesV1TableField_Key_StringKeyInnodbRedoLogCapacityRecommendedValue
+ *        Value "STRING_KEY_INNODB_REDO_LOG_CAPACITY_RECOMMENDED_VALUE"
  *    @arg @c kGTLRRecommender_CloudRecommendationsRecommendersDatabasesV1TableField_Key_StringKeyInsecureRulesAuthentication
  *        Value "STRING_KEY_INSECURE_RULES_AUTHENTICATION"
  *    @arg @c kGTLRRecommender_CloudRecommendationsRecommendersDatabasesV1TableField_Key_StringKeyInsecureRulesDetected

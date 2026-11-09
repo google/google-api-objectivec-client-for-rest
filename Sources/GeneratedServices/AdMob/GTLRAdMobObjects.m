@@ -39,6 +39,7 @@ NSString * const kGTLRAdMob_MediationReportSpec_Dimensions_ServingRestriction = 
 NSString * const kGTLRAdMob_MediationReportSpec_Dimensions_Week = @"WEEK";
 
 // GTLRAdMob_MediationReportSpec.metrics
+NSString * const kGTLRAdMob_MediationReportSpec_Metrics_AdLoadLatency = @"AD_LOAD_LATENCY";
 NSString * const kGTLRAdMob_MediationReportSpec_Metrics_AdRequests = @"AD_REQUESTS";
 NSString * const kGTLRAdMob_MediationReportSpec_Metrics_Clicks = @"CLICKS";
 NSString * const kGTLRAdMob_MediationReportSpec_Metrics_EstimatedEarnings = @"ESTIMATED_EARNINGS";
@@ -86,6 +87,7 @@ NSString * const kGTLRAdMob_MediationReportSpecSortCondition_Dimension_ServingRe
 NSString * const kGTLRAdMob_MediationReportSpecSortCondition_Dimension_Week = @"WEEK";
 
 // GTLRAdMob_MediationReportSpecSortCondition.metric
+NSString * const kGTLRAdMob_MediationReportSpecSortCondition_Metric_AdLoadLatency = @"AD_LOAD_LATENCY";
 NSString * const kGTLRAdMob_MediationReportSpecSortCondition_Metric_AdRequests = @"AD_REQUESTS";
 NSString * const kGTLRAdMob_MediationReportSpecSortCondition_Metric_Clicks = @"CLICKS";
 NSString * const kGTLRAdMob_MediationReportSpecSortCondition_Metric_EstimatedEarnings = @"ESTIMATED_EARNINGS";

@@ -379,7 +379,8 @@ NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted   = @"UNEXECUTED";
 //
 
 @implementation GTLRCloudBatch_AllocationPolicy
-@dynamic instances, labels, location, network, placement, serviceAccount, tags;
+@dynamic instanceFlexibilityPolicy, instances, labels, location, network,
+         placement, serviceAccount, tags;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -554,6 +555,30 @@ NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted   = @"UNEXECUTED";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudBatch_InstanceFlexibilityPolicy
+//
+
+@implementation GTLRCloudBatch_InstanceFlexibilityPolicy
+@dynamic instanceSelections;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBatch_InstanceFlexibilityPolicy_InstanceSelections
+//
+
+@implementation GTLRCloudBatch_InstanceFlexibilityPolicy_InstanceSelections
+
++ (Class)classForAdditionalProperties {
+  return [GTLRCloudBatch_InstanceSelection class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudBatch_InstancePolicy
 //
 
@@ -580,6 +605,24 @@ NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted   = @"UNEXECUTED";
 @implementation GTLRCloudBatch_InstancePolicyOrTemplate
 @dynamic blockProjectSshKeys, installGpuDrivers, installOpsAgent,
          instanceTemplate, policy;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBatch_InstanceSelection
+//
+
+@implementation GTLRCloudBatch_InstanceSelection
+@dynamic machineTypes, rank;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"machineTypes" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 

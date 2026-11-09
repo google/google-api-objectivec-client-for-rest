@@ -5,7 +5,7 @@
 //   Transcoder API (transcoder/v1)
 // Description:
 //   This API converts video files into formats suitable for consumer
-//   distribution. For more information, see the Transcoder API overview.
+//   distribution.
 // Documentation:
 //   https://cloud.google.com/transcoder/docs/
 

@@ -5,8 +5,9 @@
 //   Business Profile Performance API (businessprofileperformance/v1)
 // Description:
 //   The Business Profile Performance API allows merchants to fetch performance
-//   reports about their business profile on Google. Note - If you have a quota
-//   of 0 after enabling the API, please request for GBP API access.
+//   reports about their business profile on Google. Note: If you have a quota
+//   of 0 after enabling the API, please request GBP API access at
+//   https://developers.google.com/my-business/content/prereqs#request-access.
 // Documentation:
 //   https://developers.google.com/my-business/
 
@@ -29,6 +30,7 @@ NSString * const kGTLRBusinessProfilePerformanceDailyMetricBusinessImpressionsMo
 NSString * const kGTLRBusinessProfilePerformanceDailyMetricBusinessImpressionsMobileSearch = @"BUSINESS_IMPRESSIONS_MOBILE_SEARCH";
 NSString * const kGTLRBusinessProfilePerformanceDailyMetricCallClicks = @"CALL_CLICKS";
 NSString * const kGTLRBusinessProfilePerformanceDailyMetricDailyMetricUnknown = @"DAILY_METRIC_UNKNOWN";
+NSString * const kGTLRBusinessProfilePerformanceDailyMetricMessagingClicks = @"MESSAGING_CLICKS";
 NSString * const kGTLRBusinessProfilePerformanceDailyMetricWebsiteClicks = @"WEBSITE_CLICKS";
 
 // dailyMetrics
@@ -43,6 +45,7 @@ NSString * const kGTLRBusinessProfilePerformanceDailyMetricsBusinessImpressionsM
 NSString * const kGTLRBusinessProfilePerformanceDailyMetricsBusinessImpressionsMobileSearch = @"BUSINESS_IMPRESSIONS_MOBILE_SEARCH";
 NSString * const kGTLRBusinessProfilePerformanceDailyMetricsCallClicks = @"CALL_CLICKS";
 NSString * const kGTLRBusinessProfilePerformanceDailyMetricsDailyMetricUnknown = @"DAILY_METRIC_UNKNOWN";
+NSString * const kGTLRBusinessProfilePerformanceDailyMetricsMessagingClicks = @"MESSAGING_CLICKS";
 NSString * const kGTLRBusinessProfilePerformanceDailyMetricsWebsiteClicks = @"WEBSITE_CLICKS";
 
 // dailySubEntityTypeDayOfWeek

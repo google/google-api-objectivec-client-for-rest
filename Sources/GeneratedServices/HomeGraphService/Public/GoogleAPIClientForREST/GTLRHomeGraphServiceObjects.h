@@ -31,6 +31,10 @@
 @class GTLRHomeGraphService_HomeEvents;
 @class GTLRHomeGraphService_HomeTraitPayload;
 @class GTLRHomeGraphService_HomeTraitUpdates;
+@class GTLRHomeGraphService_JsonTrait;
+@class GTLRHomeGraphService_JsonTrait_Data;
+@class GTLRHomeGraphService_JsonTraitEvent;
+@class GTLRHomeGraphService_JsonTraitEvent_Data;
 @class GTLRHomeGraphService_MediaUrlsStruct;
 @class GTLRHomeGraphService_QueryRequestInput;
 @class GTLRHomeGraphService_QueryRequestPayload;
@@ -117,7 +121,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHomeGraphService_EveUtilityTrait_Accepte
 // GTLRHomeGraphService_QueryRequest.deviceView
 
 /**
- *  Default value. Equivalent to SMART_HOME_TRAIT_ONLY.
+ *  Default value. Equivalent to `SMART_HOME_TRAIT_ONLY`.
  *
  *  Value: "DEVICE_VIEW_UNSPECIFIED"
  */
@@ -135,6 +139,14 @@ FOUNDATION_EXTERN NSString * const kGTLRHomeGraphService_QueryRequest_DeviceView
  *  Value: "HOME_TRAIT_ONLY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRHomeGraphService_QueryRequest_DeviceView_HomeTraitOnly;
+/**
+ *  Return all component traits in `JsonTrait` format (`TraitData.json_trait` in
+ *  `home_trait_payload`), converting persisted UDDM traits to `JsonTrait` on
+ *  read.
+ *
+ *  Value: "JSON_TRAIT_ONLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHomeGraphService_QueryRequest_DeviceView_JsonTraitOnly;
 /**
  *  Return only standard Smart Home traits in the `devices` map.
  *
@@ -527,7 +539,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHomeGraphService_UserBlameStruct_BlameTy
  */
 @interface GTLRHomeGraphService_EventData : GTLRObject
 
-/** Required. The actual event payload. */
+/** Optional. The actual event payload. */
 @property(nonatomic, strong, nullable) GTLRHomeGraphService_EventData_Event *event;
 
 /** Required. The unique event ID from the device provider. */
@@ -536,11 +548,14 @@ FOUNDATION_EXTERN NSString * const kGTLRHomeGraphService_UserBlameStruct_BlameTy
 /** Required. The timestamp of the event. */
 @property(nonatomic, strong, nullable) GTLRDateTime *eventTime;
 
+/** Optional. Contains the dynamic JSON trait event payload. */
+@property(nonatomic, strong, nullable) GTLRHomeGraphService_JsonTraitEvent *jsonTraitEvent;
+
 @end
 
 
 /**
- *  Required. The actual event payload.
+ *  Optional. The actual event payload.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -558,7 +573,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHomeGraphService_UserBlameStruct_BlameTy
 
 /**
  *  Optional. The ID of the provider component if the events are associated with
- *  a specific component. Optional for WHDM events, required for UDDM events.
+ *  a specific component. Optional for WHDM events, required for UDDM and JSON
+ *  events.
  */
 @property(nonatomic, copy, nullable) NSString *componentId;
 
@@ -754,7 +770,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHomeGraphService_UserBlameStruct_BlameTy
 
 
 /**
- *  Container for UDDM trait data associated with a device.
+ *  Container for UDDM or JSON trait data associated with a device.
  */
 @interface GTLRHomeGraphService_HomeTraitPayload : GTLRObject
 
@@ -775,6 +791,88 @@ FOUNDATION_EXTERN NSString * const kGTLRHomeGraphService_UserBlameStruct_BlameTy
 /** Required. Unique identifier for the device. */
 @property(nonatomic, copy, nullable) NSString *deviceId;
 
+@end
+
+
+/**
+ *  Represents a dynamic JSON trait state payload that conforms to
+ *  `json_trait_schema.md`. This message is used for Category 2 (vendor Matter
+ *  clusters) and Category 3 (non-Matter capabilities) traits across all wire
+ *  and internal paths, and for Category 1 traits on external JSON-only wire
+ *  paths (for example, `Query` with `JSON_TRAIT_ONLY`).
+ */
+@interface GTLRHomeGraphService_JsonTrait : GTLRObject
+
+/**
+ *  Optional. Holds the trait attributes, which conform to the trait's
+ *  registered JSON Schema.
+ */
+@property(nonatomic, strong, nullable) GTLRHomeGraphService_JsonTrait_Data *data;
+
+/**
+ *  Required. Identifies the trait by its canonical four-segment capability ID,
+ *  `capability...`: * Standard or Google Matter (Category 1):
+ *  `capability.matter.standard.` or `capability.matter.google.`, for example
+ *  `capability.matter.standard.Thermostat`. * Vendor Matter (Category 2):
+ *  `capability.matter..`. * Non-Matter (Category 3, from any provider including
+ *  Google): `capability.generic..`, for example
+ *  `capability.generic.acme.Warranty`.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+@end
+
+
+/**
+ *  Optional. Holds the trait attributes, which conform to the trait's
+ *  registered JSON Schema.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRHomeGraphService_JsonTrait_Data : GTLRObject
+@end
+
+
+/**
+ *  Represents a dynamic JSON event payload that conforms to
+ *  `json_trait_schema.md`.
+ */
+@interface GTLRHomeGraphService_JsonTraitEvent : GTLRObject
+
+/**
+ *  Optional. Holds the event payload fields, which conform to the event's
+ *  registered JSON Schema.
+ */
+@property(nonatomic, strong, nullable) GTLRHomeGraphService_JsonTraitEvent_Data *data;
+
+/**
+ *  Required. Identifies the event as `.`, where `` is the PascalCase key in the
+ *  schema's `x-capability-info.events`, for example
+ *  `capability.matter.standard.DoorLock.LockOperation` or
+ *  `capability.generic.acme.Warranty.ClaimUpdated`.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+@end
+
+
+/**
+ *  Optional. Holds the event payload fields, which conform to the event's
+ *  registered JSON Schema.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRHomeGraphService_JsonTraitEvent_Data : GTLRObject
 @end
 
 
@@ -859,11 +957,11 @@ FOUNDATION_EXTERN NSString * const kGTLRHomeGraphService_UserBlameStruct_BlameTy
  *  Optional. Specifies the type of device data to be returned in the response.
  *  This allows callers to request traditional Smart Home traits, Unified Device
  *  Data Model (UDDM) traits, or both. If unspecified, defaults to
- *  SMART_HOME_TRAIT_ONLY.
+ *  `SMART_HOME_TRAIT_ONLY`.
  *
  *  Likely values:
  *    @arg @c kGTLRHomeGraphService_QueryRequest_DeviceView_DeviceViewUnspecified
- *        Default value. Equivalent to SMART_HOME_TRAIT_ONLY. (Value:
+ *        Default value. Equivalent to `SMART_HOME_TRAIT_ONLY`. (Value:
  *        "DEVICE_VIEW_UNSPECIFIED")
  *    @arg @c kGTLRHomeGraphService_QueryRequest_DeviceView_HomeTraitAndSmartHomeTrait
  *        Return both standard Smart Home traits and UDDM traits. (Value:
@@ -871,6 +969,10 @@ FOUNDATION_EXTERN NSString * const kGTLRHomeGraphService_UserBlameStruct_BlameTy
  *    @arg @c kGTLRHomeGraphService_QueryRequest_DeviceView_HomeTraitOnly Return
  *        only Unified Device Data Model (UDDM) traits in the
  *        `home_trait_payload` map. (Value: "HOME_TRAIT_ONLY")
+ *    @arg @c kGTLRHomeGraphService_QueryRequest_DeviceView_JsonTraitOnly Return
+ *        all component traits in `JsonTrait` format (`TraitData.json_trait` in
+ *        `home_trait_payload`), converting persisted UDDM traits to `JsonTrait`
+ *        on read. (Value: "JSON_TRAIT_ONLY")
  *    @arg @c kGTLRHomeGraphService_QueryRequest_DeviceView_SmartHomeTraitOnly
  *        Return only standard Smart Home traits in the `devices` map. (Value:
  *        "SMART_HOME_TRAIT_ONLY")
@@ -959,9 +1061,9 @@ FOUNDATION_EXTERN NSString * const kGTLRHomeGraphService_UserBlameStruct_BlameTy
 @property(nonatomic, strong, nullable) GTLRHomeGraphService_QueryResponsePayload_Devices *devices;
 
 /**
- *  Map of device IDs to their Unified Device Data Model (UDDM) trait payloads.
- *  This field is populated when `device_view` is set to HOME_TRAIT_ONLY or
- *  HOME_TRAIT_AND_SMART_HOME_TRAIT.
+ *  Map of device IDs to their Unified Device Data Model (UDDM) or JSON trait
+ *  payloads. This field is populated when `device_view` is set to
+ *  `HOME_TRAIT_ONLY`, `HOME_TRAIT_AND_SMART_HOME_TRAIT`, or `JSON_TRAIT_ONLY`.
  */
 @property(nonatomic, strong, nullable) GTLRHomeGraphService_QueryResponsePayload_HomeTraitPayload *homeTraitPayload;
 
@@ -997,9 +1099,9 @@ FOUNDATION_EXTERN NSString * const kGTLRHomeGraphService_UserBlameStruct_BlameTy
 
 
 /**
- *  Map of device IDs to their Unified Device Data Model (UDDM) trait payloads.
- *  This field is populated when `device_view` is set to HOME_TRAIT_ONLY or
- *  HOME_TRAIT_AND_SMART_HOME_TRAIT.
+ *  Map of device IDs to their Unified Device Data Model (UDDM) or JSON trait
+ *  payloads. This field is populated when `device_view` is set to
+ *  `HOME_TRAIT_ONLY`, `HOME_TRAIT_AND_SMART_HOME_TRAIT`, or `JSON_TRAIT_ONLY`.
  *
  *  @note This class is documented as having more properties of
  *        GTLRHomeGraphService_HomeTraitPayload. Use @c -additionalJSONKeys and
@@ -1357,6 +1459,9 @@ FOUNDATION_EXTERN NSString * const kGTLRHomeGraphService_UserBlameStruct_BlameTy
  *  the server.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *commitTime;
+
+/** Contains the dynamic JSON trait payload. */
+@property(nonatomic, strong, nullable) GTLRHomeGraphService_JsonTrait *jsonTrait;
 
 /**
  *  The custom timestamp supplied by the provider during a

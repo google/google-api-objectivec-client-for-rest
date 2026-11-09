@@ -141,8 +141,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIGatewayViewFull;
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Specifies which fields of the API Config are returned in the response.
- *  Defaults to `BASIC` view.
+ *  Optional. Specifies which fields of the API Config are returned in the
+ *  response. Defaults to `BASIC` view.
  *
  *  Likely values:
  *    @arg @c kGTLRAPIGatewayViewConfigViewUnspecified Value
@@ -227,16 +227,16 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIGatewayViewFull;
  */
 @interface GTLRAPIGatewayQuery_ProjectsLocationsApisConfigsList : GTLRAPIGatewayQuery
 
-/** Filter. */
+/** Optional. Filter. */
 @property(nonatomic, copy, nullable) NSString *filter;
 
-/** Order by parameters. */
+/** Optional. Order by parameters. */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
-/** Page size. */
+/** Optional. Page size. */
 @property(nonatomic, assign) NSInteger pageSize;
 
-/** Page token. */
+/** Optional. Page token. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
@@ -274,17 +274,17 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIGatewayViewFull;
 @interface GTLRAPIGatewayQuery_ProjectsLocationsApisConfigsPatch : GTLRAPIGatewayQuery
 
 /**
- *  Output only. Resource name of the API Config. Format:
+ *  Identifier. Resource name of the API Config. Format:
  *  projects/{project}/locations/global/apis/{api}/configs/{api_config}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Field mask is used to specify the fields to be overwritten in the ApiConfig
- *  resource by the update. The fields specified in the update_mask are relative
- *  to the resource, not the full request. A field will be overwritten if it is
- *  in the mask. If the user does not provide a mask then all fields will be
- *  overwritten.
+ *  Optional. Field mask is used to specify the fields to be overwritten in the
+ *  ApiConfig resource by the update. The fields specified in the update_mask
+ *  are relative to the resource, not the full request. A field will be
+ *  overwritten if it is in the mask. The request fails if `update_mask` is
+ *  missing or empty.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -296,7 +296,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIGatewayViewFull;
  *  Updates the parameters of a single ApiConfig.
  *
  *  @param object The @c GTLRAPIGateway_ApiConfig to include in the query.
- *  @param name Output only. Resource name of the API Config. Format:
+ *  @param name Identifier. Resource name of the API Config. Format:
  *    projects/{project}/locations/global/apis/{api}/configs/{api_config}
  *
  *  @return GTLRAPIGatewayQuery_ProjectsLocationsApisConfigsPatch
@@ -545,16 +545,16 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIGatewayViewFull;
  */
 @interface GTLRAPIGatewayQuery_ProjectsLocationsApisList : GTLRAPIGatewayQuery
 
-/** Filter. */
+/** Optional. Filter. */
 @property(nonatomic, copy, nullable) NSString *filter;
 
-/** Order by parameters. */
+/** Optional. Order by parameters. */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
-/** Page size. */
+/** Optional. Page size. */
 @property(nonatomic, assign) NSInteger pageSize;
 
-/** Page token. */
+/** Optional. Page token. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
@@ -592,17 +592,17 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIGatewayViewFull;
 @interface GTLRAPIGatewayQuery_ProjectsLocationsApisPatch : GTLRAPIGatewayQuery
 
 /**
- *  Output only. Resource name of the API. Format:
+ *  Identifier. Resource name of the API. Format:
  *  projects/{project}/locations/global/apis/{api}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Field mask is used to specify the fields to be overwritten in the Api
- *  resource by the update. The fields specified in the update_mask are relative
- *  to the resource, not the full request. A field will be overwritten if it is
- *  in the mask. If the user does not provide a mask then all fields will be
- *  overwritten.
+ *  Optional. Field mask is used to specify the fields to be overwritten in the
+ *  Api resource by the update. The fields specified in the update_mask are
+ *  relative to the resource, not the full request. A field will be overwritten
+ *  if it is in the mask. The request fails if `update_mask` is missing or
+ *  empty.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -614,7 +614,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIGatewayViewFull;
  *  Updates the parameters of a single Api.
  *
  *  @param object The @c GTLRAPIGateway_Api to include in the query.
- *  @param name Output only. Resource name of the API. Format:
+ *  @param name Identifier. Resource name of the API. Format:
  *    projects/{project}/locations/global/apis/{api}
  *
  *  @return GTLRAPIGatewayQuery_ProjectsLocationsApisPatch
@@ -865,16 +865,16 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIGatewayViewFull;
  */
 @interface GTLRAPIGatewayQuery_ProjectsLocationsGatewaysList : GTLRAPIGatewayQuery
 
-/** Filter. */
+/** Optional. Filter. */
 @property(nonatomic, copy, nullable) NSString *filter;
 
-/** Order by parameters. */
+/** Optional. Order by parameters. */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
-/** Page size. */
+/** Optional. Page size. */
 @property(nonatomic, assign) NSInteger pageSize;
 
-/** Page token. */
+/** Optional. Page token. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
@@ -912,17 +912,17 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIGatewayViewFull;
 @interface GTLRAPIGatewayQuery_ProjectsLocationsGatewaysPatch : GTLRAPIGatewayQuery
 
 /**
- *  Output only. Resource name of the Gateway. Format:
+ *  Identifier. Resource name of the Gateway. Format:
  *  projects/{project}/locations/{location}/gateways/{gateway}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Field mask is used to specify the fields to be overwritten in the Gateway
- *  resource by the update. The fields specified in the update_mask are relative
- *  to the resource, not the full request. A field will be overwritten if it is
- *  in the mask. If the user does not provide a mask then all fields will be
- *  overwritten.
+ *  Optional. Field mask is used to specify the fields to be overwritten in the
+ *  Gateway resource by the update. The fields specified in the update_mask are
+ *  relative to the resource, not the full request. A field will be overwritten
+ *  if it is in the mask. The request fails if `update_mask` is missing or
+ *  empty.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -934,7 +934,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIGatewayViewFull;
  *  Updates the parameters of a single Gateway.
  *
  *  @param object The @c GTLRAPIGateway_Gateway to include in the query.
- *  @param name Output only. Resource name of the Gateway. Format:
+ *  @param name Identifier. Resource name of the Gateway. Format:
  *    projects/{project}/locations/{location}/gateways/{gateway}
  *
  *  @return GTLRAPIGatewayQuery_ProjectsLocationsGatewaysPatch

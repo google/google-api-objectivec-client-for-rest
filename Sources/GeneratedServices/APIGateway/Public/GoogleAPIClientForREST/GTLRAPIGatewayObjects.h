@@ -165,21 +165,21 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIGateway_AuditLogConfig_LogType_LogTyp
 // GTLRAPIGateway_Gateway.effectiveStreamingMode
 
 /**
- *  The gateway does not support response streaming.
+ *  Indicates that the gateway does not support streaming.
  *
  *  Value: "EFFECTIVE_STREAMING_MODE_DISABLED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAPIGateway_Gateway_EffectiveStreamingMode_EffectiveStreamingModeDisabled;
 /**
- *  The gateway supports response streaming.
+ *  Indicates that the gateway supports streaming.
  *
  *  Value: "EFFECTIVE_STREAMING_MODE_ENABLED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAPIGateway_Gateway_EffectiveStreamingMode_EffectiveStreamingModeEnabled;
 /**
- *  The service has not resolved a mode. Every gateway returned by `GetGateway`
- *  and `ListGateways` carries a resolved mode, so this value should not be
- *  returned under normal circumstances.
+ *  Indicates that the service has not resolved a mode. Every gateway returned
+ *  by `GetGateway` and `ListGateways` carries a resolved mode, so this value
+ *  should not be returned under normal circumstances.
  *
  *  Value: "EFFECTIVE_STREAMING_MODE_UNSPECIFIED"
  */
@@ -229,15 +229,25 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIGateway_Gateway_State_Updating;
 // GTLRAPIGateway_Gateway.streamingMode
 
 /**
- *  Streaming is enabled. The gateway supports response streaming: server-sent
- *  events, HTTP chunked transfer, WebSockets, and gRPC/HTTP2 bidirectional
- *  streaming.
+ *  Enables streaming. The gateway supports Server-Sent Events (SSE), HTTP/2
+ *  streaming, HTTP chunked transfer, WebSockets, and gRPC bidirectional
+ *  streaming. The API config's backend `deadline` field governs how long a
+ *  request (unary or streaming) may run. Enabling streaming on a gateway does
+ *  not change how the `deadline` field behaves on an SSE or chunked-transfer
+ *  path. The deadline remains a wall-clock bound on the complete response, so a
+ *  stream is cut once the deadline elapses regardless of how much data it is
+ *  sending. The default is 15 seconds and the maximum is 3,600 seconds. On gRPC
+ *  streaming and WebSockets, `deadline` bounds the gap between messages
+ *  instead: default 300 seconds; set `deadline` to change it, up to 3,600
+ *  seconds. On WebSockets, a `deadline` of less than 300 seconds is ignored and
+ *  a 300-second minimum applies. The maximum total request duration is always
+ *  3,600 seconds, not configurable.
  *
  *  Value: "STREAMING_MODE_ENABLED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAPIGateway_Gateway_StreamingMode_StreamingModeEnabled;
 /**
- *  The service selects the streaming mode.
+ *  Lets the service select the streaming mode.
  *
  *  Value: "STREAMING_MODE_UNSPECIFIED"
  */
@@ -270,7 +280,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIGateway_Gateway_StreamingMode_Streami
 @property(nonatomic, copy, nullable) NSString *managedService;
 
 /**
- *  Output only. Resource name of the API. Format:
+ *  Identifier. Resource name of the API. Format:
  *  projects/{project}/locations/global/apis/{api}
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -361,7 +371,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIGateway_Gateway_StreamingMode_Streami
 @property(nonatomic, strong, nullable) NSArray<GTLRAPIGateway_ApiConfigFile *> *managedServiceConfigs;
 
 /**
- *  Output only. Resource name of the API Config. Format:
+ *  Identifier. Resource name of the API Config. Format:
  *  projects/{project}/locations/global/apis/{api}/configs/{api_config}
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -721,20 +731,20 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIGateway_Gateway_StreamingMode_Streami
  *  Output only. The streaming mode this gateway is actually served with, which
  *  the service resolves at creation from `streaming_mode`, the referenced API
  *  Config, and the platform default at the time. Read this rather than
- *  `streaming_mode` to determine whether a gateway supports response streaming.
+ *  `streaming_mode` to determine whether a gateway supports streaming.
  *
  *  Likely values:
  *    @arg @c kGTLRAPIGateway_Gateway_EffectiveStreamingMode_EffectiveStreamingModeDisabled
- *        The gateway does not support response streaming. (Value:
+ *        Indicates that the gateway does not support streaming. (Value:
  *        "EFFECTIVE_STREAMING_MODE_DISABLED")
  *    @arg @c kGTLRAPIGateway_Gateway_EffectiveStreamingMode_EffectiveStreamingModeEnabled
- *        The gateway supports response streaming. (Value:
+ *        Indicates that the gateway supports streaming. (Value:
  *        "EFFECTIVE_STREAMING_MODE_ENABLED")
  *    @arg @c kGTLRAPIGateway_Gateway_EffectiveStreamingMode_EffectiveStreamingModeUnspecified
- *        The service has not resolved a mode. Every gateway returned by
- *        `GetGateway` and `ListGateways` carries a resolved mode, so this value
- *        should not be returned under normal circumstances. (Value:
- *        "EFFECTIVE_STREAMING_MODE_UNSPECIFIED")
+ *        Indicates that the service has not resolved a mode. Every gateway
+ *        returned by `GetGateway` and `ListGateways` carries a resolved mode,
+ *        so this value should not be returned under normal circumstances.
+ *        (Value: "EFFECTIVE_STREAMING_MODE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *effectiveStreamingMode;
 
@@ -746,7 +756,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIGateway_Gateway_StreamingMode_Streami
 @property(nonatomic, strong, nullable) GTLRAPIGateway_Gateway_Labels *labels;
 
 /**
- *  Output only. Resource name of the Gateway. Format:
+ *  Identifier. Resource name of the Gateway. Format:
  *  projects/{project}/locations/{location}/gateways/{gateway}
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -771,19 +781,31 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIGateway_Gateway_StreamingMode_Streami
 @property(nonatomic, copy, nullable) NSString *state;
 
 /**
- *  Optional. Immutable. Requests response streaming for a new gateway. An
- *  attempt to change it on update is rejected. If unset, the service selects
- *  the mode. This field records only what was requested and is never modified
- *  by the service; read `effective_streaming_mode` for the mode the gateway is
- *  served with.
+ *  Optional. Immutable. Requests streaming for a new gateway. An attempt to
+ *  change it on update is rejected. If unset, the service selects the mode.
+ *  This field records only what was requested and is never modified by the
+ *  service; read `effective_streaming_mode` for the mode the gateway is served
+ *  with.
  *
  *  Likely values:
- *    @arg @c kGTLRAPIGateway_Gateway_StreamingMode_StreamingModeEnabled
- *        Streaming is enabled. The gateway supports response streaming:
- *        server-sent events, HTTP chunked transfer, WebSockets, and gRPC/HTTP2
- *        bidirectional streaming. (Value: "STREAMING_MODE_ENABLED")
- *    @arg @c kGTLRAPIGateway_Gateway_StreamingMode_StreamingModeUnspecified The
- *        service selects the streaming mode. (Value:
+ *    @arg @c kGTLRAPIGateway_Gateway_StreamingMode_StreamingModeEnabled Enables
+ *        streaming. The gateway supports Server-Sent Events (SSE), HTTP/2
+ *        streaming, HTTP chunked transfer, WebSockets, and gRPC bidirectional
+ *        streaming. The API config's backend `deadline` field governs how long
+ *        a request (unary or streaming) may run. Enabling streaming on a
+ *        gateway does not change how the `deadline` field behaves on an SSE or
+ *        chunked-transfer path. The deadline remains a wall-clock bound on the
+ *        complete response, so a stream is cut once the deadline elapses
+ *        regardless of how much data it is sending. The default is 15 seconds
+ *        and the maximum is 3,600 seconds. On gRPC streaming and WebSockets,
+ *        `deadline` bounds the gap between messages instead: default 300
+ *        seconds; set `deadline` to change it, up to 3,600 seconds. On
+ *        WebSockets, a `deadline` of less than 300 seconds is ignored and a
+ *        300-second minimum applies. The maximum total request duration is
+ *        always 3,600 seconds, not configurable. (Value:
+ *        "STREAMING_MODE_ENABLED")
+ *    @arg @c kGTLRAPIGateway_Gateway_StreamingMode_StreamingModeUnspecified
+ *        Lets the service select the streaming mode. (Value:
  *        "STREAMING_MODE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *streamingMode;

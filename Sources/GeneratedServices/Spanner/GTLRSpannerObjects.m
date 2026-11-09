@@ -1360,7 +1360,7 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
 @dynamic autoscalingConfig, config, createTime, defaultBackupScheduleType,
          displayName, edition, endpointUris, freeInstanceMetadata, instanceType,
          labels, name, nodeCount, processingUnits, replicaComputeCapacity,
-         state, updateTime;
+         state, tags, updateTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1379,6 +1379,20 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
 //
 
 @implementation GTLRSpanner_Instance_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpanner_Instance_Tags
+//
+
+@implementation GTLRSpanner_Instance_Tags
 
 + (Class)classForAdditionalProperties {
   return [NSString class];

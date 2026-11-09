@@ -5,8 +5,9 @@
 //   My Business Notifications API (mybusinessnotifications/v1)
 // Description:
 //   The My Business Notification Settings API enables managing notification
-//   settings for business accounts. Note - If you have a quota of 0 after
-//   enabling the API, please request for GBP API access.
+//   settings for business accounts. Note: If you have a quota of 0 after
+//   enabling the API, please request GBP API access at
+//   https://developers.google.com/my-business/content/prereqs#request-access.
 // Documentation:
 //   https://developers.google.com/my-business/
 
@@ -27,8 +28,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Service for executing My Business Notifications API queries.
  *
  *  The My Business Notification Settings API enables managing notification
- *  settings for business accounts. Note - If you have a quota of 0 after
- *  enabling the API, please request for GBP API access.
+ *  settings for business accounts. Note: If you have a quota of 0 after
+ *  enabling the API, please request GBP API access at
+ *  https://developers.google.com/my-business/content/prereqs#request-access.
  */
 @interface GTLRMyBusinessNotificationSettingsService : GTLRService
 

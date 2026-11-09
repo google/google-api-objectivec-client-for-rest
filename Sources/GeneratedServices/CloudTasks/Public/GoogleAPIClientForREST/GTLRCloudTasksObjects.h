@@ -658,7 +658,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTasks_UriOverride_UriOverrideEnforc
  *  parent field of each CreateTaskRequest will be the same. This validation
  *  happens on the client side as well as in the handler.
  *  BatchCreateTasksRequest.parent will also be the same value as the individual
- *  CreateTaskRequest.parent . The maximum number of requests is 100.
+ *  `CreateTaskRequest.parent`. The maximum number of requests is 100.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudTasks_CreateTaskRequest *> *requests;
 
@@ -815,7 +815,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTasks_UriOverride_UriOverrideEnforc
 /**
  *  Output only. The config resource name which includes the project and
  *  location and must end in 'cmekConfig', in the format
- *  projects/PROJECT_ID/locations/LOCATION_ID/cmekConfig`
+ *  `projects/PROJECT_ID/locations/LOCATION_ID/cmekConfig`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1212,9 +1212,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTasks_UriOverride_UriOverrideEnforc
  *  properties of the task. * Host: This will be computed by Cloud Tasks and
  *  derived from HttpRequest.url. * Content-Length: This will be computed by
  *  Cloud Tasks. `Content-Type` won't be set by Cloud Tasks. You can explicitly
- *  set `Content-Type` to a media type when the task is created. For
- *  example,`Content-Type` can be set to `"application/octet-stream"` or
- *  `"application/json"`. The default value is set to "application/json"`. *
+ *  set `Content-Type` to a media type when the task is created. For example,
+ *  `Content-Type` can be set to `"application/octet-stream"` or
+ *  `"application/json"`. The default value is set to `"application/json"`. *
  *  User-Agent: This will be set to `"Google-Cloud-Tasks"`. Headers which can
  *  have multiple values (according to RFC2616) can be specified using
  *  comma-separated values. The size of the headers must be less than 80KB.

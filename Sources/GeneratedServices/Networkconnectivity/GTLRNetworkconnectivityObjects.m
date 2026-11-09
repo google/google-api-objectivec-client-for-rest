@@ -295,6 +295,7 @@ NSString * const kGTLRNetworkconnectivity_Route_State_Updating = @"UPDATING";
 
 // GTLRNetworkconnectivity_Route.type
 NSString * const kGTLRNetworkconnectivity_Route_Type_DynamicRoute = @"DYNAMIC_ROUTE";
+NSString * const kGTLRNetworkconnectivity_Route_Type_PscGlobalGapi = @"PSC_GLOBAL_GAPI";
 NSString * const kGTLRNetworkconnectivity_Route_Type_RouteTypeUnspecified = @"ROUTE_TYPE_UNSPECIFIED";
 NSString * const kGTLRNetworkconnectivity_Route_Type_VpcPrimarySubnet = @"VPC_PRIMARY_SUBNET";
 NSString * const kGTLRNetworkconnectivity_Route_Type_VpcSecondarySubnet = @"VPC_SECONDARY_SUBNET";
@@ -424,6 +425,7 @@ NSString * const kGTLRNetworkconnectivity_Transport_State_Deprovisioned = @"DEPR
 NSString * const kGTLRNetworkconnectivity_Transport_State_PendingConfig = @"PENDING_CONFIG";
 NSString * const kGTLRNetworkconnectivity_Transport_State_PendingKey = @"PENDING_KEY";
 NSString * const kGTLRNetworkconnectivity_Transport_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRNetworkconnectivity_Transport_State_Suspended = @"SUSPENDED";
 
 // GTLRNetworkconnectivity_Warnings.code
 NSString * const kGTLRNetworkconnectivity_Warnings_Code_ResourceBeingModified = @"RESOURCE_BEING_MODIFIED";
@@ -783,6 +785,16 @@ NSString * const kGTLRNetworkconnectivity_Warnings_Code_WarningUnspecified = @"W
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRNetworkconnectivity_ExportPscConfig
+//
+
+@implementation GTLRNetworkconnectivity_ExportPscConfig
+@dynamic globalGoogleApis, publishedServicesAndRegionalGoogleApis;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRNetworkconnectivity_Expr
 //
 
@@ -1017,9 +1029,9 @@ NSString * const kGTLRNetworkconnectivity_Warnings_Code_WarningUnspecified = @"W
 //
 
 @implementation GTLRNetworkconnectivity_Hub
-@dynamic createTime, descriptionProperty, exportPsc, labels, name, policyMode,
-         presetTopology, routeTables, routingVpcs, spokeSummary, state,
-         uniqueId, updateTime;
+@dynamic createTime, descriptionProperty, exportPsc, exportPscConfig, labels,
+         name, policyMode, presetTopology, routeTables, routingVpcs,
+         spokeSummary, state, uniqueId, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -1129,7 +1141,9 @@ NSString * const kGTLRNetworkconnectivity_Warnings_Code_WarningUnspecified = @"W
 
 @implementation GTLRNetworkconnectivity_LinkedInterconnectAttachments
 @dynamic excludeExportRanges, excludeImportRanges, includeExportRanges,
-         includeImportRanges, siteToSiteDataTransfer, uris, vpcNetwork;
+         includeImportRanges, proposedExcludeExportRanges,
+         proposedExcludeImportRanges, proposedIncludeExportRanges,
+         proposedIncludeImportRanges, siteToSiteDataTransfer, uris, vpcNetwork;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1137,6 +1151,10 @@ NSString * const kGTLRNetworkconnectivity_Warnings_Code_WarningUnspecified = @"W
     @"excludeImportRanges" : [NSString class],
     @"includeExportRanges" : [NSString class],
     @"includeImportRanges" : [NSString class],
+    @"proposedExcludeExportRanges" : [NSString class],
+    @"proposedExcludeImportRanges" : [NSString class],
+    @"proposedIncludeExportRanges" : [NSString class],
+    @"proposedIncludeImportRanges" : [NSString class],
     @"uris" : [NSString class]
   };
   return map;
@@ -1175,7 +1193,9 @@ NSString * const kGTLRNetworkconnectivity_Warnings_Code_WarningUnspecified = @"W
 
 @implementation GTLRNetworkconnectivity_LinkedRouterApplianceInstances
 @dynamic excludeExportRanges, excludeImportRanges, includeExportRanges,
-         includeImportRanges, instances, siteToSiteDataTransfer, vpcNetwork;
+         includeImportRanges, instances, proposedExcludeExportRanges,
+         proposedExcludeImportRanges, proposedIncludeExportRanges,
+         proposedIncludeImportRanges, siteToSiteDataTransfer, vpcNetwork;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1183,7 +1203,11 @@ NSString * const kGTLRNetworkconnectivity_Warnings_Code_WarningUnspecified = @"W
     @"excludeImportRanges" : [NSString class],
     @"includeExportRanges" : [NSString class],
     @"includeImportRanges" : [NSString class],
-    @"instances" : [GTLRNetworkconnectivity_RouterApplianceInstance class]
+    @"instances" : [GTLRNetworkconnectivity_RouterApplianceInstance class],
+    @"proposedExcludeExportRanges" : [NSString class],
+    @"proposedExcludeImportRanges" : [NSString class],
+    @"proposedIncludeExportRanges" : [NSString class],
+    @"proposedIncludeImportRanges" : [NSString class]
   };
   return map;
 }
@@ -1221,7 +1245,9 @@ NSString * const kGTLRNetworkconnectivity_Warnings_Code_WarningUnspecified = @"W
 
 @implementation GTLRNetworkconnectivity_LinkedVpnTunnels
 @dynamic excludeExportRanges, excludeImportRanges, includeExportRanges,
-         includeImportRanges, siteToSiteDataTransfer, uris, vpcNetwork;
+         includeImportRanges, proposedExcludeExportRanges,
+         proposedExcludeImportRanges, proposedIncludeExportRanges,
+         proposedIncludeImportRanges, siteToSiteDataTransfer, uris, vpcNetwork;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1229,6 +1255,10 @@ NSString * const kGTLRNetworkconnectivity_Warnings_Code_WarningUnspecified = @"W
     @"excludeImportRanges" : [NSString class],
     @"includeExportRanges" : [NSString class],
     @"includeImportRanges" : [NSString class],
+    @"proposedExcludeExportRanges" : [NSString class],
+    @"proposedExcludeImportRanges" : [NSString class],
+    @"proposedIncludeExportRanges" : [NSString class],
+    @"proposedIncludeImportRanges" : [NSString class],
     @"uris" : [NSString class]
   };
   return map;

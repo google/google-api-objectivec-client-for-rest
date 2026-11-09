@@ -1976,6 +1976,33 @@ NSString * const kGTLRCloudDataplexViewTables                  = @"TABLES";
 
 @end
 
+@implementation GTLRCloudDataplexQuery_ProjectsLocationsEntryGroupsBatchChangeMetadata
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRCloudDataplex_GoogleCloudDataplexV1BatchChangeMetadataRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:batchChangeMetadata";
+  GTLRCloudDataplexQuery_ProjectsLocationsEntryGroupsBatchChangeMetadata *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudDataplex_GoogleLongrunningOperation class];
+  query.loggingName = @"dataplex.projects.locations.entryGroups.batchChangeMetadata";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudDataplexQuery_ProjectsLocationsEntryGroupsCreate
 
 @dynamic entryGroupId, parent, validateOnly;
@@ -2334,6 +2361,33 @@ NSString * const kGTLRCloudDataplexViewTables                  = @"TABLES";
   query.name = name;
   query.expectedObjectClass = [GTLRCloudDataplex_GoogleLongrunningOperation class];
   query.loggingName = @"dataplex.projects.locations.entryGroups.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudDataplexQuery_ProjectsLocationsEntryGroupsRequestBatchMetadataChange
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRCloudDataplex_GoogleCloudDataplexV1RequestBatchMetadataChangeRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:requestBatchMetadataChange";
+  GTLRCloudDataplexQuery_ProjectsLocationsEntryGroupsRequestBatchMetadataChange *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudDataplex_GoogleCloudDataplexV1RequestBatchMetadataChangeResponse class];
+  query.loggingName = @"dataplex.projects.locations.entryGroups.requestBatchMetadataChange";
   return query;
 }
 

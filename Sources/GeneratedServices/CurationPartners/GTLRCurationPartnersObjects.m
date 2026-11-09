@@ -256,6 +256,7 @@ NSString * const kGTLRCurationPartners_ReportDefinition_Metrics_Spend = @"SPEND"
 
 // GTLRCurationPartners_ReportDefinition.timeZoneSource
 NSString * const kGTLRCurationPartners_ReportDefinition_TimeZoneSource_AdExchange = @"AD_EXCHANGE";
+NSString * const kGTLRCurationPartners_ReportDefinition_TimeZoneSource_Curator = @"CURATOR";
 NSString * const kGTLRCurationPartners_ReportDefinition_TimeZoneSource_Provided = @"PROVIDED";
 NSString * const kGTLRCurationPartners_ReportDefinition_TimeZoneSource_TimeZoneSourceUnspecified = @"TIME_ZONE_SOURCE_UNSPECIFIED";
 NSString * const kGTLRCurationPartners_ReportDefinition_TimeZoneSource_Utc = @"UTC";
@@ -882,6 +883,28 @@ NSString * const kGTLRCurationPartners_VideoPlcmtTargeting_VideoPlcmtTypes_Video
 
 @implementation GTLRCurationPartners_RunReportResponse
 @dynamic reportResult;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCurationPartners_SearchMediaPlannersResponse
+//
+
+@implementation GTLRCurationPartners_SearchMediaPlannersResponse
+@dynamic mediaPlanners, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"mediaPlanners" : [GTLRCurationPartners_MediaPlanner class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"mediaPlanners";
+}
+
 @end
 
 

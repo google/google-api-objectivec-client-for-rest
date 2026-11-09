@@ -1687,6 +1687,29 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_BackendType_Se
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_BackendType_SqlBackendTypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRSQLAdmin_DatabaseInstance.databaseCenterIntegration
+
+/**
+ *  Default value. The integration state is unspecified. When unspecified,
+ *  Database Center integration is enabled by default.
+ *
+ *  Value: "DATABASE_CENTER_INTEGRATION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseCenterIntegration_DatabaseCenterIntegrationUnspecified;
+/**
+ *  Database Center integration is disabled.
+ *
+ *  Value: "DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseCenterIntegration_Disabled;
+/**
+ *  Database Center integration is enabled.
+ *
+ *  Value: "ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseCenterIntegration_Enabled;
+
+// ----------------------------------------------------------------------------
 // GTLRSQLAdmin_DatabaseInstance.databaseVersion
 
 /**
@@ -5030,7 +5053,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_EntraidUser;
 // GTLRSQLAdmin_WorkloadCapture.workloadCaptureState
 
 /**
- *  Workload capture completed successfully.
+ *  Workload capture completed successfully. This state is set when the user
+ *  explicitly stops the capture.
  *
  *  Value: "COMPLETED"
  */
@@ -5053,6 +5077,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_WorkloadCapture_WorkloadCapture
  *  Value: "STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_WorkloadCapture_WorkloadCaptureState_StateUnspecified;
+/**
+ *  Workload capture was terminated automatically. This state is set when Cloud
+ *  SQL automatically stops the capture due to a conflicting operation or when
+ *  the maximum duration is reached.
+ *
+ *  Value: "TERMINATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_WorkloadCapture_WorkloadCaptureState_Terminated;
 
 /**
  *  An entry for an Access Control list.
@@ -6731,6 +6763,22 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_WorkloadCapture_WorkloadCapture
 @property(nonatomic, strong, nullable) NSNumber *currentDiskSize GTLR_DEPRECATED;
 
 /**
+ *  Optional. State of the Database Center integration for this instance. When
+ *  unspecified, Database Center integration is enabled by default.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseCenterIntegration_DatabaseCenterIntegrationUnspecified
+ *        Default value. The integration state is unspecified. When unspecified,
+ *        Database Center integration is enabled by default. (Value:
+ *        "DATABASE_CENTER_INTEGRATION_UNSPECIFIED")
+ *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseCenterIntegration_Disabled
+ *        Database Center integration is disabled. (Value: "DISABLED")
+ *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseCenterIntegration_Enabled
+ *        Database Center integration is enabled. (Value: "ENABLED")
+ */
+@property(nonatomic, copy, nullable) NSString *databaseCenterIntegration;
+
+/**
  *  Optional. If true, instance metadata is sent to the Database Center. If
  *  false, instance metadata is not sent to the Database Center.
  *
@@ -7106,6 +7154,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_WorkloadCapture_WorkloadCapture
 
 /** The user settings. */
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_Settings *settings;
+
+/**
+ *  Optional. Input only. Determines whether the precheck step is skipped during
+ *  a major version upgrade.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *skipPrecheck;
 
 /**
  *  sqlNetworkArchitecture
@@ -7612,7 +7668,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_WorkloadCapture_WorkloadCapture
  */
 @property(nonatomic, strong, nullable) NSNumber *autoIamAuthn;
 
-/** Optional. Name of the database on which the statement will be executed. */
+/**
+ *  Optional. Name of the database on which the statement will be executed. For
+ *  Postgres and SQL Server it's required, for MySQL it's optional.
+ */
 @property(nonatomic, copy, nullable) NSString *database;
 
 /**
@@ -10235,6 +10294,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_WorkloadCapture_WorkloadCapture
 /** Optional. This is always `sql#preCheckMajorVersionUpgradeContext`. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
+/** Optional. The maximum allowed runtime for the precheck operation. */
+@property(nonatomic, strong, nullable) GTLRDuration *maxRuntime;
+
 /** Output only. The responses from the precheck operation. */
 @property(nonatomic, strong, nullable) NSArray<GTLRSQLAdmin_PreCheckResponse *> *preCheckResponse;
 
@@ -12102,52 +12164,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_WorkloadCapture_WorkloadCapture
 
 
 /**
- *  Request to start executing a captured workload on a replay instance (the
- *  Cloud SQL instance where the recorded SQL queries are executed).
- */
-@interface GTLRSQLAdmin_SqlWorkloadCapturesStartReplayRequest : GTLRObject
-
-/** Required. Contains details about the start workload replay operation. */
-@property(nonatomic, strong, nullable) GTLRSQLAdmin_StartWorkloadReplayContext *startWorkloadReplayContext;
-
-@end
-
-
-/**
- *  Request to start recording traffic from the primary instance (captured
- *  workload).
- */
-@interface GTLRSQLAdmin_SqlWorkloadCapturesStartRequest : GTLRObject
-
-/** Optional. Contains details about the start workload capture operation. */
-@property(nonatomic, strong, nullable) GTLRSQLAdmin_StartWorkloadCaptureContext *startWorkloadCaptureContext;
-
-@end
-
-
-/**
- *  Request to stop executing a captured workload on a replay instance.
- */
-@interface GTLRSQLAdmin_SqlWorkloadCapturesStopReplayRequest : GTLRObject
-
-/** Required. Contains details about the stop workload replay operation. */
-@property(nonatomic, strong, nullable) GTLRSQLAdmin_StopWorkloadReplayContext *stopWorkloadReplayContext;
-
-@end
-
-
-/**
- *  Request to stop recording traffic from the primary instance.
- */
-@interface GTLRSQLAdmin_SqlWorkloadCapturesStopRequest : GTLRObject
-
-/** Optional. Contains details about the stop workload capture operation. */
-@property(nonatomic, strong, nullable) GTLRSQLAdmin_StopWorkloadCaptureContext *stopWorkloadCaptureContext;
-
-@end
-
-
-/**
  *  SslCerts Resource
  */
 @interface GTLRSQLAdmin_SslCert : GTLRObject
@@ -12407,29 +12423,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_WorkloadCapture_WorkloadCapture
 
 
 /**
- *  The context for the `StopWorkloadReplay` operation, which contains details
- *  about stopping the execution of a captured workload (recorded read and write
- *  SQL queries) on a replay instance.
+ *  The context for the `StopWorkloadReplay` operation, which represents an
+ *  operation that stops an active workload replay on a target Cloud SQL replay
+ *  instance.
  */
 @interface GTLRSQLAdmin_StopWorkloadReplayContext : GTLRObject
-
-/**
- *  Required. The name of the Cloud SQL instance where the captured workload
- *  (SQL queries) is being executed, excluding the project ID (for example,
- *  `my-replay-instance`). The instance name must start with a lowercase letter
- *  and contain only lowercase letters, numbers, and hyphens. The combined
- *  length of `project-ID:instance-name` must be 98 characters or less.
- */
-@property(nonatomic, copy, nullable) NSString *replayInstance;
-
-/**
- *  Output only. The ID of the workload to stop executing on the replay
- *  instance. Each workload capture generates a unique ID in the format
- *  `workload-` (for example, `workload-1786046400`). Use this ID to stop
- *  executing the recorded SQL queries.
- */
-@property(nonatomic, copy, nullable) NSString *workloadId;
-
 @end
 
 
@@ -12775,6 +12773,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_WorkloadCapture_WorkloadCapture
  */
 @interface GTLRSQLAdmin_WorkloadCapture : GTLRObject
 
+/** Output only. The base backup ID associated with the workload capture. */
+@property(nonatomic, copy, nullable) NSString *backupId;
+
 /** Output only. The end time of the workload capture. */
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
@@ -12801,13 +12802,19 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_WorkloadCapture_WorkloadCapture
  *
  *  Likely values:
  *    @arg @c kGTLRSQLAdmin_WorkloadCapture_WorkloadCaptureState_Completed
- *        Workload capture completed successfully. (Value: "COMPLETED")
+ *        Workload capture completed successfully. This state is set when the
+ *        user explicitly stops the capture. (Value: "COMPLETED")
  *    @arg @c kGTLRSQLAdmin_WorkloadCapture_WorkloadCaptureState_Failed Workload
  *        capture failed. (Value: "FAILED")
  *    @arg @c kGTLRSQLAdmin_WorkloadCapture_WorkloadCaptureState_Running
  *        Workload capture is currently running. (Value: "RUNNING")
  *    @arg @c kGTLRSQLAdmin_WorkloadCapture_WorkloadCaptureState_StateUnspecified
  *        Default value. This value is unused. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRSQLAdmin_WorkloadCapture_WorkloadCaptureState_Terminated
+ *        Workload capture was terminated automatically. This state is set when
+ *        Cloud SQL automatically stops the capture due to a conflicting
+ *        operation or when the maximum duration is reached. (Value:
+ *        "TERMINATED")
  */
 @property(nonatomic, copy, nullable) NSString *workloadCaptureState;
 
@@ -12818,7 +12825,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_WorkloadCapture_WorkloadCapture
 
 
 /**
- *  GTLRSQLAdmin_WorkloadCapturesListResponse
+ *  Instance list captured workloads response.
  */
 @interface GTLRSQLAdmin_WorkloadCapturesListResponse : GTLRObject
 
@@ -12827,6 +12834,56 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_WorkloadCapture_WorkloadCapture
 
 /** List of captured workloads for the instance. */
 @property(nonatomic, strong, nullable) NSArray<GTLRSQLAdmin_WorkloadCapture *> *workloadCaptures;
+
+@end
+
+
+/**
+ *  Request to start executing a captured workload on a replay instance (the
+ *  Cloud SQL instance where the recorded SQL queries are executed).
+ */
+@interface GTLRSQLAdmin_WorkloadCapturesStartReplayRequest : GTLRObject
+
+/** Required. Contains details about the start workload replay operation. */
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_StartWorkloadReplayContext *startWorkloadReplayContext;
+
+@end
+
+
+/**
+ *  Request to start recording traffic from the primary instance (captured
+ *  workload).
+ */
+@interface GTLRSQLAdmin_WorkloadCapturesStartRequest : GTLRObject
+
+/** Optional. Contains details about the start workload capture operation. */
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_StartWorkloadCaptureContext *startWorkloadCaptureContext;
+
+@end
+
+
+/**
+ *  Request to stop an active workload replay on a target Cloud SQL replay
+ *  instance.
+ */
+@interface GTLRSQLAdmin_WorkloadCapturesStopReplayRequest : GTLRObject
+
+/**
+ *  Optional. Contains details about the stop workload replay operation. If
+ *  omitted, default values are used.
+ */
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_StopWorkloadReplayContext *stopWorkloadReplayContext;
+
+@end
+
+
+/**
+ *  Request to stop recording traffic from the primary instance.
+ */
+@interface GTLRSQLAdmin_WorkloadCapturesStopRequest : GTLRObject
+
+/** Optional. Contains details about the stop workload capture operation. */
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_StopWorkloadCaptureContext *stopWorkloadCaptureContext;
 
 @end
 

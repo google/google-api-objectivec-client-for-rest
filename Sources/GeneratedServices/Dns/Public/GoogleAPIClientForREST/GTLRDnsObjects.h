@@ -1881,8 +1881,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  Required. Immutable. User provided IP address to use for outbound DNS
- *  forwarding. This address must be a free address on the subnetwork.
+ *  Optional. Immutable. User provided IP address to use for outbound DNS
+ *  forwarding. This address must be a free address on the subnetwork. If
+ *  omitted, a free IP address from the subnetwork is automatically allocated.
  */
 @property(nonatomic, copy, nullable) NSString *endpointIp;
 

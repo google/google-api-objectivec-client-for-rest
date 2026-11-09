@@ -595,6 +595,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
  *  Method: bigquerydatatransfer.projects.locations.transferConfigs.create
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigQueryDataTransferBigquery
  *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatform
  */
 @interface GTLRBigQueryDataTransferQuery_ProjectsLocationsTransferConfigsCreate : GTLRBigQueryDataTransferQuery
@@ -817,6 +818,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
  *  Method: bigquerydatatransfer.projects.locations.transferConfigs.patch
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigQueryDataTransferBigquery
  *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatform
  */
 @interface GTLRBigQueryDataTransferQuery_ProjectsLocationsTransferConfigsPatch : GTLRBigQueryDataTransferQuery
@@ -1391,6 +1393,7 @@ GTLR_DEPRECATED
  *  Method: bigquerydatatransfer.projects.transferConfigs.create
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigQueryDataTransferBigquery
  *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatform
  */
 @interface GTLRBigQueryDataTransferQuery_ProjectsTransferConfigsCreate : GTLRBigQueryDataTransferQuery
@@ -1613,6 +1616,7 @@ GTLR_DEPRECATED
  *  Method: bigquerydatatransfer.projects.transferConfigs.patch
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigQueryDataTransferBigquery
  *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatform
  */
 @interface GTLRBigQueryDataTransferQuery_ProjectsTransferConfigsPatch : GTLRBigQueryDataTransferQuery

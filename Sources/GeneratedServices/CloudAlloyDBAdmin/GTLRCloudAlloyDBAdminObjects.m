@@ -892,6 +892,24 @@ NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfWeek_Wednesday = @"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudAlloyDBAdmin_AutoScalingConfig
+//
+
+@implementation GTLRCloudAlloyDBAdmin_AutoScalingConfig
+@dynamic policy, schedules;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"schedules" : [GTLRCloudAlloyDBAdmin_Schedule class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudAlloyDBAdmin_Backup
 //
 
@@ -1179,6 +1197,16 @@ NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfWeek_Wednesday = @"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudAlloyDBAdmin_ConnectionsCount
+//
+
+@implementation GTLRCloudAlloyDBAdmin_ConnectionsCount
+@dynamic targetCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudAlloyDBAdmin_ContinuousBackupConfig
 //
 
@@ -1212,6 +1240,16 @@ NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfWeek_Wednesday = @"
 
 @implementation GTLRCloudAlloyDBAdmin_ContinuousBackupSource
 @dynamic cluster, pointInTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAlloyDBAdmin_CpuUtilization
+//
+
+@implementation GTLRCloudAlloyDBAdmin_CpuUtilization
+@dynamic utilizationTarget;
 @end
 
 
@@ -1868,6 +1906,17 @@ NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfWeek_Wednesday = @"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudAlloyDBAdmin_Policy
+//
+
+@implementation GTLRCloudAlloyDBAdmin_Policy
+@dynamic connectionsCount, coolDownPeriodSec, cpuUtilization, enabled,
+         maxNodeCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudAlloyDBAdmin_PrimaryConfig
 //
 
@@ -2028,7 +2077,7 @@ NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfWeek_Wednesday = @"
 //
 
 @implementation GTLRCloudAlloyDBAdmin_ReadPoolConfig
-@dynamic nodeCount;
+@dynamic autoScalingConfig, nodeCount;
 @end
 
 
@@ -2078,6 +2127,22 @@ NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfWeek_Wednesday = @"
 
 @implementation GTLRCloudAlloyDBAdmin_RestoreFromCloudSQLRequest
 @dynamic cloudsqlBackupRunSource, cluster, clusterId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAlloyDBAdmin_Schedule
+//
+
+@implementation GTLRCloudAlloyDBAdmin_Schedule
+@dynamic cronExpression, descriptionProperty, disabled, durationSec,
+         minNodeCount, name, timeZone;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
 @end
 
 

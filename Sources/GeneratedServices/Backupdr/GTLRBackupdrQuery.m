@@ -67,6 +67,270 @@ NSString * const kGTLRBackupdrViewBackupViewUnspecified      = @"BACKUP_VIEW_UNS
 
 @end
 
+@implementation GTLRBackupdrQuery_ProjectsLocationsAppliedAutoProtectionPoliciesList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/appliedAutoProtectionPolicies";
+  GTLRBackupdrQuery_ProjectsLocationsAppliedAutoProtectionPoliciesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRBackupdr_ListAppliedAutoProtectionPoliciesResponse class];
+  query.loggingName = @"backupdr.projects.locations.appliedAutoProtectionPolicies.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRBackupdrQuery_ProjectsLocationsAutoProtectionPoliciesBindingsCreate
+
+@dynamic autoProtectionPolicyBindingId, parent, requestId;
+
++ (instancetype)queryWithObject:(GTLRBackupdr_AutoProtectionPolicyBinding *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/bindings";
+  GTLRBackupdrQuery_ProjectsLocationsAutoProtectionPoliciesBindingsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRBackupdr_Operation class];
+  query.loggingName = @"backupdr.projects.locations.autoProtectionPolicies.bindings.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRBackupdrQuery_ProjectsLocationsAutoProtectionPoliciesBindingsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRBackupdrQuery_ProjectsLocationsAutoProtectionPoliciesBindingsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRBackupdr_AutoProtectionPolicyBinding class];
+  query.loggingName = @"backupdr.projects.locations.autoProtectionPolicies.bindings.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRBackupdrQuery_ProjectsLocationsAutoProtectionPoliciesBindingsInitiateDelete
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRBackupdr_InitiateDeleteAutoProtectionPolicyBindingRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:initiateDelete";
+  GTLRBackupdrQuery_ProjectsLocationsAutoProtectionPoliciesBindingsInitiateDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRBackupdr_Operation class];
+  query.loggingName = @"backupdr.projects.locations.autoProtectionPolicies.bindings.initiateDelete";
+  return query;
+}
+
+@end
+
+@implementation GTLRBackupdrQuery_ProjectsLocationsAutoProtectionPoliciesBindingsList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/bindings";
+  GTLRBackupdrQuery_ProjectsLocationsAutoProtectionPoliciesBindingsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRBackupdr_ListAutoProtectionPolicyBindingsResponse class];
+  query.loggingName = @"backupdr.projects.locations.autoProtectionPolicies.bindings.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRBackupdrQuery_ProjectsLocationsAutoProtectionPoliciesBindingsMatchingResourcesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRBackupdrQuery_ProjectsLocationsAutoProtectionPoliciesBindingsMatchingResourcesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRBackupdr_BindingMatchingResource class];
+  query.loggingName = @"backupdr.projects.locations.autoProtectionPolicies.bindings.matchingResources.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRBackupdrQuery_ProjectsLocationsAutoProtectionPoliciesBindingsMatchingResourcesList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/matchingResources";
+  GTLRBackupdrQuery_ProjectsLocationsAutoProtectionPoliciesBindingsMatchingResourcesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRBackupdr_ListBindingMatchingResourcesResponse class];
+  query.loggingName = @"backupdr.projects.locations.autoProtectionPolicies.bindings.matchingResources.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRBackupdrQuery_ProjectsLocationsAutoProtectionPoliciesCreate
+
+@dynamic autoProtectionPolicyId, parent, requestId;
+
++ (instancetype)queryWithObject:(GTLRBackupdr_AutoProtectionPolicy *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/autoProtectionPolicies";
+  GTLRBackupdrQuery_ProjectsLocationsAutoProtectionPoliciesCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRBackupdr_Operation class];
+  query.loggingName = @"backupdr.projects.locations.autoProtectionPolicies.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRBackupdrQuery_ProjectsLocationsAutoProtectionPoliciesDelete
+
+@dynamic ETag, name, requestId;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"ETag" : @"etag" };
+}
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRBackupdrQuery_ProjectsLocationsAutoProtectionPoliciesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRBackupdr_Operation class];
+  query.loggingName = @"backupdr.projects.locations.autoProtectionPolicies.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRBackupdrQuery_ProjectsLocationsAutoProtectionPoliciesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRBackupdrQuery_ProjectsLocationsAutoProtectionPoliciesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRBackupdr_AutoProtectionPolicy class];
+  query.loggingName = @"backupdr.projects.locations.autoProtectionPolicies.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRBackupdrQuery_ProjectsLocationsAutoProtectionPoliciesList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/autoProtectionPolicies";
+  GTLRBackupdrQuery_ProjectsLocationsAutoProtectionPoliciesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRBackupdr_ListAutoProtectionPoliciesResponse class];
+  query.loggingName = @"backupdr.projects.locations.autoProtectionPolicies.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRBackupdrQuery_ProjectsLocationsAutoProtectionPoliciesPatch
+
+@dynamic name, requestId, updateMask;
+
++ (instancetype)queryWithObject:(GTLRBackupdr_AutoProtectionPolicy *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRBackupdrQuery_ProjectsLocationsAutoProtectionPoliciesPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRBackupdr_Operation class];
+  query.loggingName = @"backupdr.projects.locations.autoProtectionPolicies.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRBackupdrQuery_ProjectsLocationsBackupPlanAssociationsCreate
 
 @dynamic backupPlanAssociationId, parent, requestId;
@@ -96,7 +360,7 @@ NSString * const kGTLRBackupdrViewBackupViewUnspecified      = @"BACKUP_VIEW_UNS
 
 @implementation GTLRBackupdrQuery_ProjectsLocationsBackupPlanAssociationsDelete
 
-@dynamic name, requestId;
+@dynamic autoProtectionPolicyBinding, name, requestId;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -1319,6 +1583,404 @@ NSString * const kGTLRBackupdrViewBackupViewUnspecified      = @"BACKUP_VIEW_UNS
   query.parent = parent;
   query.expectedObjectClass = [GTLRBackupdr_ListResourceBackupConfigsResponse class];
   query.loggingName = @"backupdr.projects.locations.resourceBackupConfigs.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRBackupdrQuery_ProjectsLocationsRestoreTemplatesCreate
+
+@dynamic parent, requestId, restoreTemplateId;
+
++ (instancetype)queryWithObject:(GTLRBackupdr_RestoreTemplate *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/restoreTemplates";
+  GTLRBackupdrQuery_ProjectsLocationsRestoreTemplatesCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRBackupdr_Operation class];
+  query.loggingName = @"backupdr.projects.locations.restoreTemplates.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRBackupdrQuery_ProjectsLocationsRestoreTemplatesDelete
+
+@dynamic force, name, requestId;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRBackupdrQuery_ProjectsLocationsRestoreTemplatesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRBackupdr_Operation class];
+  query.loggingName = @"backupdr.projects.locations.restoreTemplates.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRBackupdrQuery_ProjectsLocationsRestoreTemplatesExecutionsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRBackupdrQuery_ProjectsLocationsRestoreTemplatesExecutionsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRBackupdr_RestoreTemplateExecution class];
+  query.loggingName = @"backupdr.projects.locations.restoreTemplates.executions.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRBackupdrQuery_ProjectsLocationsRestoreTemplatesExecutionsList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/executions";
+  GTLRBackupdrQuery_ProjectsLocationsRestoreTemplatesExecutionsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRBackupdr_ListRestoreTemplateExecutionsResponse class];
+  query.loggingName = @"backupdr.projects.locations.restoreTemplates.executions.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRBackupdrQuery_ProjectsLocationsRestoreTemplatesExecutionsTriggerRestoreCleanup
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRBackupdr_TriggerRestoreCleanupRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:triggerRestoreCleanup";
+  GTLRBackupdrQuery_ProjectsLocationsRestoreTemplatesExecutionsTriggerRestoreCleanup *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRBackupdr_Operation class];
+  query.loggingName = @"backupdr.projects.locations.restoreTemplates.executions.triggerRestoreCleanup";
+  return query;
+}
+
+@end
+
+@implementation GTLRBackupdrQuery_ProjectsLocationsRestoreTemplatesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRBackupdrQuery_ProjectsLocationsRestoreTemplatesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRBackupdr_RestoreTemplate class];
+  query.loggingName = @"backupdr.projects.locations.restoreTemplates.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRBackupdrQuery_ProjectsLocationsRestoreTemplatesList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/restoreTemplates";
+  GTLRBackupdrQuery_ProjectsLocationsRestoreTemplatesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRBackupdr_ListRestoreTemplatesResponse class];
+  query.loggingName = @"backupdr.projects.locations.restoreTemplates.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRBackupdrQuery_ProjectsLocationsRestoreTemplatesPatch
+
+@dynamic name, requestId, updateMask, validateOnly;
+
++ (instancetype)queryWithObject:(GTLRBackupdr_RestoreTemplate *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRBackupdrQuery_ProjectsLocationsRestoreTemplatesPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRBackupdr_Operation class];
+  query.loggingName = @"backupdr.projects.locations.restoreTemplates.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRBackupdrQuery_ProjectsLocationsRestoreTemplatesRun
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRBackupdr_RunRestoreTemplateRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:run";
+  GTLRBackupdrQuery_ProjectsLocationsRestoreTemplatesRun *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRBackupdr_Operation class];
+  query.loggingName = @"backupdr.projects.locations.restoreTemplates.run";
+  return query;
+}
+
+@end
+
+@implementation GTLRBackupdrQuery_ProjectsLocationsRestoreVerificationPlansAssociationsCreate
+
+@dynamic parent, requestId, restoreVerificationPlanAssociationId;
+
++ (instancetype)queryWithObject:(GTLRBackupdr_RestoreVerificationPlanAssociation *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/associations";
+  GTLRBackupdrQuery_ProjectsLocationsRestoreVerificationPlansAssociationsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRBackupdr_Operation class];
+  query.loggingName = @"backupdr.projects.locations.restoreVerificationPlans.associations.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRBackupdrQuery_ProjectsLocationsRestoreVerificationPlansAssociationsDelete
+
+@dynamic name, requestId;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRBackupdrQuery_ProjectsLocationsRestoreVerificationPlansAssociationsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRBackupdr_Operation class];
+  query.loggingName = @"backupdr.projects.locations.restoreVerificationPlans.associations.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRBackupdrQuery_ProjectsLocationsRestoreVerificationPlansAssociationsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRBackupdrQuery_ProjectsLocationsRestoreVerificationPlansAssociationsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRBackupdr_RestoreVerificationPlanAssociation class];
+  query.loggingName = @"backupdr.projects.locations.restoreVerificationPlans.associations.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRBackupdrQuery_ProjectsLocationsRestoreVerificationPlansAssociationsList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/associations";
+  GTLRBackupdrQuery_ProjectsLocationsRestoreVerificationPlansAssociationsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRBackupdr_ListRestoreVerificationPlanAssociationsResponse class];
+  query.loggingName = @"backupdr.projects.locations.restoreVerificationPlans.associations.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRBackupdrQuery_ProjectsLocationsRestoreVerificationPlansAssociationsTriggerRestoreVerification
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRBackupdr_TriggerRestoreVerificationRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:triggerRestoreVerification";
+  GTLRBackupdrQuery_ProjectsLocationsRestoreVerificationPlansAssociationsTriggerRestoreVerification *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRBackupdr_Operation class];
+  query.loggingName = @"backupdr.projects.locations.restoreVerificationPlans.associations.triggerRestoreVerification";
+  return query;
+}
+
+@end
+
+@implementation GTLRBackupdrQuery_ProjectsLocationsRestoreVerificationPlansCreate
+
+@dynamic parent, requestId, restoreVerificationPlanId;
+
++ (instancetype)queryWithObject:(GTLRBackupdr_RestoreVerificationPlan *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/restoreVerificationPlans";
+  GTLRBackupdrQuery_ProjectsLocationsRestoreVerificationPlansCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRBackupdr_Operation class];
+  query.loggingName = @"backupdr.projects.locations.restoreVerificationPlans.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRBackupdrQuery_ProjectsLocationsRestoreVerificationPlansDelete
+
+@dynamic force, name, requestId;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRBackupdrQuery_ProjectsLocationsRestoreVerificationPlansDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRBackupdr_Operation class];
+  query.loggingName = @"backupdr.projects.locations.restoreVerificationPlans.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRBackupdrQuery_ProjectsLocationsRestoreVerificationPlansGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRBackupdrQuery_ProjectsLocationsRestoreVerificationPlansGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRBackupdr_RestoreVerificationPlan class];
+  query.loggingName = @"backupdr.projects.locations.restoreVerificationPlans.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRBackupdrQuery_ProjectsLocationsRestoreVerificationPlansList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/restoreVerificationPlans";
+  GTLRBackupdrQuery_ProjectsLocationsRestoreVerificationPlansList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRBackupdr_ListRestoreVerificationPlansResponse class];
+  query.loggingName = @"backupdr.projects.locations.restoreVerificationPlans.list";
   return query;
 }
 

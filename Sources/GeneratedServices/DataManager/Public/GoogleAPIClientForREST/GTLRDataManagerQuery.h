@@ -145,6 +145,45 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  GTLRDataManagerQuery_AccountTypesAccountsReportsRetrievePartnerMatchReport
+ *
+ *  Method: datamanager.accountTypes.accounts.reports.retrievePartnerMatchReport
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataManager
+ */
+@interface GTLRDataManagerQuery_AccountTypesAccountsReportsRetrievePartnerMatchReport : GTLRDataManagerQuery
+
+@property(nonatomic, copy, nullable) NSString *currencyCode;
+
+@property(nonatomic, assign) long long endDate;
+
+@property(nonatomic, copy, nullable) NSString *filter;
+
+@property(nonatomic, assign) NSInteger pageSize;
+
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+@property(nonatomic, copy, nullable) NSString *parent;
+
+@property(nonatomic, assign) long long startDate;
+
+/**
+ *  Fetches a @c GTLRDataManager_RetrievePartnerMatchReportResponse.
+ *
+ *  @param parent NSString
+ *
+ *  @return GTLRDataManagerQuery_AccountTypesAccountsReportsRetrievePartnerMatchReport
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  GTLRDataManagerQuery_AccountTypesAccountsUserListDirectLicensesCreate
  *
  *  Method: datamanager.accountTypes.accounts.userListDirectLicenses.create

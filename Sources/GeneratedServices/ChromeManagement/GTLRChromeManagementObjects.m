@@ -442,6 +442,13 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1Attestati
 NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1AttestationCredential_KeyType_KeyTypeUnspecified = @"KEY_TYPE_UNSPECIFIED";
 NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1AttestationCredential_KeyType_RsaKey = @"RSA_KEY";
 
+// GTLRChromeManagement_GoogleChromeManagementVersionsV1Browser.channel
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1Browser_Channel_ChannelBeta = @"CHANNEL_BETA";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1Browser_Channel_ChannelCanary = @"CHANNEL_CANARY";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1Browser_Channel_ChannelDev = @"CHANNEL_DEV";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1Browser_Channel_ChannelStable = @"CHANNEL_STABLE";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1Browser_Channel_ChannelUnspecified = @"CHANNEL_UNSPECIFIED";
+
 // GTLRChromeManagement_GoogleChromeManagementVersionsV1CertificateProvisioningProcess.signatureAlgorithm
 NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1CertificateProvisioningProcess_SignatureAlgorithm_SignatureAlgorithmEcdsaSha256 = @"SIGNATURE_ALGORITHM_ECDSA_SHA256";
 NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1CertificateProvisioningProcess_SignatureAlgorithm_SignatureAlgorithmRsaPkcs1V15Sha256 = @"SIGNATURE_ALGORITHM_RSA_PKCS1_V1_5_SHA256";
@@ -534,6 +541,46 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1DisableIn
 NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1EnableInsightsResponse_InsightsState_InsightsDisabled = @"INSIGHTS_DISABLED";
 NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1EnableInsightsResponse_InsightsState_InsightsEnabled = @"INSIGHTS_ENABLED";
 NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1EnableInsightsResponse_InsightsState_InsightsEnablementStateUnspecified = @"INSIGHTS_ENABLEMENT_STATE_UNSPECIFIED";
+
+// GTLRChromeManagement_GoogleChromeManagementVersionsV1EnrollmentToken.state
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1EnrollmentToken_State_EnrollmentTokenStateActive = @"ENROLLMENT_TOKEN_STATE_ACTIVE";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1EnrollmentToken_State_EnrollmentTokenStateExpired = @"ENROLLMENT_TOKEN_STATE_EXPIRED";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1EnrollmentToken_State_EnrollmentTokenStateRevoked = @"ENROLLMENT_TOKEN_STATE_REVOKED";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1EnrollmentToken_State_EnrollmentTokenStateUnspecified = @"ENROLLMENT_TOKEN_STATE_UNSPECIFIED";
+
+// GTLRChromeManagement_GoogleChromeManagementVersionsV1EnrollmentToken.tokenType
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1EnrollmentToken_TokenType_EnrollmentTokenTypeChromeBrowser = @"ENROLLMENT_TOKEN_TYPE_CHROME_BROWSER";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1EnrollmentToken_TokenType_EnrollmentTokenTypeUnspecified = @"ENROLLMENT_TOKEN_TYPE_UNSPECIFIED";
+
+// GTLRChromeManagement_GoogleChromeManagementVersionsV1Extension.appType
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1Extension_AppType_App = @"APP";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1Extension_AppType_Extension = @"EXTENSION";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1Extension_AppType_ExtensionTypeUnspecified = @"EXTENSION_TYPE_UNSPECIFIED";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1Extension_AppType_HostedApp = @"HOSTED_APP";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1Extension_AppType_Theme = @"THEME";
+
+// GTLRChromeManagement_GoogleChromeManagementVersionsV1Extension.configuredAppPolicy
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1Extension_ConfiguredAppPolicy_ConfiguredAppPolicyNone = @"CONFIGURED_APP_POLICY_NONE";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1Extension_ConfiguredAppPolicy_ConfiguredAppPolicyShouldBlock = @"CONFIGURED_APP_POLICY_SHOULD_BLOCK";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1Extension_ConfiguredAppPolicy_ConfiguredAppPolicyShouldForce = @"CONFIGURED_APP_POLICY_SHOULD_FORCE";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1Extension_ConfiguredAppPolicy_ConfiguredAppPolicyUnspecified = @"CONFIGURED_APP_POLICY_UNSPECIFIED";
+
+// GTLRChromeManagement_GoogleChromeManagementVersionsV1Extension.installType
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1Extension_InstallType_Admin = @"ADMIN";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1Extension_InstallType_Development = @"DEVELOPMENT";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1Extension_InstallType_InstallationTypeUnspecified = @"INSTALLATION_TYPE_UNSPECIFIED";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1Extension_InstallType_Multiple = @"MULTIPLE";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1Extension_InstallType_Normal = @"NORMAL";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1Extension_InstallType_Other = @"OTHER";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1Extension_InstallType_Sideload = @"SIDELOAD";
+
+// GTLRChromeManagement_GoogleChromeManagementVersionsV1Policy.source
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1Policy_Source_MachineLevelUserCloud = @"MACHINE_LEVEL_USER_CLOUD";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1Policy_Source_MachineMerged = @"MACHINE_MERGED";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1Policy_Source_MachinePlatform = @"MACHINE_PLATFORM";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1Policy_Source_PolicySourceUnspecified = @"POLICY_SOURCE_UNSPECIFIED";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1Policy_Source_UserCloud = @"USER_CLOUD";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1Policy_Source_UserPlatform = @"USER_PLATFORM";
 
 // GTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataConflictingPolicyData.source
 NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataConflictingPolicyData_Source_MachineLevelUserCloud = @"MACHINE_LEVEL_USER_CLOUD";
@@ -790,7 +837,7 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1UrlVisits
 @implementation GTLRChromeManagement_GoogleChromeManagementV1ChromeAppInfo
 @dynamic googleOwned, isCwsHosted, isExtensionPolicySupported, isKioskOnly,
          isTheme, kioskEnabled, manifestVersion, minUserCount, permissions,
-         siteAccess, supportEnabled, type;
+         riskAssessment, siteAccess, supportEnabled, type;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2269,6 +2316,36 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1UrlVisits
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRChromeManagement_GoogleChromeManagementVersionsV1Browser
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementVersionsV1Browser
+@dynamic browserVersion, channel, executablePath, lastPolicyFetchTime,
+         lastStatusReportTime, pendingInstallVersion, plugins, profiles;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"plugins" : [GTLRChromeManagement_GoogleChromeManagementVersionsV1Plugin class],
+    @"profiles" : [GTLRChromeManagement_GoogleChromeManagementVersionsV1Profile class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementVersionsV1BrowserUser
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementVersionsV1BrowserUser
+@dynamic lastStatusReportTime, userName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRChromeManagement_GoogleChromeManagementVersionsV1CertificateProvisioningProcess
 //
 
@@ -2287,6 +2364,35 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1UrlVisits
 
 @implementation GTLRChromeManagement_GoogleChromeManagementVersionsV1CheckEnablementStatusResponse
 @dynamic insightsState;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowser
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowser
+@dynamic annotatedAssetId, annotatedLocation, annotatedNotes, annotatedUser,
+         attestationCredential, browserPermanentId, browsers, browserVersions,
+         deviceIdentifiersHistory, extensionCount, lastActivityTime,
+         lastDeviceUser, lastDeviceUsers, lastPolicyFetchTime,
+         lastRegistrationTime, lastStatusReportTime, machineExtensionPolicies,
+         machineName, machinePolicies, name, omahaRecentFetchTime, orgUnitId,
+         osArchitecture, osPlatform, osPlatformVersion, osVersion, policyCount,
+         serialNumber, virtualDeviceId;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"browsers" : [GTLRChromeManagement_GoogleChromeManagementVersionsV1Browser class],
+    @"browserVersions" : [NSString class],
+    @"lastDeviceUsers" : [GTLRChromeManagement_GoogleChromeManagementVersionsV1BrowserUser class],
+    @"machineExtensionPolicies" : [GTLRChromeManagement_GoogleChromeManagementVersionsV1ExtensionPolicy class],
+    @"machinePolicies" : [GTLRChromeManagement_GoogleChromeManagementVersionsV1Policy class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -2471,6 +2577,44 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1UrlVisits
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRChromeManagement_GoogleChromeManagementVersionsV1DeviceIdentifiers
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementVersionsV1DeviceIdentifiers
+@dynamic hostName, machineName, serialNumber;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementVersionsV1DeviceIdentifiersHistory
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementVersionsV1DeviceIdentifiersHistory
+@dynamic deviceIdCollision, lastDeviceIdCollisionDetectionTime, records;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"records" : [GTLRChromeManagement_GoogleChromeManagementVersionsV1DeviceIdentifiersRecord class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementVersionsV1DeviceIdentifiersRecord
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementVersionsV1DeviceIdentifiersRecord
+@dynamic firstRecordTime, identifiers, lastActivityTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRChromeManagement_GoogleChromeManagementVersionsV1DeviceInfo
 //
 
@@ -2542,6 +2686,70 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1UrlVisits
 
 @implementation GTLRChromeManagement_GoogleChromeManagementVersionsV1EnableInsightsResponse
 @dynamic insightsState;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementVersionsV1EnrollmentToken
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementVersionsV1EnrollmentToken
+@dynamic createTime, creatorId, customerId, name, orgUnitId, revokerId,
+         revokeTime, state, token, tokenPermanentId, tokenType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementVersionsV1Extension
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementVersionsV1Extension
+@dynamic appType, configuredAppPolicy, descriptionProperty, disabled,
+         extensionId, extensionName, homepageUri, icons, installType,
+         manifestVersion, permissions, version;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"icons" : [GTLRChromeManagement_GoogleChromeManagementVersionsV1ExtensionIcon class],
+    @"permissions" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementVersionsV1ExtensionIcon
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementVersionsV1ExtensionIcon
+@dynamic size, uri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementVersionsV1ExtensionPolicy
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementVersionsV1ExtensionPolicy
+@dynamic extensionId, extensionName, policies;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"policies" : [GTLRChromeManagement_GoogleChromeManagementVersionsV1Policy class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -2621,6 +2829,28 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1UrlVisits
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRChromeManagement_GoogleChromeManagementVersionsV1ListChromeBrowsersResponse
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementVersionsV1ListChromeBrowsersResponse
+@dynamic chromeBrowsers, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"chromeBrowsers" : [GTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowser class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"chromeBrowsers";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRChromeManagement_GoogleChromeManagementVersionsV1ListConnectorConfigsResponse
 //
 
@@ -2643,6 +2873,28 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1UrlVisits
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRChromeManagement_GoogleChromeManagementVersionsV1ListEnrollmentTokensResponse
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementVersionsV1ListEnrollmentTokensResponse
+@dynamic enrollmentTokens, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"enrollmentTokens" : [GTLRChromeManagement_GoogleChromeManagementVersionsV1EnrollmentToken class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"enrollmentTokens";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRChromeManagement_GoogleChromeManagementVersionsV1MipLabelConfig
 //
 
@@ -2656,6 +2908,33 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1UrlVisits
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementVersionsV1MoveChromeBrowsersRequest
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementVersionsV1MoveChromeBrowsersRequest
+@dynamic destinationOrgUnitId, resourceIds;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"resourceIds" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementVersionsV1MoveChromeBrowsersResponse
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementVersionsV1MoveChromeBrowsersResponse
 @end
 
 
@@ -2686,6 +2965,58 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1UrlVisits
 
 @implementation GTLRChromeManagement_GoogleChromeManagementVersionsV1PaloAltoNetworksConfig
 @dynamic apiKey, host, reportingSettings;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementVersionsV1Plugin
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementVersionsV1Plugin
+@dynamic descriptionProperty, filename, pluginName;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementVersionsV1Policy
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementVersionsV1Policy
+@dynamic error, policyName, source, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementVersionsV1Profile
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementVersionsV1Profile
+@dynamic chromeSignedInUserEmail, extensionPolicies, extensions, identifier,
+         lastPolicyFetchTime, lastStatusReportTime, profileName,
+         safeBrowsingWarnings, safeBrowsingWarningsClickThroughs,
+         safeBrowsingWarningsResetTime, userPolicies;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"extensionPolicies" : [GTLRChromeManagement_GoogleChromeManagementVersionsV1ExtensionPolicy class],
+    @"extensions" : [GTLRChromeManagement_GoogleChromeManagementVersionsV1Extension class],
+    @"userPolicies" : [GTLRChromeManagement_GoogleChromeManagementVersionsV1Policy class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -2897,6 +3228,15 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1UrlVisits
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementVersionsV1RevokeEnrollmentTokenRequest
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementVersionsV1RevokeEnrollmentTokenRequest
 @end
 
 

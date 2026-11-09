@@ -5,8 +5,9 @@
 //   My Business Account Management API (mybusinessaccountmanagement/v1)
 // Description:
 //   The My Business Account Management API provides an interface for managing
-//   access to a location on Google. Note - If you have a quota of 0 after
-//   enabling the API, please request for GBP API access.
+//   access to a location on Google. Note: If you have a quota of 0 after
+//   enabling the API, please request GBP API access at
+//   https://developers.google.com/my-business/content/prereqs#request-access.
 // Documentation:
 //   https://developers.google.com/my-business/
 
@@ -27,8 +28,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Service for executing My Business Account Management API queries.
  *
  *  The My Business Account Management API provides an interface for managing
- *  access to a location on Google. Note - If you have a quota of 0 after
- *  enabling the API, please request for GBP API access.
+ *  access to a location on Google. Note: If you have a quota of 0 after
+ *  enabling the API, please request GBP API access at
+ *  https://developers.google.com/my-business/content/prereqs#request-access.
  */
 @interface GTLRMyBusinessAccountManagementService : GTLRService
 

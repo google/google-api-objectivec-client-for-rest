@@ -16,6 +16,10 @@
 // Authorization scopes
 
 NSString * const kGTLRAuthScopeChromeManagementChromeManagementAppdetailsReadonly = @"https://www.googleapis.com/auth/chrome.management.appdetails.readonly";
+NSString * const kGTLRAuthScopeChromeManagementChromeManagementBrowsers = @"https://www.googleapis.com/auth/chrome.management.browsers";
+NSString * const kGTLRAuthScopeChromeManagementChromeManagementBrowsersReadonly = @"https://www.googleapis.com/auth/chrome.management.browsers.readonly";
+NSString * const kGTLRAuthScopeChromeManagementChromeManagementEnrollmenttokens = @"https://www.googleapis.com/auth/chrome.management.enrollmenttokens";
+NSString * const kGTLRAuthScopeChromeManagementChromeManagementEnrollmenttokensReadonly = @"https://www.googleapis.com/auth/chrome.management.enrollmenttokens.readonly";
 NSString * const kGTLRAuthScopeChromeManagementChromeManagementProfiles = @"https://www.googleapis.com/auth/chrome.management.profiles";
 NSString * const kGTLRAuthScopeChromeManagementChromeManagementProfilesReadonly = @"https://www.googleapis.com/auth/chrome.management.profiles.readonly";
 NSString * const kGTLRAuthScopeChromeManagementChromeManagementReportsReadonly = @"https://www.googleapis.com/auth/chrome.management.reports.readonly";

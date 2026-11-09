@@ -284,9 +284,9 @@ NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_RiskRating_Un
 //
 
 @implementation GTLRThreatIntelligenceService_AlertDocument
-@dynamic aiSummary, author, collectionTime, content, createTime, ingestTime,
-         languageCode, name, source, sourceUpdateTime, sourceUri, title,
-         translation;
+@dynamic aiSummary, author, collectionTime, communicationContext, content,
+         createTime, ingestTime, languageCode, name, source, sourceUpdateTime,
+         sourceUri, title, translation;
 @end
 
 
@@ -359,8 +359,8 @@ NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_RiskRating_Un
 //
 
 @implementation GTLRThreatIntelligenceService_CommunicationContext
-@dynamic channelDescription, channelName, channelPath, channelUrl, serviceName,
-         threadId;
+@dynamic channelDescription, channelName, channelPath, channelUrl, messageId,
+         serviceName, threadId;
 @end
 
 
@@ -402,6 +402,28 @@ NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_RiskRating_Un
 
 @implementation GTLRThreatIntelligenceService_ConfigurationRevision
 @dynamic createTime, name, snapshot;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRThreatIntelligenceService_CustomerProfileBrand
+//
+
+@implementation GTLRThreatIntelligenceService_CustomerProfileBrand
+@dynamic brand, citationIds, identifier;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"citationIds" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -457,12 +479,13 @@ NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_RiskRating_Un
 //
 
 @implementation GTLRThreatIntelligenceService_CustomerProfileConfig
-@dynamic citations, contactInfo, executives, industries, locations, org,
+@dynamic brands, citations, contactInfo, executives, industries, locations, org,
          orgSummary, parentCompanies, products, securityConsiderations, summary,
          technologies, technologyPresence, webPresences;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"brands" : [GTLRThreatIntelligenceService_CustomerProfileBrand class],
     @"citations" : [GTLRThreatIntelligenceService_CustomerProfileCitation class],
     @"contactInfo" : [GTLRThreatIntelligenceService_CustomerProfileContactInfo class],
     @"executives" : [GTLRThreatIntelligenceService_CustomerProfilePerson class],

@@ -81,6 +81,7 @@ NSString * const kGTLRAccessContextManager_OsConstraint_OsType_DesktopChromeOs =
 NSString * const kGTLRAccessContextManager_OsConstraint_OsType_DesktopLinux = @"DESKTOP_LINUX";
 NSString * const kGTLRAccessContextManager_OsConstraint_OsType_DesktopMac = @"DESKTOP_MAC";
 NSString * const kGTLRAccessContextManager_OsConstraint_OsType_DesktopWindows = @"DESKTOP_WINDOWS";
+NSString * const kGTLRAccessContextManager_OsConstraint_OsType_GooglebookOs = @"GOOGLEBOOK_OS";
 NSString * const kGTLRAccessContextManager_OsConstraint_OsType_Ios = @"IOS";
 NSString * const kGTLRAccessContextManager_OsConstraint_OsType_OsUnspecified = @"OS_UNSPECIFIED";
 

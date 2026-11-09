@@ -1577,6 +1577,13 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_Missing
  */
 FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationAborted;
 /**
+ *  Modernization of a cluster is awaiting manual restart of workloads. The
+ *  customer must restart these workloads to complete modernization.
+ *
+ *  Value: "MODERNIZATION_AWAITING_MANUAL_WORKLOAD_RESTART"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationAwaitingManualWorkloadRestart;
+/**
  *  Fleet is compatible for modernization.
  *
  *  Value: "MODERNIZATION_COMPATIBLE"
@@ -1688,6 +1695,20 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_Moderni
  */
 FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationPreparing;
 /**
+ *  Fleet modernization must be Customer-Triggered, and cannot be Google-driven.
+ *  Specific details may be reported via another fleet/cluster condition.
+ *
+ *  Value: "MODERNIZATION_REQUIRES_CUSTOMER_TRIGGER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationRequiresCustomerTrigger;
+/**
+ *  Cluster contains workloads that will require manual restart during
+ *  modernization.
+ *
+ *  Value: "MODERNIZATION_REQUIRES_MANUAL_WORKLOAD_RESTART"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationRequiresManualWorkloadRestart;
+/**
  *  Rollback is in progress for modernization of a cluster.
  *
  *  Value: "MODERNIZATION_ROLLING_BACK_CLUSTER"
@@ -1711,6 +1732,13 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_Moderni
  *  Value: "MODERNIZATION_STALLED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationStalled;
+/**
+ *  Cluster contains PodDisruptionBudgets that prevent automated pod eviction
+ *  during modernization.
+ *
+ *  Value: "MODERNIZATION_UNEVICTABLE_POD_DISRUPTION_BUDGET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationUnevictablePodDisruptionBudget;
 /**
  *  Modernization will be scheduled for a fleet.
  *
@@ -2521,8 +2549,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_WorkloadIdentityIdentityProviderS
 @property(nonatomic, strong, nullable) NSNumber *preventDrift;
 
 /**
- *  Optional. Specifies whether the Config Sync repo is in `hierarchical` or
- *  `unstructured` mode. Defaults to `hierarchical`. See
+ *  Optional. Specifies whether the Config Sync repo is in `hierarchy` or
+ *  `unstructured` mode. Defaults to `hierarchy`. See
  *  https://docs.cloud.google.com/kubernetes-engine/config-sync/docs/concepts/configs#organize-configs
  *  for an explanation.
  */
@@ -3018,13 +3046,19 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_WorkloadIdentityIdentityProviderS
 
 /**
  *  Optional. The Google Cloud Service Account Email used for auth when
- *  secret_type is `gcpserviceaccount`.
+ *  secret_type is `gcpserviceaccount`. Annotates the `RootSync` or `RepoSync`
+ *  controller's Kubernetes Service Account.
  */
 @property(nonatomic, copy, nullable) NSString *gcpServiceAccountEmail;
 
 /**
  *  Optional. URL for the HTTPS proxy to be used when communicating with the Git
- *  repo. Only specify when secret_type is `cookiefile`, `token`, or `none`.
+ *  repo. Defines an HTTPS_PROXY environment variable and only accepts `https`
+ *  or unadorned URLs. For example, `https://proxy.internal.business.co:443` or
+ *  `proxy.internal.business.co:443`. If using an unadorned URL, make sure the
+ *  communication between your proxy server and Git host is secure. Rejects
+ *  `http://` URLs. Only specify when secret_type is `cookiefile`, `token`, or
+ *  `none`.
  */
 @property(nonatomic, copy, nullable) NSString *httpsProxy;
 
@@ -3047,7 +3081,11 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_WorkloadIdentityIdentityProviderS
 /** Required. The URL of the Git repository to use as the source of truth. */
 @property(nonatomic, copy, nullable) NSString *syncRepo;
 
-/** Optional. Git revision (tag or hash) to check out. Default HEAD. */
+/**
+ *  Optional. Git revision (tag or hash) or branch to sync from. Default `HEAD`.
+ *  If not `HEAD`, takes precedence over `sync_branch` field. When using a hash,
+ *  must be a full hash, and not an abbreviated form.
+ */
 @property(nonatomic, copy, nullable) NSString *syncRev;
 
 /**
@@ -3198,7 +3236,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_WorkloadIdentityIdentityProviderS
 
 /**
  *  Optional. The Google Cloud Service Account Email used for auth when
- *  secret_type is `gcpserviceaccount`.
+ *  secret_type is `gcpserviceaccount`. Annotates the `RootSync` or `RepoSync`
+ *  controller's Kubernetes Service Account.
  */
 @property(nonatomic, copy, nullable) NSString *gcpServiceAccountEmail;
 
@@ -5315,6 +5354,10 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_WorkloadIdentityIdentityProviderS
  *    @arg @c kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationAborted
  *        Modernization is aborted for a cluster. (Value:
  *        "MODERNIZATION_ABORTED")
+ *    @arg @c kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationAwaitingManualWorkloadRestart
+ *        Modernization of a cluster is awaiting manual restart of workloads.
+ *        The customer must restart these workloads to complete modernization.
+ *        (Value: "MODERNIZATION_AWAITING_MANUAL_WORKLOAD_RESTART")
  *    @arg @c kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationCompatible
  *        Fleet is compatible for modernization. (Value:
  *        "MODERNIZATION_COMPATIBLE")
@@ -5369,6 +5412,15 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_WorkloadIdentityIdentityProviderS
  *    @arg @c kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationPreparing
  *        Preparing cluster so that its workloads can be migrated. (Value:
  *        "MODERNIZATION_PREPARING")
+ *    @arg @c kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationRequiresCustomerTrigger
+ *        Fleet modernization must be Customer-Triggered, and cannot be
+ *        Google-driven. Specific details may be reported via another
+ *        fleet/cluster condition. (Value:
+ *        "MODERNIZATION_REQUIRES_CUSTOMER_TRIGGER")
+ *    @arg @c kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationRequiresManualWorkloadRestart
+ *        Cluster contains workloads that will require manual restart during
+ *        modernization. (Value:
+ *        "MODERNIZATION_REQUIRES_MANUAL_WORKLOAD_RESTART")
  *    @arg @c kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationRollingBackCluster
  *        Rollback is in progress for modernization of a cluster. (Value:
  *        "MODERNIZATION_ROLLING_BACK_CLUSTER")
@@ -5381,6 +5433,10 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_WorkloadIdentityIdentityProviderS
  *    @arg @c kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationStalled
  *        Modernization is stalled for a cluster. (Value:
  *        "MODERNIZATION_STALLED")
+ *    @arg @c kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationUnevictablePodDisruptionBudget
+ *        Cluster contains PodDisruptionBudgets that prevent automated pod
+ *        eviction during modernization. (Value:
+ *        "MODERNIZATION_UNEVICTABLE_POD_DISRUPTION_BUDGET")
  *    @arg @c kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationWillBeScheduled
  *        Modernization will be scheduled for a fleet. (Value:
  *        "MODERNIZATION_WILL_BE_SCHEDULED")

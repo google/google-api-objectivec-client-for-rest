@@ -1439,11 +1439,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_InAppProduct_PurchaseTy
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_InAppProduct_PurchaseType_PurchaseTypeUnspecified;
 /**
- *  In-app product with a recurring period.
+ *  Deprecated: Subscriptions are no longer supported in the InAppProducts API.
+ *  Use the Subscriptions API instead.
  *
  *  Value: "subscription"
  */
-FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_InAppProduct_PurchaseType_Subscription;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_InAppProduct_PurchaseType_Subscription GTLR_DEPRECATED;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidPublisher_InAppProduct.status
@@ -1741,8 +1742,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_OneTimeProductOffer_Sta
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_OneTimeProductOffer_State_Draft;
 /**
- *  This state is specific to discounted offers. The offer is no longer
- *  available to users.
+ *  This state is specific to discounted and game reward offers. The offer is no
+ *  longer available to users.
  *
  *  Value: "INACTIVE"
  */
@@ -4433,7 +4434,7 @@ GTLR_DEPRECATED
 @interface GTLRAndroidPublisher_BatchDeleteOneTimeProductOffersRequest : GTLRObject
 
 /**
- *  Required. A list of update requests of up to 100 elements. All requests must
+ *  Required. A list of delete requests of up to 100 elements. All requests must
  *  correspond to different offers.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_DeleteOneTimeProductOfferRequest *> *requests;
@@ -4489,7 +4490,7 @@ GTLR_DEPRECATED
 @interface GTLRAndroidPublisher_BatchGetOneTimeProductOffersResponse : GTLRObject
 
 /**
- *  The list of updated one-time product offers, in the same order as the
+ *  The list of requested one-time product offers, in the same order as the
  *  request.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_OneTimeProductOffer *> *oneTimeProductOffers;
@@ -5075,7 +5076,8 @@ GTLR_DEPRECATED
 
 /**
  *  The token used for delivery of the app with the Google Play Inline Install
- *  API.
+ *  API. The token is unique per Play app and per third-party app store
+ *  combination and has a limited validity period of 7 days.
  */
 @property(nonatomic, copy, nullable) NSString *deliveryToken;
 
@@ -7425,12 +7427,10 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) GTLRAndroidPublisher_Price *defaultPrice;
 
 /**
- *  Grace period of the subscription, specified in ISO 8601 format. Allows
- *  developers to give their subscribers a grace period when the payment for the
- *  new recurrence period is declined. Acceptable values are P0D (zero days),
- *  P3D (three days), P7D (seven days), P14D (14 days), and P30D (30 days).
+ *  Deprecated: Subscriptions are no longer supported in the InAppProducts API.
+ *  Use the Subscriptions API instead.
  */
-@property(nonatomic, copy, nullable) NSString *gracePeriod;
+@property(nonatomic, copy, nullable) NSString *gracePeriod GTLR_DEPRECATED;
 
 /**
  *  List of localized title and description data. Map key is the language of the
@@ -7462,7 +7462,8 @@ GTLR_DEPRECATED
  *    @arg @c kGTLRAndroidPublisher_InAppProduct_PurchaseType_PurchaseTypeUnspecified
  *        Unspecified purchase type. (Value: "purchaseTypeUnspecified")
  *    @arg @c kGTLRAndroidPublisher_InAppProduct_PurchaseType_Subscription
- *        In-app product with a recurring period. (Value: "subscription")
+ *        Deprecated: Subscriptions are no longer supported in the InAppProducts
+ *        API. Use the Subscriptions API instead. (Value: "subscription")
  */
 @property(nonatomic, copy, nullable) NSString *purchaseType;
 
@@ -7483,23 +7484,22 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *status;
 
 /**
- *  Subscription period, specified in ISO 8601 format. Acceptable values are P1W
- *  (one week), P1M (one month), P3M (three months), P6M (six months), and P1Y
- *  (one year).
+ *  Deprecated: Subscriptions are no longer supported in the InAppProducts API.
+ *  Use the Subscriptions API instead.
  */
-@property(nonatomic, copy, nullable) NSString *subscriptionPeriod;
+@property(nonatomic, copy, nullable) NSString *subscriptionPeriod GTLR_DEPRECATED;
 
 /**
- *  Details about taxes and legal compliance. Only applicable to subscription
- *  products.
+ *  Deprecated: Subscriptions are no longer supported in the InAppProducts API.
+ *  Use the Subscriptions API instead.
  */
-@property(nonatomic, strong, nullable) GTLRAndroidPublisher_SubscriptionTaxAndComplianceSettings *subscriptionTaxesAndComplianceSettings;
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_SubscriptionTaxAndComplianceSettings *subscriptionTaxesAndComplianceSettings GTLR_DEPRECATED;
 
 /**
- *  Trial period, specified in ISO 8601 format. Acceptable values are anything
- *  between P7D (seven days) and P999D (999 days).
+ *  Deprecated: Subscriptions are no longer supported in the InAppProducts API.
+ *  Use the Subscriptions API instead.
  */
-@property(nonatomic, copy, nullable) NSString *trialPeriod;
+@property(nonatomic, copy, nullable) NSString *trialPeriod GTLR_DEPRECATED;
 
 @end
 
@@ -7536,8 +7536,11 @@ GTLR_DEPRECATED
  */
 @interface GTLRAndroidPublisher_InAppProductListing : GTLRObject
 
-/** Localized entitlement benefits for a subscription. */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *benefits;
+/**
+ *  Deprecated: Subscriptions are no longer supported in the InAppProducts API.
+ *  Use the Subscriptions API instead.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *benefits GTLR_DEPRECATED;
 
 /**
  *  Description for the store listing.
@@ -8955,8 +8958,8 @@ GTLR_DEPRECATED
  *    @arg @c kGTLRAndroidPublisher_OneTimeProductOffer_State_Draft The offer is
  *        not and has never been available to users. (Value: "DRAFT")
  *    @arg @c kGTLRAndroidPublisher_OneTimeProductOffer_State_Inactive This
- *        state is specific to discounted offers. The offer is no longer
- *        available to users. (Value: "INACTIVE")
+ *        state is specific to discounted and game reward offers. The offer is
+ *        no longer available to users. (Value: "INACTIVE")
  *    @arg @c kGTLRAndroidPublisher_OneTimeProductOffer_State_StateUnspecified
  *        Default value, should never be used. (Value: "STATE_UNSPECIFIED")
  */
@@ -9010,13 +9013,13 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *regionCode;
 
 /**
- *  The fraction of the purchase option price that the user pays for this offer.
- *  For example, if the purchase option price for this region is $12, then a 50%
- *  discount would correspond to a price of $6. The discount must be specified
- *  as a fraction strictly larger than 0 and strictly smaller than 1. The
- *  resulting price will be rounded to the nearest billable unit (e.g. cents for
- *  USD). The relative discount is considered invalid if the discounted price
- *  ends up being smaller than the minimum price allowed in this region.
+ *  The percentage discount subtracted from the purchase option price, specified
+ *  as a fraction strictly larger than `0` and strictly smaller than `1`. For
+ *  example, a value of `0.8` represents an 80% discount, meaning that if the
+ *  purchase option price is $100, the offer price will be $20. The resulting
+ *  price will be rounded to the nearest billable unit (e.g. cents for USD). The
+ *  relative discount is considered invalid if the discounted price ends up
+ *  being smaller than the minimum price allowed in this region.
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -9574,11 +9577,11 @@ GTLR_DEPRECATED
 
 /**
  *  The absolute amount of money subtracted from the base plan price prorated
- *  over the phase duration that the user pays for this offer phase. For
- *  example, if the base plan price for this region is $12 for a period of 1
- *  year, then a $1 absolute discount for a phase of a duration of 3 months
- *  would correspond to a price of $2. The resulting price may not be smaller
- *  than the minimum price allowed for any new locations Play may launch in.
+ *  over the phase duration. For example, if the base plan price for this region
+ *  is $12 for a period of 1 year, then a $1 absolute discount for a phase of a
+ *  duration of 3 months would correspond to a price of $2. The resulting price
+ *  may not be smaller than the minimum price allowed for any new locations Play
+ *  may launch in.
  */
 @property(nonatomic, strong, nullable) GTLRAndroidPublisher_OtherRegionsSubscriptionOfferPhasePrices *absoluteDiscounts;
 
@@ -9593,15 +9596,14 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) GTLRAndroidPublisher_OtherRegionsSubscriptionOfferPhasePrices *otherRegionsPrices;
 
 /**
- *  The fraction of the base plan price prorated over the phase duration that
- *  the user pays for this offer phase. For example, if the base plan price for
- *  this region is $12 for a period of 1 year, then a 50% discount for a phase
- *  of a duration of 3 months would correspond to a price of $1.50. The discount
- *  must be specified as a fraction strictly larger than 0 and strictly smaller
- *  than 1. The resulting price will be rounded to the nearest billable unit
- *  (e.g. cents for USD). The relative discount is considered invalid if the
- *  discounted price ends up being smaller than the minimum price allowed in any
- *  new locations Play may launch in.
+ *  The percentage discount subtracted from the base plan price prorated over
+ *  the phase duration, specified as a fraction strictly larger than `0` and
+ *  strictly smaller than `1`. For example, a value of `0.8` represents an 80%
+ *  discount, meaning that if the prorated base plan price is $100, the offer
+ *  price will be $20. The resulting price will be rounded to the nearest
+ *  billable unit (e.g. cents for USD). The relative discount is considered
+ *  invalid if the discounted price ends up being smaller than the minimum price
+ *  allowed in any new locations Play may launch in.
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -10762,11 +10764,10 @@ GTLR_DEPRECATED
 
 /**
  *  The absolute amount of money subtracted from the base plan price prorated
- *  over the phase duration that the user pays for this offer phase. For
- *  example, if the base plan price for this region is $12 for a period of 1
- *  year, then a $1 absolute discount for a phase of a duration of 3 months
- *  would correspond to a price of $2. The resulting price may not be smaller
- *  than the minimum price allowed for this region.
+ *  over the phase duration. For example, if the base plan price for this region
+ *  is $12 for a period of 1 year, then a $1 absolute discount for a phase of a
+ *  duration of 3 months would correspond to a price of $2. The resulting price
+ *  may not be smaller than the minimum price allowed for this region.
  */
 @property(nonatomic, strong, nullable) GTLRAndroidPublisher_Money *absoluteDiscount;
 
@@ -10783,15 +10784,14 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *regionCode;
 
 /**
- *  The fraction of the base plan price prorated over the phase duration that
- *  the user pays for this offer phase. For example, if the base plan price for
- *  this region is $12 for a period of 1 year, then a 50% discount for a phase
- *  of a duration of 3 months would correspond to a price of $1.50. The discount
- *  must be specified as a fraction strictly larger than 0 and strictly smaller
- *  than 1. The resulting price will be rounded to the nearest billable unit
- *  (e.g. cents for USD). The relative discount is considered invalid if the
- *  discounted price ends up being smaller than the minimum price allowed in
- *  this region.
+ *  The percentage discount subtracted from the base plan price prorated over
+ *  the phase duration, specified as a fraction strictly larger than `0` and
+ *  strictly smaller than `1`. For example, a value of `0.8` represents an 80%
+ *  discount, meaning that if the prorated base plan price is $100, the offer
+ *  price will be $20. The resulting price will be rounded to the nearest
+ *  billable unit (e.g. cents for USD). The relative discount is considered
+ *  invalid if the discounted price ends up being smaller than the minimum price
+ *  allowed in this region.
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -12944,7 +12944,8 @@ GTLR_DEPRECATED
 
 /**
  *  Deactivates an offer. Once deactivated, the offer is no longer available to
- *  users. This state transition is specific to discounted offers.
+ *  users. This state transition is specific to discounted and game reward
+ *  offers.
  */
 @property(nonatomic, strong, nullable) GTLRAndroidPublisher_DeactivateOneTimeProductOfferRequest *deactivateOneTimeProductOfferRequest;
 

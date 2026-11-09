@@ -20,13 +20,45 @@ NSString * const kGTLRAgentRegistry_AgentSpec_Type_A2aAgentCard = @"A2A_AGENT_CA
 NSString * const kGTLRAgentRegistry_AgentSpec_Type_NoSpec      = @"NO_SPEC";
 NSString * const kGTLRAgentRegistry_AgentSpec_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
+// GTLRAgentRegistry_AiApplication.state
+NSString * const kGTLRAgentRegistry_AiApplication_State_Active = @"ACTIVE";
+NSString * const kGTLRAgentRegistry_AiApplication_State_Creating = @"CREATING";
+NSString * const kGTLRAgentRegistry_AiApplication_State_Deleting = @"DELETING";
+NSString * const kGTLRAgentRegistry_AiApplication_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
 // GTLRAgentRegistry_Card.type
 NSString * const kGTLRAgentRegistry_Card_Type_A2aAgentCard    = @"A2A_AGENT_CARD";
 NSString * const kGTLRAgentRegistry_Card_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
+// GTLRAgentRegistry_Criticality.type
+NSString * const kGTLRAgentRegistry_Criticality_Type_High      = @"HIGH";
+NSString * const kGTLRAgentRegistry_Criticality_Type_Low       = @"LOW";
+NSString * const kGTLRAgentRegistry_Criticality_Type_Medium    = @"MEDIUM";
+NSString * const kGTLRAgentRegistry_Criticality_Type_MissionCritical = @"MISSION_CRITICAL";
+NSString * const kGTLRAgentRegistry_Criticality_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
+
 // GTLRAgentRegistry_EndpointSpec.type
 NSString * const kGTLRAgentRegistry_EndpointSpec_Type_NoSpec   = @"NO_SPEC";
 NSString * const kGTLRAgentRegistry_EndpointSpec_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
+
+// GTLRAgentRegistry_Environment.type
+NSString * const kGTLRAgentRegistry_Environment_Type_Development = @"DEVELOPMENT";
+NSString * const kGTLRAgentRegistry_Environment_Type_Production = @"PRODUCTION";
+NSString * const kGTLRAgentRegistry_Environment_Type_Staging   = @"STAGING";
+NSString * const kGTLRAgentRegistry_Environment_Type_Test      = @"TEST";
+NSString * const kGTLRAgentRegistry_Environment_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
+
+// GTLRAgentRegistry_Finding.findingClass
+NSString * const kGTLRAgentRegistry_Finding_FindingClass_FindingClassUnspecified = @"FINDING_CLASS_UNSPECIFIED";
+NSString * const kGTLRAgentRegistry_Finding_FindingClass_Secret = @"SECRET";
+NSString * const kGTLRAgentRegistry_Finding_FindingClass_Vulnerability = @"VULNERABILITY";
+
+// GTLRAgentRegistry_Finding.severity
+NSString * const kGTLRAgentRegistry_Finding_Severity_SeverityCritical = @"SEVERITY_CRITICAL";
+NSString * const kGTLRAgentRegistry_Finding_Severity_SeverityHigh = @"SEVERITY_HIGH";
+NSString * const kGTLRAgentRegistry_Finding_Severity_SeverityLow = @"SEVERITY_LOW";
+NSString * const kGTLRAgentRegistry_Finding_Severity_SeverityMedium = @"SEVERITY_MEDIUM";
+NSString * const kGTLRAgentRegistry_Finding_Severity_SeverityUnspecified = @"SEVERITY_UNSPECIFIED";
 
 // GTLRAgentRegistry_GoogleIamV1AuditLogConfig.logType
 NSString * const kGTLRAgentRegistry_GoogleIamV1AuditLogConfig_LogType_AdminRead = @"ADMIN_READ";
@@ -49,6 +81,60 @@ NSString * const kGTLRAgentRegistry_McpServerSpec_Type_TypeUnspecified = @"TYPE_
 NSString * const kGTLRAgentRegistry_Protocol_Type_A2aAgent     = @"A2A_AGENT";
 NSString * const kGTLRAgentRegistry_Protocol_Type_Custom       = @"CUSTOM";
 NSString * const kGTLRAgentRegistry_Protocol_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
+
+// GTLRAgentRegistry_Publisher.publisherTier
+NSString * const kGTLRAgentRegistry_Publisher_PublisherTier_FirstParty = @"FIRST_PARTY";
+NSString * const kGTLRAgentRegistry_Publisher_PublisherTier_Private = @"PRIVATE";
+NSString * const kGTLRAgentRegistry_Publisher_PublisherTier_PublisherTierUnspecified = @"PUBLISHER_TIER_UNSPECIFIED";
+NSString * const kGTLRAgentRegistry_Publisher_PublisherTier_ThirdParty = @"THIRD_PARTY";
+
+// GTLRAgentRegistry_ScanningConfig.policy
+NSString * const kGTLRAgentRegistry_ScanningConfig_Policy_Disabled = @"DISABLED";
+NSString * const kGTLRAgentRegistry_ScanningConfig_Policy_EnabledBlocking = @"ENABLED_BLOCKING";
+NSString * const kGTLRAgentRegistry_ScanningConfig_Policy_EnabledNonblocking = @"ENABLED_NONBLOCKING";
+NSString * const kGTLRAgentRegistry_ScanningConfig_Policy_PolicyUnspecified = @"POLICY_UNSPECIFIED";
+
+// GTLRAgentRegistry_ScanResult.scanState
+NSString * const kGTLRAgentRegistry_ScanResult_ScanState_Disabled = @"DISABLED";
+NSString * const kGTLRAgentRegistry_ScanResult_ScanState_Failed = @"FAILED";
+NSString * const kGTLRAgentRegistry_ScanResult_ScanState_Running = @"RUNNING";
+NSString * const kGTLRAgentRegistry_ScanResult_ScanState_ScanStateUnspecified = @"SCAN_STATE_UNSPECIFIED";
+NSString * const kGTLRAgentRegistry_ScanResult_ScanState_Succeeded = @"SUCCEEDED";
+NSString * const kGTLRAgentRegistry_ScanResult_ScanState_UnsupportedFormat = @"UNSUPPORTED_FORMAT";
+
+// GTLRAgentRegistry_SearchSkillsRequest.searchType
+NSString * const kGTLRAgentRegistry_SearchSkillsRequest_SearchType_Keyword = @"KEYWORD";
+NSString * const kGTLRAgentRegistry_SearchSkillsRequest_SearchType_SearchTypeUnspecified = @"SEARCH_TYPE_UNSPECIFIED";
+NSString * const kGTLRAgentRegistry_SearchSkillsRequest_SearchType_Semantic = @"SEMANTIC";
+
+// GTLRAgentRegistry_Skill.state
+NSString * const kGTLRAgentRegistry_Skill_State_StateActive    = @"STATE_ACTIVE";
+NSString * const kGTLRAgentRegistry_Skill_State_StateCreating  = @"STATE_CREATING";
+NSString * const kGTLRAgentRegistry_Skill_State_StateDecommissioned = @"STATE_DECOMMISSIONED";
+NSString * const kGTLRAgentRegistry_Skill_State_StateDeleting  = @"STATE_DELETING";
+NSString * const kGTLRAgentRegistry_Skill_State_StateDeprecated = @"STATE_DEPRECATED";
+NSString * const kGTLRAgentRegistry_Skill_State_StateDisabled  = @"STATE_DISABLED";
+NSString * const kGTLRAgentRegistry_Skill_State_StateDraft     = @"STATE_DRAFT";
+NSString * const kGTLRAgentRegistry_Skill_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLRAgentRegistry_Skill.targetState
+NSString * const kGTLRAgentRegistry_Skill_TargetState_TargetStateActive = @"TARGET_STATE_ACTIVE";
+NSString * const kGTLRAgentRegistry_Skill_TargetState_TargetStateDecommissioned = @"TARGET_STATE_DECOMMISSIONED";
+NSString * const kGTLRAgentRegistry_Skill_TargetState_TargetStateDeprecated = @"TARGET_STATE_DEPRECATED";
+NSString * const kGTLRAgentRegistry_Skill_TargetState_TargetStateDisabled = @"TARGET_STATE_DISABLED";
+NSString * const kGTLRAgentRegistry_Skill_TargetState_TargetStateDraft = @"TARGET_STATE_DRAFT";
+NSString * const kGTLRAgentRegistry_Skill_TargetState_TargetStateUnspecified = @"TARGET_STATE_UNSPECIFIED";
+
+// GTLRAgentRegistry_Skill.type
+NSString * const kGTLRAgentRegistry_Skill_Type_Simple          = @"SIMPLE";
+NSString * const kGTLRAgentRegistry_Skill_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
+
+// GTLRAgentRegistry_SkillRevision.state
+NSString * const kGTLRAgentRegistry_SkillRevision_State_Active = @"ACTIVE";
+NSString * const kGTLRAgentRegistry_SkillRevision_State_Creating = @"CREATING";
+NSString * const kGTLRAgentRegistry_SkillRevision_State_Deleting = @"DELETING";
+NSString * const kGTLRAgentRegistry_SkillRevision_State_Failed = @"FAILED";
+NSString * const kGTLRAgentRegistry_SkillRevision_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
 // ----------------------------------------------------------------------------
 //
@@ -156,11 +242,82 @@ NSString * const kGTLRAgentRegistry_Protocol_Type_TypeUnspecified = @"TYPE_UNSPE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAgentRegistry_AiApplication
+//
+
+@implementation GTLRAgentRegistry_AiApplication
+@dynamic applicationProperties, attributes, createTime, descriptionProperty,
+         displayName, name, state, uid, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAgentRegistry_Annotations
 //
 
 @implementation GTLRAgentRegistry_Annotations
 @dynamic destructiveHint, idempotentHint, openWorldHint, readOnlyHint, title;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAgentRegistry_ApplicationProperties
+//
+
+@implementation GTLRAgentRegistry_ApplicationProperties
+@dynamic extendedMetadata;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAgentRegistry_ApplicationProperties_ExtendedMetadata
+//
+
+@implementation GTLRAgentRegistry_ApplicationProperties_ExtendedMetadata
+
++ (Class)classForAdditionalProperties {
+  return [GTLRAgentRegistry_ExtendedMetadata class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAgentRegistry_ArchiveUploadSource
+//
+
+@implementation GTLRAgentRegistry_ArchiveUploadSource
+@dynamic archiveContent;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAgentRegistry_Attributes
+//
+
+@implementation GTLRAgentRegistry_Attributes
+@dynamic businessOwners, criticality, developerOwners, environment,
+         operatorOwners;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"businessOwners" : [GTLRAgentRegistry_ContactInfo class],
+    @"developerOwners" : [GTLRAgentRegistry_ContactInfo class],
+    @"operatorOwners" : [GTLRAgentRegistry_ContactInfo class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -228,6 +385,26 @@ NSString * const kGTLRAgentRegistry_Protocol_Type_TypeUnspecified = @"TYPE_UNSPE
   return [NSObject class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAgentRegistry_ContactInfo
+//
+
+@implementation GTLRAgentRegistry_ContactInfo
+@dynamic displayName, email;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAgentRegistry_Criticality
+//
+
+@implementation GTLRAgentRegistry_Criticality
+@dynamic type;
 @end
 
 
@@ -317,6 +494,16 @@ NSString * const kGTLRAgentRegistry_Protocol_Type_TypeUnspecified = @"TYPE_UNSPE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAgentRegistry_Environment
+//
+
+@implementation GTLRAgentRegistry_Environment
+@dynamic type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAgentRegistry_Expr
 //
 
@@ -325,6 +512,30 @@ NSString * const kGTLRAgentRegistry_Protocol_Type_TypeUnspecified = @"TYPE_UNSPE
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAgentRegistry_ExtendedMetadata
+//
+
+@implementation GTLRAgentRegistry_ExtendedMetadata
+@dynamic metadataStruct;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAgentRegistry_ExtendedMetadata_MetadataStruct
+//
+
+@implementation GTLRAgentRegistry_ExtendedMetadata_MetadataStruct
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
 }
 
 @end
@@ -349,6 +560,74 @@ NSString * const kGTLRAgentRegistry_Protocol_Type_TypeUnspecified = @"TYPE_UNSPE
   return @"bindings";
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAgentRegistry_File
+//
+
+@implementation GTLRAgentRegistry_File
+@dynamic lineNumber, path;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAgentRegistry_Finding
+//
+
+@implementation GTLRAgentRegistry_Finding
+@dynamic createTime, detail, files, findingClass, name, resource, severity, uid,
+         updateTime;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"files" : [GTLRAgentRegistry_File class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAgentRegistry_Frontmatter
+//
+
+@implementation GTLRAgentRegistry_Frontmatter
+@dynamic compatibility, descriptionProperty, license, metadata, name;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAgentRegistry_Frontmatter_Metadata
+//
+
+@implementation GTLRAgentRegistry_Frontmatter_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAgentRegistry_GcsSource
+//
+
+@implementation GTLRAgentRegistry_GcsSource
+@dynamic generation, uri;
 @end
 
 
@@ -509,6 +788,95 @@ NSString * const kGTLRAgentRegistry_Protocol_Type_TypeUnspecified = @"TYPE_UNSPE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAgentRegistry_ListAiApplicationAgentsResponse
+//
+
+@implementation GTLRAgentRegistry_ListAiApplicationAgentsResponse
+@dynamic agents, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"agents" : [GTLRAgentRegistry_Agent class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"agents";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAgentRegistry_ListAiApplicationEndpointsResponse
+//
+
+@implementation GTLRAgentRegistry_ListAiApplicationEndpointsResponse
+@dynamic endpoints, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"endpoints" : [GTLRAgentRegistry_Endpoint class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"endpoints";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAgentRegistry_ListAiApplicationMcpServersResponse
+//
+
+@implementation GTLRAgentRegistry_ListAiApplicationMcpServersResponse
+@dynamic mcpServers, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"mcpServers" : [GTLRAgentRegistry_McpServer class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"mcpServers";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAgentRegistry_ListAiApplicationsResponse
+//
+
+@implementation GTLRAgentRegistry_ListAiApplicationsResponse
+@dynamic aiApplications, nextPageToken, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"aiApplications" : [GTLRAgentRegistry_AiApplication class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"aiApplications";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAgentRegistry_ListBindingsResponse
 //
 
@@ -546,6 +914,28 @@ NSString * const kGTLRAgentRegistry_Protocol_Type_TypeUnspecified = @"TYPE_UNSPE
 
 + (NSString *)collectionItemsKey {
   return @"endpoints";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAgentRegistry_ListFindingsResponse
+//
+
+@implementation GTLRAgentRegistry_ListFindingsResponse
+@dynamic findings, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"findings" : [GTLRAgentRegistry_Finding class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"findings";
 }
 
 @end
@@ -620,6 +1010,28 @@ NSString * const kGTLRAgentRegistry_Protocol_Type_TypeUnspecified = @"TYPE_UNSPE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAgentRegistry_ListPublishersResponse
+//
+
+@implementation GTLRAgentRegistry_ListPublishersResponse
+@dynamic nextPageToken, publishers;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"publishers" : [GTLRAgentRegistry_Publisher class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"publishers";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAgentRegistry_ListServicesResponse
 //
 
@@ -635,6 +1047,51 @@ NSString * const kGTLRAgentRegistry_Protocol_Type_TypeUnspecified = @"TYPE_UNSPE
 
 + (NSString *)collectionItemsKey {
   return @"services";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAgentRegistry_ListSkillRevisionsResponse
+//
+
+@implementation GTLRAgentRegistry_ListSkillRevisionsResponse
+@dynamic nextPageToken, skillRevisions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"skillRevisions" : [GTLRAgentRegistry_SkillRevision class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"skillRevisions";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAgentRegistry_ListSkillsResponse
+//
+
+@implementation GTLRAgentRegistry_ListSkillsResponse
+@dynamic nextPageToken, skills, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"skills" : [GTLRAgentRegistry_Skill class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"skills";
 }
 
 @end
@@ -823,6 +1280,45 @@ NSString * const kGTLRAgentRegistry_Protocol_Type_TypeUnspecified = @"TYPE_UNSPE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAgentRegistry_Publisher
+//
+
+@implementation GTLRAgentRegistry_Publisher
+@dynamic displayName, documentationUri, name, publisherTier, supportUri,
+         verifiedPrefix;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAgentRegistry_ScanningConfig
+//
+
+@implementation GTLRAgentRegistry_ScanningConfig
+@dynamic policy;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAgentRegistry_ScanResult
+//
+
+@implementation GTLRAgentRegistry_ScanResult
+@dynamic errorMessage, findings, scanState, scanTime;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"findings" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAgentRegistry_SearchAgentsRequest
 //
 
@@ -887,6 +1383,38 @@ NSString * const kGTLRAgentRegistry_Protocol_Type_TypeUnspecified = @"TYPE_UNSPE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAgentRegistry_SearchSkillsRequest
+//
+
+@implementation GTLRAgentRegistry_SearchSkillsRequest
+@dynamic filter, pageSize, pageToken, searchString, searchType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAgentRegistry_SearchSkillsResponse
+//
+
+@implementation GTLRAgentRegistry_SearchSkillsResponse
+@dynamic nextPageToken, skills;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"skills" : [GTLRAgentRegistry_Skill class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"skills";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAgentRegistry_Service
 //
 
@@ -905,6 +1433,34 @@ NSString * const kGTLRAgentRegistry_Protocol_Type_TypeUnspecified = @"TYPE_UNSPE
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAgentRegistry_Skill
+//
+
+@implementation GTLRAgentRegistry_Skill
+@dynamic createTime, defaultRevision, descriptionProperty, displayName,
+         frontmatter, initialRevision, name, publisher, scanningConfig, skillId,
+         state, targetState, type, uid, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAgentRegistry_SkillRevision
+//
+
+@implementation GTLRAgentRegistry_SkillRevision
+@dynamic archiveUploadSource, createTime, frontmatter, gcsSource, name,
+         scanResult, sha256Hash, sizeBytes, state, uid;
 @end
 
 
@@ -976,10 +1532,28 @@ NSString * const kGTLRAgentRegistry_Protocol_Type_TypeUnspecified = @"TYPE_UNSPE
 //
 
 @implementation GTLRAgentRegistry_Tool
-@dynamic annotations, descriptionProperty, name;
+@dynamic xMeta, annotations, descriptionProperty, name;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"descriptionProperty" : @"description" };
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"descriptionProperty" : @"description",
+    @"xMeta" : @"_meta"
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAgentRegistry_Tool_XMeta
+//
+
+@implementation GTLRAgentRegistry_Tool_XMeta
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
 }
 
 @end

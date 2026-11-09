@@ -5,8 +5,9 @@
 //   Business Profile Performance API (businessprofileperformance/v1)
 // Description:
 //   The Business Profile Performance API allows merchants to fetch performance
-//   reports about their business profile on Google. Note - If you have a quota
-//   of 0 after enabling the API, please request for GBP API access.
+//   reports about their business profile on Google. Note: If you have a quota
+//   of 0 after enabling the API, please request GBP API access at
+//   https://developers.google.com/my-business/content/prereqs#request-access.
 // Documentation:
 //   https://developers.google.com/my-business/
 
@@ -106,6 +107,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBusinessProfilePerformanceDailyMetricCal
  */
 FOUNDATION_EXTERN NSString * const kGTLRBusinessProfilePerformanceDailyMetricDailyMetricUnknown;
 /**
+ *  The number of times the business profile messaging (e.g. WhatsApp) button
+ *  was clicked.
+ *
+ *  Value: "MESSAGING_CLICKS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBusinessProfilePerformanceDailyMetricMessagingClicks;
+/**
  *  The number of times the business profile website was clicked.
  *
  *  Value: "WEBSITE_CLICKS"
@@ -191,6 +199,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBusinessProfilePerformanceDailyMetricsCa
  *  Value: "DAILY_METRIC_UNKNOWN"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBusinessProfilePerformanceDailyMetricsDailyMetricUnknown;
+/**
+ *  The number of times the business profile messaging (e.g. WhatsApp) button
+ *  was clicked.
+ *
+ *  Value: "MESSAGING_CLICKS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBusinessProfilePerformanceDailyMetricsMessagingClicks;
 /**
  *  The number of times the business profile website was clicked.
  *
@@ -308,6 +323,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBusinessProfilePerformanceDailySubEntity
  *    @arg @c kGTLRBusinessProfilePerformanceDailyMetricsWebsiteClicks The
  *        number of times the business profile website was clicked. (Value:
  *        "WEBSITE_CLICKS")
+ *    @arg @c kGTLRBusinessProfilePerformanceDailyMetricsMessagingClicks The
+ *        number of times the business profile messaging (e.g. WhatsApp) button
+ *        was clicked. (Value: "MESSAGING_CLICKS")
  *    @arg @c kGTLRBusinessProfilePerformanceDailyMetricsBusinessBookings The
  *        number of bookings made from the business profile via Reserve with
  *        Google. (Value: "BUSINESS_BOOKINGS")
@@ -428,6 +446,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBusinessProfilePerformanceDailySubEntity
  *    @arg @c kGTLRBusinessProfilePerformanceDailyMetricWebsiteClicks The number
  *        of times the business profile website was clicked. (Value:
  *        "WEBSITE_CLICKS")
+ *    @arg @c kGTLRBusinessProfilePerformanceDailyMetricMessagingClicks The
+ *        number of times the business profile messaging (e.g. WhatsApp) button
+ *        was clicked. (Value: "MESSAGING_CLICKS")
  *    @arg @c kGTLRBusinessProfilePerformanceDailyMetricBusinessBookings The
  *        number of bookings made from the business profile via Reserve with
  *        Google. (Value: "BUSINESS_BOOKINGS")

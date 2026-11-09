@@ -3622,7 +3622,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherLatencyToleranceProductU
 /**
  *  Required. The parent app (package name) for which the one-time products
  *  should be deleted. Must be equal to the package_name field on all the
- *  OneTimeProduct resources.
+ *  requests.
  */
 @property(nonatomic, copy, nullable) NSString *packageName;
 
@@ -3636,7 +3636,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherLatencyToleranceProductU
  *    to include in the query.
  *  @param packageName Required. The parent app (package name) for which the
  *    one-time products should be deleted. Must be equal to the package_name
- *    field on all the OneTimeProduct resources.
+ *    field on all the requests.
  *
  *  @return GTLRAndroidPublisherQuery_MonetizationOnetimeproductsBatchDelete
  */
@@ -3657,7 +3657,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherLatencyToleranceProductU
 
 /**
  *  Required. The parent app (package name) for which the products should be
- *  retrieved. Must be equal to the package_name field on all requests.
+ *  retrieved.
  */
 @property(nonatomic, copy, nullable) NSString *packageName;
 
@@ -3673,8 +3673,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherLatencyToleranceProductU
  *  Reads one or more one-time products.
  *
  *  @param packageName Required. The parent app (package name) for which the
- *    products should be retrieved. Must be equal to the package_name field on
- *    all requests.
+ *    products should be retrieved.
  *
  *  @return GTLRAndroidPublisherQuery_MonetizationOnetimeproductsBatchGet
  */
@@ -4101,7 +4100,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherLatencyToleranceProductU
 
 /**
  *  Required. The parent app (package name) of the offers to delete. Must be
- *  equal to the package_name field on all the OneTimeProductOffer resources.
+ *  equal to the package_name field on all the requests.
  */
 @property(nonatomic, copy, nullable) NSString *packageName;
 
@@ -4114,7 +4113,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherLatencyToleranceProductU
 
 /**
  *  Required. The parent purchase option (ID) for which the offers should be
- *  deleted. May be specified as '-' to update offers from multiple purchase
+ *  deleted. May be specified as '-' to delete offers from multiple purchase
  *  options.
  */
 @property(nonatomic, copy, nullable) NSString *purchaseOptionId;
@@ -4129,13 +4128,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherLatencyToleranceProductU
  *    GTLRAndroidPublisher_BatchDeleteOneTimeProductOffersRequest to include in
  *    the query.
  *  @param packageName Required. The parent app (package name) of the offers to
- *    delete. Must be equal to the package_name field on all the
- *    OneTimeProductOffer resources.
+ *    delete. Must be equal to the package_name field on all the requests.
  *  @param productId Required. The product ID of the parent one-time product, if
  *    all offers to delete belong to the same product. If this request spans
  *    multiple one-time products, set this field to "-".
  *  @param purchaseOptionId Required. The parent purchase option (ID) for which
- *    the offers should be deleted. May be specified as '-' to update offers
+ *    the offers should be deleted. May be specified as '-' to delete offers
  *    from multiple purchase options.
  *
  *  @return GTLRAndroidPublisherQuery_MonetizationOnetimeproductsPurchaseOptionsOffersBatchDelete
@@ -4158,21 +4156,21 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherLatencyToleranceProductU
 @interface GTLRAndroidPublisherQuery_MonetizationOnetimeproductsPurchaseOptionsOffersBatchGet : GTLRAndroidPublisherQuery
 
 /**
- *  Required. The parent app (package name) of the updated offers. Must be equal
- *  to the package_name field on all the updated OneTimeProductOffer resources.
+ *  Required. The parent app (package name) of the offers to retrieve. Must be
+ *  equal to the package_name field on all the requests.
  */
 @property(nonatomic, copy, nullable) NSString *packageName;
 
 /**
- *  Required. The product ID of the parent one-time product, if all updated
- *  offers belong to the same product. If this request spans multiple one-time
+ *  Required. The product ID of the parent one-time product, if all offers
+ *  belong to the same product. If this request spans multiple one-time
  *  products, set this field to "-".
  */
 @property(nonatomic, copy, nullable) NSString *productId;
 
 /**
  *  Required. The parent purchase option (ID) for which the offers should be
- *  updated. May be specified as '-' to update offers from multiple purchase
+ *  retrieved. May be specified as '-' to retrieve offers from multiple purchase
  *  options.
  */
 @property(nonatomic, copy, nullable) NSString *purchaseOptionId;
@@ -4185,14 +4183,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherLatencyToleranceProductU
  *  @param object The @c
  *    GTLRAndroidPublisher_BatchGetOneTimeProductOffersRequest to include in the
  *    query.
- *  @param packageName Required. The parent app (package name) of the updated
- *    offers. Must be equal to the package_name field on all the updated
- *    OneTimeProductOffer resources.
+ *  @param packageName Required. The parent app (package name) of the offers to
+ *    retrieve. Must be equal to the package_name field on all the requests.
  *  @param productId Required. The product ID of the parent one-time product, if
- *    all updated offers belong to the same product. If this request spans
- *    multiple one-time products, set this field to "-".
+ *    all offers belong to the same product. If this request spans multiple
+ *    one-time products, set this field to "-".
  *  @param purchaseOptionId Required. The parent purchase option (ID) for which
- *    the offers should be updated. May be specified as '-' to update offers
+ *    the offers should be retrieved. May be specified as '-' to retrieve offers
  *    from multiple purchase options.
  *
  *  @return GTLRAndroidPublisherQuery_MonetizationOnetimeproductsPurchaseOptionsOffersBatchGet
@@ -4437,11 +4434,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherLatencyToleranceProductU
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Optional. A page token, received from a previous `ListOneTimeProductsOffers`
+ *  Optional. A page token, received from a previous `ListOneTimeProductOffers`
  *  call. Provide this to retrieve the subsequent page. When paginating,
  *  product_id, package_name and purchase_option_id provided to
- *  `ListOneTimeProductsOffersRequest` must match the call that provided the
- *  page token.
+ *  `ListOneTimeProductOffersRequest` must match the call that provided the page
+ *  token.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 

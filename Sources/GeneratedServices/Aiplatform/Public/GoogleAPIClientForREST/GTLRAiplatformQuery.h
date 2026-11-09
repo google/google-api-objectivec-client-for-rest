@@ -4753,6 +4753,118 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 @end
 
 /**
+ *  Cancels an interaction.
+ *
+ *  Method: aiplatform.interactions.cancel
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_InteractionsCancel : GTLRAiplatformQuery
+
+/**
+ *  Required. The name of the interaction to cancel. Format:
+ *  `interactions/{interaction}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GenaiVertexV1Interaction.
+ *
+ *  Cancels an interaction.
+ *
+ *  @param name Required. The name of the interaction to cancel. Format:
+ *    `interactions/{interaction}`.
+ *
+ *  @return GTLRAiplatformQuery_InteractionsCancel
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Fully typed proto, unary version of GetInteraction that returns Interaction
+ *  proto.
+ *
+ *  Method: aiplatform.interactions.getPoll
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_InteractionsGetPoll : GTLRAiplatformQuery
+
+/**
+ *  If set, resumes the interaction stream from the chunk after the event marked
+ *  by the event id. Can only be used if `stream` is true.
+ */
+@property(nonatomic, copy, nullable) NSString *lastEventId;
+
+/**
+ *  Required. The name of the interaction to retrieve. Format:
+ *  interactions/{interaction}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** If true, streams the interaction events as Server-Sent Events. */
+@property(nonatomic, assign) BOOL stream;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GenaiVertexV1Interaction.
+ *
+ *  Fully typed proto, unary version of GetInteraction that returns Interaction
+ *  proto.
+ *
+ *  @param name Required. The name of the interaction to retrieve. Format:
+ *    interactions/{interaction}
+ *
+ *  @return GTLRAiplatformQuery_InteractionsGetPoll
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Fully typed proto, streaming version of GetInteraction that returns
+ *  Interaction proto.
+ *
+ *  Method: aiplatform.interactions.getStream
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_InteractionsGetStream : GTLRAiplatformQuery
+
+/**
+ *  If set, resumes the interaction stream from the chunk after the event marked
+ *  by the event id. Can only be used if `stream` is true.
+ */
+@property(nonatomic, copy, nullable) NSString *lastEventId;
+
+/**
+ *  Required. The name of the interaction to retrieve. Format:
+ *  interactions/{interaction}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** If true, streams the interaction events as Server-Sent Events. */
+@property(nonatomic, assign) BOOL stream;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GenaiVertexV1InteractionStreamingEvent.
+ *
+ *  Fully typed proto, streaming version of GetInteraction that returns
+ *  Interaction proto.
+ *
+ *  @param name Required. The name of the interaction to retrieve. Format:
+ *    interactions/{interaction}
+ *
+ *  @return GTLRAiplatformQuery_InteractionsGetStream
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Upload a file into a RagCorpus.
  *
  *  Method: aiplatform.media.upload
@@ -21095,6 +21207,210 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 @end
 
 /**
+ *  Creates an interaction.
+ *
+ *  Method: aiplatform.projects.locations.interactions.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsInteractionsCreate : GTLRAiplatformQuery
+
+@property(nonatomic, copy, nullable) NSString *locationsId;
+
+@property(nonatomic, copy, nullable) NSString *projectsId;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GenaiVertexV1Interaction.
+ *
+ *  Creates an interaction.
+ *
+ *  @param object The @c GTLRAiplatform_GenaiVertexV1CreateInteractionRequest to
+ *    include in the query.
+ *  @param projectsId NSString
+ *  @param locationsId NSString
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsInteractionsCreate
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GenaiVertexV1CreateInteractionRequest *)object
+                     projectsId:(NSString *)projectsId
+                    locationsId:(NSString *)locationsId;
+
+@end
+
+/**
+ *  Creates an interaction and streams the response.
+ *
+ *  Method: aiplatform.projects.locations.interactions.createStream
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsInteractionsCreateStream : GTLRAiplatformQuery
+
+@property(nonatomic, copy, nullable) NSString *locationsId;
+
+@property(nonatomic, copy, nullable) NSString *projectsId;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GenaiVertexV1InteractionStreamingEvent.
+ *
+ *  Creates an interaction and streams the response.
+ *
+ *  @param object The @c GTLRAiplatform_GenaiVertexV1CreateInteractionRequest to
+ *    include in the query.
+ *  @param projectsId NSString
+ *  @param locationsId NSString
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsInteractionsCreateStream
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GenaiVertexV1CreateInteractionRequest *)object
+                     projectsId:(NSString *)projectsId
+                    locationsId:(NSString *)locationsId;
+
+@end
+
+/**
+ *  Deletes an interaction.
+ *
+ *  Method: aiplatform.projects.locations.interactions.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+GTLR_DEPRECATED
+@interface GTLRAiplatformQuery_ProjectsLocationsInteractionsDelete : GTLRAiplatformQuery
+
+/**
+ *  Required. The name of the interaction to delete. Format:
+ *  interactions/{interaction}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GenaiVertexV1DeleteInteractionResponse.
+ *
+ *  Deletes an interaction.
+ *
+ *  @param name Required. The name of the interaction to delete. Format:
+ *    interactions/{interaction}
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsInteractionsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Cancels an interaction by id. This only applies to background interactions
+ *  that are still running.
+ *
+ *  Method: aiplatform.projects.locations.interactionsHttp.cancel
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsInteractionsHttpCancel : GTLRAiplatformQuery
+
+/**
+ *  Required. The name of the interaction to cancel. Format:
+ *  `interactions/{interaction}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleApiHttpBody.
+ *
+ *  Cancels an interaction by id. This only applies to background interactions
+ *  that are still running.
+ *
+ *  @param name Required. The name of the interaction to cancel. Format:
+ *    `interactions/{interaction}`.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsInteractionsHttpCancel
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a new interaction.
+ *
+ *  Method: aiplatform.projects.locations.interactionsHttp.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsInteractionsHttpCreate : GTLRAiplatformQuery
+
+/**
+ *  Required. The parent resource where this interaction will be created.
+ *  Format: `projects/{project}/locations/{location}` Supported only by the
+ *  Vertex API only.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleApiHttpBody.
+ *
+ *  Creates a new interaction.
+ *
+ *  @param object The @c
+ *    GTLRAiplatform_GenaiVertexV1CreateInteractionHttpRequest to include in the
+ *    query.
+ *  @param parent Required. The parent resource where this interaction will be
+ *    created. Format: `projects/{project}/locations/{location}` Supported only
+ *    by the Vertex API only.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsInteractionsHttpCreate
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GenaiVertexV1CreateInteractionHttpRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Retrieves the full details of a single interaction based on its
+ *  `Interaction.id`.
+ *
+ *  Method: aiplatform.projects.locations.interactionsHttp.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsInteractionsHttpGet : GTLRAiplatformQuery
+
+/**
+ *  If set, resumes the interaction stream from the chunk after the event marked
+ *  by the event id. Can only be used if `stream` is true.
+ */
+@property(nonatomic, copy, nullable) NSString *lastEventId;
+
+/**
+ *  Required. The name of the interaction to retrieve. Format:
+ *  interactions/{interaction}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** If true, streams the interaction events as Server-Sent Events. */
+@property(nonatomic, assign) BOOL stream;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleApiHttpBody.
+ *
+ *  Retrieves the full details of a single interaction based on its
+ *  `Interaction.id`.
+ *
+ *  @param name Required. The name of the interaction to retrieve. Format:
+ *    interactions/{interaction}
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsInteractionsHttpGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Lists information about the supported locations for this service. This
  *  method lists locations based on the resource scope provided in the
  *  ListLocationsRequest.name field: * **Global locations**: If `name` is empty,
@@ -28130,6 +28446,41 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 @end
 
 /**
+ *  Sets the default NotebookRuntimeTemplate for a Location.
+ *
+ *  Method: aiplatform.projects.locations.notebookRuntimeTemplates.setDefault
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsNotebookRuntimeTemplatesSetDefault : GTLRAiplatformQuery
+
+/**
+ *  Required. The resource name of the Location to set the default
+ *  NotebookRuntimeTemplate. Format: `projects/{project}/locations/{location}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRAiplatform_GoogleCloudAiplatformV1SetDefaultNotebookRuntimeTemplateResponse.
+ *
+ *  Sets the default NotebookRuntimeTemplate for a Location.
+ *
+ *  @param object The @c
+ *    GTLRAiplatform_GoogleCloudAiplatformV1SetDefaultNotebookRuntimeTemplateRequest
+ *    to include in the query.
+ *  @param parent Required. The resource name of the Location to set the default
+ *    NotebookRuntimeTemplate. Format: `projects/{project}/locations/{location}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsNotebookRuntimeTemplatesSetDefault
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1SetDefaultNotebookRuntimeTemplateRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
  *  Sets the access control policy on the specified resource. Replaces any
  *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
  *  `PERMISSION_DENIED` errors.
@@ -29858,6 +30209,244 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  @return GTLRAiplatformQuery_ProjectsLocationsPipelineJobsOperationsWait
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Deletes the given file. Returns the deleted file's ID rather than an empty
+ *  body. See `DeleteFileResponse`.
+ *
+ *  Method: aiplatform.projects.locations.publishers.files.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsPublishersFilesDelete : GTLRAiplatformQuery
+
+/**
+ *  Required. The name of the file to delete. Format:
+ *  `projects/{project}/locations/{location}/publishers/{publisher}/files/{file}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleCloudAiplatformV1DeleteFileResponse.
+ *
+ *  Deletes the given file. Returns the deleted file's ID rather than an empty
+ *  body. See `DeleteFileResponse`.
+ *
+ *  @param name Required. The name of the file to delete. Format:
+ *    `projects/{project}/locations/{location}/publishers/{publisher}/files/{file}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsPublishersFilesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Downloads the contents of the given file. Only files marked `downloadable`
+ *  can be retrieved this way; user-uploaded files are not downloadable.
+ *
+ *  Method: aiplatform.projects.locations.publishers.files.download
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsPublishersFilesDownload : GTLRAiplatformQuery
+
+/**
+ *  Required. The name of the file to download. Format:
+ *  `projects/{project}/locations/{location}/publishers/{publisher}/files/{file}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleCloudAiplatformV1DownloadFileResponse.
+ *
+ *  Downloads the contents of the given file. Only files marked `downloadable`
+ *  can be retrieved this way; user-uploaded files are not downloadable.
+ *
+ *  @param name Required. The name of the file to download. Format:
+ *    `projects/{project}/locations/{location}/publishers/{publisher}/files/{file}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsPublishersFilesDownload
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+/**
+ *  Fetches the requested resource data as a @c GTLRDataObject.
+ *
+ *  Downloads the contents of the given file. Only files marked `downloadable`
+ *  can be retrieved this way; user-uploaded files are not downloadable.
+ *
+ *  @param name Required. The name of the file to download. Format:
+ *    `projects/{project}/locations/{location}/publishers/{publisher}/files/{file}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsPublishersFilesDownload
+ */
++ (instancetype)queryForMediaWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the metadata for the given file.
+ *
+ *  Method: aiplatform.projects.locations.publishers.files.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsPublishersFilesGet : GTLRAiplatformQuery
+
+/**
+ *  Required. The name of the file to get. Format:
+ *  `projects/{project}/locations/{location}/publishers/{publisher}/files/{file}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleCloudAiplatformV1ClaudeFile.
+ *
+ *  Gets the metadata for the given file.
+ *
+ *  @param name Required. The name of the file to get. Format:
+ *    `projects/{project}/locations/{location}/publishers/{publisher}/files/{file}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsPublishersFilesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists the files owned by the requesting project and location. Supports two
+ *  mutually exclusive modes: paginated listing via an opaque `page` cursor, or
+ *  batch fetch by `ids`. See `ListFilesRequest`.
+ *
+ *  Method: aiplatform.projects.locations.publishers.files.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsPublishersFilesList : GTLRAiplatformQuery
+
+/**
+ *  Optional. The number of files to return per page. Defaults to 20 if unset,
+ *  maximum 1000. Mutually exclusive with `ids`.
+ */
+@property(nonatomic, assign) NSInteger limit;
+
+/**
+ *  Optional. Opaque pagination cursor. Pass the previous response's `next_page`
+ *  to fetch the next page. Mutually exclusive with `ids`.
+ */
+@property(nonatomic, copy, nullable) NSString *page;
+
+/**
+ *  Required. The location to list files under. Format:
+ *  `projects/{project}/locations/{location}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+@property(nonatomic, copy, nullable) NSString *publishersId;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleCloudAiplatformV1ListFilesResponse.
+ *
+ *  Lists the files owned by the requesting project and location. Supports two
+ *  mutually exclusive modes: paginated listing via an opaque `page` cursor, or
+ *  batch fetch by `ids`. See `ListFilesRequest`.
+ *
+ *  @param parent Required. The location to list files under. Format:
+ *    `projects/{project}/locations/{location}`
+ *  @param publishersId NSString
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsPublishersFilesList
+ */
++ (instancetype)queryWithParent:(NSString *)parent
+                   publishersId:(NSString *)publishersId;
+
+@end
+
+/**
+ *  Uploads a file that can be referenced by ID from subsequent Claude model
+ *  requests.
+ *
+ *  Method: aiplatform.projects.locations.publishers.files.upload
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsPublishersFilesUpload : GTLRAiplatformQuery
+
+/**
+ *  Required. The location to create the file under. Format:
+ *  `projects/{project}/locations/{location}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+@property(nonatomic, copy, nullable) NSString *publishersId;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleCloudAiplatformV1ClaudeFile.
+ *
+ *  Uploads a file that can be referenced by ID from subsequent Claude model
+ *  requests.
+ *
+ *  @param object The @c GTLRAiplatform_GoogleCloudAiplatformV1CreateFileRequest
+ *    to include in the query.
+ *  @param parent Required. The location to create the file under. Format:
+ *    `projects/{project}/locations/{location}`
+ *  @param publishersId NSString
+ *  @param uploadParameters The media to include in this query. Maximum size
+ *    524288000. Accepted MIME type: * / *
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsPublishersFilesUpload
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1CreateFileRequest *)object
+                         parent:(NSString *)parent
+                   publishersId:(NSString *)publishersId
+               uploadParameters:(nullable GTLRUploadParameters *)uploadParameters;
+
+@end
+
+/**
+ *  Generates embeddings directly from multiple contents.
+ *
+ *  Method: aiplatform.projects.locations.publishers.models.batchEmbedContents
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ *    @c kGTLRAuthScopeAiplatformCloudPlatformReadOnly
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsPublishersModelsBatchEmbedContents : GTLRAiplatformQuery
+
+/**
+ *  Required. The name of the publisher model requested to serve the prediction.
+ *  Format:
+ *  `projects/{project}/locations/{location}/publishers/{publisher}/models/{model}`
+ */
+@property(nonatomic, copy, nullable) NSString *model;
+
+/**
+ *  Fetches a @c
+ *  GTLRAiplatform_GoogleCloudAiplatformV1BatchEmbedContentsResponse.
+ *
+ *  Generates embeddings directly from multiple contents.
+ *
+ *  @param object The @c
+ *    GTLRAiplatform_GoogleCloudAiplatformV1BatchEmbedContentsRequest to include
+ *    in the query.
+ *  @param model Required. The name of the publisher model requested to serve
+ *    the prediction. Format:
+ *    `projects/{project}/locations/{location}/publishers/{publisher}/models/{model}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsPublishersModelsBatchEmbedContents
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1BatchEmbedContentsRequest *)object
+                          model:(NSString *)model;
 
 @end
 

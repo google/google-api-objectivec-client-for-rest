@@ -75,6 +75,7 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_ImageBmp = @"IM
 NSString * const kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_ImageJpeg = @"IMAGE_JPEG";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_ImagePng = @"IMAGE_PNG";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_ImageSvg = @"IMAGE_SVG";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_ImageTiff = @"IMAGE_TIFF";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_Pdf = @"PDF";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_PowerpointDocument = @"POWERPOINT_DOCUMENT";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_TextUtf8 = @"TEXT_UTF8";
@@ -2970,7 +2971,7 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 //
 
 @implementation GTLRDLP_GooglePrivacyDlpV2ImageLocation
-@dynamic boundingBoxes;
+@dynamic boundingBoxes, pageNumber;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

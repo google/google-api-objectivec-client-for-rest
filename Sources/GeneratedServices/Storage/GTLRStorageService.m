@@ -41,7 +41,6 @@ NSString * const kGTLRAuthScopeStorageDevstorageReadWrite   = @"https://www.goog
 
 + (NSDictionary<NSString *, Class> *)kindStringToClassMap {
   return @{
-    @"api#channel" : [GTLRStorage_Channel class],
     @"storage#anywhereCache" : [GTLRStorage_AnywhereCache class],
     @"storage#anywhereCaches" : [GTLRStorage_AnywhereCaches class],
     @"storage#bucket" : [GTLRStorage_Bucket class],

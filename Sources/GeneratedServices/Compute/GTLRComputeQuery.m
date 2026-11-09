@@ -20636,6 +20636,31 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @end
 
+@implementation GTLRComputeQuery_RegionSslPoliciesGetIamPolicy
+
+@dynamic optionsRequestedPolicyVersion, project, region, resource;
+
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+                        resource:(NSString *)resource {
+  NSArray *pathParams = @[
+    @"project", @"region", @"resource"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/sslPolicies/{resource}/getIamPolicy";
+  GTLRComputeQuery_RegionSslPoliciesGetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.region = region;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCompute_Policy class];
+  query.loggingName = @"compute.regionSslPolicies.getIamPolicy";
+  return query;
+}
+
+@end
+
 @implementation GTLRComputeQuery_RegionSslPoliciesInsert
 
 @dynamic project, region, requestId;
@@ -20741,6 +20766,72 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
   query.sslPolicy = sslPolicy;
   query.expectedObjectClass = [GTLRCompute_Operation class];
   query.loggingName = @"compute.regionSslPolicies.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_RegionSslPoliciesSetIamPolicy
+
+@dynamic project, region, resource;
+
++ (instancetype)queryWithObject:(GTLRCompute_RegionSetPolicyRequest *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"project", @"region", @"resource"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/sslPolicies/{resource}/setIamPolicy";
+  GTLRComputeQuery_RegionSslPoliciesSetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.region = region;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCompute_Policy class];
+  query.loggingName = @"compute.regionSslPolicies.setIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_RegionSslPoliciesTestIamPermissions
+
+@dynamic project, region, resource;
+
++ (instancetype)queryWithObject:(GTLRCompute_TestPermissionsRequest *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"project", @"region", @"resource"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/sslPolicies/{resource}/testIamPermissions";
+  GTLRComputeQuery_RegionSslPoliciesTestIamPermissions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.region = region;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCompute_TestPermissionsResponse class];
+  query.loggingName = @"compute.regionSslPolicies.testIamPermissions";
   return query;
 }
 
@@ -24726,6 +24817,29 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @end
 
+@implementation GTLRComputeQuery_SslPoliciesGetIamPolicy
+
+@dynamic optionsRequestedPolicyVersion, project, resource;
+
++ (instancetype)queryWithProject:(NSString *)project
+                        resource:(NSString *)resource {
+  NSArray *pathParams = @[
+    @"project", @"resource"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/global/sslPolicies/{resource}/getIamPolicy";
+  GTLRComputeQuery_SslPoliciesGetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCompute_Policy class];
+  query.loggingName = @"compute.sslPolicies.getIamPolicy";
+  return query;
+}
+
+@end
+
 @implementation GTLRComputeQuery_SslPoliciesInsert
 
 @dynamic project, requestId;
@@ -24817,6 +24931,68 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
   query.sslPolicy = sslPolicy;
   query.expectedObjectClass = [GTLRCompute_Operation class];
   query.loggingName = @"compute.sslPolicies.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_SslPoliciesSetIamPolicy
+
+@dynamic project, resource;
+
++ (instancetype)queryWithObject:(GTLRCompute_GlobalSetPolicyRequest *)object
+                        project:(NSString *)project
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"project", @"resource"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/global/sslPolicies/{resource}/setIamPolicy";
+  GTLRComputeQuery_SslPoliciesSetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCompute_Policy class];
+  query.loggingName = @"compute.sslPolicies.setIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_SslPoliciesTestIamPermissions
+
+@dynamic project, resource;
+
++ (instancetype)queryWithObject:(GTLRCompute_TestPermissionsRequest *)object
+                        project:(NSString *)project
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"project", @"resource"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/global/sslPolicies/{resource}/testIamPermissions";
+  GTLRComputeQuery_SslPoliciesTestIamPermissions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCompute_TestPermissionsResponse class];
+  query.loggingName = @"compute.sslPolicies.testIamPermissions";
   return query;
 }
 

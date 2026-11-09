@@ -890,8 +890,8 @@ NSString * const kGTLRFirebaseDataConnect_PostgreSql_SchemaValidation_Strict = @
 //
 
 @implementation GTLRFirebaseDataConnect_Service
-@dynamic annotations, connectors, createTime, displayName, ETag, labels, name,
-         reconciling, schemas, source, uid, updateTime;
+@dynamic annotations, connectors, createTime, displayName, ETag, graphqlSource,
+         labels, name, reconciling, schemas, source, sqlSource, uid, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };

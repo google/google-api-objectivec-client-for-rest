@@ -117,8 +117,8 @@
 //
 
 @implementation GTLRCloudSecurityToken_GoogleIdentityStsV1ExchangeTokenRequest
-@dynamic audience, grantType, options, requestedTokenType, scope, subjectToken,
-         subjectTokenType;
+@dynamic actorToken, actorTokenType, audience, grantType, options,
+         requestedTokenType, scope, subjectToken, subjectTokenType;
 @end
 
 

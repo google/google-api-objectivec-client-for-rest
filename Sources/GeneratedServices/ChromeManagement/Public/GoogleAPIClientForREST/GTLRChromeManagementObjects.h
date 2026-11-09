@@ -100,7 +100,10 @@
 @class GTLRChromeManagement_GoogleChromeManagementV1UserPrintReport;
 @class GTLRChromeManagement_GoogleChromeManagementV1UserRequestingExtensionDetails;
 @class GTLRChromeManagement_GoogleChromeManagementVersionsV1AttestationCredential;
+@class GTLRChromeManagement_GoogleChromeManagementVersionsV1Browser;
+@class GTLRChromeManagement_GoogleChromeManagementVersionsV1BrowserUser;
 @class GTLRChromeManagement_GoogleChromeManagementVersionsV1CertificateProvisioningProcess;
+@class GTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowser;
 @class GTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfile;
 @class GTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfileCommand;
 @class GTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfileCommand_Payload;
@@ -115,13 +118,23 @@
 @class GTLRChromeManagement_GoogleChromeManagementVersionsV1CrowdStrikeConfig;
 @class GTLRChromeManagement_GoogleChromeManagementVersionsV1CrowdStrikeFalconNextGenConfig;
 @class GTLRChromeManagement_GoogleChromeManagementVersionsV1CrowdStrikeXdrConfig;
+@class GTLRChromeManagement_GoogleChromeManagementVersionsV1DeviceIdentifiers;
+@class GTLRChromeManagement_GoogleChromeManagementVersionsV1DeviceIdentifiersHistory;
+@class GTLRChromeManagement_GoogleChromeManagementVersionsV1DeviceIdentifiersRecord;
 @class GTLRChromeManagement_GoogleChromeManagementVersionsV1DeviceInfo;
 @class GTLRChromeManagement_GoogleChromeManagementVersionsV1DeviceTrustConfig;
+@class GTLRChromeManagement_GoogleChromeManagementVersionsV1EnrollmentToken;
+@class GTLRChromeManagement_GoogleChromeManagementVersionsV1Extension;
+@class GTLRChromeManagement_GoogleChromeManagementVersionsV1ExtensionIcon;
+@class GTLRChromeManagement_GoogleChromeManagementVersionsV1ExtensionPolicy;
 @class GTLRChromeManagement_GoogleChromeManagementVersionsV1GenericCaConnection;
 @class GTLRChromeManagement_GoogleChromeManagementVersionsV1GenericProfile;
 @class GTLRChromeManagement_GoogleChromeManagementVersionsV1GoogleSecOpsConfig;
 @class GTLRChromeManagement_GoogleChromeManagementVersionsV1MipLabelConfig;
 @class GTLRChromeManagement_GoogleChromeManagementVersionsV1PaloAltoNetworksConfig;
+@class GTLRChromeManagement_GoogleChromeManagementVersionsV1Plugin;
+@class GTLRChromeManagement_GoogleChromeManagementVersionsV1Policy;
+@class GTLRChromeManagement_GoogleChromeManagementVersionsV1Profile;
 @class GTLRChromeManagement_GoogleChromeManagementVersionsV1PubSubConfig;
 @class GTLRChromeManagement_GoogleChromeManagementVersionsV1PubSubXdrConfig;
 @class GTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingData;
@@ -2384,6 +2397,40 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1AttestationCredential_KeyType_RsaKey;
 
 // ----------------------------------------------------------------------------
+// GTLRChromeManagement_GoogleChromeManagementVersionsV1Browser.channel
+
+/**
+ *  Represents a beta channel.
+ *
+ *  Value: "CHANNEL_BETA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1Browser_Channel_ChannelBeta;
+/**
+ *  Represents a canary channel.
+ *
+ *  Value: "CHANNEL_CANARY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1Browser_Channel_ChannelCanary;
+/**
+ *  Represents a dev channel.
+ *
+ *  Value: "CHANNEL_DEV"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1Browser_Channel_ChannelDev;
+/**
+ *  Represents a stable channel.
+ *
+ *  Value: "CHANNEL_STABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1Browser_Channel_ChannelStable;
+/**
+ *  Represents an unspecified channel.
+ *
+ *  Value: "CHANNEL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1Browser_Channel_ChannelUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRChromeManagement_GoogleChromeManagementVersionsV1CertificateProvisioningProcess.signatureAlgorithm
 
 /**
@@ -2841,6 +2888,198 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *  Value: "INSIGHTS_ENABLEMENT_STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1EnableInsightsResponse_InsightsState_InsightsEnablementStateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRChromeManagement_GoogleChromeManagementVersionsV1EnrollmentToken.state
+
+/**
+ *  The token is still active and valid.
+ *
+ *  Value: "ENROLLMENT_TOKEN_STATE_ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1EnrollmentToken_State_EnrollmentTokenStateActive;
+/**
+ *  The token has expired.
+ *
+ *  Value: "ENROLLMENT_TOKEN_STATE_EXPIRED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1EnrollmentToken_State_EnrollmentTokenStateExpired;
+/**
+ *  The token has been revoked by user.
+ *
+ *  Value: "ENROLLMENT_TOKEN_STATE_REVOKED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1EnrollmentToken_State_EnrollmentTokenStateRevoked;
+/**
+ *  Unknown token state.
+ *
+ *  Value: "ENROLLMENT_TOKEN_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1EnrollmentToken_State_EnrollmentTokenStateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRChromeManagement_GoogleChromeManagementVersionsV1EnrollmentToken.tokenType
+
+/**
+ *  The token is used to enroll a Chrome Browser device.
+ *
+ *  Value: "ENROLLMENT_TOKEN_TYPE_CHROME_BROWSER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1EnrollmentToken_TokenType_EnrollmentTokenTypeChromeBrowser;
+/**
+ *  Unknown token device type.
+ *
+ *  Value: "ENROLLMENT_TOKEN_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1EnrollmentToken_TokenType_EnrollmentTokenTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRChromeManagement_GoogleChromeManagementVersionsV1Extension.appType
+
+/**
+ *  Represents an app.
+ *
+ *  Value: "APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1Extension_AppType_App;
+/**
+ *  Represents an extension.
+ *
+ *  Value: "EXTENSION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1Extension_AppType_Extension;
+/**
+ *  Represents an unspecified extension type.
+ *
+ *  Value: "EXTENSION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1Extension_AppType_ExtensionTypeUnspecified;
+/**
+ *  Represents a hosted app.
+ *
+ *  Value: "HOSTED_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1Extension_AppType_HostedApp;
+/**
+ *  Represents a theme.
+ *
+ *  Value: "THEME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1Extension_AppType_Theme;
+
+// ----------------------------------------------------------------------------
+// GTLRChromeManagement_GoogleChromeManagementVersionsV1Extension.configuredAppPolicy
+
+/**
+ *  Represents no configured app policy.
+ *
+ *  Value: "CONFIGURED_APP_POLICY_NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1Extension_ConfiguredAppPolicy_ConfiguredAppPolicyNone;
+/**
+ *  Represents an extension that should be blocked.
+ *
+ *  Value: "CONFIGURED_APP_POLICY_SHOULD_BLOCK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1Extension_ConfiguredAppPolicy_ConfiguredAppPolicyShouldBlock;
+/**
+ *  Represents an extension that should be forced.
+ *
+ *  Value: "CONFIGURED_APP_POLICY_SHOULD_FORCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1Extension_ConfiguredAppPolicy_ConfiguredAppPolicyShouldForce;
+/**
+ *  Represents an unspecified configured app policy.
+ *
+ *  Value: "CONFIGURED_APP_POLICY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1Extension_ConfiguredAppPolicy_ConfiguredAppPolicyUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRChromeManagement_GoogleChromeManagementVersionsV1Extension.installType
+
+/**
+ *  Represents an installation by admin.
+ *
+ *  Value: "ADMIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1Extension_InstallType_Admin;
+/**
+ *  Represents a development installation type.
+ *
+ *  Value: "DEVELOPMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1Extension_InstallType_Development;
+/**
+ *  Represents an unspecified installation type.
+ *
+ *  Value: "INSTALLATION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1Extension_InstallType_InstallationTypeUnspecified;
+/**
+ *  Represents instances of the extension having mixed installation types.
+ *
+ *  Value: "MULTIPLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1Extension_InstallType_Multiple;
+/**
+ *  Represents a normal installation type.
+ *
+ *  Value: "NORMAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1Extension_InstallType_Normal;
+/**
+ *  Represents an installation type that is not covered in the other options.
+ *
+ *  Value: "OTHER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1Extension_InstallType_Other;
+/**
+ *  Represents a sideload installation type.
+ *
+ *  Value: "SIDELOAD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1Extension_InstallType_Sideload;
+
+// ----------------------------------------------------------------------------
+// GTLRChromeManagement_GoogleChromeManagementVersionsV1Policy.source
+
+/**
+ *  Represents a machine level user cloud policy.
+ *
+ *  Value: "MACHINE_LEVEL_USER_CLOUD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1Policy_Source_MachineLevelUserCloud;
+/**
+ *  Represents a machine level merged policy.
+ *
+ *  Value: "MACHINE_MERGED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1Policy_Source_MachineMerged;
+/**
+ *  Represents a machine level platform policy.
+ *
+ *  Value: "MACHINE_PLATFORM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1Policy_Source_MachinePlatform;
+/**
+ *  Represents an unspecified policy source.
+ *
+ *  Value: "POLICY_SOURCE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1Policy_Source_PolicySourceUnspecified;
+/**
+ *  Represents a user level cloud policy.
+ *
+ *  Value: "USER_CLOUD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1Policy_Source_UserCloud;
+/**
+ *  Represents a user level platform policy.
+ *
+ *  Value: "USER_PLATFORM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1Policy_Source_UserPlatform;
 
 // ----------------------------------------------------------------------------
 // GTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataConflictingPolicyData.source
@@ -3926,6 +4165,9 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *  field that will only be set when the requested app version is found.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementV1ChromeAppPermission *> *permissions;
+
+/** Output only. Contains risk assessment data for the Chrome extension. */
+@property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementV1RiskAssessmentData *riskAssessment;
 
 /**
  *  Output only. Every permission giving access to domains or broad host
@@ -7976,6 +8218,76 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 
 /**
+ *  A specific installation of Chrome on a device with managed Chrome browsers.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementVersionsV1Browser : GTLRObject
+
+/** Output only. Browser version installed. */
+@property(nonatomic, copy, nullable) NSString *browserVersion;
+
+/**
+ *  Output only. The channel of the browser installed.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1Browser_Channel_ChannelBeta
+ *        Represents a beta channel. (Value: "CHANNEL_BETA")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1Browser_Channel_ChannelCanary
+ *        Represents a canary channel. (Value: "CHANNEL_CANARY")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1Browser_Channel_ChannelDev
+ *        Represents a dev channel. (Value: "CHANNEL_DEV")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1Browser_Channel_ChannelStable
+ *        Represents a stable channel. (Value: "CHANNEL_STABLE")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1Browser_Channel_ChannelUnspecified
+ *        Represents an unspecified channel. (Value: "CHANNEL_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *channel;
+
+/** Output only. The path to the Chrome.exe executable for this browser. */
+@property(nonatomic, copy, nullable) NSString *executablePath;
+
+/**
+ *  Output only. The time when the last request to fetch policies succeeded on
+ *  this Chrome browser.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastPolicyFetchTime;
+
+/**
+ *  Output only. The time when the last report was received from this Chrome
+ *  browser.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastStatusReportTime;
+
+/**
+ *  Output only. Pending version of a browser is installed. This field is only
+ *  set when the current active browser has a different version as in
+ *  "browser_version".
+ */
+@property(nonatomic, copy, nullable) NSString *pendingInstallVersion;
+
+/** Output only. List of all plugins installed on this Chrome browser. */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementVersionsV1Plugin *> *plugins;
+
+/** Output only. The list of profiles for this browser. */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementVersionsV1Profile *> *profiles;
+
+@end
+
+
+/**
+ *  A Chrome browser user.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementVersionsV1BrowserUser : GTLRObject
+
+/** Output only. The time when this user info last reported a status. */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastStatusReportTime;
+
+/** Output only. The user name of the user that signed into chrome. */
+@property(nonatomic, copy, nullable) NSString *userName;
+
+@end
+
+
+/**
  *  A certificate provisioning process.
  */
 @interface GTLRChromeManagement_GoogleChromeManagementVersionsV1CertificateProvisioningProcess : GTLRObject
@@ -8109,6 +8421,142 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *        "INSIGHTS_ENABLEMENT_STATE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *insightsState;
+
+@end
+
+
+/**
+ *  A device with managed Chrome Browsers.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowser : GTLRObject
+
+/**
+ *  Optional. Asset identifier as annotated by the administrator or specified
+ *  during enrollment.
+ */
+@property(nonatomic, copy, nullable) NSString *annotatedAssetId;
+
+/**
+ *  Optional. Address or location of the device as annotated by the
+ *  administrator.
+ */
+@property(nonatomic, copy, nullable) NSString *annotatedLocation;
+
+/** Optional. Notes about this device as annotated by the administrator. */
+@property(nonatomic, copy, nullable) NSString *annotatedNotes;
+
+/** Optional. User of the device as annotated by the administrator. */
+@property(nonatomic, copy, nullable) NSString *annotatedUser;
+
+/**
+ *  Output only. The attestation credential used for Device Trust Connector.
+ */
+@property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementVersionsV1AttestationCredential *attestationCredential;
+
+/** Output only. Unique identifier of Chrome Browser. */
+@property(nonatomic, copy, nullable) NSString *browserPermanentId;
+
+/** Output only. List of Chrome browsers installed on this device. */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementVersionsV1Browser *> *browsers;
+
+/** Output only. List of all browser versions installed on this device. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *browserVersions;
+
+/** Output only. The history of identifiers reported to this device. */
+@property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementVersionsV1DeviceIdentifiersHistory *deviceIdentifiersHistory;
+
+/**
+ *  Output only. The number of distinct extensions installed on all the Chrome
+ *  browsers of this device.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *extensionCount;
+
+/**
+ *  Output only. The time of the last activity on the device device either from
+ *  reporting, policy fetching or registration.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastActivityTime;
+
+/**
+ *  Output only. The last user who logged into a Chrome browser on this device.
+ */
+@property(nonatomic, copy, nullable) NSString *lastDeviceUser;
+
+/**
+ *  Output only. List of recent browser users, in descending order by last
+ *  report time.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementVersionsV1BrowserUser *> *lastDeviceUsers;
+
+/** Output only. The time the last policy fetch succeeded on this device. */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastPolicyFetchTime;
+
+/** Output only. The time the device last tried to register. */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastRegistrationTime;
+
+/** Output only. The time the device last sent a status report. */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastStatusReportTime;
+
+/**
+ *  Output only. The list of all device level policies set for extensions
+ *  installed in Chrome on this device.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementVersionsV1ExtensionPolicy *> *machineExtensionPolicies;
+
+/** Output only. Machine name. */
+@property(nonatomic, copy, nullable) NSString *machineName;
+
+/**
+ *  Output only. The list of all device level policies set for Chrome browsers
+ *  on this device.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementVersionsV1Policy *> *machinePolicies;
+
+/**
+ *  Identifier. Format:
+ *  customers/{customer_id}/chromeBrowsers/{browser_permanent_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. Recent policy fetch activity by Omaha. Not necessarily the last
+ *  fetch since this field is only updated daily.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *omahaRecentFetchTime;
+
+/** Output only. The obfuscated organizational unit ID of the browser. */
+@property(nonatomic, copy, nullable) NSString *orgUnitId;
+
+/** Output only. Device CPU architecture. */
+@property(nonatomic, copy, nullable) NSString *osArchitecture;
+
+/** Output only. Device Os platform. */
+@property(nonatomic, copy, nullable) NSString *osPlatform;
+
+/** Output only. Device Os platform and version combined. */
+@property(nonatomic, copy, nullable) NSString *osPlatformVersion;
+
+/** Output only. Device Os Version. */
+@property(nonatomic, copy, nullable) NSString *osVersion;
+
+/**
+ *  Output only. The number of distinct policies set on all the Chrome browsers
+ *  of this device.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *policyCount;
+
+/** Output only. The device's serial number. */
+@property(nonatomic, copy, nullable) NSString *serialNumber;
+
+/**
+ *  Output only. The initial device id sent by the first Chrome browser that
+ *  enrolled this device.
+ */
+@property(nonatomic, copy, nullable) NSString *virtualDeviceId;
 
 @end
 
@@ -8708,6 +9156,67 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 
 /**
+ *  Collection of device identifiers.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementVersionsV1DeviceIdentifiers : GTLRObject
+
+/** Output only. The device's host name. */
+@property(nonatomic, copy, nullable) NSString *hostName;
+
+/** Output only. The name of the machine associated with the device. */
+@property(nonatomic, copy, nullable) NSString *machineName;
+
+/** Output only. The device's serial number. */
+@property(nonatomic, copy, nullable) NSString *serialNumber;
+
+@end
+
+
+/**
+ *  History of device identifiers reported from a device.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementVersionsV1DeviceIdentifiersHistory : GTLRObject
+
+/**
+ *  Output only. The device id is potentially being used by multiple devices.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *deviceIdCollision;
+
+/** Output only. The last time we detected the device id collision. */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastDeviceIdCollisionDetectionTime;
+
+/**
+ *  Output only. List of device identifiers sent by this device. In descending
+ *  order by last_activity_time.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementVersionsV1DeviceIdentifiersRecord *> *records;
+
+@end
+
+
+/**
+ *  Record of the device identifiers and when they were reported.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementVersionsV1DeviceIdentifiersRecord : GTLRObject
+
+/** Output only. The first time these identifiers were reported. */
+@property(nonatomic, strong, nullable) GTLRDateTime *firstRecordTime;
+
+/** Output only. Device identifiers. */
+@property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementVersionsV1DeviceIdentifiers *identifiers;
+
+/**
+ *  Output only. The time of the last activity of these identifiers either from
+ *  reporting, policy fetching or registration.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastActivityTime;
+
+@end
+
+
+/**
  *  Information of a device that runs a Chrome browser profile.
  */
 @interface GTLRChromeManagement_GoogleChromeManagementVersionsV1DeviceInfo : GTLRObject
@@ -8884,6 +9393,239 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 
 /**
+ *  Enrollment token for a chrome device.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementVersionsV1EnrollmentToken : GTLRObject
+
+/** Output only. The creation time of the token. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Output only. The id of the user who created the token. */
+@property(nonatomic, copy, nullable) NSString *creatorId;
+
+/**
+ *  Output only. The obfuscated ID of the customer to whom this token is
+ *  associated.
+ */
+@property(nonatomic, copy, nullable) NSString *customerId;
+
+/**
+ *  Identifier. The resource name of the enrollment token. Format:
+ *  customers/{customer}/enrollmentTokens/{token_permanent_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Obfuscated ID of the organization unit this token is associated
+ *  with. If not set, the token is created for the root organization unit.
+ */
+@property(nonatomic, copy, nullable) NSString *orgUnitId;
+
+/**
+ *  Output only. The id of the user who revoked the token, null if the token is
+ *  not revoked.
+ */
+@property(nonatomic, copy, nullable) NSString *revokerId;
+
+/**
+ *  Output only. The revocation time of the token, null if the token is not
+ *  revoked.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *revokeTime;
+
+/**
+ *  Output only. The state of the token.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1EnrollmentToken_State_EnrollmentTokenStateActive
+ *        The token is still active and valid. (Value:
+ *        "ENROLLMENT_TOKEN_STATE_ACTIVE")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1EnrollmentToken_State_EnrollmentTokenStateExpired
+ *        The token has expired. (Value: "ENROLLMENT_TOKEN_STATE_EXPIRED")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1EnrollmentToken_State_EnrollmentTokenStateRevoked
+ *        The token has been revoked by user. (Value:
+ *        "ENROLLMENT_TOKEN_STATE_REVOKED")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1EnrollmentToken_State_EnrollmentTokenStateUnspecified
+ *        Unknown token state. (Value: "ENROLLMENT_TOKEN_STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  Output only. The value of the token stored on the device and used to
+ *  identify it to the management service handling the enrollment request.
+ */
+@property(nonatomic, copy, nullable) NSString *token;
+
+/**
+ *  Output only. Unique identifier of the enrollment token used to access
+ *  information on tokens.
+ */
+@property(nonatomic, copy, nullable) NSString *tokenPermanentId;
+
+/**
+ *  Optional. The device type this token is used for. If not set, defaults to
+ *  `ENROLLMENT_TOKEN_TYPE_CHROME_BROWSER`.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1EnrollmentToken_TokenType_EnrollmentTokenTypeChromeBrowser
+ *        The token is used to enroll a Chrome Browser device. (Value:
+ *        "ENROLLMENT_TOKEN_TYPE_CHROME_BROWSER")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1EnrollmentToken_TokenType_EnrollmentTokenTypeUnspecified
+ *        Unknown token device type. (Value:
+ *        "ENROLLMENT_TOKEN_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *tokenType;
+
+@end
+
+
+/**
+ *  Information about extensions installed on profile reported on an installed
+ *  Chrome on a device with managed chrome browsers.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementVersionsV1Extension : GTLRObject
+
+/**
+ *  Output only. The type of the extension.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1Extension_AppType_App
+ *        Represents an app. (Value: "APP")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1Extension_AppType_Extension
+ *        Represents an extension. (Value: "EXTENSION")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1Extension_AppType_ExtensionTypeUnspecified
+ *        Represents an unspecified extension type. (Value:
+ *        "EXTENSION_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1Extension_AppType_HostedApp
+ *        Represents a hosted app. (Value: "HOSTED_APP")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1Extension_AppType_Theme
+ *        Represents a theme. (Value: "THEME")
+ */
+@property(nonatomic, copy, nullable) NSString *appType;
+
+/**
+ *  Output only. If the extension is controlled by a browser policy.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1Extension_ConfiguredAppPolicy_ConfiguredAppPolicyNone
+ *        Represents no configured app policy. (Value:
+ *        "CONFIGURED_APP_POLICY_NONE")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1Extension_ConfiguredAppPolicy_ConfiguredAppPolicyShouldBlock
+ *        Represents an extension that should be blocked. (Value:
+ *        "CONFIGURED_APP_POLICY_SHOULD_BLOCK")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1Extension_ConfiguredAppPolicy_ConfiguredAppPolicyShouldForce
+ *        Represents an extension that should be forced. (Value:
+ *        "CONFIGURED_APP_POLICY_SHOULD_FORCE")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1Extension_ConfiguredAppPolicy_ConfiguredAppPolicyUnspecified
+ *        Represents an unspecified configured app policy. (Value:
+ *        "CONFIGURED_APP_POLICY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *configuredAppPolicy;
+
+/**
+ *  Output only. The localized description of this extension.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Output only. Whether the extension is disabled.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *disabled;
+
+/** Output only. The id of the extension. */
+@property(nonatomic, copy, nullable) NSString *extensionId;
+
+/**
+ *  Output only. The localized name of this extension as reported by Chrome.
+ */
+@property(nonatomic, copy, nullable) NSString *extensionName;
+
+/** Output only. The URL of the homepage for this extension. */
+@property(nonatomic, copy, nullable) NSString *homepageUri;
+
+/** Output only. The list of icons available for this extension. */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementVersionsV1ExtensionIcon *> *icons;
+
+/**
+ *  Output only. The way the extension was installed.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1Extension_InstallType_Admin
+ *        Represents an installation by admin. (Value: "ADMIN")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1Extension_InstallType_Development
+ *        Represents a development installation type. (Value: "DEVELOPMENT")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1Extension_InstallType_InstallationTypeUnspecified
+ *        Represents an unspecified installation type. (Value:
+ *        "INSTALLATION_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1Extension_InstallType_Multiple
+ *        Represents instances of the extension having mixed installation types.
+ *        (Value: "MULTIPLE")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1Extension_InstallType_Normal
+ *        Represents a normal installation type. (Value: "NORMAL")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1Extension_InstallType_Other
+ *        Represents an installation type that is not covered in the other
+ *        options. (Value: "OTHER")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1Extension_InstallType_Sideload
+ *        Represents a sideload installation type. (Value: "SIDELOAD")
+ */
+@property(nonatomic, copy, nullable) NSString *installType;
+
+/**
+ *  Output only. The manifest version of this extension.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *manifestVersion;
+
+/** Output only. The list of permissions required for this extension. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
+
+/** Output only. The version of the extension. */
+@property(nonatomic, copy, nullable) NSString *version;
+
+@end
+
+
+/**
+ *  An icon of a Chrome browser extension.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementVersionsV1ExtensionIcon : GTLRObject
+
+/**
+ *  Output only. The size of the extension icon.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *size;
+
+/** Output only. The URL to the extension icon. */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  The reported policies applied to an extension installed on a Chrome profile.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementVersionsV1ExtensionPolicy : GTLRObject
+
+/** Output only. The id of the extension the policies are applied to. */
+@property(nonatomic, copy, nullable) NSString *extensionId;
+
+/** Output only. The name of the extension the policies are applied to. */
+@property(nonatomic, copy, nullable) NSString *extensionName;
+
+/** Output only. List of policies applied to this extension. */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementVersionsV1Policy *> *policies;
+
+@end
+
+
+/**
  *  Describes a generic Certificate Authority Connection.
  */
 @interface GTLRChromeManagement_GoogleChromeManagementVersionsV1GenericCaConnection : GTLRObject
@@ -8999,6 +9741,30 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 
 /**
+ *  Response to ListChromeBrowsers method.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "chromeBrowsers" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementVersionsV1ListChromeBrowsersResponse : GTLRCollectionObject
+
+/**
+ *  List of Chrome Browser device objects.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowser *> *chromeBrowsers;
+
+/** Token used to access next page of this result. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
  *  Response to ListConnectorConfigs method.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -9026,6 +9792,33 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 
 /**
+ *  Response that contains a list of tokens.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "enrollmentTokens" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementVersionsV1ListEnrollmentTokensResponse : GTLRCollectionObject
+
+/**
+ *  List of Chrome device enrollment tokens.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementVersionsV1EnrollmentToken *> *enrollmentTokens;
+
+/**
+ *  Token to retrieve the next page of results, or empty if there are no more
+ *  results in the list.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
  *  MIP label connector config.
  */
 @interface GTLRChromeManagement_GoogleChromeManagementVersionsV1MipLabelConfig : GTLRObject
@@ -9040,6 +9833,30 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 /** Required. Microsoft tenant ID. */
 @property(nonatomic, copy, nullable) NSString *microsoftTenantId;
 
+@end
+
+
+/**
+ *  Request to MoveChromeBrowsers method.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementVersionsV1MoveChromeBrowsersRequest : GTLRObject
+
+/** Required. ID of the destination organizational unit. */
+@property(nonatomic, copy, nullable) NSString *destinationOrgUnitId;
+
+/**
+ *  Required. List of resource IDs of Chrome Browser Devices to move. A maximum
+ *  of 600 browsers may be moved per request.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *resourceIds;
+
+@end
+
+
+/**
+ *  Response to MoveChromeBrowsers method.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementVersionsV1MoveChromeBrowsersResponse : GTLRObject
 @end
 
 
@@ -9087,6 +9904,136 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 /** Required. The reporting settings for the Palo Alto Networks config. */
 @property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingSettings *reportingSettings;
+
+@end
+
+
+/**
+ *  Information about a Chrome browser plugin installed on a reported Chrome
+ *  installation on a device with managed Chrome browsers.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementVersionsV1Plugin : GTLRObject
+
+/**
+ *  Output only. The description of the installed plugin.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** Output only. The filename of the installed plugin. */
+@property(nonatomic, copy, nullable) NSString *filename;
+
+/** Output only. The name of the installed plugin. */
+@property(nonatomic, copy, nullable) NSString *pluginName;
+
+@end
+
+
+/**
+ *  The applied policy reported by a managed Chrome browser. The policy can be
+ *  applied at various scopes (machine, profile, extension).
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementVersionsV1Policy : GTLRObject
+
+/**
+ *  Output only. A localized string with all the errors reported when trying to
+ *  apply this policy, if any.
+ */
+@property(nonatomic, copy, nullable) NSString *error;
+
+/** Output only. The name of the policy. */
+@property(nonatomic, copy, nullable) NSString *policyName;
+
+/**
+ *  Output only. The source of the policy.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1Policy_Source_MachineLevelUserCloud
+ *        Represents a machine level user cloud policy. (Value:
+ *        "MACHINE_LEVEL_USER_CLOUD")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1Policy_Source_MachineMerged
+ *        Represents a machine level merged policy. (Value: "MACHINE_MERGED")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1Policy_Source_MachinePlatform
+ *        Represents a machine level platform policy. (Value:
+ *        "MACHINE_PLATFORM")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1Policy_Source_PolicySourceUnspecified
+ *        Represents an unspecified policy source. (Value:
+ *        "POLICY_SOURCE_UNSPECIFIED")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1Policy_Source_UserCloud
+ *        Represents a user level cloud policy. (Value: "USER_CLOUD")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1Policy_Source_UserPlatform
+ *        Represents a user level platform policy. (Value: "USER_PLATFORM")
+ */
+@property(nonatomic, copy, nullable) NSString *source;
+
+/** Output only. The value of the policy. */
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  A profile reported on an installation of Chrome on a device with managed
+ *  chrome browsers.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementVersionsV1Profile : GTLRObject
+
+/** Output only. The email of the user signed in to this profile, if any. */
+@property(nonatomic, copy, nullable) NSString *chromeSignedInUserEmail;
+
+/** Output only. The list of extensions with applied extension policies. */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementVersionsV1ExtensionPolicy *> *extensionPolicies;
+
+/** Output only. The list of extensions installed for this profile. */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementVersionsV1Extension *> *extensions;
+
+/**
+ *  Output only. A unique ID for this profile.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  Output only. The time when the last request to fetch policies succeeded for
+ *  this profile.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastPolicyFetchTime;
+
+/**
+ *  Output only. The time when the last report was received from this profile.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastStatusReportTime;
+
+/** Output only. The name given to this profile. */
+@property(nonatomic, copy, nullable) NSString *profileName;
+
+/**
+ *  Output only. The number of safe browsing warnings that were shown on this
+ *  profile.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *safeBrowsingWarnings;
+
+/**
+ *  Output only. The number of safe browsing warnings that were clicked through
+ *  on this profile.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *safeBrowsingWarningsClickThroughs;
+
+/**
+ *  Output only. The last time the safe browsing warning info was reset to 0.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *safeBrowsingWarningsResetTime;
+
+/**
+ *  Output only. The list of Chrome browser policies applied to this profile.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementVersionsV1Policy *> *userPolicies;
 
 @end
 
@@ -9444,6 +10391,13 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *enabledOptInEvents;
 
+@end
+
+
+/**
+ *  Request to revoke a token.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementVersionsV1RevokeEnrollmentTokenRequest : GTLRObject
 @end
 
 

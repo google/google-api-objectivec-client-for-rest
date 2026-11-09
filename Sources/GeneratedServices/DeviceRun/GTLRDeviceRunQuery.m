@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Device Run API (devicerun/v1alpha)
+//   Device Run API (devicerun/v1)
 // Description:
 //   The Device Run API allows management, scheduling, and execution of
 //   automated sessions and workloads across device catalogs.
@@ -10,18 +10,6 @@
 //   https://docs.cloud.google.com/developer-device-platform/device-run
 
 #import <GoogleAPIClientForREST/GTLRDeviceRunQuery.h>
-
-// ----------------------------------------------------------------------------
-// Constants
-
-// view
-NSString * const kGTLRDeviceRunViewSessionViewBasic       = @"SESSION_VIEW_BASIC";
-NSString * const kGTLRDeviceRunViewSessionViewFull        = @"SESSION_VIEW_FULL";
-NSString * const kGTLRDeviceRunViewSessionViewUnspecified = @"SESSION_VIEW_UNSPECIFIED";
-
-// ----------------------------------------------------------------------------
-// Query Classes
-//
 
 @implementation GTLRDeviceRunQuery
 
@@ -35,7 +23,7 @@ NSString * const kGTLRDeviceRunViewSessionViewUnspecified = @"SESSION_VIEW_UNSPE
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRDeviceRunQuery_ProjectsLocationsDevicesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -54,7 +42,7 @@ NSString * const kGTLRDeviceRunViewSessionViewUnspecified = @"SESSION_VIEW_UNSPE
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1alpha/{+parent}/devices";
+  NSString *pathURITemplate = @"v1/{+parent}/devices";
   GTLRDeviceRunQuery_ProjectsLocationsDevicesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -73,7 +61,7 @@ NSString * const kGTLRDeviceRunViewSessionViewUnspecified = @"SESSION_VIEW_UNSPE
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRDeviceRunQuery_ProjectsLocationsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -99,7 +87,7 @@ NSString * const kGTLRDeviceRunViewSessionViewUnspecified = @"SESSION_VIEW_UNSPE
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha/{+name}/locations";
+  NSString *pathURITemplate = @"v1/{+name}/locations";
   GTLRDeviceRunQuery_ProjectsLocationsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -125,7 +113,7 @@ NSString * const kGTLRDeviceRunViewSessionViewUnspecified = @"SESSION_VIEW_UNSPE
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha/{+name}:cancel";
+  NSString *pathURITemplate = @"v1/{+name}:cancel";
   GTLRDeviceRunQuery_ProjectsLocationsOperationsCancel *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -145,7 +133,7 @@ NSString * const kGTLRDeviceRunViewSessionViewUnspecified = @"SESSION_VIEW_UNSPE
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRDeviceRunQuery_ProjectsLocationsOperationsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -164,7 +152,7 @@ NSString * const kGTLRDeviceRunViewSessionViewUnspecified = @"SESSION_VIEW_UNSPE
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRDeviceRunQuery_ProjectsLocationsOperationsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -183,7 +171,7 @@ NSString * const kGTLRDeviceRunViewSessionViewUnspecified = @"SESSION_VIEW_UNSPE
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha/{+name}/operations";
+  NSString *pathURITemplate = @"v1/{+name}/operations";
   GTLRDeviceRunQuery_ProjectsLocationsOperationsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -196,150 +184,13 @@ NSString * const kGTLRDeviceRunViewSessionViewUnspecified = @"SESSION_VIEW_UNSPE
 
 @end
 
-@implementation GTLRDeviceRunQuery_ProjectsLocationsSessionsBatchGet
-
-@dynamic names, parent;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"names" : [NSString class]
-  };
-  return map;
-}
-
-+ (instancetype)queryWithParent:(NSString *)parent {
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1alpha/{+parent}/sessions:batchGet";
-  GTLRDeviceRunQuery_ProjectsLocationsSessionsBatchGet *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRDeviceRun_BatchGetSessionsResponse class];
-  query.loggingName = @"devicerun.projects.locations.sessions.batchGet";
-  return query;
-}
-
-@end
-
-@implementation GTLRDeviceRunQuery_ProjectsLocationsSessionsCancel
-
-@dynamic name;
-
-+ (instancetype)queryWithObject:(GTLRDeviceRun_CancelSessionRequest *)object
-                           name:(NSString *)name {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha/{+name}:cancel";
-  GTLRDeviceRunQuery_ProjectsLocationsSessionsCancel *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.name = name;
-  query.expectedObjectClass = [GTLRDeviceRun_CancelSessionResponse class];
-  query.loggingName = @"devicerun.projects.locations.sessions.cancel";
-  return query;
-}
-
-@end
-
-@implementation GTLRDeviceRunQuery_ProjectsLocationsSessionsCreate
-
-@dynamic parent, requestId, sessionId;
-
-+ (instancetype)queryWithObject:(GTLRDeviceRun_Session *)object
-                         parent:(NSString *)parent {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1alpha/{+parent}/sessions";
-  GTLRDeviceRunQuery_ProjectsLocationsSessionsCreate *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRDeviceRun_GoogleLongrunningOperation class];
-  query.loggingName = @"devicerun.projects.locations.sessions.create";
-  return query;
-}
-
-@end
-
-@implementation GTLRDeviceRunQuery_ProjectsLocationsSessionsDelete
-
-@dynamic name, requestId;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha/{+name}";
-  GTLRDeviceRunQuery_ProjectsLocationsSessionsDelete *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"DELETE"
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRDeviceRun_GoogleLongrunningOperation class];
-  query.loggingName = @"devicerun.projects.locations.sessions.delete";
-  return query;
-}
-
-@end
-
-@implementation GTLRDeviceRunQuery_ProjectsLocationsSessionsGet
-
-@dynamic name, view;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha/{+name}";
-  GTLRDeviceRunQuery_ProjectsLocationsSessionsGet *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRDeviceRun_Session class];
-  query.loggingName = @"devicerun.projects.locations.sessions.get";
-  return query;
-}
-
-@end
-
-@implementation GTLRDeviceRunQuery_ProjectsLocationsSessionsList
-
-@dynamic filter, orderBy, pageSize, pageToken, parent, view;
-
-+ (instancetype)queryWithParent:(NSString *)parent {
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1alpha/{+parent}/sessions";
-  GTLRDeviceRunQuery_ProjectsLocationsSessionsList *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRDeviceRun_ListSessionsResponse class];
-  query.loggingName = @"devicerun.projects.locations.sessions.list";
-  return query;
-}
-
-@end
-
 @implementation GTLRDeviceRunQuery_ProjectsLocationsSoftwareVersionsGet
 
 @dynamic name;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRDeviceRunQuery_ProjectsLocationsSoftwareVersionsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -358,7 +209,7 @@ NSString * const kGTLRDeviceRunViewSessionViewUnspecified = @"SESSION_VIEW_UNSPE
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1alpha/{+parent}/softwareVersions";
+  NSString *pathURITemplate = @"v1/{+parent}/softwareVersions";
   GTLRDeviceRunQuery_ProjectsLocationsSoftwareVersionsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil

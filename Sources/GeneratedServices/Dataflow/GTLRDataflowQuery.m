@@ -287,8 +287,19 @@ NSString * const kGTLRDataflowViewMetadataOnly       = @"METADATA_ONLY";
 
 @implementation GTLRDataflowQuery_ProjectsJobsAggregated
 
-@dynamic filter, location, name, pageSize, pageToken, projectId,
-         regionalFanoutRequested, view;
+@dynamic createTimeRangeEndTime, createTimeRangeStartTime, filter, location,
+         name, pageSize, pageToken, projectId, regionalFanoutRequested,
+         terminationTimeRangeEndTime, terminationTimeRangeStartTime, view;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"createTimeRangeEndTime" : @"createTimeRange.endTime",
+    @"createTimeRangeStartTime" : @"createTimeRange.startTime",
+    @"terminationTimeRangeEndTime" : @"terminationTimeRange.endTime",
+    @"terminationTimeRangeStartTime" : @"terminationTimeRange.startTime"
+  };
+  return map;
+}
 
 + (instancetype)queryWithProjectId:(NSString *)projectId {
   NSArray *pathParams = @[ @"projectId" ];
@@ -442,8 +453,19 @@ NSString * const kGTLRDataflowViewMetadataOnly       = @"METADATA_ONLY";
 
 @implementation GTLRDataflowQuery_ProjectsJobsList
 
-@dynamic filter, location, name, pageSize, pageToken, projectId,
-         regionalFanoutRequested, view;
+@dynamic createTimeRangeEndTime, createTimeRangeStartTime, filter, location,
+         name, pageSize, pageToken, projectId, regionalFanoutRequested,
+         terminationTimeRangeEndTime, terminationTimeRangeStartTime, view;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"createTimeRangeEndTime" : @"createTimeRange.endTime",
+    @"createTimeRangeStartTime" : @"createTimeRange.startTime",
+    @"terminationTimeRangeEndTime" : @"terminationTimeRange.endTime",
+    @"terminationTimeRangeStartTime" : @"terminationTimeRange.startTime"
+  };
+  return map;
+}
 
 + (instancetype)queryWithProjectId:(NSString *)projectId {
   NSArray *pathParams = @[ @"projectId" ];
@@ -957,8 +979,19 @@ NSString * const kGTLRDataflowViewMetadataOnly       = @"METADATA_ONLY";
 
 @implementation GTLRDataflowQuery_ProjectsLocationsJobsList
 
-@dynamic filter, location, name, pageSize, pageToken, projectId,
-         regionalFanoutRequested, view;
+@dynamic createTimeRangeEndTime, createTimeRangeStartTime, filter, location,
+         name, pageSize, pageToken, projectId, regionalFanoutRequested,
+         terminationTimeRangeEndTime, terminationTimeRangeStartTime, view;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"createTimeRangeEndTime" : @"createTimeRange.endTime",
+    @"createTimeRangeStartTime" : @"createTimeRange.startTime",
+    @"terminationTimeRangeEndTime" : @"terminationTimeRange.endTime",
+    @"terminationTimeRangeStartTime" : @"terminationTimeRange.startTime"
+  };
+  return map;
+}
 
 + (instancetype)queryWithProjectId:(NSString *)projectId
                           location:(NSString *)location {

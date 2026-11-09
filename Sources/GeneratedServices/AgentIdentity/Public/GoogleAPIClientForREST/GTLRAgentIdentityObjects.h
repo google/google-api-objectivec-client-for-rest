@@ -22,14 +22,27 @@
 @class GTLRAgentIdentity_AuthProvider_Labels;
 @class GTLRAgentIdentity_AuthProviderTypeParams;
 @class GTLRAgentIdentity_Binding;
+@class GTLRAgentIdentity_ClientAssertionJwtAuth;
+@class GTLRAgentIdentity_ClientSecretAuth;
+@class GTLRAgentIdentity_ConnectorReferenceAuthProvider;
+@class GTLRAgentIdentity_ConnectorReferenceAuthProvider_AuthorizationDetails_Item;
+@class GTLRAgentIdentity_CrossAppAccessAuthProvider;
+@class GTLRAgentIdentity_CrossAppAccessAuthProvider_AdditionalParameters;
+@class GTLRAgentIdentity_CustomIssuer;
+@class GTLRAgentIdentity_DirectIdJagInput;
 @class GTLRAgentIdentity_Expr;
 @class GTLRAgentIdentity_GeminiEnterpriseAuthProviderParams;
+@class GTLRAgentIdentity_GoogleAccount;
+@class GTLRAgentIdentity_IdTokenProcessingConfig;
+@class GTLRAgentIdentity_IdTokenProcessingConfig_IdJagAdditionalClaims;
 @class GTLRAgentIdentity_Location;
 @class GTLRAgentIdentity_Location_Labels;
 @class GTLRAgentIdentity_Location_Metadata;
 @class GTLRAgentIdentity_Policy;
+@class GTLRAgentIdentity_Pool;
 @class GTLRAgentIdentity_ThreeLeggedOAuth;
 @class GTLRAgentIdentity_TwoLeggedOAuth;
+@class GTLRAgentIdentity_WorkforceIdentityFederation;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -50,6 +63,18 @@ NS_ASSUME_NONNULL_BEGIN
  *  Value: "AUTH_PROVIDER_TYPE_API_KEY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAgentIdentity_AccessSummary_AuthProviderType_AuthProviderTypeApiKey;
+/**
+ *  Connector Reference auth provider type.
+ *
+ *  Value: "AUTH_PROVIDER_TYPE_CONNECTOR_REFERENCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAgentIdentity_AccessSummary_AuthProviderType_AuthProviderTypeConnectorReference;
+/**
+ *  Cross-App Access auth provider type.
+ *
+ *  Value: "AUTH_PROVIDER_TYPE_CROSS_APP_ACCESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAgentIdentity_AccessSummary_AuthProviderType_AuthProviderTypeCrossAppAccess;
 /**
  *  Gemini Enterprise auth provider type.
  *
@@ -163,6 +188,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAgentIdentity_AuthProvider_State_StateUn
  *  Likely values:
  *    @arg @c kGTLRAgentIdentity_AccessSummary_AuthProviderType_AuthProviderTypeApiKey
  *        API key auth provider type. (Value: "AUTH_PROVIDER_TYPE_API_KEY")
+ *    @arg @c kGTLRAgentIdentity_AccessSummary_AuthProviderType_AuthProviderTypeConnectorReference
+ *        Connector Reference auth provider type. (Value:
+ *        "AUTH_PROVIDER_TYPE_CONNECTOR_REFERENCE")
+ *    @arg @c kGTLRAgentIdentity_AccessSummary_AuthProviderType_AuthProviderTypeCrossAppAccess
+ *        Cross-App Access auth provider type. (Value:
+ *        "AUTH_PROVIDER_TYPE_CROSS_APP_ACCESS")
  *    @arg @c kGTLRAgentIdentity_AccessSummary_AuthProviderType_AuthProviderTypeGeminiEnterprise
  *        Gemini Enterprise auth provider type. (Value:
  *        "AUTH_PROVIDER_TYPE_GEMINI_ENTERPRISE")
@@ -454,6 +485,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAgentIdentity_AuthProvider_State_StateUn
 /** Parameters for API key authentication. */
 @property(nonatomic, strong, nullable) GTLRAgentIdentity_ApiKeyParams *apiKey;
 
+/** Parameters for Connector Reference authentication. */
+@property(nonatomic, strong, nullable) GTLRAgentIdentity_ConnectorReferenceAuthProvider *connectorReferenceAuthProvider;
+
 /** Parameters for Gemini Enterprise authentication. */
 @property(nonatomic, strong, nullable) GTLRAgentIdentity_GeminiEnterpriseAuthProviderParams *geAuthProvider;
 
@@ -462,6 +496,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAgentIdentity_AuthProvider_State_StateUn
 
 /** Parameters for 2-legged OAuth (2LO) authentication. */
 @property(nonatomic, strong, nullable) GTLRAgentIdentity_TwoLeggedOAuth *twoLeggedOauth;
+
+/** Parameters for Cross-App Access authentication. */
+@property(nonatomic, strong, nullable) GTLRAgentIdentity_CrossAppAccessAuthProvider *xaaAuthProvider;
 
 @end
 
@@ -549,6 +586,137 @@ FOUNDATION_EXTERN NSString * const kGTLRAgentIdentity_AuthProvider_State_StateUn
  */
 @property(nonatomic, copy, nullable) NSString *role;
 
+@end
+
+
+/**
+ *  Configuration for client ID and client assertion JWT authentication.
+ */
+@interface GTLRAgentIdentity_ClientAssertionJwtAuth : GTLRObject
+
+/** Required. The client identifier. */
+@property(nonatomic, copy, nullable) NSString *clientId;
+
+@end
+
+
+/**
+ *  Configuration for client ID and client secret authentication.
+ */
+@interface GTLRAgentIdentity_ClientSecretAuth : GTLRObject
+
+/** Required. The client identifier. */
+@property(nonatomic, copy, nullable) NSString *clientId;
+
+/** Required. Input only. The client secret. */
+@property(nonatomic, copy, nullable) NSString *clientSecret;
+
+@end
+
+
+/**
+ *  Configuration parameters for the Connector Reference auth provider.
+ */
+@interface GTLRAgentIdentity_ConnectorReferenceAuthProvider : GTLRObject
+
+/**
+ *  Optional. Rich Authorization Requests (RFC 9396) detailing targeted OAuth
+ *  resources/scopes, formatted as a JSON array of JSON objects.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAgentIdentity_ConnectorReferenceAuthProvider_AuthorizationDetails_Item *> *authorizationDetails;
+
+/** Required. The name of the referenced connector. */
+@property(nonatomic, copy, nullable) NSString *connector;
+
+@end
+
+
+/**
+ *  GTLRAgentIdentity_ConnectorReferenceAuthProvider_AuthorizationDetails_Item
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRAgentIdentity_ConnectorReferenceAuthProvider_AuthorizationDetails_Item : GTLRObject
+@end
+
+
+/**
+ *  Configuration parameters for the Cross-App Access auth provider.
+ */
+@interface GTLRAgentIdentity_CrossAppAccessAuthProvider : GTLRObject
+
+/** Optional. Additional parameters to be passed to the token endpoint. */
+@property(nonatomic, strong, nullable) GTLRAgentIdentity_CrossAppAccessAuthProvider_AdditionalParameters *additionalParameters;
+
+/**
+ *  Option 2: Authenticate using a standard `client_id` and a Client Assertion
+ *  JWT.
+ */
+@property(nonatomic, strong, nullable) GTLRAgentIdentity_ClientAssertionJwtAuth *clientAssertionJwtAuth;
+
+/**
+ *  Option 1: Authenticate using a standard `client_id` and `client_secret`.
+ */
+@property(nonatomic, strong, nullable) GTLRAgentIdentity_ClientSecretAuth *clientSecretAuth;
+
+/**
+ *  Configuration when using a custom or third-party authorization server as the
+ *  issuer.
+ */
+@property(nonatomic, strong, nullable) GTLRAgentIdentity_CustomIssuer *customIssuer;
+
+/** Configuration when using Google Accounts as the issuer. */
+@property(nonatomic, strong, nullable) GTLRAgentIdentity_GoogleAccount *googleAccount;
+
+/** Configuration for when the input is already an ID-JAG. */
+@property(nonatomic, strong, nullable) GTLRAgentIdentity_DirectIdJagInput *idJagInput;
+
+/** Configuration for when the input is an ID token. */
+@property(nonatomic, strong, nullable) GTLRAgentIdentity_IdTokenProcessingConfig *idTokenInput;
+
+/** Configuration when using Workforce Identity Federation as the issuer. */
+@property(nonatomic, strong, nullable) GTLRAgentIdentity_WorkforceIdentityFederation *workforceIdentityFederation;
+
+@end
+
+
+/**
+ *  Optional. Additional parameters to be passed to the token endpoint.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRAgentIdentity_CrossAppAccessAuthProvider_AdditionalParameters : GTLRObject
+@end
+
+
+/**
+ *  Configuration for a custom or third-party authorization server issuer.
+ */
+@interface GTLRAgentIdentity_CustomIssuer : GTLRObject
+
+/** Optional. The issuer identifier of the target Authorization Server. */
+@property(nonatomic, copy, nullable) NSString *issuer;
+
+/**
+ *  Required. The token endpoint of the target OAuth authorization server to
+ *  retrieve resource tokens.
+ */
+@property(nonatomic, copy, nullable) NSString *tokenUrl;
+
+@end
+
+
+/**
+ *  Marker message indicating the input is already an ID-JAG, so no fetching is
+ *  required.
+ */
+@interface GTLRAgentIdentity_DirectIdJagInput : GTLRObject
 @end
 
 
@@ -651,6 +819,50 @@ FOUNDATION_EXTERN NSString * const kGTLRAgentIdentity_AuthProvider_State_StateUn
  *  Configuration for Gemini Enterprise authentication.
  */
 @interface GTLRAgentIdentity_GeminiEnterpriseAuthProviderParams : GTLRObject
+@end
+
+
+/**
+ *  Configuration for Google Account usage as the issuer.
+ */
+@interface GTLRAgentIdentity_GoogleAccount : GTLRObject
+@end
+
+
+/**
+ *  Defines how to process an input ID token to obtain an ID-JAG.
+ */
+@interface GTLRAgentIdentity_IdTokenProcessingConfig : GTLRObject
+
+/**
+ *  Indicates the managed Agent Identity pool should be used to fetch the
+ *  ID-JAG.
+ */
+@property(nonatomic, strong, nullable) GTLRAgentIdentity_Pool *agentIdentityPool;
+
+/**
+ *  Optional. Optional additional claims to include when fetching an ID-JAG.
+ */
+@property(nonatomic, strong, nullable) GTLRAgentIdentity_IdTokenProcessingConfig_IdJagAdditionalClaims *idJagAdditionalClaims;
+
+/**
+ *  The resource name of the ID-JAG auth provider. Format:
+ *  "projects/{project}/locations/{location}/authProviders/{auth_provider}"
+ */
+@property(nonatomic, copy, nullable) NSString *idJagAuthProvider;
+
+@end
+
+
+/**
+ *  Optional. Optional additional claims to include when fetching an ID-JAG.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRAgentIdentity_IdTokenProcessingConfig_IdJagAdditionalClaims : GTLRObject
 @end
 
 
@@ -912,6 +1124,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAgentIdentity_AuthProvider_State_StateUn
 
 
 /**
+ *  Marker message to indicate the managed Agent Identity Pool is used.
+ */
+@interface GTLRAgentIdentity_Pool : GTLRObject
+@end
+
+
+/**
  *  Response message for `QueryAuthProviders`.
  */
 @interface GTLRAgentIdentity_QueryAuthProvidersResponse : GTLRObject
@@ -941,6 +1160,33 @@ FOUNDATION_EXTERN NSString * const kGTLRAgentIdentity_AuthProvider_State_StateUn
  *  starting with `principal://`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *workloadIds;
+
+@end
+
+
+/**
+ *  Request message for `ResolveAuthorization`.
+ */
+@interface GTLRAgentIdentity_ResolveAuthorizationRequest : GTLRObject
+
+/**
+ *  Required. The user ID of the client for whom the authorization is resolved.
+ */
+@property(nonatomic, copy, nullable) NSString *clientUserId;
+
+@end
+
+
+/**
+ *  Response message for `ResolveAuthorization`.
+ */
+@interface GTLRAgentIdentity_ResolveAuthorizationResponse : GTLRObject
+
+/**
+ *  The resource name of the resolved authorization. Format:
+ *  projects/{project}/locations/{location}/authProviders/{auth_provider}/authorizations/{authorization}
+ */
+@property(nonatomic, copy, nullable) NSString *authorization;
 
 @end
 
@@ -1093,6 +1339,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAgentIdentity_AuthProvider_State_StateUn
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
+@end
+
+
+/**
+ *  Configuration for Workforce Identity Federation usage as the issuer.
+ */
+@interface GTLRAgentIdentity_WorkforceIdentityFederation : GTLRObject
 @end
 
 NS_ASSUME_NONNULL_END

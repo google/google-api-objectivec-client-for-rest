@@ -18,6 +18,7 @@
 @class GTLRCloudResourceManager_AuditConfig;
 @class GTLRCloudResourceManager_AuditLogConfig;
 @class GTLRCloudResourceManager_Binding;
+@class GTLRCloudResourceManager_Boundary;
 @class GTLRCloudResourceManager_CapabilityConfig;
 @class GTLRCloudResourceManager_EffectiveTag;
 @class GTLRCloudResourceManager_EffectiveTagBindingCollection_EffectiveTags;
@@ -34,10 +35,12 @@
 @class GTLRCloudResourceManager_Project;
 @class GTLRCloudResourceManager_Project_Labels;
 @class GTLRCloudResourceManager_Project_Tags;
+@class GTLRCloudResourceManager_ResourceFilter;
 @class GTLRCloudResourceManager_Status;
 @class GTLRCloudResourceManager_Status_Details_Item;
 @class GTLRCloudResourceManager_TagBinding;
 @class GTLRCloudResourceManager_TagBindingCollection_Tags;
+@class GTLRCloudResourceManager_TagFilter;
 @class GTLRCloudResourceManager_TagHold;
 @class GTLRCloudResourceManager_TagKey;
 @class GTLRCloudResourceManager_TagKey_PurposeData;
@@ -80,6 +83,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_AuditLogConfig_LogT
  *  Value: "LOG_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_AuditLogConfig_LogType_LogTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudResourceManager_Boundary.state
+
+/**
+ *  Boundary is operational, and the management project is fully active.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_Boundary_State_Active;
+/**
+ *  Boundary is being created.
+ *
+ *  Value: "CREATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_Boundary_State_Creating;
+/**
+ *  Unspecified state.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_Boundary_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudResourceManager_CapabilityConfig.state
@@ -301,6 +326,30 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_Organization_State_
 FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_Organization_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudResourceManager_Project.managementType
+
+/**
+ *  The Management Project is a hub project that manages resources across a
+ *  boundary.
+ *
+ *  Value: "HUB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_Project_ManagementType_Hub;
+/**
+ *  Unspecified type.
+ *
+ *  Value: "MANAGEMENT_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_Project_ManagementType_ManagementTypeUnspecified;
+/**
+ *  The Management Project is a self-managed project that constitutes its own
+ *  boundary.
+ *
+ *  Value: "SELF_MANAGED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_Project_ManagementType_SelfManaged;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudResourceManager_Project.state
 
 /**
@@ -506,6 +555,108 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_TagKey_Purpose_Purp
 
 
 /**
+ *  A Boundary is a collection of projects defined by a filtering criteria on an
+ *  organization or a folder.
+ */
+@interface GTLRCloudResourceManager_Boundary : GTLRObject
+
+/** Output only. The creation time of the Boundary. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. Human-readable display name of the Boundary. When present it must
+ *  be between 4 to 30 characters. Allowed characters are: lowercase and
+ *  uppercase letters, numbers, hyphen, single-quote, double-quote, space, and
+ *  exclamation point. Example: `My Production Boundary`
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  This checksum is computed by the server based on the value of other fields,
+ *  and may be sent on update and delete requests to ensure the client has an
+ *  up-to-date value before proceeding.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Output only. The Management Project of the CapabilityConfig this Boundary is
+ *  associated with. Will be empty if the Boundary is not associated with any
+ *  CapabilityConfig. Format: `projects/{project_number}` Example:
+ *  `projects/123456789012`
+ */
+@property(nonatomic, copy, nullable) NSString *managementProject;
+
+/**
+ *  Identifier. The unique resource name of the Boundary. Format: -
+ *  `organizations/{organization_id}/boundaries/{boundary_id}` -
+ *  `folders/{folder_id}/boundaries/{boundary_id}` Example:
+ *  `folders/123456789/boundaries/my-boundary`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The filter defining the criteria for descendant projects to be
+ *  included in the Boundary. Descendant projects are dynamically included in
+ *  the Boundary based on this filter.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudResourceManager_ResourceFilter *resourceFilter;
+
+/**
+ *  Output only. The lifecycle state of the Boundary.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudResourceManager_Boundary_State_Active Boundary is
+ *        operational, and the management project is fully active. (Value:
+ *        "ACTIVE")
+ *    @arg @c kGTLRCloudResourceManager_Boundary_State_Creating Boundary is
+ *        being created. (Value: "CREATING")
+ *    @arg @c kGTLRCloudResourceManager_Boundary_State_StateUnspecified
+ *        Unspecified state. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** Output only. The most recent time this Boundary was modified. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  A BoundaryConfig defines the common configurations regarding Boundaries
+ *  defined under a parent CRM node (Folder or Organization), such as the
+ *  partitioning tag key.
+ */
+@interface GTLRCloudResourceManager_BoundaryConfig : GTLRObject
+
+/**
+ *  This checksum is computed by the server based on the value of other fields,
+ *  and may be sent on update requests to ensure the client has an up-to-date
+ *  value before proceeding.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Identifier. The unique resource name of the BoundaryConfig. Format: -
+ *  `organizations/{organization}/boundaryConfig` -
+ *  `folders/{folder}/boundaryConfig` Example:
+ *  `folders/123456789/boundaryConfig`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The namespaced name of the tag key. Format:
+ *  `{parent_id}/{tag_key_short_name}` Example: `123456789012/env` (where
+ *  123456789012 is the organization ID).
+ */
+@property(nonatomic, copy, nullable) NSString *tagKey;
+
+/** Output only. The most recent time this BoundaryConfig was modified. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
  *  Representation of a Capability.
  */
 @interface GTLRCloudResourceManager_Capability : GTLRObject
@@ -661,6 +812,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_TagKey_Purpose_Purp
 
 
 /**
+ *  Metadata for the `CreateSemanticTagBinding` long-running operation.
+ */
+@interface GTLRCloudResourceManager_CreateSemanticTagBindingMetadata : GTLRObject
+@end
+
+
+/**
+ *  Runtime operation information for creating a `SemanticTagValue`.
+ */
+@interface GTLRCloudResourceManager_CreateSemanticTagValueMetadata : GTLRObject
+@end
+
+
+/**
  *  Runtime operation information for creating a TagValue.
  */
 @interface GTLRCloudResourceManager_CreateTagBindingMetadata : GTLRObject
@@ -718,6 +883,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_TagKey_Purpose_Purp
  *  returned by `DeleteProject`.
  */
 @interface GTLRCloudResourceManager_DeleteProjectMetadata : GTLRObject
+@end
+
+
+/**
+ *  Metadata for the `DeleteSemanticTagBinding` long-running operation.
+ */
+@interface GTLRCloudResourceManager_DeleteSemanticTagBindingMetadata : GTLRObject
+@end
+
+
+/**
+ *  Runtime operation information for deleting a `SemanticTagValue`.
+ */
+@interface GTLRCloudResourceManager_DeleteSemanticTagValueMetadata : GTLRObject
 @end
 
 
@@ -1261,6 +1440,41 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_TagKey_Purpose_Purp
  *  ['resourcemanager.projects.delete']
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *restrictions;
+
+@end
+
+
+/**
+ *  A page of the response received from the ListBoundaries method. A paginated
+ *  response where more pages are available has `next_page_token` set. This
+ *  token can be used in a subsequent request to retrieve the next page. NOTE: A
+ *  response may contain fewer elements than the request `page_size` and still
+ *  have a `next_page_token`.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "boundaries" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRCloudResourceManager_ListBoundariesResponse : GTLRCollectionObject
+
+/**
+ *  The list of Boundaries under the parent. This list can be paginated.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudResourceManager_Boundary *> *boundaries;
+
+/**
+ *  Pagination token. If the result set is too large to fit in a single
+ *  response, this token is returned. It encodes the position of the current
+ *  result cursor. Feeding this value into a new list request with the
+ *  `page_token` parameter gives the next page of the results. When
+ *  `next_page_token` is not filled in, there is no next page and the list
+ *  returned is the last page in the result set.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 
@@ -1885,6 +2099,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_TagKey_Purpose_Purp
 @property(nonatomic, strong, nullable) GTLRCloudResourceManager_Project_Labels *labels;
 
 /**
+ *  Output only. The type of Management Project. This field is only populated if
+ *  `is_management_project` is `true`.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudResourceManager_Project_ManagementType_Hub The
+ *        Management Project is a hub project that manages resources across a
+ *        boundary. (Value: "HUB")
+ *    @arg @c kGTLRCloudResourceManager_Project_ManagementType_ManagementTypeUnspecified
+ *        Unspecified type. (Value: "MANAGEMENT_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudResourceManager_Project_ManagementType_SelfManaged The
+ *        Management Project is a self-managed project that constitutes its own
+ *        boundary. (Value: "SELF_MANAGED")
+ */
+@property(nonatomic, copy, nullable) NSString *managementType;
+
+/**
  *  Output only. The unique resource name of the project. It is an int64
  *  generated number prefixed by "projects/". Example: `projects/415104041262`
  */
@@ -1993,6 +2223,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_TagKey_Purpose_Purp
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *ready;
+
+@end
+
+
+/**
+ *  Filter to define the criteria for including projects in the Boundary.
+ */
+@interface GTLRCloudResourceManager_ResourceFilter : GTLRObject
+
+/** A tag based filter. A project must match it to be included. */
+@property(nonatomic, strong, nullable) GTLRCloudResourceManager_TagFilter *tagFilter;
 
 @end
 
@@ -2239,6 +2480,29 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_TagKey_Purpose_Purp
  *        fetch them all at once.
  */
 @interface GTLRCloudResourceManager_TagBindingCollection_Tags : GTLRObject
+@end
+
+
+/**
+ *  Matches projects based on a specific tag key and a specific tag value.
+ */
+@interface GTLRCloudResourceManager_TagFilter : GTLRObject
+
+/**
+ *  Required. Immutable. The namespaced name of the tag key. Format:
+ *  `{parent_id}/{tag_key_short_name}` Example: `123456789012/env` (where
+ *  123456789012 is the organization ID).
+ */
+@property(nonatomic, copy, nullable) NSString *tagKey;
+
+/**
+ *  Required. The allowed value for the tag key. A project matches this tag
+ *  filter if its effective tag value for the given `tag_key` matches this
+ *  value. Format: short name of the tag value. Example: `production` or
+ *  `staging`.
+ */
+@property(nonatomic, copy, nullable) NSString *tagValue;
+
 @end
 
 

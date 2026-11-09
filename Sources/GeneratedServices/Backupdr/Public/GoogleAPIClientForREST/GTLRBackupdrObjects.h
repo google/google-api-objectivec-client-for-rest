@@ -22,9 +22,13 @@
 @class GTLRBackupdr_AlloyDBClusterDataSourceProperties;
 @class GTLRBackupdr_AlloyDBClusterDataSourceReferenceProperties;
 @class GTLRBackupdr_AlloyDbPitrWindow;
+@class GTLRBackupdr_AppliedAutoProtectionPolicy;
 @class GTLRBackupdr_AttachedDisk;
 @class GTLRBackupdr_AuditConfig;
 @class GTLRBackupdr_AuditLogConfig;
+@class GTLRBackupdr_AutoProtectionDetails;
+@class GTLRBackupdr_AutoProtectionPolicy;
+@class GTLRBackupdr_AutoProtectionPolicyBinding;
 @class GTLRBackupdr_Backup;
 @class GTLRBackupdr_Backup_Labels;
 @class GTLRBackupdr_BackupApplianceBackupConfig;
@@ -38,13 +42,19 @@
 @class GTLRBackupdr_BackupPlan;
 @class GTLRBackupdr_BackupPlan_Labels;
 @class GTLRBackupdr_BackupPlanAssociation;
+@class GTLRBackupdr_BackupPlanDetail;
 @class GTLRBackupdr_BackupPlanRevision;
 @class GTLRBackupdr_BackupRule;
+@class GTLRBackupdr_BackupSelectionConfig;
 @class GTLRBackupdr_BackupVault;
 @class GTLRBackupdr_BackupVault_Annotations;
 @class GTLRBackupdr_BackupVault_Labels;
 @class GTLRBackupdr_BackupWindow;
 @class GTLRBackupdr_Binding;
+@class GTLRBackupdr_BindingEvaluationSummary;
+@class GTLRBackupdr_BindingMatchingResource;
+@class GTLRBackupdr_BindingSummary;
+@class GTLRBackupdr_CleanupPhaseInfo;
 @class GTLRBackupdr_CloudSqlInstanceBackupPlanAssociationProperties;
 @class GTLRBackupdr_CloudSqlInstanceBackupProperties;
 @class GTLRBackupdr_CloudSqlInstanceDataSourceProperties;
@@ -58,6 +68,7 @@
 @class GTLRBackupdr_ComputeInstanceRestoreProperties_Labels;
 @class GTLRBackupdr_ComputeInstanceTargetEnvironment;
 @class GTLRBackupdr_ConfidentialInstanceConfig;
+@class GTLRBackupdr_Criteria;
 @class GTLRBackupdr_CustomerEncryptionKey;
 @class GTLRBackupdr_DataSource;
 @class GTLRBackupdr_DataSource_Labels;
@@ -78,6 +89,7 @@
 @class GTLRBackupdr_DisplayDevice;
 @class GTLRBackupdr_EncryptionConfig;
 @class GTLRBackupdr_Entry;
+@class GTLRBackupdr_ExecutionSummary;
 @class GTLRBackupdr_Expr;
 @class GTLRBackupdr_FilestoreInstanceBackupPlanAssociationProperties;
 @class GTLRBackupdr_FilestoreInstanceBackupProperties;
@@ -91,6 +103,7 @@
 @class GTLRBackupdr_InitializeParams;
 @class GTLRBackupdr_InstanceParams;
 @class GTLRBackupdr_InstanceParams_ResourceManagerTags;
+@class GTLRBackupdr_KeyValuePair;
 @class GTLRBackupdr_LabelKeyValPair;
 @class GTLRBackupdr_Location;
 @class GTLRBackupdr_Location_Labels;
@@ -98,7 +111,12 @@
 @class GTLRBackupdr_ManagementServer;
 @class GTLRBackupdr_ManagementServer_Labels;
 @class GTLRBackupdr_ManagementURI;
+@class GTLRBackupdr_MatchingCondition;
 @class GTLRBackupdr_Metadata;
+@class GTLRBackupdr_NetAppVolumeBackupPlanAssociationProperties;
+@class GTLRBackupdr_NetAppVolumeBackupProperties;
+@class GTLRBackupdr_NetAppVolumeDataSourceProperties;
+@class GTLRBackupdr_NetAppVolumeDataSourceReferenceProperties;
 @class GTLRBackupdr_NetworkConfig;
 @class GTLRBackupdr_NetworkInterface;
 @class GTLRBackupdr_NetworkPerformanceConfig;
@@ -110,10 +128,27 @@
 @class GTLRBackupdr_PlanConfig;
 @class GTLRBackupdr_PlanRule;
 @class GTLRBackupdr_Policy;
+@class GTLRBackupdr_PolicyEvaluationSummary;
+@class GTLRBackupdr_PostRestoreConfig;
+@class GTLRBackupdr_PostRestorePhaseInfo;
+@class GTLRBackupdr_PreparePhaseInfo;
+@class GTLRBackupdr_PreRestoreConfig;
+@class GTLRBackupdr_PreRestorePhaseInfo;
 @class GTLRBackupdr_RegionDiskTargetEnvironment;
 @class GTLRBackupdr_ResourceBackupConfig;
 @class GTLRBackupdr_ResourceBackupConfig_TargetResourceLabels;
 @class GTLRBackupdr_RestoreDiskFromInstanceOptions;
+@class GTLRBackupdr_RestorePhaseInfo;
+@class GTLRBackupdr_RestorePhaseInfo_RestoreProperties;
+@class GTLRBackupdr_RestoreTemplate;
+@class GTLRBackupdr_RestoreTemplate_Labels;
+@class GTLRBackupdr_RestoreTemplate_RestoreProperties;
+@class GTLRBackupdr_RestoreTemplateExecution;
+@class GTLRBackupdr_RestoreVerificationCleanupRule;
+@class GTLRBackupdr_RestoreVerificationPlan;
+@class GTLRBackupdr_RestoreVerificationPlan_Labels;
+@class GTLRBackupdr_RestoreVerificationPlanAssociation;
+@class GTLRBackupdr_RestoreVerificationPlanAssociation_Labels;
 @class GTLRBackupdr_RuleConfigInfo;
 @class GTLRBackupdr_Scheduling;
 @class GTLRBackupdr_SchedulingDuration;
@@ -126,6 +161,10 @@
 @class GTLRBackupdr_TargetResource;
 @class GTLRBackupdr_TemplateConfig;
 @class GTLRBackupdr_TriggerBackupRequest_Labels;
+@class GTLRBackupdr_TriggerSummary;
+@class GTLRBackupdr_VerificationConfig;
+@class GTLRBackupdr_VerificationPhaseInfo;
+@class GTLRBackupdr_VerificationSummary;
 @class GTLRBackupdr_WeekDayOfMonth;
 @class GTLRBackupdr_WorkforceIdentityBasedManagementURI;
 @class GTLRBackupdr_WorkforceIdentityBasedOAuth2ClientID;
@@ -213,6 +252,34 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_AllocationAffinity_ConsumeReser
  *  Value: "TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBackupdr_AllocationAffinity_ConsumeReservationType_TypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRBackupdr_AppliedAutoProtectionPolicy.status
+
+/**
+ *  The policy has been applied and is active.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_AppliedAutoProtectionPolicy_Status_Active;
+/**
+ *  The policy is in the process of being applied.
+ *
+ *  Value: "CREATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_AppliedAutoProtectionPolicy_Status_Creating;
+/**
+ *  The policy is in the process of being removed.
+ *
+ *  Value: "DELETION_INITIATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_AppliedAutoProtectionPolicy_Status_DeletionInitiated;
+/**
+ *  State is not specified.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_AppliedAutoProtectionPolicy_Status_StateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRBackupdr_AttachedDisk.diskInterface
@@ -367,6 +434,102 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_AuditLogConfig_LogType_DataWrit
  *  Value: "LOG_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBackupdr_AuditLogConfig_LogType_LogTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRBackupdr_AutoProtectionDetails.state
+
+/**
+ *  Resource is protected.
+ *
+ *  Value: "PROTECTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_AutoProtectionDetails_State_Protected;
+/**
+ *  Resource protection failed.
+ *
+ *  Value: "PROTECTION_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_AutoProtectionDetails_State_ProtectionFailed;
+/**
+ *  State unspecified.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_AutoProtectionDetails_State_StateUnspecified;
+/**
+ *  Resource is being unprotected.
+ *
+ *  Value: "UNPROTECTING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_AutoProtectionDetails_State_Unprotecting;
+/**
+ *  Resource unprotection failed.
+ *
+ *  Value: "UNPROTECTION_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_AutoProtectionDetails_State_UnprotectionFailed;
+
+// ----------------------------------------------------------------------------
+// GTLRBackupdr_AutoProtectionPolicy.state
+
+/**
+ *  The policy is active and protecting matching resources.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_AutoProtectionPolicy_State_Active;
+/**
+ *  The policy is being created.
+ *
+ *  Value: "CREATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_AutoProtectionPolicy_State_Creating;
+/**
+ *  The policy is being deleted.
+ *
+ *  Value: "DELETING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_AutoProtectionPolicy_State_Deleting;
+/**
+ *  The state of the policy is unspecified.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_AutoProtectionPolicy_State_StateUnspecified;
+/**
+ *  The policy is being updated.
+ *
+ *  Value: "UPDATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_AutoProtectionPolicy_State_Updating;
+
+// ----------------------------------------------------------------------------
+// GTLRBackupdr_AutoProtectionPolicyBinding.state
+
+/**
+ *  The binding is active.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_AutoProtectionPolicyBinding_State_Active;
+/**
+ *  The binding is being created.
+ *
+ *  Value: "CREATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_AutoProtectionPolicyBinding_State_Creating;
+/**
+ *  The binding deletion is initiated.
+ *
+ *  Value: "DELETION_INITIATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_AutoProtectionPolicyBinding_State_DeletionInitiated;
+/**
+ *  The state of the binding is unspecified.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_AutoProtectionPolicyBinding_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRBackupdr_Backup.backupRetentionInheritance
@@ -821,6 +984,58 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_BackupVault_State_StateUnspecif
 FOUNDATION_EXTERN NSString * const kGTLRBackupdr_BackupVault_State_Updating;
 
 // ----------------------------------------------------------------------------
+// GTLRBackupdr_CleanupPhaseInfo.phaseState
+
+/**
+ *  The phase encountered an error and failed.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_CleanupPhaseInfo_PhaseState_Failed;
+/**
+ *  This phase is pending execution.
+ *
+ *  Value: "PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_CleanupPhaseInfo_PhaseState_Pending;
+/**
+ *  Phase state is not set.
+ *
+ *  Value: "PHASE_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_CleanupPhaseInfo_PhaseState_PhaseStateUnspecified;
+/**
+ *  The phase is actively executing.
+ *
+ *  Value: "RUNNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_CleanupPhaseInfo_PhaseState_Running;
+/**
+ *  The phase was skipped.
+ *
+ *  Value: "SKIPPED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_CleanupPhaseInfo_PhaseState_Skipped;
+/**
+ *  The phase completed successfully.
+ *
+ *  Value: "SUCCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_CleanupPhaseInfo_PhaseState_Succeeded;
+/**
+ *  The phase timed out.
+ *
+ *  Value: "TIMED_OUT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_CleanupPhaseInfo_PhaseState_TimedOut;
+/**
+ *  The phase is waiting to be executed.
+ *
+ *  Value: "WAITING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_CleanupPhaseInfo_PhaseState_Waiting;
+
+// ----------------------------------------------------------------------------
 // GTLRBackupdr_CloudSqlInstanceInitializationConfig.edition
 
 /**
@@ -1136,6 +1351,40 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_EndTrialRequest_EndReason_EndRe
  *  Value: "MOVE_TO_PAID"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBackupdr_EndTrialRequest_EndReason_MoveToPaid;
+
+// ----------------------------------------------------------------------------
+// GTLRBackupdr_ExecutionSummary.lastExecutionState
+
+/**
+ *  Resources are being deleted (cleanup).
+ *
+ *  Value: "DELETING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_ExecutionSummary_LastExecutionState_Deleting;
+/**
+ *  State not set.
+ *
+ *  Value: "EXECUTION_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_ExecutionSummary_LastExecutionState_ExecutionStateUnspecified;
+/**
+ *  Execution failed.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_ExecutionSummary_LastExecutionState_Failed;
+/**
+ *  Execution is running.
+ *
+ *  Value: "RUNNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_ExecutionSummary_LastExecutionState_Running;
+/**
+ *  Execution succeeded.
+ *
+ *  Value: "SUCCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_ExecutionSummary_LastExecutionState_Succeeded;
 
 // ----------------------------------------------------------------------------
 // GTLRBackupdr_GuestOsFeature.type
@@ -1467,6 +1716,162 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_NodeAffinity_OperatorProperty_N
 FOUNDATION_EXTERN NSString * const kGTLRBackupdr_NodeAffinity_OperatorProperty_OperatorUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRBackupdr_PostRestorePhaseInfo.phaseState
+
+/**
+ *  The phase encountered an error and failed.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_PostRestorePhaseInfo_PhaseState_Failed;
+/**
+ *  This phase is pending execution.
+ *
+ *  Value: "PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_PostRestorePhaseInfo_PhaseState_Pending;
+/**
+ *  Phase state is not set.
+ *
+ *  Value: "PHASE_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_PostRestorePhaseInfo_PhaseState_PhaseStateUnspecified;
+/**
+ *  The phase is actively executing.
+ *
+ *  Value: "RUNNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_PostRestorePhaseInfo_PhaseState_Running;
+/**
+ *  The phase was skipped.
+ *
+ *  Value: "SKIPPED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_PostRestorePhaseInfo_PhaseState_Skipped;
+/**
+ *  The phase completed successfully.
+ *
+ *  Value: "SUCCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_PostRestorePhaseInfo_PhaseState_Succeeded;
+/**
+ *  The phase timed out.
+ *
+ *  Value: "TIMED_OUT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_PostRestorePhaseInfo_PhaseState_TimedOut;
+/**
+ *  The phase is waiting to be executed.
+ *
+ *  Value: "WAITING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_PostRestorePhaseInfo_PhaseState_Waiting;
+
+// ----------------------------------------------------------------------------
+// GTLRBackupdr_PreparePhaseInfo.phaseState
+
+/**
+ *  The phase encountered an error and failed.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_PreparePhaseInfo_PhaseState_Failed;
+/**
+ *  This phase is pending execution.
+ *
+ *  Value: "PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_PreparePhaseInfo_PhaseState_Pending;
+/**
+ *  Phase state is not set.
+ *
+ *  Value: "PHASE_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_PreparePhaseInfo_PhaseState_PhaseStateUnspecified;
+/**
+ *  The phase is actively executing.
+ *
+ *  Value: "RUNNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_PreparePhaseInfo_PhaseState_Running;
+/**
+ *  The phase was skipped.
+ *
+ *  Value: "SKIPPED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_PreparePhaseInfo_PhaseState_Skipped;
+/**
+ *  The phase completed successfully.
+ *
+ *  Value: "SUCCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_PreparePhaseInfo_PhaseState_Succeeded;
+/**
+ *  The phase timed out.
+ *
+ *  Value: "TIMED_OUT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_PreparePhaseInfo_PhaseState_TimedOut;
+/**
+ *  The phase is waiting to be executed.
+ *
+ *  Value: "WAITING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_PreparePhaseInfo_PhaseState_Waiting;
+
+// ----------------------------------------------------------------------------
+// GTLRBackupdr_PreRestorePhaseInfo.phaseState
+
+/**
+ *  The phase encountered an error and failed.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_PreRestorePhaseInfo_PhaseState_Failed;
+/**
+ *  This phase is pending execution.
+ *
+ *  Value: "PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_PreRestorePhaseInfo_PhaseState_Pending;
+/**
+ *  Phase state is not set.
+ *
+ *  Value: "PHASE_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_PreRestorePhaseInfo_PhaseState_PhaseStateUnspecified;
+/**
+ *  The phase is actively executing.
+ *
+ *  Value: "RUNNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_PreRestorePhaseInfo_PhaseState_Running;
+/**
+ *  The phase was skipped.
+ *
+ *  Value: "SKIPPED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_PreRestorePhaseInfo_PhaseState_Skipped;
+/**
+ *  The phase completed successfully.
+ *
+ *  Value: "SUCCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_PreRestorePhaseInfo_PhaseState_Succeeded;
+/**
+ *  The phase timed out.
+ *
+ *  Value: "TIMED_OUT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_PreRestorePhaseInfo_PhaseState_TimedOut;
+/**
+ *  The phase is waiting to be executed.
+ *
+ *  Value: "WAITING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_PreRestorePhaseInfo_PhaseState_Waiting;
+
+// ----------------------------------------------------------------------------
 // GTLRBackupdr_ResourceBackupConfig.targetResourceType
 
 /**
@@ -1505,6 +1910,292 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_ResourceBackupConfig_TargetReso
  *  Value: "RESOURCE_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBackupdr_ResourceBackupConfig_TargetResourceType_ResourceTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRBackupdr_RestorePhaseInfo.phaseState
+
+/**
+ *  The phase encountered an error and failed.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_RestorePhaseInfo_PhaseState_Failed;
+/**
+ *  This phase is pending execution.
+ *
+ *  Value: "PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_RestorePhaseInfo_PhaseState_Pending;
+/**
+ *  Phase state is not set.
+ *
+ *  Value: "PHASE_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_RestorePhaseInfo_PhaseState_PhaseStateUnspecified;
+/**
+ *  The phase is actively executing.
+ *
+ *  Value: "RUNNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_RestorePhaseInfo_PhaseState_Running;
+/**
+ *  The phase was skipped.
+ *
+ *  Value: "SKIPPED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_RestorePhaseInfo_PhaseState_Skipped;
+/**
+ *  The phase completed successfully.
+ *
+ *  Value: "SUCCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_RestorePhaseInfo_PhaseState_Succeeded;
+/**
+ *  The phase timed out.
+ *
+ *  Value: "TIMED_OUT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_RestorePhaseInfo_PhaseState_TimedOut;
+/**
+ *  The phase is waiting to be executed.
+ *
+ *  Value: "WAITING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_RestorePhaseInfo_PhaseState_Waiting;
+
+// ----------------------------------------------------------------------------
+// GTLRBackupdr_RestoreTemplate.state
+
+/**
+ *  The template is active and ready to use.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_RestoreTemplate_State_Active;
+/**
+ *  The template is being created.
+ *
+ *  Value: "CREATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_RestoreTemplate_State_Creating;
+/**
+ *  The template is being deleted.
+ *
+ *  Value: "DELETING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_RestoreTemplate_State_Deleting;
+/**
+ *  State not specified.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_RestoreTemplate_State_StateUnspecified;
+/**
+ *  The template is being updated.
+ *
+ *  Value: "UPDATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_RestoreTemplate_State_Updating;
+
+// ----------------------------------------------------------------------------
+// GTLRBackupdr_RestoreTemplateExecution.phase
+
+/**
+ *  Cleaning up resources.
+ *
+ *  Value: "CLEANING_UP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_RestoreTemplateExecution_Phase_CleaningUp;
+/**
+ *  Execution completed.
+ *
+ *  Value: "COMPLETED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_RestoreTemplateExecution_Phase_Completed;
+/**
+ *  Executing post-restore action.
+ *
+ *  Value: "EXECUTING_POST_RESTORE_ACTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_RestoreTemplateExecution_Phase_ExecutingPostRestoreAction;
+/**
+ *  Executing pre-restore action.
+ *
+ *  Value: "EXECUTING_PRE_RESTORE_ACTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_RestoreTemplateExecution_Phase_ExecutingPreRestoreAction;
+/**
+ *  Execution phase not specified.
+ *
+ *  Value: "EXECUTION_PHASE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_RestoreTemplateExecution_Phase_ExecutionPhaseUnspecified;
+/**
+ *  Preparing for execution.
+ *
+ *  Value: "PREPARING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_RestoreTemplateExecution_Phase_Preparing;
+/**
+ *  Restoring the resource.
+ *
+ *  Value: "RESTORING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_RestoreTemplateExecution_Phase_Restoring;
+/**
+ *  Verifying the restored resource.
+ *
+ *  Value: "VERIFYING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_RestoreTemplateExecution_Phase_Verifying;
+
+// ----------------------------------------------------------------------------
+// GTLRBackupdr_RestoreTemplateExecution.state
+
+/**
+ *  Resources are being deleted (cleanup).
+ *
+ *  Value: "DELETING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_RestoreTemplateExecution_State_Deleting;
+/**
+ *  State not set.
+ *
+ *  Value: "EXECUTION_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_RestoreTemplateExecution_State_ExecutionStateUnspecified;
+/**
+ *  Execution failed.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_RestoreTemplateExecution_State_Failed;
+/**
+ *  Execution is running.
+ *
+ *  Value: "RUNNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_RestoreTemplateExecution_State_Running;
+/**
+ *  Execution succeeded.
+ *
+ *  Value: "SUCCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_RestoreTemplateExecution_State_Succeeded;
+
+// ----------------------------------------------------------------------------
+// GTLRBackupdr_RestoreTemplateExecution.type
+
+/**
+ *  Execution type not specified.
+ *
+ *  Value: "EXECUTION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_RestoreTemplateExecution_Type_ExecutionTypeUnspecified;
+/**
+ *  On-demand execution.
+ *
+ *  Value: "ON_DEMAND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_RestoreTemplateExecution_Type_OnDemand;
+/**
+ *  Scheduled execution.
+ *
+ *  Value: "SCHEDULED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_RestoreTemplateExecution_Type_Scheduled;
+
+// ----------------------------------------------------------------------------
+// GTLRBackupdr_RestoreVerificationPlan.state
+
+/**
+ *  The resource has been created and is fully usable.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_RestoreVerificationPlan_State_Active;
+/**
+ *  The resource is being created.
+ *
+ *  Value: "CREATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_RestoreVerificationPlan_State_Creating;
+/**
+ *  The resource is being deleted.
+ *
+ *  Value: "DELETING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_RestoreVerificationPlan_State_Deleting;
+/**
+ *  The resource is in an error state due to a configuration issue.
+ *
+ *  Value: "ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_RestoreVerificationPlan_State_Error;
+/**
+ *  The resource has been created but is not usable.
+ *
+ *  Value: "INACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_RestoreVerificationPlan_State_Inactive;
+/**
+ *  State not set.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_RestoreVerificationPlan_State_StateUnspecified;
+/**
+ *  The resource is being updated.
+ *
+ *  Value: "UPDATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_RestoreVerificationPlan_State_Updating;
+
+// ----------------------------------------------------------------------------
+// GTLRBackupdr_RestoreVerificationPlanAssociation.state
+
+/**
+ *  The resource has been created and is fully usable.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_RestoreVerificationPlanAssociation_State_Active;
+/**
+ *  The resource is being created.
+ *
+ *  Value: "CREATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_RestoreVerificationPlanAssociation_State_Creating;
+/**
+ *  The resource is being deleted.
+ *
+ *  Value: "DELETING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_RestoreVerificationPlanAssociation_State_Deleting;
+/**
+ *  The resource is in an error state due to a configuration issue.
+ *
+ *  Value: "ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_RestoreVerificationPlanAssociation_State_Error;
+/**
+ *  The resource has been created but is not usable.
+ *
+ *  Value: "INACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_RestoreVerificationPlanAssociation_State_Inactive;
+/**
+ *  State not set.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_RestoreVerificationPlanAssociation_State_StateUnspecified;
+/**
+ *  The resource is being updated.
+ *
+ *  Value: "UPDATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_RestoreVerificationPlanAssociation_State_Updating;
 
 // ----------------------------------------------------------------------------
 // GTLRBackupdr_RuleConfigInfo.lastBackupState
@@ -1873,6 +2564,80 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_Trial_State_Subscribed;
  *  Value: "UNSUBSCRIBED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBackupdr_Trial_State_Unsubscribed;
+
+// ----------------------------------------------------------------------------
+// GTLRBackupdr_VerificationPhaseInfo.phaseState
+
+/**
+ *  The phase encountered an error and failed.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_VerificationPhaseInfo_PhaseState_Failed;
+/**
+ *  This phase is pending execution.
+ *
+ *  Value: "PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_VerificationPhaseInfo_PhaseState_Pending;
+/**
+ *  Phase state is not set.
+ *
+ *  Value: "PHASE_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_VerificationPhaseInfo_PhaseState_PhaseStateUnspecified;
+/**
+ *  The phase is actively executing.
+ *
+ *  Value: "RUNNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_VerificationPhaseInfo_PhaseState_Running;
+/**
+ *  The phase was skipped.
+ *
+ *  Value: "SKIPPED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_VerificationPhaseInfo_PhaseState_Skipped;
+/**
+ *  The phase completed successfully.
+ *
+ *  Value: "SUCCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_VerificationPhaseInfo_PhaseState_Succeeded;
+/**
+ *  The phase timed out.
+ *
+ *  Value: "TIMED_OUT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_VerificationPhaseInfo_PhaseState_TimedOut;
+/**
+ *  The phase is waiting to be executed.
+ *
+ *  Value: "WAITING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_VerificationPhaseInfo_PhaseState_Waiting;
+
+// ----------------------------------------------------------------------------
+// GTLRBackupdr_VerificationSummary.lastVerificationState
+
+/**
+ *  Verification failed.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_VerificationSummary_LastVerificationState_Failed;
+/**
+ *  Verification state is unspecified.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_VerificationSummary_LastVerificationState_StateUnspecified;
+/**
+ *  Verification succeeded.
+ *
+ *  Value: "SUCCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_VerificationSummary_LastVerificationState_Succeeded;
 
 // ----------------------------------------------------------------------------
 // GTLRBackupdr_WeekDayOfMonth.dayOfWeek
@@ -2282,6 +3047,70 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
 
 
 /**
+ *  AppliedAutoProtectionPolicy is a read-only view of AutoProtectionPolicy and
+ *  AutoProtectionPolicyBinding resources that apply to a given workload
+ *  project.
+ */
+@interface GTLRBackupdr_AppliedAutoProtectionPolicy : GTLRObject
+
+/**
+ *  Output only. The set of backup plan configurations, mirroring the
+ *  backup_plan_details from the source AutoProtectionPolicy. Each element
+ *  specifies a backup plan for a given resource type.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRBackupdr_BackupPlanDetail *> *backupPlanDetails;
+
+/**
+ *  Output only. The summary of the last policy application when the job has
+ *  run.
+ */
+@property(nonatomic, strong, nullable) GTLRBackupdr_BindingEvaluationSummary *bindingEvaluationSummary;
+
+/** Output only. Timestamp indicating when the binding was last created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Output only. The criteria resources must meet for this rule to apply. From
+ *  AutoProtectionPolicy.criteria.
+ */
+@property(nonatomic, strong, nullable) GTLRBackupdr_Criteria *criteria;
+
+/**
+ *  Identifier. Canonical resource name. Format:
+ *  projects/{workload-project-number}/locations/{location}/appliedAutoProtectionPolicies/{id}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The full resource name of the AutoProtectionPolicyBinding that
+ *  applies the source policy to a scope including this workload project. e.g.,
+ *  projects/{admin-project}/locations/{location}/autoProtectionPolicies/{policy_id}/autoProtectionPolicyBindings/{binding_id}.
+ */
+@property(nonatomic, copy, nullable) NSString *sourceBinding;
+
+/**
+ *  Output only. The status of the applied auto protection policy.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBackupdr_AppliedAutoProtectionPolicy_Status_Active The policy
+ *        has been applied and is active. (Value: "ACTIVE")
+ *    @arg @c kGTLRBackupdr_AppliedAutoProtectionPolicy_Status_Creating The
+ *        policy is in the process of being applied. (Value: "CREATING")
+ *    @arg @c kGTLRBackupdr_AppliedAutoProtectionPolicy_Status_DeletionInitiated
+ *        The policy is in the process of being removed. (Value:
+ *        "DELETION_INITIATED")
+ *    @arg @c kGTLRBackupdr_AppliedAutoProtectionPolicy_Status_StateUnspecified
+ *        State is not specified. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *status;
+
+/** Output only. Timestamp indicating when the binding was last modified. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
  *  An instance-attached disk resource.
  */
 @interface GTLRBackupdr_AttachedDisk : GTLRObject
@@ -2501,6 +3330,189 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
 
 
 /**
+ *  AutoProtectionDetails contains the protection details of a resource from the
+ *  current binding's perspective.
+ */
+@interface GTLRBackupdr_AutoProtectionDetails : GTLRObject
+
+/**
+ *  Output only. Resource name of backup plan association linked to the
+ *  resource, if any. Format:
+ *  projects/{project}/locations/{location}/backupPlanAssociations/{backupPlanAssociationId}
+ */
+@property(nonatomic, copy, nullable) NSString *backupPlanAssociation;
+
+/**
+ *  Output only. Resource name of the datasource linked to the resource, if any.
+ *  Format:
+ *  projects/{project}/locations/{location}/backupVaults/{backupVaultId}/dataSources/{dataSourceId}
+ */
+@property(nonatomic, copy, nullable) NSString *dataSource;
+
+/**
+ *  Output only. Error during last sync for protection/unprotection, if any.
+ */
+@property(nonatomic, strong, nullable) GTLRBackupdr_Status *error;
+
+/**
+ *  Output only. Protection state of the resource from the current binding's
+ *  perspective. Output only.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBackupdr_AutoProtectionDetails_State_Protected Resource is
+ *        protected. (Value: "PROTECTED")
+ *    @arg @c kGTLRBackupdr_AutoProtectionDetails_State_ProtectionFailed
+ *        Resource protection failed. (Value: "PROTECTION_FAILED")
+ *    @arg @c kGTLRBackupdr_AutoProtectionDetails_State_StateUnspecified State
+ *        unspecified. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRBackupdr_AutoProtectionDetails_State_Unprotecting Resource is
+ *        being unprotected. (Value: "UNPROTECTING")
+ *    @arg @c kGTLRBackupdr_AutoProtectionDetails_State_UnprotectionFailed
+ *        Resource unprotection failed. (Value: "UNPROTECTION_FAILED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
+ *  An AutoprotectionPolicy is a policy resource designed to automate backup
+ *  management, moving from manual per-resource protection to a bulk approach.
+ *  The policy dynamically discovers and applies a specified backup plan to all
+ *  eligible resources that match its defined scope and criteria.
+ */
+@interface GTLRBackupdr_AutoProtectionPolicy : GTLRObject
+
+/** Required. The backup plan details for matching resources. */
+@property(nonatomic, strong, nullable) NSArray<GTLRBackupdr_BackupPlanDetail *> *backupPlanDetails;
+
+/**
+ *  Output only. Summary of total count of different containers covered through
+ *  this policy.
+ */
+@property(nonatomic, strong, nullable) GTLRBackupdr_BindingSummary *bindingSummary;
+
+/** Output only. The timestamp when the policy was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Required. The criteria for matching resources. */
+@property(nonatomic, strong, nullable) GTLRBackupdr_Criteria *criteria;
+
+/**
+ *  Optional. A description of the policy. The description must be at most 2048
+ *  characters.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Output only. The etag for the policy. If this is provided on update, it must
+ *  match the server's etag.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Output only. Identifier. The resource name of the AutoProtectionPolicy.
+ *  Format:
+ *  `projects/{project}/locations/{location}/autoProtectionPolicies/{auto_protection_policy}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. Summary of last policy evaluation when job was run per workload
+ *  type.
+ */
+@property(nonatomic, strong, nullable) GTLRBackupdr_PolicyEvaluationSummary *policyEvaluationSummary;
+
+/**
+ *  Output only. The current state of the AutoProtectionPolicy.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBackupdr_AutoProtectionPolicy_State_Active The policy is
+ *        active and protecting matching resources. (Value: "ACTIVE")
+ *    @arg @c kGTLRBackupdr_AutoProtectionPolicy_State_Creating The policy is
+ *        being created. (Value: "CREATING")
+ *    @arg @c kGTLRBackupdr_AutoProtectionPolicy_State_Deleting The policy is
+ *        being deleted. (Value: "DELETING")
+ *    @arg @c kGTLRBackupdr_AutoProtectionPolicy_State_StateUnspecified The
+ *        state of the policy is unspecified. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRBackupdr_AutoProtectionPolicy_State_Updating The policy is
+ *        being updated. (Value: "UPDATING")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** Output only. The timestamp when the policy was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  An AutoProtectionPolicyBinding (APPA) acts as the bridge between an
+ *  AutoProtectionPolicy and the scope (Project) where the policy should be
+ *  applied.
+ */
+@interface GTLRBackupdr_AutoProtectionPolicyBinding : GTLRObject
+
+/**
+ *  Output only. Summaries of the last policy application when the job has run,
+ *  with one entry per resource type specified in the AutoProtectionPolicy.
+ */
+@property(nonatomic, strong, nullable) GTLRBackupdr_BindingEvaluationSummary *bindingEvaluationSummary;
+
+/** Output only. The timestamp when the binding was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. A description of the binding. The description must be at most 2048
+ *  characters.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Optional. Output only. The etag for the binding. If this is provided on
+ *  update, it must match the server's etag.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Output only. Identifier. The resource name of the
+ *  AutoProtectionPolicyBinding. Format:
+ *  `projects/{project}/locations/{location}/autoProtectionPolicies/{auto_protection_policy}/bindings/{binding}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. Immutable. Resource Id of target container on which policy will be
+ *  applied. Format: projects/{project_id}
+ */
+@property(nonatomic, copy, nullable) NSString *scope;
+
+/**
+ *  Output only. The current state of the AutoProtectionPolicyBinding.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBackupdr_AutoProtectionPolicyBinding_State_Active The binding
+ *        is active. (Value: "ACTIVE")
+ *    @arg @c kGTLRBackupdr_AutoProtectionPolicyBinding_State_Creating The
+ *        binding is being created. (Value: "CREATING")
+ *    @arg @c kGTLRBackupdr_AutoProtectionPolicyBinding_State_DeletionInitiated
+ *        The binding deletion is initiated. (Value: "DELETION_INITIATED")
+ *    @arg @c kGTLRBackupdr_AutoProtectionPolicyBinding_State_StateUnspecified
+ *        The state of the binding is unspecified. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** Output only. The timestamp when the binding was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
  *  Message describing a Backup object.
  */
 @interface GTLRBackupdr_Backup : GTLRObject
@@ -2623,6 +3635,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
+/** Output only. NetApp Volume specific backup properties. */
+@property(nonatomic, strong, nullable) GTLRBackupdr_NetAppVolumeBackupProperties *netappVolumeBackupProperties;
+
 /**
  *  Output only. source resource size in bytes at the time of the backup.
  *
@@ -2671,6 +3686,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
 
 /** Output only. The time when the instance was updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+/** Output only. The restore verification status of the backup. */
+@property(nonatomic, strong, nullable) GTLRBackupdr_VerificationSummary *verificationSummary;
 
 @end
 
@@ -3174,6 +4192,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
 @property(nonatomic, strong, nullable) GTLRBackupdr_AlloyDBClusterBackupPlanAssociationProperties *alloydbClusterBackupPlanAssociationProperties;
 
 /**
+ *  Output only. The resource name of the `AutoProtectionPolicyBinding` that
+ *  manages this association, if any. Format:
+ *  `projects/{project}/locations/{location}/autoProtectionPolicies/{policy}/bindings/{binding}`.
+ */
+@property(nonatomic, copy, nullable) NSString *autoProtectionPolicyBinding;
+
+/**
  *  Required. Resource name of backup plan which needs to be applied on
  *  workload. Format:
  *  projects/{project}/locations/{location}/backupPlans/{backupPlanId}
@@ -3214,6 +4239,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
  *  projects/{project}/locations/{location}/backupPlanAssociations/{backupPlanAssociationId}
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. NetApp volume backup plan association properties. */
+@property(nonatomic, strong, nullable) GTLRBackupdr_NetAppVolumeBackupPlanAssociationProperties *netappVolumeBackupPlanAssociationProperties;
 
 /**
  *  Required. Immutable. Resource name of workload on which the backup plan is
@@ -3256,6 +4284,29 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
 
 /** Output only. The time when the instance was updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  BackupPlanDetail defines configuration of protection.
+ */
+@interface GTLRBackupdr_BackupPlanDetail : GTLRObject
+
+/**
+ *  Required. The resource name of the BackupPlan to apply to resources that
+ *  match the policy's criteria. This backup plan must be in the same location
+ *  as AutoProtectionPolicy. Format:
+ *  projects/{project}/locations/{location}/backupPlans/{backupPlanId}
+ */
+@property(nonatomic, copy, nullable) NSString *backupPlan;
+
+/**
+ *  Required. The type of resource that this policy will automatically protect.
+ *  Allowed values are, `compute.googleapis.com/Instance` and
+ *  `compute.googleapis.com/Disk` are supported.
+ */
+@property(nonatomic, copy, nullable) NSString *resourceType;
 
 @end
 
@@ -3336,6 +4387,19 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
  *  window of time.
  */
 @property(nonatomic, strong, nullable) GTLRBackupdr_StandardSchedule *standardSchedule;
+
+@end
+
+
+/**
+ *  Configuration for selecting a backup.
+ */
+@interface GTLRBackupdr_BackupSelectionConfig : GTLRObject
+
+/**
+ *  Required. Immutable. The fully qualified URI of the backupdr data source.
+ */
+@property(nonatomic, copy, nullable) NSString *dataSource;
 
 @end
 
@@ -3644,9 +4708,152 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
 
 
 /**
+ *  BindingEvaluationSummary contains the summary of the last run of job that
+ *  applies policy to matching resources for a given binding.
+ */
+@interface GTLRBackupdr_BindingEvaluationSummary : GTLRObject
+
+/**
+ *  Output only. The number of matching resources whose protection failed during
+ *  job run.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *failedResourceCount;
+
+/**
+ *  Output only. The number of resources that currently match the policy's
+ *  criteria.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *matchingResourceCount;
+
+/**
+ *  Output only. The number of matching resources that are successfully
+ *  protected.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *protectedResourceCount;
+
+@end
+
+
+/**
+ *  BindingMatchingResource contains the details of a resource that matches the
+ *  criteria of a binding.
+ */
+@interface GTLRBackupdr_BindingMatchingResource : GTLRObject
+
+/**
+ *  Output only. The auto protection details of the resource from the current
+ *  binding's perspective.
+ */
+@property(nonatomic, strong, nullable) GTLRBackupdr_AutoProtectionDetails *autoProtectionDetails;
+
+/**
+ *  Output only. The timestamp when the resource was last evaluated for
+ *  protection.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastEvaluationTime;
+
+/**
+ *  Identifier. The resource name of the `BindingMatchingResource`. Format:
+ *  `projects/{project}/locations/{location}/autoProtectionPolicies/{auto_protection_policy}/bindings/{binding}/matchingResources/{matching_resource}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. Immutable. Resource name of the workload that matches the criteria
+ *  of the binding. The format can be either a relative resource name (e.g.,
+ *  `projects/my-project/zones/us-central1-a/instances/my-instance`) or a
+ *  schemeless full resource name (e.g.,
+ *  `//compute.googleapis.com/projects/my-project/zones/us-central1-a/instances/my-instance`).
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+@end
+
+
+/**
+ *  BindingSummary contains count of different containers covered through this
+ *  policy.
+ */
+@interface GTLRBackupdr_BindingSummary : GTLRObject
+
+/**
+ *  Output only. Total count of Projects protected with this policy.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *projectCount;
+
+@end
+
+
+/**
  *  The request message for Operations.CancelOperation.
  */
 @interface GTLRBackupdr_CancelOperationRequest : GTLRObject
+@end
+
+
+/**
+ *  Info for Cleanup phase execution.
+ */
+@interface GTLRBackupdr_CleanupPhaseInfo : GTLRObject
+
+/** Output only. Time taken to perform the cleanup of restored resource. */
+@property(nonatomic, strong, nullable) GTLRDuration *cleanupDuration;
+
+/** Output only. The time when the resources will be cleaned up. */
+@property(nonatomic, strong, nullable) GTLRDateTime *cleanupTime;
+
+/** Output only. End time of the phase. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/** Output only. Error details if the phase failed. */
+@property(nonatomic, strong, nullable) GTLRBackupdr_Status *error;
+
+/**
+ *  Output only. Snapshot of cleanup rule provided for this execution when
+ *  execution is failed.
+ */
+@property(nonatomic, strong, nullable) GTLRBackupdr_RestoreVerificationCleanupRule *failureCleanupRule;
+
+/**
+ *  Output only. The state of this phase.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBackupdr_CleanupPhaseInfo_PhaseState_Failed The phase
+ *        encountered an error and failed. (Value: "FAILED")
+ *    @arg @c kGTLRBackupdr_CleanupPhaseInfo_PhaseState_Pending This phase is
+ *        pending execution. (Value: "PENDING")
+ *    @arg @c kGTLRBackupdr_CleanupPhaseInfo_PhaseState_PhaseStateUnspecified
+ *        Phase state is not set. (Value: "PHASE_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRBackupdr_CleanupPhaseInfo_PhaseState_Running The phase is
+ *        actively executing. (Value: "RUNNING")
+ *    @arg @c kGTLRBackupdr_CleanupPhaseInfo_PhaseState_Skipped The phase was
+ *        skipped. (Value: "SKIPPED")
+ *    @arg @c kGTLRBackupdr_CleanupPhaseInfo_PhaseState_Succeeded The phase
+ *        completed successfully. (Value: "SUCCEEDED")
+ *    @arg @c kGTLRBackupdr_CleanupPhaseInfo_PhaseState_TimedOut The phase timed
+ *        out. (Value: "TIMED_OUT")
+ *    @arg @c kGTLRBackupdr_CleanupPhaseInfo_PhaseState_Waiting The phase is
+ *        waiting to be executed. (Value: "WAITING")
+ */
+@property(nonatomic, copy, nullable) NSString *phaseState;
+
+/** Output only. Start time of the phase. */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+/**
+ *  Output only. Snapshot of cleanup rule provided for this execution when
+ *  execution is successful.
+ */
+@property(nonatomic, strong, nullable) GTLRBackupdr_RestoreVerificationCleanupRule *successCleanupRule;
+
 @end
 
 
@@ -4215,6 +5422,20 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
 
 
 /**
+ *  Criteria specifies a set of criteria for matching resources.
+ */
+@interface GTLRBackupdr_Criteria : GTLRObject
+
+/**
+ *  Required. A list of matching conditions that a resource must meet to be
+ *  protected by the policy.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRBackupdr_MatchingCondition *> *matchingConditions;
+
+@end
+
+
+/**
  *  A customer-supplied encryption key.
  */
 @interface GTLRBackupdr_CustomerEncryptionKey : GTLRObject
@@ -4481,6 +5702,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
 @property(nonatomic, copy, nullable) NSString *location;
 
 /**
+ *  Output only. NetAppVolumeDataSourceProperties has a subset of NetApp Volume
+ *  properties that are useful at the Datasource level.
+ */
+@property(nonatomic, strong, nullable) GTLRBackupdr_NetAppVolumeDataSourceProperties *netappVolumeDatasourceProperties;
+
+/**
  *  The type of the Google Cloud resource. Use the Unified Resource Type, eg.
  *  compute.googleapis.com/Instance.
  */
@@ -4514,6 +5741,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
  *  //"global"/"unspecified"
  */
 @property(nonatomic, copy, nullable) NSString *location;
+
+/** Output only. The NetApp Volume properties. */
+@property(nonatomic, strong, nullable) GTLRBackupdr_NetAppVolumeDataSourceReferenceProperties *netappVolumeProperties;
 
 /**
  *  Output only. The type of the Google Cloud resource. Ex:
@@ -5048,6 +6278,37 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
 
 
 /**
+ *  Summary of the last execution.
+ */
+@interface GTLRBackupdr_ExecutionSummary : GTLRObject
+
+/**
+ *  Output only. The resource name of the last execution. Format:
+ *  `projects/{project}/locations/{location}/restoreTemplates/{restore_template}/executions/{execution}`
+ */
+@property(nonatomic, copy, nullable) NSString *lastExecution;
+
+/**
+ *  Output only. The state of the last execution.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBackupdr_ExecutionSummary_LastExecutionState_Deleting
+ *        Resources are being deleted (cleanup). (Value: "DELETING")
+ *    @arg @c kGTLRBackupdr_ExecutionSummary_LastExecutionState_ExecutionStateUnspecified
+ *        State not set. (Value: "EXECUTION_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRBackupdr_ExecutionSummary_LastExecutionState_Failed Execution
+ *        failed. (Value: "FAILED")
+ *    @arg @c kGTLRBackupdr_ExecutionSummary_LastExecutionState_Running
+ *        Execution is running. (Value: "RUNNING")
+ *    @arg @c kGTLRBackupdr_ExecutionSummary_LastExecutionState_Succeeded
+ *        Execution succeeded. (Value: "SUCCEEDED")
+ */
+@property(nonatomic, copy, nullable) NSString *lastExecutionState;
+
+@end
+
+
+/**
  *  Represents a textual expression in the Common Expression Language (CEL)
  *  syntax. CEL is a C-like expression language. The syntax and semantics of CEL
  *  are documented at https://github.com/google/cel-spec. Example (Comparison):
@@ -5420,6 +6681,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
  */
 @interface GTLRBackupdr_GcpBackupConfig : GTLRObject
 
+/**
+ *  Output only. The resource name of the `AutoProtectionPolicyBinding` that
+ *  manages this datasource, if any. Format:
+ *  `projects/{project}/locations/{location}/autoProtectionPolicies/{policy}/bindings/{binding}`.
+ */
+@property(nonatomic, copy, nullable) NSString *autoProtectionPolicyBinding;
+
 /** The name of the backup plan. */
 @property(nonatomic, copy, nullable) NSString *backupPlan;
 
@@ -5724,6 +6992,31 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
 
 
 /**
+ *  Request message for initiating delete of an AutoProtectionPolicyBinding.
+ */
+@interface GTLRBackupdr_InitiateDeleteAutoProtectionPolicyBindingRequest : GTLRObject
+
+/**
+ *  Optional. The current etag of the AutoProtectionPolicyBinding. If an etag is
+ *  provided and does not match the current etag of the binding, deletion will
+ *  be blocked and an ABORTED error will be returned.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes since the first request. The request
+ *  ID must be a valid UUID with the exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+@end
+
+
+/**
  *  Additional instance params.
  */
 @interface GTLRBackupdr_InstanceParams : GTLRObject
@@ -5743,6 +7036,28 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
  *        fetch them all at once.
  */
 @interface GTLRBackupdr_InstanceParams_ResourceManagerTags : GTLRObject
+@end
+
+
+/**
+ *  KeyValuePair defines a key-value pair for matching resource labels.
+ */
+@interface GTLRBackupdr_KeyValuePair : GTLRObject
+
+/**
+ *  Required. The key of the label to match. This must be in the format
+ *  `{label_key}`. The key must match the regex Format:`\\p{Ll}\\p{Lo}{0,62}`.
+ */
+@property(nonatomic, copy, nullable) NSString *key;
+
+/**
+ *  Required. The values of the label to match. There will be explicit “OR”
+ *  between values of array. Each value must be in the format `{label_value}`.
+ *  The value must match the regex Format:
+ *  `[\\\\p{Ll}\\\\p{Lo}\\\\p{N}_-]{1,63}`.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *values;
+
 @end
 
 
@@ -5769,6 +7084,96 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
  *  International characters are allowed.
  */
 @property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  Response message for ListAppliedAutoProtectionPolicies.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "appliedAutoProtectionPolicies" property. If returned as the
+ *        result of a query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRBackupdr_ListAppliedAutoProtectionPoliciesResponse : GTLRCollectionObject
+
+/**
+ *  A list of the AppliedAutoProtectionPolicy resources found.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRBackupdr_AppliedAutoProtectionPolicy *> *appliedAutoProtectionPolicies;
+
+/** A token that can be sent as `page_token` to retrieve the next page. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  Unordered list. Locations that could not be reached. For example,
+ *  "projects/my-project/locations/us-east1"].
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
+ *  Response message for ListAutoProtectionPolicies.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "autoProtectionPolicies" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRBackupdr_ListAutoProtectionPoliciesResponse : GTLRCollectionObject
+
+/**
+ *  A list of the AutoProtectionPolicy resources found.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRBackupdr_AutoProtectionPolicy *> *autoProtectionPolicies;
+
+/**
+ *  A token that can be sent as `page_token` to retrieve the next page. If this
+ *  field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** Locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
+ *  Response message for ListAutoProtectionPolicyBindings.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "autoProtectionPolicyBindings" property. If returned as the result
+ *        of a query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRBackupdr_ListAutoProtectionPolicyBindingsResponse : GTLRCollectionObject
+
+/**
+ *  A list of the AutoProtectionPolicyBindings resources found.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRBackupdr_AutoProtectionPolicyBinding *> *autoProtectionPolicyBindings;
+
+/**
+ *  A token that can be sent as `page_token` to retrieve the next page. If this
+ *  field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** Unordered list. Locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
 @end
 
@@ -5934,6 +7339,35 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
 
 /** Locations that could not be reached. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
+ *  The response message for getting a list of `BindingMatchingResources`.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "matchingResources" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRBackupdr_ListBindingMatchingResourcesResponse : GTLRCollectionObject
+
+/**
+ *  The list of `BindingMatchingResources` in the project,location for the
+ *  specified binding.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRBackupdr_BindingMatchingResource *> *matchingResources;
+
+/**
+ *  A token which may be sent as page_token in a subsequent
+ *  `ListBindingMatchingResources` call to retrieve the next page of results. If
+ *  this field is omitted or empty, then there are no more results to return.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 
@@ -6107,6 +7541,129 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRBackupdr_ResourceBackupConfig *> *resourceBackupConfigs;
+
+@end
+
+
+/**
+ *  Response message for listing RestoreTemplateExecutions.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "restoreTemplateExecutions" property. If returned as the result of
+ *        a query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRBackupdr_ListRestoreTemplateExecutionsResponse : GTLRCollectionObject
+
+/** A token identifying a page of results. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The list of RestoreTemplateExecution instances.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRBackupdr_RestoreTemplateExecution *> *restoreTemplateExecutions;
+
+/** Locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
+ *  Response message for listing RestoreTemplates.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "restoreTemplates" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRBackupdr_ListRestoreTemplatesResponse : GTLRCollectionObject
+
+/**
+ *  A token which may be sent as `page_token` in a subsequent
+ *  `ListRestoreTemplates` call.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The list of RestoreTemplates.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRBackupdr_RestoreTemplate *> *restoreTemplates;
+
+/** Locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
+ *  Response message for ListRestoreVerificationPlanAssociations.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "restoreVerificationPlanAssociations" property. If returned as the
+ *        result of a query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRBackupdr_ListRestoreVerificationPlanAssociationsResponse : GTLRCollectionObject
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The list of RestoreVerificationPlanAssociations.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRBackupdr_RestoreVerificationPlanAssociation *> *restoreVerificationPlanAssociations;
+
+/** Unordered list. Locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
+ *  The response message for getting a list of `RestoreVerificationPlans`.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "restoreVerificationPlans" property. If returned as the result of
+ *        a query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRBackupdr_ListRestoreVerificationPlansResponse : GTLRCollectionObject
+
+/**
+ *  A token which may be sent as page_token in a subsequent
+ *  `ListRestoreVerificationPlans` call to retrieve the next page of results. If
+ *  this field is omitted or empty, then there are no more results to return.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The list of `RestoreVerificationPlans` in the project for the specified
+ *  location. If the `{location}` value in the request is "-", the response
+ *  contains a list of resources from all locations. In case any location is
+ *  unreachable, the response will only return restore verification plans in
+ *  reachable locations and the 'unreachable' field will be populated with a
+ *  list of unreachable locations.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRBackupdr_RestoreVerificationPlan *> *restoreVerificationPlans;
+
+/** Locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
 @end
 
@@ -6341,6 +7898,20 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
 
 
 /**
+ *  MatchingCondition specifies a set of conditions for matching resources.
+ */
+@interface GTLRBackupdr_MatchingCondition : GTLRObject
+
+/**
+ *  Optional. A condition that matches resources based on their labels. For MVP,
+ *  this is limited to a single label match.
+ */
+@property(nonatomic, strong, nullable) GTLRBackupdr_KeyValuePair *labelCondition;
+
+@end
+
+
+/**
  *  A metadata key/value entry.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -6356,6 +7927,60 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRBackupdr_Entry *> *items;
+
+@end
+
+
+/**
+ *  NetAppVolumeBackupPlanAssociationProperties represents NetApp Volume backup
+ *  plan association properties in BackupPlanAssociation. .
+ */
+@interface GTLRBackupdr_NetAppVolumeBackupPlanAssociationProperties : GTLRObject
+
+/** Output only. The creation timestamp of the source resource. */
+@property(nonatomic, strong, nullable) GTLRDateTime *sourceResourceCreateTime;
+
+@end
+
+
+/**
+ *  NetAppVolumeBackupProperties represents NetApp Volume backup properties in
+ *  Backup. .
+ */
+@interface GTLRBackupdr_NetAppVolumeBackupProperties : GTLRObject
+
+/** Output only. The source volume of the Backup. */
+@property(nonatomic, copy, nullable) NSString *sourceResource;
+
+@end
+
+
+/**
+ *  NetAppVolumeDataSourceProperties represents NetApp Volume properties stored
+ *  in DataSource. .
+ */
+@interface GTLRBackupdr_NetAppVolumeDataSourceProperties : GTLRObject
+
+/** Output only. The source volume represented by this DataSource. */
+@property(nonatomic, copy, nullable) NSString *sourceResource;
+
+/** Output only. The volume creation timestamp. */
+@property(nonatomic, strong, nullable) GTLRDateTime *sourceResourceCreateTime;
+
+@end
+
+
+/**
+ *  NetAppVolumeDataSourceReferenceProperties represents NetApp Volume
+ *  properties stored in DataSourceReference. .
+ */
+@interface GTLRBackupdr_NetAppVolumeDataSourceReferenceProperties : GTLRObject
+
+/** Output only. The source volume represented by this DataSourceReference. */
+@property(nonatomic, copy, nullable) NSString *sourceResource;
+
+/** Output only. The volume creation timestamp. */
+@property(nonatomic, strong, nullable) GTLRDateTime *sourceResourceCreateTime;
 
 @end
 
@@ -6779,6 +8404,246 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
 
 
 /**
+ *  PolicyEvaluationSummary contains the summary of the last run of job that
+ *  applies policy to matching resources.
+ */
+@interface GTLRBackupdr_PolicyEvaluationSummary : GTLRObject
+
+/**
+ *  Output only. The number of matching resources whose protection failed during
+ *  job run.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *failedResourceCount;
+
+/**
+ *  Output only. The number of resources that currently match the policy's
+ *  criteria.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *matchingResourceCount;
+
+/**
+ *  Output only. The number of matching resources that are successfully
+ *  protected.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *protectedResourceCount;
+
+@end
+
+
+/**
+ *  Configuration for Post-Restore.
+ */
+@interface GTLRBackupdr_PostRestoreConfig : GTLRObject
+
+/**
+ *  Cloud Run job action to execute. Format:
+ *  `projects/{project}/locations/{location}/jobs/{job}`
+ */
+@property(nonatomic, copy, nullable) NSString *cloudRunJob;
+
+/**
+ *  Optional. The `timeout` for this phase. If set, the `timeout` must be
+ *  positive and less than or equal to 24 hours (86400s).
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *timeout;
+
+@end
+
+
+/**
+ *  Info for Post-Restore phase execution.
+ */
+@interface GTLRBackupdr_PostRestorePhaseInfo : GTLRObject
+
+/**
+ *  Output only. The fully qualified URI of the Cloud Run Execution triggered
+ *  for post-restore actions.
+ */
+@property(nonatomic, copy, nullable) NSString *cloudRunExecution;
+
+/** Output only. End time of the phase. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/** Output only. Error details if the phase failed. */
+@property(nonatomic, strong, nullable) GTLRBackupdr_Status *error;
+
+/**
+ *  Output only. The state of this phase.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBackupdr_PostRestorePhaseInfo_PhaseState_Failed The phase
+ *        encountered an error and failed. (Value: "FAILED")
+ *    @arg @c kGTLRBackupdr_PostRestorePhaseInfo_PhaseState_Pending This phase
+ *        is pending execution. (Value: "PENDING")
+ *    @arg @c kGTLRBackupdr_PostRestorePhaseInfo_PhaseState_PhaseStateUnspecified
+ *        Phase state is not set. (Value: "PHASE_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRBackupdr_PostRestorePhaseInfo_PhaseState_Running The phase is
+ *        actively executing. (Value: "RUNNING")
+ *    @arg @c kGTLRBackupdr_PostRestorePhaseInfo_PhaseState_Skipped The phase
+ *        was skipped. (Value: "SKIPPED")
+ *    @arg @c kGTLRBackupdr_PostRestorePhaseInfo_PhaseState_Succeeded The phase
+ *        completed successfully. (Value: "SUCCEEDED")
+ *    @arg @c kGTLRBackupdr_PostRestorePhaseInfo_PhaseState_TimedOut The phase
+ *        timed out. (Value: "TIMED_OUT")
+ *    @arg @c kGTLRBackupdr_PostRestorePhaseInfo_PhaseState_Waiting The phase is
+ *        waiting to be executed. (Value: "WAITING")
+ */
+@property(nonatomic, copy, nullable) NSString *phaseState;
+
+/**
+ *  Output only. Snapshot of config that will be executed after successful
+ *  restore operation.
+ */
+@property(nonatomic, strong, nullable) GTLRBackupdr_PostRestoreConfig *postRestoreConfig;
+
+/** Output only. Start time of the phase. */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+@end
+
+
+/**
+ *  Info for Prepare phase execution.
+ */
+@interface GTLRBackupdr_PreparePhaseInfo : GTLRObject
+
+/**
+ *  Output only. The source backup used for the restore. The fully qualified URI
+ *  of the backupdr backup.
+ */
+@property(nonatomic, copy, nullable) NSString *backup;
+
+/** Output only. Snapshot of config used in this execution. */
+@property(nonatomic, strong, nullable) GTLRBackupdr_BackupSelectionConfig *backupSelectionConfig;
+
+/** Output only. End time of the phase. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/** Output only. Error details if the phase failed. */
+@property(nonatomic, strong, nullable) GTLRBackupdr_Status *error;
+
+/**
+ *  Output only. Indicates whether the backup was explicitly passed in the
+ *  request.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isBackupExplicitlyPassed;
+
+/**
+ *  Output only. The state of this phase.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBackupdr_PreparePhaseInfo_PhaseState_Failed The phase
+ *        encountered an error and failed. (Value: "FAILED")
+ *    @arg @c kGTLRBackupdr_PreparePhaseInfo_PhaseState_Pending This phase is
+ *        pending execution. (Value: "PENDING")
+ *    @arg @c kGTLRBackupdr_PreparePhaseInfo_PhaseState_PhaseStateUnspecified
+ *        Phase state is not set. (Value: "PHASE_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRBackupdr_PreparePhaseInfo_PhaseState_Running The phase is
+ *        actively executing. (Value: "RUNNING")
+ *    @arg @c kGTLRBackupdr_PreparePhaseInfo_PhaseState_Skipped The phase was
+ *        skipped. (Value: "SKIPPED")
+ *    @arg @c kGTLRBackupdr_PreparePhaseInfo_PhaseState_Succeeded The phase
+ *        completed successfully. (Value: "SUCCEEDED")
+ *    @arg @c kGTLRBackupdr_PreparePhaseInfo_PhaseState_TimedOut The phase timed
+ *        out. (Value: "TIMED_OUT")
+ *    @arg @c kGTLRBackupdr_PreparePhaseInfo_PhaseState_Waiting The phase is
+ *        waiting to be executed. (Value: "WAITING")
+ */
+@property(nonatomic, copy, nullable) NSString *phaseState;
+
+/**
+ *  Output only. The restore verification plan association associated with the
+ *  execution.
+ */
+@property(nonatomic, copy, nullable) NSString *restoreVerificationPlanAssociation;
+
+/** Output only. Start time of the phase. */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+@end
+
+
+/**
+ *  Configuration for Pre-Restore.
+ */
+@interface GTLRBackupdr_PreRestoreConfig : GTLRObject
+
+/**
+ *  Cloud Run job action to execute. Format:
+ *  `projects/{project}/locations/{location}/jobs/{job}`
+ */
+@property(nonatomic, copy, nullable) NSString *cloudRunJob;
+
+/**
+ *  Optional. The `timeout` for this phase. If set, the `timeout` must be
+ *  positive and less than or equal to 24 hours (86400s).
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *timeout;
+
+@end
+
+
+/**
+ *  Info for Pre-Restore phase execution.
+ */
+@interface GTLRBackupdr_PreRestorePhaseInfo : GTLRObject
+
+/**
+ *  Output only. The fully qualified URI of the Cloud Run Execution triggered
+ *  for pre-restore actions.
+ */
+@property(nonatomic, copy, nullable) NSString *cloudRunExecution;
+
+/** Output only. End time of the phase. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/** Output only. Error details if the phase failed. */
+@property(nonatomic, strong, nullable) GTLRBackupdr_Status *error;
+
+/**
+ *  Output only. The state of this phase.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBackupdr_PreRestorePhaseInfo_PhaseState_Failed The phase
+ *        encountered an error and failed. (Value: "FAILED")
+ *    @arg @c kGTLRBackupdr_PreRestorePhaseInfo_PhaseState_Pending This phase is
+ *        pending execution. (Value: "PENDING")
+ *    @arg @c kGTLRBackupdr_PreRestorePhaseInfo_PhaseState_PhaseStateUnspecified
+ *        Phase state is not set. (Value: "PHASE_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRBackupdr_PreRestorePhaseInfo_PhaseState_Running The phase is
+ *        actively executing. (Value: "RUNNING")
+ *    @arg @c kGTLRBackupdr_PreRestorePhaseInfo_PhaseState_Skipped The phase was
+ *        skipped. (Value: "SKIPPED")
+ *    @arg @c kGTLRBackupdr_PreRestorePhaseInfo_PhaseState_Succeeded The phase
+ *        completed successfully. (Value: "SUCCEEDED")
+ *    @arg @c kGTLRBackupdr_PreRestorePhaseInfo_PhaseState_TimedOut The phase
+ *        timed out. (Value: "TIMED_OUT")
+ *    @arg @c kGTLRBackupdr_PreRestorePhaseInfo_PhaseState_Waiting The phase is
+ *        waiting to be executed. (Value: "WAITING")
+ */
+@property(nonatomic, copy, nullable) NSString *phaseState;
+
+/**
+ *  Output only. Snapshot of config that will be executed before restore
+ *  operation.
+ */
+@property(nonatomic, strong, nullable) GTLRBackupdr_PreRestoreConfig *preRestoreConfig;
+
+/** Output only. Start time of the phase. */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+@end
+
+
+/**
  *  RegionDiskTargetEnvironment represents the target environment for the disk.
  */
 @interface GTLRBackupdr_RegionDiskTargetEnvironment : GTLRObject
@@ -6997,6 +8862,483 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
 
 
 /**
+ *  Info for Restore phase execution.
+ */
+@interface GTLRBackupdr_RestorePhaseInfo : GTLRObject
+
+/** Output only. End time of the phase. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/** Output only. Error details if the phase failed. */
+@property(nonatomic, strong, nullable) GTLRBackupdr_Status *error;
+
+/**
+ *  Output only. The state of this phase.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBackupdr_RestorePhaseInfo_PhaseState_Failed The phase
+ *        encountered an error and failed. (Value: "FAILED")
+ *    @arg @c kGTLRBackupdr_RestorePhaseInfo_PhaseState_Pending This phase is
+ *        pending execution. (Value: "PENDING")
+ *    @arg @c kGTLRBackupdr_RestorePhaseInfo_PhaseState_PhaseStateUnspecified
+ *        Phase state is not set. (Value: "PHASE_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRBackupdr_RestorePhaseInfo_PhaseState_Running The phase is
+ *        actively executing. (Value: "RUNNING")
+ *    @arg @c kGTLRBackupdr_RestorePhaseInfo_PhaseState_Skipped The phase was
+ *        skipped. (Value: "SKIPPED")
+ *    @arg @c kGTLRBackupdr_RestorePhaseInfo_PhaseState_Succeeded The phase
+ *        completed successfully. (Value: "SUCCEEDED")
+ *    @arg @c kGTLRBackupdr_RestorePhaseInfo_PhaseState_TimedOut The phase timed
+ *        out. (Value: "TIMED_OUT")
+ *    @arg @c kGTLRBackupdr_RestorePhaseInfo_PhaseState_Waiting The phase is
+ *        waiting to be executed. (Value: "WAITING")
+ */
+@property(nonatomic, copy, nullable) NSString *phaseState;
+
+/** Output only. Time taken to restore the resource. */
+@property(nonatomic, strong, nullable) GTLRDuration *restoreDuration;
+
+/**
+ *  Output only. Snapshot of environment config used during restore of this
+ *  RestoreTemplateExecution.
+ */
+@property(nonatomic, strong, nullable) GTLRBackupdr_RestorePhaseInfo_RestoreProperties *restoreProperties;
+
+/** Output only. The resource created or restored by this execution. */
+@property(nonatomic, copy, nullable) NSString *restoreResource;
+
+/** Output only. Start time of the phase. */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+@end
+
+
+/**
+ *  Output only. Snapshot of environment config used during restore of this
+ *  RestoreTemplateExecution.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRBackupdr_RestorePhaseInfo_RestoreProperties : GTLRObject
+@end
+
+
+/**
+ *  A `RestoreTemplate` encapsulates DR readiness configurations for validating
+ *  backups.
+ */
+@interface GTLRBackupdr_RestoreTemplate : GTLRObject
+
+/** Required. Backup selection configuration. */
+@property(nonatomic, strong, nullable) GTLRBackupdr_BackupSelectionConfig *backupSelectionConfig;
+
+/** Output only. The time when the restore template was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. User-provided description of the restore template.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** Optional. Etag for concurrency control. */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/** Output only. Summary of the last execution. */
+@property(nonatomic, strong, nullable) GTLRBackupdr_ExecutionSummary *executionSummary;
+
+/** Optional. User-defined labels. */
+@property(nonatomic, strong, nullable) GTLRBackupdr_RestoreTemplate_Labels *labels;
+
+/** Identifier. The resource name of the RestoreTemplate. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Optional. Post-restore configuration. */
+@property(nonatomic, strong, nullable) GTLRBackupdr_PostRestoreConfig *postRestoreConfig;
+
+/** Optional. Pre-restore configuration. */
+@property(nonatomic, strong, nullable) GTLRBackupdr_PreRestoreConfig *preRestoreConfig;
+
+/**
+ *  Required. Immutable. The specific type of the workload being restored. The
+ *  format is "{service_name}/{resource_kind}", for example,
+ *  "compute.googleapis.com/Instance".
+ */
+@property(nonatomic, copy, nullable) NSString *resourceType;
+
+/**
+ *  Required. Defines target environments where the resource will be restored.
+ *  The target resource name in `restore_properties` supports the
+ *  `{EXECUTION_ID}` token to dynamically generate unique resource names for
+ *  each execution. During restore execution, every occurrence of
+ *  `{EXECUTION_ID}` in the target resource name is replaced with the
+ *  8-character `RestoreTemplateExecution` ID (for example,
+ *  `"restored-resource-{EXECUTION_ID}"` or `"restored-{EXECUTION_ID}-resource"`
+ *  resolves to `"restored-resource-5d437b06"` or
+ *  `"restored-5d437b06-resource"`).
+ */
+@property(nonatomic, strong, nullable) GTLRBackupdr_RestoreTemplate_RestoreProperties *restoreProperties;
+
+/**
+ *  Output only. The state of the restore template.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBackupdr_RestoreTemplate_State_Active The template is active
+ *        and ready to use. (Value: "ACTIVE")
+ *    @arg @c kGTLRBackupdr_RestoreTemplate_State_Creating The template is being
+ *        created. (Value: "CREATING")
+ *    @arg @c kGTLRBackupdr_RestoreTemplate_State_Deleting The template is being
+ *        deleted. (Value: "DELETING")
+ *    @arg @c kGTLRBackupdr_RestoreTemplate_State_StateUnspecified State not
+ *        specified. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRBackupdr_RestoreTemplate_State_Updating The template is being
+ *        updated. (Value: "UPDATING")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** Output only. The time when the restore template was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+/** Optional. Verification configuration. */
+@property(nonatomic, strong, nullable) GTLRBackupdr_VerificationConfig *verificationConfig;
+
+@end
+
+
+/**
+ *  Optional. User-defined labels.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRBackupdr_RestoreTemplate_Labels : GTLRObject
+@end
+
+
+/**
+ *  Required. Defines target environments where the resource will be restored.
+ *  The target resource name in `restore_properties` supports the
+ *  `{EXECUTION_ID}` token to dynamically generate unique resource names for
+ *  each execution. During restore execution, every occurrence of
+ *  `{EXECUTION_ID}` in the target resource name is replaced with the
+ *  8-character `RestoreTemplateExecution` ID (for example,
+ *  `"restored-resource-{EXECUTION_ID}"` or `"restored-{EXECUTION_ID}-resource"`
+ *  resolves to `"restored-resource-5d437b06"` or
+ *  `"restored-5d437b06-resource"`).
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRBackupdr_RestoreTemplate_RestoreProperties : GTLRObject
+@end
+
+
+/**
+ *  A `RestoreTemplateExecution` represents a single historical or active
+ *  execution run.
+ */
+@interface GTLRBackupdr_RestoreTemplateExecution : GTLRObject
+
+/** Output only. Info for the cleanup phase. */
+@property(nonatomic, strong, nullable) GTLRBackupdr_CleanupPhaseInfo *cleanupPhaseInfo;
+
+/** Output only. Create time of the execution. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Identifier. Resource name of the execution. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The current active phase.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBackupdr_RestoreTemplateExecution_Phase_CleaningUp Cleaning
+ *        up resources. (Value: "CLEANING_UP")
+ *    @arg @c kGTLRBackupdr_RestoreTemplateExecution_Phase_Completed Execution
+ *        completed. (Value: "COMPLETED")
+ *    @arg @c kGTLRBackupdr_RestoreTemplateExecution_Phase_ExecutingPostRestoreAction
+ *        Executing post-restore action. (Value:
+ *        "EXECUTING_POST_RESTORE_ACTION")
+ *    @arg @c kGTLRBackupdr_RestoreTemplateExecution_Phase_ExecutingPreRestoreAction
+ *        Executing pre-restore action. (Value: "EXECUTING_PRE_RESTORE_ACTION")
+ *    @arg @c kGTLRBackupdr_RestoreTemplateExecution_Phase_ExecutionPhaseUnspecified
+ *        Execution phase not specified. (Value: "EXECUTION_PHASE_UNSPECIFIED")
+ *    @arg @c kGTLRBackupdr_RestoreTemplateExecution_Phase_Preparing Preparing
+ *        for execution. (Value: "PREPARING")
+ *    @arg @c kGTLRBackupdr_RestoreTemplateExecution_Phase_Restoring Restoring
+ *        the resource. (Value: "RESTORING")
+ *    @arg @c kGTLRBackupdr_RestoreTemplateExecution_Phase_Verifying Verifying
+ *        the restored resource. (Value: "VERIFYING")
+ */
+@property(nonatomic, copy, nullable) NSString *phase;
+
+/** Output only. Info for the post-restore phase. */
+@property(nonatomic, strong, nullable) GTLRBackupdr_PostRestorePhaseInfo *postRestorePhaseInfo;
+
+/** Output only. Info for the prepare phase. */
+@property(nonatomic, strong, nullable) GTLRBackupdr_PreparePhaseInfo *preparePhaseInfo;
+
+/** Output only. Info for the pre-restore phase. */
+@property(nonatomic, strong, nullable) GTLRBackupdr_PreRestorePhaseInfo *preRestorePhaseInfo;
+
+/**
+ *  Output only. The workload resource type being restored. The format is
+ *  "{service_name}/{resource_kind}", for example,
+ *  "compute.googleapis.com/Instance".
+ */
+@property(nonatomic, copy, nullable) NSString *resourceType;
+
+/** Output only. Info for the restore phase. */
+@property(nonatomic, strong, nullable) GTLRBackupdr_RestorePhaseInfo *restorePhaseInfo;
+
+/**
+ *  Output only. State of the execution.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBackupdr_RestoreTemplateExecution_State_Deleting Resources
+ *        are being deleted (cleanup). (Value: "DELETING")
+ *    @arg @c kGTLRBackupdr_RestoreTemplateExecution_State_ExecutionStateUnspecified
+ *        State not set. (Value: "EXECUTION_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRBackupdr_RestoreTemplateExecution_State_Failed Execution
+ *        failed. (Value: "FAILED")
+ *    @arg @c kGTLRBackupdr_RestoreTemplateExecution_State_Running Execution is
+ *        running. (Value: "RUNNING")
+ *    @arg @c kGTLRBackupdr_RestoreTemplateExecution_State_Succeeded Execution
+ *        succeeded. (Value: "SUCCEEDED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  Output only. The type of the execution.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBackupdr_RestoreTemplateExecution_Type_ExecutionTypeUnspecified
+ *        Execution type not specified. (Value: "EXECUTION_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRBackupdr_RestoreTemplateExecution_Type_OnDemand On-demand
+ *        execution. (Value: "ON_DEMAND")
+ *    @arg @c kGTLRBackupdr_RestoreTemplateExecution_Type_Scheduled Scheduled
+ *        execution. (Value: "SCHEDULED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+/** Output only. Update time of the execution. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+/** Output only. Info for the verification phase. */
+@property(nonatomic, strong, nullable) GTLRBackupdr_VerificationPhaseInfo *verificationPhaseInfo;
+
+@end
+
+
+/**
+ *  Defines the specific cleanup action.
+ */
+@interface GTLRBackupdr_RestoreVerificationCleanupRule : GTLRObject
+
+/**
+ *  Optional. Duration after restore finishes when cleanup triggers. Delay must
+ *  be non-negative and at most 30 days (2592000 seconds).
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *cleanupDelay;
+
+/**
+ *  Optional. If set to true, the restored resource will not be cleaned up.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *skipCleanup;
+
+@end
+
+
+/**
+ *  A `RestoreVerificationPlan` specifies the scheduling and clean-up template
+ *  for automated restore verification. It contains a
+ *  `RestoreVerificationSchedule` to dictate when the verifications should run,
+ *  and a `CleanupConfig` for post-verification resource deletion.
+ */
+@interface GTLRBackupdr_RestoreVerificationPlan : GTLRObject
+
+/** Output only. When the `RestoreVerificationPlan` was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. The description of the `RestoreVerificationPlan` resource. The
+ *  description allows for additional details about `RestoreVerificationPlan`
+ *  and its use cases to be provided. An example description is the following:
+ *  "This is a restore verification plan that performs a daily verification and
+ *  cleans up the resources immediately after." The description must be at most
+ *  2048 characters.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** Optional. The cleanup rule to apply if the restore verification fails. */
+@property(nonatomic, strong, nullable) GTLRBackupdr_RestoreVerificationCleanupRule *failureCleanupRule;
+
+/** Optional. User-defined labels. */
+@property(nonatomic, strong, nullable) GTLRBackupdr_RestoreVerificationPlan_Labels *labels;
+
+/**
+ *  Output only. Identifier. The resource name of the `RestoreVerificationPlan`.
+ *  Format:
+ *  `projects/{project}/locations/{location}/restoreVerificationPlans/{restoreVerificationPlan}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. Describes the schedule on which the restore verification will be
+ *  executed. The schedule is specified as a
+ *  [Crontab](https://en.wikipedia.org/wiki/Cron#Overview) string.
+ */
+@property(nonatomic, copy, nullable) NSString *schedule;
+
+/**
+ *  Output only. The `State` for the `RestoreVerificationPlan`.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBackupdr_RestoreVerificationPlan_State_Active The resource
+ *        has been created and is fully usable. (Value: "ACTIVE")
+ *    @arg @c kGTLRBackupdr_RestoreVerificationPlan_State_Creating The resource
+ *        is being created. (Value: "CREATING")
+ *    @arg @c kGTLRBackupdr_RestoreVerificationPlan_State_Deleting The resource
+ *        is being deleted. (Value: "DELETING")
+ *    @arg @c kGTLRBackupdr_RestoreVerificationPlan_State_Error The resource is
+ *        in an error state due to a configuration issue. (Value: "ERROR")
+ *    @arg @c kGTLRBackupdr_RestoreVerificationPlan_State_Inactive The resource
+ *        has been created but is not usable. (Value: "INACTIVE")
+ *    @arg @c kGTLRBackupdr_RestoreVerificationPlan_State_StateUnspecified State
+ *        not set. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRBackupdr_RestoreVerificationPlan_State_Updating The resource
+ *        is being updated. (Value: "UPDATING")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  Optional. The cleanup rule to apply if the restore verification succeeds.
+ */
+@property(nonatomic, strong, nullable) GTLRBackupdr_RestoreVerificationCleanupRule *successCleanupRule;
+
+/**
+ *  Optional. Specifies the time zone to be used in interpreting schedule. The
+ *  value of this field must be a time zone name from the [tz
+ *  database](https://en.wikipedia.org/wiki/Tz_database), like
+ *  "America/New_York" or "UTC". Defaults to `UTC` if not specified.
+ */
+@property(nonatomic, copy, nullable) NSString *timeZone;
+
+/** Output only. When the `RestoreVerificationPlan` was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Optional. User-defined labels.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRBackupdr_RestoreVerificationPlan_Labels : GTLRObject
+@end
+
+
+/**
+ *  A `RestoreVerificationPlanAssociation` binds a specific workload to a
+ *  `RestoreVerificationPlan`.
+ */
+@interface GTLRBackupdr_RestoreVerificationPlanAssociation : GTLRObject
+
+/** Output only. The time when the association was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. The description of the `RestoreVerificationPlanAssociation`
+ *  resource.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** Optional. User-defined labels. */
+@property(nonatomic, strong, nullable) GTLRBackupdr_RestoreVerificationPlanAssociation_Labels *labels;
+
+/**
+ *  Output only. Identifier. The resource name of
+ *  RestoreVerificationPlanAssociation in below format Format :
+ *  projects/{project}/locations/{location}/restoreVerificationPlans/{restore_verification_plan}/associations/{association}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. Immutable. The type of the Google Cloud resource (e.g.,
+ *  `compute.googleapis.com/Instance`, `sqladmin.googleapis.com/Instance`).
+ */
+@property(nonatomic, copy, nullable) NSString *resourceType;
+
+/**
+ *  Required. Immutable. The canonical name of the RestoreTemplate to trigger.
+ */
+@property(nonatomic, copy, nullable) NSString *restoreTemplate;
+
+/**
+ *  Output only. The `State` for the `RestoreVerificationPlanAssociation`.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBackupdr_RestoreVerificationPlanAssociation_State_Active The
+ *        resource has been created and is fully usable. (Value: "ACTIVE")
+ *    @arg @c kGTLRBackupdr_RestoreVerificationPlanAssociation_State_Creating
+ *        The resource is being created. (Value: "CREATING")
+ *    @arg @c kGTLRBackupdr_RestoreVerificationPlanAssociation_State_Deleting
+ *        The resource is being deleted. (Value: "DELETING")
+ *    @arg @c kGTLRBackupdr_RestoreVerificationPlanAssociation_State_Error The
+ *        resource is in an error state due to a configuration issue. (Value:
+ *        "ERROR")
+ *    @arg @c kGTLRBackupdr_RestoreVerificationPlanAssociation_State_Inactive
+ *        The resource has been created but is not usable. (Value: "INACTIVE")
+ *    @arg @c kGTLRBackupdr_RestoreVerificationPlanAssociation_State_StateUnspecified
+ *        State not set. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRBackupdr_RestoreVerificationPlanAssociation_State_Updating
+ *        The resource is being updated. (Value: "UPDATING")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  Output only. Results of the most recent automated restore initiation and the
+ *  next scheduled execution time.
+ */
+@property(nonatomic, strong, nullable) GTLRBackupdr_TriggerSummary *triggerSummary;
+
+/** Output only. The time when the association was updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Optional. User-defined labels.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRBackupdr_RestoreVerificationPlanAssociation_Labels : GTLRObject
+@end
+
+
+/**
  *  Message for rules config info.
  */
 @interface GTLRBackupdr_RuleConfigInfo : GTLRObject
@@ -7030,6 +9372,31 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
 
 /** Output only. Backup Rule id fetched from backup plan. */
 @property(nonatomic, copy, nullable) NSString *ruleId;
+
+@end
+
+
+/**
+ *  Request message for running a RestoreTemplate.
+ */
+@interface GTLRBackupdr_RunRestoreTemplateRequest : GTLRObject
+
+/**
+ *  Optional. The resource name of the Backup to restore from. If not specified,
+ *  the latest backup matching the backup selection configuration in the
+ *  RestoreTemplate will be used. Format:
+ *  'projects/{project}/locations/{location}/backupVaults/{backup_vault}/dataSources/{data_source}/backups/{backup}'
+ */
+@property(nonatomic, copy, nullable) NSString *backup;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The request ID must be
+ *  a valid UUID with the exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
 
 @end
 
@@ -7588,6 +9955,167 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
  *        fetch them all at once.
  */
 @interface GTLRBackupdr_TriggerBackupRequest_Labels : GTLRObject
+@end
+
+
+/**
+ *  Request message for triggering a restore cleanup.
+ */
+@interface GTLRBackupdr_TriggerRestoreCleanupRequest : GTLRObject
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes after the first request. The request
+ *  ID must be a valid UUID with the exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+@end
+
+
+/**
+ *  Request message for TriggerRestoreVerification.
+ */
+@interface GTLRBackupdr_TriggerRestoreVerificationRequest : GTLRObject
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know that
+ *  the server has already received the duplicate request and can avoid
+ *  responding with an error. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+@end
+
+
+/**
+ *  `TriggerSummary` contains the results of the most recent automated restore
+ *  initiation and the next scheduled execution time.
+ */
+@interface GTLRBackupdr_TriggerSummary : GTLRObject
+
+/** Output only. The error status of the most recent failed trigger. */
+@property(nonatomic, strong, nullable) GTLRBackupdr_Status *lastTriggerError;
+
+/** Output only. The time of the most recent trigger initiation. */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastTriggerTime;
+
+/**
+ *  Output only. The resource name of the most recent initiated
+ *  RestoreTemplateExecution. Format:
+ *  `projects/{project}/locations/{location}/restoreTemplates/{restore_template}/executions/{execution}`
+ */
+@property(nonatomic, copy, nullable) NSString *lastVerificationExecution;
+
+/** Output only. The scheduled time of the next trigger initiation. */
+@property(nonatomic, strong, nullable) GTLRDateTime *nextTriggerTime;
+
+@end
+
+
+/**
+ *  Configuration for Verification.
+ */
+@interface GTLRBackupdr_VerificationConfig : GTLRObject
+
+/**
+ *  Cloud Run job action to execute. Format:
+ *  `projects/{project}/locations/{location}/jobs/{job}`
+ */
+@property(nonatomic, copy, nullable) NSString *cloudRunJob;
+
+/**
+ *  Optional. The `timeout` for this phase. If set, the `timeout` must be
+ *  positive and less than or equal to 24 hours (86400s).
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *timeout;
+
+@end
+
+
+/**
+ *  Info for Verification phase execution.
+ */
+@interface GTLRBackupdr_VerificationPhaseInfo : GTLRObject
+
+/**
+ *  Output only. The fully qualified URI of the Cloud Run Execution triggered
+ *  for verification.
+ */
+@property(nonatomic, copy, nullable) NSString *cloudRunExecution;
+
+/** Output only. End time of the phase. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/** Output only. Error details if the phase failed. */
+@property(nonatomic, strong, nullable) GTLRBackupdr_Status *error;
+
+/**
+ *  Output only. The state of this phase.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBackupdr_VerificationPhaseInfo_PhaseState_Failed The phase
+ *        encountered an error and failed. (Value: "FAILED")
+ *    @arg @c kGTLRBackupdr_VerificationPhaseInfo_PhaseState_Pending This phase
+ *        is pending execution. (Value: "PENDING")
+ *    @arg @c kGTLRBackupdr_VerificationPhaseInfo_PhaseState_PhaseStateUnspecified
+ *        Phase state is not set. (Value: "PHASE_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRBackupdr_VerificationPhaseInfo_PhaseState_Running The phase
+ *        is actively executing. (Value: "RUNNING")
+ *    @arg @c kGTLRBackupdr_VerificationPhaseInfo_PhaseState_Skipped The phase
+ *        was skipped. (Value: "SKIPPED")
+ *    @arg @c kGTLRBackupdr_VerificationPhaseInfo_PhaseState_Succeeded The phase
+ *        completed successfully. (Value: "SUCCEEDED")
+ *    @arg @c kGTLRBackupdr_VerificationPhaseInfo_PhaseState_TimedOut The phase
+ *        timed out. (Value: "TIMED_OUT")
+ *    @arg @c kGTLRBackupdr_VerificationPhaseInfo_PhaseState_Waiting The phase
+ *        is waiting to be executed. (Value: "WAITING")
+ */
+@property(nonatomic, copy, nullable) NSString *phaseState;
+
+/** Output only. Start time of the phase. */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+/**
+ *  Output only. Snapshot of config that will be executed after successful post
+ *  restore validation.
+ */
+@property(nonatomic, strong, nullable) GTLRBackupdr_VerificationConfig *verificationConfig;
+
+@end
+
+
+/**
+ *  VerificationSummary contains the status and timestamp of the latest
+ *  Automated Verification test.
+ */
+@interface GTLRBackupdr_VerificationSummary : GTLRObject
+
+/** Output only. The last verification execution. */
+@property(nonatomic, copy, nullable) NSString *lastVerificationExecution;
+
+/**
+ *  Output only. The state of the last verification.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBackupdr_VerificationSummary_LastVerificationState_Failed
+ *        Verification failed. (Value: "FAILED")
+ *    @arg @c kGTLRBackupdr_VerificationSummary_LastVerificationState_StateUnspecified
+ *        Verification state is unspecified. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRBackupdr_VerificationSummary_LastVerificationState_Succeeded
+ *        Verification succeeded. (Value: "SUCCEEDED")
+ */
+@property(nonatomic, copy, nullable) NSString *lastVerificationState;
+
+/** Output only. The time when the backup was last verified. */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastVerificationTime;
+
 @end
 
 

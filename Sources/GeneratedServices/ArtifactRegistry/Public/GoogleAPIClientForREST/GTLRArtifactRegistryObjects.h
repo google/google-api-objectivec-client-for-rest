@@ -464,6 +464,34 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_PlatformLogsConfig_Seve
 FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_PlatformLogsConfig_SeverityLevel_Warning;
 
 // ----------------------------------------------------------------------------
+// GTLRArtifactRegistry_PrewarmedArtifact.state
+
+/**
+ *  The artifact is cached and ready for streaming.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_PrewarmedArtifact_State_Active;
+/**
+ *  The artifact is currently being cached.
+ *
+ *  Value: "CACHING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_PrewarmedArtifact_State_Caching;
+/**
+ *  Caching the artifact failed. See `error_message` for details.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_PrewarmedArtifact_State_Failed;
+/**
+ *  State not specified.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_PrewarmedArtifact_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRArtifactRegistry_ProjectSettings.legacyRedirectionState
 
 /**
@@ -2924,16 +2952,44 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
 
 
 /**
- *  PrewarmedArtifact represents a streamed artifact. This is not a request
- *  message, so field_behavior annotations are not required.
+ *  PrewarmedArtifact represents a streamed artifact.
  */
 @interface GTLRArtifactRegistry_PrewarmedArtifact : GTLRObject
+
+/** Output only. The time the artifact was first prewarmed. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Output only. The error message if the state is `FAILED`. */
+@property(nonatomic, copy, nullable) NSString *errorMessage;
 
 /** The expiration time of the prewarmed artifact. */
 @property(nonatomic, strong, nullable) GTLRDateTime *expirationTime;
 
 /** The location of the prewarmed artifact. */
 @property(nonatomic, copy, nullable) NSString *location;
+
+/**
+ *  Output only. The compressed size of the prewarmed artifact in bytes. This is
+ *  the size counted against the prewarm storage quota.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sizeBytes;
+
+/**
+ *  Output only. The caching state of the prewarmed artifact.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRArtifactRegistry_PrewarmedArtifact_State_Active The artifact
+ *        is cached and ready for streaming. (Value: "ACTIVE")
+ *    @arg @c kGTLRArtifactRegistry_PrewarmedArtifact_State_Caching The artifact
+ *        is currently being cached. (Value: "CACHING")
+ *    @arg @c kGTLRArtifactRegistry_PrewarmedArtifact_State_Failed Caching the
+ *        artifact failed. See `error_message` for details. (Value: "FAILED")
+ *    @arg @c kGTLRArtifactRegistry_PrewarmedArtifact_State_StateUnspecified
+ *        State not specified. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
 
 /**
  *  URL to access the image. Example:

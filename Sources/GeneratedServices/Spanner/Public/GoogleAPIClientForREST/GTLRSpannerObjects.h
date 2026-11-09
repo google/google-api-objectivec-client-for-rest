@@ -69,6 +69,7 @@
 @class GTLRSpanner_IndexedKeyRangeInfos_KeyRangeInfos;
 @class GTLRSpanner_Instance;
 @class GTLRSpanner_Instance_Labels;
+@class GTLRSpanner_Instance_Tags;
 @class GTLRSpanner_InstanceConfig;
 @class GTLRSpanner_InstanceConfig_Labels;
 @class GTLRSpanner_InstanceEncryptionConfig;
@@ -4596,6 +4597,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
+/**
+ *  Optional. Tag keys/values directly bound to this resource. For example:
+ *  "123/environment": "prod", "123/costCenter": "marketing"
+ */
+@property(nonatomic, strong, nullable) GTLRSpanner_Instance_Tags *tags;
+
 /** Output only. The time at which the instance was most recently updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
@@ -4626,6 +4633,19 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  *        fetch them all at once.
  */
 @interface GTLRSpanner_Instance_Labels : GTLRObject
+@end
+
+
+/**
+ *  Optional. Tag keys/values directly bound to this resource. For example:
+ *  "123/environment": "prod", "123/costCenter": "marketing"
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRSpanner_Instance_Tags : GTLRObject
 @end
 
 

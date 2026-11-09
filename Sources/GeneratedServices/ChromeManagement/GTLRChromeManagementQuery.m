@@ -323,6 +323,117 @@ NSString * const kGTLRChromeManagementMetricUrlVisitsMetricUnspecified = @"URL_V
 
 @end
 
+@implementation GTLRChromeManagementQuery_CustomersChromeBrowsersDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRChromeManagementQuery_CustomersChromeBrowsersDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRChromeManagement_GoogleProtobufEmpty class];
+  query.loggingName = @"chromemanagement.customers.chromeBrowsers.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRChromeManagementQuery_CustomersChromeBrowsersGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRChromeManagementQuery_CustomersChromeBrowsersGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowser class];
+  query.loggingName = @"chromemanagement.customers.chromeBrowsers.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRChromeManagementQuery_CustomersChromeBrowsersList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/chromeBrowsers";
+  GTLRChromeManagementQuery_CustomersChromeBrowsersList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRChromeManagement_GoogleChromeManagementVersionsV1ListChromeBrowsersResponse class];
+  query.loggingName = @"chromemanagement.customers.chromeBrowsers.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRChromeManagementQuery_CustomersChromeBrowsersMove
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRChromeManagement_GoogleChromeManagementVersionsV1MoveChromeBrowsersRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/chromeBrowsers:move";
+  GTLRChromeManagementQuery_CustomersChromeBrowsersMove *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRChromeManagement_GoogleChromeManagementVersionsV1MoveChromeBrowsersResponse class];
+  query.loggingName = @"chromemanagement.customers.chromeBrowsers.move";
+  return query;
+}
+
+@end
+
+@implementation GTLRChromeManagementQuery_CustomersChromeBrowsersPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowser *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRChromeManagementQuery_CustomersChromeBrowsersPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowser class];
+  query.loggingName = @"chromemanagement.customers.chromeBrowsers.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRChromeManagementQuery_CustomersConnectorConfigsCreate
 
 @dynamic connectorConfigId, parent;
@@ -429,6 +540,98 @@ NSString * const kGTLRChromeManagementMetricUrlVisitsMetricUnspecified = @"URL_V
   query.name = name;
   query.expectedObjectClass = [GTLRChromeManagement_GoogleChromeManagementVersionsV1ConnectorConfig class];
   query.loggingName = @"chromemanagement.customers.connectorConfigs.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRChromeManagementQuery_CustomersEnrollmentTokensCreate
+
+@dynamic enrollmentTokenId, parent;
+
++ (instancetype)queryWithObject:(GTLRChromeManagement_GoogleChromeManagementVersionsV1EnrollmentToken *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/enrollmentTokens";
+  GTLRChromeManagementQuery_CustomersEnrollmentTokensCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRChromeManagement_GoogleChromeManagementVersionsV1EnrollmentToken class];
+  query.loggingName = @"chromemanagement.customers.enrollmentTokens.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRChromeManagementQuery_CustomersEnrollmentTokensGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRChromeManagementQuery_CustomersEnrollmentTokensGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRChromeManagement_GoogleChromeManagementVersionsV1EnrollmentToken class];
+  query.loggingName = @"chromemanagement.customers.enrollmentTokens.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRChromeManagementQuery_CustomersEnrollmentTokensList
+
+@dynamic filter, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/enrollmentTokens";
+  GTLRChromeManagementQuery_CustomersEnrollmentTokensList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRChromeManagement_GoogleChromeManagementVersionsV1ListEnrollmentTokensResponse class];
+  query.loggingName = @"chromemanagement.customers.enrollmentTokens.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRChromeManagementQuery_CustomersEnrollmentTokensRevoke
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRChromeManagement_GoogleChromeManagementVersionsV1RevokeEnrollmentTokenRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:revoke";
+  GTLRChromeManagementQuery_CustomersEnrollmentTokensRevoke *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRChromeManagement_GoogleChromeManagementVersionsV1EnrollmentToken class];
+  query.loggingName = @"chromemanagement.customers.enrollmentTokens.revoke";
   return query;
 }
 

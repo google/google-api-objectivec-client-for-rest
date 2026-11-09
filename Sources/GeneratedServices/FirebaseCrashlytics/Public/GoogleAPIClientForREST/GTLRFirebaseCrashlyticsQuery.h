@@ -498,18 +498,18 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseCrashlyticsViewReportViewUnspeci
 /**
  *  Optional. Filters events by custom keys
  *  (https://firebase.google.com/docs/crashlytics/customize-crash-reports#add-keys).
- *  Supported forms: * Equality: `custom_keys.level = "vip"` or
- *  `custom_keys.level:"vip"` * Presence: `custom_keys.level:*` * OR across
- *  values of one key: `custom_keys.level = "vip" OR custom_keys.level =
- *  "enterprise"` * AND across different keys: `custom_keys.level = "vip" AND
- *  custom_keys.region = "us"` Keys are case-sensitive. Keys and values
- *  containing spaces must be double-quoted, for example `custom_keys."app
- *  state" = "background"`. OR across different keys, repeating a key within an
- *  AND, NOT, and comparators other than `=` and `:` are rejected with
- *  INVALID_ARGUMENT. Wildcards are not supported in values; use
- *  `custom_keys.:*` to match events that set a key to any value. This filter
- *  expression applies in addition to the `filter` field above. The syntax is a
- *  subset of AIP-160 (https://google.aip.dev/160).
+ *  Supported forms: * Equality: `custom_keys.level = "vip"` * Has:
+ *  `custom_keys.level:"vip"` (matches the same events as equality) * Presence:
+ *  `custom_keys.level:*` * OR across values of one key: `custom_keys.level =
+ *  "vip" OR custom_keys.level = "enterprise"` * AND across different keys:
+ *  `custom_keys.level = "vip" AND custom_keys.region = "us"` Keys are
+ *  case-sensitive. Keys and values containing spaces must be double-quoted, for
+ *  example `custom_keys."app state" = "background"`. OR across different keys,
+ *  repeating a key within an AND, NOT, and comparators other than `=` and `:`
+ *  are rejected with INVALID_ARGUMENT. Wildcards are not supported in values;
+ *  use `custom_keys.:*` to match events that set a key to any value. This
+ *  filter expression applies in addition to the `filter` field above. The
+ *  syntax is a subset of AIP-160 (https://google.aip.dev/160).
  */
 @property(nonatomic, copy, nullable) NSString *filterExpression;
 
@@ -551,6 +551,74 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseCrashlyticsViewReportViewUnspeci
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Creates a Cloud Monitoring AlertPolicy for the requested Crashlytics Web
+ *  alert type and returns the created resource reference.
+ *
+ *  Method: firebasecrashlytics.projects.apps.generateAlertPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirebaseCrashlyticsCloudPlatform
+ *    @c kGTLRAuthScopeFirebaseCrashlyticsFirebase
+ */
+@interface GTLRFirebaseCrashlyticsQuery_ProjectsAppsGenerateAlertPolicy : GTLRFirebaseCrashlyticsQuery
+
+/**
+ *  Required. The firebase application. Format:
+ *  "projects/{project}/apps/{app_id}".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRFirebaseCrashlytics_GenerateAlertPolicyResponse.
+ *
+ *  Creates a Cloud Monitoring AlertPolicy for the requested Crashlytics Web
+ *  alert type and returns the created resource reference.
+ *
+ *  @param object The @c GTLRFirebaseCrashlytics_GenerateAlertPolicyRequest to
+ *    include in the query.
+ *  @param name Required. The firebase application. Format:
+ *    "projects/{project}/apps/{app_id}".
+ *
+ *  @return GTLRFirebaseCrashlyticsQuery_ProjectsAppsGenerateAlertPolicy
+ */
++ (instancetype)queryWithObject:(GTLRFirebaseCrashlytics_GenerateAlertPolicyRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Retrieves the Android Profiling Manager configuration for an app.
+ *
+ *  Method: firebasecrashlytics.projects.apps.getProfilingManagerConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirebaseCrashlyticsCloudPlatform
+ *    @c kGTLRAuthScopeFirebaseCrashlyticsFirebase
+ */
+@interface GTLRFirebaseCrashlyticsQuery_ProjectsAppsGetProfilingManagerConfig : GTLRFirebaseCrashlyticsQuery
+
+/**
+ *  Required. The resource name of the Profiling Manager configuration to
+ *  retrieve. Format: "projects/{project}/apps/{app}/profilingManagerConfig".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRFirebaseCrashlytics_ProfilingManagerConfig.
+ *
+ *  Retrieves the Android Profiling Manager configuration for an app.
+ *
+ *  @param name Required. The resource name of the Profiling Manager
+ *    configuration to retrieve. Format:
+ *    "projects/{project}/apps/{app}/profilingManagerConfig".
+ *
+ *  @return GTLRFirebaseCrashlyticsQuery_ProjectsAppsGetProfilingManagerConfig
+ */
++ (instancetype)queryWithName:(NSString *)name;
 
 @end
 
@@ -946,6 +1014,27 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseCrashlyticsViewReportViewUnspeci
 @property(nonatomic, strong, nullable) NSArray<NSString *> *filterVersionDisplayNames;
 
 /**
+ *  Optional. Filters the events counted in the report by custom keys. Not all
+ *  reports support this filter. It is currently only supported for web apps;
+ *  see the report's `usage` field for whether `filter_expression` is supported.
+ *  Requests for other apps or unsupported reports that set this field are
+ *  rejected with `INVALID_ARGUMENT`. Supported forms: * Equality:
+ *  `custom_keys.level = "vip"` * Has: `custom_keys.level:"vip"` (matches the
+ *  same events as equality) * Presence: `custom_keys.level:*` * OR across
+ *  values of one key: `custom_keys.level = "vip" OR custom_keys.level =
+ *  "enterprise"` * AND across different keys: `custom_keys.level = "vip" AND
+ *  custom_keys.region = "us"` Keys are case-sensitive. Keys and values
+ *  containing spaces must be double-quoted, for example `custom_keys."app
+ *  state" = "background"`. OR across different keys, repeating a key within an
+ *  AND, NOT, and comparators other than `=` and `:` are rejected with
+ *  INVALID_ARGUMENT. Wildcards are not supported in values; use
+ *  `custom_keys.:*` to match events that set a key to any value. This filter
+ *  expression applies in addition to the `filter` field above. The syntax is a
+ *  subset of AIP-160 (https://google.aip.dev/160).
+ */
+@property(nonatomic, copy, nullable) NSString *filterExpression;
+
+/**
  *  Optional. The report response will contain one data point per time grain. If
  *  omitted, the report will contain a single data point for the complete
  *  interval.
@@ -986,8 +1075,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseCrashlyticsViewReportViewUnspeci
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Optional. The maximum number of result groups to return. If omitted,
- *  defaults to 25.
+ *  Optional. The maximum number of result groups to return. The maximum value
+ *  is 100; values above 100 will be coerced to 100. If omitted, defaults to 25.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
@@ -1080,6 +1169,51 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseCrashlyticsViewReportViewUnspeci
  *  @return GTLRFirebaseCrashlyticsQuery_ProjectsAppsReportsList
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates the Android Profiling Manager configuration for an app.
+ *
+ *  Method: firebasecrashlytics.projects.apps.updateProfilingManagerConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirebaseCrashlyticsCloudPlatform
+ *    @c kGTLRAuthScopeFirebaseCrashlyticsFirebase
+ */
+@interface GTLRFirebaseCrashlyticsQuery_ProjectsAppsUpdateProfilingManagerConfig : GTLRFirebaseCrashlyticsQuery
+
+/**
+ *  Identifier. The resource name of the Profiling Manager configuration.
+ *  Format: "projects/{project}/apps/{app}/profilingManagerConfig".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The list of ProfilingManagerConfig fields to update (`gcs_bucket`,
+ *  `heap_dump_collection_enabled`). If omitted, all populated (non-default)
+ *  fields are updated; specify an explicit `update_mask` (or `*`) when clearing
+ *  a field to its default value (such as `""` or `false`).
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRFirebaseCrashlytics_ProfilingManagerConfig.
+ *
+ *  Updates the Android Profiling Manager configuration for an app.
+ *
+ *  @param object The @c GTLRFirebaseCrashlytics_ProfilingManagerConfig to
+ *    include in the query.
+ *  @param name Identifier. The resource name of the Profiling Manager
+ *    configuration. Format:
+ *    "projects/{project}/apps/{app}/profilingManagerConfig".
+ *
+ *  @return GTLRFirebaseCrashlyticsQuery_ProjectsAppsUpdateProfilingManagerConfig
+ */
++ (instancetype)queryWithObject:(GTLRFirebaseCrashlytics_ProfilingManagerConfig *)object
+                           name:(NSString *)name;
 
 @end
 

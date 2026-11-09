@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Device Run API (devicerun/v1alpha)
+//   Device Run API (devicerun/v1)
 // Description:
 //   The Device Run API allows management, scheduling, and execution of
 //   automated sessions and workloads across device catalogs.

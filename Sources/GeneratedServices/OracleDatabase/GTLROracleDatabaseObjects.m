@@ -66,6 +66,7 @@ NSString * const kGTLROracleDatabase_AutonomousDatabaseProperties_DbWorkload_Ajd
 NSString * const kGTLROracleDatabase_AutonomousDatabaseProperties_DbWorkload_Apex = @"APEX";
 NSString * const kGTLROracleDatabase_AutonomousDatabaseProperties_DbWorkload_DbWorkloadUnspecified = @"DB_WORKLOAD_UNSPECIFIED";
 NSString * const kGTLROracleDatabase_AutonomousDatabaseProperties_DbWorkload_Dw = @"DW";
+NSString * const kGTLROracleDatabase_AutonomousDatabaseProperties_DbWorkload_Lh = @"LH";
 NSString * const kGTLROracleDatabase_AutonomousDatabaseProperties_DbWorkload_Oltp = @"OLTP";
 
 // GTLROracleDatabase_AutonomousDatabaseProperties.licenseType
@@ -174,6 +175,7 @@ NSString * const kGTLROracleDatabase_AutonomousDbVersion_DbWorkload_Ajd = @"AJD"
 NSString * const kGTLROracleDatabase_AutonomousDbVersion_DbWorkload_Apex = @"APEX";
 NSString * const kGTLROracleDatabase_AutonomousDbVersion_DbWorkload_DbWorkloadUnspecified = @"DB_WORKLOAD_UNSPECIFIED";
 NSString * const kGTLROracleDatabase_AutonomousDbVersion_DbWorkload_Dw = @"DW";
+NSString * const kGTLROracleDatabase_AutonomousDbVersion_DbWorkload_Lh = @"LH";
 NSString * const kGTLROracleDatabase_AutonomousDbVersion_DbWorkload_Oltp = @"OLTP";
 
 // GTLROracleDatabase_BackupDestinationDetails.type
@@ -239,6 +241,11 @@ NSString * const kGTLROracleDatabase_CloudVmClusterProperties_VmFileSystemStorag
 NSString * const kGTLROracleDatabase_CloudVmClusterProperties_VmFileSystemStorageType_VmFileSystemStorageTypeLocal = @"VM_FILE_SYSTEM_STORAGE_TYPE_LOCAL";
 NSString * const kGTLROracleDatabase_CloudVmClusterProperties_VmFileSystemStorageType_VmFileSystemStorageTypeUnspecified = @"VM_FILE_SYSTEM_STORAGE_TYPE_UNSPECIFIED";
 
+// GTLROracleDatabase_ComputePerformance.computeModel
+NSString * const kGTLROracleDatabase_ComputePerformance_ComputeModel_ComputeModelEcpu = @"COMPUTE_MODEL_ECPU";
+NSString * const kGTLROracleDatabase_ComputePerformance_ComputeModel_ComputeModelOcpu = @"COMPUTE_MODEL_OCPU";
+NSString * const kGTLROracleDatabase_ComputePerformance_ComputeModel_ComputeModelUnspecified = @"COMPUTE_MODEL_UNSPECIFIED";
+
 // GTLROracleDatabase_Database.opsInsightsStatus
 NSString * const kGTLROracleDatabase_Database_OpsInsightsStatus_Disabling = @"DISABLING";
 NSString * const kGTLROracleDatabase_Database_OpsInsightsStatus_Enabled = @"ENABLED";
@@ -252,6 +259,13 @@ NSString * const kGTLROracleDatabase_Database_OpsInsightsStatus_OperationsInsigh
 NSString * const kGTLROracleDatabase_DatabaseCharacterSet_CharacterSetType_CharacterSetTypeUnspecified = @"CHARACTER_SET_TYPE_UNSPECIFIED";
 NSString * const kGTLROracleDatabase_DatabaseCharacterSet_CharacterSetType_Database = @"DATABASE";
 NSString * const kGTLROracleDatabase_DatabaseCharacterSet_CharacterSetType_National = @"NATIONAL";
+
+// GTLROracleDatabase_DatabaseConnection.state
+NSString * const kGTLROracleDatabase_DatabaseConnection_State_Active = @"ACTIVE";
+NSString * const kGTLROracleDatabase_DatabaseConnection_State_Creating = @"CREATING";
+NSString * const kGTLROracleDatabase_DatabaseConnection_State_Deleting = @"DELETING";
+NSString * const kGTLROracleDatabase_DatabaseConnection_State_Failed = @"FAILED";
+NSString * const kGTLROracleDatabase_DatabaseConnection_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
 // GTLROracleDatabase_DatabaseConnectionStringProfile.consumerGroup
 NSString * const kGTLROracleDatabase_DatabaseConnectionStringProfile_ConsumerGroup_ConsumerGroupUnspecified = @"CONSUMER_GROUP_UNSPECIFIED";
@@ -481,6 +495,22 @@ NSString * const kGTLROracleDatabase_ExascaleDbStorageVaultProperties_State_Stat
 NSString * const kGTLROracleDatabase_ExascaleDbStorageVaultProperties_State_Terminated = @"TERMINATED";
 NSString * const kGTLROracleDatabase_ExascaleDbStorageVaultProperties_State_Terminating = @"TERMINATING";
 NSString * const kGTLROracleDatabase_ExascaleDbStorageVaultProperties_State_Updating = @"UPDATING";
+
+// GTLROracleDatabase_ExecuteSqlMetadata.status
+NSString * const kGTLROracleDatabase_ExecuteSqlMetadata_Status_Error = @"ERROR";
+NSString * const kGTLROracleDatabase_ExecuteSqlMetadata_Status_Ok = @"OK";
+NSString * const kGTLROracleDatabase_ExecuteSqlMetadata_Status_Partial = @"PARTIAL";
+NSString * const kGTLROracleDatabase_ExecuteSqlMetadata_Status_StatusUnspecified = @"STATUS_UNSPECIFIED";
+
+// GTLROracleDatabase_FlexComponentProperties.computeModel
+NSString * const kGTLROracleDatabase_FlexComponentProperties_ComputeModel_ComputeModelEcpu = @"COMPUTE_MODEL_ECPU";
+NSString * const kGTLROracleDatabase_FlexComponentProperties_ComputeModel_ComputeModelOcpu = @"COMPUTE_MODEL_OCPU";
+NSString * const kGTLROracleDatabase_FlexComponentProperties_ComputeModel_ComputeModelUnspecified = @"COMPUTE_MODEL_UNSPECIFIED";
+
+// GTLROracleDatabase_FlexComponentProperties.hardwareType
+NSString * const kGTLROracleDatabase_FlexComponentProperties_HardwareType_Cell = @"CELL";
+NSString * const kGTLROracleDatabase_FlexComponentProperties_HardwareType_Compute = @"COMPUTE";
+NSString * const kGTLROracleDatabase_FlexComponentProperties_HardwareType_HardwareTypeUnspecified = @"HARDWARE_TYPE_UNSPECIFIED";
 
 // GTLROracleDatabase_GenerateAutonomousDatabaseWalletRequest.type
 NSString * const kGTLROracleDatabase_GenerateAutonomousDatabaseWalletRequest_Type_All = @"ALL";
@@ -861,6 +891,14 @@ NSString * const kGTLROracleDatabase_MaintenanceWindow_PatchingMode_Rolling = @"
 NSString * const kGTLROracleDatabase_MaintenanceWindow_Preference_CustomPreference = @"CUSTOM_PREFERENCE";
 NSString * const kGTLROracleDatabase_MaintenanceWindow_Preference_MaintenanceWindowPreferenceUnspecified = @"MAINTENANCE_WINDOW_PREFERENCE_UNSPECIFIED";
 NSString * const kGTLROracleDatabase_MaintenanceWindow_Preference_NoPreference = @"NO_PREFERENCE";
+
+// GTLROracleDatabase_OdbDnsZone.state
+NSString * const kGTLROracleDatabase_OdbDnsZone_State_Available = @"AVAILABLE";
+NSString * const kGTLROracleDatabase_OdbDnsZone_State_Failed   = @"FAILED";
+NSString * const kGTLROracleDatabase_OdbDnsZone_State_Inactive = @"INACTIVE";
+NSString * const kGTLROracleDatabase_OdbDnsZone_State_Provisioning = @"PROVISIONING";
+NSString * const kGTLROracleDatabase_OdbDnsZone_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLROracleDatabase_OdbDnsZone_State_Terminating = @"TERMINATING";
 
 // GTLROracleDatabase_OdbNetwork.state
 NSString * const kGTLROracleDatabase_OdbNetwork_State_Available = @"AVAILABLE";
@@ -1291,8 +1329,8 @@ NSString * const kGTLROracleDatabase_TestGoldengateConnectionAssignmentResponse_
 @implementation GTLROracleDatabase_CloudVmCluster
 @dynamic backupOdbSubnet, backupSubnetCidr, cidr, createTime, displayName,
          exadataInfrastructure, exascaleDbStorageVault, gcpOracleZone,
-         identityConnector, labels, name, network, odbNetwork, odbSubnet,
-         properties;
+         identityConnector, identityConnectorDisabled, labels, name, network,
+         odbDnsZone, odbNetwork, odbSubnet, properties;
 @end
 
 
@@ -1340,6 +1378,26 @@ NSString * const kGTLROracleDatabase_TestGoldengateConnectionAssignmentResponse_
 
 // ----------------------------------------------------------------------------
 //
+//   GTLROracleDatabase_Column
+//
+
+@implementation GTLROracleDatabase_Column
+@dynamic name, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_ComputePerformance
+//
+
+@implementation GTLROracleDatabase_ComputePerformance
+@dynamic computeCount, computeModel, cpuCoreCount, memoryInGbs;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLROracleDatabase_ConfigureExascaleCloudExadataInfrastructureRequest
 //
 
@@ -1379,6 +1437,32 @@ NSString * const kGTLROracleDatabase_TestGoldengateConnectionAssignmentResponse_
 
 @implementation GTLROracleDatabase_DatabaseCharacterSet
 @dynamic characterSet, characterSetType, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_DatabaseConnection
+//
+
+@implementation GTLROracleDatabase_DatabaseConnection
+@dynamic connectionString, createTime, displayName, labels, lifecycleDetails,
+         name, odbNetwork, passwordSecretVersion, state, updateTime, username,
+         walletSecretVersion;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_DatabaseConnection_Labels
+//
+
+@implementation GTLROracleDatabase_DatabaseConnection_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 
@@ -1552,6 +1636,24 @@ NSString * const kGTLROracleDatabase_TestGoldengateConnectionAssignmentResponse_
 
 // ----------------------------------------------------------------------------
 //
+//   GTLROracleDatabase_DbSystemComputePerformance
+//
+
+@implementation GTLROracleDatabase_DbSystemComputePerformance
+@dynamic computePerformances, name, shape;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"computePerformances" : [GTLROracleDatabase_ComputePerformance class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLROracleDatabase_DbSystemInitialStorageSize
 //
 
@@ -1689,10 +1791,46 @@ NSString * const kGTLROracleDatabase_TestGoldengateConnectionAssignmentResponse_
 
 // ----------------------------------------------------------------------------
 //
+//   GTLROracleDatabase_DisableCloudVmClusterIdentityConnectorRequest
+//
+
+@implementation GTLROracleDatabase_DisableCloudVmClusterIdentityConnectorRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_DisableExadbVmClusterIdentityConnectorRequest
+//
+
+@implementation GTLROracleDatabase_DisableExadbVmClusterIdentityConnectorRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLROracleDatabase_Empty
 //
 
 @implementation GTLROracleDatabase_Empty
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_EnableCloudVmClusterIdentityConnectorRequest
+//
+
+@implementation GTLROracleDatabase_EnableCloudVmClusterIdentityConnectorRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_EnableExadbVmClusterIdentityConnectorRequest
+//
+
+@implementation GTLROracleDatabase_EnableExadbVmClusterIdentityConnectorRequest
 @end
 
 
@@ -1733,7 +1871,8 @@ NSString * const kGTLROracleDatabase_TestGoldengateConnectionAssignmentResponse_
 
 @implementation GTLROracleDatabase_ExadbVmCluster
 @dynamic backupOdbSubnet, createTime, displayName, entitlementId, gcpOracleZone,
-         identityConnector, labels, name, odbNetwork, odbSubnet, properties;
+         identityConnector, identityConnectorDisabled, labels, name, odbNetwork,
+         odbSubnet, properties;
 @end
 
 
@@ -1858,11 +1997,80 @@ NSString * const kGTLROracleDatabase_TestGoldengateConnectionAssignmentResponse_
 
 // ----------------------------------------------------------------------------
 //
+//   GTLROracleDatabase_ExecuteSqlMetadata
+//
+
+@implementation GTLROracleDatabase_ExecuteSqlMetadata
+@dynamic executionDuration, message, partialResult, status;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_ExecuteSqlRequest
+//
+
+@implementation GTLROracleDatabase_ExecuteSqlRequest
+@dynamic params, sqlStatement;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"params" : [GTLROracleDatabase_SqlParameter class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_ExecuteSqlResponse
+//
+
+@implementation GTLROracleDatabase_ExecuteSqlResponse
+@dynamic metadata, sqlResults;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"sqlResults" : [GTLROracleDatabase_SqlResult class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLROracleDatabase_FailoverAutonomousDatabaseRequest
 //
 
 @implementation GTLROracleDatabase_FailoverAutonomousDatabaseRequest
 @dynamic peerAutonomousDatabase;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_FlexComponent
+//
+
+@implementation GTLROracleDatabase_FlexComponent
+@dynamic name, properties;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_FlexComponentProperties
+//
+
+@implementation GTLROracleDatabase_FlexComponentProperties
+@dynamic availableCoreCount, availableDbNodeStoragePerNodeGb,
+         availableLocalStorageGb, availableMemoryGb, computeModel,
+         descriptionSummary, hardwareType, minimumCoreCount, name,
+         runtimeMinimumCoreCount, shape;
 @end
 
 
@@ -2633,7 +2841,8 @@ NSString * const kGTLROracleDatabase_TestGoldengateConnectionAssignmentResponse_
 //
 
 @implementation GTLROracleDatabase_IdentityConnector
-@dynamic connectionState, serviceAgentEmail;
+@dynamic connectionState, identityConnectorId, lifecycleStateDetails,
+         serviceAgentEmail, workloadIdentityPool;
 @end
 
 
@@ -2816,6 +3025,29 @@ NSString * const kGTLROracleDatabase_TestGoldengateConnectionAssignmentResponse_
 
 // ----------------------------------------------------------------------------
 //
+//   GTLROracleDatabase_ListDatabaseConnectionsResponse
+//
+
+@implementation GTLROracleDatabase_ListDatabaseConnectionsResponse
+@dynamic databaseConnections, nextPageToken, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"databaseConnections" : [GTLROracleDatabase_DatabaseConnection class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"databaseConnections";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLROracleDatabase_ListDatabasesResponse
 //
 
@@ -2875,6 +3107,29 @@ NSString * const kGTLROracleDatabase_TestGoldengateConnectionAssignmentResponse_
 
 + (NSString *)collectionItemsKey {
   return @"dbServers";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_ListDbSystemComputePerformancesResponse
+//
+
+@implementation GTLROracleDatabase_ListDbSystemComputePerformancesResponse
+@dynamic dbSystemComputePerformances, nextPageToken, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"dbSystemComputePerformances" : [GTLROracleDatabase_DbSystemComputePerformance class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"dbSystemComputePerformances";
 }
 
 @end
@@ -3032,6 +3287,29 @@ NSString * const kGTLROracleDatabase_TestGoldengateConnectionAssignmentResponse_
 
 + (NSString *)collectionItemsKey {
   return @"exascaleDbStorageVaults";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_ListFlexComponentsResponse
+//
+
+@implementation GTLROracleDatabase_ListFlexComponentsResponse
+@dynamic flexComponents, nextPageToken, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"flexComponents" : [GTLROracleDatabase_FlexComponent class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"flexComponents";
 }
 
 @end
@@ -3266,6 +3544,29 @@ NSString * const kGTLROracleDatabase_TestGoldengateConnectionAssignmentResponse_
 
 // ----------------------------------------------------------------------------
 //
+//   GTLROracleDatabase_ListOdbDnsZonesResponse
+//
+
+@implementation GTLROracleDatabase_ListOdbDnsZonesResponse
+@dynamic nextPageToken, odbDnsZones, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"odbDnsZones" : [GTLROracleDatabase_OdbDnsZone class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"odbDnsZones";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLROracleDatabase_ListOdbNetworksResponse
 //
 
@@ -3466,11 +3767,36 @@ NSString * const kGTLROracleDatabase_TestGoldengateConnectionAssignmentResponse_
 
 // ----------------------------------------------------------------------------
 //
+//   GTLROracleDatabase_OdbDnsZone
+//
+
+@implementation GTLROracleDatabase_OdbDnsZone
+@dynamic createTime, domain, labels, name, state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_OdbDnsZone_Labels
+//
+
+@implementation GTLROracleDatabase_OdbDnsZone_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLROracleDatabase_OdbNetwork
 //
 
 @implementation GTLROracleDatabase_OdbNetwork
-@dynamic createTime, entitlementId, gcpOracleZone, labels, name, network, state;
+@dynamic createTime, entitlementId, gcpOracleZone, labels, name, network,
+         reconciling, serviceConnectivityConfig, state;
 @end
 
 
@@ -3666,6 +3992,16 @@ NSString * const kGTLROracleDatabase_TestGoldengateConnectionAssignmentResponse_
 
 // ----------------------------------------------------------------------------
 //
+//   GTLROracleDatabase_PscInterfaceConfig
+//
+
+@implementation GTLROracleDatabase_PscInterfaceConfig
+@dynamic networkAttachment;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLROracleDatabase_RefreshAutonomousDatabaseRequest
 //
 
@@ -3723,11 +4059,39 @@ NSString * const kGTLROracleDatabase_TestGoldengateConnectionAssignmentResponse_
 
 // ----------------------------------------------------------------------------
 //
+//   GTLROracleDatabase_Row
+//
+
+@implementation GTLROracleDatabase_Row
+@dynamic values;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"values" : [GTLROracleDatabase_Value class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLROracleDatabase_ScheduledOperationDetails
 //
 
 @implementation GTLROracleDatabase_ScheduledOperationDetails
 @dynamic dayOfWeek, startTime, stopTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_ServiceConnectivityConfig
+//
+
+@implementation GTLROracleDatabase_ServiceConnectivityConfig
+@dynamic pscInterfaceConfig;
 @end
 
 
@@ -3741,6 +4105,35 @@ NSString * const kGTLROracleDatabase_TestGoldengateConnectionAssignmentResponse_
          autonomousDatabaseBackup, autoRefreshFrequencySeconds,
          autoRefreshPointLagSeconds, autoRefreshStartTime, backupTime,
          cloneType, refreshableMode, sourceType, useLatestAvailableBackup;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_SqlParameter
+//
+
+@implementation GTLROracleDatabase_SqlParameter
+@dynamic name, typeName, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_SqlResult
+//
+
+@implementation GTLROracleDatabase_SqlResult
+@dynamic columns, rows;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"columns" : [GTLROracleDatabase_Column class],
+    @"rows" : [GTLROracleDatabase_Row class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -3844,6 +4237,25 @@ NSString * const kGTLROracleDatabase_TestGoldengateConnectionAssignmentResponse_
 
 // ----------------------------------------------------------------------------
 //
+//   GTLROracleDatabase_TestDatabaseConnectionRequest
+//
+
+@implementation GTLROracleDatabase_TestDatabaseConnectionRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_TestDatabaseConnectionResponse
+//
+
+@implementation GTLROracleDatabase_TestDatabaseConnectionResponse
+@dynamic errorMessage, success;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLROracleDatabase_TestGoldengateConnectionAssignmentRequest
 //
 
@@ -3892,4 +4304,14 @@ NSString * const kGTLROracleDatabase_TestGoldengateConnectionAssignmentResponse_
   return @{ @"identifier" : @"id" };
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_Value
+//
+
+@implementation GTLROracleDatabase_Value
+@dynamic nullValue, value;
 @end

@@ -22,6 +22,7 @@
 @class GTLRDfareporting_Activities;
 @class GTLRDfareporting_Ad;
 @class GTLRDfareporting_AdBlockingConfiguration;
+@class GTLRDfareporting_AdditionalAsset;
 @class GTLRDfareporting_Advertiser;
 @class GTLRDfareporting_AdvertiserGroup;
 @class GTLRDfareporting_AudienceSegment;
@@ -680,7 +681,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_ArtworkType_Artwor
  *
  *  Value: "CREATIVE_AUTHORING_SOURCE_ACS"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_AuthoringSource_CreativeAuthoringSourceAcs;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_AuthoringSource_CreativeAuthoringSourceAcs GTLR_DEPRECATED;
 /**
  *  Creative authoring source is Adobe.
  *
@@ -1349,6 +1350,42 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_Role_Addition
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_Role_AlternateVideo;
 /** Value: "BACKUP_IMAGE" */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_Role_BackupImage;
+/**
+ *  Call to action.
+ *
+ *  Value: "CALL_TO_ACTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_Role_CallToAction;
+/**
+ *  Cover image.
+ *
+ *  Value: "COVER_IMAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_Role_CoverImage;
+/**
+ *  Description.
+ *
+ *  Value: "DESCRIPTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_Role_Description;
+/**
+ *  Headline.
+ *
+ *  Value: "HEADLINE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_Role_Headline;
+/**
+ *  Long description.
+ *
+ *  Value: "LONG_DESCRIPTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_Role_LongDescription;
+/**
+ *  Long headline.
+ *
+ *  Value: "LONG_HEADLINE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_Role_LongHeadline;
 /** Value: "OTHER" */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_Role_Other;
 /** Value: "PARENT_AUDIO" */
@@ -6017,6 +6054,35 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_YoutubeSettings_CallToActio
 
 
 /**
+ *  Additional assets for a creative.
+ */
+@interface GTLRDfareporting_AdditionalAsset : GTLRObject
+
+/** Optional. Call to actions for the creative. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *callToActions;
+
+/** Optional. Cover images for the creative. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_CreativeAsset *> *coverImages;
+
+/** Optional. Descriptions for the creative. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *descriptions;
+
+/** Optional. Display URL for the creative. */
+@property(nonatomic, copy, nullable) NSString *displayUrl;
+
+/** Optional. Headlines for the creative. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *headlines;
+
+/** Optional. Long descriptions for the creative. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *longDescriptions;
+
+/** Optional. Long headlines for the creative. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *longHeadlines;
+
+@end
+
+
+/**
  *  Ad List Response
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -8242,6 +8308,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_YoutubeSettings_CallToActio
 @property(nonatomic, strong, nullable) NSNumber *active;
 
 /**
+ *  Optional. Additional asset for the creative. This field captures additional
+ *  assets that are associated with the creative and used in the context of the
+ *  social/native and YouTube platforms.
+ */
+@property(nonatomic, strong, nullable) GTLRDfareporting_AdditionalAsset *additionalAsset;
+
+/**
  *  Additional sizes associated with a responsive creative. When inserting or
  *  updating a creative either the size ID field or size width and height fields
  *  can be used. Applicable to DISPLAY creatives when the primary asset type is
@@ -9292,6 +9365,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_YoutubeSettings_CallToActio
  *        "ALTERNATE_VIDEO"
  *    @arg @c kGTLRDfareporting_CreativeAsset_Role_BackupImage Value
  *        "BACKUP_IMAGE"
+ *    @arg @c kGTLRDfareporting_CreativeAsset_Role_CallToAction Call to action.
+ *        (Value: "CALL_TO_ACTION")
+ *    @arg @c kGTLRDfareporting_CreativeAsset_Role_CoverImage Cover image.
+ *        (Value: "COVER_IMAGE")
+ *    @arg @c kGTLRDfareporting_CreativeAsset_Role_Description Description.
+ *        (Value: "DESCRIPTION")
+ *    @arg @c kGTLRDfareporting_CreativeAsset_Role_Headline Headline. (Value:
+ *        "HEADLINE")
+ *    @arg @c kGTLRDfareporting_CreativeAsset_Role_LongDescription Long
+ *        description. (Value: "LONG_DESCRIPTION")
+ *    @arg @c kGTLRDfareporting_CreativeAsset_Role_LongHeadline Long headline.
+ *        (Value: "LONG_HEADLINE")
  *    @arg @c kGTLRDfareporting_CreativeAsset_Role_Other Value "OTHER"
  *    @arg @c kGTLRDfareporting_CreativeAsset_Role_ParentAudio Value
  *        "PARENT_AUDIO"

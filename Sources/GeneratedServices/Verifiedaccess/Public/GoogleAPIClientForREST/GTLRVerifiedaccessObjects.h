@@ -89,6 +89,12 @@ FOUNDATION_EXTERN NSString * const kGTLRVerifiedaccess_DeviceSignals_DiskEncrypt
 // GTLRVerifiedaccess_DeviceSignals.operatingSystem
 
 /**
+ *  Android.
+ *
+ *  Value: "ANDROID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVerifiedaccess_DeviceSignals_OperatingSystem_Android;
+/**
  *  ChromeOS.
  *
  *  Value: "CHROME_OS"
@@ -100,6 +106,12 @@ FOUNDATION_EXTERN NSString * const kGTLRVerifiedaccess_DeviceSignals_OperatingSy
  *  Value: "CHROMIUM_OS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRVerifiedaccess_DeviceSignals_OperatingSystem_ChromiumOs;
+/**
+ *  iOS.
+ *
+ *  Value: "IOS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVerifiedaccess_DeviceSignals_OperatingSystem_Ios;
 /**
  *  Linux
  *
@@ -580,10 +592,14 @@ FOUNDATION_EXTERN NSString * const kGTLRVerifiedaccess_VerifyChallengeResponseRe
  *  device.
  *
  *  Likely values:
+ *    @arg @c kGTLRVerifiedaccess_DeviceSignals_OperatingSystem_Android Android.
+ *        (Value: "ANDROID")
  *    @arg @c kGTLRVerifiedaccess_DeviceSignals_OperatingSystem_ChromeOs
  *        ChromeOS. (Value: "CHROME_OS")
  *    @arg @c kGTLRVerifiedaccess_DeviceSignals_OperatingSystem_ChromiumOs
  *        ChromiumOS. (Value: "CHROMIUM_OS")
+ *    @arg @c kGTLRVerifiedaccess_DeviceSignals_OperatingSystem_Ios iOS. (Value:
+ *        "IOS")
  *    @arg @c kGTLRVerifiedaccess_DeviceSignals_OperatingSystem_Linux Linux
  *        (Value: "LINUX")
  *    @arg @c kGTLRVerifiedaccess_DeviceSignals_OperatingSystem_MacOsX Mac Os X.

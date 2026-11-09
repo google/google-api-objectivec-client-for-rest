@@ -7733,6 +7733,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
 /**
+ *  Optional. The BCP-47 language code representing the language of the query.
+ */
+@property(nonatomic, copy, nullable) NSString *queryLanguageCode;
+
+/**
  *  The ID generated when you create a search application using the [admin
  *  console](https://support.google.com/a/answer/9043922).
  */
@@ -8225,7 +8230,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 
 
 /**
- *  The search API response. NEXT ID: 20
+ *  The search API response. NEXT ID: 21
  */
 @interface GTLRCloudSearch_SearchResponse : GTLRObject
 

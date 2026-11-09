@@ -19,6 +19,10 @@ NSString * const kGTLRAppHub_Application_State_Creating        = @"CREATING";
 NSString * const kGTLRAppHub_Application_State_Deleting        = @"DELETING";
 NSString * const kGTLRAppHub_Application_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
+// GTLRAppHub_ApplicationType.type
+NSString * const kGTLRAppHub_ApplicationType_Type_AiApplication = @"AI_APPLICATION";
+NSString * const kGTLRAppHub_ApplicationType_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
+
 // GTLRAppHub_AuditLogConfig.logType
 NSString * const kGTLRAppHub_AuditLogConfig_LogType_AdminRead  = @"ADMIN_READ";
 NSString * const kGTLRAppHub_AuditLogConfig_LogType_DataRead   = @"DATA_READ";
@@ -92,13 +96,47 @@ NSString * const kGTLRAppHub_Workload_State_StateUnspecified = @"STATE_UNSPECIFI
 //
 
 @implementation GTLRAppHub_Application
-@dynamic attributes, createTime, descriptionProperty, displayName, name, scope,
-         state, uid, updateTime;
+@dynamic applicationProperties, applicationType, attributes, createTime,
+         descriptionProperty, displayName, name, scope, state, uid, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAppHub_ApplicationProperties
+//
+
+@implementation GTLRAppHub_ApplicationProperties
+@dynamic extendedMetadata;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAppHub_ApplicationProperties_ExtendedMetadata
+//
+
+@implementation GTLRAppHub_ApplicationProperties_ExtendedMetadata
+
++ (Class)classForAdditionalProperties {
+  return [GTLRAppHub_ExtendedMetadata class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAppHub_ApplicationType
+//
+
+@implementation GTLRAppHub_ApplicationType
+@dynamic type;
 @end
 
 

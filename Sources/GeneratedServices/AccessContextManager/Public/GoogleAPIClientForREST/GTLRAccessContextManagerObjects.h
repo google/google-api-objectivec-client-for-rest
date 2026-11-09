@@ -362,6 +362,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_OsConstraint_OsType
  */
 FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_OsConstraint_OsType_DesktopWindows;
 /**
+ *  A Googlebook operating system.
+ *
+ *  Value: "GOOGLEBOOK_OS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_OsConstraint_OsType_GooglebookOs;
+/**
  *  An iOS operating system.
  *
  *  Value: "IOS"
@@ -409,14 +415,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_SessionSettings_Ses
 FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_SessionSettings_SessionReauthMethod_Password;
 /**
  *  The user will be prompted to authenticate using their security key. If no
- *  security key has been configured, then authentication will fallback to
- *  LOGIN.
+ *  security key has been configured, then authentication will fall back to
+ *  `LOGIN`.
  *
  *  Value: "SECURITY_KEY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_SessionSettings_SessionReauthMethod_SecurityKey;
 /**
- *  If method is undefined in the API, LOGIN will be used by default.
+ *  If the method is undefined in the API, `LOGIN` is used by default.
  *
  *  Value: "SESSION_REAUTH_METHOD_UNSPECIFIED"
  */
@@ -440,7 +446,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_SupportedService_Se
 FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_SupportedService_ServiceSupportStage_Ga;
 /**
  *  PREVIEW indicates a pre-release stage where the product is functionally
- *  complete but undergoing real-world testing.
+ *  complete, but undergoing real-world testing.
  *
  *  Value: "PREVIEW"
  */
@@ -530,8 +536,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_SupportedService_Su
 /**
  *  Enables VPC Accessible Services enforcement for all APIs (including
  *  unsupported APIs) for Private Google Access configured with Private VIP and
- *  Private Service Connect Endpoint for Global Google APIs that uses 'all-apis'
- *  bundle.
+ *  Private Service Connect Endpoint for Global Google APIs that use the
+ *  `'all-apis'` bundle.
  *
  *  Value: "GOOGLE_APIS_VIA_PRIVATE_PATH"
  */
@@ -572,7 +578,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_VpcAccessibleServic
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** Human readable title. Must be unique within the Policy. */
+/** Human-readable title. Must be unique within the policy. */
 @property(nonatomic, copy, nullable) NSString *title;
 
 @end
@@ -590,7 +596,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_VpcAccessibleServic
 /**
  *  Output only. An opaque identifier for the current version of the
  *  `AccessPolicy`. This will always be a strongly validated etag, meaning that
- *  two Access Policies will be identical if and only if their etags are
+ *  two access policies will be identical if and only if their etags are
  *  identical. Clients should not expect this to be in any specific format.
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
@@ -614,23 +620,22 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_VpcAccessibleServic
  *  can only restrict projects within `folders/123`. - ServicePerimeter within
  *  policy A can only reference access levels defined within policy A. - Only
  *  one policy can include a given scope; thus, attempting to create a second
- *  policy which includes `folders/123` will result in an error. If no scopes
- *  are provided, then any resource within the organization can be restricted.
+ *  policy that includes `folders/123` will result in an error. If no scopes are
+ *  provided, then any resource within the organization can be restricted.
  *  Scopes cannot be modified after a policy is created. Policies can only have
  *  a single scope. Format: list of `folders/{folder_number}` or
  *  `projects/{project_number}`
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *scopes;
 
-/** Required. Human readable title. Does not affect behavior. */
+/** Required. Human-readable title. Does not affect behavior. */
 @property(nonatomic, copy, nullable) NSString *title;
 
 @end
 
 
 /**
- *  Access scope represents the client scope, etc. to which the settings will be
- *  applied to.
+ *  Access scope represents the client scope to which the settings are applied.
  */
 @interface GTLRAccessContextManager_AccessScope : GTLRObject
 
@@ -650,12 +655,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_VpcAccessibleServic
  *  Optional. Access level that a user must have to be granted access. Only one
  *  access level is supported, not multiple. This repeated field must have
  *  exactly one element. Example:
- *  "accessPolicies/9522/accessLevels/device_trusted"
+ *  `"accessPolicies/9522/accessLevels/device_trusted"`
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *accessLevels;
 
 /**
- *  Optional. Session settings applied to user access on a given AccessScope.
+ *  Optional. Session settings applied to user access on a given `AccessScope`.
  */
 @property(nonatomic, strong, nullable) GTLRAccessContextManager_SessionSettings *sessionSettings;
 
@@ -787,7 +792,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_VpcAccessibleServic
 
 /**
  *  The asset type of this authorized orgs desc. Valid values are
- *  `ASSET_TYPE_DEVICE`, and `ASSET_TYPE_CREDENTIAL_STRENGTH`.
+ *  `ASSET_TYPE_DEVICE` and `ASSET_TYPE_CREDENTIAL_STRENGTH`.
  *
  *  Likely values:
  *    @arg @c kGTLRAccessContextManager_AuthorizedOrgsDesc_AssetType_AssetTypeCredentialStrength
@@ -809,7 +814,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_VpcAccessibleServic
  *  `orgs` field to evaluate the traffic in this organization. For the
  *  authorization relationship to take effect, all of the organizations must
  *  authorize and specify the appropriate relationship direction. For example,
- *  if organization A authorized organization B and C to evaluate its traffic,
+ *  if organization A authorizes organizations B and C to evaluate its traffic
  *  by specifying `AUTHORIZATION_DIRECTION_TO` as the authorization direction,
  *  organizations B and C must specify `AUTHORIZATION_DIRECTION_FROM` as the
  *  authorization direction in their `AuthorizedOrgsDesc` resource.
@@ -850,8 +855,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_VpcAccessibleServic
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The list of organization ids in this AuthorizedOrgsDesc. Format:
- *  `organizations/` Example: `organizations/123456`
+ *  The list of organization IDs in this `AuthorizedOrgsDesc`. Format:
+ *  `organizations/{org_number}` Example: `organizations/123456`
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *orgs;
 
@@ -865,10 +870,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_VpcAccessibleServic
 
 /**
  *  How the `conditions` list should be combined to determine if a request is
- *  granted this `AccessLevel`. If AND is used, each `Condition` in `conditions`
- *  must be satisfied for the `AccessLevel` to be applied. If OR is used, at
- *  least one `Condition` in `conditions` must be satisfied for the
- *  `AccessLevel` to be applied. Default behavior is AND.
+ *  granted this `AccessLevel`. If `AND` is used, each `Condition` in
+ *  `conditions` must be satisfied for the `AccessLevel` to be applied. If `OR`
+ *  is used, at least one `Condition` in `conditions` must be satisfied for the
+ *  `AccessLevel` to be applied. Default behavior is `AND`.
  *
  *  Likely values:
  *    @arg @c kGTLRAccessContextManager_BasicLevel_CombiningFunction_And All
@@ -980,8 +985,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_VpcAccessibleServic
 
 
 /**
- *  Client scope represents the application, etc. subject to this binding's
- *  restrictions.
+ *  Client scope represents the application, project, or other resource subject
+ *  to this binding's restrictions.
  */
 @interface GTLRAccessContextManager_ClientScope : GTLRObject
 
@@ -1028,16 +1033,16 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_VpcAccessibleServic
 
 
 /**
- *  A condition necessary for an `AccessLevel` to be granted. The Condition is
- *  an AND over its fields. So a Condition is true if: 1) the request IP is from
- *  one of the listed subnetworks AND 2) the originating device complies with
- *  the listed device policy AND 3) all listed access levels are granted AND 4)
- *  the request was sent at a time allowed by the DateTimeRestriction.
+ *  A condition necessary for an `AccessLevel` to be granted. The `Condition` is
+ *  an AND over its fields. A `Condition` is true if: 1) the request IP is from
+ *  one of the listed subnetworks, AND 2) the originating device complies with
+ *  the listed device policy, AND 3) all listed access levels are granted, AND
+ *  4) the request was sent at a time allowed by the `DateTimeRestriction`.
  */
 @interface GTLRAccessContextManager_Condition : GTLRObject
 
 /**
- *  Device specific restrictions, all restrictions must hold for the Condition
+ *  Device-specific restrictions. All restrictions must hold for the `Condition`
  *  to be true. If not specified, all devices are allowed.
  */
 @property(nonatomic, strong, nullable) GTLRAccessContextManager_DevicePolicy *devicePolicy;
@@ -1045,12 +1050,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_VpcAccessibleServic
 /**
  *  CIDR block IP subnetwork specification. May be IPv4 or IPv6. Note that for a
  *  CIDR IP address block, the specified IP address portion must be properly
- *  truncated (i.e. all the host bits must be zero) or the input is considered
- *  malformed. For example, "192.0.2.0/24" is accepted but "192.0.2.1/24" is
- *  not. Similarly, for IPv6, "2001:db8::/32" is accepted whereas
- *  "2001:db8::1/32" is not. The originating IP of a request must be in one of
- *  the listed subnets in order for this Condition to be true. If empty, all IP
- *  addresses are allowed.
+ *  truncated (that is, all the host bits must be zero) or the input is
+ *  considered malformed. For example, `"192.0.2.0/24"` is accepted, but
+ *  `"192.0.2.1/24"` is not. Similarly, for IPv6, `"2001:db8::/32"` is accepted,
+ *  whereas `"2001:db8::1/32"` is not. The originating IP of a request must be
+ *  in one of the listed subnets in order for this `Condition` to be true. If
+ *  empty, all IP addresses are allowed.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *ipSubnetworks;
 
@@ -1063,9 +1068,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_VpcAccessibleServic
 @property(nonatomic, strong, nullable) NSArray<NSString *> *members;
 
 /**
- *  Whether to negate the Condition. If true, the Condition becomes a NAND over
- *  its non-empty fields. Any non-empty field criteria evaluating to false will
- *  result in the Condition to be satisfied. Defaults to false.
+ *  Whether to negate the `Condition`. If `true`, the `Condition` becomes a NAND
+ *  over its non-empty fields. Any non-empty field criteria evaluating to
+ *  `false` will result in the `Condition` being satisfied. Defaults to `false`.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1079,9 +1084,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_VpcAccessibleServic
 
 /**
  *  A list of other access levels defined in the same `Policy`, referenced by
- *  resource name. Referencing an `AccessLevel` which does not exist is an
- *  error. All access levels listed must be granted for the Condition to be
- *  true. Example: "`accessPolicies/MY_POLICY/accessLevels/LEVEL_NAME"`
+ *  resource name. Referencing an `AccessLevel` that does not exist is an error.
+ *  All access levels listed must be granted for the `Condition` to be true.
+ *  Example: `"accessPolicies/MY_POLICY/accessLevels/LEVEL_NAME"`
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *requiredAccessLevels;
 
@@ -1108,28 +1113,28 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_VpcAccessibleServic
 
 
 /**
- *  `DevicePolicy` specifies device specific restrictions necessary to acquire a
+ *  `DevicePolicy` specifies device-specific restrictions necessary to acquire a
  *  given access level. A `DevicePolicy` specifies requirements for requests
- *  from devices to be granted access levels, it does not do any enforcement on
+ *  from devices to be granted access levels; it does not do any enforcement on
  *  the device. `DevicePolicy` acts as an AND over all specified fields, and
  *  each repeated field is an OR over its elements. Any unset fields are
- *  ignored. For example, if the proto is { os_type : DESKTOP_WINDOWS, os_type :
- *  DESKTOP_LINUX, encryption_status: ENCRYPTED}, then the DevicePolicy will be
- *  true for requests originating from encrypted Linux desktops and encrypted
- *  Windows desktops.
+ *  ignored. For example, if the proto is `{ os_type : DESKTOP_WINDOWS, os_type
+ *  : DESKTOP_LINUX, encryption_status: ENCRYPTED}`, then the `DevicePolicy`
+ *  will be true for requests originating from encrypted Linux desktops and
+ *  encrypted Windows desktops.
  */
 @interface GTLRAccessContextManager_DevicePolicy : GTLRObject
 
 /**
- *  Allowed device management levels, an empty list allows all management
+ *  Allowed device management levels. An empty list allows all management
  *  levels.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *allowedDeviceManagementLevels;
 
-/** Allowed encryptions statuses, an empty list allows all statuses. */
+/** Allowed encryption statuses. An empty list allows all statuses. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *allowedEncryptionStatuses;
 
-/** Allowed OS versions, an empty list allows all types and all versions. */
+/** Allowed OS versions. An empty list allows all types and all versions. */
 @property(nonatomic, strong, nullable) NSArray<GTLRAccessContextManager_OsConstraint *> *osConstraints;
 
 /**
@@ -1140,14 +1145,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_VpcAccessibleServic
 @property(nonatomic, strong, nullable) NSNumber *requireAdminApproval;
 
 /**
- *  Whether the device needs to be corp owned.
+ *  Whether the device needs to be corp-owned.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *requireCorpOwned;
 
 /**
- *  Whether or not screenlock is required for the DevicePolicy to be true.
+ *  Whether or not screenlock is required for the `DevicePolicy` to be true.
  *  Defaults to `false`.
  *
  *  Uses NSNumber of boolValue.
@@ -1159,10 +1164,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_VpcAccessibleServic
 
 /**
  *  Defines the conditions under which an EgressPolicy matches a request.
- *  Conditions based on information about the source of the request. Note that
- *  if the destination of the request is also protected by a ServicePerimeter,
- *  then that ServicePerimeter must have an IngressPolicy which allows access in
- *  order for this request to succeed.
+ *  Conditions are based on information about the source of the request. Note
+ *  that if the destination of the request is also protected by a
+ *  ServicePerimeter, then that ServicePerimeter must have an IngressPolicy
+ *  which allows access in order for this request to succeed.
  */
 @interface GTLRAccessContextManager_EgressFrom : GTLRObject
 
@@ -1198,7 +1203,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_VpcAccessibleServic
 
 /**
  *  Whether to enforce traffic restrictions based on `sources` field. If the
- *  `sources` fields is non-empty, then this field must be set to
+ *  `sources` field is not empty, then this field must be set to
  *  `SOURCE_RESTRICTION_ENABLED`.
  *
  *  Likely values:
@@ -1236,8 +1241,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_VpcAccessibleServic
  *  within the ServicePerimeter to access a defined set of projects outside the
  *  perimeter in certain contexts (e.g. to read data from a Cloud Storage bucket
  *  or query against a BigQuery dataset). EgressPolicies are concerned with the
- *  *resources* that a request relates as well as the API services and API
- *  actions being used. They do not related to the direction of data movement.
+ *  *resources* that a request relates to, as well as the API services and API
+ *  actions being used. They do not relate to the direction of data movement.
  *  More detailed documentation for this concept can be found in the
  *  descriptions of EgressFrom and EgressTo.
  */
@@ -1257,7 +1262,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_VpcAccessibleServic
 
 /**
  *  Optional. Human-readable title for the egress rule. The title must be unique
- *  within the perimeter and can not exceed 100 characters. Within the access
+ *  within the perimeter and cannot exceed 100 characters. Within the access
  *  policy, the combined length of all rule titles must not exceed 240,000
  *  characters.
  */
@@ -1293,9 +1298,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_VpcAccessibleServic
 
 /**
  *  A Google Cloud resource from the service perimeter that you want to allow to
- *  access data outside the perimeter. This field supports only projects. The
- *  project format is `projects/{project_number}`. You can't use `*` in this
- *  field to allow all Google Cloud resources.
+ *  access data outside the perimeter. This field supports projects, folders,
+ *  and organizations in the form `projects/{project_number}`,
+ *  `folders/{folder_id}`, and `organizations/{organization_id}`. You can't use
+ *  `*` in this field to allow all Google Cloud resources.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -1316,11 +1322,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_VpcAccessibleServic
 /**
  *  A list of external resources that are allowed to be accessed. Only AWS and
  *  Azure resources are supported. For Amazon S3, the supported formats are
- *  s3://BUCKET_NAME, s3a://BUCKET_NAME, and s3n://BUCKET_NAME. For Azure
+ *  `s3://BUCKET_NAME`, `s3a://BUCKET_NAME`, and `s3n://BUCKET_NAME`. For Azure
  *  Storage, the supported format is
- *  azure://myaccount.blob.core.windows.net/CONTAINER_NAME. A request matches if
- *  it contains an external resource in this list (Example: s3://bucket/path).
- *  Currently '*' is not allowed.
+ *  `azure://myaccount.blob.core.windows.net/CONTAINER_NAME`. A request matches
+ *  if it contains an external resource in this list (Example:
+ *  `s3://bucket/path`). Currently `'*'` is not allowed.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *externalResources;
 
@@ -1332,17 +1338,19 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_VpcAccessibleServic
 @property(nonatomic, strong, nullable) NSArray<GTLRAccessContextManager_ApiOperation *> *operations;
 
 /**
- *  A list of resources, currently only projects in the form `projects/`, that
- *  are allowed to be accessed by sources defined in the corresponding
- *  EgressFrom. A request matches if it contains a resource in this list. If `*`
- *  is specified for `resources`, then this EgressTo rule will authorize access
- *  to all resources outside the perimeter.
+ *  A list of resources, currently projects, folders, and organizations in the
+ *  form `projects/{project_number}`, `folders/{folder_id}`, and
+ *  `organizations/{organization_id}`, that are allowed to be accessed by
+ *  sources defined in the corresponding EgressFrom. A request matches if it
+ *  contains a resource in this list. If `*` is specified for `resources`, then
+ *  this EgressTo rule will authorize access to all resources outside the
+ *  perimeter.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *resources;
 
 /**
  *  IAM roles that represent the set of operations that the sources specified in
- *  the corresponding EgressFrom. are allowed to perform in this
+ *  the corresponding EgressFrom are allowed to perform in this
  *  ServicePerimeter.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *roles;
@@ -1419,26 +1427,26 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_VpcAccessibleServic
  *  Optional. Access level that a user must have to be granted access. Only one
  *  access level is supported, not multiple. This repeated field must have
  *  exactly one element. Example:
- *  "accessPolicies/9522/accessLevels/device_trusted"
+ *  `"accessPolicies/9522/accessLevels/device_trusted"`
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *accessLevels;
 
 /**
- *  Optional. Dry run access level that will be evaluated but will not be
- *  enforced. The access denial based on dry run policy will be logged. Only one
- *  access level is supported, not multiple. This list must have exactly one
- *  element. Example: "accessPolicies/9522/accessLevels/device_trusted"
+ *  Optional. Dry-run access level that is evaluated, but not enforced. Any
+ *  access denial based on the dry-run policy is logged. Only one access level
+ *  is supported, not multiple. This list must have exactly one element.
+ *  Example: `"accessPolicies/9522/accessLevels/device_trusted"`
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *dryRunAccessLevels;
 
 /**
- *  Optional. Immutable. Google Group id whose users are subject to this
+ *  Optional. Immutable. Google Group ID whose users are subject to this
  *  binding's restrictions. See "id" in the [Google Workspace Directory API's
  *  Group Resource]
  *  (https://developers.google.com/admin-sdk/directory/v1/reference/groups#resource).
- *  If a group's email address/alias is changed, this resource will continue to
- *  point at the changed group. This field does not accept group email addresses
- *  or aliases. Example: "01d520gv4vjcrht"
+ *  If a group's email address or alias is changed, this resource will continue
+ *  to point at the changed group. This field does not accept group email
+ *  addresses or aliases. Example: `"01d520gv4vjcrht"`
  */
 @property(nonatomic, copy, nullable) NSString *groupKey;
 
@@ -1447,7 +1455,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_VpcAccessibleServic
  *  arbitrary length and has only URI unreserved characters (as defined by [RFC
  *  3986 Section 2.3](https://tools.ietf.org/html/rfc3986#section-2.3)). Should
  *  not be specified by the client during creation. Example:
- *  "organizations/256/gcpUserAccessBindings/b3-BhcX_Ud5N"
+ *  `"organizations/256/gcpUserAccessBindings/b3-BhcX_Ud5N"`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1588,7 +1596,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_VpcAccessibleServic
 
 /**
  *  Optional. Human-readable title for the ingress rule. The title must be
- *  unique within the perimeter and can not exceed 100 characters. Within the
+ *  unique within the perimeter and cannot exceed 100 characters. Within the
  *  access policy, the combined length of all rule titles must not exceed
  *  240,000 characters.
  */
@@ -1603,7 +1611,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_VpcAccessibleServic
 @interface GTLRAccessContextManager_IngressSource : GTLRObject
 
 /**
- *  An AccessLevel resource name that allow resources within the
+ *  An AccessLevel resource name that allows resources within the
  *  ServicePerimeters to be accessed from the internet. AccessLevels listed must
  *  be in the same policy as this ServicePerimeter. Referencing a nonexistent
  *  AccessLevel will cause an error. If no AccessLevel names are listed,
@@ -1624,8 +1632,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_VpcAccessibleServic
 /**
  *  A Google Cloud resource that is allowed to ingress the perimeter. Requests
  *  from these resources will be allowed to access perimeter data. Currently
- *  only projects and VPCs are allowed. Project format:
- *  `projects/{project_number}` VPC network format:
+ *  projects, folders, organizations, and VPCs are allowed. Project format:
+ *  `projects/{project_number}` Folder format: `folders/{folder_id}`
+ *  Organization format: `organizations/{organization_id}` VPC network format:
  *  `//compute.googleapis.com/projects/{PROJECT_ID}/global/networks/{NAME}`. The
  *  project may be in any Google Cloud organization, not just the organization
  *  that the perimeter is defined in. `*` is not allowed, the case of allowing
@@ -1651,10 +1660,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_VpcAccessibleServic
 @property(nonatomic, strong, nullable) NSArray<GTLRAccessContextManager_ApiOperation *> *operations;
 
 /**
- *  A list of resources, currently only projects in the form `projects/`,
- *  protected by this ServicePerimeter that are allowed to be accessed by
- *  sources defined in the corresponding IngressFrom. If a single `*` is
- *  specified, then access to all resources inside the perimeter are allowed.
+ *  A list of resources, currently projects, folders, and organizations in the
+ *  form `projects/{project_number}`, `folders/{folder_id}`, and
+ *  `organizations/{organization_id}`, protected by this ServicePerimeter that
+ *  are allowed to be accessed by sources defined in the corresponding
+ *  IngressFrom. If a single `*` is specified, then access to all resources
+ *  inside the perimeter is allowed.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *resources;
 
@@ -1882,14 +1893,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_VpcAccessibleServic
 @interface GTLRAccessContextManager_LookupConfiguredServicePerimeterResponse : GTLRObject
 
 /**
- *  The resource (e.g. "projects/123", "folders/456") that directly owns/is
- *  restricted by the enforced perimeter.
+ *  The resource (for example, `projects/123` or `folders/456`) that directly
+ *  owns or is restricted by the enforced perimeter.
  */
 @property(nonatomic, copy, nullable) NSString *restrictedResource;
 
 /**
- *  The resource (e.g. "projects/123", "folders/456") that directly owns/is
- *  restricted by the dry-run perimeter.
+ *  The resource (for example, `projects/123` or `folders/456`) that directly
+ *  owns or is restricted by the dry-run perimeter.
  */
 @property(nonatomic, copy, nullable) NSString *restrictedResourceDryRun;
 
@@ -2055,6 +2066,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_VpcAccessibleServic
  *        Mac operating system. (Value: "DESKTOP_MAC")
  *    @arg @c kGTLRAccessContextManager_OsConstraint_OsType_DesktopWindows A
  *        desktop Windows operating system. (Value: "DESKTOP_WINDOWS")
+ *    @arg @c kGTLRAccessContextManager_OsConstraint_OsType_GooglebookOs A
+ *        Googlebook operating system. (Value: "GOOGLEBOOK_OS")
  *    @arg @c kGTLRAccessContextManager_OsConstraint_OsType_Ios An iOS operating
  *        system. (Value: "IOS")
  *    @arg @c kGTLRAccessContextManager_OsConstraint_OsType_OsUnspecified The
@@ -2064,8 +2077,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_VpcAccessibleServic
 @property(nonatomic, copy, nullable) NSString *osType;
 
 /**
- *  Only allows requests from devices with a verified Chrome OS. Verifications
- *  includes requirements that the device is enterprise-managed, conformant to
+ *  Only allows requests from devices with a verified Chrome OS. Verification
+ *  includes requirements that the device is enterprise-managed, conforms to
  *  domain policies, and the caller has permission to call the API targeted by
  *  the request.
  *
@@ -2191,11 +2204,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_VpcAccessibleServic
 
 /**
  *  Immutable. Service account email used to assign policies to a specific
- *  service account. If a service account is subject to multiple policies (e.g.,
- *  if there is a policy for all service accounts in a project and a policy for
- *  the service account), the closest (i.e. the most specific) dry-run policy
- *  will be used for the dry-run functionality and the closest enforcement
- *  policy will be used for the enforcement.
+ *  service account. If a service account is subject to multiple policies (for
+ *  example, if there is a policy for all service accounts in a project and a
+ *  policy for the service account), the closest (that is, the most specific)
+ *  dry-run policy is used for the dry-run functionality and the closest
+ *  enforcement policy is used for enforcement.
  */
 @property(nonatomic, copy, nullable) NSString *serviceAccount;
 
@@ -2224,7 +2237,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_VpcAccessibleServic
 
 
 /**
- *  A Google Cloud project which contains applications and resources that users
+ *  A Google Cloud project that contains applications and resources that users
  *  can access.
  */
 @interface GTLRAccessContextManager_Project : GTLRObject
@@ -2313,26 +2326,26 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_VpcAccessibleServic
 
 
 /**
- *  A relationship between access settings and its scope.
+ *  A relationship between access settings and their scope.
  */
 @interface GTLRAccessContextManager_ScopedAccessSettings : GTLRObject
 
 /**
- *  Optional. Access settings for this scoped access settings. This field may be
- *  empty if dry_run_settings is set.
+ *  Optional. Access settings for this `ScopedAccessSettings`. This field may be
+ *  empty if `dry_run_settings` is set.
  */
 @property(nonatomic, strong, nullable) GTLRAccessContextManager_AccessSettings *activeSettings;
 
 /**
- *  Optional. Dry-run access settings for this scoped access settings. This
- *  field may be empty if active_settings is set.
+ *  Optional. Dry-run access settings for this `ScopedAccessSettings`. This
+ *  field may be empty if `active_settings` is set.
  */
 @property(nonatomic, strong, nullable) GTLRAccessContextManager_AccessSettings *dryRunSettings;
 
 /**
- *  Optional. Application, etc. to which the access settings will be applied to.
- *  Implicitly, this is the scoped access settings key; as such, it must be
- *  unique and non-empty.
+ *  Optional. Application or other resource to which the access settings are
+ *  applied. Implicitly, this is the scoped access settings key; as such, it
+ *  must be unique and non-empty.
  */
 @property(nonatomic, strong, nullable) GTLRAccessContextManager_AccessScope *scope;
 
@@ -2348,9 +2361,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_VpcAccessibleServic
 @property(nonatomic, strong, nullable) NSArray<GTLRAccessContextManager_Modifier *> *modifiers;
 
 /**
- *  URL pattern to allow. Only patterns of ".googleapis.com/ *",
- *  "www.googleapis.com// *" and "*.appspot.com/ * forms are supported, where
- *  should be an alphanumeric name.
+ *  URL pattern to allow. Only patterns of `".googleapis.com/ *"`,
+ *  `"www.googleapis.com// *"`, and `"*.appspot.com/ *"` forms are supported,
+ *  where `` should be an alphanumeric name.
  */
 @property(nonatomic, copy, nullable) NSString *pattern;
 
@@ -2400,10 +2413,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_VpcAccessibleServic
 
 /**
  *  Perimeter type indicator. A single project or VPC network is allowed to be a
- *  member of single regular perimeter, but multiple service perimeter bridges.
- *  A project cannot be a included in a perimeter bridge without being included
- *  in regular perimeter. For perimeter bridges, the restricted service list as
- *  well as access level lists must be empty.
+ *  member of a single regular perimeter, but multiple service perimeter
+ *  bridges. A project cannot be included in a perimeter bridge without being
+ *  included in a regular perimeter. For perimeter bridges, the restricted
+ *  service list as well as access level lists must be empty.
  *
  *  Likely values:
  *    @arg @c kGTLRAccessContextManager_ServicePerimeter_PerimeterType_PerimeterTypeBridge
@@ -2416,15 +2429,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_VpcAccessibleServic
 
 /**
  *  Proposed (or dry run) ServicePerimeter configuration. This configuration
- *  allows to specify and test ServicePerimeter configuration without enforcing
- *  actual access restrictions. Only allowed to be set when the
- *  "use_explicit_dry_run_spec" flag is set.
+ *  allows you to specify and test ServicePerimeter configuration without
+ *  enforcing actual access restrictions. Only allowed to be set when the
+ *  `use_explicit_dry_run_spec` flag is set.
  */
 @property(nonatomic, strong, nullable) GTLRAccessContextManager_ServicePerimeterConfig *spec;
 
 /**
  *  Current ServicePerimeter configuration. Specifies sets of resources,
- *  restricted services and access levels that determine perimeter content and
+ *  restricted services, and access levels that determine perimeter content and
  *  boundaries.
  */
 @property(nonatomic, strong, nullable) GTLRAccessContextManager_ServicePerimeterConfig *status;
@@ -2441,8 +2454,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_VpcAccessibleServic
  *  This allows the user to test changes to the enforced config ("status")
  *  without actually enforcing them. This testing is done through analyzing the
  *  differences between currently enforced and suggested restrictions.
- *  use_explicit_dry_run_spec must bet set to True if any of the fields in the
- *  spec are set to non-default values.
+ *  `use_explicit_dry_run_spec` must be set to `true` if any of the fields in
+ *  the spec are set to non-default values.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2486,8 +2499,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_VpcAccessibleServic
 
 /**
  *  A list of Google Cloud resources that are inside of the service perimeter.
- *  Currently only projects and VPCs are allowed. Project format:
- *  `projects/{project_number}` VPC network format:
+ *  Currently projects, folders, and VPCs are allowed. Project format:
+ *  `projects/{project_number}` Folder format: `folders/{folder_id}` VPC network
+ *  format:
  *  `//compute.googleapis.com/projects/{PROJECT_ID}/global/networks/{NAME}`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *resources;
@@ -2507,8 +2521,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_VpcAccessibleServic
 
 
 /**
- *  Stores settings related to Google Cloud Session Length including session
- *  duration, the type of challenge (i.e. method) they should face when their
+ *  Stores settings related to Google Cloud Session Length, including session
+ *  duration, the type of challenge (that is, method) a user faces when their
  *  session expires, and other related settings.
  */
 @interface GTLRAccessContextManager_SessionSettings : GTLRObject
@@ -2524,23 +2538,24 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_VpcAccessibleServic
  *  that are active indefinitely. Also, setting `session_length_enabled` to
  *  `false` disregards session limits, which means that sessions never expire.
  *  If `use_oidc_max_age` is `true`, for OIDC apps, the session length will be
- *  the minimum of this field and the OIDC `max_age` param. If this field is set
- *  to zero, `session_length_enabled` must be set to `false` or left unset.
+ *  the minimum of this field and the OIDC `max_age` parameter. If this field is
+ *  set to zero, `session_length_enabled` must be set to `false` or left unset.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *sessionLength;
 
 /**
  *  Optional. This field enables or disables Google Cloud session length. When
- *  false, all fields set above will be disregarded and the session length is
- *  basically infinite. If `session_length` is set to zero, this field must be
- *  set to false.
+ *  `false`, all fields set above are disregarded and the session length is
+ *  effectively infinite. If `session_length` is set to zero, this field must be
+ *  set to `false`.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *sessionLengthEnabled;
 
 /**
- *  Optional. Session method when user's Google Cloud session is up.
+ *  Optional. Session challenge method when a user's Google Cloud session
+ *  expires.
  *
  *  Likely values:
  *    @arg @c kGTLRAccessContextManager_SessionSettings_SessionReauthMethod_Login
@@ -2551,19 +2566,19 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_VpcAccessibleServic
  *        The user will be prompted for their password. (Value: "PASSWORD")
  *    @arg @c kGTLRAccessContextManager_SessionSettings_SessionReauthMethod_SecurityKey
  *        The user will be prompted to authenticate using their security key. If
- *        no security key has been configured, then authentication will fallback
- *        to LOGIN. (Value: "SECURITY_KEY")
+ *        no security key has been configured, then authentication will fall
+ *        back to `LOGIN`. (Value: "SECURITY_KEY")
  *    @arg @c kGTLRAccessContextManager_SessionSettings_SessionReauthMethod_SessionReauthMethodUnspecified
- *        If method is undefined in the API, LOGIN will be used by default.
+ *        If the method is undefined in the API, `LOGIN` is used by default.
  *        (Value: "SESSION_REAUTH_METHOD_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *sessionReauthMethod;
 
 /**
- *  Optional. Only useful for OIDC apps. When false, the OIDC max_age param, if
- *  passed in the authentication request will be ignored. When true, the re-auth
- *  period will be the minimum of the session_length field and the max_age OIDC
- *  param.
+ *  Optional. Only useful for OIDC apps. When `false`, the OIDC `max_age`
+ *  parameter, if passed in the authentication request, is ignored. When `true`,
+ *  the re-authentication period is the minimum of the `session_length` field
+ *  and the `max_age` OIDC parameter.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2642,7 +2657,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_VpcAccessibleServic
 
 
 /**
- *  `SupportedService` specifies the VPC Service Controls and its properties.
+ *  `SupportedService` specifies a service supported by VPC Service Controls and
+ *  its properties.
  */
 @interface GTLRAccessContextManager_SupportedService : GTLRObject
 
@@ -2682,7 +2698,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_VpcAccessibleServic
  *        fully qualified for production use. (Value: "GA")
  *    @arg @c kGTLRAccessContextManager_SupportedService_ServiceSupportStage_Preview
  *        PREVIEW indicates a pre-release stage where the product is
- *        functionally complete but undergoing real-world testing. (Value:
+ *        functionally complete, but undergoing real-world testing. (Value:
  *        "PREVIEW")
  *    @arg @c kGTLRAccessContextManager_SupportedService_ServiceSupportStage_ServiceSupportStageUnspecified
  *        Do not use this default value. (Value:
@@ -2691,8 +2707,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_VpcAccessibleServic
 @property(nonatomic, copy, nullable) NSString *serviceSupportStage;
 
 /**
- *  The list of the supported methods. This field exists only in response to
- *  GetSupportedService
+ *  The list of supported methods. This field exists only in response to
+ *  GetSupportedService.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAccessContextManager_MethodSelector *> *supportedMethods;
 
@@ -2743,7 +2759,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_VpcAccessibleServic
  */
 @property(nonatomic, copy, nullable) NSString *supportStage;
 
-/** The name of the supported product, such as 'Cloud Product API'. */
+/** The name of the supported product, such as `'Cloud Product API'`. */
 @property(nonatomic, copy, nullable) NSString *title;
 
 @end
@@ -2790,15 +2806,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_VpcAccessibleServic
 
 /**
  *  The list of APIs usable within the Service Perimeter. Must be empty unless
- *  'enable_restriction' is True. You can specify a list of individual services,
- *  as well as include the 'RESTRICTED-SERVICES' value, which automatically
- *  includes all of the services protected by the perimeter.
+ *  `enable_restriction` is `true`. You can specify a list of individual
+ *  services, as well as include the `'RESTRICTED-SERVICES'` value, which
+ *  automatically includes all of the services protected by the perimeter.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *allowedServices;
 
 /**
  *  Whether to restrict API calls within the Service Perimeter to the list of
- *  APIs specified in 'allowed_services'.
+ *  APIs specified in `allowed_services`.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2822,7 +2838,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_VpcAccessibleServic
 
 
 /**
- *  Sub-segment ranges inside of a VPC Network.
+ *  Sub-segment ranges inside of a VPC network.
  */
 @interface GTLRAccessContextManager_VpcSubNetwork : GTLRObject
 
@@ -2839,9 +2855,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_VpcAccessibleServic
  *  CIDR block IP subnetwork specification. The IP address must be an IPv4
  *  address and can be a public or private IP address. Note that for a CIDR IP
  *  address block, the specified IP address portion must be properly truncated
- *  (i.e. all the host bits must be zero) or the input is considered malformed.
- *  For example, "192.0.2.0/24" is accepted but "192.0.2.1/24" is not. If empty,
- *  all IP addresses are allowed.
+ *  (that is, all the host bits must be zero) or the input is considered
+ *  malformed. For example, `"192.0.2.0/24"` is accepted, but `"192.0.2.1/24"`
+ *  is not. If empty, all IP addresses are allowed.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *vpcIpSubnetworks;
 

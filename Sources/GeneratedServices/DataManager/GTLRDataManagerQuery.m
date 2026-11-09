@@ -109,6 +109,25 @@
 
 @end
 
+@implementation GTLRDataManagerQuery_AccountTypesAccountsReportsRetrievePartnerMatchReport
+
+@dynamic currencyCode, endDate, filter, pageSize, pageToken, parent, startDate;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/reports:retrievePartnerMatchReport";
+  GTLRDataManagerQuery_AccountTypesAccountsReportsRetrievePartnerMatchReport *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDataManager_RetrievePartnerMatchReportResponse class];
+  query.loggingName = @"datamanager.accountTypes.accounts.reports.retrievePartnerMatchReport";
+  return query;
+}
+
+@end
+
 @implementation GTLRDataManagerQuery_AccountTypesAccountsUserListDirectLicensesCreate
 
 @dynamic parent;

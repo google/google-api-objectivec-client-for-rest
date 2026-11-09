@@ -67,8 +67,9 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeBroadcastStatusStatusUnspecified;
 /**
  *  Start testing the broadcast. YouTube transmits video to the broadcast's
  *  monitor stream. Note that you can only transition a broadcast to the testing
- *  state if its contentDetails.monitorStream.enableMonitorStream property is
- *  set to true.",
+ *  state if its
+ *  [`contentDetails.monitorStream.enableMonitorStream`](https://developers.google.com/youtube/data/live/reference/rest/v3/liveBroadcasts#contentDetails.monitorStream.enableMonitorStream)
+ *  property is set to true.",
  *
  *  Value: "testing"
  */
@@ -128,8 +129,10 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeChannelTypeShow;
 /** Value: "chartUnspecified" */
 FOUNDATION_EXTERN NSString * const kGTLRYouTubeChartChartUnspecified;
 /**
- *  Return the most popular videos for the specified content region and video
- *  category.
+ *  Return the most popular videos for the specified [content
+ *  region](https://developers.google.com/youtube/data/reference/rest/v3/videos/list#regionCode)
+ *  and [video
+ *  category](https://developers.google.com/youtube/data/reference/rest/v3/videos/list#videoCategoryId).
  *
  *  Value: "mostPopular"
  */
@@ -1058,21 +1061,22 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
 @property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwner;
 
 /**
- *  This parameter can only be used in a properly authorized request. *Note:*
- *  This parameter is intended exclusively for YouTube content partners. The
- *  *onBehalfOfContentOwnerChannel* parameter specifies the YouTube channel ID
- *  of the channel to which a video is being added. This parameter is required
- *  when a request specifies a value for the onBehalfOfContentOwner parameter,
- *  and it can only be used in conjunction with that parameter. In addition, the
- *  request must be authorized using a CMS account that is linked to the content
- *  owner that the onBehalfOfContentOwner parameter specifies. Finally, the
- *  channel that the onBehalfOfContentOwnerChannel parameter value specifies
- *  must be linked to the content owner that the onBehalfOfContentOwner
- *  parameter specifies. This parameter is intended for YouTube content partners
- *  that own and manage many different YouTube channels. It allows content
- *  owners to authenticate once and perform actions on behalf of the channel
- *  specified in the parameter value, without having to provide authentication
- *  credentials for each separate channel.
+ *  This parameter can only be used in a properly [authorized
+ *  request](https://developers.google.com/youtube/data/guides/authentication).
+ *  *Note:* This parameter is intended exclusively for YouTube content partners.
+ *  The *onBehalfOfContentOwnerChannel* parameter specifies the YouTube channel
+ *  ID of the channel to which a video is being added. This parameter is
+ *  required when a request specifies a value for the onBehalfOfContentOwner
+ *  parameter, and it can only be used in conjunction with that parameter. In
+ *  addition, the request must be authorized using a CMS account that is linked
+ *  to the content owner that the onBehalfOfContentOwner parameter specifies.
+ *  Finally, the channel that the onBehalfOfContentOwnerChannel parameter value
+ *  specifies must be linked to the content owner that the
+ *  onBehalfOfContentOwner parameter specifies. This parameter is intended for
+ *  YouTube content partners that own and manage many different YouTube
+ *  channels. It allows content owners to authenticate once and perform actions
+ *  on behalf of the channel specified in the parameter value, without having to
+ *  provide authentication credentials for each separate channel.
  */
 @property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwnerChannel;
 
@@ -1168,21 +1172,22 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
 @property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwner;
 
 /**
- *  This parameter can only be used in a properly authorized request. *Note:*
- *  This parameter is intended exclusively for YouTube content partners. The
- *  *onBehalfOfContentOwnerChannel* parameter specifies the YouTube channel ID
- *  of the channel to which a video is being added. This parameter is required
- *  when a request specifies a value for the onBehalfOfContentOwner parameter,
- *  and it can only be used in conjunction with that parameter. In addition, the
- *  request must be authorized using a CMS account that is linked to the content
- *  owner that the onBehalfOfContentOwner parameter specifies. Finally, the
- *  channel that the onBehalfOfContentOwnerChannel parameter value specifies
- *  must be linked to the content owner that the onBehalfOfContentOwner
- *  parameter specifies. This parameter is intended for YouTube content partners
- *  that own and manage many different YouTube channels. It allows content
- *  owners to authenticate once and perform actions on behalf of the channel
- *  specified in the parameter value, without having to provide authentication
- *  credentials for each separate channel.
+ *  This parameter can only be used in a properly [authorized
+ *  request](https://developers.google.com/youtube/data/guides/authentication).
+ *  *Note:* This parameter is intended exclusively for YouTube content partners.
+ *  The *onBehalfOfContentOwnerChannel* parameter specifies the YouTube channel
+ *  ID of the channel to which a video is being added. This parameter is
+ *  required when a request specifies a value for the onBehalfOfContentOwner
+ *  parameter, and it can only be used in conjunction with that parameter. In
+ *  addition, the request must be authorized using a CMS account that is linked
+ *  to the content owner that the onBehalfOfContentOwner parameter specifies.
+ *  Finally, the channel that the onBehalfOfContentOwnerChannel parameter value
+ *  specifies must be linked to the content owner that the
+ *  onBehalfOfContentOwner parameter specifies. This parameter is intended for
+ *  YouTube content partners that own and manage many different YouTube
+ *  channels. It allows content owners to authenticate once and perform actions
+ *  on behalf of the channel specified in the parameter value, without having to
+ *  provide authentication credentials for each separate channel.
  */
 @property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwnerChannel;
 
@@ -2076,21 +2081,22 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
 @property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwner;
 
 /**
- *  This parameter can only be used in a properly authorized request. *Note:*
- *  This parameter is intended exclusively for YouTube content partners. The
- *  *onBehalfOfContentOwnerChannel* parameter specifies the YouTube channel ID
- *  of the channel to which a video is being added. This parameter is required
- *  when a request specifies a value for the onBehalfOfContentOwner parameter,
- *  and it can only be used in conjunction with that parameter. In addition, the
- *  request must be authorized using a CMS account that is linked to the content
- *  owner that the onBehalfOfContentOwner parameter specifies. Finally, the
- *  channel that the onBehalfOfContentOwnerChannel parameter value specifies
- *  must be linked to the content owner that the onBehalfOfContentOwner
- *  parameter specifies. This parameter is intended for YouTube content partners
- *  that own and manage many different YouTube channels. It allows content
- *  owners to authenticate once and perform actions on behalf of the channel
- *  specified in the parameter value, without having to provide authentication
- *  credentials for each separate channel.
+ *  This parameter can only be used in a properly [authorized
+ *  request](https://developers.google.com/youtube/data/guides/authentication).
+ *  *Note:* This parameter is intended exclusively for YouTube content partners.
+ *  The *onBehalfOfContentOwnerChannel* parameter specifies the YouTube channel
+ *  ID of the channel to which a video is being added. This parameter is
+ *  required when a request specifies a value for the onBehalfOfContentOwner
+ *  parameter, and it can only be used in conjunction with that parameter. In
+ *  addition, the request must be authorized using a CMS account that is linked
+ *  to the content owner that the onBehalfOfContentOwner parameter specifies.
+ *  Finally, the channel that the onBehalfOfContentOwnerChannel parameter value
+ *  specifies must be linked to the content owner that the
+ *  onBehalfOfContentOwner parameter specifies. This parameter is intended for
+ *  YouTube content partners that own and manage many different YouTube
+ *  channels. It allows content owners to authenticate once and perform actions
+ *  on behalf of the channel specified in the parameter value, without having to
+ *  provide authentication credentials for each separate channel.
  */
 @property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwnerChannel;
 
@@ -2156,21 +2162,22 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
 @property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwner;
 
 /**
- *  This parameter can only be used in a properly authorized request. *Note:*
- *  This parameter is intended exclusively for YouTube content partners. The
- *  *onBehalfOfContentOwnerChannel* parameter specifies the YouTube channel ID
- *  of the channel to which a video is being added. This parameter is required
- *  when a request specifies a value for the onBehalfOfContentOwner parameter,
- *  and it can only be used in conjunction with that parameter. In addition, the
- *  request must be authorized using a CMS account that is linked to the content
- *  owner that the onBehalfOfContentOwner parameter specifies. Finally, the
- *  channel that the onBehalfOfContentOwnerChannel parameter value specifies
- *  must be linked to the content owner that the onBehalfOfContentOwner
- *  parameter specifies. This parameter is intended for YouTube content partners
- *  that own and manage many different YouTube channels. It allows content
- *  owners to authenticate once and perform actions on behalf of the channel
- *  specified in the parameter value, without having to provide authentication
- *  credentials for each separate channel.
+ *  This parameter can only be used in a properly [authorized
+ *  request](https://developers.google.com/youtube/data/guides/authentication).
+ *  *Note:* This parameter is intended exclusively for YouTube content partners.
+ *  The *onBehalfOfContentOwnerChannel* parameter specifies the YouTube channel
+ *  ID of the channel to which a video is being added. This parameter is
+ *  required when a request specifies a value for the onBehalfOfContentOwner
+ *  parameter, and it can only be used in conjunction with that parameter. In
+ *  addition, the request must be authorized using a CMS account that is linked
+ *  to the content owner that the onBehalfOfContentOwner parameter specifies.
+ *  Finally, the channel that the onBehalfOfContentOwnerChannel parameter value
+ *  specifies must be linked to the content owner that the
+ *  onBehalfOfContentOwner parameter specifies. This parameter is intended for
+ *  YouTube content partners that own and manage many different YouTube
+ *  channels. It allows content owners to authenticate once and perform actions
+ *  on behalf of the channel specified in the parameter value, without having to
+ *  provide authentication credentials for each separate channel.
  */
 @property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwnerChannel;
 
@@ -2214,21 +2221,22 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
 @property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwner;
 
 /**
- *  This parameter can only be used in a properly authorized request. *Note:*
- *  This parameter is intended exclusively for YouTube content partners. The
- *  *onBehalfOfContentOwnerChannel* parameter specifies the YouTube channel ID
- *  of the channel to which a video is being added. This parameter is required
- *  when a request specifies a value for the onBehalfOfContentOwner parameter,
- *  and it can only be used in conjunction with that parameter. In addition, the
- *  request must be authorized using a CMS account that is linked to the content
- *  owner that the onBehalfOfContentOwner parameter specifies. Finally, the
- *  channel that the onBehalfOfContentOwnerChannel parameter value specifies
- *  must be linked to the content owner that the onBehalfOfContentOwner
- *  parameter specifies. This parameter is intended for YouTube content partners
- *  that own and manage many different YouTube channels. It allows content
- *  owners to authenticate once and perform actions on behalf of the channel
- *  specified in the parameter value, without having to provide authentication
- *  credentials for each separate channel.
+ *  This parameter can only be used in a properly [authorized
+ *  request](https://developers.google.com/youtube/data/guides/authentication).
+ *  *Note:* This parameter is intended exclusively for YouTube content partners.
+ *  The *onBehalfOfContentOwnerChannel* parameter specifies the YouTube channel
+ *  ID of the channel to which a video is being added. This parameter is
+ *  required when a request specifies a value for the onBehalfOfContentOwner
+ *  parameter, and it can only be used in conjunction with that parameter. In
+ *  addition, the request must be authorized using a CMS account that is linked
+ *  to the content owner that the onBehalfOfContentOwner parameter specifies.
+ *  Finally, the channel that the onBehalfOfContentOwnerChannel parameter value
+ *  specifies must be linked to the content owner that the
+ *  onBehalfOfContentOwner parameter specifies. This parameter is intended for
+ *  YouTube content partners that own and manage many different YouTube
+ *  channels. It allows content owners to authenticate once and perform actions
+ *  on behalf of the channel specified in the parameter value, without having to
+ *  provide authentication credentials for each separate channel.
  */
 @property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwnerChannel;
 
@@ -2294,21 +2302,22 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
 @property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwner;
 
 /**
- *  This parameter can only be used in a properly authorized request. *Note:*
- *  This parameter is intended exclusively for YouTube content partners. The
- *  *onBehalfOfContentOwnerChannel* parameter specifies the YouTube channel ID
- *  of the channel to which a video is being added. This parameter is required
- *  when a request specifies a value for the onBehalfOfContentOwner parameter,
- *  and it can only be used in conjunction with that parameter. In addition, the
- *  request must be authorized using a CMS account that is linked to the content
- *  owner that the onBehalfOfContentOwner parameter specifies. Finally, the
- *  channel that the onBehalfOfContentOwnerChannel parameter value specifies
- *  must be linked to the content owner that the onBehalfOfContentOwner
- *  parameter specifies. This parameter is intended for YouTube content partners
- *  that own and manage many different YouTube channels. It allows content
- *  owners to authenticate once and perform actions on behalf of the channel
- *  specified in the parameter value, without having to provide authentication
- *  credentials for each separate channel.
+ *  This parameter can only be used in a properly [authorized
+ *  request](https://developers.google.com/youtube/data/guides/authentication).
+ *  *Note:* This parameter is intended exclusively for YouTube content partners.
+ *  The *onBehalfOfContentOwnerChannel* parameter specifies the YouTube channel
+ *  ID of the channel to which a video is being added. This parameter is
+ *  required when a request specifies a value for the onBehalfOfContentOwner
+ *  parameter, and it can only be used in conjunction with that parameter. In
+ *  addition, the request must be authorized using a CMS account that is linked
+ *  to the content owner that the onBehalfOfContentOwner parameter specifies.
+ *  Finally, the channel that the onBehalfOfContentOwnerChannel parameter value
+ *  specifies must be linked to the content owner that the
+ *  onBehalfOfContentOwner parameter specifies. This parameter is intended for
+ *  YouTube content partners that own and manage many different YouTube
+ *  channels. It allows content owners to authenticate once and perform actions
+ *  on behalf of the channel specified in the parameter value, without having to
+ *  provide authentication credentials for each separate channel.
  */
 @property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwnerChannel;
 
@@ -2412,21 +2421,22 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
 @property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwner;
 
 /**
- *  This parameter can only be used in a properly authorized request. *Note:*
- *  This parameter is intended exclusively for YouTube content partners. The
- *  *onBehalfOfContentOwnerChannel* parameter specifies the YouTube channel ID
- *  of the channel to which a video is being added. This parameter is required
- *  when a request specifies a value for the onBehalfOfContentOwner parameter,
- *  and it can only be used in conjunction with that parameter. In addition, the
- *  request must be authorized using a CMS account that is linked to the content
- *  owner that the onBehalfOfContentOwner parameter specifies. Finally, the
- *  channel that the onBehalfOfContentOwnerChannel parameter value specifies
- *  must be linked to the content owner that the onBehalfOfContentOwner
- *  parameter specifies. This parameter is intended for YouTube content partners
- *  that own and manage many different YouTube channels. It allows content
- *  owners to authenticate once and perform actions on behalf of the channel
- *  specified in the parameter value, without having to provide authentication
- *  credentials for each separate channel.
+ *  This parameter can only be used in a properly [authorized
+ *  request](https://developers.google.com/youtube/data/guides/authentication).
+ *  *Note:* This parameter is intended exclusively for YouTube content partners.
+ *  The *onBehalfOfContentOwnerChannel* parameter specifies the YouTube channel
+ *  ID of the channel to which a video is being added. This parameter is
+ *  required when a request specifies a value for the onBehalfOfContentOwner
+ *  parameter, and it can only be used in conjunction with that parameter. In
+ *  addition, the request must be authorized using a CMS account that is linked
+ *  to the content owner that the onBehalfOfContentOwner parameter specifies.
+ *  Finally, the channel that the onBehalfOfContentOwnerChannel parameter value
+ *  specifies must be linked to the content owner that the
+ *  onBehalfOfContentOwner parameter specifies. This parameter is intended for
+ *  YouTube content partners that own and manage many different YouTube
+ *  channels. It allows content owners to authenticate once and perform actions
+ *  on behalf of the channel specified in the parameter value, without having to
+ *  provide authentication credentials for each separate channel.
  */
 @property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwnerChannel;
 
@@ -2485,8 +2495,8 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *    @arg @c kGTLRYouTubeBroadcastStatusTesting Start testing the broadcast.
  *        YouTube transmits video to the broadcast's monitor stream. Note that
  *        you can only transition a broadcast to the testing state if its
- *        contentDetails.monitorStream.enableMonitorStream property is set to
- *        true.", (Value: "testing")
+ *        [`contentDetails.monitorStream.enableMonitorStream`](https://developers.google.com/youtube/data/live/reference/rest/v3/liveBroadcasts#contentDetails.monitorStream.enableMonitorStream)
+ *        property is set to true.", (Value: "testing")
  *    @arg @c kGTLRYouTubeBroadcastStatusLive Return only persistent broadcasts.
  *        (Value: "live")
  *    @arg @c kGTLRYouTubeBroadcastStatusComplete The broadcast is over. YouTube
@@ -2516,21 +2526,22 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
 @property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwner;
 
 /**
- *  This parameter can only be used in a properly authorized request. *Note:*
- *  This parameter is intended exclusively for YouTube content partners. The
- *  *onBehalfOfContentOwnerChannel* parameter specifies the YouTube channel ID
- *  of the channel to which a video is being added. This parameter is required
- *  when a request specifies a value for the onBehalfOfContentOwner parameter,
- *  and it can only be used in conjunction with that parameter. In addition, the
- *  request must be authorized using a CMS account that is linked to the content
- *  owner that the onBehalfOfContentOwner parameter specifies. Finally, the
- *  channel that the onBehalfOfContentOwnerChannel parameter value specifies
- *  must be linked to the content owner that the onBehalfOfContentOwner
- *  parameter specifies. This parameter is intended for YouTube content partners
- *  that own and manage many different YouTube channels. It allows content
- *  owners to authenticate once and perform actions on behalf of the channel
- *  specified in the parameter value, without having to provide authentication
- *  credentials for each separate channel.
+ *  This parameter can only be used in a properly [authorized
+ *  request](https://developers.google.com/youtube/data/guides/authentication).
+ *  *Note:* This parameter is intended exclusively for YouTube content partners.
+ *  The *onBehalfOfContentOwnerChannel* parameter specifies the YouTube channel
+ *  ID of the channel to which a video is being added. This parameter is
+ *  required when a request specifies a value for the onBehalfOfContentOwner
+ *  parameter, and it can only be used in conjunction with that parameter. In
+ *  addition, the request must be authorized using a CMS account that is linked
+ *  to the content owner that the onBehalfOfContentOwner parameter specifies.
+ *  Finally, the channel that the onBehalfOfContentOwnerChannel parameter value
+ *  specifies must be linked to the content owner that the
+ *  onBehalfOfContentOwner parameter specifies. This parameter is intended for
+ *  YouTube content partners that own and manage many different YouTube
+ *  channels. It allows content owners to authenticate once and perform actions
+ *  on behalf of the channel specified in the parameter value, without having to
+ *  provide authentication credentials for each separate channel.
  */
 @property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwnerChannel;
 
@@ -2561,8 +2572,8 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *    @arg @c kGTLRYouTubeBroadcastStatusTesting Start testing the broadcast.
  *        YouTube transmits video to the broadcast's monitor stream. Note that
  *        you can only transition a broadcast to the testing state if its
- *        contentDetails.monitorStream.enableMonitorStream property is set to
- *        true.", (Value: "testing")
+ *        [`contentDetails.monitorStream.enableMonitorStream`](https://developers.google.com/youtube/data/live/reference/rest/v3/liveBroadcasts#contentDetails.monitorStream.enableMonitorStream)
+ *        property is set to true.", (Value: "testing")
  *    @arg @c kGTLRYouTubeBroadcastStatusLive Return only persistent broadcasts.
  *        (Value: "live")
  *    @arg @c kGTLRYouTubeBroadcastStatusComplete The broadcast is over. YouTube
@@ -2602,21 +2613,22 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
 @property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwner;
 
 /**
- *  This parameter can only be used in a properly authorized request. *Note:*
- *  This parameter is intended exclusively for YouTube content partners. The
- *  *onBehalfOfContentOwnerChannel* parameter specifies the YouTube channel ID
- *  of the channel to which a video is being added. This parameter is required
- *  when a request specifies a value for the onBehalfOfContentOwner parameter,
- *  and it can only be used in conjunction with that parameter. In addition, the
- *  request must be authorized using a CMS account that is linked to the content
- *  owner that the onBehalfOfContentOwner parameter specifies. Finally, the
- *  channel that the onBehalfOfContentOwnerChannel parameter value specifies
- *  must be linked to the content owner that the onBehalfOfContentOwner
- *  parameter specifies. This parameter is intended for YouTube content partners
- *  that own and manage many different YouTube channels. It allows content
- *  owners to authenticate once and perform actions on behalf of the channel
- *  specified in the parameter value, without having to provide authentication
- *  credentials for each separate channel.
+ *  This parameter can only be used in a properly [authorized
+ *  request](https://developers.google.com/youtube/data/guides/authentication).
+ *  *Note:* This parameter is intended exclusively for YouTube content partners.
+ *  The *onBehalfOfContentOwnerChannel* parameter specifies the YouTube channel
+ *  ID of the channel to which a video is being added. This parameter is
+ *  required when a request specifies a value for the onBehalfOfContentOwner
+ *  parameter, and it can only be used in conjunction with that parameter. In
+ *  addition, the request must be authorized using a CMS account that is linked
+ *  to the content owner that the onBehalfOfContentOwner parameter specifies.
+ *  Finally, the channel that the onBehalfOfContentOwnerChannel parameter value
+ *  specifies must be linked to the content owner that the
+ *  onBehalfOfContentOwner parameter specifies. This parameter is intended for
+ *  YouTube content partners that own and manage many different YouTube
+ *  channels. It allows content owners to authenticate once and perform actions
+ *  on behalf of the channel specified in the parameter value, without having to
+ *  provide authentication credentials for each separate channel.
  */
 @property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwnerChannel;
 
@@ -2733,7 +2745,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
 @end
 
 /**
- *  Deletes a chat message.
+ *  Deletes a chat message. A call to this method has a quota cost of 20 units.
  *
  *  Method: youtube.liveChatMessages.delete
  *
@@ -2754,7 +2766,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  Deletes a chat message.
+ *  Deletes a chat message. A call to this method has a quota cost of 20 units.
  *
  *  @param identifier NSString
  *
@@ -2765,7 +2777,8 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
 @end
 
 /**
- *  Inserts a new resource into this collection.
+ *  Inserts a new resource into this collection. A call to this method has a
+ *  quota cost of 20 units.
  *
  *  Method: youtube.liveChatMessages.insert
  *
@@ -2776,21 +2789,22 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
 @interface GTLRYouTubeQuery_LiveChatMessagesInsert : GTLRYouTubeQuery
 
 /**
- *  The *part* parameter serves two purposes. It identifies the properties that
- *  the write operation will set as well as the properties that the API response
- *  will include. Set the parameter value to snippet.
+ *  The `part` parameter serves two purposes. It identifies the properties that
+ *  the write operation sets as well as the properties that the API response
+ *  includes. Set the parameter value to `snippet`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *part;
 
 /**
  *  Fetches a @c GTLRYouTube_LiveChatMessage.
  *
- *  Inserts a new resource into this collection.
+ *  Inserts a new resource into this collection. A call to this method has a
+ *  quota cost of 20 units.
  *
  *  @param object The @c GTLRYouTube_LiveChatMessage to include in the query.
- *  @param part The *part* parameter serves two purposes. It identifies the
- *    properties that the write operation will set as well as the properties
- *    that the API response will include. Set the parameter value to snippet.
+ *  @param part The `part` parameter serves two purposes. It identifies the
+ *    properties that the write operation sets as well as the properties that
+ *    the API response includes. Set the parameter value to `snippet`.
  *
  *  @return GTLRYouTubeQuery_LiveChatMessagesInsert
  */
@@ -2800,7 +2814,8 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
 @end
 
 /**
- *  Retrieves a list of resources, possibly filtered.
+ *  Retrieves a list of resources, possibly filtered. A call to this method has
+ *  a quota cost of 5 units.
  *
  *  Method: youtube.liveChatMessages.list
  *
@@ -2817,11 +2832,11 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  */
 @property(nonatomic, copy, nullable) NSString *hl;
 
-/** The id of the live chat for which comments should be returned. */
+/** The ID of the live chat for which messages should be returned. */
 @property(nonatomic, copy, nullable) NSString *liveChatId;
 
 /**
- *  The *maxResults* parameter specifies the maximum number of items that should
+ *  The `maxResults` parameter specifies the maximum number of items that should
  *  be returned in the result set. Not used in the streaming RPC.
  *
  *  @note If not set, the documented server-side default will be 500 (from the
@@ -2830,16 +2845,16 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
 @property(nonatomic, assign) NSUInteger maxResults;
 
 /**
- *  The *pageToken* parameter identifies a specific page in the result set that
- *  should be returned. In an API response, the nextPageToken property identify
- *  other pages that could be retrieved.
+ *  The `pageToken` parameter identifies a specific page in the result set that
+ *  should be returned. In an API response, the `nextPageToken` property
+ *  identifies other pages that could be retrieved.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  The *part* parameter specifies the liveChatComment resource parts that the
- *  API response will include. Supported values are id, snippet, and
- *  authorDetails.
+ *  The `part` parameter specifies the `liveChatMessage` resource parts that the
+ *  API response includes. Supported values are `id`, `snippet`, and
+ *  `authorDetails`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *part;
 
@@ -2854,13 +2869,14 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
 /**
  *  Fetches a @c GTLRYouTube_LiveChatMessageListResponse.
  *
- *  Retrieves a list of resources, possibly filtered.
+ *  Retrieves a list of resources, possibly filtered. A call to this method has
+ *  a quota cost of 5 units.
  *
- *  @param liveChatId The id of the live chat for which comments should be
+ *  @param liveChatId The ID of the live chat for which messages should be
  *    returned.
- *  @param part The *part* parameter specifies the liveChatComment resource
- *    parts that the API response will include. Supported values are id,
- *    snippet, and authorDetails.
+ *  @param part The `part` parameter specifies the `liveChatMessage` resource
+ *    parts that the API response includes. Supported values are `id`,
+ *    `snippet`, and `authorDetails`.
  *
  *  @return GTLRYouTubeQuery_LiveChatMessagesList
  *
@@ -2874,7 +2890,8 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
 @end
 
 /**
- *  Transition a durable chat event.
+ *  Transitions a durable chat event. A call to this method has a quota cost of
+ *  20 units.
  *
  *  Method: youtube.liveChatMessages.transition
  *
@@ -2885,7 +2902,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
 @interface GTLRYouTubeQuery_LiveChatMessagesTransition : GTLRYouTubeQuery
 
 /**
- *  The ID that uniquely identify the chat message event to transition.
+ *  The ID that uniquely identifies the chat message event to transition.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -2905,7 +2922,8 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
 /**
  *  Fetches a @c GTLRYouTube_LiveChatMessage.
  *
- *  Transition a durable chat event.
+ *  Transitions a durable chat event. A call to this method has a quota cost of
+ *  20 units.
  *
  *  @return GTLRYouTubeQuery_LiveChatMessagesTransition
  */
@@ -3073,21 +3091,22 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
 @property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwner;
 
 /**
- *  This parameter can only be used in a properly authorized request. *Note:*
- *  This parameter is intended exclusively for YouTube content partners. The
- *  *onBehalfOfContentOwnerChannel* parameter specifies the YouTube channel ID
- *  of the channel to which a video is being added. This parameter is required
- *  when a request specifies a value for the onBehalfOfContentOwner parameter,
- *  and it can only be used in conjunction with that parameter. In addition, the
- *  request must be authorized using a CMS account that is linked to the content
- *  owner that the onBehalfOfContentOwner parameter specifies. Finally, the
- *  channel that the onBehalfOfContentOwnerChannel parameter value specifies
- *  must be linked to the content owner that the onBehalfOfContentOwner
- *  parameter specifies. This parameter is intended for YouTube content partners
- *  that own and manage many different YouTube channels. It allows content
- *  owners to authenticate once and perform actions on behalf of the channel
- *  specified in the parameter value, without having to provide authentication
- *  credentials for each separate channel.
+ *  This parameter can only be used in a properly [authorized
+ *  request](https://developers.google.com/youtube/data/guides/authentication).
+ *  *Note:* This parameter is intended exclusively for YouTube content partners.
+ *  The *onBehalfOfContentOwnerChannel* parameter specifies the YouTube channel
+ *  ID of the channel to which a video is being added. This parameter is
+ *  required when a request specifies a value for the onBehalfOfContentOwner
+ *  parameter, and it can only be used in conjunction with that parameter. In
+ *  addition, the request must be authorized using a CMS account that is linked
+ *  to the content owner that the onBehalfOfContentOwner parameter specifies.
+ *  Finally, the channel that the onBehalfOfContentOwnerChannel parameter value
+ *  specifies must be linked to the content owner that the
+ *  onBehalfOfContentOwner parameter specifies. This parameter is intended for
+ *  YouTube content partners that own and manage many different YouTube
+ *  channels. It allows content owners to authenticate once and perform actions
+ *  on behalf of the channel specified in the parameter value, without having to
+ *  provide authentication credentials for each separate channel.
  */
 @property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwnerChannel;
 
@@ -3131,21 +3150,22 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
 @property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwner;
 
 /**
- *  This parameter can only be used in a properly authorized request. *Note:*
- *  This parameter is intended exclusively for YouTube content partners. The
- *  *onBehalfOfContentOwnerChannel* parameter specifies the YouTube channel ID
- *  of the channel to which a video is being added. This parameter is required
- *  when a request specifies a value for the onBehalfOfContentOwner parameter,
- *  and it can only be used in conjunction with that parameter. In addition, the
- *  request must be authorized using a CMS account that is linked to the content
- *  owner that the onBehalfOfContentOwner parameter specifies. Finally, the
- *  channel that the onBehalfOfContentOwnerChannel parameter value specifies
- *  must be linked to the content owner that the onBehalfOfContentOwner
- *  parameter specifies. This parameter is intended for YouTube content partners
- *  that own and manage many different YouTube channels. It allows content
- *  owners to authenticate once and perform actions on behalf of the channel
- *  specified in the parameter value, without having to provide authentication
- *  credentials for each separate channel.
+ *  This parameter can only be used in a properly [authorized
+ *  request](https://developers.google.com/youtube/data/guides/authentication).
+ *  *Note:* This parameter is intended exclusively for YouTube content partners.
+ *  The *onBehalfOfContentOwnerChannel* parameter specifies the YouTube channel
+ *  ID of the channel to which a video is being added. This parameter is
+ *  required when a request specifies a value for the onBehalfOfContentOwner
+ *  parameter, and it can only be used in conjunction with that parameter. In
+ *  addition, the request must be authorized using a CMS account that is linked
+ *  to the content owner that the onBehalfOfContentOwner parameter specifies.
+ *  Finally, the channel that the onBehalfOfContentOwnerChannel parameter value
+ *  specifies must be linked to the content owner that the
+ *  onBehalfOfContentOwner parameter specifies. This parameter is intended for
+ *  YouTube content partners that own and manage many different YouTube
+ *  channels. It allows content owners to authenticate once and perform actions
+ *  on behalf of the channel specified in the parameter value, without having to
+ *  provide authentication credentials for each separate channel.
  */
 @property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwnerChannel;
 
@@ -3221,21 +3241,22 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
 @property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwner;
 
 /**
- *  This parameter can only be used in a properly authorized request. *Note:*
- *  This parameter is intended exclusively for YouTube content partners. The
- *  *onBehalfOfContentOwnerChannel* parameter specifies the YouTube channel ID
- *  of the channel to which a video is being added. This parameter is required
- *  when a request specifies a value for the onBehalfOfContentOwner parameter,
- *  and it can only be used in conjunction with that parameter. In addition, the
- *  request must be authorized using a CMS account that is linked to the content
- *  owner that the onBehalfOfContentOwner parameter specifies. Finally, the
- *  channel that the onBehalfOfContentOwnerChannel parameter value specifies
- *  must be linked to the content owner that the onBehalfOfContentOwner
- *  parameter specifies. This parameter is intended for YouTube content partners
- *  that own and manage many different YouTube channels. It allows content
- *  owners to authenticate once and perform actions on behalf of the channel
- *  specified in the parameter value, without having to provide authentication
- *  credentials for each separate channel.
+ *  This parameter can only be used in a properly [authorized
+ *  request](https://developers.google.com/youtube/data/guides/authentication).
+ *  *Note:* This parameter is intended exclusively for YouTube content partners.
+ *  The *onBehalfOfContentOwnerChannel* parameter specifies the YouTube channel
+ *  ID of the channel to which a video is being added. This parameter is
+ *  required when a request specifies a value for the onBehalfOfContentOwner
+ *  parameter, and it can only be used in conjunction with that parameter. In
+ *  addition, the request must be authorized using a CMS account that is linked
+ *  to the content owner that the onBehalfOfContentOwner parameter specifies.
+ *  Finally, the channel that the onBehalfOfContentOwnerChannel parameter value
+ *  specifies must be linked to the content owner that the
+ *  onBehalfOfContentOwner parameter specifies. This parameter is intended for
+ *  YouTube content partners that own and manage many different YouTube
+ *  channels. It allows content owners to authenticate once and perform actions
+ *  on behalf of the channel specified in the parameter value, without having to
+ *  provide authentication credentials for each separate channel.
  */
 @property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwnerChannel;
 
@@ -3300,21 +3321,22 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
 @property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwner;
 
 /**
- *  This parameter can only be used in a properly authorized request. *Note:*
- *  This parameter is intended exclusively for YouTube content partners. The
- *  *onBehalfOfContentOwnerChannel* parameter specifies the YouTube channel ID
- *  of the channel to which a video is being added. This parameter is required
- *  when a request specifies a value for the onBehalfOfContentOwner parameter,
- *  and it can only be used in conjunction with that parameter. In addition, the
- *  request must be authorized using a CMS account that is linked to the content
- *  owner that the onBehalfOfContentOwner parameter specifies. Finally, the
- *  channel that the onBehalfOfContentOwnerChannel parameter value specifies
- *  must be linked to the content owner that the onBehalfOfContentOwner
- *  parameter specifies. This parameter is intended for YouTube content partners
- *  that own and manage many different YouTube channels. It allows content
- *  owners to authenticate once and perform actions on behalf of the channel
- *  specified in the parameter value, without having to provide authentication
- *  credentials for each separate channel.
+ *  This parameter can only be used in a properly [authorized
+ *  request](https://developers.google.com/youtube/data/guides/authentication).
+ *  *Note:* This parameter is intended exclusively for YouTube content partners.
+ *  The *onBehalfOfContentOwnerChannel* parameter specifies the YouTube channel
+ *  ID of the channel to which a video is being added. This parameter is
+ *  required when a request specifies a value for the onBehalfOfContentOwner
+ *  parameter, and it can only be used in conjunction with that parameter. In
+ *  addition, the request must be authorized using a CMS account that is linked
+ *  to the content owner that the onBehalfOfContentOwner parameter specifies.
+ *  Finally, the channel that the onBehalfOfContentOwnerChannel parameter value
+ *  specifies must be linked to the content owner that the
+ *  onBehalfOfContentOwner parameter specifies. This parameter is intended for
+ *  YouTube content partners that own and manage many different YouTube
+ *  channels. It allows content owners to authenticate once and perform actions
+ *  on behalf of the channel specified in the parameter value, without having to
+ *  provide authentication credentials for each separate channel.
  */
 @property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwnerChannel;
 
@@ -3532,21 +3554,22 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
 @property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwner;
 
 /**
- *  This parameter can only be used in a properly authorized request. *Note:*
- *  This parameter is intended exclusively for YouTube content partners. The
- *  *onBehalfOfContentOwnerChannel* parameter specifies the YouTube channel ID
- *  of the channel to which a video is being added. This parameter is required
- *  when a request specifies a value for the onBehalfOfContentOwner parameter,
- *  and it can only be used in conjunction with that parameter. In addition, the
- *  request must be authorized using a CMS account that is linked to the content
- *  owner that the onBehalfOfContentOwner parameter specifies. Finally, the
- *  channel that the onBehalfOfContentOwnerChannel parameter value specifies
- *  must be linked to the content owner that the onBehalfOfContentOwner
- *  parameter specifies. This parameter is intended for YouTube content partners
- *  that own and manage many different YouTube channels. It allows content
- *  owners to authenticate once and perform actions on behalf of the channel
- *  specified in the parameter value, without having to provide authentication
- *  credentials for each separate channel.
+ *  This parameter can only be used in a properly [authorized
+ *  request](https://developers.google.com/youtube/data/guides/authentication).
+ *  *Note:* This parameter is intended exclusively for YouTube content partners.
+ *  The *onBehalfOfContentOwnerChannel* parameter specifies the YouTube channel
+ *  ID of the channel to which a video is being added. This parameter is
+ *  required when a request specifies a value for the onBehalfOfContentOwner
+ *  parameter, and it can only be used in conjunction with that parameter. In
+ *  addition, the request must be authorized using a CMS account that is linked
+ *  to the content owner that the onBehalfOfContentOwner parameter specifies.
+ *  Finally, the channel that the onBehalfOfContentOwnerChannel parameter value
+ *  specifies must be linked to the content owner that the
+ *  onBehalfOfContentOwner parameter specifies. This parameter is intended for
+ *  YouTube content partners that own and manage many different YouTube
+ *  channels. It allows content owners to authenticate once and perform actions
+ *  on behalf of the channel specified in the parameter value, without having to
+ *  provide authentication credentials for each separate channel.
  */
 @property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwnerChannel;
 
@@ -3610,21 +3633,22 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
 @property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwner;
 
 /**
- *  This parameter can only be used in a properly authorized request. *Note:*
- *  This parameter is intended exclusively for YouTube content partners. The
- *  *onBehalfOfContentOwnerChannel* parameter specifies the YouTube channel ID
- *  of the channel to which a video is being added. This parameter is required
- *  when a request specifies a value for the onBehalfOfContentOwner parameter,
- *  and it can only be used in conjunction with that parameter. In addition, the
- *  request must be authorized using a CMS account that is linked to the content
- *  owner that the onBehalfOfContentOwner parameter specifies. Finally, the
- *  channel that the onBehalfOfContentOwnerChannel parameter value specifies
- *  must be linked to the content owner that the onBehalfOfContentOwner
- *  parameter specifies. This parameter is intended for YouTube content partners
- *  that own and manage many different YouTube channels. It allows content
- *  owners to authenticate once and perform actions on behalf of the channel
- *  specified in the parameter value, without having to provide authentication
- *  credentials for each separate channel.
+ *  This parameter can only be used in a properly [authorized
+ *  request](https://developers.google.com/youtube/data/guides/authentication).
+ *  *Note:* This parameter is intended exclusively for YouTube content partners.
+ *  The *onBehalfOfContentOwnerChannel* parameter specifies the YouTube channel
+ *  ID of the channel to which a video is being added. This parameter is
+ *  required when a request specifies a value for the onBehalfOfContentOwner
+ *  parameter, and it can only be used in conjunction with that parameter. In
+ *  addition, the request must be authorized using a CMS account that is linked
+ *  to the content owner that the onBehalfOfContentOwner parameter specifies.
+ *  Finally, the channel that the onBehalfOfContentOwnerChannel parameter value
+ *  specifies must be linked to the content owner that the
+ *  onBehalfOfContentOwner parameter specifies. This parameter is intended for
+ *  YouTube content partners that own and manage many different YouTube
+ *  channels. It allows content owners to authenticate once and perform actions
+ *  on behalf of the channel specified in the parameter value, without having to
+ *  provide authentication credentials for each separate channel.
  */
 @property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwnerChannel;
 
@@ -4042,21 +4066,22 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
 @property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwner;
 
 /**
- *  This parameter can only be used in a properly authorized request. *Note:*
- *  This parameter is intended exclusively for YouTube content partners. The
- *  *onBehalfOfContentOwnerChannel* parameter specifies the YouTube channel ID
- *  of the channel to which a video is being added. This parameter is required
- *  when a request specifies a value for the onBehalfOfContentOwner parameter,
- *  and it can only be used in conjunction with that parameter. In addition, the
- *  request must be authorized using a CMS account that is linked to the content
- *  owner that the onBehalfOfContentOwner parameter specifies. Finally, the
- *  channel that the onBehalfOfContentOwnerChannel parameter value specifies
- *  must be linked to the content owner that the onBehalfOfContentOwner
- *  parameter specifies. This parameter is intended for YouTube content partners
- *  that own and manage many different YouTube channels. It allows content
- *  owners to authenticate once and perform actions on behalf of the channel
- *  specified in the parameter value, without having to provide authentication
- *  credentials for each separate channel.
+ *  This parameter can only be used in a properly [authorized
+ *  request](https://developers.google.com/youtube/data/guides/authentication).
+ *  *Note:* This parameter is intended exclusively for YouTube content partners.
+ *  The *onBehalfOfContentOwnerChannel* parameter specifies the YouTube channel
+ *  ID of the channel to which a video is being added. This parameter is
+ *  required when a request specifies a value for the onBehalfOfContentOwner
+ *  parameter, and it can only be used in conjunction with that parameter. In
+ *  addition, the request must be authorized using a CMS account that is linked
+ *  to the content owner that the onBehalfOfContentOwner parameter specifies.
+ *  Finally, the channel that the onBehalfOfContentOwnerChannel parameter value
+ *  specifies must be linked to the content owner that the
+ *  onBehalfOfContentOwner parameter specifies. This parameter is intended for
+ *  YouTube content partners that own and manage many different YouTube
+ *  channels. It allows content owners to authenticate once and perform actions
+ *  on behalf of the channel specified in the parameter value, without having to
+ *  provide authentication credentials for each separate channel.
  */
 @property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwnerChannel;
 
@@ -4137,21 +4162,22 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
 @property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwner;
 
 /**
- *  This parameter can only be used in a properly authorized request. *Note:*
- *  This parameter is intended exclusively for YouTube content partners. The
- *  *onBehalfOfContentOwnerChannel* parameter specifies the YouTube channel ID
- *  of the channel to which a video is being added. This parameter is required
- *  when a request specifies a value for the onBehalfOfContentOwner parameter,
- *  and it can only be used in conjunction with that parameter. In addition, the
- *  request must be authorized using a CMS account that is linked to the content
- *  owner that the onBehalfOfContentOwner parameter specifies. Finally, the
- *  channel that the onBehalfOfContentOwnerChannel parameter value specifies
- *  must be linked to the content owner that the onBehalfOfContentOwner
- *  parameter specifies. This parameter is intended for YouTube content partners
- *  that own and manage many different YouTube channels. It allows content
- *  owners to authenticate once and perform actions on behalf of the channel
- *  specified in the parameter value, without having to provide authentication
- *  credentials for each separate channel.
+ *  This parameter can only be used in a properly [authorized
+ *  request](https://developers.google.com/youtube/data/guides/authentication).
+ *  *Note:* This parameter is intended exclusively for YouTube content partners.
+ *  The *onBehalfOfContentOwnerChannel* parameter specifies the YouTube channel
+ *  ID of the channel to which a video is being added. This parameter is
+ *  required when a request specifies a value for the onBehalfOfContentOwner
+ *  parameter, and it can only be used in conjunction with that parameter. In
+ *  addition, the request must be authorized using a CMS account that is linked
+ *  to the content owner that the onBehalfOfContentOwner parameter specifies.
+ *  Finally, the channel that the onBehalfOfContentOwnerChannel parameter value
+ *  specifies must be linked to the content owner that the
+ *  onBehalfOfContentOwner parameter specifies. This parameter is intended for
+ *  YouTube content partners that own and manage many different YouTube
+ *  channels. It allows content owners to authenticate once and perform actions
+ *  on behalf of the channel specified in the parameter value, without having to
+ *  provide authentication credentials for each separate channel.
  */
 @property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwnerChannel;
 
@@ -4704,21 +4730,22 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
 @property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwner;
 
 /**
- *  This parameter can only be used in a properly authorized request. *Note:*
- *  This parameter is intended exclusively for YouTube content partners. The
- *  *onBehalfOfContentOwnerChannel* parameter specifies the YouTube channel ID
- *  of the channel to which a video is being added. This parameter is required
- *  when a request specifies a value for the onBehalfOfContentOwner parameter,
- *  and it can only be used in conjunction with that parameter. In addition, the
- *  request must be authorized using a CMS account that is linked to the content
- *  owner that the onBehalfOfContentOwner parameter specifies. Finally, the
- *  channel that the onBehalfOfContentOwnerChannel parameter value specifies
- *  must be linked to the content owner that the onBehalfOfContentOwner
- *  parameter specifies. This parameter is intended for YouTube content partners
- *  that own and manage many different YouTube channels. It allows content
- *  owners to authenticate once and perform actions on behalf of the channel
- *  specified in the parameter value, without having to provide authentication
- *  credentials for each separate channel.
+ *  This parameter can only be used in a properly [authorized
+ *  request](https://developers.google.com/youtube/data/guides/authentication).
+ *  *Note:* This parameter is intended exclusively for YouTube content partners.
+ *  The *onBehalfOfContentOwnerChannel* parameter specifies the YouTube channel
+ *  ID of the channel to which a video is being added. This parameter is
+ *  required when a request specifies a value for the onBehalfOfContentOwner
+ *  parameter, and it can only be used in conjunction with that parameter. In
+ *  addition, the request must be authorized using a CMS account that is linked
+ *  to the content owner that the onBehalfOfContentOwner parameter specifies.
+ *  Finally, the channel that the onBehalfOfContentOwnerChannel parameter value
+ *  specifies must be linked to the content owner that the
+ *  onBehalfOfContentOwner parameter specifies. This parameter is intended for
+ *  YouTube content partners that own and manage many different YouTube
+ *  channels. It allows content owners to authenticate once and perform actions
+ *  on behalf of the channel specified in the parameter value, without having to
+ *  provide authentication credentials for each separate channel.
  */
 @property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwnerChannel;
 
@@ -5383,21 +5410,22 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
 @property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwner;
 
 /**
- *  This parameter can only be used in a properly authorized request. *Note:*
- *  This parameter is intended exclusively for YouTube content partners. The
- *  *onBehalfOfContentOwnerChannel* parameter specifies the YouTube channel ID
- *  of the channel to which a video is being added. This parameter is required
- *  when a request specifies a value for the onBehalfOfContentOwner parameter,
- *  and it can only be used in conjunction with that parameter. In addition, the
- *  request must be authorized using a CMS account that is linked to the content
- *  owner that the onBehalfOfContentOwner parameter specifies. Finally, the
- *  channel that the onBehalfOfContentOwnerChannel parameter value specifies
- *  must be linked to the content owner that the onBehalfOfContentOwner
- *  parameter specifies. This parameter is intended for YouTube content partners
- *  that own and manage many different YouTube channels. It allows content
- *  owners to authenticate once and perform actions on behalf of the channel
- *  specified in the parameter value, without having to provide authentication
- *  credentials for each separate channel.
+ *  This parameter can only be used in a properly [authorized
+ *  request](https://developers.google.com/youtube/data/guides/authentication).
+ *  *Note:* This parameter is intended exclusively for YouTube content partners.
+ *  The *onBehalfOfContentOwnerChannel* parameter specifies the YouTube channel
+ *  ID of the channel to which a video is being added. This parameter is
+ *  required when a request specifies a value for the onBehalfOfContentOwner
+ *  parameter, and it can only be used in conjunction with that parameter. In
+ *  addition, the request must be authorized using a CMS account that is linked
+ *  to the content owner that the onBehalfOfContentOwner parameter specifies.
+ *  Finally, the channel that the onBehalfOfContentOwnerChannel parameter value
+ *  specifies must be linked to the content owner that the
+ *  onBehalfOfContentOwner parameter specifies. This parameter is intended for
+ *  YouTube content partners that own and manage many different YouTube
+ *  channels. It allows content owners to authenticate once and perform actions
+ *  on behalf of the channel specified in the parameter value, without having to
+ *  provide authentication credentials for each separate channel.
  */
 @property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwnerChannel;
 
@@ -5460,8 +5488,11 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *  Likely values:
  *    @arg @c kGTLRYouTubeChartChartUnspecified Value "chartUnspecified"
  *    @arg @c kGTLRYouTubeChartMostPopular Return the most popular videos for
- *        the specified content region and video category. (Value:
- *        "mostPopular")
+ *        the specified [content
+ *        region](https://developers.google.com/youtube/data/reference/rest/v3/videos/list#regionCode)
+ *        and [video
+ *        category](https://developers.google.com/youtube/data/reference/rest/v3/videos/list#videoCategoryId).
+ *        (Value: "mostPopular")
  */
 @property(nonatomic, copy, nullable) NSString *chart;
 
@@ -5493,8 +5524,13 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
 /**
  *  The *maxResults* parameter specifies the maximum number of items that should
  *  be returned in the result set. *Note:* This parameter is supported for use
- *  in conjunction with the myRating and chart parameters, but it is not
- *  supported for use in conjunction with the id parameter.
+ *  in conjunction with the
+ *  [`myRating`](https://developers.google.com/youtube/data/reference/rest/v3/videos/list#myRating)
+ *  and
+ *  [`chart`](https://developers.google.com/youtube/data/reference/rest/v3/videos/list#chart)
+ *  parameters, but it is not supported for use in conjunction with the
+ *  [`id`](https://developers.google.com/youtube/data/reference/rest/v3/videos/list#id)
+ *  parameter.
  *
  *  @note If not set, the documented server-side default will be 5 (from the
  *        range 1..50).
@@ -5539,8 +5575,12 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *  The *pageToken* parameter identifies a specific page in the result set that
  *  should be returned. In an API response, the nextPageToken and prevPageToken
  *  properties identify other pages that could be retrieved. *Note:* This
- *  parameter is supported for use in conjunction with the myRating and chart
- *  parameters, but it is not supported for use in conjunction with the id
+ *  parameter is supported for use in conjunction with the
+ *  [`myRating`](https://developers.google.com/youtube/data/reference/rest/v3/videos/list#myRating)
+ *  and
+ *  [`chart`](https://developers.google.com/youtube/data/reference/rest/v3/videos/list#chart)
+ *  parameters, but it is not supported for use in conjunction with the
+ *  [`id`](https://developers.google.com/youtube/data/reference/rest/v3/videos/list#id)
  *  parameter.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
@@ -5883,7 +5923,8 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
 @end
 
 /**
- *  Allows a user to load live chat through a server-streamed RPC.
+ *  Allows a user to load live chat through a server-streamed RPC. A call to
+ *  this method has a quota cost of 5 units.
  *
  *  Method: youtube.youtube.v3.liveChat.messages.stream
  *
@@ -5900,11 +5941,11 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  */
 @property(nonatomic, copy, nullable) NSString *hl;
 
-/** The id of the live chat for which comments should be returned. */
+/** The ID of the live chat for which messages should be returned. */
 @property(nonatomic, copy, nullable) NSString *liveChatId;
 
 /**
- *  The *maxResults* parameter specifies the maximum number of items that should
+ *  The `maxResults` parameter specifies the maximum number of items that should
  *  be returned in the result set. Not used in the streaming RPC.
  *
  *  @note If not set, the documented server-side default will be 500 (from the
@@ -5913,16 +5954,16 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
 @property(nonatomic, assign) NSUInteger maxResults;
 
 /**
- *  The *pageToken* parameter identifies a specific page in the result set that
- *  should be returned. In an API response, the nextPageToken property identify
- *  other pages that could be retrieved.
+ *  The `pageToken` parameter identifies a specific page in the result set that
+ *  should be returned. In an API response, the `nextPageToken` property
+ *  identifies other pages that could be retrieved.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  The *part* parameter specifies the liveChatComment resource parts that the
- *  API response will include. Supported values are id, snippet, and
- *  authorDetails.
+ *  The `part` parameter specifies the `liveChatMessage` resource parts that the
+ *  API response includes. Supported values are `id`, `snippet`, and
+ *  `authorDetails`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *part;
 
@@ -5937,7 +5978,8 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
 /**
  *  Fetches a @c GTLRYouTube_LiveChatMessageListResponse.
  *
- *  Allows a user to load live chat through a server-streamed RPC.
+ *  Allows a user to load live chat through a server-streamed RPC. A call to
+ *  this method has a quota cost of 5 units.
  *
  *  @return GTLRYouTubeQuery_YoutubeV3LiveChatMessagesStream
  *

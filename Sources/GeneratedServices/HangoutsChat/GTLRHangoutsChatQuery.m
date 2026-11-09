@@ -703,6 +703,33 @@ NSString * const kGTLRHangoutsChatSpaceViewSpaceViewUnspecified = @"SPACE_VIEW_U
 
 @end
 
+@implementation GTLRHangoutsChatQuery_SpacesMessagesReplaceCards
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRHangoutsChat_ReplaceMessageCardsRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:replaceCards";
+  GTLRHangoutsChatQuery_SpacesMessagesReplaceCards *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRHangoutsChat_ReplaceMessageCardsResponse class];
+  query.loggingName = @"chat.spaces.messages.replaceCards";
+  return query;
+}
+
+@end
+
 @implementation GTLRHangoutsChatQuery_SpacesMessagesSearch
 
 @dynamic parent;

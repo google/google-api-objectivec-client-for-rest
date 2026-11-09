@@ -36,7 +36,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Deletes the authenticated user's specified task list. If the list contains
  *  assigned tasks, both the assigned tasks and the original tasks in the
- *  assignment surface (Docs, Chat Spaces) are deleted.
+ *  assignment surface (Docs, Chat Spaces) are deleted. The user's default task
+ *  list cannot be deleted.
  *
  *  Method: tasks.tasklists.delete
  *
@@ -45,7 +46,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRTasksQuery_TasklistsDelete : GTLRTasksQuery
 
-/** Task list identifier. */
+/** Task list identifier. The default task list cannot be deleted. */
 @property(nonatomic, copy, nullable) NSString *tasklist;
 
 /**
@@ -54,9 +55,11 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Deletes the authenticated user's specified task list. If the list contains
  *  assigned tasks, both the assigned tasks and the original tasks in the
- *  assignment surface (Docs, Chat Spaces) are deleted.
+ *  assignment surface (Docs, Chat Spaces) are deleted. The user's default task
+ *  list cannot be deleted.
  *
- *  @param tasklist Task list identifier.
+ *  @param tasklist Task list identifier. The default task list cannot be
+ *    deleted.
  *
  *  @return GTLRTasksQuery_TasklistsDelete
  */
@@ -75,7 +78,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRTasksQuery_TasklistsGet : GTLRTasksQuery
 
-/** Task list identifier. */
+/**
+ *  Task list identifier. Use "\@default" to get the authenticated user's
+ *  default task list.
+ */
 @property(nonatomic, copy, nullable) NSString *tasklist;
 
 /**
@@ -83,7 +89,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Returns the authenticated user's specified task list.
  *
- *  @param tasklist Task list identifier.
+ *  @param tasklist Task list identifier. Use "\@default" to get the
+ *    authenticated user's default task list.
  *
  *  @return GTLRTasksQuery_TasklistsGet
  */
@@ -129,12 +136,12 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRTasksQuery_TasklistsList : GTLRTasksQuery
 
 /**
- *  Maximum number of task lists returned on one page. Optional. The default is
+ *  Optional. Maximum number of task lists returned on one page. The default is
  *  1000 (max allowed: 1000).
  */
 @property(nonatomic, assign) NSInteger maxResults;
 
-/** Token specifying the result page to return. Optional. */
+/** Optional. Token specifying the result page to return. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
@@ -326,16 +333,16 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRTasksQuery_TasksInsert : GTLRTasksQuery
 
 /**
- *  Parent task identifier. If the task is created at the top level, this
- *  parameter is omitted. An assigned task cannot be a parent task, nor can it
- *  have a parent. Setting the parent to an assigned task results in failure of
- *  the request. Optional.
+ *  Optional. Parent task identifier. If the task is created at the top level,
+ *  this parameter is omitted. An assigned task cannot be a parent task, nor can
+ *  it have a parent. Setting the parent to an assigned task results in failure
+ *  of the request.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Previous sibling task identifier. If the task is created at the first
- *  position among its siblings, this parameter is omitted. Optional.
+ *  Optional. Previous sibling task identifier. If the task is created at the
+ *  first position among its siblings, this parameter is omitted.
  */
 @property(nonatomic, copy, nullable) NSString *previous;
 
@@ -374,60 +381,60 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRTasksQuery_TasksList : GTLRTasksQuery
 
 /**
- *  Upper bound for a task's completion date (as a RFC 3339 timestamp) to filter
- *  by. Optional. The default is not to filter by completion date.
+ *  Optional. Upper bound for a task's completion date (as a RFC 3339 timestamp)
+ *  to filter by. The default is not to filter by completion date.
  */
 @property(nonatomic, copy, nullable) NSString *completedMax;
 
 /**
- *  Lower bound for a task's completion date (as a RFC 3339 timestamp) to filter
- *  by. Optional. The default is not to filter by completion date.
+ *  Optional. Lower bound for a task's completion date (as a RFC 3339 timestamp)
+ *  to filter by. The default is not to filter by completion date.
  */
 @property(nonatomic, copy, nullable) NSString *completedMin;
 
 /**
- *  Upper bound for a task's due date (as a RFC 3339 timestamp) to filter by.
- *  Optional. The default is not to filter by due date.
+ *  Optional. Upper bound for a task's due date (as a RFC 3339 timestamp) to
+ *  filter by. The default is not to filter by due date.
  */
 @property(nonatomic, copy, nullable) NSString *dueMax;
 
 /**
- *  Lower bound for a task's due date (as a RFC 3339 timestamp) to filter by.
- *  Optional. The default is not to filter by due date.
+ *  Optional. Lower bound for a task's due date (as a RFC 3339 timestamp) to
+ *  filter by. The default is not to filter by due date.
  */
 @property(nonatomic, copy, nullable) NSString *dueMin;
 
 /**
- *  Maximum number of tasks returned on one page. Optional. The default is 20
+ *  Optional. Maximum number of tasks returned on one page. The default is 20
  *  (max allowed: 100).
  */
 @property(nonatomic, assign) NSInteger maxResults;
 
-/** Token specifying the result page to return. Optional. */
+/** Optional. Token specifying the result page to return. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Optional. Flag indicating whether tasks assigned to the current user are
- *  returned in the result. Optional. The default is False.
+ *  returned in the result. The default is False.
  */
 @property(nonatomic, assign) BOOL showAssigned;
 
 /**
- *  Flag indicating whether completed tasks are returned in the result. Note
- *  that showHidden must also be True to show tasks completed in first party
- *  clients, such as the web UI and Google's mobile apps. Optional. The default
- *  is True.
+ *  Optional. Flag indicating whether completed tasks are returned in the
+ *  result. Note that showHidden must also be True to show tasks completed in
+ *  first party clients, such as the web UI and Google's mobile apps. The
+ *  default is True.
  */
 @property(nonatomic, assign) BOOL showCompleted;
 
 /**
- *  Flag indicating whether deleted tasks are returned in the result. Optional.
+ *  Optional. Flag indicating whether deleted tasks are returned in the result.
  *  The default is False.
  */
 @property(nonatomic, assign) BOOL showDeleted;
 
 /**
- *  Flag indicating whether hidden tasks are returned in the result. Optional.
+ *  Optional. Flag indicating whether hidden tasks are returned in the result.
  *  The default is False.
  */
 @property(nonatomic, assign) BOOL showHidden;
@@ -436,8 +443,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *tasklist;
 
 /**
- *  Lower bound for a task's last modification time (as a RFC 3339 timestamp) to
- *  filter by. Optional. The default is not to filter by last modification time.
+ *  Optional. Lower bound for a task's last modification time (as a RFC 3339
+ *  timestamp) to filter by. The default is not to filter by last modification
+ *  time.
  */
 @property(nonatomic, copy, nullable) NSString *updatedMin;
 

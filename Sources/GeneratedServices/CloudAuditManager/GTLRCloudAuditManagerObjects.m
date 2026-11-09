@@ -101,9 +101,9 @@ NSString * const kGTLRCloudAuditManager_ScheduleConfig_Frequency_Weekly = @"WEEK
 //
 
 @implementation GTLRCloudAuditManager_AuditReport
-@dynamic complianceFramework, complianceStandard, controlDetails, createTime,
-         destinationDetails, name, operationId, reportGenerationState,
-         reportSummary, scope, scopeId;
+@dynamic cloudControlParameterStates, complianceFramework, complianceStandard,
+         controlDetails, createTime, destinationDetails, name, operationId,
+         reportGenerationState, reportSummary, scope, scopeId;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -117,13 +117,41 @@ NSString * const kGTLRCloudAuditManager_ScheduleConfig_Frequency_Weekly = @"WEEK
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudAuditManager_AuditReport_CloudControlParameterStates
+//
+
+@implementation GTLRCloudAuditManager_AuditReport_CloudControlParameterStates
+
++ (Class)classForAdditionalProperties {
+  return [GTLRCloudAuditManager_CloudControlParameterStates class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudAuditManager_AuditSchedule
 //
 
 @implementation GTLRCloudAuditManager_AuditSchedule
 @dynamic complianceFramework, createTime, displayName, errorMessage, gcsUri,
-         lastTriggerTime, name, nextRunTime, reportFormat, scheduleConfig,
-         state, updateTime;
+         lastTriggerTime, name, nextRunTime, parameterOverrides, reportFormat,
+         scheduleConfig, state, updateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAuditManager_AuditSchedule_ParameterOverrides
+//
+
+@implementation GTLRCloudAuditManager_AuditSchedule_ParameterOverrides
+
++ (Class)classForAdditionalProperties {
+  return [GTLRCloudAuditManager_ParameterOverrides class];
+}
+
 @end
 
 
@@ -143,6 +171,24 @@ NSString * const kGTLRCloudAuditManager_ScheduleConfig_Frequency_Weekly = @"WEEK
 //
 
 @implementation GTLRCloudAuditManager_CancelOperationRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAuditManager_CloudControlParameterStates
+//
+
+@implementation GTLRCloudAuditManager_CloudControlParameterStates
+@dynamic parameterStates;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"parameterStates" : [GTLRCloudAuditManager_ParameterState class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -259,8 +305,22 @@ NSString * const kGTLRCloudAuditManager_ScheduleConfig_Frequency_Weekly = @"WEEK
 //
 
 @implementation GTLRCloudAuditManager_GenerateAuditReportRequest
-@dynamic complianceFramework, complianceStandard, gcsUri, reportFormat,
-         validateOnly;
+@dynamic complianceFramework, complianceStandard, gcsUri, parameterOverrides,
+         reportFormat, validateOnly;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAuditManager_GenerateAuditReportRequest_ParameterOverrides
+//
+
+@implementation GTLRCloudAuditManager_GenerateAuditReportRequest_ParameterOverrides
+
++ (Class)classForAdditionalProperties {
+  return [GTLRCloudAuditManager_ParameterOverrides class];
+}
+
 @end
 
 
@@ -270,7 +330,22 @@ NSString * const kGTLRCloudAuditManager_ScheduleConfig_Frequency_Weekly = @"WEEK
 //
 
 @implementation GTLRCloudAuditManager_GenerateAuditScopeReportRequest
-@dynamic complianceFramework, complianceStandard, reportFormat, validateOnly;
+@dynamic complianceFramework, complianceStandard, parameterOverrides,
+         reportFormat, validateOnly;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAuditManager_GenerateAuditScopeReportRequest_ParameterOverrides
+//
+
+@implementation GTLRCloudAuditManager_GenerateAuditScopeReportRequest_ParameterOverrides
+
++ (Class)classForAdditionalProperties {
+  return [GTLRCloudAuditManager_ParameterOverrides class];
+}
+
 @end
 
 
@@ -497,6 +572,54 @@ NSString * const kGTLRCloudAuditManager_ScheduleConfig_Frequency_Weekly = @"WEEK
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudAuditManager_Parameter
+//
+
+@implementation GTLRCloudAuditManager_Parameter
+@dynamic name, parameterValue;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAuditManager_ParameterOverrides
+//
+
+@implementation GTLRCloudAuditManager_ParameterOverrides
+@dynamic parameters;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"parameters" : [GTLRCloudAuditManager_Parameter class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAuditManager_ParameterState
+//
+
+@implementation GTLRCloudAuditManager_ParameterState
+@dynamic isOverridden, parameter;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAuditManager_ParamValue
+//
+
+@implementation GTLRCloudAuditManager_ParamValue
+@dynamic boolValue, numberValue, oneofValue, stringListValue, stringValue;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudAuditManager_ReportGenerationProgress
 //
 
@@ -565,6 +688,24 @@ NSString * const kGTLRCloudAuditManager_ScheduleConfig_Frequency_Weekly = @"WEEK
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAuditManager_StringList
+//
+
+@implementation GTLRCloudAuditManager_StringList
+@dynamic values;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"values" : [NSString class]
+  };
+  return map;
 }
 
 @end

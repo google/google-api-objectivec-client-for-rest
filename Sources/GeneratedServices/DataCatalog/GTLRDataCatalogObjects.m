@@ -112,14 +112,6 @@ NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1FeatureOnlineStoreSpec
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1FeatureOnlineStoreSpec_StorageType_Optimized = @"OPTIMIZED";
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1FeatureOnlineStoreSpec_StorageType_StorageTypeUnspecified = @"STORAGE_TYPE_UNSPECIFIED";
 
-// GTLRDataCatalog_GoogleCloudDatacatalogV1FieldType.primitiveType
-NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1FieldType_PrimitiveType_Bool = @"BOOL";
-NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1FieldType_PrimitiveType_Double = @"DOUBLE";
-NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1FieldType_PrimitiveType_PrimitiveTypeUnspecified = @"PRIMITIVE_TYPE_UNSPECIFIED";
-NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1FieldType_PrimitiveType_Richtext = @"RICHTEXT";
-NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1FieldType_PrimitiveType_String = @"STRING";
-NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1FieldType_PrimitiveType_Timestamp = @"TIMESTAMP";
-
 // GTLRDataCatalog_GoogleCloudDatacatalogV1GraphSpecGraphElementTable.inputSource
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1GraphSpecGraphElementTable_InputSource_InputSourceUnspecified = @"INPUT_SOURCE_UNSPECIFIED";
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1GraphSpecGraphElementTable_InputSource_Table = @"TABLE";
@@ -200,11 +192,6 @@ NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1SetConfigRequest_TagTe
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Tag_DataplexTransferStatus_DataplexTransferStatusUnspecified = @"DATAPLEX_TRANSFER_STATUS_UNSPECIFIED";
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Tag_DataplexTransferStatus_Migrated = @"MIGRATED";
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Tag_DataplexTransferStatus_Transferred = @"TRANSFERRED";
-
-// GTLRDataCatalog_GoogleCloudDatacatalogV1TagTemplate.dataplexTransferStatus
-NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1TagTemplate_DataplexTransferStatus_DataplexTransferStatusUnspecified = @"DATAPLEX_TRANSFER_STATUS_UNSPECIFIED";
-NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1TagTemplate_DataplexTransferStatus_Migrated = @"MIGRATED";
-NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1TagTemplate_DataplexTransferStatus_Transferred = @"TRANSFERRED";
 
 // GTLRDataCatalog_GoogleCloudDatacatalogV1Taxonomy.activatedPolicyTypes
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxonomy_ActivatedPolicyTypes_FineGrainedAccessControl = @"FINE_GRAINED_ACCESS_CONTROL";
@@ -647,22 +634,6 @@ NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1VertexModelSourceInfo_
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDataCatalog_GoogleCloudDatacatalogV1EntryGroup
-//
-
-@implementation GTLRDataCatalog_GoogleCloudDatacatalogV1EntryGroup
-@dynamic dataCatalogTimestamps, descriptionProperty, displayName, name,
-         transferredToDataplex;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"descriptionProperty" : @"description" };
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRDataCatalog_GoogleCloudDatacatalogV1EntryOverview
 //
 
@@ -696,44 +667,6 @@ NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1VertexModelSourceInfo_
 
 @implementation GTLRDataCatalog_GoogleCloudDatacatalogV1FeatureOnlineStoreSpec
 @dynamic storageType;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDataCatalog_GoogleCloudDatacatalogV1FieldType
-//
-
-@implementation GTLRDataCatalog_GoogleCloudDatacatalogV1FieldType
-@dynamic enumType, primitiveType;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDataCatalog_GoogleCloudDatacatalogV1FieldTypeEnumType
-//
-
-@implementation GTLRDataCatalog_GoogleCloudDatacatalogV1FieldTypeEnumType
-@dynamic allowedValues;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"allowedValues" : [GTLRDataCatalog_GoogleCloudDatacatalogV1FieldTypeEnumTypeEnumValue class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDataCatalog_GoogleCloudDatacatalogV1FieldTypeEnumTypeEnumValue
-//
-
-@implementation GTLRDataCatalog_GoogleCloudDatacatalogV1FieldTypeEnumTypeEnumValue
-@dynamic displayName;
 @end
 
 
@@ -889,16 +822,6 @@ NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1VertexModelSourceInfo_
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDataCatalog_GoogleCloudDatacatalogV1ImportEntriesRequest
-//
-
-@implementation GTLRDataCatalog_GoogleCloudDatacatalogV1ImportEntriesRequest
-@dynamic gcsBucketPath, jobId;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRDataCatalog_GoogleCloudDatacatalogV1ImportEntriesResponse
 //
 
@@ -955,50 +878,6 @@ NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1VertexModelSourceInfo_
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDataCatalog_GoogleCloudDatacatalogV1ListEntriesResponse
-//
-
-@implementation GTLRDataCatalog_GoogleCloudDatacatalogV1ListEntriesResponse
-@dynamic entries, nextPageToken;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"entries" : [GTLRDataCatalog_GoogleCloudDatacatalogV1Entry class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"entries";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDataCatalog_GoogleCloudDatacatalogV1ListEntryGroupsResponse
-//
-
-@implementation GTLRDataCatalog_GoogleCloudDatacatalogV1ListEntryGroupsResponse
-@dynamic entryGroups, nextPageToken;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"entryGroups" : [GTLRDataCatalog_GoogleCloudDatacatalogV1EntryGroup class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"entryGroups";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRDataCatalog_GoogleCloudDatacatalogV1ListPolicyTagsResponse
 //
 
@@ -1014,28 +893,6 @@ NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1VertexModelSourceInfo_
 
 + (NSString *)collectionItemsKey {
   return @"policyTags";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDataCatalog_GoogleCloudDatacatalogV1ListTagsResponse
-//
-
-@implementation GTLRDataCatalog_GoogleCloudDatacatalogV1ListTagsResponse
-@dynamic nextPageToken, tags;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"tags" : [GTLRDataCatalog_GoogleCloudDatacatalogV1Tag class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"tags";
 }
 
 @end
@@ -1092,26 +949,6 @@ NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1VertexModelSourceInfo_
 
 @implementation GTLRDataCatalog_GoogleCloudDatacatalogV1ModelSpec
 @dynamic vertexModelSpec;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDataCatalog_GoogleCloudDatacatalogV1ModifyEntryContactsRequest
-//
-
-@implementation GTLRDataCatalog_GoogleCloudDatacatalogV1ModifyEntryContactsRequest
-@dynamic contacts;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDataCatalog_GoogleCloudDatacatalogV1ModifyEntryOverviewRequest
-//
-
-@implementation GTLRDataCatalog_GoogleCloudDatacatalogV1ModifyEntryOverviewRequest
-@dynamic entryOverview;
 @end
 
 
@@ -1265,49 +1102,11 @@ NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1VertexModelSourceInfo_
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDataCatalog_GoogleCloudDatacatalogV1ReconcileTagsRequest
-//
-
-@implementation GTLRDataCatalog_GoogleCloudDatacatalogV1ReconcileTagsRequest
-@dynamic forceDeleteMissing, tags, tagTemplate;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"tags" : [GTLRDataCatalog_GoogleCloudDatacatalogV1Tag class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRDataCatalog_GoogleCloudDatacatalogV1ReconcileTagsResponse
 //
 
 @implementation GTLRDataCatalog_GoogleCloudDatacatalogV1ReconcileTagsResponse
 @dynamic createdTagsCount, deletedTagsCount, updatedTagsCount;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDataCatalog_GoogleCloudDatacatalogV1RenameTagTemplateFieldEnumValueRequest
-//
-
-@implementation GTLRDataCatalog_GoogleCloudDatacatalogV1RenameTagTemplateFieldEnumValueRequest
-@dynamic newEnumValueDisplayName;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDataCatalog_GoogleCloudDatacatalogV1RenameTagTemplateFieldRequest
-//
-
-@implementation GTLRDataCatalog_GoogleCloudDatacatalogV1RenameTagTemplateFieldRequest
-@dynamic newTagTemplateFieldId;
 @end
 
 
@@ -1580,24 +1379,6 @@ NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1VertexModelSourceInfo_
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDataCatalog_GoogleCloudDatacatalogV1StarEntryRequest
-//
-
-@implementation GTLRDataCatalog_GoogleCloudDatacatalogV1StarEntryRequest
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDataCatalog_GoogleCloudDatacatalogV1StarEntryResponse
-//
-
-@implementation GTLRDataCatalog_GoogleCloudDatacatalogV1StarEntryResponse
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRDataCatalog_GoogleCloudDatacatalogV1StorageProperties
 //
 
@@ -1706,45 +1487,6 @@ NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1VertexModelSourceInfo_
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDataCatalog_GoogleCloudDatacatalogV1TagTemplate
-//
-
-@implementation GTLRDataCatalog_GoogleCloudDatacatalogV1TagTemplate
-@dynamic dataplexTransferStatus, displayName, fields, isPubliclyReadable, name;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDataCatalog_GoogleCloudDatacatalogV1TagTemplate_Fields
-//
-
-@implementation GTLRDataCatalog_GoogleCloudDatacatalogV1TagTemplate_Fields
-
-+ (Class)classForAdditionalProperties {
-  return [GTLRDataCatalog_GoogleCloudDatacatalogV1TagTemplateField class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDataCatalog_GoogleCloudDatacatalogV1TagTemplateField
-//
-
-@implementation GTLRDataCatalog_GoogleCloudDatacatalogV1TagTemplateField
-@dynamic descriptionProperty, displayName, isRequired, name, order, type;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"descriptionProperty" : @"description" };
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRDataCatalog_GoogleCloudDatacatalogV1Taxonomy
 //
 
@@ -1773,24 +1515,6 @@ NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1VertexModelSourceInfo_
 
 @implementation GTLRDataCatalog_GoogleCloudDatacatalogV1TaxonomyService
 @dynamic identity, name;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDataCatalog_GoogleCloudDatacatalogV1UnstarEntryRequest
-//
-
-@implementation GTLRDataCatalog_GoogleCloudDatacatalogV1UnstarEntryRequest
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDataCatalog_GoogleCloudDatacatalogV1UnstarEntryResponse
-//
-
-@implementation GTLRDataCatalog_GoogleCloudDatacatalogV1UnstarEntryResponse
 @end
 
 

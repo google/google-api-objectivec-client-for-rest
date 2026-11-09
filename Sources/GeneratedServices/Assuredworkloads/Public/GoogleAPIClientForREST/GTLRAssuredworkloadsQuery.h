@@ -81,63 +81,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloadsViewViolationViewUnspeci
 @end
 
 /**
- *  Finds orphan ResourceEvents matching the criteria and moves them to the
- *  ArchivedResourceEvents table.
- *
- *  Method: assuredworkloads.assuredworkloads.archiveResourceEvents
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeAssuredworkloadsCloudPlatform
- */
-@interface GTLRAssuredworkloadsQuery_AssuredworkloadsArchiveResourceEvents : GTLRAssuredworkloadsQuery
-
-/**
- *  Fetches a @c
- *  GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ArchiveResourceEventsResponse.
- *
- *  Finds orphan ResourceEvents matching the criteria and moves them to the
- *  ArchivedResourceEvents table.
- *
- *  @param object The @c
- *    GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ArchiveResourceEventsRequest
- *    to include in the query.
- *
- *  @return GTLRAssuredworkloadsQuery_AssuredworkloadsArchiveResourceEvents
- */
-+ (instancetype)queryWithObject:(GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ArchiveResourceEventsRequest *)object;
-
-@end
-
-/**
- *  Finds matching ArchivedResourceEvents and moves them back to the
- *  ResourceEvents table.
- *
- *  Method: assuredworkloads.assuredworkloads.revertArchivedResourceEvents
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeAssuredworkloadsCloudPlatform
- */
-@interface GTLRAssuredworkloadsQuery_AssuredworkloadsRevertArchivedResourceEvents : GTLRAssuredworkloadsQuery
-
-/**
- *  Fetches a @c
- *  GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1RevertArchivedResourceEventsResponse.
- *
- *  Finds matching ArchivedResourceEvents and moves them back to the
- *  ResourceEvents table.
- *
- *  @param object The @c
- *    GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1RevertArchivedResourceEventsRequest
- *    to include in the query.
- *
- *  @return GTLRAssuredworkloadsQuery_AssuredworkloadsRevertArchivedResourceEvents
- */
-+ (instancetype)queryWithObject:(GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1RevertArchivedResourceEventsRequest *)object;
-
-@end
-
-/**
- *  Lists the finding summary by category for a given scope.
+ *  Lists summaries of the active findings in a Data Boundary scope (an
+ *  organization, folder, or project), with one summary for each finding
+ *  category.
  *
  *  Method: assuredworkloads.folders.locations.dbFindingSummaries.list
  *
@@ -146,7 +92,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloadsViewViolationViewUnspeci
  */
 @interface GTLRAssuredworkloadsQuery_FoldersLocationsDbFindingSummariesList : GTLRAssuredworkloadsQuery
 
-/** Optional. The filtering results. */
+/**
+ *  Optional. A filter expression that restricts the framework deployments whose
+ *  findings are summarized. The syntax follows
+ *  [AIP-160](https://google.aip.dev/160). Supported fields are
+ *  `framework_deployment`, `framework_name`, and `framework_revision` (the
+ *  major revision ID of the framework).
+ */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
@@ -157,15 +109,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloadsViewViolationViewUnspeci
 
 /**
  *  Optional. A token that identifies the page of results that the server should
- *  return.
+ *  return. Pass the `next_page_token` value from a previous result.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The parent scope for the framework overview page. Formats: -
- *  projects/{project}/locations/{location} -
- *  folders/{folder}/locations/{location} -
- *  organizations/{organization}/locations/{location}
+ *  Required. The parent scope to list finding summaries for. Formats: *
+ *  `organizations/{organization}/locations/{location}` *
+ *  `folders/{folder}/locations/{location}` *
+ *  `projects/{project}/locations/{location}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -173,12 +125,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloadsViewViolationViewUnspeci
  *  Fetches a @c
  *  GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ListDbFindingSummariesResponse.
  *
- *  Lists the finding summary by category for a given scope.
+ *  Lists summaries of the active findings in a Data Boundary scope (an
+ *  organization, folder, or project), with one summary for each finding
+ *  category.
  *
- *  @param parent Required. The parent scope for the framework overview page.
- *    Formats: - projects/{project}/locations/{location} -
- *    folders/{folder}/locations/{location} -
- *    organizations/{organization}/locations/{location}
+ *  @param parent Required. The parent scope to list finding summaries for.
+ *    Formats: * `organizations/{organization}/locations/{location}` *
+ *    `folders/{folder}/locations/{location}` *
+ *    `projects/{project}/locations/{location}`
  *
  *  @return GTLRAssuredworkloadsQuery_FoldersLocationsDbFindingSummariesList
  *
@@ -191,7 +145,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloadsViewViolationViewUnspeci
 @end
 
 /**
- *  Gets the aggregated compliance report over time for a given scope.
+ *  Gets daily compliance reports over a time range for a framework that's
+ *  deployed in a Data Boundary scope.
  *
  *  Method: assuredworkloads.folders.locations.dbFrameworkComplianceReports.aggregate
  *
@@ -200,7 +155,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloadsViewViolationViewUnspeci
  */
 @interface GTLRAssuredworkloadsQuery_FoldersLocationsDbFrameworkComplianceReportsAggregate : GTLRAssuredworkloadsQuery
 
-/** Optional. The filtering results. */
+/**
+ *  Optional. A filter expression that restricts the framework deployments that
+ *  are included in the report. The syntax follows
+ *  [AIP-160](https://google.aip.dev/160). Supported fields are
+ *  `framework_deployment`, `framework_name`, and `framework_revision` (the
+ *  major revision ID of the framework).
+ */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
@@ -216,8 +177,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloadsViewViolationViewUnspeci
 @property(nonatomic, strong, nullable) GTLRDateTime *intervalStartTime;
 
 /**
- *  Required. The name of the aggregated compliance report over time to
- *  retrieve. Format:
+ *  Required. The name of the framework compliance report to aggregate over
+ *  time. The report ID is the ID of the compliance framework, for example
+ *  `builtin-fedramp-high`. Format:
  *  `organizations/{organization_id}/locations/{location}/dbFrameworkComplianceReports/{db_framework_compliance_report}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -226,10 +188,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloadsViewViolationViewUnspeci
  *  Fetches a @c
  *  GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1AggregateDbFrameworkComplianceReportResponse.
  *
- *  Gets the aggregated compliance report over time for a given scope.
+ *  Gets daily compliance reports over a time range for a framework that's
+ *  deployed in a Data Boundary scope.
  *
- *  @param name Required. The name of the aggregated compliance report over time
- *    to retrieve. Format:
+ *  @param name Required. The name of the framework compliance report to
+ *    aggregate over time. The report ID is the ID of the compliance framework,
+ *    for example `builtin-fedramp-high`. Format:
  *    `organizations/{organization_id}/locations/{location}/dbFrameworkComplianceReports/{db_framework_compliance_report}`
  *
  *  @return GTLRAssuredworkloadsQuery_FoldersLocationsDbFrameworkComplianceReportsAggregate
@@ -239,7 +203,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloadsViewViolationViewUnspeci
 @end
 
 /**
- *  Lists the control compliance summary for a given scope.
+ *  Lists the compliance summaries of the controls in a framework compliance
+ *  report.
  *
  *  Method: assuredworkloads.folders.locations.dbFrameworkComplianceReports.dbControlComplianceSummaries.list
  *
@@ -248,7 +213,16 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloadsViewViolationViewUnspeci
  */
 @interface GTLRAssuredworkloadsQuery_FoldersLocationsDbFrameworkComplianceReportsDbControlComplianceSummariesList : GTLRAssuredworkloadsQuery
 
-/** Optional. The filtering results. */
+/**
+ *  Optional. A filter expression that restricts the results. The syntax follows
+ *  [AIP-160](https://google.aip.dev/160). Supported fields are
+ *  `framework_deployment`, `framework_name`, `framework_revision` (the major
+ *  revision ID of the framework), and `end_time`. The `end_time` field accepts
+ *  a single equality comparison with an [RFC
+ *  3339](https://www.ietf.org/rfc/rfc3339.txt) timestamp, for example `end_time
+ *  = "2026-01-01T00:00:00Z"`. Only findings that were updated at or after this
+ *  time are counted.
+ */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
@@ -260,15 +234,18 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloadsViewViolationViewUnspeci
 
 /**
  *  Optional. A token that identifies the page of results that the server should
- *  return.
+ *  return. Pass the `next_page_token` value from a previous result.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The parent scope for the framework overview page. Format:
- *  organizations/{organization}/locations/{location}/dbFrameworkComplianceReports/{db_framework_compliance_report}
- *  folders/{folder}/locations/{location}/dbFrameworkComplianceReports/{db_framework_compliance_report}
- *  projects/{project}/locations/{location}/dbFrameworkComplianceReports/{db_framework_compliance_report}
+ *  Required. The framework compliance report to list control compliance
+ *  summaries for. Formats: *
+ *  `organizations/{organization}/locations/{location}/dbFrameworkComplianceReports/{db_framework_compliance_report}`
+ *  *
+ *  `folders/{folder}/locations/{location}/dbFrameworkComplianceReports/{db_framework_compliance_report}`
+ *  *
+ *  `projects/{project}/locations/{location}/dbFrameworkComplianceReports/{db_framework_compliance_report}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -276,13 +253,16 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloadsViewViolationViewUnspeci
  *  Fetches a @c
  *  GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ListDbControlComplianceSummariesResponse.
  *
- *  Lists the control compliance summary for a given scope.
+ *  Lists the compliance summaries of the controls in a framework compliance
+ *  report.
  *
- *  @param parent Required. The parent scope for the framework overview page.
- *    Format:
- *    organizations/{organization}/locations/{location}/dbFrameworkComplianceReports/{db_framework_compliance_report}
- *    folders/{folder}/locations/{location}/dbFrameworkComplianceReports/{db_framework_compliance_report}
- *    projects/{project}/locations/{location}/dbFrameworkComplianceReports/{db_framework_compliance_report}
+ *  @param parent Required. The framework compliance report to list control
+ *    compliance summaries for. Formats: *
+ *    `organizations/{organization}/locations/{location}/dbFrameworkComplianceReports/{db_framework_compliance_report}`
+ *    *
+ *    `folders/{folder}/locations/{location}/dbFrameworkComplianceReports/{db_framework_compliance_report}`
+ *    *
+ *    `projects/{project}/locations/{location}/dbFrameworkComplianceReports/{db_framework_compliance_report}`
  *
  *  @return GTLRAssuredworkloadsQuery_FoldersLocationsDbFrameworkComplianceReportsDbControlComplianceSummariesList
  *
@@ -295,7 +275,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloadsViewViolationViewUnspeci
 @end
 
 /**
- *  Fetches the framework compliance report for a given scope.
+ *  Fetches the current compliance report for a framework that's deployed in a
+ *  Data Boundary scope (an organization, folder, or project). The report
+ *  includes the number of passing, failing, and not assessed controls in the
+ *  framework.
  *
  *  Method: assuredworkloads.folders.locations.dbFrameworkComplianceReports.fetch
  *
@@ -304,23 +287,47 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloadsViewViolationViewUnspeci
  */
 @interface GTLRAssuredworkloadsQuery_FoldersLocationsDbFrameworkComplianceReportsFetch : GTLRAssuredworkloadsQuery
 
-/** Optional. The end time of the report. */
+/**
+ *  Optional. The end time of the report. Reserved for future use. Currently,
+ *  the report always reflects the current compliance state.
+ */
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
-/** Optional. The filtering results. */
+/**
+ *  Optional. A filter expression that restricts the results. Reserved for
+ *  future use.
+ */
 @property(nonatomic, copy, nullable) NSString *filter;
 
-/** Required. The name of the framework compliance report to retrieve. */
+/**
+ *  Required. The name of the framework compliance report to retrieve. The
+ *  report ID is the ID of the compliance framework, for example
+ *  `builtin-fedramp-high`. Formats: *
+ *  `organizations/{organization}/locations/{location}/dbFrameworkComplianceReports/{db_framework_compliance_report}`
+ *  *
+ *  `folders/{folder}/locations/{location}/dbFrameworkComplianceReports/{db_framework_compliance_report}`
+ *  *
+ *  `projects/{project}/locations/{location}/dbFrameworkComplianceReports/{db_framework_compliance_report}`
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c
  *  GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1FetchDbFrameworkComplianceReportResponse.
  *
- *  Fetches the framework compliance report for a given scope.
+ *  Fetches the current compliance report for a framework that's deployed in a
+ *  Data Boundary scope (an organization, folder, or project). The report
+ *  includes the number of passing, failing, and not assessed controls in the
+ *  framework.
  *
  *  @param name Required. The name of the framework compliance report to
- *    retrieve.
+ *    retrieve. The report ID is the ID of the compliance framework, for example
+ *    `builtin-fedramp-high`. Formats: *
+ *    `organizations/{organization}/locations/{location}/dbFrameworkComplianceReports/{db_framework_compliance_report}`
+ *    *
+ *    `folders/{folder}/locations/{location}/dbFrameworkComplianceReports/{db_framework_compliance_report}`
+ *    *
+ *    `projects/{project}/locations/{location}/dbFrameworkComplianceReports/{db_framework_compliance_report}`
  *
  *  @return GTLRAssuredworkloadsQuery_FoldersLocationsDbFrameworkComplianceReportsFetch
  */
@@ -329,7 +336,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloadsViewViolationViewUnspeci
 @end
 
 /**
- *  Lists the framework compliance summary for a given scope.
+ *  Lists the compliance summaries of the frameworks that are deployed in a Data
+ *  Boundary scope (an organization, folder, or project).
  *
  *  Method: assuredworkloads.folders.locations.dbFrameworkComplianceSummaries.list
  *
@@ -338,7 +346,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloadsViewViolationViewUnspeci
  */
 @interface GTLRAssuredworkloadsQuery_FoldersLocationsDbFrameworkComplianceSummariesList : GTLRAssuredworkloadsQuery
 
-/** Optional. The filtering results. */
+/**
+ *  Optional. A filter expression that restricts the results. Reserved for
+ *  future use.
+ */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
@@ -350,20 +361,21 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloadsViewViolationViewUnspeci
 
 /**
  *  Optional. A token that identifies the page of results that the server should
- *  return. Pass the next_page_token value from a previous result.
+ *  return. Pass the `next_page_token` value from a previous result.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The parent scope for the framework compliance summary. Format:
- *  organizations/{organization}/locations/{location}
- *  folders/{folder}/locations/{location}
- *  projects/{project}/locations/{location}
+ *  Required. The parent scope to list framework compliance summaries for.
+ *  Formats: * `organizations/{organization}/locations/{location}` *
+ *  `folders/{folder}/locations/{location}` *
+ *  `projects/{project}/locations/{location}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Optional. Specifies the level of detail to return in the response.
+ *  Optional. The level of detail to return for each summary. If not specified,
+ *  `FRAMEWORK_COMPLIANCE_SUMMARY_VIEW_BASIC` is used.
  *
  *  Likely values:
  *    @arg @c kGTLRAssuredworkloadsViewFrameworkComplianceSummaryViewUnspecified
@@ -383,12 +395,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloadsViewViolationViewUnspeci
  *  Fetches a @c
  *  GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ListDbFrameworkComplianceSummariesResponse.
  *
- *  Lists the framework compliance summary for a given scope.
+ *  Lists the compliance summaries of the frameworks that are deployed in a Data
+ *  Boundary scope (an organization, folder, or project).
  *
- *  @param parent Required. The parent scope for the framework compliance
- *    summary. Format: organizations/{organization}/locations/{location}
- *    folders/{folder}/locations/{location}
- *    projects/{project}/locations/{location}
+ *  @param parent Required. The parent scope to list framework compliance
+ *    summaries for. Formats: *
+ *    `organizations/{organization}/locations/{location}` *
+ *    `folders/{folder}/locations/{location}` *
+ *    `projects/{project}/locations/{location}`
  *
  *  @return GTLRAssuredworkloadsQuery_FoldersLocationsDbFrameworkComplianceSummariesList
  *
@@ -401,7 +415,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloadsViewViolationViewUnspeci
 @end
 
 /**
- *  Lists the finding summary by category for a given scope.
+ *  Lists summaries of the active findings in a Data Boundary scope (an
+ *  organization, folder, or project), with one summary for each finding
+ *  category.
  *
  *  Method: assuredworkloads.organizations.locations.dbFindingSummaries.list
  *
@@ -410,7 +426,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloadsViewViolationViewUnspeci
  */
 @interface GTLRAssuredworkloadsQuery_OrganizationsLocationsDbFindingSummariesList : GTLRAssuredworkloadsQuery
 
-/** Optional. The filtering results. */
+/**
+ *  Optional. A filter expression that restricts the framework deployments whose
+ *  findings are summarized. The syntax follows
+ *  [AIP-160](https://google.aip.dev/160). Supported fields are
+ *  `framework_deployment`, `framework_name`, and `framework_revision` (the
+ *  major revision ID of the framework).
+ */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
@@ -421,15 +443,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloadsViewViolationViewUnspeci
 
 /**
  *  Optional. A token that identifies the page of results that the server should
- *  return.
+ *  return. Pass the `next_page_token` value from a previous result.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The parent scope for the framework overview page. Formats: -
- *  projects/{project}/locations/{location} -
- *  folders/{folder}/locations/{location} -
- *  organizations/{organization}/locations/{location}
+ *  Required. The parent scope to list finding summaries for. Formats: *
+ *  `organizations/{organization}/locations/{location}` *
+ *  `folders/{folder}/locations/{location}` *
+ *  `projects/{project}/locations/{location}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -437,12 +459,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloadsViewViolationViewUnspeci
  *  Fetches a @c
  *  GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ListDbFindingSummariesResponse.
  *
- *  Lists the finding summary by category for a given scope.
+ *  Lists summaries of the active findings in a Data Boundary scope (an
+ *  organization, folder, or project), with one summary for each finding
+ *  category.
  *
- *  @param parent Required. The parent scope for the framework overview page.
- *    Formats: - projects/{project}/locations/{location} -
- *    folders/{folder}/locations/{location} -
- *    organizations/{organization}/locations/{location}
+ *  @param parent Required. The parent scope to list finding summaries for.
+ *    Formats: * `organizations/{organization}/locations/{location}` *
+ *    `folders/{folder}/locations/{location}` *
+ *    `projects/{project}/locations/{location}`
  *
  *  @return GTLRAssuredworkloadsQuery_OrganizationsLocationsDbFindingSummariesList
  *
@@ -455,7 +479,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloadsViewViolationViewUnspeci
 @end
 
 /**
- *  Gets the aggregated compliance report over time for a given scope.
+ *  Gets daily compliance reports over a time range for a framework that's
+ *  deployed in a Data Boundary scope.
  *
  *  Method: assuredworkloads.organizations.locations.dbFrameworkComplianceReports.aggregate
  *
@@ -464,7 +489,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloadsViewViolationViewUnspeci
  */
 @interface GTLRAssuredworkloadsQuery_OrganizationsLocationsDbFrameworkComplianceReportsAggregate : GTLRAssuredworkloadsQuery
 
-/** Optional. The filtering results. */
+/**
+ *  Optional. A filter expression that restricts the framework deployments that
+ *  are included in the report. The syntax follows
+ *  [AIP-160](https://google.aip.dev/160). Supported fields are
+ *  `framework_deployment`, `framework_name`, and `framework_revision` (the
+ *  major revision ID of the framework).
+ */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
@@ -480,8 +511,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloadsViewViolationViewUnspeci
 @property(nonatomic, strong, nullable) GTLRDateTime *intervalStartTime;
 
 /**
- *  Required. The name of the aggregated compliance report over time to
- *  retrieve. Format:
+ *  Required. The name of the framework compliance report to aggregate over
+ *  time. The report ID is the ID of the compliance framework, for example
+ *  `builtin-fedramp-high`. Format:
  *  `organizations/{organization_id}/locations/{location}/dbFrameworkComplianceReports/{db_framework_compliance_report}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -490,10 +522,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloadsViewViolationViewUnspeci
  *  Fetches a @c
  *  GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1AggregateDbFrameworkComplianceReportResponse.
  *
- *  Gets the aggregated compliance report over time for a given scope.
+ *  Gets daily compliance reports over a time range for a framework that's
+ *  deployed in a Data Boundary scope.
  *
- *  @param name Required. The name of the aggregated compliance report over time
- *    to retrieve. Format:
+ *  @param name Required. The name of the framework compliance report to
+ *    aggregate over time. The report ID is the ID of the compliance framework,
+ *    for example `builtin-fedramp-high`. Format:
  *    `organizations/{organization_id}/locations/{location}/dbFrameworkComplianceReports/{db_framework_compliance_report}`
  *
  *  @return GTLRAssuredworkloadsQuery_OrganizationsLocationsDbFrameworkComplianceReportsAggregate
@@ -503,7 +537,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloadsViewViolationViewUnspeci
 @end
 
 /**
- *  Lists the control compliance summary for a given scope.
+ *  Lists the compliance summaries of the controls in a framework compliance
+ *  report.
  *
  *  Method: assuredworkloads.organizations.locations.dbFrameworkComplianceReports.dbControlComplianceSummaries.list
  *
@@ -512,7 +547,16 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloadsViewViolationViewUnspeci
  */
 @interface GTLRAssuredworkloadsQuery_OrganizationsLocationsDbFrameworkComplianceReportsDbControlComplianceSummariesList : GTLRAssuredworkloadsQuery
 
-/** Optional. The filtering results. */
+/**
+ *  Optional. A filter expression that restricts the results. The syntax follows
+ *  [AIP-160](https://google.aip.dev/160). Supported fields are
+ *  `framework_deployment`, `framework_name`, `framework_revision` (the major
+ *  revision ID of the framework), and `end_time`. The `end_time` field accepts
+ *  a single equality comparison with an [RFC
+ *  3339](https://www.ietf.org/rfc/rfc3339.txt) timestamp, for example `end_time
+ *  = "2026-01-01T00:00:00Z"`. Only findings that were updated at or after this
+ *  time are counted.
+ */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
@@ -524,15 +568,18 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloadsViewViolationViewUnspeci
 
 /**
  *  Optional. A token that identifies the page of results that the server should
- *  return.
+ *  return. Pass the `next_page_token` value from a previous result.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The parent scope for the framework overview page. Format:
- *  organizations/{organization}/locations/{location}/dbFrameworkComplianceReports/{db_framework_compliance_report}
- *  folders/{folder}/locations/{location}/dbFrameworkComplianceReports/{db_framework_compliance_report}
- *  projects/{project}/locations/{location}/dbFrameworkComplianceReports/{db_framework_compliance_report}
+ *  Required. The framework compliance report to list control compliance
+ *  summaries for. Formats: *
+ *  `organizations/{organization}/locations/{location}/dbFrameworkComplianceReports/{db_framework_compliance_report}`
+ *  *
+ *  `folders/{folder}/locations/{location}/dbFrameworkComplianceReports/{db_framework_compliance_report}`
+ *  *
+ *  `projects/{project}/locations/{location}/dbFrameworkComplianceReports/{db_framework_compliance_report}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -540,13 +587,16 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloadsViewViolationViewUnspeci
  *  Fetches a @c
  *  GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ListDbControlComplianceSummariesResponse.
  *
- *  Lists the control compliance summary for a given scope.
+ *  Lists the compliance summaries of the controls in a framework compliance
+ *  report.
  *
- *  @param parent Required. The parent scope for the framework overview page.
- *    Format:
- *    organizations/{organization}/locations/{location}/dbFrameworkComplianceReports/{db_framework_compliance_report}
- *    folders/{folder}/locations/{location}/dbFrameworkComplianceReports/{db_framework_compliance_report}
- *    projects/{project}/locations/{location}/dbFrameworkComplianceReports/{db_framework_compliance_report}
+ *  @param parent Required. The framework compliance report to list control
+ *    compliance summaries for. Formats: *
+ *    `organizations/{organization}/locations/{location}/dbFrameworkComplianceReports/{db_framework_compliance_report}`
+ *    *
+ *    `folders/{folder}/locations/{location}/dbFrameworkComplianceReports/{db_framework_compliance_report}`
+ *    *
+ *    `projects/{project}/locations/{location}/dbFrameworkComplianceReports/{db_framework_compliance_report}`
  *
  *  @return GTLRAssuredworkloadsQuery_OrganizationsLocationsDbFrameworkComplianceReportsDbControlComplianceSummariesList
  *
@@ -559,7 +609,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloadsViewViolationViewUnspeci
 @end
 
 /**
- *  Fetches the framework compliance report for a given scope.
+ *  Fetches the current compliance report for a framework that's deployed in a
+ *  Data Boundary scope (an organization, folder, or project). The report
+ *  includes the number of passing, failing, and not assessed controls in the
+ *  framework.
  *
  *  Method: assuredworkloads.organizations.locations.dbFrameworkComplianceReports.fetch
  *
@@ -568,23 +621,47 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloadsViewViolationViewUnspeci
  */
 @interface GTLRAssuredworkloadsQuery_OrganizationsLocationsDbFrameworkComplianceReportsFetch : GTLRAssuredworkloadsQuery
 
-/** Optional. The end time of the report. */
+/**
+ *  Optional. The end time of the report. Reserved for future use. Currently,
+ *  the report always reflects the current compliance state.
+ */
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
-/** Optional. The filtering results. */
+/**
+ *  Optional. A filter expression that restricts the results. Reserved for
+ *  future use.
+ */
 @property(nonatomic, copy, nullable) NSString *filter;
 
-/** Required. The name of the framework compliance report to retrieve. */
+/**
+ *  Required. The name of the framework compliance report to retrieve. The
+ *  report ID is the ID of the compliance framework, for example
+ *  `builtin-fedramp-high`. Formats: *
+ *  `organizations/{organization}/locations/{location}/dbFrameworkComplianceReports/{db_framework_compliance_report}`
+ *  *
+ *  `folders/{folder}/locations/{location}/dbFrameworkComplianceReports/{db_framework_compliance_report}`
+ *  *
+ *  `projects/{project}/locations/{location}/dbFrameworkComplianceReports/{db_framework_compliance_report}`
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c
  *  GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1FetchDbFrameworkComplianceReportResponse.
  *
- *  Fetches the framework compliance report for a given scope.
+ *  Fetches the current compliance report for a framework that's deployed in a
+ *  Data Boundary scope (an organization, folder, or project). The report
+ *  includes the number of passing, failing, and not assessed controls in the
+ *  framework.
  *
  *  @param name Required. The name of the framework compliance report to
- *    retrieve.
+ *    retrieve. The report ID is the ID of the compliance framework, for example
+ *    `builtin-fedramp-high`. Formats: *
+ *    `organizations/{organization}/locations/{location}/dbFrameworkComplianceReports/{db_framework_compliance_report}`
+ *    *
+ *    `folders/{folder}/locations/{location}/dbFrameworkComplianceReports/{db_framework_compliance_report}`
+ *    *
+ *    `projects/{project}/locations/{location}/dbFrameworkComplianceReports/{db_framework_compliance_report}`
  *
  *  @return GTLRAssuredworkloadsQuery_OrganizationsLocationsDbFrameworkComplianceReportsFetch
  */
@@ -593,7 +670,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloadsViewViolationViewUnspeci
 @end
 
 /**
- *  Lists the framework compliance summary for a given scope.
+ *  Lists the compliance summaries of the frameworks that are deployed in a Data
+ *  Boundary scope (an organization, folder, or project).
  *
  *  Method: assuredworkloads.organizations.locations.dbFrameworkComplianceSummaries.list
  *
@@ -602,7 +680,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloadsViewViolationViewUnspeci
  */
 @interface GTLRAssuredworkloadsQuery_OrganizationsLocationsDbFrameworkComplianceSummariesList : GTLRAssuredworkloadsQuery
 
-/** Optional. The filtering results. */
+/**
+ *  Optional. A filter expression that restricts the results. Reserved for
+ *  future use.
+ */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
@@ -614,20 +695,21 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloadsViewViolationViewUnspeci
 
 /**
  *  Optional. A token that identifies the page of results that the server should
- *  return. Pass the next_page_token value from a previous result.
+ *  return. Pass the `next_page_token` value from a previous result.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The parent scope for the framework compliance summary. Format:
- *  organizations/{organization}/locations/{location}
- *  folders/{folder}/locations/{location}
- *  projects/{project}/locations/{location}
+ *  Required. The parent scope to list framework compliance summaries for.
+ *  Formats: * `organizations/{organization}/locations/{location}` *
+ *  `folders/{folder}/locations/{location}` *
+ *  `projects/{project}/locations/{location}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Optional. Specifies the level of detail to return in the response.
+ *  Optional. The level of detail to return for each summary. If not specified,
+ *  `FRAMEWORK_COMPLIANCE_SUMMARY_VIEW_BASIC` is used.
  *
  *  Likely values:
  *    @arg @c kGTLRAssuredworkloadsViewFrameworkComplianceSummaryViewUnspecified
@@ -647,12 +729,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloadsViewViolationViewUnspeci
  *  Fetches a @c
  *  GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ListDbFrameworkComplianceSummariesResponse.
  *
- *  Lists the framework compliance summary for a given scope.
+ *  Lists the compliance summaries of the frameworks that are deployed in a Data
+ *  Boundary scope (an organization, folder, or project).
  *
- *  @param parent Required. The parent scope for the framework compliance
- *    summary. Format: organizations/{organization}/locations/{location}
- *    folders/{folder}/locations/{location}
- *    projects/{project}/locations/{location}
+ *  @param parent Required. The parent scope to list framework compliance
+ *    summaries for. Formats: *
+ *    `organizations/{organization}/locations/{location}` *
+ *    `folders/{folder}/locations/{location}` *
+ *    `projects/{project}/locations/{location}`
  *
  *  @return GTLRAssuredworkloadsQuery_OrganizationsLocationsDbFrameworkComplianceSummariesList
  *
@@ -1298,8 +1382,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloadsViewViolationViewUnspeci
 @interface GTLRAssuredworkloadsQuery_OrganizationsLocationsWorkloadsViolationsAcknowledge : GTLRAssuredworkloadsQuery
 
 /**
- *  Required. The resource name of the Violation to acknowledge. Format:
- *  organizations/{organization}/locations/{location}/workloads/{workload}/violations/{violation}
+ *  Required. The resource name of the violation to acknowledge. Format:
+ *  `organizations/{organization}/locations/{location}/workloads/{workload}/violations/{violation}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1315,9 +1399,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloadsViewViolationViewUnspeci
  *  @param object The @c
  *    GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1AcknowledgeViolationRequest
  *    to include in the query.
- *  @param name Required. The resource name of the Violation to acknowledge.
+ *  @param name Required. The resource name of the violation to acknowledge.
  *    Format:
- *    organizations/{organization}/locations/{location}/workloads/{workload}/violations/{violation}
+ *    `organizations/{organization}/locations/{location}/workloads/{workload}/violations/{violation}`
  *
  *  @return GTLRAssuredworkloadsQuery_OrganizationsLocationsWorkloadsViolationsAcknowledge
  */
@@ -1327,7 +1411,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloadsViewViolationViewUnspeci
 @end
 
 /**
- *  Retrieves Assured Workload Violation based on ID.
+ *  Retrieves an Assured Workloads violation by its resource name.
  *
  *  Method: assuredworkloads.organizations.locations.workloads.violations.get
  *
@@ -1337,15 +1421,16 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloadsViewViolationViewUnspeci
 @interface GTLRAssuredworkloadsQuery_OrganizationsLocationsWorkloadsViolationsGet : GTLRAssuredworkloadsQuery
 
 /**
- *  Required. The resource name of the Violation to fetch (ie. Violation.name).
- *  Format:
- *  organizations/{organization}/locations/{location}/workloads/{workload}/violations/{violation}
+ *  Required. The resource name of the violation to retrieve (that is, the value
+ *  of `Violation.name`). Format:
+ *  `organizations/{organization}/locations/{location}/workloads/{workload}/violations/{violation}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Optional. Specifies the violation view (`AssuredWorkloads` or
- *  `DataBoundary`) for fetching violations.
+ *  Optional. The violation view (`VIOLATION_VIEW_ASSURED_WORKLOADS` or
+ *  `VIOLATION_VIEW_DATA_BOUNDARY`) that the violation belongs to. If not
+ *  specified, `VIOLATION_VIEW_ASSURED_WORKLOADS` is used.
  *
  *  Likely values:
  *    @arg @c kGTLRAssuredworkloadsViewViolationViewUnspecified Defaults to the
@@ -1362,11 +1447,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloadsViewViolationViewUnspeci
 /**
  *  Fetches a @c GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Violation.
  *
- *  Retrieves Assured Workload Violation based on ID.
+ *  Retrieves an Assured Workloads violation by its resource name.
  *
- *  @param name Required. The resource name of the Violation to fetch (ie.
- *    Violation.name). Format:
- *    organizations/{organization}/locations/{location}/workloads/{workload}/violations/{violation}
+ *  @param name Required. The resource name of the violation to retrieve (that
+ *    is, the value of `Violation.name`). Format:
+ *    `organizations/{organization}/locations/{location}/workloads/{workload}/violations/{violation}`
  *
  *  @return GTLRAssuredworkloadsQuery_OrganizationsLocationsWorkloadsViolationsGet
  */
@@ -1388,7 +1473,18 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloadsViewViolationViewUnspeci
  */
 @interface GTLRAssuredworkloadsQuery_OrganizationsLocationsWorkloadsViolationsList : GTLRAssuredworkloadsQuery
 
-/** Optional. A custom filter for filtering by the Violations properties. */
+/**
+ *  Optional. A filter expression that restricts the violations that are
+ *  returned. The syntax follows [AIP-160](https://google.aip.dev/160). Only the
+ *  equality operator (`=`) is supported, and expressions can be combined with
+ *  `AND`, `OR`, and `NOT`. When `view` is `VIOLATION_VIEW_DATA_BOUNDARY`, the
+ *  following fields are supported: `violationId`, `category`, `state`
+ *  (`UNRESOLVED`, `RESOLVED`, or `EXCEPTION`), `violationType` (`ORG_POLICY` or
+ *  `RESOURCE`), `resourceType`, `resourceName`, `project`,
+ *  `associatedOrgPolicyViolationId`, `cloudControlName`, `workloadDisplayName`,
+ *  and `complianceType` (a framework ID). Example: `state = "UNRESOLVED" AND
+ *  complianceType = "builtin-fedramp-high"`
+ */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /** The end of the time window. */
@@ -1397,24 +1493,45 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloadsViewViolationViewUnspeci
 /** The start of the time window. */
 @property(nonatomic, strong, nullable) GTLRDateTime *intervalStartTime;
 
-/** Optional. Actionable sorting delegation. */
+/**
+ *  Optional. A comma-separated list of fields to sort the results by. The
+ *  default sort order is ascending; to sort in descending order, append ` desc`
+ *  to the field name. For example, `update_time desc,category`. When `view` is
+ *  `VIOLATION_VIEW_DATA_BOUNDARY`, the following fields are supported:
+ *  `begin_time`, `update_time`, `resource_type`, `state`, and `category`. If
+ *  not specified, results are sorted by `begin_time` in descending order.
+ */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
-/** Optional. Page size. */
+/**
+ *  Optional. The maximum number of violations to return. The service might
+ *  return fewer violations than this value. If unspecified, at most 100
+ *  violations are returned. The maximum value is 1000; values above 1000 are
+ *  coerced to 1000.
+ */
 @property(nonatomic, assign) NSInteger pageSize;
 
-/** Optional. Page token returned from previous request. */
+/**
+ *  Optional. A page token, received from a previous `ListViolations` call.
+ *  Provide this token to retrieve the subsequent page. When paginating, all
+ *  other parameters that are provided to `ListViolations` must match the call
+ *  that provided the page token.
+ */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The Workload name. Format
- *  `organizations/{org_id}/locations/{location}/workloads/{workload}`.
+ *  Required. The workload to list violations for. To list violations across all
+ *  workloads in an organization, use `-` as the workload ID. When `view` is
+ *  `VIOLATION_VIEW_DATA_BOUNDARY`, violations are listed for the entire
+ *  organization and location, and the workload ID is ignored. Format:
+ *  `organizations/{organization}/locations/{location}/workloads/{workload}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Optional. Specifies the violation view(AssuredWorkloads or DataBoundary) for
- *  fetching violations.
+ *  Optional. The violation view (`VIOLATION_VIEW_ASSURED_WORKLOADS` or
+ *  `VIOLATION_VIEW_DATA_BOUNDARY`) to list violations for. If not specified,
+ *  `VIOLATION_VIEW_ASSURED_WORKLOADS` is used.
  *
  *  Likely values:
  *    @arg @c kGTLRAssuredworkloadsViewViolationViewUnspecified Defaults to the
@@ -1438,8 +1555,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloadsViewViolationViewUnspeci
  *  character) as a wildcard character instead of workload-id in the parent.
  *  Format `organizations/{org_id}/locations/{location}/workloads/-`
  *
- *  @param parent Required. The Workload name. Format
- *    `organizations/{org_id}/locations/{location}/workloads/{workload}`.
+ *  @param parent Required. The workload to list violations for. To list
+ *    violations across all workloads in an organization, use `-` as the
+ *    workload ID. When `view` is `VIOLATION_VIEW_DATA_BOUNDARY`, violations are
+ *    listed for the entire organization and location, and the workload ID is
+ *    ignored. Format:
+ *    `organizations/{organization}/locations/{location}/workloads/{workload}`
  *
  *  @return GTLRAssuredworkloadsQuery_OrganizationsLocationsWorkloadsViolationsList
  *
@@ -1452,7 +1573,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloadsViewViolationViewUnspeci
 @end
 
 /**
- *  Lists the finding summary by category for a given scope.
+ *  Lists summaries of the active findings in a Data Boundary scope (an
+ *  organization, folder, or project), with one summary for each finding
+ *  category.
  *
  *  Method: assuredworkloads.projects.locations.dbFindingSummaries.list
  *
@@ -1461,7 +1584,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloadsViewViolationViewUnspeci
  */
 @interface GTLRAssuredworkloadsQuery_ProjectsLocationsDbFindingSummariesList : GTLRAssuredworkloadsQuery
 
-/** Optional. The filtering results. */
+/**
+ *  Optional. A filter expression that restricts the framework deployments whose
+ *  findings are summarized. The syntax follows
+ *  [AIP-160](https://google.aip.dev/160). Supported fields are
+ *  `framework_deployment`, `framework_name`, and `framework_revision` (the
+ *  major revision ID of the framework).
+ */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
@@ -1472,15 +1601,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloadsViewViolationViewUnspeci
 
 /**
  *  Optional. A token that identifies the page of results that the server should
- *  return.
+ *  return. Pass the `next_page_token` value from a previous result.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The parent scope for the framework overview page. Formats: -
- *  projects/{project}/locations/{location} -
- *  folders/{folder}/locations/{location} -
- *  organizations/{organization}/locations/{location}
+ *  Required. The parent scope to list finding summaries for. Formats: *
+ *  `organizations/{organization}/locations/{location}` *
+ *  `folders/{folder}/locations/{location}` *
+ *  `projects/{project}/locations/{location}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1488,12 +1617,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloadsViewViolationViewUnspeci
  *  Fetches a @c
  *  GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ListDbFindingSummariesResponse.
  *
- *  Lists the finding summary by category for a given scope.
+ *  Lists summaries of the active findings in a Data Boundary scope (an
+ *  organization, folder, or project), with one summary for each finding
+ *  category.
  *
- *  @param parent Required. The parent scope for the framework overview page.
- *    Formats: - projects/{project}/locations/{location} -
- *    folders/{folder}/locations/{location} -
- *    organizations/{organization}/locations/{location}
+ *  @param parent Required. The parent scope to list finding summaries for.
+ *    Formats: * `organizations/{organization}/locations/{location}` *
+ *    `folders/{folder}/locations/{location}` *
+ *    `projects/{project}/locations/{location}`
  *
  *  @return GTLRAssuredworkloadsQuery_ProjectsLocationsDbFindingSummariesList
  *
@@ -1506,7 +1637,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloadsViewViolationViewUnspeci
 @end
 
 /**
- *  Gets the aggregated compliance report over time for a given scope.
+ *  Gets daily compliance reports over a time range for a framework that's
+ *  deployed in a Data Boundary scope.
  *
  *  Method: assuredworkloads.projects.locations.dbFrameworkComplianceReports.aggregate
  *
@@ -1515,7 +1647,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloadsViewViolationViewUnspeci
  */
 @interface GTLRAssuredworkloadsQuery_ProjectsLocationsDbFrameworkComplianceReportsAggregate : GTLRAssuredworkloadsQuery
 
-/** Optional. The filtering results. */
+/**
+ *  Optional. A filter expression that restricts the framework deployments that
+ *  are included in the report. The syntax follows
+ *  [AIP-160](https://google.aip.dev/160). Supported fields are
+ *  `framework_deployment`, `framework_name`, and `framework_revision` (the
+ *  major revision ID of the framework).
+ */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
@@ -1531,8 +1669,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloadsViewViolationViewUnspeci
 @property(nonatomic, strong, nullable) GTLRDateTime *intervalStartTime;
 
 /**
- *  Required. The name of the aggregated compliance report over time to
- *  retrieve. Format:
+ *  Required. The name of the framework compliance report to aggregate over
+ *  time. The report ID is the ID of the compliance framework, for example
+ *  `builtin-fedramp-high`. Format:
  *  `organizations/{organization_id}/locations/{location}/dbFrameworkComplianceReports/{db_framework_compliance_report}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1541,10 +1680,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloadsViewViolationViewUnspeci
  *  Fetches a @c
  *  GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1AggregateDbFrameworkComplianceReportResponse.
  *
- *  Gets the aggregated compliance report over time for a given scope.
+ *  Gets daily compliance reports over a time range for a framework that's
+ *  deployed in a Data Boundary scope.
  *
- *  @param name Required. The name of the aggregated compliance report over time
- *    to retrieve. Format:
+ *  @param name Required. The name of the framework compliance report to
+ *    aggregate over time. The report ID is the ID of the compliance framework,
+ *    for example `builtin-fedramp-high`. Format:
  *    `organizations/{organization_id}/locations/{location}/dbFrameworkComplianceReports/{db_framework_compliance_report}`
  *
  *  @return GTLRAssuredworkloadsQuery_ProjectsLocationsDbFrameworkComplianceReportsAggregate
@@ -1554,7 +1695,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloadsViewViolationViewUnspeci
 @end
 
 /**
- *  Lists the control compliance summary for a given scope.
+ *  Lists the compliance summaries of the controls in a framework compliance
+ *  report.
  *
  *  Method: assuredworkloads.projects.locations.dbFrameworkComplianceReports.dbControlComplianceSummaries.list
  *
@@ -1563,7 +1705,16 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloadsViewViolationViewUnspeci
  */
 @interface GTLRAssuredworkloadsQuery_ProjectsLocationsDbFrameworkComplianceReportsDbControlComplianceSummariesList : GTLRAssuredworkloadsQuery
 
-/** Optional. The filtering results. */
+/**
+ *  Optional. A filter expression that restricts the results. The syntax follows
+ *  [AIP-160](https://google.aip.dev/160). Supported fields are
+ *  `framework_deployment`, `framework_name`, `framework_revision` (the major
+ *  revision ID of the framework), and `end_time`. The `end_time` field accepts
+ *  a single equality comparison with an [RFC
+ *  3339](https://www.ietf.org/rfc/rfc3339.txt) timestamp, for example `end_time
+ *  = "2026-01-01T00:00:00Z"`. Only findings that were updated at or after this
+ *  time are counted.
+ */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
@@ -1575,15 +1726,18 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloadsViewViolationViewUnspeci
 
 /**
  *  Optional. A token that identifies the page of results that the server should
- *  return.
+ *  return. Pass the `next_page_token` value from a previous result.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The parent scope for the framework overview page. Format:
- *  organizations/{organization}/locations/{location}/dbFrameworkComplianceReports/{db_framework_compliance_report}
- *  folders/{folder}/locations/{location}/dbFrameworkComplianceReports/{db_framework_compliance_report}
- *  projects/{project}/locations/{location}/dbFrameworkComplianceReports/{db_framework_compliance_report}
+ *  Required. The framework compliance report to list control compliance
+ *  summaries for. Formats: *
+ *  `organizations/{organization}/locations/{location}/dbFrameworkComplianceReports/{db_framework_compliance_report}`
+ *  *
+ *  `folders/{folder}/locations/{location}/dbFrameworkComplianceReports/{db_framework_compliance_report}`
+ *  *
+ *  `projects/{project}/locations/{location}/dbFrameworkComplianceReports/{db_framework_compliance_report}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1591,13 +1745,16 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloadsViewViolationViewUnspeci
  *  Fetches a @c
  *  GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ListDbControlComplianceSummariesResponse.
  *
- *  Lists the control compliance summary for a given scope.
+ *  Lists the compliance summaries of the controls in a framework compliance
+ *  report.
  *
- *  @param parent Required. The parent scope for the framework overview page.
- *    Format:
- *    organizations/{organization}/locations/{location}/dbFrameworkComplianceReports/{db_framework_compliance_report}
- *    folders/{folder}/locations/{location}/dbFrameworkComplianceReports/{db_framework_compliance_report}
- *    projects/{project}/locations/{location}/dbFrameworkComplianceReports/{db_framework_compliance_report}
+ *  @param parent Required. The framework compliance report to list control
+ *    compliance summaries for. Formats: *
+ *    `organizations/{organization}/locations/{location}/dbFrameworkComplianceReports/{db_framework_compliance_report}`
+ *    *
+ *    `folders/{folder}/locations/{location}/dbFrameworkComplianceReports/{db_framework_compliance_report}`
+ *    *
+ *    `projects/{project}/locations/{location}/dbFrameworkComplianceReports/{db_framework_compliance_report}`
  *
  *  @return GTLRAssuredworkloadsQuery_ProjectsLocationsDbFrameworkComplianceReportsDbControlComplianceSummariesList
  *
@@ -1610,7 +1767,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloadsViewViolationViewUnspeci
 @end
 
 /**
- *  Fetches the framework compliance report for a given scope.
+ *  Fetches the current compliance report for a framework that's deployed in a
+ *  Data Boundary scope (an organization, folder, or project). The report
+ *  includes the number of passing, failing, and not assessed controls in the
+ *  framework.
  *
  *  Method: assuredworkloads.projects.locations.dbFrameworkComplianceReports.fetch
  *
@@ -1619,23 +1779,47 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloadsViewViolationViewUnspeci
  */
 @interface GTLRAssuredworkloadsQuery_ProjectsLocationsDbFrameworkComplianceReportsFetch : GTLRAssuredworkloadsQuery
 
-/** Optional. The end time of the report. */
+/**
+ *  Optional. The end time of the report. Reserved for future use. Currently,
+ *  the report always reflects the current compliance state.
+ */
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
-/** Optional. The filtering results. */
+/**
+ *  Optional. A filter expression that restricts the results. Reserved for
+ *  future use.
+ */
 @property(nonatomic, copy, nullable) NSString *filter;
 
-/** Required. The name of the framework compliance report to retrieve. */
+/**
+ *  Required. The name of the framework compliance report to retrieve. The
+ *  report ID is the ID of the compliance framework, for example
+ *  `builtin-fedramp-high`. Formats: *
+ *  `organizations/{organization}/locations/{location}/dbFrameworkComplianceReports/{db_framework_compliance_report}`
+ *  *
+ *  `folders/{folder}/locations/{location}/dbFrameworkComplianceReports/{db_framework_compliance_report}`
+ *  *
+ *  `projects/{project}/locations/{location}/dbFrameworkComplianceReports/{db_framework_compliance_report}`
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c
  *  GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1FetchDbFrameworkComplianceReportResponse.
  *
- *  Fetches the framework compliance report for a given scope.
+ *  Fetches the current compliance report for a framework that's deployed in a
+ *  Data Boundary scope (an organization, folder, or project). The report
+ *  includes the number of passing, failing, and not assessed controls in the
+ *  framework.
  *
  *  @param name Required. The name of the framework compliance report to
- *    retrieve.
+ *    retrieve. The report ID is the ID of the compliance framework, for example
+ *    `builtin-fedramp-high`. Formats: *
+ *    `organizations/{organization}/locations/{location}/dbFrameworkComplianceReports/{db_framework_compliance_report}`
+ *    *
+ *    `folders/{folder}/locations/{location}/dbFrameworkComplianceReports/{db_framework_compliance_report}`
+ *    *
+ *    `projects/{project}/locations/{location}/dbFrameworkComplianceReports/{db_framework_compliance_report}`
  *
  *  @return GTLRAssuredworkloadsQuery_ProjectsLocationsDbFrameworkComplianceReportsFetch
  */
@@ -1644,7 +1828,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloadsViewViolationViewUnspeci
 @end
 
 /**
- *  Lists the framework compliance summary for a given scope.
+ *  Lists the compliance summaries of the frameworks that are deployed in a Data
+ *  Boundary scope (an organization, folder, or project).
  *
  *  Method: assuredworkloads.projects.locations.dbFrameworkComplianceSummaries.list
  *
@@ -1653,7 +1838,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloadsViewViolationViewUnspeci
  */
 @interface GTLRAssuredworkloadsQuery_ProjectsLocationsDbFrameworkComplianceSummariesList : GTLRAssuredworkloadsQuery
 
-/** Optional. The filtering results. */
+/**
+ *  Optional. A filter expression that restricts the results. Reserved for
+ *  future use.
+ */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
@@ -1665,20 +1853,21 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloadsViewViolationViewUnspeci
 
 /**
  *  Optional. A token that identifies the page of results that the server should
- *  return. Pass the next_page_token value from a previous result.
+ *  return. Pass the `next_page_token` value from a previous result.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The parent scope for the framework compliance summary. Format:
- *  organizations/{organization}/locations/{location}
- *  folders/{folder}/locations/{location}
- *  projects/{project}/locations/{location}
+ *  Required. The parent scope to list framework compliance summaries for.
+ *  Formats: * `organizations/{organization}/locations/{location}` *
+ *  `folders/{folder}/locations/{location}` *
+ *  `projects/{project}/locations/{location}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Optional. Specifies the level of detail to return in the response.
+ *  Optional. The level of detail to return for each summary. If not specified,
+ *  `FRAMEWORK_COMPLIANCE_SUMMARY_VIEW_BASIC` is used.
  *
  *  Likely values:
  *    @arg @c kGTLRAssuredworkloadsViewFrameworkComplianceSummaryViewUnspecified
@@ -1698,12 +1887,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloadsViewViolationViewUnspeci
  *  Fetches a @c
  *  GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ListDbFrameworkComplianceSummariesResponse.
  *
- *  Lists the framework compliance summary for a given scope.
+ *  Lists the compliance summaries of the frameworks that are deployed in a Data
+ *  Boundary scope (an organization, folder, or project).
  *
- *  @param parent Required. The parent scope for the framework compliance
- *    summary. Format: organizations/{organization}/locations/{location}
- *    folders/{folder}/locations/{location}
- *    projects/{project}/locations/{location}
+ *  @param parent Required. The parent scope to list framework compliance
+ *    summaries for. Formats: *
+ *    `organizations/{organization}/locations/{location}` *
+ *    `folders/{folder}/locations/{location}` *
+ *    `projects/{project}/locations/{location}`
  *
  *  @return GTLRAssuredworkloadsQuery_ProjectsLocationsDbFrameworkComplianceSummariesList
  *

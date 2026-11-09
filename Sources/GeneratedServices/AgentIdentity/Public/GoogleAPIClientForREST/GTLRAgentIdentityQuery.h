@@ -842,6 +842,43 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Resolves an authorization for a user on an auth provider, creating one if it
+ *  does not exist or returning an existing one.
+ *
+ *  Method: agentidentity.projects.locations.authProviders.resolveAuthorization
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAgentIdentityCloudPlatform
+ */
+@interface GTLRAgentIdentityQuery_ProjectsLocationsAuthProvidersResolveAuthorization : GTLRAgentIdentityQuery
+
+/**
+ *  Required. The name of the auth provider to resolve authorization for.
+ *  Format:
+ *  projects/{project}/locations/{location}/authProviders/{auth_provider}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAgentIdentity_ResolveAuthorizationResponse.
+ *
+ *  Resolves an authorization for a user on an auth provider, creating one if it
+ *  does not exist or returning an existing one.
+ *
+ *  @param object The @c GTLRAgentIdentity_ResolveAuthorizationRequest to
+ *    include in the query.
+ *  @param name Required. The name of the auth provider to resolve authorization
+ *    for. Format:
+ *    projects/{project}/locations/{location}/authProviders/{auth_provider}
+ *
+ *  @return GTLRAgentIdentityQuery_ProjectsLocationsAuthProvidersResolveAuthorization
+ */
++ (instancetype)queryWithObject:(GTLRAgentIdentity_ResolveAuthorizationRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Revokes all authorizations for a specific user on an auth provider. This
  *  deletes all authorization records associated with the user and auth
  *  provider, effectively revoking access across all agents.

@@ -3,8 +3,11 @@
 // ----------------------------------------------------------------------------
 // API:
 //   Places API (New) (places/v1)
+// Description:
+//   The Places API allows developers to access a variety of search and
+//   retrieval endpoints for a Place.
 // Documentation:
-//   https://mapsplatform.google.com/maps-products/#places-section
+//   https://developers.google.com/maps/documentation/places/web-service
 
 #import <GoogleAPIClientForREST/GTLRObject.h>
 
@@ -1181,8 +1184,8 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1TransitLine
 
 /**
  *  Optional. Included primary Place type (for example, "restaurant" or
- *  "gas_station") in Place Types
- *  (https://developers.google.com/maps/documentation/places/web-service/place-types),
+ *  "gas_station") in [Place
+ *  Types](https://developers.google.com/maps/documentation/places/web-service/place-types),
  *  or only `(regions)`, or only `(cities)`. A Place is only returned if its
  *  primary type is included in this list. Up to 5 values can be specified. If
  *  no types are specified, all Place types are returned.
@@ -1803,7 +1806,12 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1TransitLine
  */
 @interface GTLRMapsPlaces_GoogleMapsPlacesV1FuelOptionsFuelPrice : GTLRObject
 
-/** The price of the fuel. */
+/**
+ *  The price of the fuel. The price is per US liquid gallon in the United
+ *  States, and per liter elsewhere. Prices do not distinguish between payment
+ *  methods (cash or credit). When a station offers multiple prices for the same
+ *  `FuelType`, the API returns the standard (highest) price.
+ */
 @property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleTypeMoney *price;
 
 /**
@@ -1855,7 +1863,10 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1TransitLine
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
-/** The time the fuel price was last updated. */
+/**
+ *  The time the fuel price was last updated. This represents the time when the
+ *  specific fuel price offer was last observed or updated by the data provider.
+ */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 @end

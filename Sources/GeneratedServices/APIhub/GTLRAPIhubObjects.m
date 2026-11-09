@@ -160,6 +160,16 @@ NSString * const kGTLRAPIhub_GoogleCloudApihubV1ExecutionStatus_CurrentExecution
 NSString * const kGTLRAPIhub_GoogleCloudApihubV1ExecutionStatus_CurrentExecutionState_NotRunning = @"NOT_RUNNING";
 NSString * const kGTLRAPIhub_GoogleCloudApihubV1ExecutionStatus_CurrentExecutionState_Running = @"RUNNING";
 
+// GTLRAPIhub_GoogleCloudApihubV1GeneratedSpecApi.state
+NSString * const kGTLRAPIhub_GoogleCloudApihubV1GeneratedSpecApi_State_SpecApiRegistered = @"SPEC_API_REGISTERED";
+NSString * const kGTLRAPIhub_GoogleCloudApihubV1GeneratedSpecApi_State_SpecAssociated = @"SPEC_ASSOCIATED";
+NSString * const kGTLRAPIhub_GoogleCloudApihubV1GeneratedSpecApi_State_SpecGenerated = @"SPEC_GENERATED";
+NSString * const kGTLRAPIhub_GoogleCloudApihubV1GeneratedSpecApi_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLRAPIhub_GoogleCloudApihubV1GeneratedSpecApiSource.type
+NSString * const kGTLRAPIhub_GoogleCloudApihubV1GeneratedSpecApiSource_Type_ApigeeX = @"APIGEE_X";
+NSString * const kGTLRAPIhub_GoogleCloudApihubV1GeneratedSpecApiSource_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
+
 // GTLRAPIhub_GoogleCloudApihubV1Header.dataType
 NSString * const kGTLRAPIhub_GoogleCloudApihubV1Header_DataType_Bool = @"BOOL";
 NSString * const kGTLRAPIhub_GoogleCloudApihubV1Header_DataType_DataTypeUnspecified = @"DATA_TYPE_UNSPECIFIED";
@@ -1256,6 +1266,47 @@ NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_Severity_SeverityWa
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAPIhub_GoogleCloudApihubV1GeneratedSpecApi
+//
+
+@implementation GTLRAPIhub_GoogleCloudApihubV1GeneratedSpecApi
+@dynamic api, createTime, deployment, displayName, lastSpecGeneratedTime, name,
+         source, spec, state, updateTime, version;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAPIhub_GoogleCloudApihubV1GeneratedSpecApiSource
+//
+
+@implementation GTLRAPIhub_GoogleCloudApihubV1GeneratedSpecApiSource
+@dynamic sourceDisplayName, type, typeDisplayName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAPIhub_GoogleCloudApihubV1GenerateSpecRequest
+//
+
+@implementation GTLRAPIhub_GoogleCloudApihubV1GenerateSpecRequest
+@dynamic observationWindow;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAPIhub_GoogleCloudApihubV1GenerateSpecResponse
+//
+
+@implementation GTLRAPIhub_GoogleCloudApihubV1GenerateSpecResponse
+@dynamic generatedSpec;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAPIhub_GoogleCloudApihubV1GoogleServiceAccountConfig
 //
 
@@ -1679,6 +1730,28 @@ NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_Severity_SeverityWa
 
 + (NSString *)collectionItemsKey {
   return @"externalApis";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAPIhub_GoogleCloudApihubV1ListGeneratedSpecApisResponse
+//
+
+@implementation GTLRAPIhub_GoogleCloudApihubV1ListGeneratedSpecApisResponse
+@dynamic generatedSpecApis, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"generatedSpecApis" : [GTLRAPIhub_GoogleCloudApihubV1GeneratedSpecApi class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"generatedSpecApis";
 }
 
 @end
@@ -2781,4 +2854,14 @@ NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_Severity_SeverityWa
   return [NSObject class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAPIhub_GoogleTypeInterval
+//
+
+@implementation GTLRAPIhub_GoogleTypeInterval
+@dynamic endTime, startTime;
 @end

@@ -199,6 +199,585 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
 @end
 
 /**
+ *  Lists AppliedAutoProtectionPolicies in a given project and location.
+ *
+ *  Method: backupdr.projects.locations.appliedAutoProtectionPolicies.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudBackupdr
+ *    @c kGTLRAuthScopeBackupdrCloudPlatform
+ */
+@interface GTLRBackupdrQuery_ProjectsLocationsAppliedAutoProtectionPoliciesList : GTLRBackupdrQuery
+
+/**
+ *  Optional. A filter expression that filters resources listed in the response.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Optional. An expression that sorts the results in the response. */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. The maximum number of applied policies to return in a single page.
+ *  The maximum value is 1000; values above 1000 will be coerced to 1000. If
+ *  unspecified or set to 0, a default page size of 500 will be used.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous
+ *  `ListAppliedAutoProtectionPolicies` call.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The project and location for which to retrieve the list of applied
+ *  policies. Format: projects/{project}/locations/{location}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRBackupdr_ListAppliedAutoProtectionPoliciesResponse.
+ *
+ *  Lists AppliedAutoProtectionPolicies in a given project and location.
+ *
+ *  @param parent Required. The project and location for which to retrieve the
+ *    list of applied policies. Format: projects/{project}/locations/{location}
+ *
+ *  @return GTLRBackupdrQuery_ProjectsLocationsAppliedAutoProtectionPoliciesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Creates a new AutoProtectionPolicyBinding in a given project and location.
+ *
+ *  Method: backupdr.projects.locations.autoProtectionPolicies.bindings.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudBackupdr
+ *    @c kGTLRAuthScopeBackupdrCloudPlatform
+ */
+@interface GTLRBackupdrQuery_ProjectsLocationsAutoProtectionPoliciesBindingsCreate : GTLRBackupdrQuery
+
+/**
+ *  Required. The ID to use for the binding. This will become the final
+ *  component of the binding's resource name. This value must start with a
+ *  lowercase letter followed by up to 62 lowercase letters, numbers, or
+ *  hyphens, and cannot end with a hyphen.
+ */
+@property(nonatomic, copy, nullable) NSString *autoProtectionPolicyBindingId;
+
+/**
+ *  Required. The parent resource where this binding will be created. Format:
+ *  projects/{project}/locations/{location}/autoProtectionPolicies/{auto_protection_policy}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes since the first request. The request
+ *  ID must be a valid UUID with the exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRBackupdr_Operation.
+ *
+ *  Creates a new AutoProtectionPolicyBinding in a given project and location.
+ *
+ *  @param object The @c GTLRBackupdr_AutoProtectionPolicyBinding to include in
+ *    the query.
+ *  @param parent Required. The parent resource where this binding will be
+ *    created. Format:
+ *    projects/{project}/locations/{location}/autoProtectionPolicies/{auto_protection_policy}
+ *
+ *  @return GTLRBackupdrQuery_ProjectsLocationsAutoProtectionPoliciesBindingsCreate
+ */
++ (instancetype)queryWithObject:(GTLRBackupdr_AutoProtectionPolicyBinding *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Returns the auto protection policy binding read from the CCFE tables.
+ *
+ *  Method: backupdr.projects.locations.autoProtectionPolicies.bindings.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudBackupdr
+ *    @c kGTLRAuthScopeBackupdrCloudPlatform
+ */
+@interface GTLRBackupdrQuery_ProjectsLocationsAutoProtectionPoliciesBindingsGet : GTLRBackupdrQuery
+
+/**
+ *  Required. The name of the binding to retrieve. Format:
+ *  projects/{project}/locations/{location}/autoProtectionPolicies/{auto_protection_policy}/bindings/{binding}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRBackupdr_AutoProtectionPolicyBinding.
+ *
+ *  Returns the auto protection policy binding read from the CCFE tables.
+ *
+ *  @param name Required. The name of the binding to retrieve. Format:
+ *    projects/{project}/locations/{location}/autoProtectionPolicies/{auto_protection_policy}/bindings/{binding}
+ *
+ *  @return GTLRBackupdrQuery_ProjectsLocationsAutoProtectionPoliciesBindingsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Initiates delete for AutoProtectionPolicy Binding
+ *
+ *  Method: backupdr.projects.locations.autoProtectionPolicies.bindings.initiateDelete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudBackupdr
+ *    @c kGTLRAuthScopeBackupdrCloudPlatform
+ */
+@interface GTLRBackupdrQuery_ProjectsLocationsAutoProtectionPoliciesBindingsInitiateDelete : GTLRBackupdrQuery
+
+/**
+ *  Required. The name of the binding to delete. Format:
+ *  projects/{project}/locations/{location}/autoProtectionPolicies/{auto_protection_policy}/bindings/{binding}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRBackupdr_Operation.
+ *
+ *  Initiates delete for AutoProtectionPolicy Binding
+ *
+ *  @param object The @c
+ *    GTLRBackupdr_InitiateDeleteAutoProtectionPolicyBindingRequest to include
+ *    in the query.
+ *  @param name Required. The name of the binding to delete. Format:
+ *    projects/{project}/locations/{location}/autoProtectionPolicies/{auto_protection_policy}/bindings/{binding}
+ *
+ *  @return GTLRBackupdrQuery_ProjectsLocationsAutoProtectionPoliciesBindingsInitiateDelete
+ */
++ (instancetype)queryWithObject:(GTLRBackupdr_InitiateDeleteAutoProtectionPolicyBindingRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Returns the auto protection policy bindings read from the CCFE tables.
+ *
+ *  Method: backupdr.projects.locations.autoProtectionPolicies.bindings.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudBackupdr
+ *    @c kGTLRAuthScopeBackupdrCloudPlatform
+ */
+@interface GTLRBackupdrQuery_ProjectsLocationsAutoProtectionPoliciesBindingsList : GTLRBackupdrQuery
+
+/**
+ *  Optional. A filter expression that filters resources listed in the response.
+ *  The following fields are filterable:
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. An expression that sorts the results in the response. The
+ *  following fields are sortable:
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. The maximum number of policies to return in a single page is 500.
+ *  If unspecified, a server-default value will be used.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous
+ *  `ListAutoProtectionPolicies` call. Provide this to retrieve the subsequent
+ *  page.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The project and location for which to retrieve the list of
+ *  policies. Format: projects/{project}/locations/{location}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRBackupdr_ListAutoProtectionPolicyBindingsResponse.
+ *
+ *  Returns the auto protection policy bindings read from the CCFE tables.
+ *
+ *  @param parent Required. The project and location for which to retrieve the
+ *    list of policies. Format: projects/{project}/locations/{location}
+ *
+ *  @return GTLRBackupdrQuery_ProjectsLocationsAutoProtectionPoliciesBindingsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Gets details of a single Binding Matching Resource.
+ *
+ *  Method: backupdr.projects.locations.autoProtectionPolicies.bindings.matchingResources.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudBackupdr
+ *    @c kGTLRAuthScopeBackupdrCloudPlatform
+ */
+@interface GTLRBackupdrQuery_ProjectsLocationsAutoProtectionPoliciesBindingsMatchingResourcesGet : GTLRBackupdrQuery
+
+/**
+ *  Required. The name of the matching resource to retrieve. Format:
+ *  projects/{project}/locations/{location}/autoProtectionPolicies/{auto_protection_policy}/bindings/{binding}/matchingResources/{matching_resource}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRBackupdr_BindingMatchingResource.
+ *
+ *  Gets details of a single Binding Matching Resource.
+ *
+ *  @param name Required. The name of the matching resource to retrieve. Format:
+ *    projects/{project}/locations/{location}/autoProtectionPolicies/{auto_protection_policy}/bindings/{binding}/matchingResources/{matching_resource}
+ *
+ *  @return GTLRBackupdrQuery_ProjectsLocationsAutoProtectionPoliciesBindingsMatchingResourcesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists Binding Matching Resources for a given AutoProtectionPolicyBinding.
+ *
+ *  Method: backupdr.projects.locations.autoProtectionPolicies.bindings.matchingResources.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudBackupdr
+ *    @c kGTLRAuthScopeBackupdrCloudPlatform
+ */
+@interface GTLRBackupdrQuery_ProjectsLocationsAutoProtectionPoliciesBindingsMatchingResourcesList : GTLRBackupdrQuery
+
+/** Optional. Field match expression used to filter the results. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Optional. Field by which to sort the results. */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. The maximum number of `BindingMatchingResources` to return in a
+ *  single response. The default page size is 100 and maximum page size is 200.
+ *  Note that the response may include a partial list and a caller should only
+ *  rely on the response's next_page_token to determine if there are more
+ *  instances left to be queried.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. The value of next_page_token received from a previous
+ *  `ListBindingMatchingResources` call. Provide this to retrieve the subsequent
+ *  page in a multi-page list of results. When paginating, all other parameters
+ *  provided to `ListBindingMatchingResources` must match the call that provided
+ *  the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The project, location, auto protection policy and binding for
+ *  which to retrieve `BindingMatchingResources` information. Format:
+ *  `projects/{project}/locations/{location}/autoProtectionPolicies/{auto_protection_policy}/bindings/{binding}`.
+ *  In Google Cloud Backup and DR, locations map to Google Cloud regions, for
+ *  example **us-central1**.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRBackupdr_ListBindingMatchingResourcesResponse.
+ *
+ *  Lists Binding Matching Resources for a given AutoProtectionPolicyBinding.
+ *
+ *  @param parent Required. The project, location, auto protection policy and
+ *    binding for which to retrieve `BindingMatchingResources` information.
+ *    Format:
+ *    `projects/{project}/locations/{location}/autoProtectionPolicies/{auto_protection_policy}/bindings/{binding}`.
+ *    In Google Cloud Backup and DR, locations map to Google Cloud regions, for
+ *    example **us-central1**.
+ *
+ *  @return GTLRBackupdrQuery_ProjectsLocationsAutoProtectionPoliciesBindingsMatchingResourcesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Creates a new AutoProtectionPolicy in a given project and location.
+ *
+ *  Method: backupdr.projects.locations.autoProtectionPolicies.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudBackupdr
+ *    @c kGTLRAuthScopeBackupdrCloudPlatform
+ */
+@interface GTLRBackupdrQuery_ProjectsLocationsAutoProtectionPoliciesCreate : GTLRBackupdrQuery
+
+/**
+ *  Required. The ID to use for the policy. This will become the final component
+ *  of the policy's resource name. This value must start with a lowercase letter
+ *  followed by up to 62 lowercase letters, numbers, or hyphens, and cannot end
+ *  with a hyphen.
+ */
+@property(nonatomic, copy, nullable) NSString *autoProtectionPolicyId;
+
+/**
+ *  Required. The parent resource where this policy will be created. Format:
+ *  projects/{project}/locations/{location}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes since the first request. The request
+ *  ID must be a valid UUID with the exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRBackupdr_Operation.
+ *
+ *  Creates a new AutoProtectionPolicy in a given project and location.
+ *
+ *  @param object The @c GTLRBackupdr_AutoProtectionPolicy to include in the
+ *    query.
+ *  @param parent Required. The parent resource where this policy will be
+ *    created. Format: projects/{project}/locations/{location}
+ *
+ *  @return GTLRBackupdrQuery_ProjectsLocationsAutoProtectionPoliciesCreate
+ */
++ (instancetype)queryWithObject:(GTLRBackupdr_AutoProtectionPolicy *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a single AutoProtectionPolicy.
+ *
+ *  Method: backupdr.projects.locations.autoProtectionPolicies.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudBackupdr
+ *    @c kGTLRAuthScopeBackupdrCloudPlatform
+ */
+@interface GTLRBackupdrQuery_ProjectsLocationsAutoProtectionPoliciesDelete : GTLRBackupdrQuery
+
+/**
+ *  The current etag of the autoprotectionpolicy. If an etag is provided and
+ *  does not match the current etag of the connection, deletion will be blocked.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Required. The name of the policy to delete. Format:
+ *  projects/{project}/locations/{location}/autoProtectionPolicies/{auto_protection_policy}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes since the first request. The request
+ *  ID must be a valid UUID with the exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRBackupdr_Operation.
+ *
+ *  Deletes a single AutoProtectionPolicy.
+ *
+ *  @param name Required. The name of the policy to delete. Format:
+ *    projects/{project}/locations/{location}/autoProtectionPolicies/{auto_protection_policy}
+ *
+ *  @return GTLRBackupdrQuery_ProjectsLocationsAutoProtectionPoliciesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of a single AutoProtectionPolicy.
+ *
+ *  Method: backupdr.projects.locations.autoProtectionPolicies.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudBackupdr
+ *    @c kGTLRAuthScopeBackupdrCloudPlatform
+ */
+@interface GTLRBackupdrQuery_ProjectsLocationsAutoProtectionPoliciesGet : GTLRBackupdrQuery
+
+/**
+ *  Required. The name of the policy to retrieve. Format:
+ *  projects/{project}/locations/{location}/autoProtectionPolicies/{auto_protection_policy}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRBackupdr_AutoProtectionPolicy.
+ *
+ *  Gets details of a single AutoProtectionPolicy.
+ *
+ *  @param name Required. The name of the policy to retrieve. Format:
+ *    projects/{project}/locations/{location}/autoProtectionPolicies/{auto_protection_policy}
+ *
+ *  @return GTLRBackupdrQuery_ProjectsLocationsAutoProtectionPoliciesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists AutoProtectionPolicies for a given project and location.
+ *
+ *  Method: backupdr.projects.locations.autoProtectionPolicies.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudBackupdr
+ *    @c kGTLRAuthScopeBackupdrCloudPlatform
+ */
+@interface GTLRBackupdrQuery_ProjectsLocationsAutoProtectionPoliciesList : GTLRBackupdrQuery
+
+/**
+ *  Optional. A filter expression that filters resources listed in the response.
+ *  The following fields are filterable:
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. An expression that sorts the results in the response. The
+ *  following fields are sortable:
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. The maximum number of policies to return in a single page. If
+ *  unspecified, a server-default value will be used.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous
+ *  `ListAutoProtectionPolicies` call. Provide this to retrieve the subsequent
+ *  page.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The project and location for which to retrieve the list of
+ *  policies. Format: projects/{project}/locations/{location}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRBackupdr_ListAutoProtectionPoliciesResponse.
+ *
+ *  Lists AutoProtectionPolicies for a given project and location.
+ *
+ *  @param parent Required. The project and location for which to retrieve the
+ *    list of policies. Format: projects/{project}/locations/{location}
+ *
+ *  @return GTLRBackupdrQuery_ProjectsLocationsAutoProtectionPoliciesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates the parameters of a single AutoProtectionPolicy.
+ *
+ *  Method: backupdr.projects.locations.autoProtectionPolicies.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudBackupdr
+ *    @c kGTLRAuthScopeBackupdrCloudPlatform
+ */
+@interface GTLRBackupdrQuery_ProjectsLocationsAutoProtectionPoliciesPatch : GTLRBackupdrQuery
+
+/**
+ *  Output only. Identifier. The resource name of the AutoProtectionPolicy.
+ *  Format:
+ *  `projects/{project}/locations/{location}/autoProtectionPolicies/{auto_protection_policy}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes since the first request. The request
+ *  ID must be a valid UUID with the exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Optional. Field mask is used to specify the fields to be overwritten in the
+ *  AutoProtectionPolicy resource by the update. The fields specified in the
+ *  update_mask are relative to the resource, not the full request. A field will
+ *  be overwritten if it is in the mask. If the user does not provide a mask
+ *  then all fields will be overwritten.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRBackupdr_Operation.
+ *
+ *  Updates the parameters of a single AutoProtectionPolicy.
+ *
+ *  @param object The @c GTLRBackupdr_AutoProtectionPolicy to include in the
+ *    query.
+ *  @param name Output only. Identifier. The resource name of the
+ *    AutoProtectionPolicy. Format:
+ *    `projects/{project}/locations/{location}/autoProtectionPolicies/{auto_protection_policy}`
+ *
+ *  @return GTLRBackupdrQuery_ProjectsLocationsAutoProtectionPoliciesPatch
+ */
++ (instancetype)queryWithObject:(GTLRBackupdr_AutoProtectionPolicy *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Create a BackupPlanAssociation
  *
  *  Method: backupdr.projects.locations.backupPlanAssociations.create
@@ -265,6 +844,14 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
  *    @c kGTLRAuthScopeBackupdrCloudPlatform
  */
 @interface GTLRBackupdrQuery_ProjectsLocationsBackupPlanAssociationsDelete : GTLRBackupdrQuery
+
+/**
+ *  Optional. This field is exclusively used by Backup and DR's auto-protection
+ *  feature. The resource name of the `AutoProtectionPolicyBinding` that
+ *  triggered the deletion of this association. Format:
+ *  `projects/{project}/locations/{location}/autoProtectionPolicies/{policy}/bindings/{binding}`.
+ */
+@property(nonatomic, copy, nullable) NSString *autoProtectionPolicyBinding;
 
 /**
  *  Required. Name of the backup plan association resource, in the format
@@ -3021,6 +3608,840 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
  *    DR, locations map to Google Cloud regions, for example **us-central1**.
  *
  *  @return GTLRBackupdrQuery_ProjectsLocationsResourceBackupConfigsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Creates a new RestoreTemplate in a given project and location.
+ *
+ *  Method: backupdr.projects.locations.restoreTemplates.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudBackupdr
+ *    @c kGTLRAuthScopeBackupdrCloudPlatform
+ */
+@interface GTLRBackupdrQuery_ProjectsLocationsRestoreTemplatesCreate : GTLRBackupdrQuery
+
+/**
+ *  Required. The restore template project and location in the format
+ *  'projects/{project_id}/locations/{location}'.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The request ID must be
+ *  a valid UUID with the exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Required. The ID of the restore template to create. The ID must be unique
+ *  for the specified project and location.
+ */
+@property(nonatomic, copy, nullable) NSString *restoreTemplateId;
+
+/**
+ *  Fetches a @c GTLRBackupdr_Operation.
+ *
+ *  Creates a new RestoreTemplate in a given project and location.
+ *
+ *  @param object The @c GTLRBackupdr_RestoreTemplate to include in the query.
+ *  @param parent Required. The restore template project and location in the
+ *    format 'projects/{project_id}/locations/{location}'.
+ *
+ *  @return GTLRBackupdrQuery_ProjectsLocationsRestoreTemplatesCreate
+ */
++ (instancetype)queryWithObject:(GTLRBackupdr_RestoreTemplate *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a RestoreTemplate.
+ *
+ *  Method: backupdr.projects.locations.restoreTemplates.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudBackupdr
+ *    @c kGTLRAuthScopeBackupdrCloudPlatform
+ */
+@interface GTLRBackupdrQuery_ProjectsLocationsRestoreTemplatesDelete : GTLRBackupdrQuery
+
+/**
+ *  Optional. If set to true, any child RestoreTemplateExecutions will also be
+ *  deleted. If false and the RestoreTemplate has any child executions, the
+ *  request will fail.
+ */
+@property(nonatomic, assign) BOOL force;
+
+/**
+ *  Required. The name of the restore template to delete. Format:
+ *  'projects/{project_id}/locations/{location}/restoreTemplates/{restore_template_id}'
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The request ID must be
+ *  a valid UUID with the exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRBackupdr_Operation.
+ *
+ *  Deletes a RestoreTemplate.
+ *
+ *  @param name Required. The name of the restore template to delete. Format:
+ *    'projects/{project_id}/locations/{location}/restoreTemplates/{restore_template_id}'
+ *
+ *  @return GTLRBackupdrQuery_ProjectsLocationsRestoreTemplatesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of a RestoreTemplateExecution.
+ *
+ *  Method: backupdr.projects.locations.restoreTemplates.executions.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudBackupdr
+ *    @c kGTLRAuthScopeBackupdrCloudPlatform
+ */
+@interface GTLRBackupdrQuery_ProjectsLocationsRestoreTemplatesExecutionsGet : GTLRBackupdrQuery
+
+/**
+ *  Required. The name of the restore template execution to retrieve. Format:
+ *  'projects/{project_id}/locations/{location}/restoreTemplates/{restore_template_id}/executions/{execution_id}'
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRBackupdr_RestoreTemplateExecution.
+ *
+ *  Gets details of a RestoreTemplateExecution.
+ *
+ *  @param name Required. The name of the restore template execution to
+ *    retrieve. Format:
+ *    'projects/{project_id}/locations/{location}/restoreTemplates/{restore_template_id}/executions/{execution_id}'
+ *
+ *  @return GTLRBackupdrQuery_ProjectsLocationsRestoreTemplatesExecutionsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists RestoreTemplateExecutions in a given project, location and restore
+ *  template.
+ *
+ *  Method: backupdr.projects.locations.restoreTemplates.executions.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudBackupdr
+ *    @c kGTLRAuthScopeBackupdrCloudPlatform
+ */
+@interface GTLRBackupdrQuery_ProjectsLocationsRestoreTemplatesExecutionsList : GTLRBackupdrQuery
+
+/** Optional. Filtering results. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Optional. Hint for how to order the results. */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/** Optional. Requested page size. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** Optional. A token identifying a page of results. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The project, location, and restore template for which to retrieve
+ *  executions information. Format:
+ *  `projects/{project}/locations/{location}/restoreTemplates/{restore_template}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRBackupdr_ListRestoreTemplateExecutionsResponse.
+ *
+ *  Lists RestoreTemplateExecutions in a given project, location and restore
+ *  template.
+ *
+ *  @param parent Required. The project, location, and restore template for
+ *    which to retrieve executions information. Format:
+ *    `projects/{project}/locations/{location}/restoreTemplates/{restore_template}`.
+ *
+ *  @return GTLRBackupdrQuery_ProjectsLocationsRestoreTemplatesExecutionsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Triggers cleanup of restored resources created during execution.
+ *
+ *  Method: backupdr.projects.locations.restoreTemplates.executions.triggerRestoreCleanup
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudBackupdr
+ *    @c kGTLRAuthScopeBackupdrCloudPlatform
+ */
+@interface GTLRBackupdrQuery_ProjectsLocationsRestoreTemplatesExecutionsTriggerRestoreCleanup : GTLRBackupdrQuery
+
+/**
+ *  Required. Name of the restore template execution. Format:
+ *  'projects/{project_id}/locations/{location}/restoreTemplates/{restore_template_id}/executions/{execution_id}'
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRBackupdr_Operation.
+ *
+ *  Triggers cleanup of restored resources created during execution.
+ *
+ *  @param object The @c GTLRBackupdr_TriggerRestoreCleanupRequest to include in
+ *    the query.
+ *  @param name Required. Name of the restore template execution. Format:
+ *    'projects/{project_id}/locations/{location}/restoreTemplates/{restore_template_id}/executions/{execution_id}'
+ *
+ *  @return GTLRBackupdrQuery_ProjectsLocationsRestoreTemplatesExecutionsTriggerRestoreCleanup
+ */
++ (instancetype)queryWithObject:(GTLRBackupdr_TriggerRestoreCleanupRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of a RestoreTemplate.
+ *
+ *  Method: backupdr.projects.locations.restoreTemplates.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudBackupdr
+ *    @c kGTLRAuthScopeBackupdrCloudPlatform
+ */
+@interface GTLRBackupdrQuery_ProjectsLocationsRestoreTemplatesGet : GTLRBackupdrQuery
+
+/**
+ *  Required. The name of the restore template to retrieve. Format:
+ *  'projects/{project_id}/locations/{location}/restoreTemplates/{restore_template_id}'
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRBackupdr_RestoreTemplate.
+ *
+ *  Gets details of a RestoreTemplate.
+ *
+ *  @param name Required. The name of the restore template to retrieve. Format:
+ *    'projects/{project_id}/locations/{location}/restoreTemplates/{restore_template_id}'
+ *
+ *  @return GTLRBackupdrQuery_ProjectsLocationsRestoreTemplatesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists RestoreTemplates in a given project and location.
+ *
+ *  Method: backupdr.projects.locations.restoreTemplates.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudBackupdr
+ *    @c kGTLRAuthScopeBackupdrCloudPlatform
+ */
+@interface GTLRBackupdrQuery_ProjectsLocationsRestoreTemplatesList : GTLRBackupdrQuery
+
+/** Optional. Field match expression used to filter the results. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Optional. Field by which to sort the results. */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/** Optional. The maximum number of items to return. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous `ListRestoreTemplates`
+ *  call.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The project and location from which to list the restore templates.
+ *  Format: `projects/{project}/locations/{location}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRBackupdr_ListRestoreTemplatesResponse.
+ *
+ *  Lists RestoreTemplates in a given project and location.
+ *
+ *  @param parent Required. The project and location from which to list the
+ *    restore templates. Format: `projects/{project}/locations/{location}`.
+ *
+ *  @return GTLRBackupdrQuery_ProjectsLocationsRestoreTemplatesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates the settings of a RestoreTemplate.
+ *
+ *  Method: backupdr.projects.locations.restoreTemplates.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudBackupdr
+ *    @c kGTLRAuthScopeBackupdrCloudPlatform
+ */
+@interface GTLRBackupdrQuery_ProjectsLocationsRestoreTemplatesPatch : GTLRBackupdrQuery
+
+/** Identifier. The resource name of the RestoreTemplate. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The request ID must be
+ *  a valid UUID with the exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Optional. The list of fields to update. Field mask is used to specify the
+ *  fields to be overwritten in the RestoreTemplate resource by the update. The
+ *  fields specified in the update_mask are relative to the resource, not the
+ *  full request. A field will be overwritten if it is in the mask.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Optional. Only validate the request, but do not perform mutations. The
+ *  default is 'false'.
+ */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
+ *  Fetches a @c GTLRBackupdr_Operation.
+ *
+ *  Updates the settings of a RestoreTemplate.
+ *
+ *  @param object The @c GTLRBackupdr_RestoreTemplate to include in the query.
+ *  @param name Identifier. The resource name of the RestoreTemplate.
+ *
+ *  @return GTLRBackupdrQuery_ProjectsLocationsRestoreTemplatesPatch
+ */
++ (instancetype)queryWithObject:(GTLRBackupdr_RestoreTemplate *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Runs a RestoreTemplate.
+ *
+ *  Method: backupdr.projects.locations.restoreTemplates.run
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudBackupdr
+ *    @c kGTLRAuthScopeBackupdrCloudPlatform
+ */
+@interface GTLRBackupdrQuery_ProjectsLocationsRestoreTemplatesRun : GTLRBackupdrQuery
+
+/**
+ *  Required. The name of the restore template to run. Format:
+ *  'projects/{project_id}/locations/{location}/restoreTemplates/{restore_template_id}'
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRBackupdr_Operation.
+ *
+ *  Runs a RestoreTemplate.
+ *
+ *  @param object The @c GTLRBackupdr_RunRestoreTemplateRequest to include in
+ *    the query.
+ *  @param name Required. The name of the restore template to run. Format:
+ *    'projects/{project_id}/locations/{location}/restoreTemplates/{restore_template_id}'
+ *
+ *  @return GTLRBackupdrQuery_ProjectsLocationsRestoreTemplatesRun
+ */
++ (instancetype)queryWithObject:(GTLRBackupdr_RunRestoreTemplateRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a new RestoreVerificationPlanAssociation in a given
+ *  RestoreVerificationPlan.
+ *
+ *  Method: backupdr.projects.locations.restoreVerificationPlans.associations.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudBackupdr
+ *    @c kGTLRAuthScopeBackupdrCloudPlatform
+ */
+@interface GTLRBackupdrQuery_ProjectsLocationsRestoreVerificationPlansAssociationsCreate : GTLRBackupdrQuery
+
+/**
+ *  Required. The parent resource where this association will be created.
+ *  Format:
+ *  `projects/{project}/locations/{location}/restoreVerificationPlans/{restore_verification_plan}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know that
+ *  the server has already received the duplicate request and can avoid
+ *  responding with an error. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Required. The ID to use for the association, which will become the final
+ *  component of the association's resource name. This value should be 1-63
+ *  characters, and valid characters are /[a-z0-9_-]/.
+ */
+@property(nonatomic, copy, nullable) NSString *restoreVerificationPlanAssociationId;
+
+/**
+ *  Fetches a @c GTLRBackupdr_Operation.
+ *
+ *  Creates a new RestoreVerificationPlanAssociation in a given
+ *  RestoreVerificationPlan.
+ *
+ *  @param object The @c GTLRBackupdr_RestoreVerificationPlanAssociation to
+ *    include in the query.
+ *  @param parent Required. The parent resource where this association will be
+ *    created. Format:
+ *    `projects/{project}/locations/{location}/restoreVerificationPlans/{restore_verification_plan}`
+ *
+ *  @return GTLRBackupdrQuery_ProjectsLocationsRestoreVerificationPlansAssociationsCreate
+ */
++ (instancetype)queryWithObject:(GTLRBackupdr_RestoreVerificationPlanAssociation *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a single RestoreVerificationPlanAssociation in a given
+ *  RestoreVerificationPlan.
+ *
+ *  Method: backupdr.projects.locations.restoreVerificationPlans.associations.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudBackupdr
+ *    @c kGTLRAuthScopeBackupdrCloudPlatform
+ */
+@interface GTLRBackupdrQuery_ProjectsLocationsRestoreVerificationPlansAssociationsDelete : GTLRBackupdrQuery
+
+/**
+ *  Required. The resource name of the RestoreVerificationPlanAssociation to
+ *  delete. Format:
+ *  `projects/{project}/locations/{location}/restoreVerificationPlans/{restore_verification_plan}/associations/{association}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know that
+ *  the server has already received the duplicate request and can avoid
+ *  responding with an error. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRBackupdr_Operation.
+ *
+ *  Deletes a single RestoreVerificationPlanAssociation in a given
+ *  RestoreVerificationPlan.
+ *
+ *  @param name Required. The resource name of the
+ *    RestoreVerificationPlanAssociation to delete. Format:
+ *    `projects/{project}/locations/{location}/restoreVerificationPlans/{restore_verification_plan}/associations/{association}`
+ *
+ *  @return GTLRBackupdrQuery_ProjectsLocationsRestoreVerificationPlansAssociationsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of a single RestoreVerificationPlanAssociation in a given
+ *  RestoreVerificationPlan.
+ *
+ *  Method: backupdr.projects.locations.restoreVerificationPlans.associations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudBackupdr
+ *    @c kGTLRAuthScopeBackupdrCloudPlatform
+ */
+@interface GTLRBackupdrQuery_ProjectsLocationsRestoreVerificationPlansAssociationsGet : GTLRBackupdrQuery
+
+/**
+ *  Required. The resource name of the RestoreVerificationPlanAssociation to
+ *  retrieve. Format:
+ *  `projects/{project}/locations/{location}/restoreVerificationPlans/{restore_verification_plan}/associations/{association}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRBackupdr_RestoreVerificationPlanAssociation.
+ *
+ *  Gets details of a single RestoreVerificationPlanAssociation in a given
+ *  RestoreVerificationPlan.
+ *
+ *  @param name Required. The resource name of the
+ *    RestoreVerificationPlanAssociation to retrieve. Format:
+ *    `projects/{project}/locations/{location}/restoreVerificationPlans/{restore_verification_plan}/associations/{association}`
+ *
+ *  @return GTLRBackupdrQuery_ProjectsLocationsRestoreVerificationPlansAssociationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists RestoreVerificationPlanAssociations in a given
+ *  RestoreVerificationPlan.
+ *
+ *  Method: backupdr.projects.locations.restoreVerificationPlans.associations.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudBackupdr
+ *    @c kGTLRAuthScopeBackupdrCloudPlatform
+ */
+@interface GTLRBackupdrQuery_ProjectsLocationsRestoreVerificationPlansAssociationsList : GTLRBackupdrQuery
+
+/** Optional. Filtering results. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Optional. Hint for how to order the results. */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. The maximum number of associations to return. The service may
+ *  return fewer than this value. If unspecified, at most 500 associations will
+ *  be returned. The maximum value is 1000; values above 1000 will be coerced to
+ *  1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous
+ *  `ListRestoreVerificationPlanAssociations` call. Provide this to retrieve the
+ *  subsequent page. When paginating, all other parameters provided to
+ *  `ListRestoreVerificationPlanAssociations` must match the call that provided
+ *  the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent RestoreVerificationPlan name. Format:
+ *  `projects/{project}/locations/{location}/restoreVerificationPlans/{restore_verification_plan}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRBackupdr_ListRestoreVerificationPlanAssociationsResponse.
+ *
+ *  Lists RestoreVerificationPlanAssociations in a given
+ *  RestoreVerificationPlan.
+ *
+ *  @param parent Required. The parent RestoreVerificationPlan name. Format:
+ *    `projects/{project}/locations/{location}/restoreVerificationPlans/{restore_verification_plan}`
+ *
+ *  @return GTLRBackupdrQuery_ProjectsLocationsRestoreVerificationPlansAssociationsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Triggers a new Restore Verification for the association in a given
+ *  RestoreVerificationPlan.
+ *
+ *  Method: backupdr.projects.locations.restoreVerificationPlans.associations.triggerRestoreVerification
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudBackupdr
+ *    @c kGTLRAuthScopeBackupdrCloudPlatform
+ */
+@interface GTLRBackupdrQuery_ProjectsLocationsRestoreVerificationPlansAssociationsTriggerRestoreVerification : GTLRBackupdrQuery
+
+/**
+ *  Required. The resource name of the RestoreVerificationPlanAssociation to
+ *  trigger. Format:
+ *  `projects/{project}/locations/{location}/restoreVerificationPlans/{restore_verification_plan}/associations/{association}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRBackupdr_Operation.
+ *
+ *  Triggers a new Restore Verification for the association in a given
+ *  RestoreVerificationPlan.
+ *
+ *  @param object The @c GTLRBackupdr_TriggerRestoreVerificationRequest to
+ *    include in the query.
+ *  @param name Required. The resource name of the
+ *    RestoreVerificationPlanAssociation to trigger. Format:
+ *    `projects/{project}/locations/{location}/restoreVerificationPlans/{restore_verification_plan}/associations/{association}`
+ *
+ *  @return GTLRBackupdrQuery_ProjectsLocationsRestoreVerificationPlansAssociationsTriggerRestoreVerification
+ */
++ (instancetype)queryWithObject:(GTLRBackupdr_TriggerRestoreVerificationRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a new RestoreVerificationPlan in a given project and location.
+ *
+ *  Method: backupdr.projects.locations.restoreVerificationPlans.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudBackupdr
+ *    @c kGTLRAuthScopeBackupdrCloudPlatform
+ */
+@interface GTLRBackupdrQuery_ProjectsLocationsRestoreVerificationPlansCreate : GTLRBackupdrQuery
+
+/**
+ *  Required. The `RestoreVerificationPlan` project and location in the format
+ *  `projects/{project}/locations/{location}`. In Google Cloud Backup and DR
+ *  locations map to Google Cloud regions, for example **us-central1**.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes since the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Required. The name of the `RestoreVerificationPlan` to create. The name must
+ *  be unique for the specified project and location. The name must start with a
+ *  lowercase letter followed by up to 62 lowercase letters, numbers, or
+ *  hyphens. Pattern, `^[a-z]([-a-z0-9]*[a-z0-9])?$`.
+ */
+@property(nonatomic, copy, nullable) NSString *restoreVerificationPlanId;
+
+/**
+ *  Fetches a @c GTLRBackupdr_Operation.
+ *
+ *  Creates a new RestoreVerificationPlan in a given project and location.
+ *
+ *  @param object The @c GTLRBackupdr_RestoreVerificationPlan to include in the
+ *    query.
+ *  @param parent Required. The `RestoreVerificationPlan` project and location
+ *    in the format `projects/{project}/locations/{location}`. In Google Cloud
+ *    Backup and DR locations map to Google Cloud regions, for example
+ *    **us-central1**.
+ *
+ *  @return GTLRBackupdrQuery_ProjectsLocationsRestoreVerificationPlansCreate
+ */
++ (instancetype)queryWithObject:(GTLRBackupdr_RestoreVerificationPlan *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a single RestoreVerificationPlan. If the `force` flag is set to
+ *  `true`, any RestoreVerificationPlanAssociations linked to this
+ *  RestoreVerificationPlan will also be deleted.
+ *
+ *  Method: backupdr.projects.locations.restoreVerificationPlans.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudBackupdr
+ *    @c kGTLRAuthScopeBackupdrCloudPlatform
+ */
+@interface GTLRBackupdrQuery_ProjectsLocationsRestoreVerificationPlansDelete : GTLRBackupdrQuery
+
+/**
+ *  Optional. If set to true, any RestoreVerificationPlanAssociations linked to
+ *  this RestoreVerificationPlan will also be deleted.
+ */
+@property(nonatomic, assign) BOOL force;
+
+/**
+ *  Required. The resource name of the `RestoreVerificationPlan` to delete.
+ *  Format:
+ *  `projects/{project}/locations/{location}/restoreVerificationPlans/{restoreVerificationPlan}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes after the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRBackupdr_Operation.
+ *
+ *  Deletes a single RestoreVerificationPlan. If the `force` flag is set to
+ *  `true`, any RestoreVerificationPlanAssociations linked to this
+ *  RestoreVerificationPlan will also be deleted.
+ *
+ *  @param name Required. The resource name of the `RestoreVerificationPlan` to
+ *    delete. Format:
+ *    `projects/{project}/locations/{location}/restoreVerificationPlans/{restoreVerificationPlan}`
+ *
+ *  @return GTLRBackupdrQuery_ProjectsLocationsRestoreVerificationPlansDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of a single RestoreVerificationPlan. Returns the requested
+ *  RestoreVerificationPlan.
+ *
+ *  Method: backupdr.projects.locations.restoreVerificationPlans.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudBackupdr
+ *    @c kGTLRAuthScopeBackupdrCloudPlatform
+ */
+@interface GTLRBackupdrQuery_ProjectsLocationsRestoreVerificationPlansGet : GTLRBackupdrQuery
+
+/**
+ *  Required. The resource name of the `RestoreVerificationPlan` to retrieve.
+ *  Format:
+ *  `projects/{project}/locations/{location}/restoreVerificationPlans/{restoreVerificationPlan}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRBackupdr_RestoreVerificationPlan.
+ *
+ *  Gets details of a single RestoreVerificationPlan. Returns the requested
+ *  RestoreVerificationPlan.
+ *
+ *  @param name Required. The resource name of the `RestoreVerificationPlan` to
+ *    retrieve. Format:
+ *    `projects/{project}/locations/{location}/restoreVerificationPlans/{restoreVerificationPlan}`
+ *
+ *  @return GTLRBackupdrQuery_ProjectsLocationsRestoreVerificationPlansGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists RestoreVerificationPlans in a given project and location.
+ *
+ *  Method: backupdr.projects.locations.restoreVerificationPlans.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudBackupdr
+ *    @c kGTLRAuthScopeBackupdrCloudPlatform
+ */
+@interface GTLRBackupdrQuery_ProjectsLocationsRestoreVerificationPlansList : GTLRBackupdrQuery
+
+/** Optional. Field match expression used to filter the results. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Optional. Field by which to sort the results. */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. The maximum number of `RestoreVerificationPlans` to return in a
+ *  single response. If not specified, a default value will be chosen by the
+ *  service. Note that the response may include a partial list and a caller
+ *  should only rely on the response's next_page_token to determine if there are
+ *  more instances left to be queried.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. The value of next_page_token received from a previous
+ *  `ListRestoreVerificationPlans` call. Provide this to retrieve the subsequent
+ *  page in a multi-page list of results. When paginating, all other parameters
+ *  provided to `ListRestoreVerificationPlans` must match the call that provided
+ *  the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The project and location for which to retrieve
+ *  `RestoreVerificationPlans` information. Format:
+ *  `projects/{project}/locations/{location}`. In Google Cloud Backup and DR,
+ *  locations map to Google Cloud regions, for example **us-central1**. To
+ *  retrieve restore verification plans for all locations, use "-" for the
+ *  `{location}` value.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRBackupdr_ListRestoreVerificationPlansResponse.
+ *
+ *  Lists RestoreVerificationPlans in a given project and location.
+ *
+ *  @param parent Required. The project and location for which to retrieve
+ *    `RestoreVerificationPlans` information. Format:
+ *    `projects/{project}/locations/{location}`. In Google Cloud Backup and DR,
+ *    locations map to Google Cloud regions, for example **us-central1**. To
+ *    retrieve restore verification plans for all locations, use "-" for the
+ *    `{location}` value.
+ *
+ *  @return GTLRBackupdrQuery_ProjectsLocationsRestoreVerificationPlansList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more

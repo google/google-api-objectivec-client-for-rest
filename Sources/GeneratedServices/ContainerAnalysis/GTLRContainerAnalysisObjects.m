@@ -345,6 +345,7 @@ NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions_M
 NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions_MachineType_Unspecified = @"UNSPECIFIED";
 
 // GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions.requestedVerifyOption
+NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions_RequestedVerifyOption_BestEffort = @"BEST_EFFORT";
 NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions_RequestedVerifyOption_NotVerified = @"NOT_VERIFIED";
 NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions_RequestedVerifyOption_Verified = @"VERIFIED";
 

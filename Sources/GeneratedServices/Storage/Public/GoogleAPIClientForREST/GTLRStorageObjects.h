@@ -48,7 +48,6 @@
 @class GTLRStorage_BucketAccessControl_ProjectTeam;
 @class GTLRStorage_BucketStorageLayout_CustomPlacementConfig;
 @class GTLRStorage_BucketStorageLayout_HierarchicalNamespace;
-@class GTLRStorage_Channel_Params;
 @class GTLRStorage_ComposeRequest_SourceObjects_Item;
 @class GTLRStorage_ComposeRequest_SourceObjects_Item_ObjectPreconditions;
 @class GTLRStorage_Expr;
@@ -1491,78 +1490,6 @@ FOUNDATION_EXTERN NSString * const kGTLRStorage_RapidCachePolicy_IngestOnWrite_U
 /** Restores only the objects that were soft-deleted before this time. */
 @property(nonatomic, strong, nullable) GTLRDateTime *softDeletedBeforeTime;
 
-@end
-
-
-/**
- *  An notification channel used to watch for resource changes.
- */
-@interface GTLRStorage_Channel : GTLRObject
-
-/** The address where notifications are delivered for this channel. */
-@property(nonatomic, copy, nullable) NSString *address;
-
-/**
- *  Date and time of notification channel expiration, expressed as a Unix
- *  timestamp, in milliseconds. Optional.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *expiration;
-
-/**
- *  A UUID or similar unique string that identifies this channel.
- *
- *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
- */
-@property(nonatomic, copy, nullable) NSString *identifier;
-
-/**
- *  Identifies this as a notification channel used to watch for changes to a
- *  resource, which is "api#channel".
- */
-@property(nonatomic, copy, nullable) NSString *kind;
-
-/** Additional parameters controlling delivery channel behavior. Optional. */
-@property(nonatomic, strong, nullable) GTLRStorage_Channel_Params *params;
-
-/**
- *  A Boolean value to indicate whether payload is wanted. Optional.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *payload;
-
-/**
- *  An opaque ID that identifies the resource being watched on this channel.
- *  Stable across different API versions.
- */
-@property(nonatomic, copy, nullable) NSString *resourceId;
-
-/** A version-specific identifier for the watched resource. */
-@property(nonatomic, copy, nullable) NSString *resourceUri;
-
-/**
- *  An arbitrary string delivered to the target address with each notification
- *  delivered over this channel. Optional.
- */
-@property(nonatomic, copy, nullable) NSString *token;
-
-/** The type of delivery mechanism used for this channel. */
-@property(nonatomic, copy, nullable) NSString *type;
-
-@end
-
-
-/**
- *  Additional parameters controlling delivery channel behavior. Optional.
- *
- *  @note This class is documented as having more properties of NSString. Use @c
- *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
- *        of properties and then fetch them; or @c -additionalProperties to
- *        fetch them all at once.
- */
-@interface GTLRStorage_Channel_Params : GTLRObject
 @end
 
 

@@ -165,6 +165,28 @@ NSString * const kGTLROnDemandScanning_DiscoveryOccurrence_ContinuousAnalysis_Ac
 NSString * const kGTLROnDemandScanning_DiscoveryOccurrence_ContinuousAnalysis_ContinuousAnalysisUnspecified = @"CONTINUOUS_ANALYSIS_UNSPECIFIED";
 NSString * const kGTLROnDemandScanning_DiscoveryOccurrence_ContinuousAnalysis_Inactive = @"INACTIVE";
 
+// GTLROnDemandScanning_ExploitabilitySignal.vexJustification
+NSString * const kGTLROnDemandScanning_ExploitabilitySignal_VexJustification_ComponentNotPresent = @"COMPONENT_NOT_PRESENT";
+NSString * const kGTLROnDemandScanning_ExploitabilitySignal_VexJustification_InlineMitigationsAlreadyExist = @"INLINE_MITIGATIONS_ALREADY_EXIST";
+NSString * const kGTLROnDemandScanning_ExploitabilitySignal_VexJustification_JustificationTypeUnspecified = @"JUSTIFICATION_TYPE_UNSPECIFIED";
+NSString * const kGTLROnDemandScanning_ExploitabilitySignal_VexJustification_VulnerableCodeCannotBeControlledByAdversary = @"VULNERABLE_CODE_CANNOT_BE_CONTROLLED_BY_ADVERSARY";
+NSString * const kGTLROnDemandScanning_ExploitabilitySignal_VexJustification_VulnerableCodeNotInExecutePath = @"VULNERABLE_CODE_NOT_IN_EXECUTE_PATH";
+NSString * const kGTLROnDemandScanning_ExploitabilitySignal_VexJustification_VulnerableCodeNotPresent = @"VULNERABLE_CODE_NOT_PRESENT";
+
+// GTLROnDemandScanning_ExploitabilitySignal.vexStatus
+NSString * const kGTLROnDemandScanning_ExploitabilitySignal_VexStatus_Affected = @"AFFECTED";
+NSString * const kGTLROnDemandScanning_ExploitabilitySignal_VexStatus_Fixed = @"FIXED";
+NSString * const kGTLROnDemandScanning_ExploitabilitySignal_VexStatus_NotAffected = @"NOT_AFFECTED";
+NSString * const kGTLROnDemandScanning_ExploitabilitySignal_VexStatus_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLROnDemandScanning_ExploitabilitySignal_VexStatus_UnderInvestigation = @"UNDER_INVESTIGATION";
+
+// GTLROnDemandScanning_ExploitabilitySummary.vexStatus
+NSString * const kGTLROnDemandScanning_ExploitabilitySummary_VexStatus_Affected = @"AFFECTED";
+NSString * const kGTLROnDemandScanning_ExploitabilitySummary_VexStatus_Fixed = @"FIXED";
+NSString * const kGTLROnDemandScanning_ExploitabilitySummary_VexStatus_NotAffected = @"NOT_AFFECTED";
+NSString * const kGTLROnDemandScanning_ExploitabilitySummary_VexStatus_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLROnDemandScanning_ExploitabilitySummary_VexStatus_UnderInvestigation = @"UNDER_INVESTIGATION";
+
 // GTLROnDemandScanning_Finding.scanner
 NSString * const kGTLROnDemandScanning_Finding_Scanner_GoogleAntivirus = @"GOOGLE_ANTIVIRUS";
 NSString * const kGTLROnDemandScanning_Finding_Scanner_Llm     = @"LLM";
@@ -844,6 +866,44 @@ NSString * const kGTLROnDemandScanning_WorkspacePolicyResult_Verdict_VerdictUnsp
 
 // ----------------------------------------------------------------------------
 //
+//   GTLROnDemandScanning_Exploitability
+//
+
+@implementation GTLROnDemandScanning_Exploitability
+@dynamic signals, summary;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"signals" : [GTLROnDemandScanning_ExploitabilitySignal class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROnDemandScanning_ExploitabilitySignal
+//
+
+@implementation GTLROnDemandScanning_ExploitabilitySignal
+@dynamic rationale, source, vexJustification, vexStatus;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROnDemandScanning_ExploitabilitySummary
+//
+
+@implementation GTLROnDemandScanning_ExploitabilitySummary
+@dynamic rationale, vexStatus;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLROnDemandScanning_ExploitPredictionScoringSystem
 //
 
@@ -984,14 +1044,25 @@ NSString * const kGTLROnDemandScanning_WorkspacePolicyResult_Verdict_VerdictUnsp
 
 // ----------------------------------------------------------------------------
 //
+//   GTLROnDemandScanning_GrafeasV1LayerAttribute
+//
+
+@implementation GTLROnDemandScanning_GrafeasV1LayerAttribute
+@dynamic plugin, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLROnDemandScanning_GrafeasV1LayerDetails
 //
 
 @implementation GTLROnDemandScanning_GrafeasV1LayerDetails
-@dynamic baseImages, chainId, command, diffId, index;
+@dynamic attributes, baseImages, chainId, command, diffId, index;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"attributes" : [GTLROnDemandScanning_GrafeasV1LayerAttribute class],
     @"baseImages" : [GTLROnDemandScanning_GrafeasV1BaseImage class]
   };
   return map;
@@ -1275,14 +1346,25 @@ NSString * const kGTLROnDemandScanning_WorkspacePolicyResult_Verdict_VerdictUnsp
 
 // ----------------------------------------------------------------------------
 //
+//   GTLROnDemandScanning_LayerAttribute
+//
+
+@implementation GTLROnDemandScanning_LayerAttribute
+@dynamic plugin, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLROnDemandScanning_LayerDetails
 //
 
 @implementation GTLROnDemandScanning_LayerDetails
-@dynamic baseImages, chainId, command, diffId, index;
+@dynamic attributes, baseImages, chainId, command, diffId, index;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"attributes" : [GTLROnDemandScanning_LayerAttribute class],
     @"baseImages" : [GTLROnDemandScanning_BaseImage class]
   };
   return map;
@@ -1539,8 +1621,8 @@ NSString * const kGTLROnDemandScanning_WorkspacePolicyResult_Verdict_VerdictUnsp
 
 @implementation GTLROnDemandScanning_PackageIssue
 @dynamic affectedCpeUri, affectedPackage, affectedVersion, effectiveSeverity,
-         fileLocation, fixAvailable, fixedCpeUri, fixedPackage, fixedVersion,
-         packageType;
+         exploitability, fileLocation, fixAvailable, fixedCpeUri, fixedPackage,
+         fixedVersion, packageType;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2247,8 +2329,9 @@ NSString * const kGTLROnDemandScanning_WorkspacePolicyResult_Verdict_VerdictUnsp
 
 @implementation GTLROnDemandScanning_VulnerabilityOccurrence
 @dynamic cvssScore, cvssV2, cvssv3, cvssV4, cvssVersion, effectiveSeverity,
-         extraDetails, fixAvailable, longDescription, packageIssue, relatedUrls,
-         risk, severity, shortDescription, type, vexAssessment;
+         exploitability, extraDetails, fixAvailable, longDescription,
+         packageIssue, relatedUrls, risk, severity, shortDescription, type,
+         vexAssessment;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

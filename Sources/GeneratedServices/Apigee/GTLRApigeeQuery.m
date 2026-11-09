@@ -20,6 +20,7 @@
 // retention
 NSString * const kGTLRApigeeRetentionDeletionRetentionUnspecified = @"DELETION_RETENTION_UNSPECIFIED";
 NSString * const kGTLRApigeeRetentionMinimum                   = @"MINIMUM";
+NSString * const kGTLRApigeeRetentionNoRetention               = @"NO_RETENTION";
 
 // riskAssessmentType
 NSString * const kGTLRApigeeRiskAssessmentTypeApigee           = @"APIGEE";

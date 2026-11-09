@@ -2001,8 +2001,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_GkeNetworkPolicySkippe
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_GkeNetworkPolicySkippedInfo_Reason_IngressSourceOnSameNode;
 /**
- *  Network Policy evaluation is currently not supported for clusters with FQDN
- *  Network Policies enabled.
+ *  Network Policy evaluation is currently not supported for Pods selected by an
+ *  FQDN Network Policy.
  *
  *  Value: "NETWORK_POLICY_ANALYSIS_UNSUPPORTED"
  */
@@ -4107,13 +4107,6 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_W
  */
 @property(nonatomic, copy, nullable) NSString *uri;
 
-/**
- *  Output only. The URI of the worker pool that the revision belongs to. The
- *  format is: projects/{project}/locations/{location}/workerPools/{workerPool}.
- *  Mutually exclusive with service_uri.
- */
-@property(nonatomic, copy, nullable) NSString *workerPoolUri;
-
 @end
 
 
@@ -5137,6 +5130,14 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_W
 @property(nonatomic, copy, nullable) NSString *cloudSqlInstance;
 
 /**
+ *  A [Datastream Private
+ *  Connection](https://docs.cloud.google.com/datastream/docs/reference/rest/v1/projects.locations.privateConnections)
+ *  name format:
+ *  projects/{project}/locations/{location}/privateConnections/{privateConnection}.
+ */
+@property(nonatomic, copy, nullable) NSString *datastreamPrivateConnection;
+
+/**
  *  A [DMS Private
  *  Connection](https://docs.cloud.google.com/database-migration/docs/reference/rest/v1/projects.locations.privateConnections)
  *  name format:
@@ -5829,8 +5830,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_W
  *        Ingress traffic to a Pod from a source on the same Node is always
  *        allowed. (Value: "INGRESS_SOURCE_ON_SAME_NODE")
  *    @arg @c kGTLRNetworkManagement_GkeNetworkPolicySkippedInfo_Reason_NetworkPolicyAnalysisUnsupported
- *        Network Policy evaluation is currently not supported for clusters with
- *        FQDN Network Policies enabled. (Value:
+ *        Network Policy evaluation is currently not supported for Pods selected
+ *        by an FQDN Network Policy. (Value:
  *        "NETWORK_POLICY_ANALYSIS_UNSUPPORTED")
  *    @arg @c kGTLRNetworkManagement_GkeNetworkPolicySkippedInfo_Reason_NetworkPolicyDisabled
  *        Network Policy is disabled on the cluster. (Value:
@@ -6940,7 +6941,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_W
 @property(nonatomic, copy, nullable) NSString *routerUri;
 
 /**
- *  The number of the NAT rule that was matched.
+ *  The number of the NAT rule that was matched. Only valid when `type` is
+ *  CLOUD_NAT.
  *
  *  Uses NSNumber of intValue.
  */

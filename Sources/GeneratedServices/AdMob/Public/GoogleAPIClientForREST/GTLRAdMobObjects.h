@@ -194,6 +194,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpec_Dimensions_Wee
 // GTLRAdMob_MediationReportSpec.metrics
 
 /**
+ *  The ad load latency is the total time it takes for an ad to load measured in
+ *  seconds. It starts when the ad is requested and ends when a response is
+ *  received. See https://support.google.com/admob/answer/12571120 for
+ *  additional information.
+ *
+ *  Value: "AD_LOAD_LATENCY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpec_Metrics_AdLoadLatency;
+/**
  *  The number of requests. The value is an integer.
  *
  *  Value: "AD_REQUESTS"
@@ -490,6 +499,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecSortCondition_D
 // ----------------------------------------------------------------------------
 // GTLRAdMob_MediationReportSpecSortCondition.metric
 
+/**
+ *  The ad load latency is the total time it takes for an ad to load measured in
+ *  seconds. It starts when the ad is requested and ends when a response is
+ *  received. See https://support.google.com/admob/answer/12571120 for
+ *  additional information.
+ *
+ *  Value: "AD_LOAD_LATENCY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecSortCondition_Metric_AdLoadLatency;
 /**
  *  The number of requests. The value is an integer.
  *
@@ -1719,6 +1737,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_ReportWarning_Type_TypeUnspecified
  *  Sort by the specified metric.
  *
  *  Likely values:
+ *    @arg @c kGTLRAdMob_MediationReportSpecSortCondition_Metric_AdLoadLatency
+ *        The ad load latency is the total time it takes for an ad to load
+ *        measured in seconds. It starts when the ad is requested and ends when
+ *        a response is received. See
+ *        https://support.google.com/admob/answer/12571120 for additional
+ *        information. (Value: "AD_LOAD_LATENCY")
  *    @arg @c kGTLRAdMob_MediationReportSpecSortCondition_Metric_AdRequests The
  *        number of requests. The value is an integer. (Value: "AD_REQUESTS")
  *    @arg @c kGTLRAdMob_MediationReportSpecSortCondition_Metric_Clicks The

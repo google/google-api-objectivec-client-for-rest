@@ -79,6 +79,7 @@ NSString * const kGTLRDataform_WorkflowInvocationAction_State_Cancelled = @"CANC
 NSString * const kGTLRDataform_WorkflowInvocationAction_State_Disabled = @"DISABLED";
 NSString * const kGTLRDataform_WorkflowInvocationAction_State_Failed = @"FAILED";
 NSString * const kGTLRDataform_WorkflowInvocationAction_State_Pending = @"PENDING";
+NSString * const kGTLRDataform_WorkflowInvocationAction_State_Queued = @"QUEUED";
 NSString * const kGTLRDataform_WorkflowInvocationAction_State_Running = @"RUNNING";
 NSString * const kGTLRDataform_WorkflowInvocationAction_State_Skipped = @"SKIPPED";
 NSString * const kGTLRDataform_WorkflowInvocationAction_State_Succeeded = @"SUCCEEDED";
@@ -832,9 +833,10 @@ NSString * const kGTLRDataform_WorkflowInvocationAction_State_Succeeded = @"SUCC
 //
 
 @implementation GTLRDataform_InvocationConfig
-@dynamic endUserAuthConfig, executionMode, fullyRefreshIncrementalTablesEnabled,
-         includedTags, includedTargets, queryPriority, serviceAccount,
-         transitiveDependenciesIncluded, transitiveDependentsIncluded;
+@dynamic concurrentActionsLimit, endUserAuthConfig, executionMode,
+         fullyRefreshIncrementalTablesEnabled, includedTags, includedTargets,
+         queryPriority, serviceAccount, transitiveDependenciesIncluded,
+         transitiveDependentsIncluded;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

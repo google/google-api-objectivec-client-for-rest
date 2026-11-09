@@ -204,7 +204,7 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 //
 
 @implementation GTLRBigtableAdmin_AutomatedBackupPolicy
-@dynamic frequency, locations, retentionPeriod;
+@dynamic disabled, frequency, keepHotDuration, locations, retentionPeriod;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1929,8 +1929,9 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 
 @implementation GTLRBigtableAdmin_Table
 @dynamic automatedBackupPolicy, changeStreamConfig, clusterStates,
-         columnFamilies, deletionProtection, granularity, name, restoreInfo,
-         rowKeySchema, stats, tieredStorageConfig;
+         columnFamilies, deletionProtection, effectiveAutomatedBackupPolicy,
+         granularity, name, restoreInfo, rowKeySchema, stats,
+         tieredStorageConfig;
 @end
 
 

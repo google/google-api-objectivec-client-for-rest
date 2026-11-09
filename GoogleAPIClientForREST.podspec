@@ -620,6 +620,11 @@ Pod::Spec.new do |s|
     sp.source_files = 'Sources/GeneratedServices/CloudWorkstations/**/*.{h,m}'
     sp.public_header_files = 'Sources/GeneratedServices/CloudWorkstations/Public/GoogleAPIClientForREST/*.h'
   end
+  s.subspec 'Colab' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Sources/GeneratedServices/Colab/**/*.{h,m}'
+    sp.public_header_files = 'Sources/GeneratedServices/Colab/Public/GoogleAPIClientForREST/*.h'
+  end
   s.subspec 'Compute' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Sources/GeneratedServices/Compute/**/*.{h,m}'
@@ -749,6 +754,11 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Sources/GeneratedServices/DataTransfer/**/*.{h,m}'
     sp.public_header_files = 'Sources/GeneratedServices/DataTransfer/Public/GoogleAPIClientForREST/*.h'
+  end
+  s.subspec 'DeepReview' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Sources/GeneratedServices/DeepReview/**/*.{h,m}'
+    sp.public_header_files = 'Sources/GeneratedServices/DeepReview/Public/GoogleAPIClientForREST/*.h'
   end
   s.subspec 'DeploymentManager' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'

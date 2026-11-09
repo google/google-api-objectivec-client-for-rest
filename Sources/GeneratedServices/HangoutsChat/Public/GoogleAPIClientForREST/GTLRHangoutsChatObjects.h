@@ -37,6 +37,8 @@
 @class GTLRHangoutsChat_CardWithId;
 @class GTLRHangoutsChat_ChatClientDataSourceMarkup;
 @class GTLRHangoutsChat_ChatSpaceLinkData;
+@class GTLRHangoutsChat_Citation;
+@class GTLRHangoutsChat_CitedSource;
 @class GTLRHangoutsChat_Color;
 @class GTLRHangoutsChat_CommonEventObject;
 @class GTLRHangoutsChat_CommonEventObject_FormInputs;
@@ -53,8 +55,11 @@
 @class GTLRHangoutsChat_DoNotDisturbMetadata;
 @class GTLRHangoutsChat_DriveDataRef;
 @class GTLRHangoutsChat_DriveLinkData;
+@class GTLRHangoutsChat_Elements;
+@class GTLRHangoutsChat_ElementsImage;
 @class GTLRHangoutsChat_Emoji;
 @class GTLRHangoutsChat_EmojiReactionSummary;
+@class GTLRHangoutsChat_Footer;
 @class GTLRHangoutsChat_FormAction;
 @class GTLRHangoutsChat_ForwardedMetadata;
 @class GTLRHangoutsChat_GoogleAppsCardV1Action;
@@ -153,6 +158,7 @@
 @class GTLRHangoutsChat_SelectionItems;
 @class GTLRHangoutsChat_SlashCommand;
 @class GTLRHangoutsChat_SlashCommandMetadata;
+@class GTLRHangoutsChat_Snippet;
 @class GTLRHangoutsChat_Space;
 @class GTLRHangoutsChat_SpaceBatchUpdatedEventData;
 @class GTLRHangoutsChat_SpaceDataSource;
@@ -3081,6 +3087,9 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Ty
  */
 @property(nonatomic, copy, nullable) NSString *cardId;
 
+/** Output only. The app that owns the card. */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_User *ownerUser;
+
 @end
 
 
@@ -3143,6 +3152,64 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Ty
  *  `spaces/{space}/threads/{thread}`
  */
 @property(nonatomic, copy, nullable) NSString *thread;
+
+@end
+
+
+/**
+ *  Citations are inline references that can provide users more detailed
+ *  information about the inline reference. Corresponding inline citations
+ *  should be present in the message text in a markup format of `{text}`.
+ *  Citations are only supported when the message's `markup_syntax` is set to
+ *  `MARKDOWN`. Unreferenced citations in `Elements.citations` (those without a
+ *  matching `` tag in the message text) are ignored and do not cause the
+ *  message to be rejected.
+ */
+@interface GTLRHangoutsChat_Citation : GTLRObject
+
+/**
+ *  Optional. A list of sources that are relevant to the citation. Sources are
+ *  displayed in the citation hover card.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRHangoutsChat_CitedSource *> *citedSources;
+
+/**
+ *  Required. The ID of the citation. This ID is defined by the app creating the
+ *  citation and must match the `data-id` attribute of the `` tag in the message
+ *  text. Must contain only ASCII letters and numbers, and less than 63
+ *  characters.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+@end
+
+
+/**
+ *  A reference to a source of information.
+ */
+@interface GTLRHangoutsChat_CitedSource : GTLRObject
+
+/**
+ *  Optional. Additional information to show alongside the snippet in the form
+ *  of a footer.
+ */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_Footer *footer;
+
+/** Optional. Snippet containing information directly from the source. */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_Snippet *snippet;
+
+/**
+ *  Required. The plaintext title of the `CitedSource`. Does not support
+ *  markdown format.
+ */
+@property(nonatomic, copy, nullable) NSString *title;
+
+/**
+ *  Required. The URI pointing to the resource referenced by this `CitedSource`.
+ */
+@property(nonatomic, copy, nullable) NSString *uri;
 
 @end
 
@@ -3257,37 +3324,47 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Ty
 
 /**
  *  A map containing the current values of the widgets in the displayed card.
- *  The map keys are the string IDs assigned with each widget. The structure of
- *  the map value object is dependent on the widget type: **Note**: The
- *  following examples are formatted for Apps Script's V8 runtime. If you're
- *  using Rhino runtime, you must add `[""]` after the value. For example,
- *  instead of
+ *  The map keys are the string `name` values assigned to each input widget
+ *  (such as `TextInput.name`, `SelectionInput.name`, `DateTimePicker.name`, or
+ *  `DecoratedText.SwitchControl.name`). The structure of the map value object
+ *  is dependent on the widget type: **Note**: The following examples are
+ *  formatted for Apps Script's V8 runtime. If you're using Rhino runtime, you
+ *  must add `[""]` after the value. For example, instead of
  *  `e.commonEventObject.formInputs.employeeName.stringInputs.value[0]`, format
  *  the event object as
  *  `e.commonEventObject.formInputs.employeeName[""].stringInputs.value[0]`. To
  *  learn more about runtimes in Apps Script, see the [V8 Runtime
  *  Overview](https://developers.google.com/apps-script/guides/v8-runtime). *
- *  Single-valued widgets (for example, a text box): a list of strings (only one
- *  element). **Example**: for a text input widget with `employeeName` as its
- *  ID, access the text input value with:
+ *  Single-valued widgets (for example, a `TextInput` widget, or a
+ *  `SelectionInput` widget of type `DROPDOWN` or `RADIO_BUTTON`): a
+ *  `StringInputs` object containing a single-element list (or an empty list if
+ *  no selection is made). **Example**: for a text input widget with
+ *  `employeeName` as its `name`, access the text input value with:
  *  `e.commonEventObject.formInputs.employeeName.stringInputs.value[0]`. *
- *  Multi-valued widgets (for example, checkbox groups): a list of strings.
- *  **Example**: for a multi-value widget with `participants` as its ID, access
- *  the value array with:
- *  `e.commonEventObject.formInputs.participants.stringInputs.value`. * **A
- *  date-time picker**: a [`DateTimeInput
+ *  Multi-valued widgets (for example, a `SelectionInput` widget of type
+ *  `CHECK_BOX`, `SWITCH`, or `MULTI_SELECT`): a `StringInputs` object
+ *  containing the list of selected item `value` strings. **Example**: for a
+ *  multi-value widget with `participants` as its `name`, access the value array
+ *  with: `e.commonEventObject.formInputs.participants.stringInputs.value`. *
+ *  **A `DecoratedText.SwitchControl` widget**: a `StringInputs` object. When
+ *  `selected` is `true`, `stringInputs.value` contains the switch's `value`
+ *  field (or `""` if `value` was not specified; if multiple switches share the
+ *  same `name`, each selected switch's `value` is included in the list). When
+ *  `selected` is `false`, the switch's `value` is omitted from
+ *  `stringInputs.value`. * **A date-time picker
+ *  (`DateTimePickerType.DATE_AND_TIME`)**: a [`DateTimeInput
  *  object`](https://developers.google.com/workspace/add-ons/concepts/event-objects#date-time-input).
- *  **Example**: For a picker with an ID of `myDTPicker`, access the
+ *  **Example**: For a picker with a `name` of `myDTPicker`, access the
  *  [`DateTimeInput`](https://developers.google.com/workspace/add-ons/concepts/event-objects#date-time-input)
  *  object using `e.commonEventObject.formInputs.myDTPicker.dateTimeInput`. *
- *  **A date-only picker**: a [`DateInput
+ *  **A date-only picker (`DateTimePickerType.DATE_ONLY`)**: a [`DateInput
  *  object`](https://developers.google.com/workspace/add-ons/concepts/event-objects#date-input).
- *  **Example**: For a picker with an ID of `myDatePicker`, access the
+ *  **Example**: For a picker with a `name` of `myDatePicker`, access the
  *  [`DateInput`](https://developers.google.com/workspace/add-ons/concepts/event-objects#date-input)
  *  object using `e.commonEventObject.formInputs.myDatePicker.dateInput`. * **A
- *  time-only picker**: a [`TimeInput
+ *  time-only picker (`DateTimePickerType.TIME_ONLY`)**: a [`TimeInput
  *  object`](https://developers.google.com/workspace/add-ons/concepts/event-objects#time-input).
- *  **Example**: For a picker with an ID of `myTimePicker`, access the
+ *  **Example**: For a picker with a `name` of `myTimePicker`, access the
  *  [`TimeInput`](https://developers.google.com/workspace/add-ons/concepts/event-objects#time-input)
  *  object using `e.commonEventObject.formInputs.myTimePicker.timeInput`.
  */
@@ -3398,37 +3475,47 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Ty
 
 /**
  *  A map containing the current values of the widgets in the displayed card.
- *  The map keys are the string IDs assigned with each widget. The structure of
- *  the map value object is dependent on the widget type: **Note**: The
- *  following examples are formatted for Apps Script's V8 runtime. If you're
- *  using Rhino runtime, you must add `[""]` after the value. For example,
- *  instead of
+ *  The map keys are the string `name` values assigned to each input widget
+ *  (such as `TextInput.name`, `SelectionInput.name`, `DateTimePicker.name`, or
+ *  `DecoratedText.SwitchControl.name`). The structure of the map value object
+ *  is dependent on the widget type: **Note**: The following examples are
+ *  formatted for Apps Script's V8 runtime. If you're using Rhino runtime, you
+ *  must add `[""]` after the value. For example, instead of
  *  `e.commonEventObject.formInputs.employeeName.stringInputs.value[0]`, format
  *  the event object as
  *  `e.commonEventObject.formInputs.employeeName[""].stringInputs.value[0]`. To
  *  learn more about runtimes in Apps Script, see the [V8 Runtime
  *  Overview](https://developers.google.com/apps-script/guides/v8-runtime). *
- *  Single-valued widgets (for example, a text box): a list of strings (only one
- *  element). **Example**: for a text input widget with `employeeName` as its
- *  ID, access the text input value with:
+ *  Single-valued widgets (for example, a `TextInput` widget, or a
+ *  `SelectionInput` widget of type `DROPDOWN` or `RADIO_BUTTON`): a
+ *  `StringInputs` object containing a single-element list (or an empty list if
+ *  no selection is made). **Example**: for a text input widget with
+ *  `employeeName` as its `name`, access the text input value with:
  *  `e.commonEventObject.formInputs.employeeName.stringInputs.value[0]`. *
- *  Multi-valued widgets (for example, checkbox groups): a list of strings.
- *  **Example**: for a multi-value widget with `participants` as its ID, access
- *  the value array with:
- *  `e.commonEventObject.formInputs.participants.stringInputs.value`. * **A
- *  date-time picker**: a [`DateTimeInput
+ *  Multi-valued widgets (for example, a `SelectionInput` widget of type
+ *  `CHECK_BOX`, `SWITCH`, or `MULTI_SELECT`): a `StringInputs` object
+ *  containing the list of selected item `value` strings. **Example**: for a
+ *  multi-value widget with `participants` as its `name`, access the value array
+ *  with: `e.commonEventObject.formInputs.participants.stringInputs.value`. *
+ *  **A `DecoratedText.SwitchControl` widget**: a `StringInputs` object. When
+ *  `selected` is `true`, `stringInputs.value` contains the switch's `value`
+ *  field (or `""` if `value` was not specified; if multiple switches share the
+ *  same `name`, each selected switch's `value` is included in the list). When
+ *  `selected` is `false`, the switch's `value` is omitted from
+ *  `stringInputs.value`. * **A date-time picker
+ *  (`DateTimePickerType.DATE_AND_TIME`)**: a [`DateTimeInput
  *  object`](https://developers.google.com/workspace/add-ons/concepts/event-objects#date-time-input).
- *  **Example**: For a picker with an ID of `myDTPicker`, access the
+ *  **Example**: For a picker with a `name` of `myDTPicker`, access the
  *  [`DateTimeInput`](https://developers.google.com/workspace/add-ons/concepts/event-objects#date-time-input)
  *  object using `e.commonEventObject.formInputs.myDTPicker.dateTimeInput`. *
- *  **A date-only picker**: a [`DateInput
+ *  **A date-only picker (`DateTimePickerType.DATE_ONLY`)**: a [`DateInput
  *  object`](https://developers.google.com/workspace/add-ons/concepts/event-objects#date-input).
- *  **Example**: For a picker with an ID of `myDatePicker`, access the
+ *  **Example**: For a picker with a `name` of `myDatePicker`, access the
  *  [`DateInput`](https://developers.google.com/workspace/add-ons/concepts/event-objects#date-input)
  *  object using `e.commonEventObject.formInputs.myDatePicker.dateInput`. * **A
- *  time-only picker**: a [`TimeInput
+ *  time-only picker (`DateTimePickerType.TIME_ONLY`)**: a [`TimeInput
  *  object`](https://developers.google.com/workspace/add-ons/concepts/event-objects#time-input).
- *  **Example**: For a picker with an ID of `myTimePicker`, access the
+ *  **Example**: For a picker with a `name` of `myTimePicker`, access the
  *  [`TimeInput`](https://developers.google.com/workspace/add-ons/concepts/event-objects#time-input)
  *  object using `e.commonEventObject.formInputs.myTimePicker.timeInput`.
  *
@@ -3679,14 +3766,16 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Ty
  *  In addition to receiving events from user interactions, Chat apps can
  *  receive events about changes to spaces, such as when a new member is added
  *  to a space. To learn about space events, see [Work with events from Google
- *  Chat](https://developers.google.com/workspace/chat/events-overview). Note:
- *  This event is only used for [Chat interaction
- *  events](https://developers.google.com/workspace/chat/receive-respond-interactions).
+ *  Chat](https://developers.google.com/workspace/chat/events-overview).
+ *  Warning: This event object is only used for [Chat apps that aren't
+ *  add-ons](https://developers.google.com/workspace/chat/receive-respond-interactions#not-add-on-interaction-events).
  *  If your Chat app is built as a [Google Workspace
- *  add-on](https://developers.google.com/workspace/add-ons/chat/build), see
- *  [Chat event
+ *  add-on](https://developers.google.com/workspace/add-ons/chat/build), instead
+ *  see [Add-on event
  *  objects](https://developers.google.com/workspace/add-ons/concepts/event-objects#chat-event-object)
- *  in the add-ons documentation.
+ *  in the add-ons documentation. To confirm which type of event your app
+ *  receives, see [Determine your event
+ *  type](https://developers.google.com/workspace/chat/receive-respond-interactions#determine-event-type).
  */
 @interface GTLRHangoutsChat_DeprecatedEvent : GTLRObject
 
@@ -3862,11 +3951,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Ty
  */
 @interface GTLRHangoutsChat_Dialog : GTLRObject
 
-/**
- *  Input only. Body of the dialog, which is rendered in a modal. Google Chat
- *  apps don't support the following card entities: `DateTimePicker`,
- *  `OnChangeAction`.
- */
+/** Input only. Body of the dialog, which is rendered in a modal. */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1Card *body;
 
 @end
@@ -3940,6 +4025,48 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Ty
 
 
 /**
+ *  Elements are additional message components, including inline `citations`
+ *  (where each citation is associated with a specific portion of the message
+ *  text) and `cited_sources` (which are general references used to generate the
+ *  response and are not directly linked to specific segments of the text). Both
+ *  `citations` and `cited_sources` can be provided as input when creating or
+ *  updating a message and are populated on output when reading a message.
+ */
+@interface GTLRHangoutsChat_Elements : GTLRObject
+
+/**
+ *  Optional. A list of inline citations referenced within the message text (via
+ *  `` tags) that render as interactive hover cards.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRHangoutsChat_Citation *> *citations;
+
+/**
+ *  Optional. A list of sources to be displayed under the message as footer
+ *  links. These are not referenced inline. For inline references, use
+ *  `citations`.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRHangoutsChat_CitedSource *> *citedSources;
+
+@end
+
+
+/**
+ *  An object encapsulating different ways of representing an image. Currently
+ *  supported representations: * An image fetched from a URI. Additional
+ *  representations might be supported in the future.
+ */
+@interface GTLRHangoutsChat_ElementsImage : GTLRObject
+
+/**
+ *  Required. The URI of the image. Must be a publicly accessible URI so that
+ *  Chat can fetch and display it.
+ */
+@property(nonatomic, copy, nullable) NSString *imageUri;
+
+@end
+
+
+/**
  *  An emoji that is used as a reaction to a message.
  */
 @interface GTLRHangoutsChat_Emoji : GTLRObject
@@ -4005,6 +4132,20 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Ty
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRHangoutsChat_Space *> *spaces;
+
+@end
+
+
+/**
+ *  A footer for a source, used for attribution.
+ */
+@interface GTLRHangoutsChat_Footer : GTLRObject
+
+/**
+ *  Optional. The plaintext to display in the footer. Does not support markdown
+ *  format.
+ */
+@property(nonatomic, copy, nullable) NSString *text;
 
 @end
 
@@ -4194,9 +4335,9 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Ty
  *  must be a float number between 0 and 1 based on the RGB color value, where
  *  `0` (0/255) represents the absence of color and `1` (255/255) represents the
  *  maximum intensity of the color. For example, the following sets the color to
- *  red at its maximum intensity: ``` "color": { "red": 1, "green": 0, "blue":
- *  0, } ``` The `alpha` field is unavailable for stroke color. If specified,
- *  this field is ignored.
+ *  red at its maximum intensity: ``` "color": { "red": 1, "green": 0, "blue": 0
+ *  } ``` The `alpha` field is unavailable for stroke color. If specified, this
+ *  field is ignored.
  */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_Color *strokeColor;
 
@@ -4244,9 +4385,9 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Ty
  *  a float number between 0 and 1 based on the RGB color value, where `0`
  *  (0/255) represents the absence of color and `1` (255/255) represents the
  *  maximum intensity of the color. For example, the following sets the color to
- *  red at its maximum intensity: ``` "color": { "red": 1, "green": 0, "blue":
- *  0, } ``` The `alpha` field is unavailable for button color. If specified,
- *  this field is ignored.
+ *  red at its maximum intensity: ``` "color": { "red": 1, "green": 0, "blue": 0
+ *  } ``` The `alpha` field is unavailable for button color. If specified, this
+ *  field is ignored.
  */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_Color *color;
 
@@ -4354,15 +4495,15 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Ty
 @interface GTLRHangoutsChat_GoogleAppsCardV1Card : GTLRObject
 
 /**
- *  The card's actions. Actions are added to the card's toolbar menu. [Google
- *  Workspace add-ons](https://developers.google.com/workspace/add-ons): For
- *  example, the following JSON constructs a card action menu with `Settings`
- *  and `Send Feedback` options: ``` "card_actions": [ { "actionLabel":
- *  "Settings", "onClick": { "action": { "functionName": "goToView",
- *  "parameters": [ { "key": "viewType", "value": "SETTING" } ],
- *  "loadIndicator": "LoadIndicator.SPINNER" } } }, { "actionLabel": "Send
- *  Feedback", "onClick": { "openLink": { "url": "https://example.com/feedback"
- *  } } } ] ```
+ *  The card's actions. Actions are added to the card's toolbar menu. Supports
+ *  up to 10 `CardAction` items. [Google Workspace
+ *  add-ons](https://developers.google.com/workspace/add-ons): For example, the
+ *  following JSON constructs a card action menu with `Settings` and `Send
+ *  Feedback` options: ``` "cardActions": [ { "actionLabel": "Settings",
+ *  "onClick": { "action": { "function": "goToView", "parameters": [ { "key":
+ *  "viewType", "value": "SETTING" } ], "loadIndicator": "SPINNER" } } }, {
+ *  "actionLabel": "Send Feedback", "onClick": { "openLink": { "url":
+ *  "https://example.com/feedback" } } } ] ```
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRHangoutsChat_GoogleAppsCardV1CardAction *> *cardActions;
 
@@ -4541,15 +4682,14 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Ty
 
 
 /**
- *  A carousel, also known as a slider, rotates and displays a list of widgets
- *  in a slideshow format, with buttons navigating to the previous or next
- *  widget. For example, this is a JSON representation of a carousel that
- *  contains three text paragraph widgets. ``` { "carouselCards": [ { "widgets":
- *  [ { "textParagraph": { "text": "First text paragraph in carousel", } } ] },
- *  { "widgets": [ { "textParagraph": { "text": "Second text paragraph in
- *  carousel", } } ] }, { "widgets": [ { "textParagraph": { "text": "Third text
- *  paragraph in carousel", } } ] } ] } ``` [Google Chat
- *  apps](https://developers.google.com/workspace/chat):
+ *  Rotates and displays a list of carousel cards in a slideshow format, with
+ *  buttons navigating to the previous or next card. For example, this is a JSON
+ *  representation of a carousel that contains three text paragraph widgets. ```
+ *  { "carouselCards": [ { "widgets": [ { "textParagraph": { "text": "First text
+ *  paragraph in carousel" } } ] }, { "widgets": [ { "textParagraph": { "text":
+ *  "Second text paragraph in carousel" } } ] }, { "widgets": [ {
+ *  "textParagraph": { "text": "Third text paragraph in carousel" } } ] } ] }
+ *  ``` [Google Chat apps](https://developers.google.com/workspace/chat):
  */
 @interface GTLRHangoutsChat_GoogleAppsCardV1Carousel : GTLRObject
 
@@ -4603,16 +4743,16 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Ty
 @property(nonatomic, strong, nullable) NSNumber *disabled;
 
 /**
- *  Whether the chip is in an active state and responds to user actions.
- *  Defaults to `true`. Deprecated. Use `disabled` instead.
+ *  Deprecated: Use `disabled` instead. Whether the chip is in an active state
+ *  and responds to user actions.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *enabled GTLR_DEPRECATED;
 
 /**
- *  The icon image. If both `icon` and `text` are set, then the icon appears
- *  before the text.
+ *  The icon image. If both `icon` and `label` are set, then the icon appears
+ *  before the label.
  */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1Icon *icon;
 
@@ -4895,7 +5035,9 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Ty
 /**
  *  The number representing the time zone offset from UTC, in minutes. If set,
  *  the `value_ms_epoch` is displayed in the specified time zone. If unset, the
- *  value defaults to the user's time zone setting.
+ *  value defaults to the user's time zone setting. Note: This field is in
+ *  minutes, whereas user interaction event payloads typically provide time zone
+ *  offsets in milliseconds (divide by `60000` to convert).
  *
  *  Uses NSNumber of intValue.
  */
@@ -4974,7 +5116,11 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Ty
 /** Deprecated in favor of `startIcon`. */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1Icon *icon GTLR_DEPRECATED;
 
-/** This action is triggered when users click `topLabel` or `bottomLabel`. */
+/**
+ *  This action is triggered when users click anywhere on the `DecoratedText`
+ *  widget (including `text`, `top_label`, `bottom_label`, and icons), except
+ *  when clicking a separate interactive control (`button` or `switch_control`).
+ */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1OnClick *onClick;
 
 /** The icon displayed in front of the text. */
@@ -5138,8 +5284,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Ty
  *  "borderStyle": { "type": "STROKE", "cornerRadius": 4 }, "items": [ {
  *  "image": { "imageUri": "https://www.example.com/image.png", "cropStyle": {
  *  "type": "SQUARE" }, "borderStyle": { "type": "STROKE" } }, "title": "An
- *  item", "textAlignment": "CENTER" } ], "onClick": { "openLink": { "url":
- *  "https://www.example.com" } } } ```
+ *  item" } ], "onClick": { "openLink": { "url": "https://www.example.com" } } }
+ *  ```
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "items" property.
@@ -5168,7 +5314,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Ty
 
 /**
  *  This callback is reused by each individual grid item, but with the item's
- *  identifier and index in the items list added to the callback's parameters.
+ *  identifier added to the callback's parameters (under the key
+ *  `"grid_item_identifier"`).
  */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1OnClick *onClick;
 
@@ -5279,7 +5426,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Ty
  *  Display one of the [Google Material Icons](https://fonts.google.com/icons).
  *  For example, to display a [checkbox
  *  icon](https://fonts.google.com/icons?selected=Material%20Symbols%20Outlined%3Acheck_box%3AFILL%400%3Bwght%40400%3BGRAD%400%3Bopsz%4048),
- *  use ``` "material_icon": { "name": "check_box" } ``` [Google Chat
+ *  use ``` "materialIcon": { "name": "check_box" } ``` [Google Chat
  *  apps](https://developers.google.com/workspace/chat):
  */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1MaterialIcon *materialIcon;
@@ -5662,7 +5809,10 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Ty
  */
 @property(nonatomic, strong, nullable) NSNumber *uncollapsibleWidgetsCount;
 
-/** All the widgets in the section. Must contain at least one widget. */
+/**
+ *  All the widgets in the section. Must contain at least one widget. A card
+ *  supports up to 100 widgets across all sections.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRHangoutsChat_GoogleAppsCardV1Widget *> *widgets;
 
 @end
@@ -5933,8 +6083,9 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Ty
 @property(nonatomic, copy, nullable) NSString *controlType;
 
 /**
- *  The name by which the switch widget is identified in a form input event. For
- *  details about working with form inputs, see [Receive form
+ *  The name by which the switch widget is identified in a form input event (as
+ *  the key in `CommonEventObject.form_inputs`). For details about working with
+ *  form inputs, see [Receive form
  *  data](https://developers.google.com/workspace/chat/read-form-data).
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -5946,15 +6097,20 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Ty
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1Action *onChangeAction;
 
 /**
- *  When `true`, the switch is selected.
+ *  When `true`, the switch is selected, and its `value` is included in
+ *  `CommonEventObject.form_inputs[name].string_inputs.value`.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *selected;
 
 /**
- *  The value entered by a user, returned as part of a form input event. For
- *  details about working with form inputs, see [Receive form
+ *  The value returned in `CommonEventObject.form_inputs[name].string_inputs`
+ *  when the switch is selected (`selected` is `true`). If `selected` is `true`
+ *  and `value` is unset, an empty string (`""`) is returned in
+ *  `string_inputs.value`. When `selected` is `false`, this value is omitted
+ *  from `string_inputs.value`. For details about working with form inputs, see
+ *  [Receive form
  *  data](https://developers.google.com/workspace/chat/read-form-data).
  */
 @property(nonatomic, copy, nullable) NSString *value;
@@ -6217,25 +6373,26 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Ty
  *  A list of buttons. For example, the following JSON creates two buttons. The
  *  first is a blue text button and the second is an image button that opens a
  *  link: ``` "buttonList": { "buttons": [ { "text": "Edit", "color": { "red":
- *  0, "green": 0, "blue": 1, }, "disabled": true, }, { "icon": { "knownIcon":
+ *  0, "green": 0, "blue": 1 }, "disabled": true }, { "icon": { "knownIcon":
  *  "INVITE", "altText": "check calendar" }, "onClick": { "openLink": { "url":
  *  "https://example.com/calendar" } } } ] } ```
  */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1ButtonList *buttonList;
 
 /**
- *  A carousel contains a collection of nested widgets. For example, this is a
- *  JSON representation of a carousel that contains two text paragraphs. ``` {
- *  "widgets": [ { "textParagraph": { "text": "First text paragraph in the
- *  carousel." } }, { "textParagraph": { "text": "Second text paragraph in the
- *  carousel." } } ] } ```
+ *  Contains a collection of `CarouselCard` items, each of which contains nested
+ *  widgets. For example, this is a JSON representation of a carousel that
+ *  contains two carousel cards, each with a text paragraph: ``` {
+ *  "carouselCards": [ { "widgets": [ { "textParagraph": { "text": "First text
+ *  paragraph in the carousel." } } ] }, { "widgets": [ { "textParagraph": {
+ *  "text": "Second text paragraph in the carousel." } } ] } ] } ```
  */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1Carousel *carousel;
 
 /**
  *  A list of chips. For example, the following JSON creates two chips. The
  *  first is a text chip and the second is an icon chip that opens a link: ```
- *  "chipList": { "chips": [ { "text": "Edit", "disabled": true, }, { "icon": {
+ *  "chipList": { "chips": [ { "label": "Edit", "disabled": true }, { "icon": {
  *  "knownIcon": "INVITE", "altText": "check calendar" }, "onClick": {
  *  "openLink": { "url": "https://example.com/calendar" } } } ] } ```
  */
@@ -6265,11 +6422,11 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Ty
 
 /**
  *  Displays a decorated text item. For example, the following JSON creates a
- *  decorated text widget showing email address: ``` "decoratedText": { "icon":
- *  { "knownIcon": "EMAIL" }, "topLabel": "Email Address", "text":
+ *  decorated text widget showing email address: ``` "decoratedText": {
+ *  "startIcon": { "knownIcon": "EMAIL" }, "topLabel": "Email Address", "text":
  *  "sasha\@example.com", "bottomLabel": "This is a new Email address!",
  *  "switchControl": { "name": "has_send_welcome_email_to_sasha", "selected":
- *  false, "controlType": "CHECKBOX" } } ```
+ *  false, "controlType": "CHECK_BOX" } } ```
  */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1DecoratedText *decoratedText;
 
@@ -6297,9 +6454,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Ty
  *  "title": "A fine collection of items", "columnCount": 2, "borderStyle": {
  *  "type": "STROKE", "cornerRadius": 4 }, "items": [ { "image": { "imageUri":
  *  "https://www.example.com/image.png", "cropStyle": { "type": "SQUARE" },
- *  "borderStyle": { "type": "STROKE" } }, "title": "An item", "textAlignment":
- *  "CENTER" } ], "onClick": { "openLink": { "url": "https://www.example.com" }
- *  } } ```
+ *  "borderStyle": { "type": "STROKE" } }, "title": "An item" } ], "onClick": {
+ *  "openLink": { "url": "https://www.example.com" } } } ```
  */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1Grid *grid;
 
@@ -6344,7 +6500,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Ty
  *  Displays a selection control that lets users select items. Selection
  *  controls can be checkboxes, radio buttons, switches, or dropdown menus. For
  *  example, the following JSON creates a dropdown menu that lets users choose a
- *  size: ``` "selectionInput": { "name": "size", "label": "Size" "type":
+ *  size: ``` "selectionInput": { "name": "size", "label": "Size", "type":
  *  "DROPDOWN", "items": [ { "text": "S", "value": "small", "selected": false },
  *  { "text": "M", "value": "medium", "selected": true }, { "text": "L",
  *  "value": "large", "selected": false }, { "text": "XL", "value":
@@ -7441,6 +7597,21 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Ty
  */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_DeletionMetadata *deletionMetadata;
 
+/**
+ *  Optional. Additional message components, including inline `citations` (where
+ *  each citation is associated with a specific portion of the message text) and
+ *  `cited_sources` (which are general references used to generate the response
+ *  and are not directly linked to specific segments of the text). On input,
+ *  provide `elements` when creating or updating a message. On output, both
+ *  `citations` and `cited_sources` are populated when reading a message that
+ *  contains them. Callers can read structured citation metadata from
+ *  `elements`, while `formatted_text` also includes inline citation tags or
+ *  source links depending on `markup_syntax`. These differ from `annotations`,
+ *  which are output-only and offer supplementary information tied to message
+ *  fragments or the entire message text.
+ */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_Elements *elements;
+
 /** Output only. The list of emoji reaction summaries on the message. */
 @property(nonatomic, strong, nullable) NSArray<GTLRHangoutsChat_EmojiReactionSummary *> *emojiReactionSummaries;
 
@@ -7477,7 +7648,10 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Ty
 
 /**
  *  Optional. Specifies how the server interprets the message `text` field
- *  content.
+ *  content when creating a message or updating the `text` field of a message.
+ *  When calling `UpdateMessage`, set `markup_syntax` and `text` on the
+ *  `Message` resource and include `text` (not `markup_syntax`) in
+ *  `update_mask`.
  *
  *  Likely values:
  *    @arg @c kGTLRHangoutsChat_Message_MarkupSyntax_MarkupSyntaxChat Uses
@@ -8047,6 +8221,30 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Ty
 
 
 /**
+ *  Request message for ReplaceMessageCards API method.
+ */
+@interface GTLRHangoutsChat_ReplaceMessageCardsRequest : GTLRObject
+
+/**
+ *  Optional. An array of
+ *  [cards](https://developers.google.com/workspace/chat/api/reference/rest/v1/cards)
+ *  to be included in the message. These cards will replace the existing cards
+ *  of the message. If empty, the original cards included in the message will be
+ *  cleared.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRHangoutsChat_CardWithId *> *cardsV2;
+
+@end
+
+
+/**
+ *  Response message for ReplaceMessageCards API.
+ */
+@interface GTLRHangoutsChat_ReplaceMessageCardsResponse : GTLRObject
+@end
+
+
+/**
  *  A rich link to a resource. Rich links can be associated with the plain-text
  *  body of the message or represent chips that link to Google Workspace
  *  resources like Google Docs or Sheets with `start_index` and `length` of 0.
@@ -8557,6 +8755,30 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Ty
  *        Default value for the enum. Don't use. (Value: "TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  A snippet object representing an excerpt from a larger corpus.
+ */
+@interface GTLRHangoutsChat_Snippet : GTLRObject
+
+/**
+ *  Optional. Image preview of the snippet provided as an input when creating
+ *  the citation.
+ */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_ElementsImage *imagePreview;
+
+/**
+ *  Optional. A short plaintext excerpt directly from the corpus that is
+ *  rendered in the citation hover card or source preview. When footer sources
+ *  are automatically populated from inline `citations` (because
+ *  `Elements.cited_sources` is not set), snippets are omitted from the
+ *  deduplicated footer sources. Does not support markdown format, and must not
+ *  exceed 1,000 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *text;
 
 @end
 

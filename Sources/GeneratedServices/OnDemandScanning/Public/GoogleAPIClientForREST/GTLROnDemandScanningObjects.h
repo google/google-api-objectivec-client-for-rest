@@ -42,6 +42,9 @@
 @class GTLROnDemandScanning_DSSEAttestationOccurrence;
 @class GTLROnDemandScanning_Envelope;
 @class GTLROnDemandScanning_EnvelopeSignature;
+@class GTLROnDemandScanning_Exploitability;
+@class GTLROnDemandScanning_ExploitabilitySignal;
+@class GTLROnDemandScanning_ExploitabilitySummary;
 @class GTLROnDemandScanning_ExploitPredictionScoringSystem;
 @class GTLROnDemandScanning_File;
 @class GTLROnDemandScanning_File_Digest;
@@ -54,6 +57,7 @@
 @class GTLROnDemandScanning_GitSourceContext;
 @class GTLROnDemandScanning_GrafeasV1BaseImage;
 @class GTLROnDemandScanning_GrafeasV1FileLocation;
+@class GTLROnDemandScanning_GrafeasV1LayerAttribute;
 @class GTLROnDemandScanning_GrafeasV1LayerDetails;
 @class GTLROnDemandScanning_GrafeasV1SlsaProvenanceZeroTwoSlsaBuilder;
 @class GTLROnDemandScanning_GrafeasV1SlsaProvenanceZeroTwoSlsaCompleteness;
@@ -76,6 +80,7 @@
 @class GTLROnDemandScanning_Jwt;
 @class GTLROnDemandScanning_LanguagePackageDependency;
 @class GTLROnDemandScanning_Layer;
+@class GTLROnDemandScanning_LayerAttribute;
 @class GTLROnDemandScanning_LayerDetails;
 @class GTLROnDemandScanning_License;
 @class GTLROnDemandScanning_Location;
@@ -892,6 +897,124 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_DiscoveryOccurrence_Con
  *  Value: "INACTIVE"
  */
 FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_DiscoveryOccurrence_ContinuousAnalysis_Inactive;
+
+// ----------------------------------------------------------------------------
+// GTLROnDemandScanning_ExploitabilitySignal.vexJustification
+
+/**
+ *  The vulnerable component is not present in the product.
+ *
+ *  Value: "COMPONENT_NOT_PRESENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_ExploitabilitySignal_VexJustification_ComponentNotPresent;
+/**
+ *  The product includes built-in protections or features that prevent
+ *  exploitation of the vulnerability. These built-in protections cannot be
+ *  subverted by the attacker and cannot be configured or disabled by the user.
+ *  These mitigations completely prevent exploitation based on known attack
+ *  vectors.
+ *
+ *  Value: "INLINE_MITIGATIONS_ALREADY_EXIST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_ExploitabilitySignal_VexJustification_InlineMitigationsAlreadyExist;
+/**
+ *  JUSTIFICATION_TYPE_UNSPECIFIED.
+ *
+ *  Value: "JUSTIFICATION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_ExploitabilitySignal_VexJustification_JustificationTypeUnspecified;
+/**
+ *  The vulnerable code cannot be controlled by an attacker to exploit the
+ *  vulnerability.
+ *
+ *  Value: "VULNERABLE_CODE_CANNOT_BE_CONTROLLED_BY_ADVERSARY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_ExploitabilitySignal_VexJustification_VulnerableCodeCannotBeControlledByAdversary;
+/**
+ *  The vulnerable code can not be executed. Typically this case occurs when the
+ *  product includes the vulnerable code but does not call or use the vulnerable
+ *  code.
+ *
+ *  Value: "VULNERABLE_CODE_NOT_IN_EXECUTE_PATH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_ExploitabilitySignal_VexJustification_VulnerableCodeNotInExecutePath;
+/**
+ *  The vulnerable code is not present. Typically this case occurs when source
+ *  code is configured or built in a way that excludes the vulnerable code.
+ *
+ *  Value: "VULNERABLE_CODE_NOT_PRESENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_ExploitabilitySignal_VexJustification_VulnerableCodeNotPresent;
+
+// ----------------------------------------------------------------------------
+// GTLROnDemandScanning_ExploitabilitySignal.vexStatus
+
+/**
+ *  This product is known to be affected by this vulnerability.
+ *
+ *  Value: "AFFECTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_ExploitabilitySignal_VexStatus_Affected;
+/**
+ *  This product contains a fix for this vulnerability.
+ *
+ *  Value: "FIXED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_ExploitabilitySignal_VexStatus_Fixed;
+/**
+ *  This product is known to be not affected by this vulnerability.
+ *
+ *  Value: "NOT_AFFECTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_ExploitabilitySignal_VexStatus_NotAffected;
+/**
+ *  No state is specified.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_ExploitabilitySignal_VexStatus_StateUnspecified;
+/**
+ *  It is not known yet whether these versions are or are not affected by the
+ *  vulnerability. However, it is still under investigation.
+ *
+ *  Value: "UNDER_INVESTIGATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_ExploitabilitySignal_VexStatus_UnderInvestigation;
+
+// ----------------------------------------------------------------------------
+// GTLROnDemandScanning_ExploitabilitySummary.vexStatus
+
+/**
+ *  This product is known to be affected by this vulnerability.
+ *
+ *  Value: "AFFECTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_ExploitabilitySummary_VexStatus_Affected;
+/**
+ *  This product contains a fix for this vulnerability.
+ *
+ *  Value: "FIXED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_ExploitabilitySummary_VexStatus_Fixed;
+/**
+ *  This product is known to be not affected by this vulnerability.
+ *
+ *  Value: "NOT_AFFECTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_ExploitabilitySummary_VexStatus_NotAffected;
+/**
+ *  No state is specified.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_ExploitabilitySummary_VexStatus_StateUnspecified;
+/**
+ *  It is not known yet whether these versions are or are not affected by the
+ *  vulnerability. However, it is still under investigation.
+ *
+ *  Value: "UNDER_INVESTIGATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_ExploitabilitySummary_VexStatus_UnderInvestigation;
 
 // ----------------------------------------------------------------------------
 // GTLROnDemandScanning_Finding.scanner
@@ -2967,6 +3090,122 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_WorkspacePolicyResult_V
 
 
 /**
+ *  Exploitability information for a vulnerability. This data can be used across
+ *  multiple sources, including, but not limited to a top-level vulnerability, a
+ *  package occurrence, or a package file location.
+ */
+@interface GTLROnDemandScanning_Exploitability : GTLRObject
+
+/** Individual exploitability signals from various sources. */
+@property(nonatomic, strong, nullable) NSArray<GTLROnDemandScanning_ExploitabilitySignal *> *signals;
+
+/** Rollup summary of the exploitability signals. */
+@property(nonatomic, strong, nullable) GTLROnDemandScanning_ExploitabilitySummary *summary;
+
+@end
+
+
+/**
+ *  A single exploitability signal from a specific source (e.g., an upstream
+ *  advisory, a customer VEX document, or an internal build analysis).
+ */
+@interface GTLROnDemandScanning_ExploitabilitySignal : GTLRObject
+
+/** Human-readable explanation of this signal. */
+@property(nonatomic, copy, nullable) NSString *rationale;
+
+/** Identifier of the signal source. */
+@property(nonatomic, copy, nullable) NSString *source;
+
+/**
+ *  Justification for why the vulnerability is not exploitable.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROnDemandScanning_ExploitabilitySignal_VexJustification_ComponentNotPresent
+ *        The vulnerable component is not present in the product. (Value:
+ *        "COMPONENT_NOT_PRESENT")
+ *    @arg @c kGTLROnDemandScanning_ExploitabilitySignal_VexJustification_InlineMitigationsAlreadyExist
+ *        The product includes built-in protections or features that prevent
+ *        exploitation of the vulnerability. These built-in protections cannot
+ *        be subverted by the attacker and cannot be configured or disabled by
+ *        the user. These mitigations completely prevent exploitation based on
+ *        known attack vectors. (Value: "INLINE_MITIGATIONS_ALREADY_EXIST")
+ *    @arg @c kGTLROnDemandScanning_ExploitabilitySignal_VexJustification_JustificationTypeUnspecified
+ *        JUSTIFICATION_TYPE_UNSPECIFIED. (Value:
+ *        "JUSTIFICATION_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLROnDemandScanning_ExploitabilitySignal_VexJustification_VulnerableCodeCannotBeControlledByAdversary
+ *        The vulnerable code cannot be controlled by an attacker to exploit the
+ *        vulnerability. (Value:
+ *        "VULNERABLE_CODE_CANNOT_BE_CONTROLLED_BY_ADVERSARY")
+ *    @arg @c kGTLROnDemandScanning_ExploitabilitySignal_VexJustification_VulnerableCodeNotInExecutePath
+ *        The vulnerable code can not be executed. Typically this case occurs
+ *        when the product includes the vulnerable code but does not call or use
+ *        the vulnerable code. (Value: "VULNERABLE_CODE_NOT_IN_EXECUTE_PATH")
+ *    @arg @c kGTLROnDemandScanning_ExploitabilitySignal_VexJustification_VulnerableCodeNotPresent
+ *        The vulnerable code is not present. Typically this case occurs when
+ *        source code is configured or built in a way that excludes the
+ *        vulnerable code. (Value: "VULNERABLE_CODE_NOT_PRESENT")
+ */
+@property(nonatomic, copy, nullable) NSString *vexJustification;
+
+/**
+ *  The VEX status asserted by this signal.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROnDemandScanning_ExploitabilitySignal_VexStatus_Affected This
+ *        product is known to be affected by this vulnerability. (Value:
+ *        "AFFECTED")
+ *    @arg @c kGTLROnDemandScanning_ExploitabilitySignal_VexStatus_Fixed This
+ *        product contains a fix for this vulnerability. (Value: "FIXED")
+ *    @arg @c kGTLROnDemandScanning_ExploitabilitySignal_VexStatus_NotAffected
+ *        This product is known to be not affected by this vulnerability.
+ *        (Value: "NOT_AFFECTED")
+ *    @arg @c kGTLROnDemandScanning_ExploitabilitySignal_VexStatus_StateUnspecified
+ *        No state is specified. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLROnDemandScanning_ExploitabilitySignal_VexStatus_UnderInvestigation
+ *        It is not known yet whether these versions are or are not affected by
+ *        the vulnerability. However, it is still under investigation. (Value:
+ *        "UNDER_INVESTIGATION")
+ */
+@property(nonatomic, copy, nullable) NSString *vexStatus;
+
+@end
+
+
+/**
+ *  Rollup summary of exploitability across signals.
+ */
+@interface GTLROnDemandScanning_ExploitabilitySummary : GTLRObject
+
+/** Human-readable explanation of the summary. */
+@property(nonatomic, copy, nullable) NSString *rationale;
+
+/**
+ *  The rolled-up VEX status. Usually, this should result in an AFFECTED or
+ *  NOT_AFFECTED vex status.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROnDemandScanning_ExploitabilitySummary_VexStatus_Affected
+ *        This product is known to be affected by this vulnerability. (Value:
+ *        "AFFECTED")
+ *    @arg @c kGTLROnDemandScanning_ExploitabilitySummary_VexStatus_Fixed This
+ *        product contains a fix for this vulnerability. (Value: "FIXED")
+ *    @arg @c kGTLROnDemandScanning_ExploitabilitySummary_VexStatus_NotAffected
+ *        This product is known to be not affected by this vulnerability.
+ *        (Value: "NOT_AFFECTED")
+ *    @arg @c kGTLROnDemandScanning_ExploitabilitySummary_VexStatus_StateUnspecified
+ *        No state is specified. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLROnDemandScanning_ExploitabilitySummary_VexStatus_UnderInvestigation
+ *        It is not known yet whether these versions are or are not affected by
+ *        the vulnerability. However, it is still under investigation. (Value:
+ *        "UNDER_INVESTIGATION")
+ */
+@property(nonatomic, copy, nullable) NSString *vexStatus;
+
+@end
+
+
+/**
  *  GTLROnDemandScanning_ExploitPredictionScoringSystem
  */
 @interface GTLROnDemandScanning_ExploitPredictionScoringSystem : GTLRObject
@@ -3233,9 +3472,27 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_WorkspacePolicyResult_V
 
 
 /**
+ *  LayerAttribute represents a single attribute (such as a tag) that applies to
+ *  a layer, along with the plugin that generated it.
+ */
+@interface GTLROnDemandScanning_GrafeasV1LayerAttribute : GTLRObject
+
+/** The name of the plugin that generated this attribute. */
+@property(nonatomic, copy, nullable) NSString *plugin;
+
+/** The value of the attribute, with a meaning defined by the plugin. */
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
  *  Details about the layer a package was found in.
  */
 @interface GTLROnDemandScanning_GrafeasV1LayerDetails : GTLRObject
+
+/** Attributes that apply to the layer, such as buildpacks metadata. */
+@property(nonatomic, strong, nullable) NSArray<GTLROnDemandScanning_GrafeasV1LayerAttribute *> *attributes;
 
 /** The base images the layer is found within. */
 @property(nonatomic, strong, nullable) NSArray<GTLROnDemandScanning_GrafeasV1BaseImage *> *baseImages;
@@ -3672,9 +3929,26 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_WorkspacePolicyResult_V
 
 
 /**
+ *  An attribute attached to a layer by a plugin.
+ */
+@interface GTLROnDemandScanning_LayerAttribute : GTLRObject
+
+/** The name of the plugin that generated this attribute. */
+@property(nonatomic, copy, nullable) NSString *plugin;
+
+/** The value of the attribute, with a meaning defined by the plugin. */
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
  *  Details about the layer a package was found in.
  */
 @interface GTLROnDemandScanning_LayerDetails : GTLRObject
+
+/** Attributes attached to this layer by plugins. */
+@property(nonatomic, strong, nullable) NSArray<GTLROnDemandScanning_LayerAttribute *> *attributes;
 
 /** The base images the layer is found within. */
 @property(nonatomic, strong, nullable) NSArray<GTLROnDemandScanning_BaseImage *> *baseImages;
@@ -4363,6 +4637,9 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_WorkspacePolicyResult_V
  *        Unknown. (Value: "SEVERITY_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *effectiveSeverity;
+
+/** Output only. Exploitability signals and summary for this package issue. */
+@property(nonatomic, strong, nullable) GTLROnDemandScanning_Exploitability *exploitability;
 
 /** The location at which this package was found. */
 @property(nonatomic, strong, nullable) NSArray<GTLROnDemandScanning_GrafeasV1FileLocation *> *fileLocation;
@@ -5731,6 +6008,12 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_WorkspacePolicyResult_V
  *        Unknown. (Value: "SEVERITY_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *effectiveSeverity;
+
+/**
+ *  Output only. Rollup of exploitability across all PackageIssues in this
+ *  occurrence.
+ */
+@property(nonatomic, strong, nullable) GTLROnDemandScanning_Exploitability *exploitability;
 
 /** Occurrence-specific extra details about the vulnerability. */
 @property(nonatomic, copy, nullable) NSString *extraDetails;

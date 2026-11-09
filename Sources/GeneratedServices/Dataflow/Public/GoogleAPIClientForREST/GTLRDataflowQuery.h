@@ -532,6 +532,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 @interface GTLRDataflowQuery_ProjectsJobsAggregated : GTLRDataflowQuery
 
 /**
+ *  Optional. Exclusive end of the interval. If specified, a Timestamp matching
+ *  this interval will have to be before the end.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTimeRangeEndTime;
+
+/**
+ *  Optional. Inclusive start of the interval. If specified, a Timestamp
+ *  matching this interval will have to be the same or after the start.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTimeRangeStartTime;
+
+/**
  *  The kind of filter to use.
  *
  *  Likely values:
@@ -578,6 +590,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 
 /** Optional. */
 @property(nonatomic, assign) BOOL regionalFanoutRequested;
+
+/**
+ *  Optional. Exclusive end of the interval. If specified, a Timestamp matching
+ *  this interval will have to be before the end.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *terminationTimeRangeEndTime;
+
+/**
+ *  Optional. Inclusive start of the interval. If specified, a Timestamp
+ *  matching this interval will have to be the same or after the start.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *terminationTimeRangeStartTime;
 
 /**
  *  Deprecated. ListJobs always returns summaries now. Use GetJob for other
@@ -920,6 +944,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 @interface GTLRDataflowQuery_ProjectsJobsList : GTLRDataflowQuery
 
 /**
+ *  Optional. Exclusive end of the interval. If specified, a Timestamp matching
+ *  this interval will have to be before the end.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTimeRangeEndTime;
+
+/**
+ *  Optional. Inclusive start of the interval. If specified, a Timestamp
+ *  matching this interval will have to be the same or after the start.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTimeRangeStartTime;
+
+/**
  *  The kind of filter to use.
  *
  *  Likely values:
@@ -966,6 +1002,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 
 /** Optional. */
 @property(nonatomic, assign) BOOL regionalFanoutRequested;
+
+/**
+ *  Optional. Exclusive end of the interval. If specified, a Timestamp matching
+ *  this interval will have to be before the end.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *terminationTimeRangeEndTime;
+
+/**
+ *  Optional. Inclusive start of the interval. If specified, a Timestamp
+ *  matching this interval will have to be the same or after the start.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *terminationTimeRangeStartTime;
 
 /**
  *  Deprecated. ListJobs always returns summaries now. Use GetJob for other
@@ -1951,6 +1999,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 @interface GTLRDataflowQuery_ProjectsLocationsJobsList : GTLRDataflowQuery
 
 /**
+ *  Optional. Exclusive end of the interval. If specified, a Timestamp matching
+ *  this interval will have to be before the end.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTimeRangeEndTime;
+
+/**
+ *  Optional. Inclusive start of the interval. If specified, a Timestamp
+ *  matching this interval will have to be the same or after the start.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTimeRangeStartTime;
+
+/**
  *  The kind of filter to use.
  *
  *  Likely values:
@@ -1997,6 +2057,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 
 /** Optional. */
 @property(nonatomic, assign) BOOL regionalFanoutRequested;
+
+/**
+ *  Optional. Exclusive end of the interval. If specified, a Timestamp matching
+ *  this interval will have to be before the end.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *terminationTimeRangeEndTime;
+
+/**
+ *  Optional. Inclusive start of the interval. If specified, a Timestamp
+ *  matching this interval will have to be the same or after the start.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *terminationTimeRangeStartTime;
 
 /**
  *  Deprecated. ListJobs always returns summaries now. Use GetJob for other

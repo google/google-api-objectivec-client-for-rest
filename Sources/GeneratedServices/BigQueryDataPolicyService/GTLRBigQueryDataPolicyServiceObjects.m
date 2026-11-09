@@ -150,7 +150,7 @@ NSString * const kGTLRBigQueryDataPolicyService_DataPolicy_Version_VersionUnspec
 
 @implementation GTLRBigQueryDataPolicyService_DataPolicy
 @dynamic dataGovernanceTag, dataMaskingPolicy, dataPolicyId, dataPolicyType,
-         ETag, grantees, name, policyTag, version;
+         ETag, grantees, matchingCondition, name, policyTag, version;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };

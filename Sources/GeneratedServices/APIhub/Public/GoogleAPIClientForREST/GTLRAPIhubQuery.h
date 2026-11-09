@@ -3239,6 +3239,149 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
 @end
 
 /**
+ *  Merges the per-day stored specs across the requested window and returns the
+ *  merged OpenAPI document. Preview: this method is in Public Preview. Behavior
+ *  and the API surface may change until the Spec Generation feature reaches
+ *  General Availability.
+ *
+ *  Method: apihub.projects.locations.generatedSpecApis.generateSpec
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ *    @c kGTLRAuthScopeAPIhubReadonly
+ *    @c kGTLRAuthScopeAPIhubReadwrite
+ */
+@interface GTLRAPIhubQuery_ProjectsLocationsGeneratedSpecApisGenerateSpec : GTLRAPIhubQuery
+
+/**
+ *  Required. The resource name of the GeneratedSpecApi to generate from.
+ *  Format:
+ *  `projects/{project}/locations/{location}/generatedSpecApis/{generated_spec_api}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAPIhub_GoogleCloudApihubV1GenerateSpecResponse.
+ *
+ *  Merges the per-day stored specs across the requested window and returns the
+ *  merged OpenAPI document. Preview: this method is in Public Preview. Behavior
+ *  and the API surface may change until the Spec Generation feature reaches
+ *  General Availability.
+ *
+ *  @param object The @c GTLRAPIhub_GoogleCloudApihubV1GenerateSpecRequest to
+ *    include in the query.
+ *  @param name Required. The resource name of the GeneratedSpecApi to generate
+ *    from. Format:
+ *    `projects/{project}/locations/{location}/generatedSpecApis/{generated_spec_api}`
+ *
+ *  @return GTLRAPIhubQuery_ProjectsLocationsGeneratedSpecApisGenerateSpec
+ */
++ (instancetype)queryWithObject:(GTLRAPIhub_GoogleCloudApihubV1GenerateSpecRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a single GeneratedSpecApi by resource name. Preview: this method is in
+ *  Public Preview. Behavior and the API surface may change until the Spec
+ *  Generation feature reaches General Availability.
+ *
+ *  Method: apihub.projects.locations.generatedSpecApis.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ *    @c kGTLRAuthScopeAPIhubReadonly
+ *    @c kGTLRAuthScopeAPIhubReadwrite
+ */
+@interface GTLRAPIhubQuery_ProjectsLocationsGeneratedSpecApisGet : GTLRAPIhubQuery
+
+/**
+ *  Required. The resource name of the GeneratedSpecApi to retrieve. Format:
+ *  `projects/{project}/locations/{location}/generatedSpecApis/{generated_spec_api}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAPIhub_GoogleCloudApihubV1GeneratedSpecApi.
+ *
+ *  Gets a single GeneratedSpecApi by resource name. Preview: this method is in
+ *  Public Preview. Behavior and the API surface may change until the Spec
+ *  Generation feature reaches General Availability.
+ *
+ *  @param name Required. The resource name of the GeneratedSpecApi to retrieve.
+ *    Format:
+ *    `projects/{project}/locations/{location}/generatedSpecApis/{generated_spec_api}`
+ *
+ *  @return GTLRAPIhubQuery_ProjectsLocationsGeneratedSpecApisGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists the APIs the pipeline is tracking, ordered by `update_time desc`.
+ *  Preview: this method is in Public Preview. Behavior and the API surface may
+ *  change until the Spec Generation feature reaches General Availability.
+ *
+ *  Method: apihub.projects.locations.generatedSpecApis.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ *    @c kGTLRAuthScopeAPIhubReadonly
+ *    @c kGTLRAuthScopeAPIhubReadwrite
+ */
+@interface GTLRAPIhubQuery_ProjectsLocationsGeneratedSpecApisList : GTLRAPIhubQuery
+
+/**
+ *  Optional. An AIP-160 filter. This release supports the fields `state` and
+ *  `source.source_type`, the `=` comparison operator only, and `AND`
+ *  conjunction only. Examples: - `state = "SPEC_GENERATED"` - `state =
+ *  "SPEC_ASSOCIATED" AND source.source_type = APIGEE_X`
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. The maximum number of results to return. The service may return
+ *  fewer. If unspecified, at most 50 will be returned. The maximum value is
+ *  1000; values above 1000 will be coerced to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous `ListGeneratedSpecApis`
+ *  call. Provide this to retrieve the subsequent page. When paginating, all
+ *  other parameters (except `page_size`) provided to `ListGeneratedSpecApis`
+ *  must match the call that provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent resource, which owns this collection of tracked APIs.
+ *  Format: `projects/{project}/locations/{location}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRAPIhub_GoogleCloudApihubV1ListGeneratedSpecApisResponse.
+ *
+ *  Lists the APIs the pipeline is tracking, ordered by `update_time desc`.
+ *  Preview: this method is in Public Preview. Behavior and the API surface may
+ *  change until the Spec Generation feature reaches General Availability.
+ *
+ *  @param parent Required. The parent resource, which owns this collection of
+ *    tracked APIs. Format: `projects/{project}/locations/{location}`
+ *
+ *  @return GTLRAPIhubQuery_ProjectsLocationsGeneratedSpecApisList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Gets information about a location.
  *
  *  Method: apihub.projects.locations.get
@@ -3269,8 +3412,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
 /**
  *  Create a host project registration. A Google cloud project can be registered
  *  as a host project if it is not attached as a runtime project to another host
- *  project. A project can be registered as a host project only once. Subsequent
- *  register calls for the same project will fail.
+ *  project. A project can have only one host project registration at a time.
+ *  Subsequent register calls for the same project will fail until the existing
+ *  registration is deleted.
  *
  *  Method: apihub.projects.locations.hostProjectRegistrations.create
  *
@@ -3299,8 +3443,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
  *
  *  Create a host project registration. A Google cloud project can be registered
  *  as a host project if it is not attached as a runtime project to another host
- *  project. A project can be registered as a host project only once. Subsequent
- *  register calls for the same project will fail.
+ *  project. A project can have only one host project registration at a time.
+ *  Subsequent register calls for the same project will fail until the existing
+ *  registration is deleted.
  *
  *  @param object The @c GTLRAPIhub_GoogleCloudApihubV1HostProjectRegistration
  *    to include in the query.

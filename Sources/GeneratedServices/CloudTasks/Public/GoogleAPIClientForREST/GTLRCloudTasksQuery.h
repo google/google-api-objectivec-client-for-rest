@@ -95,7 +95,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
 
 /**
  *  Gets the CMEK config. Gets the Customer Managed Encryption Key configured
- *  with the Cloud Tasks lcoation. By default there is no kms_key configured.
+ *  with the Cloud Tasks location. By default there is no `kms_key` configured.
  *
  *  Method: cloudtasks.projects.locations.getCmekConfig
  *
@@ -106,7 +106,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
 
 /**
  *  Required. The config. For example:
- *  projects/PROJECT_ID/locations/LOCATION_ID/CmekConfig`
+ *  `projects/PROJECT_ID/locations/LOCATION_ID/cmekConfig`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -114,10 +114,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *  Fetches a @c GTLRCloudTasks_CmekConfig.
  *
  *  Gets the CMEK config. Gets the Customer Managed Encryption Key configured
- *  with the Cloud Tasks lcoation. By default there is no kms_key configured.
+ *  with the Cloud Tasks location. By default there is no `kms_key` configured.
  *
  *  @param name Required. The config. For example:
- *    projects/PROJECT_ID/locations/LOCATION_ID/CmekConfig`
+ *    `projects/PROJECT_ID/locations/LOCATION_ID/cmekConfig`
  *
  *  @return GTLRCloudTasksQuery_ProjectsLocationsGetCmekConfig
  */
@@ -1158,7 +1158,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
 /**
  *  Output only. The config resource name which includes the project and
  *  location and must end in 'cmekConfig', in the format
- *  projects/PROJECT_ID/locations/LOCATION_ID/cmekConfig`
+ *  `projects/PROJECT_ID/locations/LOCATION_ID/cmekConfig`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1180,7 +1180,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *  @param object The @c GTLRCloudTasks_CmekConfig to include in the query.
  *  @param name Output only. The config resource name which includes the project
  *    and location and must end in 'cmekConfig', in the format
- *    projects/PROJECT_ID/locations/LOCATION_ID/cmekConfig`
+ *    `projects/PROJECT_ID/locations/LOCATION_ID/cmekConfig`
  *
  *  @return GTLRCloudTasksQuery_ProjectsLocationsUpdateCmekConfig
  */

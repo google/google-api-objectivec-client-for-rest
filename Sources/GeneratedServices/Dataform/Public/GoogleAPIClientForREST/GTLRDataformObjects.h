@@ -429,6 +429,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_Pending;
 /**
+ *  Execution of the action was queued waiting for an available concurrency
+ *  slot.
+ *
+ *  Value: "QUEUED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_Queued;
+/**
  *  The action is currently running.
  *
  *  Value: "RUNNING"
@@ -1878,8 +1885,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
 @interface GTLRDataform_InvocationConfig : GTLRObject
 
 /**
- *  Optional. Configuration for end user authentication. Note that this should
- *  not be set when `service_account` is used.
+ *  Optional. Maximum number of actions that can be executed concurrently.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *concurrentActionsLimit;
+
+/**
+ *  Optional. Configuration for end user authentication. Do not set if
+ *  `service_account` is used.
  */
 @property(nonatomic, strong, nullable) GTLRDataform_EndUserAuthenticationConfig *endUserAuthConfig;
 
@@ -4063,6 +4077,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
  *        failed. A terminal state. (Value: "FAILED")
  *    @arg @c kGTLRDataform_WorkflowInvocationAction_State_Pending The action
  *        has not yet been considered for invocation. (Value: "PENDING")
+ *    @arg @c kGTLRDataform_WorkflowInvocationAction_State_Queued Execution of
+ *        the action was queued waiting for an available concurrency slot.
+ *        (Value: "QUEUED")
  *    @arg @c kGTLRDataform_WorkflowInvocationAction_State_Running The action is
  *        currently running. (Value: "RUNNING")
  *    @arg @c kGTLRDataform_WorkflowInvocationAction_State_Skipped Execution of

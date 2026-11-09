@@ -3,8 +3,11 @@
 // ----------------------------------------------------------------------------
 // API:
 //   Places API (New) (places/v1)
+// Description:
+//   The Places API allows developers to access a variety of search and
+//   retrieval endpoints for a Place.
 // Documentation:
-//   https://mapsplatform.google.com/maps-products/#places-section
+//   https://developers.google.com/maps/documentation/places/web-service
 
 #import <GoogleAPIClientForREST/GTLRMapsPlaces.h>
 

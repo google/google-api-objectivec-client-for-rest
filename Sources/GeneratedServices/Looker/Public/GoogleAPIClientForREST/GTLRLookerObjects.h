@@ -529,7 +529,7 @@ FOUNDATION_EXTERN NSString * const kGTLRLooker_ServiceAttachment_ConnectionStatu
  */
 @interface GTLRLooker_AdminSettings : GTLRObject
 
-/** Email domain allowlist for the instance. */
+/** Optional. Email domain allowlist for the instance. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *allowedEmailDomains;
 
 @end
@@ -645,11 +645,11 @@ FOUNDATION_EXTERN NSString * const kGTLRLooker_ServiceAttachment_ConnectionStatu
  */
 @interface GTLRLooker_CustomDomain : GTLRObject
 
-/** Domain name. */
+/** Optional. Domain name. */
 @property(nonatomic, copy, nullable) NSString *domain;
 
 /**
- *  Domain state.
+ *  Output only. Domain state.
  *
  *  Likely values:
  *    @arg @c kGTLRLooker_CustomDomain_State_Available ManagedCertificate is
@@ -744,7 +744,7 @@ FOUNDATION_EXTERN NSString * const kGTLRLooker_ServiceAttachment_ConnectionStatu
  */
 @interface GTLRLooker_EncryptionConfig : GTLRObject
 
-/** Name of the CMEK key in KMS (input parameter). */
+/** Optional. Immutable. Name of the CMEK key in KMS (input parameter). */
 @property(nonatomic, copy, nullable) NSString *kmsKeyName;
 
 /**
@@ -810,6 +810,14 @@ FOUNDATION_EXTERN NSString * const kGTLRLooker_ServiceAttachment_ConnectionStatu
 @interface GTLRLooker_ExportMetadata : GTLRObject
 
 /**
+ *  Opaque capability token for O2C Elite System Activity (ESA) direct dataset
+ *  migration. It is minted by the exporter together with the cloned source
+ *  dataset and presented back to Looker Original when the import requests
+ *  access to that dataset.
+ */
+@property(nonatomic, copy, nullable) NSString *esaMigrationToken;
+
+/**
  *  Source BigQuery dataset (formatted as `project_id:dataset_id`) for O2C Elite
  *  System Activity (ESA) direct dataset migration.
  */
@@ -820,6 +828,13 @@ FOUNDATION_EXTERN NSString * const kGTLRLooker_ServiceAttachment_ConnectionStatu
 
 /** Overall export metrics, timing, and component telemetry. */
 @property(nonatomic, strong, nullable) GTLRLooker_ExportMetrics *exportMetrics;
+
+/**
+ *  A string of digits representing the number of microseconds since the Unix
+ *  epoch when the export was created. Used to identify the cloned source Elite
+ *  System Activity (ESA) BigQuery dataset for O2C direct dataset migration.
+ */
+@property(nonatomic, copy, nullable) NSString *exportTime;
 
 /**
  *  List of files created as part of export artifact (excluding the metadata).
@@ -963,7 +978,7 @@ FOUNDATION_EXTERN NSString * const kGTLRLooker_ServiceAttachment_ConnectionStatu
  */
 @property(nonatomic, strong, nullable) NSNumber *acceleratedSecurityPatchEnabled;
 
-/** Looker Instance Admin settings. */
+/** Optional. Looker Instance Admin settings. */
 @property(nonatomic, strong, nullable) GTLRLooker_AdminSettings *adminSettings;
 
 /** Optional. Auth type for the Looker instance. */
@@ -989,7 +1004,7 @@ FOUNDATION_EXTERN NSString * const kGTLRLooker_ServiceAttachment_ConnectionStatu
 @property(nonatomic, copy, nullable) NSString *classType;
 
 /**
- *  Network name in the consumer project. Format:
+ *  Optional. Network name in the consumer project. Format:
  *  `projects/{project}/global/networks/{network}`. Note that the consumer
  *  network may be in a different GCP project than the consumer project that is
  *  hosting the Looker Instance.
@@ -1012,18 +1027,18 @@ FOUNDATION_EXTERN NSString * const kGTLRLooker_ServiceAttachment_ConnectionStatu
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
-/** Custom domain configuration for the instance. */
+/** Optional. Custom domain configuration for the instance. */
 @property(nonatomic, strong, nullable) GTLRLooker_CustomDomain *customDomain;
 
-/** Maintenance denial period for this instance. */
+/** Optional. Maintenance denial period for this instance. */
 @property(nonatomic, strong, nullable) GTLRLooker_DenyMaintenancePeriod *denyMaintenancePeriod;
 
 /** Output only. Public Egress IP (IPv4). */
 @property(nonatomic, copy, nullable) NSString *egressPublicIp;
 
 /**
- *  Encryption configuration (CMEK). Only set if CMEK has been enabled on the
- *  instance.
+ *  Optional. Encryption configuration (CMEK). Only set if CMEK has been enabled
+ *  on the instance.
  */
 @property(nonatomic, strong, nullable) GTLRLooker_EncryptionConfig *encryptionConfig;
 
@@ -1069,10 +1084,10 @@ FOUNDATION_EXTERN NSString * const kGTLRLooker_ServiceAttachment_ConnectionStatu
 /** Output only. The Looker version that the instance is using. */
 @property(nonatomic, copy, nullable) NSString *lookerVersion;
 
-/** Maintenance schedule for this instance. */
+/** Output only. Maintenance schedule for this instance. */
 @property(nonatomic, strong, nullable) GTLRLooker_MaintenanceSchedule *maintenanceSchedule;
 
-/** Maintenance window for this instance. */
+/** Optional. Maintenance window for this instance. */
 @property(nonatomic, strong, nullable) GTLRLooker_MaintenanceWindow *maintenanceWindow;
 
 /**
@@ -1081,14 +1096,15 @@ FOUNDATION_EXTERN NSString * const kGTLRLooker_ServiceAttachment_ConnectionStatu
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** Looker instance OAuth login settings. */
+/** Optional. Looker instance OAuth login settings. */
 @property(nonatomic, strong, nullable) GTLRLooker_OAuthConfig *oauthConfig;
 
 /** Optional. Configuration for periodic export. */
 @property(nonatomic, strong, nullable) GTLRLooker_PeriodicExportConfig *periodicExportConfig;
 
 /**
- *  Platform edition.
+ *  Optional. Platform edition. Marked as OPTIONAL for backward compatibility,
+ *  though it is required during instance creation.
  *
  *  Likely values:
  *    @arg @c kGTLRLooker_Instance_PlatformEdition_LookerCoreEmbedAnnual
@@ -1129,7 +1145,7 @@ FOUNDATION_EXTERN NSString * const kGTLRLooker_ServiceAttachment_ConnectionStatu
 @property(nonatomic, copy, nullable) NSString *platformEdition;
 
 /**
- *  Whether private IP is enabled on the Looker instance.
+ *  Optional. Whether private IP is enabled on the Looker instance.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1148,7 +1164,7 @@ FOUNDATION_EXTERN NSString * const kGTLRLooker_ServiceAttachment_ConnectionStatu
 @property(nonatomic, strong, nullable) NSNumber *pscEnabled;
 
 /**
- *  Whether public IP is enabled on the Looker instance.
+ *  Optional. Whether public IP is enabled on the Looker instance.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1170,9 +1186,9 @@ FOUNDATION_EXTERN NSString * const kGTLRLooker_ServiceAttachment_ConnectionStatu
 @property(nonatomic, copy, nullable) NSString *releaseChannel;
 
 /**
- *  Name of a reserved IP address range within the Instance.consumer_network, to
- *  be used for private services access connection. May or may not be specified
- *  in a create request.
+ *  Optional. Name of a reserved IP address range within the
+ *  Instance.consumer_network, to be used for private services access
+ *  connection. May or may not be specified in a create request.
  */
 @property(nonatomic, copy, nullable) NSString *reservedRange;
 

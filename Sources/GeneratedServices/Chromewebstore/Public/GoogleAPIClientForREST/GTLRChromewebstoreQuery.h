@@ -106,6 +106,72 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Fetch user reviews for an item.
+ *
+ *  Method: chromewebstore.publishers.items.fetchReviews
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeChromewebstore
+ *    @c kGTLRAuthScopeChromewebstoreReadonly
+ */
+@interface GTLRChromewebstoreQuery_PublishersItemsFetchReviews : GTLRChromewebstoreQuery
+
+/**
+ *  Optional. A filter to apply to the reviews. Only equality comparison on
+ *  rating is supported, e.g. `rating = 5`.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Required. The item resource name whose reviews are being fetched. Format:
+ *  publishers/{publisher_id}/items/{item_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional comma-separated list of fields by which to sort the
+ *  results. The default sort order is ascending (`asc`). Supported fields are:
+ *  - `rating`: Supported orders are `asc` (default) and `desc`. -
+ *  `create_time`: Only `desc` (most recent first) is supported; `desc` must be
+ *  explicitly specified since the default is `asc`. Example: `rating desc`,
+ *  `create_time desc`, or `rating desc, create_time desc`.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. The maximum number of reviews to return. The service may return
+ *  fewer than this value. If unspecified, at most 50 reviews will be returned.
+ *  The maximum value is 200; values above 200 will be coerced to 200.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous `FetchItemReviews` call.
+ *  Provide this to retrieve the subsequent page. When paginating, all other
+ *  parameters provided to `FetchItemReviews` must match the call that provided
+ *  the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRChromewebstore_FetchItemReviewsResponse.
+ *
+ *  Fetch user reviews for an item.
+ *
+ *  @param name Required. The item resource name whose reviews are being
+ *    fetched. Format: publishers/{publisher_id}/items/{item_id}
+ *
+ *  @return GTLRChromewebstoreQuery_PublishersItemsFetchReviews
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Fetch the status of an item.
  *
  *  Method: chromewebstore.publishers.items.fetchStatus
@@ -131,6 +197,37 @@ NS_ASSUME_NONNULL_BEGIN
  *    `publishers/{publisherId}/items/{itemId}`
  *
  *  @return GTLRChromewebstoreQuery_PublishersItemsFetchStatus
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the RatingSummary for the publishers item.
+ *
+ *  Method: chromewebstore.publishers.items.getRatingSummary
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeChromewebstore
+ *    @c kGTLRAuthScopeChromewebstoreReadonly
+ */
+@interface GTLRChromewebstoreQuery_PublishersItemsGetRatingSummary : GTLRChromewebstoreQuery
+
+/**
+ *  Required. The name of the rating summary to retrieve. Format:
+ *  publishers/{publisher}/items/{item}/ratingSummary
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRChromewebstore_RatingSummary.
+ *
+ *  Gets the RatingSummary for the publishers item.
+ *
+ *  @param name Required. The name of the rating summary to retrieve. Format:
+ *    publishers/{publisher}/items/{item}/ratingSummary
+ *
+ *  @return GTLRChromewebstoreQuery_PublishersItemsGetRatingSummary
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -169,6 +266,151 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRChromewebstoreQuery_PublishersItemsPublish
  */
 + (instancetype)queryWithObject:(GTLRChromewebstore_PublishItemRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Query the metrics for an item.
+ *
+ *  Method: chromewebstore.publishers.items.queryMetrics
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeChromewebstore
+ *    @c kGTLRAuthScopeChromewebstoreReadonly
+ */
+@interface GTLRChromewebstoreQuery_PublishersItemsQueryMetrics : GTLRChromewebstoreQuery
+
+/**
+ *  Optional. Dimensions to slice the metrics by. At most one dimension can be
+ *  specified. **Supported dimensions:** - os: The operating system of the user.
+ *  - app-version: The version of the item. - country: The country of the user.
+ *  - install-source: The source of the install. - install-type: The type of
+ *  install (from webstore, inline, or other). - language: The language of the
+ *  user. - enabled: If the item is enabled or disabled. - utm-campaign: The UTM
+ *  campaign of the user. - utm-content: The UTM content of the user. -
+ *  utm-medium: The UTM medium of the user. - utm-source: The UTM source of the
+ *  user. - utm-term: The UTM term of the user.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *dimensions;
+
+/**
+ *  Required. The metrics to query the metric set for. **Supported metrics:** -
+ *  installs: Count of item installs. - installs-7d: Count of item installs in
+ *  the last 7 days. - uninstalls: Count of item uninstalls. - users: Count of
+ *  daily active users of the item. - users-7d: Count of 7-day active users of
+ *  the item. - impressions: Count of item impressions across the entire store
+ *  front. - page-views: Count of individual views of the item's detail page.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *metrics;
+
+/**
+ *  Required. The name of the item to query the metrics for. Format:
+ *  publishers/{publisher}/items/{item}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The maximum number of rows to return. If unspecified, at most 100
+ *  rows will be returned. The maximum value is 1000; Values above 1000 will be
+ *  coerced to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous call. Provide this to
+ *  retrieve the subsequent page. When paginating, all other parameters provided
+ *  to the request must match the call that provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Day of a month. Must be from 1 to 31 and valid for the year and month, or 0
+ *  to specify a year by itself or a year and month where the day isn't
+ *  significant.
+ */
+@property(nonatomic, assign) NSInteger timeSpecFirstDateDay;
+
+/**
+ *  Month of a year. Must be from 1 to 12, or 0 to specify a year without a
+ *  month and day.
+ */
+@property(nonatomic, assign) NSInteger timeSpecFirstDateMonth;
+
+/**
+ *  Year of the date. Must be from 1 to 9999, or 0 to specify a date without a
+ *  year.
+ */
+@property(nonatomic, assign) NSInteger timeSpecFirstDateYear;
+
+/**
+ *  Day of a month. Must be from 1 to 31 and valid for the year and month, or 0
+ *  to specify a year by itself or a year and month where the day isn't
+ *  significant.
+ */
+@property(nonatomic, assign) NSInteger timeSpecLastDateDay;
+
+/**
+ *  Month of a year. Must be from 1 to 12, or 0 to specify a year without a
+ *  month and day.
+ */
+@property(nonatomic, assign) NSInteger timeSpecLastDateMonth;
+
+/**
+ *  Year of the date. Must be from 1 to 9999, or 0 to specify a date without a
+ *  year.
+ */
+@property(nonatomic, assign) NSInteger timeSpecLastDateYear;
+
+/**
+ *  Fetches a @c GTLRChromewebstore_QueryItemMetricsResponse.
+ *
+ *  Query the metrics for an item.
+ *
+ *  @param name Required. The name of the item to query the metrics for. Format:
+ *    publishers/{publisher}/items/{item}
+ *
+ *  @return GTLRChromewebstoreQuery_PublishersItemsQueryMetrics
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Rolls back an item's published CRX package to a specified previously
+ *  published CRX package and publishes it to all users.
+ *
+ *  Method: chromewebstore.publishers.items.rollback
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeChromewebstore
+ */
+@interface GTLRChromewebstoreQuery_PublishersItemsRollback : GTLRChromewebstoreQuery
+
+/**
+ *  Required. Name of the item to rollback in the form
+ *  `publishers/{publisherId}/items/{itemId}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRChromewebstore_RollbackItemResponse.
+ *
+ *  Rolls back an item's published CRX package to a specified previously
+ *  published CRX package and publishes it to all users.
+ *
+ *  @param object The @c GTLRChromewebstore_RollbackItemRequest to include in
+ *    the query.
+ *  @param name Required. Name of the item to rollback in the form
+ *    `publishers/{publisherId}/items/{itemId}`
+ *
+ *  @return GTLRChromewebstoreQuery_PublishersItemsRollback
+ */
++ (instancetype)queryWithObject:(GTLRChromewebstore_RollbackItemRequest *)object
                            name:(NSString *)name;
 
 @end

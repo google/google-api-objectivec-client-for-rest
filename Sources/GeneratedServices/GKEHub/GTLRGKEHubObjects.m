@@ -291,6 +291,7 @@ NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_MeshIamCrossProjectPermis
 NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_MeshIamPermissionDenied = @"MESH_IAM_PERMISSION_DENIED";
 NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_MissingControlPlaneConfig = @"MISSING_CONTROL_PLANE_CONFIG";
 NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationAborted = @"MODERNIZATION_ABORTED";
+NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationAwaitingManualWorkloadRestart = @"MODERNIZATION_AWAITING_MANUAL_WORKLOAD_RESTART";
 NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationCompatible = @"MODERNIZATION_COMPATIBLE";
 NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationCompleted = @"MODERNIZATION_COMPLETED";
 NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationEligible = @"MODERNIZATION_ELIGIBLE";
@@ -309,10 +310,13 @@ NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationModernizedSo
 NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationModernizing = @"MODERNIZATION_MODERNIZING";
 NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationPrepared = @"MODERNIZATION_PREPARED";
 NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationPreparing = @"MODERNIZATION_PREPARING";
+NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationRequiresCustomerTrigger = @"MODERNIZATION_REQUIRES_CUSTOMER_TRIGGER";
+NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationRequiresManualWorkloadRestart = @"MODERNIZATION_REQUIRES_MANUAL_WORKLOAD_RESTART";
 NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationRollingBackCluster = @"MODERNIZATION_ROLLING_BACK_CLUSTER";
 NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationRollingBackFleet = @"MODERNIZATION_ROLLING_BACK_FLEET";
 NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationScheduled = @"MODERNIZATION_SCHEDULED";
 NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationStalled = @"MODERNIZATION_STALLED";
+NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationUnevictablePodDisruptionBudget = @"MODERNIZATION_UNEVICTABLE_POD_DISRUPTION_BUDGET";
 NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationWillBeScheduled = @"MODERNIZATION_WILL_BE_SCHEDULED";
 NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_NodepoolWorkloadIdentityFederationRequired = @"NODEPOOL_WORKLOAD_IDENTITY_FEDERATION_REQUIRED";
 NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_NonStandardBinaryUsage = @"NON_STANDARD_BINARY_USAGE";

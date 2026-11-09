@@ -450,6 +450,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatSpaceViewSpaceViewUnspecifie
  *  Method: chat.media.upload
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeHangoutsChatBot
  *    @c kGTLRAuthScopeHangoutsChatImport
  *    @c kGTLRAuthScopeHangoutsChatMessages
  *    @c kGTLRAuthScopeHangoutsChatMessagesCreate
@@ -2473,6 +2474,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatSpaceViewSpaceViewUnspecifie
  *  Method: chat.spaces.messages.reactions.create
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeHangoutsChatBot
  *    @c kGTLRAuthScopeHangoutsChatImport
  *    @c kGTLRAuthScopeHangoutsChatMessages
  *    @c kGTLRAuthScopeHangoutsChatMessagesReactions
@@ -2526,6 +2528,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatSpaceViewSpaceViewUnspecifie
  *  Method: chat.spaces.messages.reactions.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeHangoutsChatBot
  *    @c kGTLRAuthScopeHangoutsChatImport
  *    @c kGTLRAuthScopeHangoutsChatMessages
  *    @c kGTLRAuthScopeHangoutsChatMessagesReactions
@@ -2575,6 +2578,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatSpaceViewSpaceViewUnspecifie
  *  Method: chat.spaces.messages.reactions.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeHangoutsChatAppMessagesReadonly
+ *    @c kGTLRAuthScopeHangoutsChatBot
  *    @c kGTLRAuthScopeHangoutsChatMessages
  *    @c kGTLRAuthScopeHangoutsChatMessagesReactions
  *    @c kGTLRAuthScopeHangoutsChatMessagesReactionsReadonly
@@ -2653,6 +2658,55 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatSpaceViewSpaceViewUnspecifie
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Replaces the cards included in a message. A Chat app can only replace cards
+ *  on a human-created message if the message already contains cards, and the
+ *  cards were created by the app. If the app replaces the cards with an empty
+ *  list, the cards are removed. After removing the cards, the app cannot add
+ *  cards back to the message. Requires [app
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app)
+ *  with the [authorization
+ *  scope](https://developers.google.com/workspace/chat/authenticate-authorize#chat-api-scopes):
+ *  - `https://www.googleapis.com/auth/chat.bot`
+ *
+ *  Method: chat.spaces.messages.replaceCards
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeHangoutsChatBot
+ */
+@interface GTLRHangoutsChatQuery_SpacesMessagesReplaceCards : GTLRHangoutsChatQuery
+
+/**
+ *  Required. The resource name of the message. Format:
+ *  `spaces/{space}/messages/{message}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRHangoutsChat_ReplaceMessageCardsResponse.
+ *
+ *  Replaces the cards included in a message. A Chat app can only replace cards
+ *  on a human-created message if the message already contains cards, and the
+ *  cards were created by the app. If the app replaces the cards with an empty
+ *  list, the cards are removed. After removing the cards, the app cannot add
+ *  cards back to the message. Requires [app
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app)
+ *  with the [authorization
+ *  scope](https://developers.google.com/workspace/chat/authenticate-authorize#chat-api-scopes):
+ *  - `https://www.googleapis.com/auth/chat.bot`
+ *
+ *  @param object The @c GTLRHangoutsChat_ReplaceMessageCardsRequest to include
+ *    in the query.
+ *  @param name Required. The resource name of the message. Format:
+ *    `spaces/{space}/messages/{message}`
+ *
+ *  @return GTLRHangoutsChatQuery_SpacesMessagesReplaceCards
+ */
++ (instancetype)queryWithObject:(GTLRHangoutsChat_ReplaceMessageCardsRequest *)object
+                           name:(NSString *)name;
 
 @end
 

@@ -246,9 +246,9 @@ NSString * const kGTLRLooker_ServiceAttachment_ConnectionStatus_Unknown = @"UNKN
 //
 
 @implementation GTLRLooker_ExportMetadata
-@dynamic esaSourceDatasetId, exportEncryptionKey, exportMetrics, filePaths,
-         lookerEncryptionKey, lookerInstance, lookerPlatformEdition,
-         lookerVersion, source;
+@dynamic esaMigrationToken, esaSourceDatasetId, exportEncryptionKey,
+         exportMetrics, exportTime, filePaths, lookerEncryptionKey,
+         lookerInstance, lookerPlatformEdition, lookerVersion, source;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

@@ -64,6 +64,8 @@
 @class GTLRAndroidManagement_DeviceConnectivityManagement;
 @class GTLRAndroidManagement_DeviceRadioState;
 @class GTLRAndroidManagement_DeviceSettings;
+@class GTLRAndroidManagement_DeviceWidePolicies;
+@class GTLRAndroidManagement_DeviceWideRadioState;
 @class GTLRAndroidManagement_Display;
 @class GTLRAndroidManagement_DisplaySettings;
 @class GTLRAndroidManagement_DnsEvent;
@@ -78,6 +80,7 @@
 @class GTLRAndroidManagement_EuiccChipInfo;
 @class GTLRAndroidManagement_ExtensionConfig;
 @class GTLRAndroidManagement_ExternalData;
+@class GTLRAndroidManagement_ExtraCapabilities;
 @class GTLRAndroidManagement_FilePulledEvent;
 @class GTLRAndroidManagement_FilePushedEvent;
 @class GTLRAndroidManagement_FreezePeriod;
@@ -122,6 +125,7 @@
 @class GTLRAndroidManagement_Operation_Response;
 @class GTLRAndroidManagement_OsShutdownEvent;
 @class GTLRAndroidManagement_OsStartupEvent;
+@class GTLRAndroidManagement_Outcome;
 @class GTLRAndroidManagement_PackageNameList;
 @class GTLRAndroidManagement_PasswordPoliciesContext;
 @class GTLRAndroidManagement_PasswordRequirements;
@@ -136,6 +140,7 @@
 @class GTLRAndroidManagement_PolicyEnforcementRule;
 @class GTLRAndroidManagement_PostureDetail;
 @class GTLRAndroidManagement_PowerManagementEvent;
+@class GTLRAndroidManagement_Predicate;
 @class GTLRAndroidManagement_PreferentialNetworkServiceConfig;
 @class GTLRAndroidManagement_PreferentialNetworkServiceSettings;
 @class GTLRAndroidManagement_PrivateDnsSettings;
@@ -145,12 +150,14 @@
 @class GTLRAndroidManagement_RequestDeviceInfoParams;
 @class GTLRAndroidManagement_RequestDeviceInfoStatus;
 @class GTLRAndroidManagement_Role;
+@class GTLRAndroidManagement_Rule;
 @class GTLRAndroidManagement_ScreenBrightnessSettings;
 @class GTLRAndroidManagement_ScreenTimeoutSettings;
 @class GTLRAndroidManagement_SecurityPosture;
 @class GTLRAndroidManagement_SetupAction;
 @class GTLRAndroidManagement_SigninDetail;
 @class GTLRAndroidManagement_SigninDetailGoogleAuthenticationOptions;
+@class GTLRAndroidManagement_SingleApp;
 @class GTLRAndroidManagement_SoftwareInfo;
 @class GTLRAndroidManagement_SpecificNonComplianceContext;
 @class GTLRAndroidManagement_StartLostModeParams;
@@ -163,8 +170,11 @@
 @class GTLRAndroidManagement_StopLostModeUserAttemptEvent;
 @class GTLRAndroidManagement_SystemUpdate;
 @class GTLRAndroidManagement_SystemUpdateInfo;
+@class GTLRAndroidManagement_Target;
 @class GTLRAndroidManagement_TelephonyInfo;
 @class GTLRAndroidManagement_TermsAndConditions;
+@class GTLRAndroidManagement_TimeOfDay;
+@class GTLRAndroidManagement_UnifiedUpdatePolicy;
 @class GTLRAndroidManagement_UsageLog;
 @class GTLRAndroidManagement_UsageLogEvent;
 @class GTLRAndroidManagement_User;
@@ -2794,6 +2804,34 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DeviceRadioState_Minim
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DeviceRadioState_MinimumWifiSecurityLevel_PersonalNetworkSecurity;
 
 // ----------------------------------------------------------------------------
+// GTLRAndroidManagement_DeviceRadioState.nfc
+
+/**
+ *  NFC is disabled on the device. The user is not allowed to toggle NFC on.
+ *  This is supported on fully managed devices and work profiles on
+ *  company-owned devices. For other management modes, a NonComplianceDetail
+ *  with MANAGEMENT_MODE is reported. A NonComplianceDetail with API_LEVEL is
+ *  reported if the Android version is less than 15.
+ *
+ *  Value: "NFC_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DeviceRadioState_Nfc_NfcDisabled;
+/**
+ *  Unspecified. Defaults to NFC_USER_CHOICE.
+ *
+ *  Value: "NFC_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DeviceRadioState_Nfc_NfcUnspecified;
+/**
+ *  The user is allowed to toggle NFC between enabled and disabled. A
+ *  NonComplianceDetail with API_LEVEL is reported if the Android version is
+ *  less than 15.
+ *
+ *  Value: "NFC_USER_CHOICE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DeviceRadioState_Nfc_NfcUserChoice;
+
+// ----------------------------------------------------------------------------
 // GTLRAndroidManagement_DeviceRadioState.ultraWidebandState
 
 /**
@@ -2827,8 +2865,16 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DeviceRadioState_Ultra
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DeviceRadioState_UserInitiatedAddEsimSettings_UserInitiatedAddEsimAllowed;
 /**
- *  Supported only on company-owned devices. A NonComplianceDetail with
- *  MANAGEMENT_MODE is reported for personally-owned devices.
+ *  Prevents the user from adding any new eSIM profiles. Note the following
+ *  behaviors: * Admin-provisioned eSIMs: This setting does not block adding or
+ *  managing eSIMs programmatically using commands like ADD_ESIM. * Existing
+ *  eSIMs: Any eSIM profiles already present on the device before this
+ *  restriction is applied, will remain and are not removed. To view existing
+ *  eSIMs, refer to the data reported in TelephonyInfo.Supported on Android 15
+ *  and higher. A NonComplianceDetail with API_LEVEL is reported if the Android
+ *  version is less than 15.Supported only on company-owned devices. A
+ *  NonComplianceDetail with MANAGEMENT_MODE is reported for personally-owned
+ *  devices.
  *
  *  Value: "USER_INITIATED_ADD_ESIM_DISALLOWED"
  */
@@ -2917,6 +2963,34 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DeviceSettings_Encrypt
  *  Value: "UNSUPPORTED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DeviceSettings_EncryptionStatus_Unsupported;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_DeviceWideRadioState.nfc
+
+/**
+ *  NFC is disabled on the device. The user is not allowed to toggle NFC on.
+ *  This is supported on fully managed devices and work profiles on
+ *  company-owned devices. For other management modes, a NonComplianceDetail
+ *  with MANAGEMENT_MODE is reported. A NonComplianceDetail with API_LEVEL is
+ *  reported if the Android version is less than 15.
+ *
+ *  Value: "NFC_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DeviceWideRadioState_Nfc_NfcDisabled;
+/**
+ *  Unspecified. Defaults to NFC_USER_CHOICE.
+ *
+ *  Value: "NFC_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DeviceWideRadioState_Nfc_NfcUnspecified;
+/**
+ *  The user is allowed to toggle NFC between enabled and disabled. A
+ *  NonComplianceDetail with API_LEVEL is reported if the Android version is
+ *  less than 15.
+ *
+ *  Value: "NFC_USER_CHOICE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DeviceWideRadioState_Nfc_NfcUserChoice;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_Display.state
@@ -3166,7 +3240,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_EsimCommandStatus_Stat
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_EsimCommandStatus_Status_InternalError;
 /**
- *  The user needs to take an action for the eSIM operation to proceed.
+ *  The user needs to take an action for the eSIM operation to proceed. When
+ *  ADD_ESIM is issued, this can happen when the device requires user consent to
+ *  install or activate the eSIM, or when the eSIM profile requires a
+ *  confirmation code that was not provided in confirmation_code.
  *
  *  Value: "PENDING_USER_ACTION"
  */
@@ -3183,6 +3260,29 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_EsimCommandStatus_Stat
  *  Value: "SUCCESS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_EsimCommandStatus_Status_Success;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_ExtraCapabilities.localDeviceWipeCommand
+
+/**
+ *  The app is allowed to perform local device wipe. Only the COMPANION_APP role
+ *  type can use this field.
+ *
+ *  Value: "LOCAL_DEVICE_WIPE_COMMAND_ALLOWED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ExtraCapabilities_LocalDeviceWipeCommand_LocalDeviceWipeCommandAllowed;
+/**
+ *  The app is not allowed to perform local device wipe.
+ *
+ *  Value: "LOCAL_DEVICE_WIPE_COMMAND_DISALLOWED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ExtraCapabilities_LocalDeviceWipeCommand_LocalDeviceWipeCommandDisallowed;
+/**
+ *  Unspecified. Defaults to LOCAL_DEVICE_WIPE_COMMAND_DISALLOWED.
+ *
+ *  Value: "LOCAL_DEVICE_WIPE_COMMAND_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ExtraCapabilities_LocalDeviceWipeCommand_LocalDeviceWipeCommandUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_GoogleAuthenticationOptions.authenticationRequirement
@@ -3390,7 +3490,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_InternalErrorDetails_E
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_InternalErrorDetails_ErrorCodeDetail_ErrorInvalidActivationCode;
 /**
- *  See EuiccManager.ERROR_INVALID_CONFIRMATION_CODE
+ *  The confirmation code is invalid. When ADD_ESIM is issued, this is reported
+ *  when the carrier rejects the provided confirmation_code. See
+ *  EuiccManager.ERROR_INVALID_CONFIRMATION_CODE
  *  (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#ERROR_INVALID_CONFIRMATION_CODE)
  *  for details.
  *
@@ -4164,6 +4266,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_Sp
  *  Value: "SPECIFIC_NON_COMPLIANCE_REASON_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_SpecificNonComplianceReason_SpecificNonComplianceReasonUnspecified;
+/**
+ *  The user's device is not unlocked (in direct boot mode), preventing the
+ *  application of the policy. nonComplianceReason is set to PENDING.
+ *
+ *  Value: "USER_NOT_UNLOCKED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_SpecificNonComplianceReason_UserNotUnlocked;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_NonComplianceDetailCondition.nonComplianceReason
@@ -4326,6 +4435,47 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_OsStartupEvent_VerityM
  *  Value: "IO_ERROR"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_OsStartupEvent_VerityMode_IoError;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_Outcome.outcomeType
+
+/**
+ *  The update is not downloaded and not installed. For updates on Google Play,
+ *  this only affects automatic updates, but does not prevent the user from
+ *  manually updating. For OEM system updates, this prevents both manual and
+ *  automatic updates. Positivity requirement: Any rule which uses this cannot
+ *  use any of the following: * UNMETERED_NETWORK * IDLE * CHARGING *
+ *  BATTERY_LEVEL_NOT_LOW
+ *
+ *  Value: "BLOCK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Outcome_OutcomeType_Block;
+/**
+ *  The action for which the policy is being evaluated (depending on the
+ *  stages), such as downloading the update or rebooting the device, happens
+ *  immediately. Positivity requirement: Any rule which uses this can't use any
+ *  of the following: * METERED_NETWORK * NOT_IDLE * NOT_CHARGING *
+ *  BATTERY_LEVEL_LOW
+ *
+ *  Value: "FORCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Outcome_OutcomeType_Force;
+/**
+ *  Do not use this value.
+ *
+ *  Value: "OUTCOME_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Outcome_OutcomeType_OutcomeTypeUnspecified;
+/**
+ *  Action should not be taken without the user's consent, but the user has a
+ *  way of proceeding with the update and is prompted to do so. Supported only
+ *  for OS_UPDATE_WITHOUT_API_LEVEL_CHANGE and OS_UPDATE_WITH_API_LEVEL_CHANGE.
+ *  For SINGLE_APP, GOOGLE_SYSTEM_SERVICES, and GOOGLE_PLAY_SYSTEM_UPDATE, the
+ *  default update behavior applies, as if no rule matched.
+ *
+ *  Value: "USER_PROMPT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Outcome_OutcomeType_UserPrompt;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_PasswordPoliciesContext.passwordPolicyScope
@@ -5479,6 +5629,58 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PowerManagementEvent_E
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PowerManagementEvent_EventType_Shutdown;
 
 // ----------------------------------------------------------------------------
+// GTLRAndroidManagement_Predicate.daysOfWeek
+
+/**
+ *  The day of the week is unspecified.
+ *
+ *  Value: "DAY_OF_WEEK_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Predicate_DaysOfWeek_DayOfWeekUnspecified;
+/**
+ *  Friday
+ *
+ *  Value: "FRIDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Predicate_DaysOfWeek_Friday;
+/**
+ *  Monday
+ *
+ *  Value: "MONDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Predicate_DaysOfWeek_Monday;
+/**
+ *  Saturday
+ *
+ *  Value: "SATURDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Predicate_DaysOfWeek_Saturday;
+/**
+ *  Sunday
+ *
+ *  Value: "SUNDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Predicate_DaysOfWeek_Sunday;
+/**
+ *  Thursday
+ *
+ *  Value: "THURSDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Predicate_DaysOfWeek_Thursday;
+/**
+ *  Tuesday
+ *
+ *  Value: "TUESDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Predicate_DaysOfWeek_Tuesday;
+/**
+ *  Wednesday
+ *
+ *  Value: "WEDNESDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Predicate_DaysOfWeek_Wednesday;
+
+// ----------------------------------------------------------------------------
 // GTLRAndroidManagement_PreferentialNetworkServiceConfig.fallbackToDefaultConnection
 
 /**
@@ -5831,6 +6033,35 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Role_RoleType_RoleType
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Role_RoleType_SystemHealthMonitoring;
 
 // ----------------------------------------------------------------------------
+// GTLRAndroidManagement_Rule.stages
+
+/**
+ *  The policy is evaluated before taking an action which causes the update to
+ *  be applied. This is best-effort, and the update may be applied regardless.
+ *  For example, some updates such as apps and services installed by Google Play
+ *  get automatically applied immediately after download. Some updates which
+ *  need a reboot to apply may get applied as a result of a user-initiated
+ *  reboot, regardless of policy. If an update needs a reboot to apply, policy
+ *  is evaluated before the system triggers an automatic reboot for the purpose
+ *  of applying the update.
+ *
+ *  Value: "STAGE_APPLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Rule_Stages_StageApply;
+/**
+ *  The policy is evaluated for the download of the update.
+ *
+ *  Value: "STAGE_DOWNLOAD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Rule_Stages_StageDownload;
+/**
+ *  This must not be used.
+ *
+ *  Value: "STAGE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Rule_Stages_StageUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRAndroidManagement_ScreenBrightnessSettings.screenBrightnessMode
 
 /**
@@ -6159,6 +6390,51 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_SystemUpdateInfo_Updat
  *  Value: "UP_TO_DATE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_SystemUpdateInfo_UpdateStatus_UpToDate;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_Target.targetType
+
+/**
+ *  Google Play System Updates. See
+ *  https://source.android.com/docs/core/ota/modular-system .
+ *
+ *  Value: "GOOGLE_PLAY_SYSTEM_UPDATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Target_TargetType_GooglePlaySystemUpdate;
+/**
+ *  Google system services
+ *  (https://support.google.com/product-documentation/answer/14343500) updated
+ *  from Google Play, such as WebView.
+ *
+ *  Value: "GOOGLE_SYSTEM_SERVICES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Target_TargetType_GoogleSystemServices;
+/**
+ *  An OS update issued by the OEM which changes the API level of the device.
+ *
+ *  Value: "OS_UPDATE_WITH_API_LEVEL_CHANGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Target_TargetType_OsUpdateWithApiLevelChange;
+/**
+ *  An OS update issued by the OEM which does not change the API level of the
+ *  device.
+ *
+ *  Value: "OS_UPDATE_WITHOUT_API_LEVEL_CHANGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Target_TargetType_OsUpdateWithoutApiLevelChange;
+/**
+ *  An app on Google System services. singleApp must be set. This can be used
+ *  only to control an app which is a part of GOOGLE_SYSTEM_SERVICES.
+ *
+ *  Value: "SINGLE_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Target_TargetType_SingleApp;
+/**
+ *  This must not be used.
+ *
+ *  Value: "TARGET_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Target_TargetType_TargetTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_TelephonyInfo.activationState
@@ -9725,8 +10001,9 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *bluetoothSharing;
 
 /**
- *  Controls Wi-Fi configuring privileges. Based on the option set, user will
- *  have either full or limited or no control in configuring Wi-Fi networks.
+ *  Optional. Controls Wi-Fi configuring privileges. Based on the option set,
+ *  user will have either full or limited or no control in configuring Wi-Fi
+ *  networks.
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidManagement_DeviceConnectivityManagement_ConfigureWifi_AllowConfiguringWifi
@@ -9775,8 +10052,8 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) GTLRAndroidManagement_PrivateDnsSettings *privateDnsSettings;
 
 /**
- *  Controls tethering settings. Based on the value set, the user is partially
- *  or fully disallowed from using different forms of tethering.
+ *  Optional. Controls tethering settings. Based on the value set, the user is
+ *  partially or fully disallowed from using different forms of tethering.
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidManagement_DeviceConnectivityManagement_TetheringSettings_AllowAllTethering
@@ -9802,8 +10079,8 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *tetheringSettings;
 
 /**
- *  Controls what files and/or data can be transferred via USB. Supported only
- *  on company-owned devices.
+ *  Optional. Controls what files and/or data can be transferred via USB.
+ *  Supported only on company-owned devices.
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidManagement_DeviceConnectivityManagement_UsbDataAccess_AllowUsbDataTransfer
@@ -9830,7 +10107,7 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *usbDataAccess;
 
 /**
- *  Controls configuring and using Wi-Fi direct settings. Supported on
+ *  Optional. Controls configuring and using Wi-Fi direct settings. Supported on
  *  company-owned devices running Android 13 and above.
  *
  *  Likely values:
@@ -9850,9 +10127,13 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) GTLRAndroidManagement_WifiRoamingPolicy *wifiRoamingPolicy;
 
 /**
- *  Restrictions on which Wi-Fi SSIDs the device can connect to. Note that this
- *  does not affect which networks can be configured on the device. Supported on
- *  company-owned devices running Android 13 and above.
+ *  Optional. Restrictions on which Wi-Fi SSIDs the device can connect to. Note
+ *  that this does not affect which networks can be configured on the
+ *  device.Supported on Android 13 (API level 33) and higher on fully managed
+ *  devices and work profiles on company-owned devices. A NonComplianceDetail
+ *  with MANAGEMENT_MODE is reported on other management modes. A
+ *  NonComplianceDetail with API_LEVEL is reported if the Android version is
+ *  less than 13 (API level 33).
  */
 @property(nonatomic, strong, nullable) GTLRAndroidManagement_WifiSsidPolicy *wifiSsidPolicy;
 
@@ -9934,6 +10215,29 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *minimumWifiSecurityLevel;
 
 /**
+ *  Optional. Controls whether NFC is disabled on the device and if the user can
+ *  toggle NFC between enabled and disabled. This is for fully managed devices.
+ *  To control NFC on work profiles on company-owned devices, use
+ *  deviceWidePolicies.deviceRadioState.nfc instead.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_DeviceRadioState_Nfc_NfcDisabled NFC is
+ *        disabled on the device. The user is not allowed to toggle NFC on. This
+ *        is supported on fully managed devices and work profiles on
+ *        company-owned devices. For other management modes, a
+ *        NonComplianceDetail with MANAGEMENT_MODE is reported. A
+ *        NonComplianceDetail with API_LEVEL is reported if the Android version
+ *        is less than 15. (Value: "NFC_DISABLED")
+ *    @arg @c kGTLRAndroidManagement_DeviceRadioState_Nfc_NfcUnspecified
+ *        Unspecified. Defaults to NFC_USER_CHOICE. (Value: "NFC_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidManagement_DeviceRadioState_Nfc_NfcUserChoice The user
+ *        is allowed to toggle NFC between enabled and disabled. A
+ *        NonComplianceDetail with API_LEVEL is reported if the Android version
+ *        is less than 15. (Value: "NFC_USER_CHOICE")
+ */
+@property(nonatomic, copy, nullable) NSString *nfc;
+
+/**
  *  Optional. Controls the state of the ultra wideband setting and whether the
  *  user can toggle it on or off.
  *
@@ -9960,8 +10264,17 @@ GTLR_DEPRECATED
  *        The user is allowed to add eSIM profiles. (Value:
  *        "USER_INITIATED_ADD_ESIM_ALLOWED")
  *    @arg @c kGTLRAndroidManagement_DeviceRadioState_UserInitiatedAddEsimSettings_UserInitiatedAddEsimDisallowed
- *        Supported only on company-owned devices. A NonComplianceDetail with
- *        MANAGEMENT_MODE is reported for personally-owned devices. (Value:
+ *        Prevents the user from adding any new eSIM profiles. Note the
+ *        following behaviors: * Admin-provisioned eSIMs: This setting does not
+ *        block adding or managing eSIMs programmatically using commands like
+ *        ADD_ESIM. * Existing eSIMs: Any eSIM profiles already present on the
+ *        device before this restriction is applied, will remain and are not
+ *        removed. To view existing eSIMs, refer to the data reported in
+ *        TelephonyInfo.Supported on Android 15 and higher. A
+ *        NonComplianceDetail with API_LEVEL is reported if the Android version
+ *        is less than 15.Supported only on company-owned devices. A
+ *        NonComplianceDetail with MANAGEMENT_MODE is reported for
+ *        personally-owned devices. (Value:
  *        "USER_INITIATED_ADD_ESIM_DISALLOWED")
  *    @arg @c kGTLRAndroidManagement_DeviceRadioState_UserInitiatedAddEsimSettings_UserInitiatedAddEsimSettingsUnspecified
  *        Unspecified. Defaults to USER_INITIATED_ADD_ESIM_ALLOWED. (Value:
@@ -10068,6 +10381,48 @@ GTLR_DEPRECATED
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *verifyAppsEnabled;
+
+@end
+
+
+/**
+ *  Policies controlling the device on company-owned devices.
+ */
+@interface GTLRAndroidManagement_DeviceWidePolicies : GTLRObject
+
+/** Optional. Covers controls for radio state. */
+@property(nonatomic, strong, nullable) GTLRAndroidManagement_DeviceWideRadioState *deviceRadioState;
+
+@end
+
+
+/**
+ *  Controls for device radio settings.
+ */
+@interface GTLRAndroidManagement_DeviceWideRadioState : GTLRObject
+
+/**
+ *  Optional. Controls whether NFC is disabled on the device and if the user can
+ *  toggle NFC between enabled and disabled. This is for work profiles on
+ *  company-owned devices. To control NFC on fully managed devices, use
+ *  deviceRadioState.nfc instead.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_DeviceWideRadioState_Nfc_NfcDisabled NFC is
+ *        disabled on the device. The user is not allowed to toggle NFC on. This
+ *        is supported on fully managed devices and work profiles on
+ *        company-owned devices. For other management modes, a
+ *        NonComplianceDetail with MANAGEMENT_MODE is reported. A
+ *        NonComplianceDetail with API_LEVEL is reported if the Android version
+ *        is less than 15. (Value: "NFC_DISABLED")
+ *    @arg @c kGTLRAndroidManagement_DeviceWideRadioState_Nfc_NfcUnspecified
+ *        Unspecified. Defaults to NFC_USER_CHOICE. (Value: "NFC_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidManagement_DeviceWideRadioState_Nfc_NfcUserChoice The
+ *        user is allowed to toggle NFC between enabled and disabled. A
+ *        NonComplianceDetail with API_LEVEL is reported if the Android version
+ *        is less than 15. (Value: "NFC_USER_CHOICE")
+ */
+@property(nonatomic, copy, nullable) NSString *nfc;
 
 @end
 
@@ -10539,7 +10894,10 @@ GTLR_DEPRECATED
  *        device, see internal_error_details. (Value: "INTERNAL_ERROR")
  *    @arg @c kGTLRAndroidManagement_EsimCommandStatus_Status_PendingUserAction
  *        The user needs to take an action for the eSIM operation to proceed.
- *        (Value: "PENDING_USER_ACTION")
+ *        When ADD_ESIM is issued, this can happen when the device requires user
+ *        consent to install or activate the eSIM, or when the eSIM profile
+ *        requires a confirmation code that was not provided in
+ *        confirmation_code. (Value: "PENDING_USER_ACTION")
  *    @arg @c kGTLRAndroidManagement_EsimCommandStatus_Status_StatusUnspecified
  *        Unspecified. This value is not used. (Value: "STATUS_UNSPECIFIED")
  *    @arg @c kGTLRAndroidManagement_EsimCommandStatus_Status_Success The eSIM
@@ -10639,6 +10997,34 @@ GTLR_DEPRECATED
  *  URL.
  */
 @property(nonatomic, copy, nullable) NSString *url;
+
+@end
+
+
+/**
+ *  Extra capabilities for a role.
+ */
+@interface GTLRAndroidManagement_ExtraCapabilities : GTLRObject
+
+/**
+ *  Optional. Controls whether the companion app can perform local device wipe
+ *  (https://developers.google.com/android/management/sdk-local-commands) using
+ *  AMAPI SDK
+ *  (https://developers.google.com/android/management/sdk-integration).
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_ExtraCapabilities_LocalDeviceWipeCommand_LocalDeviceWipeCommandAllowed
+ *        The app is allowed to perform local device wipe. Only the
+ *        COMPANION_APP role type can use this field. (Value:
+ *        "LOCAL_DEVICE_WIPE_COMMAND_ALLOWED")
+ *    @arg @c kGTLRAndroidManagement_ExtraCapabilities_LocalDeviceWipeCommand_LocalDeviceWipeCommandDisallowed
+ *        The app is not allowed to perform local device wipe. (Value:
+ *        "LOCAL_DEVICE_WIPE_COMMAND_DISALLOWED")
+ *    @arg @c kGTLRAndroidManagement_ExtraCapabilities_LocalDeviceWipeCommand_LocalDeviceWipeCommandUnspecified
+ *        Unspecified. Defaults to LOCAL_DEVICE_WIPE_COMMAND_DISALLOWED. (Value:
+ *        "LOCAL_DEVICE_WIPE_COMMAND_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *localDeviceWipeCommand;
 
 @end
 
@@ -11104,7 +11490,9 @@ GTLR_DEPRECATED
  *        (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#ERROR_INVALID_ACTIVATION_CODE)
  *        for details. (Value: "ERROR_INVALID_ACTIVATION_CODE")
  *    @arg @c kGTLRAndroidManagement_InternalErrorDetails_ErrorCodeDetail_ErrorInvalidConfirmationCode
- *        See EuiccManager.ERROR_INVALID_CONFIRMATION_CODE
+ *        The confirmation code is invalid. When ADD_ESIM is issued, this is
+ *        reported when the carrier rejects the provided confirmation_code. See
+ *        EuiccManager.ERROR_INVALID_CONFIRMATION_CODE
  *        (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#ERROR_INVALID_CONFIRMATION_CODE)
  *        for details. (Value: "ERROR_INVALID_CONFIRMATION_CODE")
  *    @arg @c kGTLRAndroidManagement_InternalErrorDetails_ErrorCodeDetail_ErrorInvalidPort
@@ -11415,7 +11803,7 @@ GTLR_DEPRECATED
 /**
  *  Settings controlling the behavior of a device in kiosk mode. To enable kiosk
  *  mode, set kioskCustomLauncherEnabled to true or specify an app in the policy
- *  with installType KIOSK.
+ *  with the KIOSK role.
  */
 @interface GTLRAndroidManagement_KioskCustomization : GTLRObject
 
@@ -12374,6 +12762,10 @@ GTLR_DEPRECATED
  *        Specific non-compliance reason is not specified. Fields in
  *        specific_non_compliance_context are not set. (Value:
  *        "SPECIFIC_NON_COMPLIANCE_REASON_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidManagement_NonComplianceDetail_SpecificNonComplianceReason_UserNotUnlocked
+ *        The user's device is not unlocked (in direct boot mode), preventing
+ *        the application of the policy. nonComplianceReason is set to PENDING.
+ *        (Value: "USER_NOT_UNLOCKED")
  */
 @property(nonatomic, copy, nullable) NSString *specificNonComplianceReason;
 
@@ -12607,6 +12999,43 @@ GTLR_DEPRECATED
  *        data blocks (also known as eio boot state). (Value: "IO_ERROR")
  */
 @property(nonatomic, copy, nullable) NSString *verityMode;
+
+@end
+
+
+/**
+ *  Determines how to proceed with the update.
+ */
+@interface GTLRAndroidManagement_Outcome : GTLRObject
+
+/**
+ *  Optional. Determines how to proceed with the update.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_Outcome_OutcomeType_Block The update is not
+ *        downloaded and not installed. For updates on Google Play, this only
+ *        affects automatic updates, but does not prevent the user from manually
+ *        updating. For OEM system updates, this prevents both manual and
+ *        automatic updates. Positivity requirement: Any rule which uses this
+ *        cannot use any of the following: * UNMETERED_NETWORK * IDLE * CHARGING
+ *        * BATTERY_LEVEL_NOT_LOW (Value: "BLOCK")
+ *    @arg @c kGTLRAndroidManagement_Outcome_OutcomeType_Force The action for
+ *        which the policy is being evaluated (depending on the stages), such as
+ *        downloading the update or rebooting the device, happens immediately.
+ *        Positivity requirement: Any rule which uses this can't use any of the
+ *        following: * METERED_NETWORK * NOT_IDLE * NOT_CHARGING *
+ *        BATTERY_LEVEL_LOW (Value: "FORCE")
+ *    @arg @c kGTLRAndroidManagement_Outcome_OutcomeType_OutcomeTypeUnspecified
+ *        Do not use this value. (Value: "OUTCOME_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidManagement_Outcome_OutcomeType_UserPrompt Action
+ *        should not be taken without the user's consent, but the user has a way
+ *        of proceeding with the update and is prompted to do so. Supported only
+ *        for OS_UPDATE_WITHOUT_API_LEVEL_CHANGE and
+ *        OS_UPDATE_WITH_API_LEVEL_CHANGE. For SINGLE_APP,
+ *        GOOGLE_SYSTEM_SERVICES, and GOOGLE_PLAY_SYSTEM_UPDATE, the default
+ *        update behavior applies, as if no rule matched. (Value: "USER_PROMPT")
+ */
+@property(nonatomic, copy, nullable) NSString *outcomeType;
 
 @end
 
@@ -13527,12 +13956,12 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *defaultPermissionPolicy;
 
 /**
- *  Covers controls for device connectivity such as Wi-Fi, USB data access,
- *  keyboard/mouse connections, and more.
+ *  Optional. Covers controls for device connectivity such as Wi-Fi, USB data
+ *  access, keyboard/mouse connections, and more.
  */
 @property(nonatomic, strong, nullable) GTLRAndroidManagement_DeviceConnectivityManagement *deviceConnectivityManagement;
 
-/** The device owner information to be shown on the lock screen. */
+/** Optional. The device owner information to be shown on the lock screen. */
 @property(nonatomic, strong, nullable) GTLRAndroidManagement_UserFacingMessage *deviceOwnerLockScreenInfo;
 
 /**
@@ -13540,6 +13969,9 @@ GTLR_DEPRECATED
  *  more.
  */
 @property(nonatomic, strong, nullable) GTLRAndroidManagement_DeviceRadioState *deviceRadioState;
+
+/** Optional. Policies controlling the device on company-owned devices. */
+@property(nonatomic, strong, nullable) GTLRAndroidManagement_DeviceWidePolicies *deviceWidePolicies;
 
 /** Optional. Controls for the display settings. */
 @property(nonatomic, strong, nullable) GTLRAndroidManagement_DisplaySettings *displaySettings;
@@ -13641,7 +14073,7 @@ GTLR_DEPRECATED
 /**
  *  Optional. Settings controlling the behavior of a device in kiosk mode. To
  *  enable kiosk mode, set kioskCustomLauncherEnabled to true or specify an app
- *  in the policy with installType KIOSK.
+ *  in the policy with the KIOSK role.
  */
 @property(nonatomic, strong, nullable) GTLRAndroidManagement_KioskCustomization *kioskCustomization;
 
@@ -14063,7 +14495,8 @@ GTLR_DEPRECATED
  *  Mainline updates) are automatically downloaded and require a device reboot
  *  to be installed. Refer to the mainline section in Manage system updates
  *  (https://developer.android.com/work/dpc/system-updates#mainline) for further
- *  details.
+ *  details.If this policy is set, it takes precedence over unifiedUpdatePolicy
+ *  for OEM OS updates. For more information, see unifiedUpdatePolicy.
  */
 @property(nonatomic, strong, nullable) GTLRAndroidManagement_SystemUpdate *systemUpdate;
 
@@ -14075,6 +14508,18 @@ GTLR_DEPRECATED
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *tetheringConfigDisabled GTLR_DEPRECATED;
+
+/**
+ *  Optional. The Unified Update Control policy, for controlling updates of
+ *  software components on the device. Supported only on company-owned
+ *  devices.The targets OS_UPDATE_WITH_API_LEVEL_CHANGE and
+ *  OS_UPDATE_WITHOUT_API_LEVEL_CHANGE are supported only on devices where the
+ *  OEM has integrated with Unified Update Controls, and are ignored otherwise.
+ *  If systemUpdate is set, then that policy takes precedence and the targets
+ *  OS_UPDATE_WITH_API_LEVEL_CHANGE and OS_UPDATE_WITHOUT_API_LEVEL_CHANGE are
+ *  ignored here.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidManagement_UnifiedUpdatePolicy *unifiedUpdatePolicy;
 
 /**
  *  Whether user uninstallation of applications is disabled. This prevents apps
@@ -14291,6 +14736,75 @@ GTLR_DEPRECATED
  *        device shut down. (Value: "SHUTDOWN")
  */
 @property(nonatomic, copy, nullable) NSString *eventType;
+
+@end
+
+
+/**
+ *  A predicate is something that can be evaluated on a device at any point of
+ *  time, to return true or false. This is the conjunction (logical AND) of all
+ *  the individual conditions defined here. An empty Predicate always evaluates
+ *  to true.
+ */
+@interface GTLRAndroidManagement_Predicate : GTLRObject
+
+/**
+ *  Optional. A lower bound on the current date, in the device time zone. If not
+ *  set, always evaluates to true.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidManagement_Date *dateLowerBound;
+
+/**
+ *  Optional. An upper bound on the current date, in the device time zone. If
+ *  not set, always evaluates to true.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidManagement_Date *dateUpperBound;
+
+/**
+ *  Optional. Evaluates to true if this list is empty or if the current day of
+ *  the week in the device's local time is in this list.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *daysOfWeek;
+
+/**
+ *  Optional. A lower bound on the current time of the day, evaluated as
+ *  hh:00:00 in the device time zone. Must specify only the hour (0-23). The
+ *  policy will be rejected if minutes, seconds, or nanos are set. If not set,
+ *  always evaluates to true.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidManagement_TimeOfDay *timeOfDayLowerBound;
+
+/**
+ *  Optional. An upper bound on the current time of the day, evaluated as
+ *  hh:00:00 in the device time zone. Must specify only the hour (0-23). The
+ *  policy will be rejected if minutes, seconds, or nanos are set. If not set,
+ *  always evaluates to true.The window closes at the specified hour (for
+ *  example, a lower bound of 14 and an upper bound of 15 covers 14:00 to
+ *  15:00). When both bounds are set in the same rule, timeOfDayUpperBound must
+ *  be strictly greater than timeOfDayLowerBound for the window to match; if
+ *  timeOfDayUpperBound is less than or equal to timeOfDayLowerBound, the
+ *  predicate evaluates to false. Setting timeOfDayUpperBound to 0 (00:00)
+ *  evaluates to false for the entire day. To extend a window to the end of the
+ *  day (24:00), omit timeOfDayUpperBound. To define an overnight window
+ *  spanning midnight, use two rules: an evening rule with only
+ *  timeOfDayLowerBound set and a morning rule with only timeOfDayUpperBound set
+ *  (targeting the following day if daysOfWeek is set).
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidManagement_TimeOfDay *timeOfDayUpperBound;
+
+/**
+ *  Optional. A lower bound on the amount of time for which the update (that is,
+ *  the specific build or version) has been available to the device. This must
+ *  be a multiple of 24 hours.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *updateAgeLowerBound;
+
+/**
+ *  Optional. An upper bound on the amount of time for which the update has been
+ *  available. If not set or set to zero, always evaluates to true. This must be
+ *  a multiple of 24 hours.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *updateAgeUpperBound;
 
 @end
 
@@ -14733,6 +15247,12 @@ GTLR_DEPRECATED
 @interface GTLRAndroidManagement_Role : GTLRObject
 
 /**
+ *  Optional. Extra capabilities configured specifically for this role. Not all
+ *  role types support or utilize extra capabilities.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidManagement_ExtraCapabilities *extraCapabilities;
+
+/**
  *  Required. The type of the role an app can have.
  *
  *  Likely values:
@@ -14782,6 +15302,51 @@ GTLR_DEPRECATED
  *        "SYSTEM_HEALTH_MONITORING")
  */
 @property(nonatomic, copy, nullable) NSString *roleType;
+
+@end
+
+
+/**
+ *  A rule as a part of the Unified Update Control policy. See rules for how
+ *  this is used.
+ */
+@interface GTLRAndroidManagement_Rule : GTLRObject
+
+/**
+ *  Required. An EMM-defined identifier for this rule, of length at most 64
+ *  characters. This must not be empty. Within a UnifiedUpdatePolicy, different
+ *  rules must have different ids.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/** Optional. Determines how to proceed with the update. */
+@property(nonatomic, strong, nullable) GTLRAndroidManagement_Outcome *outcome;
+
+/**
+ *  Optional. The predicate of the rule, which can evaluate to true or false.
+ *  See rules for how this is used. If not set, the predicate always evaluates
+ *  to true.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidManagement_Predicate *predicate;
+
+/**
+ *  Optional. The stages at which the rule is evaluated. If this list is empty,
+ *  the rule is evaluated at all stages. Specifying stages is supported only for
+ *  OS_UPDATE_WITHOUT_API_LEVEL_CHANGE and OS_UPDATE_WITH_API_LEVEL_CHANGE. For
+ *  SINGLE_APP, GOOGLE_SYSTEM_SERVICES, and GOOGLE_PLAY_SYSTEM_UPDATE, this
+ *  field is ignored and the rule is evaluated at all stages.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *stages;
+
+/**
+ *  Required. Targets that this rule applies to. This can have multiple targets
+ *  here for convenience, and that is equivalent to having multiple rules in
+ *  sequence each having one target, in the same order in which targets are
+ *  listed here. This list must not be empty and must not have duplicates.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_Target *> *targets;
 
 @end
 
@@ -15103,6 +15668,20 @@ GTLR_DEPRECATED
  *  can't be rendered in an iframe.
  */
 @property(nonatomic, copy, nullable) NSString *url;
+
+@end
+
+
+/**
+ *  Details of an app on Google System services.
+ */
+@interface GTLRAndroidManagement_SingleApp : GTLRObject
+
+/**
+ *  Required. The package name of the app. This can only be an app which is a
+ *  part of GOOGLE_SYSTEM_SERVICES.
+ */
+@property(nonatomic, copy, nullable) NSString *packageName;
 
 @end
 
@@ -15548,6 +16127,45 @@ GTLR_DEPRECATED
 
 
 /**
+ *  A software component that can be updated.
+ */
+@interface GTLRAndroidManagement_Target : GTLRObject
+
+/** Details of an app on Google System services. */
+@property(nonatomic, strong, nullable) GTLRAndroidManagement_SingleApp *singleApp;
+
+/**
+ *  Required. The type of software component that can be updated.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_Target_TargetType_GooglePlaySystemUpdate
+ *        Google Play System Updates. See
+ *        https://source.android.com/docs/core/ota/modular-system . (Value:
+ *        "GOOGLE_PLAY_SYSTEM_UPDATE")
+ *    @arg @c kGTLRAndroidManagement_Target_TargetType_GoogleSystemServices
+ *        Google system services
+ *        (https://support.google.com/product-documentation/answer/14343500)
+ *        updated from Google Play, such as WebView. (Value:
+ *        "GOOGLE_SYSTEM_SERVICES")
+ *    @arg @c kGTLRAndroidManagement_Target_TargetType_OsUpdateWithApiLevelChange
+ *        An OS update issued by the OEM which changes the API level of the
+ *        device. (Value: "OS_UPDATE_WITH_API_LEVEL_CHANGE")
+ *    @arg @c kGTLRAndroidManagement_Target_TargetType_OsUpdateWithoutApiLevelChange
+ *        An OS update issued by the OEM which does not change the API level of
+ *        the device. (Value: "OS_UPDATE_WITHOUT_API_LEVEL_CHANGE")
+ *    @arg @c kGTLRAndroidManagement_Target_TargetType_SingleApp An app on
+ *        Google System services. singleApp must be set. This can be used only
+ *        to control an app which is a part of GOOGLE_SYSTEM_SERVICES. (Value:
+ *        "SINGLE_APP")
+ *    @arg @c kGTLRAndroidManagement_Target_TargetType_TargetTypeUnspecified
+ *        This must not be used. (Value: "TARGET_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *targetType;
+
+@end
+
+
+/**
  *  Telephony information associated with a given SIM card on the device. This
  *  is supported for all SIM cards on fully managed devices on Android 6 and
  *  above. In addition, this is supported for admin-added eSIMs on all devices
@@ -15614,6 +16232,72 @@ GTLR_DEPRECATED
 
 /** A short header which appears above the HTML content. */
 @property(nonatomic, strong, nullable) GTLRAndroidManagement_UserFacingMessage *header;
+
+@end
+
+
+/**
+ *  Represents a time of day. The date and time zone are either not significant
+ *  or are specified elsewhere. An API may choose to allow leap seconds. Related
+ *  types are google.type.Date and google.protobuf.Timestamp.
+ */
+@interface GTLRAndroidManagement_TimeOfDay : GTLRObject
+
+/**
+ *  Hours of a day in 24 hour format. Must be greater than or equal to 0 and
+ *  typically must be less than or equal to 23. An API may choose to allow the
+ *  value "24:00:00" for scenarios like business closing time.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *hours;
+
+/**
+ *  Minutes of an hour. Must be greater than or equal to 0 and less than or
+ *  equal to 59.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minutes;
+
+/**
+ *  Fractions of seconds, in nanoseconds. Must be greater than or equal to 0 and
+ *  less than or equal to 999,999,999.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *nanos;
+
+/**
+ *  Seconds of a minute. Must be greater than or equal to 0 and typically must
+ *  be less than or equal to 59. An API may allow the value 60 if it allows
+ *  leap-seconds.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *seconds;
+
+@end
+
+
+/**
+ *  The Unified Update Control policy, for controlling updates of software
+ *  components on the device (see Target). Supported only on company-owned
+ *  devices.
+ */
+@interface GTLRAndroidManagement_UnifiedUpdatePolicy : GTLRObject
+
+/**
+ *  Optional. When the policy is evaluated for a given target, all rules which
+ *  refer to that target are evaluated in sequence. The first rule for which the
+ *  predicate evaluates to true is considered, and its outcome is used. If no
+ *  rule matches, the default update behavior applies. In other words, this
+ *  behaves like a chained if-else statement.However, if an update has been
+ *  available for more than a certain amount of time, any outcome of BLOCK is
+ *  automatically changed to the default update behavior. At most 100 rules are
+ *  allowed.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_Rule *> *rules;
 
 @end
 
@@ -16140,12 +16824,13 @@ GTLR_DEPRECATED
 /**
  *  Restrictions on which Wi-Fi SSIDs the device can connect to. Note that this
  *  does not affect which networks can be configured on the device. Supported on
- *  company-owned devices running Android 13 and above.
+ *  Android 13 (API level 33) and higher on fully managed devices and work
+ *  profiles on company-owned devices.
  */
 @interface GTLRAndroidManagement_WifiSsidPolicy : GTLRObject
 
 /**
- *  Type of the Wi-Fi SSID policy to be applied.
+ *  Optional. Type of the Wi-Fi SSID policy to be applied.
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidManagement_WifiSsidPolicy_WifiSsidPolicyType_WifiSsidAllowlist
@@ -16165,11 +16850,8 @@ GTLR_DEPRECATED
 
 /**
  *  Optional. List of Wi-Fi SSIDs that should be applied in the policy. This
- *  field must be non-empty when WifiSsidPolicyType is set to
- *  WIFI_SSID_ALLOWLIST. If this is set to a non-empty list, then a
- *  NonComplianceDetail detail with API_LEVEL is reported if the Android version
- *  is less than 13 and a NonComplianceDetail with MANAGEMENT_MODE is reported
- *  for non-company-owned devices.
+ *  field must be non-empty when wifiSsidPolicyType is set to
+ *  WIFI_SSID_ALLOWLIST.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_WifiSsid *> *wifiSsids;
 

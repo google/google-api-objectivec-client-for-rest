@@ -561,12 +561,21 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  Request for reprovisioning a bucket, replaces configuration with that of the
+ *  configured Observability settings.
+ */
+@interface GTLRCloudObservability_ReprovisionBucketRequest : GTLRObject
+@end
+
+
+/**
  *  Message describing Scope object
  */
 @interface GTLRCloudObservability_Scope : GTLRObject
 
 /**
- *  Required. The full resource name of the `LogScope`. For example:
+ *  Required. The full resource name of the `logging.googleapis.com/LogScope`.
+ *  For example:
  *  //logging.googleapis.com/projects/myproject/locations/global/logScopes/my-log-scope
  */
 @property(nonatomic, copy, nullable) NSString *logScope;
@@ -580,7 +589,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Required. The resource name of the `TraceScope`. For example:
+ *  Required. The unqualified resource name of the
+ *  `cloudtrace.googleapis.com/TraceScope`. For example:
  *  projects/myproject/locations/global/traceScopes/my-trace-scope
  */
 @property(nonatomic, copy, nullable) NSString *traceScope;

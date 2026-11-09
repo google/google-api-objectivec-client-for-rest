@@ -635,6 +635,31 @@ NSString * const kGTLRClassroomStatesTurnedIn                  = @"TURNED_IN";
 
 @end
 
+@implementation GTLRClassroomQuery_CoursesCourseWorkAddOnAttachmentsStudentSubmissionsList
+
+@dynamic attachmentId, courseId, itemId, pageSize, pageToken;
+
++ (instancetype)queryWithCourseId:(NSString *)courseId
+                           itemId:(NSString *)itemId
+                     attachmentId:(NSString *)attachmentId {
+  NSArray *pathParams = @[
+    @"attachmentId", @"courseId", @"itemId"
+  ];
+  NSString *pathURITemplate = @"v1/courses/{courseId}/courseWork/{itemId}/addOnAttachments/{attachmentId}/studentSubmissions";
+  GTLRClassroomQuery_CoursesCourseWorkAddOnAttachmentsStudentSubmissionsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.courseId = courseId;
+  query.itemId = itemId;
+  query.attachmentId = attachmentId;
+  query.expectedObjectClass = [GTLRClassroom_ListAddOnAttachmentStudentSubmissionsResponse class];
+  query.loggingName = @"classroom.courses.courseWork.addOnAttachments.studentSubmissions.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRClassroomQuery_CoursesCourseWorkAddOnAttachmentsStudentSubmissionsPatch
 
 @dynamic attachmentId, courseId, itemId, postId, submissionId, updateMask;

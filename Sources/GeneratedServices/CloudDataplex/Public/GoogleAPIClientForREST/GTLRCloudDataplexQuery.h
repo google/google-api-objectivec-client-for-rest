@@ -3772,6 +3772,43 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
 @end
 
 /**
+ *  Batch changes metadata within an EntryGroup.
+ *
+ *  Method: dataplex.projects.locations.entryGroups.batchChangeMetadata
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
+ */
+@interface GTLRCloudDataplexQuery_ProjectsLocationsEntryGroupsBatchChangeMetadata : GTLRCloudDataplexQuery
+
+/**
+ *  Required. The resource name of the EntryGroup on which the batch change
+ *  applies. Format:
+ *  projects/{project_number_or_id}/locations/{location_id}/entryGroups/{entry_group_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudDataplex_GoogleLongrunningOperation.
+ *
+ *  Batch changes metadata within an EntryGroup.
+ *
+ *  @param object The @c
+ *    GTLRCloudDataplex_GoogleCloudDataplexV1BatchChangeMetadataRequest to
+ *    include in the query.
+ *  @param name Required. The resource name of the EntryGroup on which the batch
+ *    change applies. Format:
+ *    projects/{project_number_or_id}/locations/{location_id}/entryGroups/{entry_group_id}
+ *
+ *  @return GTLRCloudDataplexQuery_ProjectsLocationsEntryGroupsBatchChangeMetadata
+ */
++ (instancetype)queryWithObject:(GTLRCloudDataplex_GoogleCloudDataplexV1BatchChangeMetadataRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Creates an EntryGroup.
  *
  *  Method: dataplex.projects.locations.entryGroups.create
@@ -4221,6 +4258,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeCloudDataplexReadonly
  *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsEntryGroupsEntryLinksGet : GTLRCloudDataplexQuery
@@ -4485,6 +4524,47 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
  *  @return GTLRCloudDataplexQuery_ProjectsLocationsEntryGroupsPatch
  */
 + (instancetype)queryWithObject:(GTLRCloudDataplex_GoogleCloudDataplexV1EntryGroup *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Submits a catalog change request for multiple resources within an
+ *  EntryGroup. This method creates a ChangeRequest resource that must be
+ *  reviewed and approved before the proposed changes are applied.
+ *
+ *  Method: dataplex.projects.locations.entryGroups.requestBatchMetadataChange
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
+ */
+@interface GTLRCloudDataplexQuery_ProjectsLocationsEntryGroupsRequestBatchMetadataChange : GTLRCloudDataplexQuery
+
+/**
+ *  Required. The resource name of the Entry Group on which the change applies.
+ *  Format: projects/{project}/locations/{location}/entryGroups/{entry_group}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRCloudDataplex_GoogleCloudDataplexV1RequestBatchMetadataChangeResponse.
+ *
+ *  Submits a catalog change request for multiple resources within an
+ *  EntryGroup. This method creates a ChangeRequest resource that must be
+ *  reviewed and approved before the proposed changes are applied.
+ *
+ *  @param object The @c
+ *    GTLRCloudDataplex_GoogleCloudDataplexV1RequestBatchMetadataChangeRequest
+ *    to include in the query.
+ *  @param name Required. The resource name of the Entry Group on which the
+ *    change applies. Format:
+ *    projects/{project}/locations/{location}/entryGroups/{entry_group}
+ *
+ *  @return GTLRCloudDataplexQuery_ProjectsLocationsEntryGroupsRequestBatchMetadataChange
+ */
++ (instancetype)queryWithObject:(GTLRCloudDataplex_GoogleCloudDataplexV1RequestBatchMetadataChangeRequest *)object
                            name:(NSString *)name;
 
 @end
@@ -8681,6 +8761,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeCloudDataplexReadonly
  *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsLookupEntryLinks : GTLRCloudDataplexQuery

@@ -904,10 +904,11 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_YoutubePayl
 @interface GTLRPaymentsResellerSubscription_EntitleSubscriptionRequest : GTLRObject
 
 /**
- *  Optional. The line items to be entitled. If unspecified, all line items will
- *  be entitled.
+ *  Optional. Deprecated: This field is no longer supported. All line items are
+ *  entitled automatically. Optional. The line items to be entitled. If
+ *  unspecified, all line items will be entitled.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRPaymentsResellerSubscription_EntitleSubscriptionRequestLineItemEntitlementDetails *> *lineItemEntitlementDetails;
+@property(nonatomic, strong, nullable) NSArray<GTLRPaymentsResellerSubscription_EntitleSubscriptionRequestLineItemEntitlementDetails *> *lineItemEntitlementDetails GTLR_DEPRECATED;
 
 @end
 

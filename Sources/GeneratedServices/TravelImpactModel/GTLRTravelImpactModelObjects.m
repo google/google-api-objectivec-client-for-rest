@@ -405,8 +405,8 @@ NSString * const kGTLRTravelImpactModel_Scope3FlightSegment_CabinClass_PremiumEc
 //
 
 @implementation GTLRTravelImpactModel_Scope3FlightEmissions
-@dynamic flight, source, ttwEmissionsGramsPerPax, wttEmissionsGramsPerPax,
-         wtwEmissionsGramsPerPax;
+@dynamic flight, modelVersion, source, ttwEmissionsGramsPerPax,
+         wttEmissionsGramsPerPax, wtwEmissionsGramsPerPax;
 @end
 
 

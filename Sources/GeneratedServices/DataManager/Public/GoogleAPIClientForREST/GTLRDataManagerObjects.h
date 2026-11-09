@@ -21,6 +21,7 @@
 @class GTLRDataManager_AudienceMember;
 @class GTLRDataManager_AwsWrappedKeyInfo;
 @class GTLRDataManager_Baseline;
+@class GTLRDataManager_CallInfo;
 @class GTLRDataManager_CartData;
 @class GTLRDataManager_CompositeData;
 @class GTLRDataManager_Consent;
@@ -61,12 +62,19 @@
 @class GTLRDataManager_MarketingDataInsightsAttribute;
 @class GTLRDataManager_MobileData;
 @class GTLRDataManager_MobileIdInfo;
+@class GTLRDataManager_Money;
 @class GTLRDataManager_PairData;
 @class GTLRDataManager_PairIdInfo;
 @class GTLRDataManager_PartnerAudienceInfo;
 @class GTLRDataManager_PartnerCustomerAccount;
 @class GTLRDataManager_PartnerLink;
 @class GTLRDataManager_PartnerLinkMetadata;
+@class GTLRDataManager_PartnerMatchAdGroup;
+@class GTLRDataManager_PartnerMatchAdvertiserAccount;
+@class GTLRDataManager_PartnerMatchCampaign;
+@class GTLRDataManager_PartnerMatchLineItem;
+@class GTLRDataManager_PartnerMatchReportEntry;
+@class GTLRDataManager_PartnerMatchUserList;
 @class GTLRDataManager_PartnerProvidedIdData;
 @class GTLRDataManager_PpidData;
 @class GTLRDataManager_ProductAccount;
@@ -400,6 +408,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_ErrorCount_Reason_Processing
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonEventIdDecodeError;
 /** Value: "PROCESSING_ERROR_REASON_EVENT_TOO_OLD" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonEventTooOld;
+/** Value: "PROCESSING_ERROR_REASON_EXPIRED_CALL" */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonExpiredCall;
 /** Value: "PROCESSING_ERROR_REASON_EXPIRED_CLICK" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonExpiredClick;
 /** Value: "PROCESSING_ERROR_REASON_EXTERNAL_ATTRIBUTION_DATA_MISSING" */
@@ -412,6 +422,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_ErrorCount_Reason_Processing
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonInternalError;
 /** Value: "PROCESSING_ERROR_REASON_INVALID_AD_IDENTIFIERS" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonInvalidAdIdentifiers;
+/** Value: "PROCESSING_ERROR_REASON_INVALID_CALL" */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonInvalidCall;
 /** Value: "PROCESSING_ERROR_REASON_INVALID_CLICK" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonInvalidClick;
 /** Value: "PROCESSING_ERROR_REASON_INVALID_CUSTOM_VARIABLE" */
@@ -448,6 +460,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_ErrorCount_Reason_Processing
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonOnePerClickConversionActionNotPermittedWithBraid;
 /** Value: "PROCESSING_ERROR_REASON_ORIGINAL_CONVERSIONS_NOT_FOUND" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonOriginalConversionsNotFound;
+/** Value: "PROCESSING_ERROR_REASON_TOO_RECENT_CALL" */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonTooRecentCall;
 /** Value: "PROCESSING_ERROR_REASON_TOO_RECENT_CLICK" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonTooRecentClick;
 /** Value: "PROCESSING_ERROR_REASON_UNKNOWN_CONSENT" */
@@ -490,6 +504,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_Event_EventSource_Web;
 // ----------------------------------------------------------------------------
 // GTLRDataManager_FieldWarning.reason
 
+/** Value: "WARNING_REASON_ADIDENTIFIER_NOT_USED" */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_FieldWarning_Reason_WarningReasonAdidentifierNotUsed;
 /** Value: "WARNING_REASON_CART_DATA_ITEM_MERCHANT_PRODUCT_ID_MISSING" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_FieldWarning_Reason_WarningReasonCartDataItemMerchantProductIdMissing;
 /** Value: "WARNING_REASON_CART_DATA_ITEM_UNIT_PRICE_MISSING" */
@@ -500,6 +516,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_FieldWarning_Reason_WarningR
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_FieldWarning_Reason_WarningReasonCustomVariableNotEnabled;
 /** Value: "WARNING_REASON_CUSTOM_VARIABLE_NOT_PREDEFINED" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_FieldWarning_Reason_WarningReasonCustomVariableNotPredefined;
+/**
+ *  Value: "WARNING_REASON_CUSTOM_VARIABLES_NOT_SUPPORTED_WITH_GBRAID_OR_WBRAID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_FieldWarning_Reason_WarningReasonCustomVariablesNotSupportedWithGbraidOrWbraid;
+/** Value: "WARNING_REASON_DUPLICATE_ELEMENTS" */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_FieldWarning_Reason_WarningReasonDuplicateElements;
+/** Value: "WARNING_REASON_FIELD_VALUE_TOO_LONG" */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_FieldWarning_Reason_WarningReasonFieldValueTooLong;
+/** Value: "WARNING_REASON_FIELD_VALUE_TOO_SHORT" */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_FieldWarning_Reason_WarningReasonFieldValueTooShort;
 /** Value: "WARNING_REASON_GENERIC" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_FieldWarning_Reason_WarningReasonGeneric;
 /** Value: "WARNING_REASON_INVALID_CLIENT_ID" */
@@ -510,16 +536,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_FieldWarning_Reason_WarningR
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_FieldWarning_Reason_WarningReasonInvalidDeviceCategory;
 /** Value: "WARNING_REASON_INVALID_DEVICE_SCREEN_RESOLUTION" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_FieldWarning_Reason_WarningReasonInvalidDeviceScreenResolution;
+/** Value: "WARNING_REASON_INVALID_MERCHANT_FEED_LANGUAGE_CODE" */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_FieldWarning_Reason_WarningReasonInvalidMerchantFeedLanguageCode;
 /** Value: "WARNING_REASON_INVALID_MERCHANT_ID" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_FieldWarning_Reason_WarningReasonInvalidMerchantId;
+/** Value: "WARNING_REASON_INVALID_NUMBER_FORMAT" */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_FieldWarning_Reason_WarningReasonInvalidNumberFormat;
 /** Value: "WARNING_REASON_INVALID_REGION_CODE" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_FieldWarning_Reason_WarningReasonInvalidRegionCode;
+/** Value: "WARNING_REASON_INVALID_SHA256_FORMAT" */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_FieldWarning_Reason_WarningReasonInvalidSha256Format;
 /** Value: "WARNING_REASON_INVALID_SUBCONTINENT_CODE" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_FieldWarning_Reason_WarningReasonInvalidSubcontinentCode;
 /** Value: "WARNING_REASON_INVALID_SUBDIVISION_CODE" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_FieldWarning_Reason_WarningReasonInvalidSubdivisionCode;
+/** Value: "WARNING_REASON_TOO_MANY_ELEMENTS" */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_FieldWarning_Reason_WarningReasonTooManyElements;
 /** Value: "WARNING_REASON_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_FieldWarning_Reason_WarningReasonUnspecified;
+/** Value: "WARNING_REASON_VALUE_TOO_HIGH" */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_FieldWarning_Reason_WarningReasonValueTooHigh;
+/** Value: "WARNING_REASON_VALUE_TOO_LOW" */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_FieldWarning_Reason_WarningReasonValueTooLow;
 
 // ----------------------------------------------------------------------------
 // GTLRDataManager_GcpWrappedKeyInfo.keyType
@@ -1036,6 +1074,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_ViewabilityInfo_ViewType_Vie
 
 /** Value: "PROCESSING_WARNING_REASON_AWS_AUTH_FAILED" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonAwsAuthFailed;
+/** Value: "PROCESSING_WARNING_REASON_CUSTOM_VARIABLE_NOT_ENABLED" */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonCustomVariableNotEnabled;
+/** Value: "PROCESSING_WARNING_REASON_CUSTOM_VARIABLE_NOT_PREDEFINED" */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonCustomVariableNotPredefined;
 /** Value: "PROCESSING_WARNING_REASON_DECRYPTION_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonDecryptionError;
 /** Value: "PROCESSING_WARNING_REASON_DEK_DECRYPTION_ERROR" */
@@ -1333,6 +1375,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
 @property(nonatomic, copy, nullable) NSString *gclid;
 @property(nonatomic, copy, nullable) NSString *impressionId;
 @property(nonatomic, strong, nullable) GTLRDataManager_DeviceInfo *landingPageDeviceInfo;
+@property(nonatomic, copy, nullable) NSString *leadId;
 @property(nonatomic, copy, nullable) NSString *matchId;
 @property(nonatomic, copy, nullable) NSString *mobileDeviceId;
 @property(nonatomic, copy, nullable) NSString *ppid;
@@ -1399,6 +1442,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *locationAutoDetectionEnabled;
+
+@end
+
+
+/**
+ *  GTLRDataManager_CallInfo
+ */
+@interface GTLRDataManager_CallInfo : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRDateTime *startTimestamp;
 
 @end
 
@@ -1719,6 +1772,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
  *        Value "PROCESSING_ERROR_REASON_EVENT_ID_DECODE_ERROR"
  *    @arg @c kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonEventTooOld
  *        Value "PROCESSING_ERROR_REASON_EVENT_TOO_OLD"
+ *    @arg @c kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonExpiredCall
+ *        Value "PROCESSING_ERROR_REASON_EXPIRED_CALL"
  *    @arg @c kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonExpiredClick
  *        Value "PROCESSING_ERROR_REASON_EXPIRED_CLICK"
  *    @arg @c kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonExternalAttributionDataMissing
@@ -1731,6 +1786,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
  *        Value "PROCESSING_ERROR_REASON_INTERNAL_ERROR"
  *    @arg @c kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonInvalidAdIdentifiers
  *        Value "PROCESSING_ERROR_REASON_INVALID_AD_IDENTIFIERS"
+ *    @arg @c kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonInvalidCall
+ *        Value "PROCESSING_ERROR_REASON_INVALID_CALL"
  *    @arg @c kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonInvalidClick
  *        Value "PROCESSING_ERROR_REASON_INVALID_CLICK"
  *    @arg @c kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonInvalidCustomVariable
@@ -1766,6 +1823,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
  *        "PROCESSING_ERROR_REASON_ONE_PER_CLICK_CONVERSION_ACTION_NOT_PERMITTED_WITH_BRAID"
  *    @arg @c kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonOriginalConversionsNotFound
  *        Value "PROCESSING_ERROR_REASON_ORIGINAL_CONVERSIONS_NOT_FOUND"
+ *    @arg @c kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonTooRecentCall
+ *        Value "PROCESSING_ERROR_REASON_TOO_RECENT_CALL"
  *    @arg @c kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonTooRecentClick
  *        Value "PROCESSING_ERROR_REASON_TOO_RECENT_CLICK"
  *    @arg @c kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonUnknownConsent
@@ -1796,6 +1855,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
  */
 @property(nonatomic, strong, nullable) NSNumber *recordCount;
 
+/**
+ *  recordIndices
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *recordIndices;
+
 @end
 
 
@@ -1817,6 +1883,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
 @property(nonatomic, strong, nullable) NSArray<GTLRDataManager_EventParameter *> *additionalEventParameters;
 @property(nonatomic, strong, nullable) GTLRDataManager_AdIdentifiers *adIdentifiers;
 @property(nonatomic, copy, nullable) NSString *appInstanceId;
+@property(nonatomic, strong, nullable) GTLRDataManager_CallInfo *callInfo;
 @property(nonatomic, strong, nullable) GTLRDataManager_CartData *cartData;
 @property(nonatomic, copy, nullable) NSString *clientId;
 @property(nonatomic, strong, nullable) GTLRDataManager_Consent *consent;
@@ -1930,6 +1997,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
  *  reason
  *
  *  Likely values:
+ *    @arg @c kGTLRDataManager_FieldWarning_Reason_WarningReasonAdidentifierNotUsed
+ *        Value "WARNING_REASON_ADIDENTIFIER_NOT_USED"
  *    @arg @c kGTLRDataManager_FieldWarning_Reason_WarningReasonCartDataItemMerchantProductIdMissing
  *        Value "WARNING_REASON_CART_DATA_ITEM_MERCHANT_PRODUCT_ID_MISSING"
  *    @arg @c kGTLRDataManager_FieldWarning_Reason_WarningReasonCartDataItemUnitPriceMissing
@@ -1940,6 +2009,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
  *        Value "WARNING_REASON_CUSTOM_VARIABLE_NOT_ENABLED"
  *    @arg @c kGTLRDataManager_FieldWarning_Reason_WarningReasonCustomVariableNotPredefined
  *        Value "WARNING_REASON_CUSTOM_VARIABLE_NOT_PREDEFINED"
+ *    @arg @c kGTLRDataManager_FieldWarning_Reason_WarningReasonCustomVariablesNotSupportedWithGbraidOrWbraid
+ *        Value
+ *        "WARNING_REASON_CUSTOM_VARIABLES_NOT_SUPPORTED_WITH_GBRAID_OR_WBRAID"
+ *    @arg @c kGTLRDataManager_FieldWarning_Reason_WarningReasonDuplicateElements
+ *        Value "WARNING_REASON_DUPLICATE_ELEMENTS"
+ *    @arg @c kGTLRDataManager_FieldWarning_Reason_WarningReasonFieldValueTooLong
+ *        Value "WARNING_REASON_FIELD_VALUE_TOO_LONG"
+ *    @arg @c kGTLRDataManager_FieldWarning_Reason_WarningReasonFieldValueTooShort
+ *        Value "WARNING_REASON_FIELD_VALUE_TOO_SHORT"
  *    @arg @c kGTLRDataManager_FieldWarning_Reason_WarningReasonGeneric Value
  *        "WARNING_REASON_GENERIC"
  *    @arg @c kGTLRDataManager_FieldWarning_Reason_WarningReasonInvalidClientId
@@ -1950,16 +2028,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
  *        Value "WARNING_REASON_INVALID_DEVICE_CATEGORY"
  *    @arg @c kGTLRDataManager_FieldWarning_Reason_WarningReasonInvalidDeviceScreenResolution
  *        Value "WARNING_REASON_INVALID_DEVICE_SCREEN_RESOLUTION"
+ *    @arg @c kGTLRDataManager_FieldWarning_Reason_WarningReasonInvalidMerchantFeedLanguageCode
+ *        Value "WARNING_REASON_INVALID_MERCHANT_FEED_LANGUAGE_CODE"
  *    @arg @c kGTLRDataManager_FieldWarning_Reason_WarningReasonInvalidMerchantId
  *        Value "WARNING_REASON_INVALID_MERCHANT_ID"
+ *    @arg @c kGTLRDataManager_FieldWarning_Reason_WarningReasonInvalidNumberFormat
+ *        Value "WARNING_REASON_INVALID_NUMBER_FORMAT"
  *    @arg @c kGTLRDataManager_FieldWarning_Reason_WarningReasonInvalidRegionCode
  *        Value "WARNING_REASON_INVALID_REGION_CODE"
+ *    @arg @c kGTLRDataManager_FieldWarning_Reason_WarningReasonInvalidSha256Format
+ *        Value "WARNING_REASON_INVALID_SHA256_FORMAT"
  *    @arg @c kGTLRDataManager_FieldWarning_Reason_WarningReasonInvalidSubcontinentCode
  *        Value "WARNING_REASON_INVALID_SUBCONTINENT_CODE"
  *    @arg @c kGTLRDataManager_FieldWarning_Reason_WarningReasonInvalidSubdivisionCode
  *        Value "WARNING_REASON_INVALID_SUBDIVISION_CODE"
+ *    @arg @c kGTLRDataManager_FieldWarning_Reason_WarningReasonTooManyElements
+ *        Value "WARNING_REASON_TOO_MANY_ELEMENTS"
  *    @arg @c kGTLRDataManager_FieldWarning_Reason_WarningReasonUnspecified
  *        Value "WARNING_REASON_UNSPECIFIED"
+ *    @arg @c kGTLRDataManager_FieldWarning_Reason_WarningReasonValueTooHigh
+ *        Value "WARNING_REASON_VALUE_TOO_HIGH"
+ *    @arg @c kGTLRDataManager_FieldWarning_Reason_WarningReasonValueTooLow
+ *        Value "WARNING_REASON_VALUE_TOO_LOW"
  */
 @property(nonatomic, copy, nullable) NSString *reason;
 
@@ -2746,6 +2836,30 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
 
 
 /**
+ *  GTLRDataManager_Money
+ */
+@interface GTLRDataManager_Money : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *currencyCode;
+
+/**
+ *  nanos
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *nanos;
+
+/**
+ *  units
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *units;
+
+@end
+
+
+/**
  *  GTLRDataManager_PairData
  */
 @interface GTLRDataManager_PairData : GTLRObject
@@ -2859,6 +2973,110 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
 @interface GTLRDataManager_PartnerLinkMetadata : GTLRObject
 
 @property(nonatomic, strong, nullable) NSArray<GTLRDataManager_PartnerCustomerAccount *> *implicitAccounts;
+
+@end
+
+
+/**
+ *  GTLRDataManager_PartnerMatchAdGroup
+ */
+@interface GTLRDataManager_PartnerMatchAdGroup : GTLRObject
+
+/**
+ *  adGroupId
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *adGroupId;
+
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+@end
+
+
+/**
+ *  GTLRDataManager_PartnerMatchAdvertiserAccount
+ */
+@interface GTLRDataManager_PartnerMatchAdvertiserAccount : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountType;
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+@end
+
+
+/**
+ *  GTLRDataManager_PartnerMatchCampaign
+ */
+@interface GTLRDataManager_PartnerMatchCampaign : GTLRObject
+
+/**
+ *  campaignId
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *campaignId;
+
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+@end
+
+
+/**
+ *  GTLRDataManager_PartnerMatchLineItem
+ */
+@interface GTLRDataManager_PartnerMatchLineItem : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  lineItemId
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *lineItemId;
+
+@end
+
+
+/**
+ *  GTLRDataManager_PartnerMatchReportEntry
+ */
+@interface GTLRDataManager_PartnerMatchReportEntry : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRDataManager_PartnerMatchAdGroup *adGroup;
+@property(nonatomic, strong, nullable) GTLRDataManager_PartnerMatchAdvertiserAccount *advertiserAccount;
+@property(nonatomic, strong, nullable) GTLRDataManager_PartnerMatchCampaign *campaign;
+@property(nonatomic, strong, nullable) GTLRDataManager_Money *dataFees;
+
+/**
+ *  impressionCount
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *impressionCount;
+
+@property(nonatomic, strong, nullable) GTLRDataManager_PartnerMatchLineItem *lineItem;
+@property(nonatomic, strong, nullable) GTLRDataManager_Money *mediaCost;
+@property(nonatomic, strong, nullable) GTLRDataManager_PartnerMatchUserList *userList;
+
+@end
+
+
+/**
+ *  GTLRDataManager_PartnerMatchUserList
+ */
+@interface GTLRDataManager_PartnerMatchUserList : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  userListId
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *userListId;
 
 @end
 
@@ -3323,6 +3541,29 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
 @interface GTLRDataManager_RetrieveInsightsResponse : GTLRObject
 
 @property(nonatomic, strong, nullable) NSArray<GTLRDataManager_MarketingDataInsight *> *marketingDataInsights;
+
+@end
+
+
+/**
+ *  GTLRDataManager_RetrievePartnerMatchReportResponse
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "partnerMatchReportEntries" property. If returned as the result of
+ *        a query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRDataManager_RetrievePartnerMatchReportResponse : GTLRCollectionObject
+
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  partnerMatchReportEntries
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataManager_PartnerMatchReportEntry *> *partnerMatchReportEntries;
 
 @end
 
@@ -4059,6 +4300,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
  *  Likely values:
  *    @arg @c kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonAwsAuthFailed
  *        Value "PROCESSING_WARNING_REASON_AWS_AUTH_FAILED"
+ *    @arg @c kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonCustomVariableNotEnabled
+ *        Value "PROCESSING_WARNING_REASON_CUSTOM_VARIABLE_NOT_ENABLED"
+ *    @arg @c kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonCustomVariableNotPredefined
+ *        Value "PROCESSING_WARNING_REASON_CUSTOM_VARIABLE_NOT_PREDEFINED"
  *    @arg @c kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonDecryptionError
  *        Value "PROCESSING_WARNING_REASON_DECRYPTION_ERROR"
  *    @arg @c kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonDekDecryptionError
@@ -4086,6 +4331,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *recordCount;
+
+/**
+ *  recordIndices
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *recordIndices;
 
 @end
 

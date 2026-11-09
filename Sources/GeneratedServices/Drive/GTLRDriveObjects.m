@@ -250,7 +250,7 @@ NSString * const kGTLRDrive_StartApprovalRequest_FileContentChangeBehavior_Reset
 //
 
 @implementation GTLRDrive_Approval
-@dynamic approvalId, completeTime, createTime, dueTime,
+@dynamic approvalId, approvedRevisionId, completeTime, createTime, dueTime,
          fileContentChangeBehavior, initiator, kind, modifyTime,
          reviewerResponses, status, targetFileId;
 

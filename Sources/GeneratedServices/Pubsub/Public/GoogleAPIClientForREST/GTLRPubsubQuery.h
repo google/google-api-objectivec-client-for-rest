@@ -614,8 +614,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
  *  `FAILED_PRECONDITION` is returned. See also the `Snapshot.expire_time`
  *  field. If the name is not provided in the request, the server will assign a
  *  random name for this snapshot on the same project as the subscription,
- *  conforming to the [resource name format]
- *  (https://cloud.google.com/pubsub/docs/pubsub-basics#resource_names). The
+ *  conforming to the [resource name format](
+ *  https://cloud.google.com/pubsub/docs/pubsub-basics#resource_names). The
  *  generated name is populated in the returned Snapshot object. Note that for
  *  REST API requests, you must specify a name in the request.
  *
@@ -651,8 +651,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
  *  `FAILED_PRECONDITION` is returned. See also the `Snapshot.expire_time`
  *  field. If the name is not provided in the request, the server will assign a
  *  random name for this snapshot on the same project as the subscription,
- *  conforming to the [resource name format]
- *  (https://cloud.google.com/pubsub/docs/pubsub-basics#resource_names). The
+ *  conforming to the [resource name format](
+ *  https://cloud.google.com/pubsub/docs/pubsub-basics#resource_names). The
  *  generated name is populated in the returned Snapshot object. Note that for
  *  REST API requests, you must specify a name in the request.
  *
@@ -673,8 +673,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
 @end
 
 /**
- *  Removes an existing snapshot. Snapshots are used in [Seek]
- *  (https://cloud.google.com/pubsub/docs/replay-overview) operations, which
+ *  Removes an existing snapshot. Snapshots are used in [Seek](
+ *  https://cloud.google.com/pubsub/docs/replay-overview) operations, which
  *  allow you to manage message acknowledgments in bulk. That is, you can set
  *  the acknowledgment state of messages in an existing subscription to the
  *  state captured by a snapshot. When the snapshot is deleted, all messages
@@ -700,8 +700,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
 /**
  *  Fetches a @c GTLRPubsub_Empty.
  *
- *  Removes an existing snapshot. Snapshots are used in [Seek]
- *  (https://cloud.google.com/pubsub/docs/replay-overview) operations, which
+ *  Removes an existing snapshot. Snapshots are used in [Seek](
+ *  https://cloud.google.com/pubsub/docs/replay-overview) operations, which
  *  allow you to manage message acknowledgments in bulk. That is, you can set
  *  the acknowledgment state of messages in an existing subscription to the
  *  state captured by a snapshot. When the snapshot is deleted, all messages
@@ -1028,13 +1028,13 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
 @end
 
 /**
- *  Creates a subscription to a given topic. See the [resource name rules]
- *  (https://cloud.google.com/pubsub/docs/pubsub-basics#resource_names). If the
+ *  Creates a subscription to a given topic. See the [resource name rules](
+ *  https://cloud.google.com/pubsub/docs/pubsub-basics#resource_names). If the
  *  subscription already exists, returns `ALREADY_EXISTS`. If the corresponding
  *  topic doesn't exist, returns `NOT_FOUND`. If the name is not provided in the
  *  request, the server will assign a random name for this subscription on the
- *  same project as the topic, conforming to the [resource name format]
- *  (https://cloud.google.com/pubsub/docs/pubsub-basics#resource_names). The
+ *  same project as the topic, conforming to the [resource name format](
+ *  https://cloud.google.com/pubsub/docs/pubsub-basics#resource_names). The
  *  generated name is populated in the returned Subscription object. Note that
  *  for REST API requests, you must specify a name in the request.
  *
@@ -1059,13 +1059,13 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
 /**
  *  Fetches a @c GTLRPubsub_Subscription.
  *
- *  Creates a subscription to a given topic. See the [resource name rules]
- *  (https://cloud.google.com/pubsub/docs/pubsub-basics#resource_names). If the
+ *  Creates a subscription to a given topic. See the [resource name rules](
+ *  https://cloud.google.com/pubsub/docs/pubsub-basics#resource_names). If the
  *  subscription already exists, returns `ALREADY_EXISTS`. If the corresponding
  *  topic doesn't exist, returns `NOT_FOUND`. If the name is not provided in the
  *  request, the server will assign a random name for this subscription on the
- *  same project as the topic, conforming to the [resource name format]
- *  (https://cloud.google.com/pubsub/docs/pubsub-basics#resource_names). The
+ *  same project as the topic, conforming to the [resource name format](
+ *  https://cloud.google.com/pubsub/docs/pubsub-basics#resource_names). The
  *  generated name is populated in the returned Subscription object. Note that
  *  for REST API requests, you must specify a name in the request.
  *
@@ -1451,8 +1451,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
 
 /**
  *  Seeks an existing subscription to a point in time or to a given snapshot,
- *  whichever is provided in the request. Snapshots are used in [Seek]
- *  (https://cloud.google.com/pubsub/docs/replay-overview) operations, which
+ *  whichever is provided in the request. Snapshots are used in [Seek](
+ *  https://cloud.google.com/pubsub/docs/replay-overview) operations, which
  *  allow you to manage message acknowledgments in bulk. That is, you can set
  *  the acknowledgment state of messages in an existing subscription to the
  *  state captured by a snapshot. Note that both the subscription and the
@@ -1473,8 +1473,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
  *  Fetches a @c GTLRPubsub_SeekResponse.
  *
  *  Seeks an existing subscription to a point in time or to a given snapshot,
- *  whichever is provided in the request. Snapshots are used in [Seek]
- *  (https://cloud.google.com/pubsub/docs/replay-overview) operations, which
+ *  whichever is provided in the request. Snapshots are used in [Seek](
+ *  https://cloud.google.com/pubsub/docs/replay-overview) operations, which
  *  allow you to manage message acknowledgments in bulk. That is, you can set
  *  the acknowledgment state of messages in an existing subscription to the
  *  state captured by a snapshot. Note that both the subscription and the
@@ -1576,8 +1576,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
 @end
 
 /**
- *  Creates the given topic with the given name. See the [resource name rules]
- *  (https://cloud.google.com/pubsub/docs/pubsub-basics#resource_names).
+ *  Creates the given topic with the given name. See the [resource name rules](
+ *  https://cloud.google.com/pubsub/docs/pubsub-basics#resource_names).
  *
  *  Method: pubsub.projects.topics.create
  *
@@ -1600,8 +1600,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
 /**
  *  Fetches a @c GTLRPubsub_Topic.
  *
- *  Creates the given topic with the given name. See the [resource name rules]
- *  (https://cloud.google.com/pubsub/docs/pubsub-basics#resource_names).
+ *  Creates the given topic with the given name. See the [resource name rules](
+ *  https://cloud.google.com/pubsub/docs/pubsub-basics#resource_names).
  *
  *  @param object The @c GTLRPubsub_Topic to include in the query.
  *  @param name Required. Identifier. The name of the topic. It must have the

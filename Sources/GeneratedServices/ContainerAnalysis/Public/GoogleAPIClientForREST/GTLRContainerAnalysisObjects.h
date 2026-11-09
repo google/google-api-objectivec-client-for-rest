@@ -1734,6 +1734,13 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbui
 // GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions.requestedVerifyOption
 
 /**
+ *  Build verification is best effort. If provenance generation fails, the build
+ *  will still succeed.
+ *
+ *  Value: "BEST_EFFORT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions_RequestedVerifyOption_BestEffort;
+/**
  *  Not a verifiable build (the default).
  *
  *  Value: "NOT_VERIFIED"
@@ -6063,6 +6070,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_WorkspacePolicyResult_
  *  Requested verifiability options.
  *
  *  Likely values:
+ *    @arg @c kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions_RequestedVerifyOption_BestEffort
+ *        Build verification is best effort. If provenance generation fails, the
+ *        build will still succeed. (Value: "BEST_EFFORT")
  *    @arg @c kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions_RequestedVerifyOption_NotVerified
  *        Not a verifiable build (the default). (Value: "NOT_VERIFIED")
  *    @arg @c kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions_RequestedVerifyOption_Verified

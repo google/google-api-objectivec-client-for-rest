@@ -1549,6 +1549,62 @@ GTLR_DEPRECATED
 
 @end
 
+/**
+ *  Upgrades the edition for a list of reservations and capacity commitments.
+ *  You can only upgrade to a higher edition (from `STANDARD` to `ENTERPRISE` or
+ *  `ENTERPRISE_PLUS`, from `ENTERPRISE` to `ENTERPRISE_PLUS`, or from
+ *  `EDITION_UNSPECIFIED` to `ENTERPRISE` or `ENTERPRISE_PLUS`). You can't
+ *  downgrade an edition. The upgrade must not cause an overall flexible slot
+ *  increase across the original and target editions (for example, by upgrading
+ *  a reservation without upgrading its corresponding capacity commitment).
+ *  Otherwise, the method fails with a `google.rpc.Code.FAILED_PRECONDITION`
+ *  error. Before the upgrade, the service validates that the resources meet the
+ *  requirements of the target edition (for example, all reservations within a
+ *  reservation group must be upgraded together).
+ *
+ *  Method: bigqueryreservation.projects.locations.upgradeEdition
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigQueryReservationBigquery
+ *    @c kGTLRAuthScopeBigQueryReservationCloudPlatform
+ */
+@interface GTLRBigQueryReservationQuery_ProjectsLocationsUpgradeEdition : GTLRBigQueryReservationQuery
+
+/**
+ *  The parent resource name that identifies the admin project and location, in
+ *  the format `projects/{project}/locations/{location}`. For example,
+ *  `projects/myproject/locations/us-west1`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRBigQueryReservation_UpgradeEditionResponse.
+ *
+ *  Upgrades the edition for a list of reservations and capacity commitments.
+ *  You can only upgrade to a higher edition (from `STANDARD` to `ENTERPRISE` or
+ *  `ENTERPRISE_PLUS`, from `ENTERPRISE` to `ENTERPRISE_PLUS`, or from
+ *  `EDITION_UNSPECIFIED` to `ENTERPRISE` or `ENTERPRISE_PLUS`). You can't
+ *  downgrade an edition. The upgrade must not cause an overall flexible slot
+ *  increase across the original and target editions (for example, by upgrading
+ *  a reservation without upgrading its corresponding capacity commitment).
+ *  Otherwise, the method fails with a `google.rpc.Code.FAILED_PRECONDITION`
+ *  error. Before the upgrade, the service validates that the resources meet the
+ *  requirements of the target edition (for example, all reservations within a
+ *  reservation group must be upgraded together).
+ *
+ *  @param object The @c GTLRBigQueryReservation_UpgradeEditionRequest to
+ *    include in the query.
+ *  @param parent The parent resource name that identifies the admin project and
+ *    location, in the format `projects/{project}/locations/{location}`. For
+ *    example, `projects/myproject/locations/us-west1`.
+ *
+ *  @return GTLRBigQueryReservationQuery_ProjectsLocationsUpgradeEdition
+ */
++ (instancetype)queryWithObject:(GTLRBigQueryReservation_UpgradeEditionRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
 NS_ASSUME_NONNULL_END
 
 #pragma clang diagnostic pop

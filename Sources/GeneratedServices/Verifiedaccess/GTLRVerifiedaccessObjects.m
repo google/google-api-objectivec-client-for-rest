@@ -27,8 +27,10 @@ NSString * const kGTLRVerifiedaccess_DeviceSignals_DiskEncryption_DiskEncryption
 NSString * const kGTLRVerifiedaccess_DeviceSignals_DiskEncryption_DiskEncryptionUnspecified = @"DISK_ENCRYPTION_UNSPECIFIED";
 
 // GTLRVerifiedaccess_DeviceSignals.operatingSystem
+NSString * const kGTLRVerifiedaccess_DeviceSignals_OperatingSystem_Android = @"ANDROID";
 NSString * const kGTLRVerifiedaccess_DeviceSignals_OperatingSystem_ChromeOs = @"CHROME_OS";
 NSString * const kGTLRVerifiedaccess_DeviceSignals_OperatingSystem_ChromiumOs = @"CHROMIUM_OS";
+NSString * const kGTLRVerifiedaccess_DeviceSignals_OperatingSystem_Ios = @"IOS";
 NSString * const kGTLRVerifiedaccess_DeviceSignals_OperatingSystem_Linux = @"LINUX";
 NSString * const kGTLRVerifiedaccess_DeviceSignals_OperatingSystem_MacOsX = @"MAC_OS_X";
 NSString * const kGTLRVerifiedaccess_DeviceSignals_OperatingSystem_OperatingSystemUnspecified = @"OPERATING_SYSTEM_UNSPECIFIED";

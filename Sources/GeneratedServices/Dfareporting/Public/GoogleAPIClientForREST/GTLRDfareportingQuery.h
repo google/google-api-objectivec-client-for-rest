@@ -9115,7 +9115,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 @end
 
 /**
- *  Inserts a new studio creative asset.
+ *  Inserts a new studio creative asset. Requests to upload an asset file must
+ *  be sent to the upload URI using multipart media upload (or resumable media
+ *  upload). For [multipart
+ *  uploads](https://developers.google.com/doubleclick-advertisers/upload#multipart)
+ *  (`uploadType=multipart`), the request uses `multipart/related` and includes
+ *  two parts: * **Metadata**: A JSON object representing
+ *  DfareportingStudioCreativeAssetsInsertRequest with `studioAdvertiserId`, and
+ *  optional `studioAccountId` and `studioCreativeId`. * **Media**: The binary
+ *  data of the asset file, specifying the `Content-Type` of the asset and a
+ *  `Content-Disposition` header with `name="media"` and `filename=""` (for
+ *  example, `Content-Disposition: form-data; name="media";
+ *  filename="asset.jpg"`).
  *
  *  Method: dfareporting.studioCreativeAssets.insert
  *
@@ -9127,7 +9138,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 /**
  *  Fetches a @c GTLRDfareporting_StudioCreativeAssetsResponse.
  *
- *  Inserts a new studio creative asset.
+ *  Inserts a new studio creative asset. Requests to upload an asset file must
+ *  be sent to the upload URI using multipart media upload (or resumable media
+ *  upload). For [multipart
+ *  uploads](https://developers.google.com/doubleclick-advertisers/upload#multipart)
+ *  (`uploadType=multipart`), the request uses `multipart/related` and includes
+ *  two parts: * **Metadata**: A JSON object representing
+ *  DfareportingStudioCreativeAssetsInsertRequest with `studioAdvertiserId`, and
+ *  optional `studioAccountId` and `studioCreativeId`. * **Media**: The binary
+ *  data of the asset file, specifying the `Content-Type` of the asset and a
+ *  `Content-Disposition` header with `name="media"` and `filename=""` (for
+ *  example, `Content-Disposition: form-data; name="media";
+ *  filename="asset.jpg"`).
  *
  *  @param object The @c GTLRDfareporting_StudioCreativeAssetsInsertRequest to
  *    include in the query.

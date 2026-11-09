@@ -121,17 +121,21 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_AcceleratorConfig_Ty
  */
 FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_AcceleratorConfig_Type_NvidiaTeslaA100;
 /**
- *  Accelerator type is Nvidia Tesla P100.
+ *  Deprecated: Use `NVIDIA_TESLA_T4` (N1) or `NVIDIA_L4` (G2) instead. The
+ *  NVIDIA Tesla P100 GPU is being decommissioned fleet-wide by Compute Engine
+ *  and is no longer available for new instances.
  *
  *  Value: "NVIDIA_TESLA_P100"
  */
-FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_AcceleratorConfig_Type_NvidiaTeslaP100;
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_AcceleratorConfig_Type_NvidiaTeslaP100 GTLR_DEPRECATED;
 /**
- *  Accelerator type is NVIDIA Tesla P100 Virtual Workstations.
+ *  Deprecated: Use `NVIDIA_TESLA_T4_VWS` instead. The NVIDIA Tesla P100 GPU
+ *  (Virtual Workstations) is being decommissioned fleet-wide by Compute Engine
+ *  and is no longer available for new instances.
  *
  *  Value: "NVIDIA_TESLA_P100_VWS"
  */
-FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_AcceleratorConfig_Type_NvidiaTeslaP100Vws;
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_AcceleratorConfig_Type_NvidiaTeslaP100Vws GTLR_DEPRECATED;
 /**
  *  Accelerator type is Nvidia Tesla P4.
  *
@@ -466,6 +470,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_Instance_State_Delet
  */
 FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_Instance_State_Initializing;
 /**
+ *  The instance has no VM. An upgrade removed the original and could not create
+ *  its replacement; the data disk and any snapshots are intact. Retry the
+ *  upgrade to finish it, or roll the instance back to the snapshot taken before
+ *  it started.
+ *
+ *  Value: "ORPHANED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_Instance_State_Orphaned;
+/**
  *  The control logic is installing required frameworks and registering the
  *  instance with notebook proxy
  *
@@ -661,9 +674,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_
  *        Accelerator type is Nvidia Tesla A100 - 40GB. (Value:
  *        "NVIDIA_TESLA_A100")
  *    @arg @c kGTLRAIPlatformNotebooks_AcceleratorConfig_Type_NvidiaTeslaP100
- *        Accelerator type is Nvidia Tesla P100. (Value: "NVIDIA_TESLA_P100")
+ *        Deprecated: Use `NVIDIA_TESLA_T4` (N1) or `NVIDIA_L4` (G2) instead.
+ *        The NVIDIA Tesla P100 GPU is being decommissioned fleet-wide by
+ *        Compute Engine and is no longer available for new instances. (Value:
+ *        "NVIDIA_TESLA_P100")
  *    @arg @c kGTLRAIPlatformNotebooks_AcceleratorConfig_Type_NvidiaTeslaP100Vws
- *        Accelerator type is NVIDIA Tesla P100 Virtual Workstations. (Value:
+ *        Deprecated: Use `NVIDIA_TESLA_T4_VWS` instead. The NVIDIA Tesla P100
+ *        GPU (Virtual Workstations) is being decommissioned fleet-wide by
+ *        Compute Engine and is no longer available for new instances. (Value:
  *        "NVIDIA_TESLA_P100_VWS")
  *    @arg @c kGTLRAIPlatformNotebooks_AcceleratorConfig_Type_NvidiaTeslaP4
  *        Accelerator type is Nvidia Tesla P4. (Value: "NVIDIA_TESLA_P4")
@@ -1650,6 +1668,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_
  *        deleted. (Value: "DELETED")
  *    @arg @c kGTLRAIPlatformNotebooks_Instance_State_Initializing The instance
  *        is being created. (Value: "INITIALIZING")
+ *    @arg @c kGTLRAIPlatformNotebooks_Instance_State_Orphaned The instance has
+ *        no VM. An upgrade removed the original and could not create its
+ *        replacement; the data disk and any snapshots are intact. Retry the
+ *        upgrade to finish it, or roll the instance back to the snapshot taken
+ *        before it started. (Value: "ORPHANED")
  *    @arg @c kGTLRAIPlatformNotebooks_Instance_State_Provisioning The control
  *        logic is installing required frameworks and registering the instance
  *        with notebook proxy (Value: "PROVISIONING")
@@ -1877,6 +1900,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_
  *  external IP address.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAIPlatformNotebooks_AccessConfig *> *accessConfigs;
+
+/**
+ *  Optional. An internal IP address associated with this instance. Specify an
+ *  unused static internal IP address available to the subnet this instance is
+ *  in, or leave this field undefined to use an IP from the subnet's ephemeral
+ *  range.
+ */
+@property(nonatomic, copy, nullable) NSString *internalIp;
 
 /**
  *  Optional. The name of the VPC that this VM instance is in. Format:
@@ -2523,6 +2554,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_
  *  unrecognized boot-disk images.
  */
 @property(nonatomic, copy, nullable) NSString *imageDescription;
+
+/**
+ *  Output only. The ID of the specific Compute Engine VM image the instance is
+ *  currently running (for example,
+ *  "workbench-instances-2603-20260918-2130-rc0").
+ */
+@property(nonatomic, copy, nullable) NSString *imageId;
 
 /** Optional. Use VM image name to find the image. */
 @property(nonatomic, copy, nullable) NSString *name;

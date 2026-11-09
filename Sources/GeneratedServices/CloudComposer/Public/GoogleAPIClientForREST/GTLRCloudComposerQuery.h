@@ -269,6 +269,49 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Hibernates (pauses) a running environment. It requests the environment to
+ *  switch to the `HIBERNATED` state, keeping its data and minimizing cost, but
+ *  not running any DAGs. This method is supported for Cloud Composer
+ *  environments in development mode in versions
+ *  composer-3-airflow-*.*.*-build.* and newer.
+ *
+ *  Method: composer.projects.locations.environments.hibernate
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudComposerCloudcomposer
+ *    @c kGTLRAuthScopeCloudComposerCloudPlatform
+ */
+@interface GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsHibernate : GTLRCloudComposerQuery
+
+/**
+ *  Required. The resource name of the environment to hibernate, in the form:
+ *  "projects/{project}/locations/{location}/environments/{environment}"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudComposer_Operation.
+ *
+ *  Hibernates (pauses) a running environment. It requests the environment to
+ *  switch to the `HIBERNATED` state, keeping its data and minimizing cost, but
+ *  not running any DAGs. This method is supported for Cloud Composer
+ *  environments in development mode in versions
+ *  composer-3-airflow-*.*.*-build.* and newer.
+ *
+ *  @param object The @c GTLRCloudComposer_HibernateEnvironmentRequest to
+ *    include in the query.
+ *  @param name Required. The resource name of the environment to hibernate, in
+ *    the form:
+ *    "projects/{project}/locations/{location}/environments/{environment}"
+ *
+ *  @return GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsHibernate
+ */
++ (instancetype)queryWithObject:(GTLRCloudComposer_HibernateEnvironmentRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  List environments.
  *
  *  Method: composer.projects.locations.environments.list
@@ -532,6 +575,46 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsRestartWebServer
  */
 + (instancetype)queryWithObject:(GTLRCloudComposer_RestartWebServerRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Resumes (unpauses) a hibernated environment. It requests the environment to
+ *  switch to the `RUNNING` state, so that it is ready to use and run DAGs. This
+ *  method is supported for Cloud Composer environments in development mode in
+ *  versions composer-3-airflow-*.*.*-build.* and newer.
+ *
+ *  Method: composer.projects.locations.environments.resume
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudComposerCloudcomposer
+ *    @c kGTLRAuthScopeCloudComposerCloudPlatform
+ */
+@interface GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsResume : GTLRCloudComposerQuery
+
+/**
+ *  Required. The resource name of the environment to resume, in the form:
+ *  "projects/{project}/locations/{location}/environments/{environment}"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudComposer_Operation.
+ *
+ *  Resumes (unpauses) a hibernated environment. It requests the environment to
+ *  switch to the `RUNNING` state, so that it is ready to use and run DAGs. This
+ *  method is supported for Cloud Composer environments in development mode in
+ *  versions composer-3-airflow-*.*.*-build.* and newer.
+ *
+ *  @param object The @c GTLRCloudComposer_ResumeEnvironmentRequest to include
+ *    in the query.
+ *  @param name Required. The resource name of the environment to resume, in the
+ *    form: "projects/{project}/locations/{location}/environments/{environment}"
+ *
+ *  @return GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsResume
+ */
++ (instancetype)queryWithObject:(GTLRCloudComposer_ResumeEnvironmentRequest *)object
                            name:(NSString *)name;
 
 @end

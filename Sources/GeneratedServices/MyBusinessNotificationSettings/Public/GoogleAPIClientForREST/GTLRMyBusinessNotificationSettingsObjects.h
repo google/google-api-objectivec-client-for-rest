@@ -5,8 +5,9 @@
 //   My Business Notifications API (mybusinessnotifications/v1)
 // Description:
 //   The My Business Notification Settings API enables managing notification
-//   settings for business accounts. Note - If you have a quota of 0 after
-//   enabling the API, please request for GBP API access.
+//   settings for business accounts. Note: If you have a quota of 0 after
+//   enabling the API, please request GBP API access at
+//   https://developers.google.com/my-business/content/prereqs#request-access.
 // Documentation:
 //   https://developers.google.com/my-business/
 
@@ -52,12 +53,13 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessNotificationSettings_Notificat
  */
 FOUNDATION_EXTERN NSString * const kGTLRMyBusinessNotificationSettings_NotificationSetting_NotificationTypes_LossOfVoiceOfMerchant GTLR_DEPRECATED;
 /**
- *  A new answer is added to the location. The notification will provide the
+ *  Deprecated: The My Business Q&A API was discontinued on November 3, 2025. A
+ *  new answer is added to the location. The notification will provide the
  *  resource name of question and answer.
  *
  *  Value: "NEW_ANSWER"
  */
-FOUNDATION_EXTERN NSString * const kGTLRMyBusinessNotificationSettings_NotificationSetting_NotificationTypes_NewAnswer;
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessNotificationSettings_NotificationSetting_NotificationTypes_NewAnswer GTLR_DEPRECATED;
 /**
  *  A new media item has been added to the location by a Google Maps user. The
  *  notification will provide the resource name of the new media item.
@@ -66,12 +68,13 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessNotificationSettings_Notificat
  */
 FOUNDATION_EXTERN NSString * const kGTLRMyBusinessNotificationSettings_NotificationSetting_NotificationTypes_NewCustomerMedia;
 /**
- *  A new question is added to the location. The notification will provide the
+ *  Deprecated: The My Business Q&A API was discontinued on November 3, 2025. A
+ *  new question is added to the location. The notification will provide the
  *  resource name of question.
  *
  *  Value: "NEW_QUESTION"
  */
-FOUNDATION_EXTERN NSString * const kGTLRMyBusinessNotificationSettings_NotificationSetting_NotificationTypes_NewQuestion;
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessNotificationSettings_NotificationSetting_NotificationTypes_NewQuestion GTLR_DEPRECATED;
 /**
  *  A new review has been added to the location. The review_name field on the
  *  notification will provide the resource name of the review that was added,
@@ -87,19 +90,21 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessNotificationSettings_Notificat
  */
 FOUNDATION_EXTERN NSString * const kGTLRMyBusinessNotificationSettings_NotificationSetting_NotificationTypes_NotificationTypeUnspecified;
 /**
- *  An answer of the location is updated. The notification will provide the
+ *  Deprecated: The My Business Q&A API was discontinued on November 3, 2025. An
+ *  answer of the location is updated. The notification will provide the
  *  resource name of question and answer.
  *
  *  Value: "UPDATED_ANSWER"
  */
-FOUNDATION_EXTERN NSString * const kGTLRMyBusinessNotificationSettings_NotificationSetting_NotificationTypes_UpdatedAnswer;
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessNotificationSettings_NotificationSetting_NotificationTypes_UpdatedAnswer GTLR_DEPRECATED;
 /**
- *  A question of the location is updated. The notification will provide the
+ *  Deprecated: The My Business Q&A API was discontinued on November 3, 2025. A
+ *  question of the location is updated. The notification will provide the
  *  resource name of question.
  *
  *  Value: "UPDATED_QUESTION"
  */
-FOUNDATION_EXTERN NSString * const kGTLRMyBusinessNotificationSettings_NotificationSetting_NotificationTypes_UpdatedQuestion;
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessNotificationSettings_NotificationSetting_NotificationTypes_UpdatedQuestion GTLR_DEPRECATED;
 /**
  *  A review on the location has been updated. The review_name field on the
  *  notification will provide the resource name of the review that was added,

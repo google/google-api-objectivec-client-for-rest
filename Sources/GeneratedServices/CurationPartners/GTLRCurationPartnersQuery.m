@@ -502,3 +502,20 @@
 }
 
 @end
+
+@implementation GTLRCurationPartnersQuery_MediaPlannersSearch
+
+@dynamic dspSeatId, pageSize, pageToken;
+
++ (instancetype)query {
+  NSString *pathURITemplate = @"v1/mediaPlanners:search";
+  GTLRCurationPartnersQuery_MediaPlannersSearch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:nil];
+  query.expectedObjectClass = [GTLRCurationPartners_SearchMediaPlannersResponse class];
+  query.loggingName = @"curationpartners.mediaPlanners.search";
+  return query;
+}
+
+@end

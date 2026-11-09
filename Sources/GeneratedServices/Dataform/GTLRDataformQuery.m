@@ -492,6 +492,33 @@ NSString * const kGTLRDataformViewDirectoryContentsViewUnspecified = @"DIRECTORY
 
 @end
 
+@implementation GTLRDataformQuery_ProjectsLocationsRepositoriesCompilationResultsCreateLongRunning
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRDataform_CompilationResult *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/compilationResults:createLongRunning";
+  GTLRDataformQuery_ProjectsLocationsRepositoriesCompilationResultsCreateLongRunning *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDataform_Operation class];
+  query.loggingName = @"dataform.projects.locations.repositories.compilationResults.createLongRunning";
+  return query;
+}
+
+@end
+
 @implementation GTLRDataformQuery_ProjectsLocationsRepositoriesCompilationResultsGet
 
 @dynamic name;

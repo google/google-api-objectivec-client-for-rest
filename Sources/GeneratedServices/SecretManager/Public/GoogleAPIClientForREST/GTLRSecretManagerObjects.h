@@ -20,7 +20,7 @@
 @class GTLRSecretManager_Automatic;
 @class GTLRSecretManager_AutomaticStatus;
 @class GTLRSecretManager_Binding;
-@class GTLRSecretManager_CloudSQLSingleUserCredentials;
+@class GTLRSecretManager_CloudSqlSingleUserCredentials;
 @class GTLRSecretManager_CustomerManagedEncryption;
 @class GTLRSecretManager_CustomerManagedEncryptionStatus;
 @class GTLRSecretManager_Expr;
@@ -401,7 +401,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecretManager_SecretVersion_State_StateU
  *  These are the credentials required for Cloud SQL DB for Single user Managed
  *  Rotation.
  */
-@interface GTLRSecretManager_CloudSQLSingleUserCredentials : GTLRObject
+@interface GTLRSecretManager_CloudSqlSingleUserCredentials : GTLRObject
 
 /** Required. Instance ID of the Cloud SQL instance. */
 @property(nonatomic, copy, nullable) NSString *instanceId;
@@ -498,7 +498,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecretManager_SecretVersion_State_StateU
 @interface GTLRSecretManager_EnableManagedRotationRequest : GTLRObject
 
 /** Credentials required for Cloud SQL DB for Single user Managed Rotation. */
-@property(nonatomic, strong, nullable) GTLRSecretManager_CloudSQLSingleUserCredentials *cloudSqlSingleUserCredentials;
+@property(nonatomic, strong, nullable) GTLRSecretManager_CloudSqlSingleUserCredentials *cloudSqlSingleUserCredentials;
 
 @end
 

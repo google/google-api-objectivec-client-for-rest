@@ -796,6 +796,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_Membership_Type_CbcmBrowse
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_Membership_Type_ChromeOsDevice;
 /**
+ *  Represents a Coworker Agent type.
+ *
+ *  Value: "COWORKER_AGENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_Membership_Type_CoworkerAgent;
+/**
  *  Represents group type.
  *
  *  Value: "GROUP"
@@ -807,6 +813,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_Membership_Type_Group;
  *  Value: "OTHER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_Membership_Type_Other;
+/**
+ *  Represents a Personal Agent type.
+ *
+ *  Value: "PERSONAL_AGENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_Membership_Type_PersonalAgent;
 /**
  *  Represents service account type.
  *
@@ -3343,10 +3355,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
  *        CBCM-managed Chrome Browser type. (Value: "CBCM_BROWSER")
  *    @arg @c kGTLRCloudIdentity_Membership_Type_ChromeOsDevice Represents a
  *        ChromeOS-managed ChromeOS device type. (Value: "CHROME_OS_DEVICE")
+ *    @arg @c kGTLRCloudIdentity_Membership_Type_CoworkerAgent Represents a
+ *        Coworker Agent type. (Value: "COWORKER_AGENT")
  *    @arg @c kGTLRCloudIdentity_Membership_Type_Group Represents group type.
  *        (Value: "GROUP")
  *    @arg @c kGTLRCloudIdentity_Membership_Type_Other Represents other type.
  *        (Value: "OTHER")
+ *    @arg @c kGTLRCloudIdentity_Membership_Type_PersonalAgent Represents a
+ *        Personal Agent type. (Value: "PERSONAL_AGENT")
  *    @arg @c kGTLRCloudIdentity_Membership_Type_ServiceAccount Represents
  *        service account type. (Value: "SERVICE_ACCOUNT")
  *    @arg @c kGTLRCloudIdentity_Membership_Type_SharedDrive Represents Shared

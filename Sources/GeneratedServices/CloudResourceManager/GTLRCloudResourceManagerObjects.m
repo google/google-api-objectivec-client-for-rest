@@ -20,6 +20,11 @@ NSString * const kGTLRCloudResourceManager_AuditLogConfig_LogType_DataRead = @"D
 NSString * const kGTLRCloudResourceManager_AuditLogConfig_LogType_DataWrite = @"DATA_WRITE";
 NSString * const kGTLRCloudResourceManager_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG_TYPE_UNSPECIFIED";
 
+// GTLRCloudResourceManager_Boundary.state
+NSString * const kGTLRCloudResourceManager_Boundary_State_Active = @"ACTIVE";
+NSString * const kGTLRCloudResourceManager_Boundary_State_Creating = @"CREATING";
+NSString * const kGTLRCloudResourceManager_Boundary_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
 // GTLRCloudResourceManager_CapabilityConfig.state
 NSString * const kGTLRCloudResourceManager_CapabilityConfig_State_Active = @"ACTIVE";
 NSString * const kGTLRCloudResourceManager_CapabilityConfig_State_StateUnspecified = @"STATE_UNSPECIFIED";
@@ -66,6 +71,11 @@ NSString * const kGTLRCloudResourceManager_GoogleCloudResourcemanagerV2beta1Fold
 NSString * const kGTLRCloudResourceManager_Organization_State_Active = @"ACTIVE";
 NSString * const kGTLRCloudResourceManager_Organization_State_DeleteRequested = @"DELETE_REQUESTED";
 NSString * const kGTLRCloudResourceManager_Organization_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLRCloudResourceManager_Project.managementType
+NSString * const kGTLRCloudResourceManager_Project_ManagementType_Hub = @"HUB";
+NSString * const kGTLRCloudResourceManager_Project_ManagementType_ManagementTypeUnspecified = @"MANAGEMENT_TYPE_UNSPECIFIED";
+NSString * const kGTLRCloudResourceManager_Project_ManagementType_SelfManaged = @"SELF_MANAGED";
 
 // GTLRCloudResourceManager_Project.state
 NSString * const kGTLRCloudResourceManager_Project_State_Active = @"ACTIVE";
@@ -126,6 +136,37 @@ NSString * const kGTLRCloudResourceManager_TagKey_Purpose_PurposeUnspecified = @
     @"members" : [NSString class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudResourceManager_Boundary
+//
+
+@implementation GTLRCloudResourceManager_Boundary
+@dynamic createTime, displayName, ETag, managementProject, name, resourceFilter,
+         state, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudResourceManager_BoundaryConfig
+//
+
+@implementation GTLRCloudResourceManager_BoundaryConfig
+@dynamic ETag, name, tagKey, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
 }
 
 @end
@@ -205,6 +246,24 @@ NSString * const kGTLRCloudResourceManager_TagKey_Purpose_PurposeUnspecified = @
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudResourceManager_CreateSemanticTagBindingMetadata
+//
+
+@implementation GTLRCloudResourceManager_CreateSemanticTagBindingMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudResourceManager_CreateSemanticTagValueMetadata
+//
+
+@implementation GTLRCloudResourceManager_CreateSemanticTagValueMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudResourceManager_CreateTagBindingMetadata
 //
 
@@ -272,6 +331,24 @@ NSString * const kGTLRCloudResourceManager_TagKey_Purpose_PurposeUnspecified = @
 //
 
 @implementation GTLRCloudResourceManager_DeleteProjectMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudResourceManager_DeleteSemanticTagBindingMetadata
+//
+
+@implementation GTLRCloudResourceManager_DeleteSemanticTagBindingMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudResourceManager_DeleteSemanticTagValueMetadata
+//
+
+@implementation GTLRCloudResourceManager_DeleteSemanticTagValueMetadata
 @end
 
 
@@ -495,6 +572,28 @@ NSString * const kGTLRCloudResourceManager_TagKey_Purpose_PurposeUnspecified = @
     @"restrictions" : [NSString class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudResourceManager_ListBoundariesResponse
+//
+
+@implementation GTLRCloudResourceManager_ListBoundariesResponse
+@dynamic boundaries, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"boundaries" : [GTLRCloudResourceManager_Boundary class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"boundaries";
 }
 
 @end
@@ -821,8 +920,8 @@ NSString * const kGTLRCloudResourceManager_TagKey_Purpose_PurposeUnspecified = @
 
 @implementation GTLRCloudResourceManager_Project
 @dynamic configuredCapabilities, createTime, deleteTime, displayName, ETag,
-         isManagementProject, labels, name, parent, projectId, state, tags,
-         updateTime;
+         isManagementProject, labels, managementType, name, parent, projectId,
+         state, tags, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -873,6 +972,16 @@ NSString * const kGTLRCloudResourceManager_TagKey_Purpose_PurposeUnspecified = @
 
 @implementation GTLRCloudResourceManager_ProjectCreationStatus
 @dynamic createTime, gettable, ready;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudResourceManager_ResourceFilter
+//
+
+@implementation GTLRCloudResourceManager_ResourceFilter
+@dynamic tagFilter;
 @end
 
 
@@ -1020,6 +1129,16 @@ NSString * const kGTLRCloudResourceManager_TagKey_Purpose_PurposeUnspecified = @
   return [NSString class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudResourceManager_TagFilter
+//
+
+@implementation GTLRCloudResourceManager_TagFilter
+@dynamic tagKey, tagValue;
 @end
 
 

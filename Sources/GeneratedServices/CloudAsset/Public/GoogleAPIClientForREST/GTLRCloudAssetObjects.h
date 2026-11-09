@@ -645,6 +645,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextma
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1OsConstraint_OsType_DesktopWindows;
 /**
+ *  A Googlebook operating system.
+ *
+ *  Value: "GOOGLEBOOK_OS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1OsConstraint_OsType_GooglebookOs;
+/**
  *  An iOS operating system.
  *
  *  Value: "IOS"
@@ -679,8 +685,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextma
 /**
  *  Enables VPC Accessible Services enforcement for all APIs (including
  *  unsupported APIs) for Private Google Access configured with Private VIP and
- *  Private Service Connect Endpoint for Global Google APIs that uses 'all-apis'
- *  bundle.
+ *  Private Service Connect Endpoint for Global Google APIs that use the
+ *  `'all-apis'` bundle.
  *
  *  Value: "GOOGLE_APIS_VIA_PRIVATE_PATH"
  */
@@ -3327,7 +3333,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** Human readable title. Must be unique within the Policy. */
+/** Human-readable title. Must be unique within the policy. */
 @property(nonatomic, copy, nullable) NSString *title;
 
 @end
@@ -3345,7 +3351,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 /**
  *  Output only. An opaque identifier for the current version of the
  *  `AccessPolicy`. This will always be a strongly validated etag, meaning that
- *  two Access Policies will be identical if and only if their etags are
+ *  two access policies will be identical if and only if their etags are
  *  identical. Clients should not expect this to be in any specific format.
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
@@ -3369,15 +3375,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *  can only restrict projects within `folders/123`. - ServicePerimeter within
  *  policy A can only reference access levels defined within policy A. - Only
  *  one policy can include a given scope; thus, attempting to create a second
- *  policy which includes `folders/123` will result in an error. If no scopes
- *  are provided, then any resource within the organization can be restricted.
+ *  policy that includes `folders/123` will result in an error. If no scopes are
+ *  provided, then any resource within the organization can be restricted.
  *  Scopes cannot be modified after a policy is created. Policies can only have
  *  a single scope. Format: list of `folders/{folder_number}` or
  *  `projects/{project_number}`
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *scopes;
 
-/** Required. Human readable title. Does not affect behavior. */
+/** Required. Human-readable title. Does not affect behavior. */
 @property(nonatomic, copy, nullable) NSString *title;
 
 @end
@@ -3427,10 +3433,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 
 /**
  *  How the `conditions` list should be combined to determine if a request is
- *  granted this `AccessLevel`. If AND is used, each `Condition` in `conditions`
- *  must be satisfied for the `AccessLevel` to be applied. If OR is used, at
- *  least one `Condition` in `conditions` must be satisfied for the
- *  `AccessLevel` to be applied. Default behavior is AND.
+ *  granted this `AccessLevel`. If `AND` is used, each `Condition` in
+ *  `conditions` must be satisfied for the `AccessLevel` to be applied. If `OR`
+ *  is used, at least one `Condition` in `conditions` must be satisfied for the
+ *  `AccessLevel` to be applied. Default behavior is `AND`.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1BasicLevel_CombiningFunction_And
@@ -3449,16 +3455,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 
 
 /**
- *  A condition necessary for an `AccessLevel` to be granted. The Condition is
- *  an AND over its fields. So a Condition is true if: 1) the request IP is from
- *  one of the listed subnetworks AND 2) the originating device complies with
- *  the listed device policy AND 3) all listed access levels are granted AND 4)
- *  the request was sent at a time allowed by the DateTimeRestriction.
+ *  A condition necessary for an `AccessLevel` to be granted. The `Condition` is
+ *  an AND over its fields. A `Condition` is true if: 1) the request IP is from
+ *  one of the listed subnetworks, AND 2) the originating device complies with
+ *  the listed device policy, AND 3) all listed access levels are granted, AND
+ *  4) the request was sent at a time allowed by the `DateTimeRestriction`.
  */
 @interface GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1Condition : GTLRObject
 
 /**
- *  Device specific restrictions, all restrictions must hold for the Condition
+ *  Device-specific restrictions. All restrictions must hold for the `Condition`
  *  to be true. If not specified, all devices are allowed.
  */
 @property(nonatomic, strong, nullable) GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1DevicePolicy *devicePolicy;
@@ -3466,12 +3472,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 /**
  *  CIDR block IP subnetwork specification. May be IPv4 or IPv6. Note that for a
  *  CIDR IP address block, the specified IP address portion must be properly
- *  truncated (i.e. all the host bits must be zero) or the input is considered
- *  malformed. For example, "192.0.2.0/24" is accepted but "192.0.2.1/24" is
- *  not. Similarly, for IPv6, "2001:db8::/32" is accepted whereas
- *  "2001:db8::1/32" is not. The originating IP of a request must be in one of
- *  the listed subnets in order for this Condition to be true. If empty, all IP
- *  addresses are allowed.
+ *  truncated (that is, all the host bits must be zero) or the input is
+ *  considered malformed. For example, `"192.0.2.0/24"` is accepted, but
+ *  `"192.0.2.1/24"` is not. Similarly, for IPv6, `"2001:db8::/32"` is accepted,
+ *  whereas `"2001:db8::1/32"` is not. The originating IP of a request must be
+ *  in one of the listed subnets in order for this `Condition` to be true. If
+ *  empty, all IP addresses are allowed.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *ipSubnetworks;
 
@@ -3484,9 +3490,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 @property(nonatomic, strong, nullable) NSArray<NSString *> *members;
 
 /**
- *  Whether to negate the Condition. If true, the Condition becomes a NAND over
- *  its non-empty fields. Any non-empty field criteria evaluating to false will
- *  result in the Condition to be satisfied. Defaults to false.
+ *  Whether to negate the `Condition`. If `true`, the `Condition` becomes a NAND
+ *  over its non-empty fields. Any non-empty field criteria evaluating to
+ *  `false` will result in the `Condition` being satisfied. Defaults to `false`.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -3500,9 +3506,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 
 /**
  *  A list of other access levels defined in the same `Policy`, referenced by
- *  resource name. Referencing an `AccessLevel` which does not exist is an
- *  error. All access levels listed must be granted for the Condition to be
- *  true. Example: "`accessPolicies/MY_POLICY/accessLevels/LEVEL_NAME"`
+ *  resource name. Referencing an `AccessLevel` that does not exist is an error.
+ *  All access levels listed must be granted for the `Condition` to be true.
+ *  Example: `"accessPolicies/MY_POLICY/accessLevels/LEVEL_NAME"`
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *requiredAccessLevels;
 
@@ -3529,28 +3535,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 
 
 /**
- *  `DevicePolicy` specifies device specific restrictions necessary to acquire a
+ *  `DevicePolicy` specifies device-specific restrictions necessary to acquire a
  *  given access level. A `DevicePolicy` specifies requirements for requests
- *  from devices to be granted access levels, it does not do any enforcement on
+ *  from devices to be granted access levels; it does not do any enforcement on
  *  the device. `DevicePolicy` acts as an AND over all specified fields, and
  *  each repeated field is an OR over its elements. Any unset fields are
- *  ignored. For example, if the proto is { os_type : DESKTOP_WINDOWS, os_type :
- *  DESKTOP_LINUX, encryption_status: ENCRYPTED}, then the DevicePolicy will be
- *  true for requests originating from encrypted Linux desktops and encrypted
- *  Windows desktops.
+ *  ignored. For example, if the proto is `{ os_type : DESKTOP_WINDOWS, os_type
+ *  : DESKTOP_LINUX, encryption_status: ENCRYPTED}`, then the `DevicePolicy`
+ *  will be true for requests originating from encrypted Linux desktops and
+ *  encrypted Windows desktops.
  */
 @interface GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1DevicePolicy : GTLRObject
 
 /**
- *  Allowed device management levels, an empty list allows all management
+ *  Allowed device management levels. An empty list allows all management
  *  levels.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *allowedDeviceManagementLevels;
 
-/** Allowed encryptions statuses, an empty list allows all statuses. */
+/** Allowed encryption statuses. An empty list allows all statuses. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *allowedEncryptionStatuses;
 
-/** Allowed OS versions, an empty list allows all types and all versions. */
+/** Allowed OS versions. An empty list allows all types and all versions. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1OsConstraint *> *osConstraints;
 
 /**
@@ -3561,14 +3567,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 @property(nonatomic, strong, nullable) NSNumber *requireAdminApproval;
 
 /**
- *  Whether the device needs to be corp owned.
+ *  Whether the device needs to be corp-owned.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *requireCorpOwned;
 
 /**
- *  Whether or not screenlock is required for the DevicePolicy to be true.
+ *  Whether or not screenlock is required for the `DevicePolicy` to be true.
  *  Defaults to `false`.
  *
  *  Uses NSNumber of boolValue.
@@ -3580,10 +3586,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 
 /**
  *  Defines the conditions under which an EgressPolicy matches a request.
- *  Conditions based on information about the source of the request. Note that
- *  if the destination of the request is also protected by a ServicePerimeter,
- *  then that ServicePerimeter must have an IngressPolicy which allows access in
- *  order for this request to succeed.
+ *  Conditions are based on information about the source of the request. Note
+ *  that if the destination of the request is also protected by a
+ *  ServicePerimeter, then that ServicePerimeter must have an IngressPolicy
+ *  which allows access in order for this request to succeed.
  */
 @interface GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1EgressFrom : GTLRObject
 
@@ -3619,7 +3625,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 
 /**
  *  Whether to enforce traffic restrictions based on `sources` field. If the
- *  `sources` fields is non-empty, then this field must be set to
+ *  `sources` field is not empty, then this field must be set to
  *  `SOURCE_RESTRICTION_ENABLED`.
  *
  *  Likely values:
@@ -3657,8 +3663,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *  within the ServicePerimeter to access a defined set of projects outside the
  *  perimeter in certain contexts (e.g. to read data from a Cloud Storage bucket
  *  or query against a BigQuery dataset). EgressPolicies are concerned with the
- *  *resources* that a request relates as well as the API services and API
- *  actions being used. They do not related to the direction of data movement.
+ *  *resources* that a request relates to, as well as the API services and API
+ *  actions being used. They do not relate to the direction of data movement.
  *  More detailed documentation for this concept can be found in the
  *  descriptions of EgressFrom and EgressTo.
  */
@@ -3678,7 +3684,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 
 /**
  *  Optional. Human-readable title for the egress rule. The title must be unique
- *  within the perimeter and can not exceed 100 characters. Within the access
+ *  within the perimeter and cannot exceed 100 characters. Within the access
  *  policy, the combined length of all rule titles must not exceed 240,000
  *  characters.
  */
@@ -3714,9 +3720,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 
 /**
  *  A Google Cloud resource from the service perimeter that you want to allow to
- *  access data outside the perimeter. This field supports only projects. The
- *  project format is `projects/{project_number}`. You can't use `*` in this
- *  field to allow all Google Cloud resources.
+ *  access data outside the perimeter. This field supports projects, folders,
+ *  and organizations in the form `projects/{project_number}`,
+ *  `folders/{folder_id}`, and `organizations/{organization_id}`. You can't use
+ *  `*` in this field to allow all Google Cloud resources.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -3737,11 +3744,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 /**
  *  A list of external resources that are allowed to be accessed. Only AWS and
  *  Azure resources are supported. For Amazon S3, the supported formats are
- *  s3://BUCKET_NAME, s3a://BUCKET_NAME, and s3n://BUCKET_NAME. For Azure
+ *  `s3://BUCKET_NAME`, `s3a://BUCKET_NAME`, and `s3n://BUCKET_NAME`. For Azure
  *  Storage, the supported format is
- *  azure://myaccount.blob.core.windows.net/CONTAINER_NAME. A request matches if
- *  it contains an external resource in this list (Example: s3://bucket/path).
- *  Currently '*' is not allowed.
+ *  `azure://myaccount.blob.core.windows.net/CONTAINER_NAME`. A request matches
+ *  if it contains an external resource in this list (Example:
+ *  `s3://bucket/path`). Currently `'*'` is not allowed.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *externalResources;
 
@@ -3753,17 +3760,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1ApiOperation *> *operations;
 
 /**
- *  A list of resources, currently only projects in the form `projects/`, that
- *  are allowed to be accessed by sources defined in the corresponding
- *  EgressFrom. A request matches if it contains a resource in this list. If `*`
- *  is specified for `resources`, then this EgressTo rule will authorize access
- *  to all resources outside the perimeter.
+ *  A list of resources, currently projects, folders, and organizations in the
+ *  form `projects/{project_number}`, `folders/{folder_id}`, and
+ *  `organizations/{organization_id}`, that are allowed to be accessed by
+ *  sources defined in the corresponding EgressFrom. A request matches if it
+ *  contains a resource in this list. If `*` is specified for `resources`, then
+ *  this EgressTo rule will authorize access to all resources outside the
+ *  perimeter.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *resources;
 
 /**
  *  IAM roles that represent the set of operations that the sources specified in
- *  the corresponding EgressFrom. are allowed to perform in this
+ *  the corresponding EgressFrom are allowed to perform in this
  *  ServicePerimeter.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *roles;
@@ -3843,7 +3852,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 
 /**
  *  Optional. Human-readable title for the ingress rule. The title must be
- *  unique within the perimeter and can not exceed 100 characters. Within the
+ *  unique within the perimeter and cannot exceed 100 characters. Within the
  *  access policy, the combined length of all rule titles must not exceed
  *  240,000 characters.
  */
@@ -3858,7 +3867,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 @interface GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1IngressSource : GTLRObject
 
 /**
- *  An AccessLevel resource name that allow resources within the
+ *  An AccessLevel resource name that allows resources within the
  *  ServicePerimeters to be accessed from the internet. AccessLevels listed must
  *  be in the same policy as this ServicePerimeter. Referencing a nonexistent
  *  AccessLevel will cause an error. If no AccessLevel names are listed,
@@ -3879,8 +3888,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 /**
  *  A Google Cloud resource that is allowed to ingress the perimeter. Requests
  *  from these resources will be allowed to access perimeter data. Currently
- *  only projects and VPCs are allowed. Project format:
- *  `projects/{project_number}` VPC network format:
+ *  projects, folders, organizations, and VPCs are allowed. Project format:
+ *  `projects/{project_number}` Folder format: `folders/{folder_id}`
+ *  Organization format: `organizations/{organization_id}` VPC network format:
  *  `//compute.googleapis.com/projects/{PROJECT_ID}/global/networks/{NAME}`. The
  *  project may be in any Google Cloud organization, not just the organization
  *  that the perimeter is defined in. `*` is not allowed, the case of allowing
@@ -3906,10 +3916,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1ApiOperation *> *operations;
 
 /**
- *  A list of resources, currently only projects in the form `projects/`,
- *  protected by this ServicePerimeter that are allowed to be accessed by
- *  sources defined in the corresponding IngressFrom. If a single `*` is
- *  specified, then access to all resources inside the perimeter are allowed.
+ *  A list of resources, currently projects, folders, and organizations in the
+ *  form `projects/{project_number}`, `folders/{folder_id}`, and
+ *  `organizations/{organization_id}`, protected by this ServicePerimeter that
+ *  are allowed to be accessed by sources defined in the corresponding
+ *  IngressFrom. If a single `*` is specified, then access to all resources
+ *  inside the perimeter is allowed.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *resources;
 
@@ -3981,6 +3993,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *        A desktop Mac operating system. (Value: "DESKTOP_MAC")
  *    @arg @c kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1OsConstraint_OsType_DesktopWindows
  *        A desktop Windows operating system. (Value: "DESKTOP_WINDOWS")
+ *    @arg @c kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1OsConstraint_OsType_GooglebookOs
+ *        A Googlebook operating system. (Value: "GOOGLEBOOK_OS")
  *    @arg @c kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1OsConstraint_OsType_Ios
  *        An iOS operating system. (Value: "IOS")
  *    @arg @c kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1OsConstraint_OsType_OsUnspecified
@@ -3990,8 +4004,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 @property(nonatomic, copy, nullable) NSString *osType;
 
 /**
- *  Only allows requests from devices with a verified Chrome OS. Verifications
- *  includes requirements that the device is enterprise-managed, conformant to
+ *  Only allows requests from devices with a verified Chrome OS. Verification
+ *  includes requirements that the device is enterprise-managed, conforms to
  *  domain policies, and the caller has permission to call the API targeted by
  *  the request.
  *
@@ -4026,9 +4040,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1Modifier *> *modifiers;
 
 /**
- *  URL pattern to allow. Only patterns of ".googleapis.com/ *",
- *  "www.googleapis.com// *" and "*.appspot.com/ * forms are supported, where
- *  should be an alphanumeric name.
+ *  URL pattern to allow. Only patterns of `".googleapis.com/ *"`,
+ *  `"www.googleapis.com// *"`, and `"*.appspot.com/ *"` forms are supported,
+ *  where `` should be an alphanumeric name.
  */
 @property(nonatomic, copy, nullable) NSString *pattern;
 
@@ -4078,10 +4092,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 
 /**
  *  Perimeter type indicator. A single project or VPC network is allowed to be a
- *  member of single regular perimeter, but multiple service perimeter bridges.
- *  A project cannot be a included in a perimeter bridge without being included
- *  in regular perimeter. For perimeter bridges, the restricted service list as
- *  well as access level lists must be empty.
+ *  member of a single regular perimeter, but multiple service perimeter
+ *  bridges. A project cannot be included in a perimeter bridge without being
+ *  included in a regular perimeter. For perimeter bridges, the restricted
+ *  service list as well as access level lists must be empty.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1ServicePerimeter_PerimeterType_PerimeterTypeBridge
@@ -4094,15 +4108,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 
 /**
  *  Proposed (or dry run) ServicePerimeter configuration. This configuration
- *  allows to specify and test ServicePerimeter configuration without enforcing
- *  actual access restrictions. Only allowed to be set when the
- *  "use_explicit_dry_run_spec" flag is set.
+ *  allows you to specify and test ServicePerimeter configuration without
+ *  enforcing actual access restrictions. Only allowed to be set when the
+ *  `use_explicit_dry_run_spec` flag is set.
  */
 @property(nonatomic, strong, nullable) GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1ServicePerimeterConfig *spec;
 
 /**
  *  Current ServicePerimeter configuration. Specifies sets of resources,
- *  restricted services and access levels that determine perimeter content and
+ *  restricted services, and access levels that determine perimeter content and
  *  boundaries.
  */
 @property(nonatomic, strong, nullable) GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1ServicePerimeterConfig *status;
@@ -4119,8 +4133,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *  This allows the user to test changes to the enforced config ("status")
  *  without actually enforcing them. This testing is done through analyzing the
  *  differences between currently enforced and suggested restrictions.
- *  use_explicit_dry_run_spec must bet set to True if any of the fields in the
- *  spec are set to non-default values.
+ *  `use_explicit_dry_run_spec` must be set to `true` if any of the fields in
+ *  the spec are set to non-default values.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -4164,8 +4178,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 
 /**
  *  A list of Google Cloud resources that are inside of the service perimeter.
- *  Currently only projects and VPCs are allowed. Project format:
- *  `projects/{project_number}` VPC network format:
+ *  Currently projects, folders, and VPCs are allowed. Project format:
+ *  `projects/{project_number}` Folder format: `folders/{folder_id}` VPC network
+ *  format:
  *  `//compute.googleapis.com/projects/{PROJECT_ID}/global/networks/{NAME}`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *resources;
@@ -4197,15 +4212,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 
 /**
  *  The list of APIs usable within the Service Perimeter. Must be empty unless
- *  'enable_restriction' is True. You can specify a list of individual services,
- *  as well as include the 'RESTRICTED-SERVICES' value, which automatically
- *  includes all of the services protected by the perimeter.
+ *  `enable_restriction` is `true`. You can specify a list of individual
+ *  services, as well as include the `'RESTRICTED-SERVICES'` value, which
+ *  automatically includes all of the services protected by the perimeter.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *allowedServices;
 
 /**
  *  Whether to restrict API calls within the Service Perimeter to the list of
- *  APIs specified in 'allowed_services'.
+ *  APIs specified in `allowed_services`.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -4229,7 +4244,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 
 
 /**
- *  Sub-segment ranges inside of a VPC Network.
+ *  Sub-segment ranges inside of a VPC network.
  */
 @interface GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1VpcSubNetwork : GTLRObject
 
@@ -4246,9 +4261,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *  CIDR block IP subnetwork specification. The IP address must be an IPv4
  *  address and can be a public or private IP address. Note that for a CIDR IP
  *  address block, the specified IP address portion must be properly truncated
- *  (i.e. all the host bits must be zero) or the input is considered malformed.
- *  For example, "192.0.2.0/24" is accepted but "192.0.2.1/24" is not. If empty,
- *  all IP addresses are allowed.
+ *  (that is, all the host bits must be zero) or the input is considered
+ *  malformed. For example, `"192.0.2.0/24"` is accepted, but `"192.0.2.1/24"`
+ *  is not. If empty, all IP addresses are allowed.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *vpcIpSubnetworks;
 

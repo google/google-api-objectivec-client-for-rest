@@ -790,4 +790,31 @@
 
 @end
 
+@implementation GTLRBigQueryReservationQuery_ProjectsLocationsUpgradeEdition
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRBigQueryReservation_UpgradeEditionRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}:upgradeEdition";
+  GTLRBigQueryReservationQuery_ProjectsLocationsUpgradeEdition *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRBigQueryReservation_UpgradeEditionResponse class];
+  query.loggingName = @"bigqueryreservation.projects.locations.upgradeEdition";
+  return query;
+}
+
+@end
+
 #pragma clang diagnostic pop

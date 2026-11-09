@@ -1268,15 +1268,25 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthActivityAndFitnessReadonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthActivityAndFitnessWriteonly
  *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthEcgReadonly
  *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthHealthMetricsAndMeasurementsReadonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthHealthMetricsAndMeasurementsWriteonly
  *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthIrnReadonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthLocationReadonly
  *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthLoggedSymptomsReadonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthLoggedSymptomsWriteonly
  *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthMindfulnessReadonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthMindfulnessWriteonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthNutritionWriteonly
  *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthProfileReadonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthProfileWriteonly
  *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthReproductiveHealthReadonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthReproductiveHealthWriteonly
  *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthSettingsReadonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthSettingsWriteonly
  *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthSleepReadonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthSleepWriteonly
  */
 @interface GTLRGoogleHealthAPIQuery_UsersGetIdentity : GTLRGoogleHealthAPIQuery
 

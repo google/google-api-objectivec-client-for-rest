@@ -9427,7 +9427,7 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowV2beta1SentimentAnalysisResult
-@dynamic queryTextSentiment;
+@dynamic queryTextSentiment, status;
 @end
 
 
@@ -11100,7 +11100,16 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowV2Message
 @dynamic content, createTime, languageCode, messageAnnotation, name,
-         participant, participantRole, sendTime, sentimentAnalysis;
+         participant, participantRole, responseMessages, sendTime,
+         sentimentAnalysis;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"responseMessages" : [GTLRDialogflow_GoogleCloudDialogflowV2ResponseMessage class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -11213,6 +11222,120 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDialogflow_GoogleCloudDialogflowV2ResponseMessage
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2ResponseMessage
+@dynamic endInteraction, liveAgentHandoff, mixedAudio, payload,
+         telephonyTransferCall, text;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2ResponseMessage_Payload
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2ResponseMessage_Payload
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2ResponseMessageEndInteraction
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2ResponseMessageEndInteraction
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2ResponseMessageLiveAgentHandoff
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2ResponseMessageLiveAgentHandoff
+@dynamic metadata;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2ResponseMessageLiveAgentHandoff_Metadata
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2ResponseMessageLiveAgentHandoff_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2ResponseMessageMixedAudio
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2ResponseMessageMixedAudio
+@dynamic segments;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"segments" : [GTLRDialogflow_GoogleCloudDialogflowV2ResponseMessageMixedAudioSegment class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2ResponseMessageMixedAudioSegment
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2ResponseMessageMixedAudioSegment
+@dynamic allowPlaybackInterruption, audio, uri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2ResponseMessageTelephonyTransferCall
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2ResponseMessageTelephonyTransferCall
+@dynamic phoneNumber, sipUri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2ResponseMessageText
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2ResponseMessageText
+@dynamic text;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"text" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDialogflow_GoogleCloudDialogflowV2SearchEntryPoint
 //
 
@@ -11247,7 +11370,7 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowV2SentimentAnalysisResult
-@dynamic queryTextSentiment;
+@dynamic queryTextSentiment, status;
 @end
 
 

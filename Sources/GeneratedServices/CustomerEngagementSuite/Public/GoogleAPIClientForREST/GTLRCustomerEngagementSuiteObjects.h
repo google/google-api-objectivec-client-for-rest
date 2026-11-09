@@ -1315,6 +1315,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_GuardrailContent
  */
 FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_GuardrailContentFilter_MatchType_RegexpMatch;
 /**
+ *  Content is matched against a system-managed list of sensitive words and
+ *  phrases. Attaching a guardrail with this match type to an app or agent
+ *  replaces the default sensitive words filter for the affected agents; disable
+ *  the guardrail to opt out of the default filter.
+ *
+ *  Value: "SENSITIVE_WORDS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_GuardrailContentFilter_MatchType_SensitiveWords;
+/**
  *  Content is matched for substrings character by character.
  *
  *  Value: "SIMPLE_STRING_MATCH"
@@ -1846,6 +1855,29 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_Schema_Type_Stri
  *  Value: "TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_Schema_Type_TypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCustomerEngagementSuite_SessionInput.recordingControl
+
+/**
+ *  The app is not controlling recording. The app's logging settings decide, as
+ *  they do for every session that never sets this field.
+ *
+ *  Value: "RECORDING_CONTROL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_SessionInput_RecordingControl_RecordingControlUnspecified;
+/**
+ *  The conversation may not be recorded or logged from here on.
+ *
+ *  Value: "RECORDING_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_SessionInput_RecordingControl_RecordingDisabled;
+/**
+ *  The conversation may be recorded and logged from here on.
+ *
+ *  Value: "RECORDING_ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_SessionInput_RecordingControl_RecordingEnabled;
 
 // ----------------------------------------------------------------------------
 // GTLRCustomerEngagementSuite_StreamChatAiAssistantRequest.clientCapabilities
@@ -3184,8 +3216,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextRe
 
 
 /**
- *  A single personalized onboarding suggestion chip for the AI assistant's zero
- *  state.
+ *  A single personalized onboarding suggestion chip for Arc's zero state.
  */
 @interface GTLRCustomerEngagementSuite_AssistantSuggestion : GTLRObject
 
@@ -6152,6 +6183,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextRe
  *    @arg @c kGTLRCustomerEngagementSuite_GuardrailContentFilter_MatchType_RegexpMatch
  *        Content is matched using regular expression syntax. (Value:
  *        "REGEXP_MATCH")
+ *    @arg @c kGTLRCustomerEngagementSuite_GuardrailContentFilter_MatchType_SensitiveWords
+ *        Content is matched against a system-managed list of sensitive words
+ *        and phrases. Attaching a guardrail with this match type to an app or
+ *        agent replaces the default sensitive words filter for the affected
+ *        agents; disable the guardrail to opt out of the default filter.
+ *        (Value: "SENSITIVE_WORDS")
  *    @arg @c kGTLRCustomerEngagementSuite_GuardrailContentFilter_MatchType_SimpleStringMatch
  *        Content is matched for substrings character by character. (Value:
  *        "SIMPLE_STRING_MATCH")
@@ -6161,6 +6198,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextRe
  *        (Value: "WORD_BOUNDARY_STRING_MATCH")
  */
 @property(nonatomic, copy, nullable) NSString *matchType;
+
+/**
+ *  Optional. Entries of the sensitive words list that this guardrail allows.
+ *  Only valid when match_type is SENSITIVE_WORDS. Each value must equal a list
+ *  entry (case-insensitive, surrounding whitespace ignored); other values have
+ *  no effect. Applies to this guardrail only. At most 1000 entries of up to 256
+ *  characters each.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *sensitiveWordsExemptions;
 
 @end
 
@@ -6221,7 +6267,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextRe
  */
 @property(nonatomic, copy, nullable) NSString *policyScope;
 
-/** Required. Policy prompt. */
+/**
+ *  Required. Policy prompt. Supports session variable placeholders (`{var}`) as
+ *  well as `{agent_system_instruction}` to inject the agent's resolved system
+ *  instructions.
+ */
 @property(nonatomic, copy, nullable) NSString *prompt;
 
 @end
@@ -6600,8 +6650,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextRe
 @property(nonatomic, copy, nullable) NSString *defaultLanguageCode;
 
 /**
- *  Optional. Enables multilingual support. If true, agents in the app will use
- *  pre-built instructions to improve handling of multilingual input.
+ *  Optional. Enables multilingual support. If `true`, agents in the app will
+ *  use pre-built instructions to improve handling of multilingual input.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -8271,6 +8321,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextRe
 @property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_RedactionConfig *redactionConfig;
 
 /**
+ *  Optional. Whether the app has to say what may be recorded before anything is
+ *  kept. When true, a session starts with recording off and stays off until the
+ *  client sends SessionInput.recording_control, which then decides every turn
+ *  from that point on. This covers audio recording as well as conversation
+ *  history, BigQuery export and Cloud Logging. When `false`, the default, the
+ *  settings above decide on their own and the client does not have to send
+ *  anything.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *requiredRecordingConsent;
+
+/**
  *  Optional. Configures an additional recording of unredacted audio. This can
  *  be used to maintain a raw audio copy when audio redaction is enabled,
  *  typically for auditing or monitoring purposes.
@@ -9125,7 +9188,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextRe
 @property(nonatomic, copy, nullable) NSString *deidentifyTemplate;
 
 /**
- *  Optional. If true, redaction will be applied in various logging scenarios,
+ *  Optional. If `true`, redaction will be applied in various logging scenarios,
  *  including conversation history, Cloud Logging and audio recording.
  *
  *  Uses NSNumber of boolValue.
@@ -9670,9 +9733,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextRe
 @property(nonatomic, copy, nullable) NSString *deployment;
 
 /**
- *  Optional. Whether to enable streaming text outputs from the model. By
- *  default, text outputs from the model are collected before sending to the
- *  client. NOTE: This is only supported for text (non-voice) sessions via
+ *  Optional. Whether to stream text output from the model to the client
+ *  incrementally as it is generated. Defaults to `false`. * When disabled, the
+ *  model's text output is buffered, and each text output sent to the client is
+ *  a complete sentence. Clients can render each text output on a new line. *
+ *  When enabled, each text output may contain only part of a sentence. Clients
+ *  should concatenate consecutive text outputs to render the complete response.
+ *  NOTE: This is only supported for text (non-voice) sessions using
  *  StreamRunSession or BidiRunSession.
  *
  *  Uses NSNumber of boolValue.
@@ -9701,6 +9768,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextRe
  *  force the session start from certain state.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCustomerEngagementSuite_Message *> *historicalContexts;
+
+/**
+ *  Optional. Whether to include LLM thought summaries in the session outputs.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *includeLlmThoughtSummary;
+
+/**
+ *  Optional. Whether to include intermediate processing update to the client.
+ *  If enabled, the update will be sent back in SessionOutput.progress.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *includeProgressUpdate;
 
 /** Optional. Configuration for processing the input audio. */
 @property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_InputAudioConfig *inputAudioConfig;
@@ -9828,6 +9910,34 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextRe
 
 /** Optional. Image data from the end user. */
 @property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_Image *image;
+
+/**
+ *  Optional. Whether the conversation may be recorded and logged from here on.
+ *  Use this when the app, rather than the agent, decides what may be kept: for
+ *  example when the end user has to consent to being recorded before anything
+ *  about the call can be stored. The value stays in effect until the client
+ *  sends a different one, so it only needs to be sent when the answer changes.
+ *  Whatever is in effect when a turn completes decides that turn, both whether
+ *  its audio reaches the recording bucket and whether its transcript reaches
+ *  conversation history, BigQuery and Cloud Logging. It covers the agent's side
+ *  of the turn as well as the end user's. Turns that complete before the client
+ *  first sends this are recorded according to the app's logging settings, as
+ *  though the field did not exist. If more than one input in the same request
+ *  sets it, the last one wins.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCustomerEngagementSuite_SessionInput_RecordingControl_RecordingControlUnspecified
+ *        The app is not controlling recording. The app's logging settings
+ *        decide, as they do for every session that never sets this field.
+ *        (Value: "RECORDING_CONTROL_UNSPECIFIED")
+ *    @arg @c kGTLRCustomerEngagementSuite_SessionInput_RecordingControl_RecordingDisabled
+ *        The conversation may not be recorded or logged from here on. (Value:
+ *        "RECORDING_DISABLED")
+ *    @arg @c kGTLRCustomerEngagementSuite_SessionInput_RecordingControl_RecordingEnabled
+ *        The conversation may be recorded and logged from here on. (Value:
+ *        "RECORDING_ENABLED")
+ */
+@property(nonatomic, copy, nullable) NSString *recordingControl;
 
 /** Optional. Text data from the end user. */
 @property(nonatomic, copy, nullable) NSString *text;

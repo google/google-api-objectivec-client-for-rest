@@ -1393,6 +1393,71 @@ NSString * const kGTLRAPIhubViewMcpTool                = @"MCP_TOOL";
 
 @end
 
+@implementation GTLRAPIhubQuery_ProjectsLocationsGeneratedSpecApisGenerateSpec
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRAPIhub_GoogleCloudApihubV1GenerateSpecRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:generateSpec";
+  GTLRAPIhubQuery_ProjectsLocationsGeneratedSpecApisGenerateSpec *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRAPIhub_GoogleCloudApihubV1GenerateSpecResponse class];
+  query.loggingName = @"apihub.projects.locations.generatedSpecApis.generateSpec";
+  return query;
+}
+
+@end
+
+@implementation GTLRAPIhubQuery_ProjectsLocationsGeneratedSpecApisGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRAPIhubQuery_ProjectsLocationsGeneratedSpecApisGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRAPIhub_GoogleCloudApihubV1GeneratedSpecApi class];
+  query.loggingName = @"apihub.projects.locations.generatedSpecApis.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRAPIhubQuery_ProjectsLocationsGeneratedSpecApisList
+
+@dynamic filter, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/generatedSpecApis";
+  GTLRAPIhubQuery_ProjectsLocationsGeneratedSpecApisList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRAPIhub_GoogleCloudApihubV1ListGeneratedSpecApisResponse class];
+  query.loggingName = @"apihub.projects.locations.generatedSpecApis.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRAPIhubQuery_ProjectsLocationsGet
 
 @dynamic name;

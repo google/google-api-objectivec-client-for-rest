@@ -550,6 +550,33 @@
 
 @end
 
+@implementation GTLROracleDatabaseQuery_ProjectsLocationsCloudExadataInfrastructuresPatch
+
+@dynamic name, requestId, updateMask;
+
++ (instancetype)queryWithObject:(GTLROracleDatabase_CloudExadataInfrastructure *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLROracleDatabaseQuery_ProjectsLocationsCloudExadataInfrastructuresPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLROracleDatabase_Operation class];
+  query.loggingName = @"oracledatabase.projects.locations.cloudExadataInfrastructures.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLROracleDatabaseQuery_ProjectsLocationsCloudVmClustersCreate
 
 @dynamic cloudVmClusterId, parent, requestId;
@@ -615,6 +642,60 @@
 
 @end
 
+@implementation GTLROracleDatabaseQuery_ProjectsLocationsCloudVmClustersDisableIdentityConnector
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLROracleDatabase_DisableCloudVmClusterIdentityConnectorRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:disableIdentityConnector";
+  GTLROracleDatabaseQuery_ProjectsLocationsCloudVmClustersDisableIdentityConnector *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLROracleDatabase_Operation class];
+  query.loggingName = @"oracledatabase.projects.locations.cloudVmClusters.disableIdentityConnector";
+  return query;
+}
+
+@end
+
+@implementation GTLROracleDatabaseQuery_ProjectsLocationsCloudVmClustersEnableIdentityConnector
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLROracleDatabase_EnableCloudVmClusterIdentityConnectorRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:enableIdentityConnector";
+  GTLROracleDatabaseQuery_ProjectsLocationsCloudVmClustersEnableIdentityConnector *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLROracleDatabase_Operation class];
+  query.loggingName = @"oracledatabase.projects.locations.cloudVmClusters.enableIdentityConnector";
+  return query;
+}
+
+@end
+
 @implementation GTLROracleDatabaseQuery_ProjectsLocationsCloudVmClustersGet
 
 @dynamic name;
@@ -653,6 +734,33 @@
 
 @end
 
+@implementation GTLROracleDatabaseQuery_ProjectsLocationsCloudVmClustersPatch
+
+@dynamic name, requestId, updateMask;
+
++ (instancetype)queryWithObject:(GTLROracleDatabase_CloudVmCluster *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLROracleDatabaseQuery_ProjectsLocationsCloudVmClustersPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLROracleDatabase_Operation class];
+  query.loggingName = @"oracledatabase.projects.locations.cloudVmClusters.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLROracleDatabaseQuery_ProjectsLocationsDatabaseCharacterSetsList
 
 @dynamic filter, pageSize, pageToken, parent;
@@ -667,6 +775,171 @@
   query.parent = parent;
   query.expectedObjectClass = [GTLROracleDatabase_ListDatabaseCharacterSetsResponse class];
   query.loggingName = @"oracledatabase.projects.locations.databaseCharacterSets.list";
+  return query;
+}
+
+@end
+
+@implementation GTLROracleDatabaseQuery_ProjectsLocationsDatabaseConnectionsCreate
+
+@dynamic databaseConnectionId, parent, requestId;
+
++ (instancetype)queryWithObject:(GTLROracleDatabase_DatabaseConnection *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/databaseConnections";
+  GTLROracleDatabaseQuery_ProjectsLocationsDatabaseConnectionsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLROracleDatabase_Operation class];
+  query.loggingName = @"oracledatabase.projects.locations.databaseConnections.create";
+  return query;
+}
+
+@end
+
+@implementation GTLROracleDatabaseQuery_ProjectsLocationsDatabaseConnectionsDelete
+
+@dynamic name, requestId;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLROracleDatabaseQuery_ProjectsLocationsDatabaseConnectionsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLROracleDatabase_Operation class];
+  query.loggingName = @"oracledatabase.projects.locations.databaseConnections.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLROracleDatabaseQuery_ProjectsLocationsDatabaseConnectionsExecuteSql
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLROracleDatabase_ExecuteSqlRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:executeSql";
+  GTLROracleDatabaseQuery_ProjectsLocationsDatabaseConnectionsExecuteSql *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLROracleDatabase_ExecuteSqlResponse class];
+  query.loggingName = @"oracledatabase.projects.locations.databaseConnections.executeSql";
+  return query;
+}
+
+@end
+
+@implementation GTLROracleDatabaseQuery_ProjectsLocationsDatabaseConnectionsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLROracleDatabaseQuery_ProjectsLocationsDatabaseConnectionsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLROracleDatabase_DatabaseConnection class];
+  query.loggingName = @"oracledatabase.projects.locations.databaseConnections.get";
+  return query;
+}
+
+@end
+
+@implementation GTLROracleDatabaseQuery_ProjectsLocationsDatabaseConnectionsList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/databaseConnections";
+  GTLROracleDatabaseQuery_ProjectsLocationsDatabaseConnectionsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLROracleDatabase_ListDatabaseConnectionsResponse class];
+  query.loggingName = @"oracledatabase.projects.locations.databaseConnections.list";
+  return query;
+}
+
+@end
+
+@implementation GTLROracleDatabaseQuery_ProjectsLocationsDatabaseConnectionsPatch
+
+@dynamic name, requestId, updateMask;
+
++ (instancetype)queryWithObject:(GTLROracleDatabase_DatabaseConnection *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLROracleDatabaseQuery_ProjectsLocationsDatabaseConnectionsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLROracleDatabase_Operation class];
+  query.loggingName = @"oracledatabase.projects.locations.databaseConnections.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLROracleDatabaseQuery_ProjectsLocationsDatabaseConnectionsTest
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLROracleDatabase_TestDatabaseConnectionRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:test";
+  GTLROracleDatabaseQuery_ProjectsLocationsDatabaseConnectionsTest *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLROracleDatabase_TestDatabaseConnectionResponse class];
+  query.loggingName = @"oracledatabase.projects.locations.databaseConnections.test";
   return query;
 }
 
@@ -705,6 +978,25 @@
   query.parent = parent;
   query.expectedObjectClass = [GTLROracleDatabase_ListDatabasesResponse class];
   query.loggingName = @"oracledatabase.projects.locations.databases.list";
+  return query;
+}
+
+@end
+
+@implementation GTLROracleDatabaseQuery_ProjectsLocationsDbSystemComputePerformancesList
+
+@dynamic filter, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/dbSystemComputePerformances";
+  GTLROracleDatabaseQuery_ProjectsLocationsDbSystemComputePerformancesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLROracleDatabase_ListDbSystemComputePerformancesResponse class];
+  query.loggingName = @"oracledatabase.projects.locations.dbSystemComputePerformances.list";
   return query;
 }
 
@@ -832,6 +1124,33 @@
 
 @end
 
+@implementation GTLROracleDatabaseQuery_ProjectsLocationsDbSystemsPatch
+
+@dynamic name, requestId, updateMask;
+
++ (instancetype)queryWithObject:(GTLROracleDatabase_DbSystem *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLROracleDatabaseQuery_ProjectsLocationsDbSystemsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLROracleDatabase_Operation class];
+  query.loggingName = @"oracledatabase.projects.locations.dbSystems.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLROracleDatabaseQuery_ProjectsLocationsDbVersionsList
 
 @dynamic filter, pageSize, pageToken, parent;
@@ -930,6 +1249,60 @@
   query.name = name;
   query.expectedObjectClass = [GTLROracleDatabase_Operation class];
   query.loggingName = @"oracledatabase.projects.locations.exadbVmClusters.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLROracleDatabaseQuery_ProjectsLocationsExadbVmClustersDisableIdentityConnector
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLROracleDatabase_DisableExadbVmClusterIdentityConnectorRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:disableIdentityConnector";
+  GTLROracleDatabaseQuery_ProjectsLocationsExadbVmClustersDisableIdentityConnector *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLROracleDatabase_Operation class];
+  query.loggingName = @"oracledatabase.projects.locations.exadbVmClusters.disableIdentityConnector";
+  return query;
+}
+
+@end
+
+@implementation GTLROracleDatabaseQuery_ProjectsLocationsExadbVmClustersEnableIdentityConnector
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLROracleDatabase_EnableExadbVmClusterIdentityConnectorRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:enableIdentityConnector";
+  GTLROracleDatabaseQuery_ProjectsLocationsExadbVmClustersEnableIdentityConnector *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLROracleDatabase_Operation class];
+  query.loggingName = @"oracledatabase.projects.locations.exadbVmClusters.enableIdentityConnector";
   return query;
 }
 
@@ -1111,6 +1484,52 @@
 
 @end
 
+@implementation GTLROracleDatabaseQuery_ProjectsLocationsExascaleDbStorageVaultsPatch
+
+@dynamic name, requestId, updateMask;
+
++ (instancetype)queryWithObject:(GTLROracleDatabase_ExascaleDbStorageVault *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLROracleDatabaseQuery_ProjectsLocationsExascaleDbStorageVaultsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLROracleDatabase_Operation class];
+  query.loggingName = @"oracledatabase.projects.locations.exascaleDbStorageVaults.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLROracleDatabaseQuery_ProjectsLocationsFlexComponentsList
+
+@dynamic filter, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/flexComponents";
+  GTLROracleDatabaseQuery_ProjectsLocationsFlexComponentsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLROracleDatabase_ListFlexComponentsResponse class];
+  query.loggingName = @"oracledatabase.projects.locations.flexComponents.list";
+  return query;
+}
+
+@end
+
 @implementation GTLROracleDatabaseQuery_ProjectsLocationsGet
 
 @dynamic name;
@@ -1252,6 +1671,33 @@
 
 @end
 
+@implementation GTLROracleDatabaseQuery_ProjectsLocationsGoldengateConnectionAssignmentsPatch
+
+@dynamic name, requestId, updateMask;
+
++ (instancetype)queryWithObject:(GTLROracleDatabase_GoldengateConnectionAssignment *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLROracleDatabaseQuery_ProjectsLocationsGoldengateConnectionAssignmentsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLROracleDatabase_Operation class];
+  query.loggingName = @"oracledatabase.projects.locations.goldengateConnectionAssignments.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLROracleDatabaseQuery_ProjectsLocationsGoldengateConnectionAssignmentsTest
 
 @dynamic name;
@@ -1358,6 +1804,33 @@
   query.parent = parent;
   query.expectedObjectClass = [GTLROracleDatabase_ListGoldengateConnectionsResponse class];
   query.loggingName = @"oracledatabase.projects.locations.goldengateConnections.list";
+  return query;
+}
+
+@end
+
+@implementation GTLROracleDatabaseQuery_ProjectsLocationsGoldengateConnectionsPatch
+
+@dynamic name, requestId, updateMask;
+
++ (instancetype)queryWithObject:(GTLROracleDatabase_GoldengateConnection *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLROracleDatabaseQuery_ProjectsLocationsGoldengateConnectionsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLROracleDatabase_Operation class];
+  query.loggingName = @"oracledatabase.projects.locations.goldengateConnections.patch";
   return query;
 }
 
@@ -1480,6 +1953,33 @@
   query.parent = parent;
   query.expectedObjectClass = [GTLROracleDatabase_ListGoldengateDeploymentsResponse class];
   query.loggingName = @"oracledatabase.projects.locations.goldengateDeployments.list";
+  return query;
+}
+
+@end
+
+@implementation GTLROracleDatabaseQuery_ProjectsLocationsGoldengateDeploymentsPatch
+
+@dynamic name, requestId, updateMask;
+
++ (instancetype)queryWithObject:(GTLROracleDatabase_GoldengateDeployment *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLROracleDatabaseQuery_ProjectsLocationsGoldengateDeploymentsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLROracleDatabase_Operation class];
+  query.loggingName = @"oracledatabase.projects.locations.goldengateDeployments.patch";
   return query;
 }
 
@@ -1687,6 +2187,90 @@
 
 @end
 
+@implementation GTLROracleDatabaseQuery_ProjectsLocationsOdbNetworksOdbDnsZonesCreate
+
+@dynamic odbDnsZoneId, parent, requestId;
+
++ (instancetype)queryWithObject:(GTLROracleDatabase_OdbDnsZone *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/odbDnsZones";
+  GTLROracleDatabaseQuery_ProjectsLocationsOdbNetworksOdbDnsZonesCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLROracleDatabase_Operation class];
+  query.loggingName = @"oracledatabase.projects.locations.odbNetworks.odbDnsZones.create";
+  return query;
+}
+
+@end
+
+@implementation GTLROracleDatabaseQuery_ProjectsLocationsOdbNetworksOdbDnsZonesDelete
+
+@dynamic name, requestId;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLROracleDatabaseQuery_ProjectsLocationsOdbNetworksOdbDnsZonesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLROracleDatabase_Operation class];
+  query.loggingName = @"oracledatabase.projects.locations.odbNetworks.odbDnsZones.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLROracleDatabaseQuery_ProjectsLocationsOdbNetworksOdbDnsZonesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLROracleDatabaseQuery_ProjectsLocationsOdbNetworksOdbDnsZonesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLROracleDatabase_OdbDnsZone class];
+  query.loggingName = @"oracledatabase.projects.locations.odbNetworks.odbDnsZones.get";
+  return query;
+}
+
+@end
+
+@implementation GTLROracleDatabaseQuery_ProjectsLocationsOdbNetworksOdbDnsZonesList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/odbDnsZones";
+  GTLROracleDatabaseQuery_ProjectsLocationsOdbNetworksOdbDnsZonesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLROracleDatabase_ListOdbDnsZonesResponse class];
+  query.loggingName = @"oracledatabase.projects.locations.odbNetworks.odbDnsZones.list";
+  return query;
+}
+
+@end
+
 @implementation GTLROracleDatabaseQuery_ProjectsLocationsOdbNetworksOdbSubnetsCreate
 
 @dynamic odbSubnetId, parent, requestId;
@@ -1766,6 +2350,60 @@
   query.parent = parent;
   query.expectedObjectClass = [GTLROracleDatabase_ListOdbSubnetsResponse class];
   query.loggingName = @"oracledatabase.projects.locations.odbNetworks.odbSubnets.list";
+  return query;
+}
+
+@end
+
+@implementation GTLROracleDatabaseQuery_ProjectsLocationsOdbNetworksOdbSubnetsPatch
+
+@dynamic name, requestId, updateMask;
+
++ (instancetype)queryWithObject:(GTLROracleDatabase_OdbSubnet *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLROracleDatabaseQuery_ProjectsLocationsOdbNetworksOdbSubnetsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLROracleDatabase_Operation class];
+  query.loggingName = @"oracledatabase.projects.locations.odbNetworks.odbSubnets.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLROracleDatabaseQuery_ProjectsLocationsOdbNetworksPatch
+
+@dynamic name, requestId, updateMask;
+
++ (instancetype)queryWithObject:(GTLROracleDatabase_OdbNetwork *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLROracleDatabaseQuery_ProjectsLocationsOdbNetworksPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLROracleDatabase_Operation class];
+  query.loggingName = @"oracledatabase.projects.locations.odbNetworks.patch";
   return query;
 }
 

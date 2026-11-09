@@ -45,6 +45,14 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeRetentionDeletionRetentionUnspecif
  *  Value: "MINIMUM"
  */
 FOUNDATION_EXTERN NSString * const kGTLRApigeeRetentionMinimum;
+/**
+ *  Does not retain organization data and permanently deletes the organization
+ *  immediately. **Warning:** You will NOT be able to restore the Apigee
+ *  organization when using this option.
+ *
+ *  Value: "NO_RETENTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigeeRetentionNoRetention;
 
 // ----------------------------------------------------------------------------
 // riskAssessmentType
@@ -3831,6 +3839,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *        "DELETION_RETENTION_UNSPECIFIED")
  *    @arg @c kGTLRApigeeRetentionMinimum Organization data will be retained for
  *        the minimum period of 24 hours. (Value: "MINIMUM")
+ *    @arg @c kGTLRApigeeRetentionNoRetention Does not retain organization data
+ *        and permanently deletes the organization immediately. **Warning:** You
+ *        will NOT be able to restore the Apigee organization when using this
+ *        option. (Value: "NO_RETENTION")
  */
 @property(nonatomic, copy, nullable) NSString *retention;
 

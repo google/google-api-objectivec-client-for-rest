@@ -349,7 +349,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuiteSourcesSourceUnsp
 @end
 
 /**
- *  Runs the Chat AI assistant agent for the specified assistant session in a
+ *  Runs Arc, the AI assistant, for the specified assistant session in a
  *  streaming fashion.
  *
  *  Method: ces.projects.locations.apps.assistantSessions.streamChatAiAssistant
@@ -369,7 +369,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuiteSourcesSourceUnsp
 /**
  *  Fetches a @c GTLRCustomerEngagementSuite_StreamChatAiAssistantResponse.
  *
- *  Runs the Chat AI assistant agent for the specified assistant session in a
+ *  Runs Arc, the AI assistant, for the specified assistant session in a
  *  streaming fashion.
  *
  *  @param object The @c
@@ -1343,11 +1343,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuiteSourcesSourceUnsp
 @end
 
 /**
- *  Generates personalized onboarding suggestions for the AI assistant zero
- *  state: classifies the requesting user (new / exploring / returning) from
- *  their assistant-session history in the app and returns suggestion chips
- *  (resume a session, continue work, or start something new) to render before
- *  any message is sent.
+ *  Generates personalized onboarding suggestions for the Arc zero state:
+ *  classifies the requesting user (new / exploring / returning) from their
+ *  assistant-session history in the app and returns suggestion chips (resume a
+ *  session, continue work, or start something new) to render before any message
+ *  is sent.
  *
  *  Method: ces.projects.locations.apps.generateOnboardingSuggestions
  *
@@ -1367,11 +1367,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuiteSourcesSourceUnsp
  *  Fetches a @c
  *  GTLRCustomerEngagementSuite_GenerateOnboardingSuggestionsResponse.
  *
- *  Generates personalized onboarding suggestions for the AI assistant zero
- *  state: classifies the requesting user (new / exploring / returning) from
- *  their assistant-session history in the app and returns suggestion chips
- *  (resume a session, continue work, or start something new) to render before
- *  any message is sent.
+ *  Generates personalized onboarding suggestions for the Arc zero state:
+ *  classifies the requesting user (new / exploring / returning) from their
+ *  assistant-session history in the app and returns suggestion chips (resume a
+ *  session, continue work, or start something new) to render before any message
+ *  is sent.
  *
  *  @param object The @c
  *    GTLRCustomerEngagementSuite_GenerateOnboardingSuggestionsRequest to

@@ -16,8 +16,10 @@
 // ----------------------------------------------------------------------------
 // Authorization scopes
 
-NSString * const kGTLRAuthScopeFirebaseHostingCloudPlatform = @"https://www.googleapis.com/auth/cloud-platform";
-NSString * const kGTLRAuthScopeFirebaseHostingFirebase      = @"https://www.googleapis.com/auth/firebase";
+NSString * const kGTLRAuthScopeFirebaseHostingCloudPlatform    = @"https://www.googleapis.com/auth/cloud-platform";
+NSString * const kGTLRAuthScopeFirebaseHostingCloudPlatformReadOnly = @"https://www.googleapis.com/auth/cloud-platform.read-only";
+NSString * const kGTLRAuthScopeFirebaseHostingFirebase         = @"https://www.googleapis.com/auth/firebase";
+NSString * const kGTLRAuthScopeFirebaseHostingFirebaseReadonly = @"https://www.googleapis.com/auth/firebase.readonly";
 
 // ----------------------------------------------------------------------------
 //   GTLRFirebaseHostingService

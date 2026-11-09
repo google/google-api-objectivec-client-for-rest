@@ -93,6 +93,12 @@ NSString * const kGTLRArtifactRegistry_PlatformLogsConfig_SeverityLevel_Notice =
 NSString * const kGTLRArtifactRegistry_PlatformLogsConfig_SeverityLevel_SeverityLevelUnspecified = @"SEVERITY_LEVEL_UNSPECIFIED";
 NSString * const kGTLRArtifactRegistry_PlatformLogsConfig_SeverityLevel_Warning = @"WARNING";
 
+// GTLRArtifactRegistry_PrewarmedArtifact.state
+NSString * const kGTLRArtifactRegistry_PrewarmedArtifact_State_Active = @"ACTIVE";
+NSString * const kGTLRArtifactRegistry_PrewarmedArtifact_State_Caching = @"CACHING";
+NSString * const kGTLRArtifactRegistry_PrewarmedArtifact_State_Failed = @"FAILED";
+NSString * const kGTLRArtifactRegistry_PrewarmedArtifact_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
 // GTLRArtifactRegistry_ProjectSettings.legacyRedirectionState
 NSString * const kGTLRArtifactRegistry_ProjectSettings_LegacyRedirectionState_RedirectionFromGcrIoDisabled = @"REDIRECTION_FROM_GCR_IO_DISABLED";
 NSString * const kGTLRArtifactRegistry_ProjectSettings_LegacyRedirectionState_RedirectionFromGcrIoEnabled = @"REDIRECTION_FROM_GCR_IO_ENABLED";
@@ -1391,7 +1397,8 @@ NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType_Source = @"SOURCE
 //
 
 @implementation GTLRArtifactRegistry_PrewarmedArtifact
-@dynamic expirationTime, location, uri;
+@dynamic createTime, errorMessage, expirationTime, location, sizeBytes, state,
+         uri;
 @end
 
 

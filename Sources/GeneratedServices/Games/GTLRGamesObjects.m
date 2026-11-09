@@ -47,6 +47,20 @@ NSString * const kGTLRGames_AchievementUpdateResponse_CurrentState_Unlocked = @"
 // GTLRGames_Application.enabledFeatures
 NSString * const kGTLRGames_Application_EnabledFeatures_Snapshots = @"SNAPSHOTS";
 
+// GTLRGames_DeveloperIntegrityVerdict.category
+NSString * const kGTLRGames_DeveloperIntegrityVerdict_Category_AccountUnlicensed = @"ACCOUNT_UNLICENSED";
+NSString * const kGTLRGames_DeveloperIntegrityVerdict_Category_AppUnrecognized = @"APP_UNRECOGNIZED";
+NSString * const kGTLRGames_DeveloperIntegrityVerdict_Category_CategoryUnspecified = @"CATEGORY_UNSPECIFIED";
+NSString * const kGTLRGames_DeveloperIntegrityVerdict_Category_DeviceUntrusted = @"DEVICE_UNTRUSTED";
+NSString * const kGTLRGames_DeveloperIntegrityVerdict_Category_EnvironmentRisk = @"ENVIRONMENT_RISK";
+NSString * const kGTLRGames_DeveloperIntegrityVerdict_Category_ImpossibleGameplay = @"IMPOSSIBLE_GAMEPLAY";
+NSString * const kGTLRGames_DeveloperIntegrityVerdict_Category_Other = @"OTHER";
+
+// GTLRGames_DeveloperIntegrityVerdict.source
+NSString * const kGTLRGames_DeveloperIntegrityVerdict_Source_DeveloperInternal = @"DEVELOPER_INTERNAL";
+NSString * const kGTLRGames_DeveloperIntegrityVerdict_Source_PlayIntegrity = @"PLAY_INTEGRITY";
+NSString * const kGTLRGames_DeveloperIntegrityVerdict_Source_SourceUnspecified = @"SOURCE_UNSPECIFIED";
+
 // GTLRGames_EventBatchRecordFailure.failureCause
 NSString * const kGTLRGames_EventBatchRecordFailure_FailureCause_AlreadyUpdated = @"ALREADY_UPDATED";
 NSString * const kGTLRGames_EventBatchRecordFailure_FailureCause_RecordRateHigh = @"RECORD_RATE_HIGH";
@@ -459,11 +473,13 @@ NSString * const kGTLRGames_Snapshot_Type_SaveGame = @"SAVE_GAME";
 //
 
 @implementation GTLRGames_BatchRecordEventsRequest
-@dynamic droidGuardBlob, events, packageName, requestTime, salt;
+@dynamic droidGuardBlob, events, integrityVerdicts, packageName, requestTime,
+         salt;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"events" : [GTLRGames_PlayerGameEvent class]
+    @"events" : [GTLRGames_PlayerGameEvent class],
+    @"integrityVerdicts" : [GTLRGames_DeveloperIntegrityVerdict class]
   };
   return map;
 }
@@ -531,6 +547,21 @@ NSString * const kGTLRGames_Snapshot_Type_SaveGame = @"SAVE_GAME";
   // This class has a "kind" property that doesn't appear to be usable to
   // determine what type of object was encoded in the JSON.
   return NO;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGames_DeveloperIntegrityVerdict
+//
+
+@implementation GTLRGames_DeveloperIntegrityVerdict
+@dynamic category, descriptionProperty, source;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
 }
 
 @end

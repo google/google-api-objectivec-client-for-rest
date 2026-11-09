@@ -19,13 +19,19 @@
 @class GTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoExperiments;
 @class GTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoExperiments_CustomParameters;
 @class GTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoExperimentsAudioControlConfig;
+@class GTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoExperimentsBoundingBox;
 @class GTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoExperimentsColorAlignmentConfig;
 @class GTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoExperimentsConditioningFrame;
+@class GTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoExperimentsLoraConfig;
+@class GTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoExperimentsLoraConfigAdapter;
 @class GTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoExperimentsOmniRewriterConfig;
 @class GTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoExperimentsOutpaintConfig;
 @class GTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoExperimentsOutpaintConfigFrameSource;
+@class GTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoExperimentsPerfEstimationConfig;
+@class GTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoExperimentsPerfEstimationConfigCharacterReference;
 @class GTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoExperimentsProEditConfig;
 @class GTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoExperimentsSpatialAlignmentConfig;
+@class GTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoExperimentsSuperResConfig;
 @class GTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoExperimentsVESchedulingConfig;
 @class GTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoExperimentsVideoTransform;
 @class GTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoRequestAudio;
@@ -46,6 +52,155 @@
 @class GTLRAiplatform_CloudAiLargeModelsVisionSeamless;
 @class GTLRAiplatform_CloudAiLargeModelsVisionSemanticFilterResponse;
 @class GTLRAiplatform_CloudAiLargeModelsVisionVideo;
+@class GTLRAiplatform_GenaiVertexV1AgentInteraction;
+@class GTLRAiplatform_GenaiVertexV1AllowedTools;
+@class GTLRAiplatform_GenaiVertexV1AntigravityAgentConfig;
+@class GTLRAiplatform_GenaiVertexV1ArgumentsDelta;
+@class GTLRAiplatform_GenaiVertexV1AudioContent;
+@class GTLRAiplatform_GenaiVertexV1AudioDelta;
+@class GTLRAiplatform_GenaiVertexV1AudioResponseFormat;
+@class GTLRAiplatform_GenaiVertexV1CodeExecution;
+@class GTLRAiplatform_GenaiVertexV1CodeExecutionCallContentCodeExecutionCallArguments;
+@class GTLRAiplatform_GenaiVertexV1CodeExecutionCallDelta;
+@class GTLRAiplatform_GenaiVertexV1CodeExecutionCallStep;
+@class GTLRAiplatform_GenaiVertexV1CodeExecutionCallStepCodeExecutionCallStepArguments;
+@class GTLRAiplatform_GenaiVertexV1CodeExecutionResultDelta;
+@class GTLRAiplatform_GenaiVertexV1CodeExecutionResultStep;
+@class GTLRAiplatform_GenaiVertexV1CodeMenderAgentConfig;
+@class GTLRAiplatform_GenaiVertexV1CodeMenderAgentConfigFileContent;
+@class GTLRAiplatform_GenaiVertexV1CodeMenderAgentConfigFindRequest;
+@class GTLRAiplatform_GenaiVertexV1CodeMenderAgentConfigFixRequest;
+@class GTLRAiplatform_GenaiVertexV1CodeMenderAgentConfigSessionConfig;
+@class GTLRAiplatform_GenaiVertexV1ComputerUse;
+@class GTLRAiplatform_GenaiVertexV1Content;
+@class GTLRAiplatform_GenaiVertexV1ContentList;
+@class GTLRAiplatform_GenaiVertexV1DeepResearchAgentConfig;
+@class GTLRAiplatform_GenaiVertexV1DocumentContent;
+@class GTLRAiplatform_GenaiVertexV1DocumentDelta;
+@class GTLRAiplatform_GenaiVertexV1DynamicAgentConfig;
+@class GTLRAiplatform_GenaiVertexV1Error;
+@class GTLRAiplatform_GenaiVertexV1ErrorEvent;
+@class GTLRAiplatform_GenaiVertexV1ExaAISearchConfig;
+@class GTLRAiplatform_GenaiVertexV1ExaAISearchConfig_CustomConfig;
+@class GTLRAiplatform_GenaiVertexV1Field;
+@class GTLRAiplatform_GenaiVertexV1FileCitation;
+@class GTLRAiplatform_GenaiVertexV1FileCitation_CustomMetadata;
+@class GTLRAiplatform_GenaiVertexV1FileSearch;
+@class GTLRAiplatform_GenaiVertexV1FileSearchCallDelta;
+@class GTLRAiplatform_GenaiVertexV1FileSearchCallStep;
+@class GTLRAiplatform_GenaiVertexV1FileSearchResultContentFileSearchResult;
+@class GTLRAiplatform_GenaiVertexV1FileSearchResultDelta;
+@class GTLRAiplatform_GenaiVertexV1FileSearchResultStep;
+@class GTLRAiplatform_GenaiVertexV1Function;
+@class GTLRAiplatform_GenaiVertexV1FunctionCallStep;
+@class GTLRAiplatform_GenaiVertexV1FunctionResultDelta;
+@class GTLRAiplatform_GenaiVertexV1FunctionResultStep;
+@class GTLRAiplatform_GenaiVertexV1GenerationConfig;
+@class GTLRAiplatform_GenaiVertexV1GoogleMaps;
+@class GTLRAiplatform_GenaiVertexV1GoogleMapsCallContentGoogleMapsCallArguments;
+@class GTLRAiplatform_GenaiVertexV1GoogleMapsCallDelta;
+@class GTLRAiplatform_GenaiVertexV1GoogleMapsCallStep;
+@class GTLRAiplatform_GenaiVertexV1GoogleMapsCallStepGoogleMapsCallStepArguments;
+@class GTLRAiplatform_GenaiVertexV1GoogleMapsResultContentGoogleMapsResult;
+@class GTLRAiplatform_GenaiVertexV1GoogleMapsResultContentGoogleMapsResultPlaces;
+@class GTLRAiplatform_GenaiVertexV1GoogleMapsResultDelta;
+@class GTLRAiplatform_GenaiVertexV1GoogleMapsResultStep;
+@class GTLRAiplatform_GenaiVertexV1GoogleMapsResultStepGoogleMapsResultItem;
+@class GTLRAiplatform_GenaiVertexV1GoogleMapsResultStepGoogleMapsResultItemGoogleMapsResultPlaces;
+@class GTLRAiplatform_GenaiVertexV1GoogleSearch;
+@class GTLRAiplatform_GenaiVertexV1GoogleSearchCallContentGoogleSearchCallArguments;
+@class GTLRAiplatform_GenaiVertexV1GoogleSearchCallDelta;
+@class GTLRAiplatform_GenaiVertexV1GoogleSearchCallStep;
+@class GTLRAiplatform_GenaiVertexV1GoogleSearchCallStepGoogleSearchCallStepArguments;
+@class GTLRAiplatform_GenaiVertexV1GoogleSearchResultContentGoogleSearchResult;
+@class GTLRAiplatform_GenaiVertexV1GoogleSearchResultDelta;
+@class GTLRAiplatform_GenaiVertexV1GoogleSearchResultStep;
+@class GTLRAiplatform_GenaiVertexV1GoogleSearchResultStepGoogleSearchResultItem;
+@class GTLRAiplatform_GenaiVertexV1ImageContent;
+@class GTLRAiplatform_GenaiVertexV1ImageDelta;
+@class GTLRAiplatform_GenaiVertexV1ImageResponseFormat;
+@class GTLRAiplatform_GenaiVertexV1Interaction;
+@class GTLRAiplatform_GenaiVertexV1Interaction_Labels;
+@class GTLRAiplatform_GenaiVertexV1InteractionCompletedSseEvent;
+@class GTLRAiplatform_GenaiVertexV1InteractionCreatedSseEvent;
+@class GTLRAiplatform_GenaiVertexV1InteractionStatusUpdate;
+@class GTLRAiplatform_GenaiVertexV1InteractionUsage;
+@class GTLRAiplatform_GenaiVertexV1InteractionUsageGroundingToolCount;
+@class GTLRAiplatform_GenaiVertexV1InteractionUsageModalityTokens;
+@class GTLRAiplatform_GenaiVertexV1ListValue;
+@class GTLRAiplatform_GenaiVertexV1McpServer;
+@class GTLRAiplatform_GenaiVertexV1McpServer_Headers;
+@class GTLRAiplatform_GenaiVertexV1ModelInteraction;
+@class GTLRAiplatform_GenaiVertexV1ModelOutputStep;
+@class GTLRAiplatform_GenaiVertexV1ParallelAISearchConfig;
+@class GTLRAiplatform_GenaiVertexV1ParallelAISearchConfig_CustomConfig;
+@class GTLRAiplatform_GenaiVertexV1PlaceCitation;
+@class GTLRAiplatform_GenaiVertexV1ProcessingCallDelta;
+@class GTLRAiplatform_GenaiVertexV1ProcessingCallStep;
+@class GTLRAiplatform_GenaiVertexV1ProcessingResultDelta;
+@class GTLRAiplatform_GenaiVertexV1ProcessingResultStep;
+@class GTLRAiplatform_GenaiVertexV1RagStoreConfig;
+@class GTLRAiplatform_GenaiVertexV1RagStoreConfigRagResource;
+@class GTLRAiplatform_GenaiVertexV1RagStoreConfigRagRetrievalConfig;
+@class GTLRAiplatform_GenaiVertexV1RagStoreConfigRagRetrievalConfigFilter;
+@class GTLRAiplatform_GenaiVertexV1RagStoreConfigRagRetrievalConfigHybridSearch;
+@class GTLRAiplatform_GenaiVertexV1RagStoreConfigRagRetrievalConfigRanking;
+@class GTLRAiplatform_GenaiVertexV1RagStoreConfigRagRetrievalConfigRankingRankService;
+@class GTLRAiplatform_GenaiVertexV1ResponseFormat;
+@class GTLRAiplatform_GenaiVertexV1ResponseFormatList;
+@class GTLRAiplatform_GenaiVertexV1Retrieval;
+@class GTLRAiplatform_GenaiVertexV1RetrievalCallDelta;
+@class GTLRAiplatform_GenaiVertexV1RetrievalCallStep;
+@class GTLRAiplatform_GenaiVertexV1RetrievalCallStepRetrievalStepArguments;
+@class GTLRAiplatform_GenaiVertexV1RetrievalResultDelta;
+@class GTLRAiplatform_GenaiVertexV1RetrievalResultStep;
+@class GTLRAiplatform_GenaiVertexV1ReviewSnippet;
+@class GTLRAiplatform_GenaiVertexV1SafetySetting;
+@class GTLRAiplatform_GenaiVertexV1ServerToolCallDelta;
+@class GTLRAiplatform_GenaiVertexV1ServerToolResultDelta;
+@class GTLRAiplatform_GenaiVertexV1SpeakerConfig;
+@class GTLRAiplatform_GenaiVertexV1SpeechAnnotation;
+@class GTLRAiplatform_GenaiVertexV1SpeechConfig;
+@class GTLRAiplatform_GenaiVertexV1Step;
+@class GTLRAiplatform_GenaiVertexV1StepDelta;
+@class GTLRAiplatform_GenaiVertexV1StepDeltaData;
+@class GTLRAiplatform_GenaiVertexV1StepList;
+@class GTLRAiplatform_GenaiVertexV1StepStart;
+@class GTLRAiplatform_GenaiVertexV1StepStop;
+@class GTLRAiplatform_GenaiVertexV1Struct;
+@class GTLRAiplatform_GenaiVertexV1TextAnnotationDelta;
+@class GTLRAiplatform_GenaiVertexV1TextContent;
+@class GTLRAiplatform_GenaiVertexV1TextContentAnnotation;
+@class GTLRAiplatform_GenaiVertexV1TextDelta;
+@class GTLRAiplatform_GenaiVertexV1TextResponseFormat;
+@class GTLRAiplatform_GenaiVertexV1ThoughtSignatureDelta;
+@class GTLRAiplatform_GenaiVertexV1ThoughtStep;
+@class GTLRAiplatform_GenaiVertexV1ThoughtSummaryDelta;
+@class GTLRAiplatform_GenaiVertexV1Tool;
+@class GTLRAiplatform_GenaiVertexV1ToolCallStep;
+@class GTLRAiplatform_GenaiVertexV1ToolChoiceConfig;
+@class GTLRAiplatform_GenaiVertexV1ToolResultStep;
+@class GTLRAiplatform_GenaiVertexV1TranscriptionConfig;
+@class GTLRAiplatform_GenaiVertexV1UrlCitation;
+@class GTLRAiplatform_GenaiVertexV1UrlContext;
+@class GTLRAiplatform_GenaiVertexV1UrlContextCallContentUrlContextCallArguments;
+@class GTLRAiplatform_GenaiVertexV1UrlContextCallDelta;
+@class GTLRAiplatform_GenaiVertexV1UrlContextCallStep;
+@class GTLRAiplatform_GenaiVertexV1UrlContextCallStepUrlContextCallStepArguments;
+@class GTLRAiplatform_GenaiVertexV1UrlContextResultContentUrlContextResult;
+@class GTLRAiplatform_GenaiVertexV1UrlContextResultDelta;
+@class GTLRAiplatform_GenaiVertexV1UrlContextResultStep;
+@class GTLRAiplatform_GenaiVertexV1UrlContextResultStepUrlContextResultItem;
+@class GTLRAiplatform_GenaiVertexV1UserInputStep;
+@class GTLRAiplatform_GenaiVertexV1Value;
+@class GTLRAiplatform_GenaiVertexV1VertexAISearchConfig;
+@class GTLRAiplatform_GenaiVertexV1VideoConfig;
+@class GTLRAiplatform_GenaiVertexV1VideoContent;
+@class GTLRAiplatform_GenaiVertexV1VideoContentMediaProcessing;
+@class GTLRAiplatform_GenaiVertexV1VideoContentStaticMediaProcessing;
+@class GTLRAiplatform_GenaiVertexV1VideoDelta;
+@class GTLRAiplatform_GenaiVertexV1VideoResponseFormat;
+@class GTLRAiplatform_GenaiVertexV1WordInfo;
 @class GTLRAiplatform_GoogleApiHttpBody;
 @class GTLRAiplatform_GoogleApiHttpBody_Extensions_Item;
 @class GTLRAiplatform_GoogleCloudAiplatformV1ActiveLearningConfig;
@@ -56,11 +211,17 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1AgentData_Agents;
 @class GTLRAiplatform_GoogleCloudAiplatformV1AgentEvent;
 @class GTLRAiplatform_GoogleCloudAiplatformV1AgentEvent_StateDelta;
+@class GTLRAiplatform_GoogleCloudAiplatformV1AgentIdentity;
+@class GTLRAiplatform_GoogleCloudAiplatformV1AgentMemoryConfig;
+@class GTLRAiplatform_GoogleCloudAiplatformV1AgentModelConfig;
 @class GTLRAiplatform_GoogleCloudAiplatformV1AgentResponseCustomization;
+@class GTLRAiplatform_GoogleCloudAiplatformV1AgentStatus;
+@class GTLRAiplatform_GoogleCloudAiplatformV1AgentStatusSuspensionReason;
 @class GTLRAiplatform_GoogleCloudAiplatformV1AgentTool;
 @class GTLRAiplatform_GoogleCloudAiplatformV1AgentTool_Headers;
 @class GTLRAiplatform_GoogleCloudAiplatformV1AggregationOutput;
 @class GTLRAiplatform_GoogleCloudAiplatformV1AggregationResult;
+@class GTLRAiplatform_GoogleCloudAiplatformV1AllowedTeammates;
 @class GTLRAiplatform_GoogleCloudAiplatformV1Annotation;
 @class GTLRAiplatform_GoogleCloudAiplatformV1Annotation_Labels;
 @class GTLRAiplatform_GoogleCloudAiplatformV1ApiAuth;
@@ -87,6 +248,7 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1AutoscalingMetricSpec;
 @class GTLRAiplatform_GoogleCloudAiplatformV1AvroSource;
 @class GTLRAiplatform_GoogleCloudAiplatformV1BatchDedicatedResources;
+@class GTLRAiplatform_GoogleCloudAiplatformV1BatchEmbedContentsResponseEmbedding;
 @class GTLRAiplatform_GoogleCloudAiplatformV1BatchMigrateResourcesOperationMetadataPartialResult;
 @class GTLRAiplatform_GoogleCloudAiplatformV1BatchPredictionJob;
 @class GTLRAiplatform_GoogleCloudAiplatformV1BatchPredictionJob_Labels;
@@ -120,6 +282,7 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1Citation;
 @class GTLRAiplatform_GoogleCloudAiplatformV1CitationMetadata;
 @class GTLRAiplatform_GoogleCloudAiplatformV1Claim;
+@class GTLRAiplatform_GoogleCloudAiplatformV1ClaudeFile;
 @class GTLRAiplatform_GoogleCloudAiplatformV1ClientConnectionConfig;
 @class GTLRAiplatform_GoogleCloudAiplatformV1CloudLoggingConfig;
 @class GTLRAiplatform_GoogleCloudAiplatformV1CloudLoggingConfig_ResourceLabels;
@@ -167,6 +330,7 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1CustomJobSpec;
 @class GTLRAiplatform_GoogleCloudAiplatformV1CustomOutput;
 @class GTLRAiplatform_GoogleCloudAiplatformV1CustomOutputFormatConfig;
+@class GTLRAiplatform_GoogleCloudAiplatformV1DataAgentConfig;
 @class GTLRAiplatform_GoogleCloudAiplatformV1DataItem;
 @class GTLRAiplatform_GoogleCloudAiplatformV1DataItem_Labels;
 @class GTLRAiplatform_GoogleCloudAiplatformV1DataItemView;
@@ -205,6 +369,7 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1DnsPeeringConfig;
 @class GTLRAiplatform_GoogleCloudAiplatformV1DoubleArray;
 @class GTLRAiplatform_GoogleCloudAiplatformV1DynamicRetrievalConfig;
+@class GTLRAiplatform_GoogleCloudAiplatformV1EmbedContentRequest;
 @class GTLRAiplatform_GoogleCloudAiplatformV1EmbedContentRequestEmbedContentConfig;
 @class GTLRAiplatform_GoogleCloudAiplatformV1EmbedContentResponseEmbedding;
 @class GTLRAiplatform_GoogleCloudAiplatformV1EncryptionSpec;
@@ -417,6 +582,7 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1GenAiAdvancedFeaturesConfig;
 @class GTLRAiplatform_GoogleCloudAiplatformV1GenAiAdvancedFeaturesConfigRagConfig;
 @class GTLRAiplatform_GoogleCloudAiplatformV1GenerateContentRequest_Labels;
+@class GTLRAiplatform_GoogleCloudAiplatformV1GenerateContentRequestOutputConfig;
 @class GTLRAiplatform_GoogleCloudAiplatformV1GenerateContentResponsePromptFeedback;
 @class GTLRAiplatform_GoogleCloudAiplatformV1GenerateContentResponseUsageMetadata;
 @class GTLRAiplatform_GoogleCloudAiplatformV1GenerateLossClustersRequestEvaluationResultList;
@@ -659,6 +825,7 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1OnlineEvaluatorCloudObservabilitySessionScope;
 @class GTLRAiplatform_GoogleCloudAiplatformV1OnlineEvaluatorCloudObservabilitySessionScopeInactivityTrigger;
 @class GTLRAiplatform_GoogleCloudAiplatformV1OnlineEvaluatorCloudObservabilitySessionScopePredicate;
+@class GTLRAiplatform_GoogleCloudAiplatformV1OnlineEvaluatorCloudObservabilityStringPredicate;
 @class GTLRAiplatform_GoogleCloudAiplatformV1OnlineEvaluatorCloudObservabilityTraceScope;
 @class GTLRAiplatform_GoogleCloudAiplatformV1OnlineEvaluatorCloudObservabilityTraceScopePredicate;
 @class GTLRAiplatform_GoogleCloudAiplatformV1OnlineEvaluatorConfig;
@@ -685,6 +852,7 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1PersistentDiskSpec;
 @class GTLRAiplatform_GoogleCloudAiplatformV1PersistentResource;
 @class GTLRAiplatform_GoogleCloudAiplatformV1PersistentResource_Labels;
+@class GTLRAiplatform_GoogleCloudAiplatformV1Persona;
 @class GTLRAiplatform_GoogleCloudAiplatformV1PipelineJob;
 @class GTLRAiplatform_GoogleCloudAiplatformV1PipelineJob_Labels;
 @class GTLRAiplatform_GoogleCloudAiplatformV1PipelineJob_PipelineSpec;
@@ -722,6 +890,7 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1PreferenceOptimizationSpec;
 @class GTLRAiplatform_GoogleCloudAiplatformV1Presets;
 @class GTLRAiplatform_GoogleCloudAiplatformV1PreTunedModel;
+@class GTLRAiplatform_GoogleCloudAiplatformV1Principal;
 @class GTLRAiplatform_GoogleCloudAiplatformV1PrivateEndpoints;
 @class GTLRAiplatform_GoogleCloudAiplatformV1PrivateServiceConnectConfig;
 @class GTLRAiplatform_GoogleCloudAiplatformV1Probe;
@@ -833,6 +1002,7 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngineSpecSourceCodeSpecAgentConfigSourceAdkConfig_JsonConfig;
 @class GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngineSpecSourceCodeSpecDeveloperConnectConfig;
 @class GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngineSpecSourceCodeSpecDeveloperConnectSource;
+@class GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngineSpecSourceCodeSpecGitSource;
 @class GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngineSpecSourceCodeSpecImageSpec;
 @class GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngineSpecSourceCodeSpecImageSpec_BuildArgs;
 @class GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngineSpecSourceCodeSpecInlineSource;
@@ -933,10 +1103,12 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1SchemaPromptInstanceVariableValue;
 @class GTLRAiplatform_GoogleCloudAiplatformV1SchemaPromptSpecAppBuilderData;
 @class GTLRAiplatform_GoogleCloudAiplatformV1SchemaPromptSpecAppBuilderDataLinkedResource;
+@class GTLRAiplatform_GoogleCloudAiplatformV1SchemaPromptSpecContentMetadata;
 @class GTLRAiplatform_GoogleCloudAiplatformV1SchemaPromptSpecInteractionData;
 @class GTLRAiplatform_GoogleCloudAiplatformV1SchemaPromptSpecMultimodalPrompt;
 @class GTLRAiplatform_GoogleCloudAiplatformV1SchemaPromptSpecPartList;
 @class GTLRAiplatform_GoogleCloudAiplatformV1SchemaPromptSpecPromptMessage;
+@class GTLRAiplatform_GoogleCloudAiplatformV1SchemaPromptSpecPromptMessageOutputConfig;
 @class GTLRAiplatform_GoogleCloudAiplatformV1SchemaPromptSpecReferenceSentencePair;
 @class GTLRAiplatform_GoogleCloudAiplatformV1SchemaPromptSpecReferenceSentencePairList;
 @class GTLRAiplatform_GoogleCloudAiplatformV1SchemaPromptSpecStructuredPrompt;
@@ -1089,6 +1261,8 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1SyntheticExample;
 @class GTLRAiplatform_GoogleCloudAiplatformV1SyntheticField;
 @class GTLRAiplatform_GoogleCloudAiplatformV1TaskDescriptionStrategy;
+@class GTLRAiplatform_GoogleCloudAiplatformV1Teammate;
+@class GTLRAiplatform_GoogleCloudAiplatformV1Tenant;
 @class GTLRAiplatform_GoogleCloudAiplatformV1Tensor;
 @class GTLRAiplatform_GoogleCloudAiplatformV1Tensor_StructVal;
 @class GTLRAiplatform_GoogleCloudAiplatformV1Tensorboard;
@@ -1286,6 +1460,30 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_CloudAiLargeModelsVisionGener
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoExperimentsOutpaintConfig_OutputSpec_OutputSpecUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoExperimentsSuperResConfig.mode
+
+/**
+ *  Single-pass 4K UDiT.
+ *
+ *  Value: "MODE_4K"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoExperimentsSuperResConfig_Mode_Mode4k;
+/**
+ *  "8K UDiT, downsampled 2x in the decoder.
+ *
+ *  Value: "MODE_4K_PRO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoExperimentsSuperResConfig_Mode_Mode4kPro;
+/**
+ *  Single-pass 8K UDiT.
+ *
+ *  Value: "MODE_8K"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoExperimentsSuperResConfig_Mode_Mode8k;
+/** Value: "MODE_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoExperimentsSuperResConfig_Mode_ModeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRAiplatform_CloudAiPlatformCommonCreatePipelineJobApiErrorDetail.errorCause
 
 /**
@@ -1438,6 +1636,1661 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_CloudAiPlatformCommonCreatePi
  *  Value: "INVALID_SERVICE_ACCOUNT_SETUP"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_CloudAiPlatformCommonCreatePipelineJobApiErrorDetail_ErrorCause_InvalidServiceAccountSetup;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_GenaiVertexV1AllowedTools.mode
+
+/**
+ *  Any tool choice.
+ *
+ *  Value: "ANY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1AllowedTools_Mode_Any;
+/**
+ *  Auto tool choice.
+ *
+ *  Value: "AUTO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1AllowedTools_Mode_Auto;
+/**
+ *  No tool choice.
+ *
+ *  Value: "NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1AllowedTools_Mode_None;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "TOOL_CHOICE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1AllowedTools_Mode_ToolChoiceTypeUnspecified;
+/**
+ *  Validated tool choice.
+ *
+ *  Value: "VALIDATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1AllowedTools_Mode_Validated;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_GenaiVertexV1AudioDelta.mimeType
+
+/**
+ *  AAC audio format
+ *
+ *  Value: "TYPE_AAC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1AudioDelta_MimeType_TypeAac;
+/**
+ *  AIFF audio format
+ *
+ *  Value: "TYPE_AIFF"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1AudioDelta_MimeType_TypeAiff;
+/**
+ *  ALAW audio format
+ *
+ *  Value: "TYPE_ALAW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1AudioDelta_MimeType_TypeAlaw;
+/**
+ *  FLAC audio format
+ *
+ *  Value: "TYPE_FLAC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1AudioDelta_MimeType_TypeFlac;
+/**
+ *  L16 audio format
+ *
+ *  Value: "TYPE_L16"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1AudioDelta_MimeType_TypeL16;
+/**
+ *  M4A audio format
+ *
+ *  Value: "TYPE_M4A"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1AudioDelta_MimeType_TypeM4a;
+/**
+ *  MP3 audio format
+ *
+ *  Value: "TYPE_MP3"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1AudioDelta_MimeType_TypeMp3;
+/**
+ *  MPEG audio format
+ *
+ *  Value: "TYPE_MPEG"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1AudioDelta_MimeType_TypeMpeg;
+/**
+ *  MULAW audio format
+ *
+ *  Value: "TYPE_MULAW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1AudioDelta_MimeType_TypeMulaw;
+/**
+ *  OGG audio format
+ *
+ *  Value: "TYPE_OGG"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1AudioDelta_MimeType_TypeOgg;
+/**
+ *  OPUS audio format
+ *
+ *  Value: "TYPE_OPUS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1AudioDelta_MimeType_TypeOpus;
+/** Value: "TYPE_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1AudioDelta_MimeType_TypeUnspecified;
+/**
+ *  WAV audio format
+ *
+ *  Value: "TYPE_WAV"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1AudioDelta_MimeType_TypeWav;
+/**
+ *  WEBM audio format
+ *
+ *  Value: "TYPE_WEBM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1AudioDelta_MimeType_TypeWebm;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_GenaiVertexV1AudioResponseFormat.delivery
+
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "DELIVERY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1AudioResponseFormat_Delivery_DeliveryUnspecified;
+/**
+ *  Audio data is returned inline in the response.
+ *
+ *  Value: "INLINE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1AudioResponseFormat_Delivery_Inline;
+/**
+ *  Audio data is returned as a URI.
+ *
+ *  Value: "URI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1AudioResponseFormat_Delivery_Uri;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_GenaiVertexV1AudioResponseFormat.mimeType
+
+/**
+ *  A-law audio format.
+ *
+ *  Value: "TYPE_ALAW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1AudioResponseFormat_MimeType_TypeAlaw;
+/**
+ *  Raw PCM (L16) audio format.
+ *
+ *  Value: "TYPE_L16"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1AudioResponseFormat_MimeType_TypeL16;
+/**
+ *  MP3 audio format.
+ *
+ *  Value: "TYPE_MP3"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1AudioResponseFormat_MimeType_TypeMp3;
+/**
+ *  Mu-law audio format.
+ *
+ *  Value: "TYPE_MULAW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1AudioResponseFormat_MimeType_TypeMulaw;
+/**
+ *  OGG Opus audio format.
+ *
+ *  Value: "TYPE_OGG_OPUS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1AudioResponseFormat_MimeType_TypeOggOpus;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1AudioResponseFormat_MimeType_TypeUnspecified;
+/**
+ *  WAV audio format.
+ *
+ *  Value: "TYPE_WAV"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1AudioResponseFormat_MimeType_TypeWav;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_GenaiVertexV1CodeExecutionCallContentCodeExecutionCallArguments.language
+
+/**
+ *  Bash. Only available for Gemini 3.0 model or above.
+ *
+ *  Value: "BASH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1CodeExecutionCallContentCodeExecutionCallArguments_Language_Bash;
+/**
+ *  Unspecified language. This value should not be used.
+ *
+ *  Value: "LANGUAGE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1CodeExecutionCallContentCodeExecutionCallArguments_Language_LanguageUnspecified;
+/**
+ *  Python >= 3.10, with numpy and simpy available.
+ *
+ *  Value: "PYTHON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1CodeExecutionCallContentCodeExecutionCallArguments_Language_Python;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_GenaiVertexV1CodeExecutionCallStepCodeExecutionCallStepArguments.language
+
+/**
+ *  Bash. Only available for Gemini 3.0 model or above.
+ *
+ *  Value: "BASH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1CodeExecutionCallStepCodeExecutionCallStepArguments_Language_Bash;
+/**
+ *  Unspecified language. This value should not be used.
+ *
+ *  Value: "LANGUAGE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1CodeExecutionCallStepCodeExecutionCallStepArguments_Language_LanguageUnspecified;
+/**
+ *  Python >= 3.10, with numpy and simpy available.
+ *
+ *  Value: "PYTHON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1CodeExecutionCallStepCodeExecutionCallStepArguments_Language_Python;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_GenaiVertexV1CodeMenderAgentConfigFindRequest.mode
+
+/**
+ *  Fast scan using only the initial classifier.
+ *
+ *  Value: "MODE_SCAN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1CodeMenderAgentConfigFindRequest_Mode_ModeScan;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1CodeMenderAgentConfigFindRequest_Mode_ModeUnspecified;
+/**
+ *  Performs classification followed by detailed investigation.
+ *
+ *  Value: "MODE_VERIFY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1CodeMenderAgentConfigFindRequest_Mode_ModeVerify;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_GenaiVertexV1ComputerUse.disabledSafetyPolicies
+
+/**
+ *  Safety policy for account creation.
+ *
+ *  Value: "ACCOUNT_CREATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1ComputerUse_DisabledSafetyPolicies_AccountCreation;
+/**
+ *  Safety policy for communication tools (e.g. Gmail, Chat, Meet).
+ *
+ *  Value: "COMMUNICATION_TOOL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1ComputerUse_DisabledSafetyPolicies_CommunicationTool;
+/**
+ *  Safety policy for data modification.
+ *
+ *  Value: "DATA_MODIFICATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1ComputerUse_DisabledSafetyPolicies_DataModification;
+/**
+ *  Safety policy for financial transactions.
+ *
+ *  Value: "FINANCIAL_TRANSACTIONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1ComputerUse_DisabledSafetyPolicies_FinancialTransactions;
+/**
+ *  Safety policy for legal terms and agreements.
+ *
+ *  Value: "LEGAL_TERMS_AND_AGREEMENTS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1ComputerUse_DisabledSafetyPolicies_LegalTermsAndAgreements;
+/**
+ *  Unspecified safety policy.
+ *
+ *  Value: "SAFETY_POLICY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1ComputerUse_DisabledSafetyPolicies_SafetyPolicyUnspecified;
+/**
+ *  Safety policy for sensitive data modification.
+ *
+ *  Value: "SENSITIVE_DATA_MODIFICATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1ComputerUse_DisabledSafetyPolicies_SensitiveDataModification;
+/**
+ *  Safety policy for user consent management.
+ *
+ *  Value: "USER_CONSENT_MANAGEMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1ComputerUse_DisabledSafetyPolicies_UserConsentManagement;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_GenaiVertexV1ComputerUse.environment
+
+/**
+ *  Operates in a web browser.
+ *
+ *  Value: "BROWSER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1ComputerUse_Environment_Browser;
+/**
+ *  Operates in a desktop environment.
+ *
+ *  Value: "DESKTOP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1ComputerUse_Environment_Desktop;
+/**
+ *  Defaults to browser.
+ *
+ *  Value: "ENVIRONMENT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1ComputerUse_Environment_EnvironmentUnspecified;
+/**
+ *  Operates in a mobile environment.
+ *
+ *  Value: "MOBILE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1ComputerUse_Environment_Mobile;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_GenaiVertexV1DeepResearchAgentConfig.thinkingSummaries
+
+/**
+ *  Auto thinking summaries.
+ *
+ *  Value: "THINKING_SUMMARIES_AUTO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1DeepResearchAgentConfig_ThinkingSummaries_ThinkingSummariesAuto;
+/**
+ *  No thinking summaries.
+ *
+ *  Value: "THINKING_SUMMARIES_NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1DeepResearchAgentConfig_ThinkingSummaries_ThinkingSummariesNone;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "THINKING_SUMMARIES_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1DeepResearchAgentConfig_ThinkingSummaries_ThinkingSummariesUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_GenaiVertexV1DeepResearchAgentConfig.visualization
+
+/**
+ *  Automatically include visualizations.
+ *
+ *  Value: "AUTO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1DeepResearchAgentConfig_Visualization_Auto;
+/**
+ *  Do not include visualizations.
+ *
+ *  Value: "OFF"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1DeepResearchAgentConfig_Visualization_Off;
+/**
+ *  The default visualization mode. Will default to AUTO.
+ *
+ *  Value: "UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1DeepResearchAgentConfig_Visualization_Unspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_GenaiVertexV1DocumentDelta.mimeType
+
+/**
+ *  CSV document format
+ *
+ *  Value: "TYPE_CSV"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1DocumentDelta_MimeType_TypeCsv;
+/**
+ *  PDF document format
+ *
+ *  Value: "TYPE_PDF"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1DocumentDelta_MimeType_TypePdf;
+/** Value: "TYPE_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1DocumentDelta_MimeType_TypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_GenaiVertexV1GenerationConfig.thinkingLevel
+
+/**
+ *  High thinking level.
+ *
+ *  Value: "THINKING_LEVEL_HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1GenerationConfig_ThinkingLevel_ThinkingLevelHigh;
+/**
+ *  Low thinking level.
+ *
+ *  Value: "THINKING_LEVEL_LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1GenerationConfig_ThinkingLevel_ThinkingLevelLow;
+/**
+ *  Medium thinking level.
+ *
+ *  Value: "THINKING_LEVEL_MEDIUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1GenerationConfig_ThinkingLevel_ThinkingLevelMedium;
+/**
+ *  Little to no thinking.
+ *
+ *  Value: "THINKING_LEVEL_MINIMAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1GenerationConfig_ThinkingLevel_ThinkingLevelMinimal;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "THINKING_LEVEL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1GenerationConfig_ThinkingLevel_ThinkingLevelUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_GenaiVertexV1GenerationConfig.thinkingSummaries
+
+/**
+ *  Auto thinking summaries.
+ *
+ *  Value: "THINKING_SUMMARIES_AUTO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1GenerationConfig_ThinkingSummaries_ThinkingSummariesAuto;
+/**
+ *  No thinking summaries.
+ *
+ *  Value: "THINKING_SUMMARIES_NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1GenerationConfig_ThinkingSummaries_ThinkingSummariesNone;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "THINKING_SUMMARIES_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1GenerationConfig_ThinkingSummaries_ThinkingSummariesUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_GenaiVertexV1GenerationConfig.toolChoiceMode
+
+/**
+ *  Any tool choice.
+ *
+ *  Value: "ANY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1GenerationConfig_ToolChoiceMode_Any;
+/**
+ *  Auto tool choice.
+ *
+ *  Value: "AUTO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1GenerationConfig_ToolChoiceMode_Auto;
+/**
+ *  No tool choice.
+ *
+ *  Value: "NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1GenerationConfig_ToolChoiceMode_None;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "TOOL_CHOICE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1GenerationConfig_ToolChoiceMode_ToolChoiceTypeUnspecified;
+/**
+ *  Validated tool choice.
+ *
+ *  Value: "VALIDATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1GenerationConfig_ToolChoiceMode_Validated;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_GenaiVertexV1GoogleSearch.searchTypes
+
+/**
+ *  Setting this field enables enterprise web search.
+ *
+ *  Value: "SEARCH_TYPE_ENTERPRISE_WEB_SEARCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1GoogleSearch_SearchTypes_SearchTypeEnterpriseWebSearch;
+/**
+ *  Setting this field enables image search. Image bytes are returned.
+ *
+ *  Value: "SEARCH_TYPE_IMAGE_SEARCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1GoogleSearch_SearchTypes_SearchTypeImageSearch;
+/**
+ *  Unspecified search type. This value should not be used.
+ *
+ *  Value: "SEARCH_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1GoogleSearch_SearchTypes_SearchTypeUnspecified;
+/**
+ *  Setting this field enables web search. Only text results are returned.
+ *
+ *  Value: "SEARCH_TYPE_WEB_SEARCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1GoogleSearch_SearchTypes_SearchTypeWebSearch;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_GenaiVertexV1GoogleSearchCallStep.searchType
+
+/**
+ *  Setting this field enables enterprise web search.
+ *
+ *  Value: "SEARCH_TYPE_ENTERPRISE_WEB_SEARCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1GoogleSearchCallStep_SearchType_SearchTypeEnterpriseWebSearch;
+/**
+ *  Setting this field enables image search. Image bytes are returned.
+ *
+ *  Value: "SEARCH_TYPE_IMAGE_SEARCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1GoogleSearchCallStep_SearchType_SearchTypeImageSearch;
+/**
+ *  Unspecified search type. This value should not be used.
+ *
+ *  Value: "SEARCH_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1GoogleSearchCallStep_SearchType_SearchTypeUnspecified;
+/**
+ *  Setting this field enables web search. Only text results are returned.
+ *
+ *  Value: "SEARCH_TYPE_WEB_SEARCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1GoogleSearchCallStep_SearchType_SearchTypeWebSearch;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_GenaiVertexV1ImageContent.resolution
+
+/**
+ *  High resolution.
+ *
+ *  Value: "HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1ImageContent_Resolution_High;
+/**
+ *  Low resolution.
+ *
+ *  Value: "LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1ImageContent_Resolution_Low;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "MEDIA_RESOLUTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1ImageContent_Resolution_MediaResolutionUnspecified;
+/**
+ *  Medium resolution.
+ *
+ *  Value: "MEDIUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1ImageContent_Resolution_Medium;
+/**
+ *  Ultra high resolution.
+ *
+ *  Value: "ULTRA_HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1ImageContent_Resolution_UltraHigh;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_GenaiVertexV1ImageDelta.mimeType
+
+/**
+ *  BMP image format
+ *
+ *  Value: "TYPE_BMP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1ImageDelta_MimeType_TypeBmp;
+/**
+ *  GIF image format
+ *
+ *  Value: "TYPE_GIF"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1ImageDelta_MimeType_TypeGif;
+/**
+ *  HEIC image format
+ *
+ *  Value: "TYPE_HEIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1ImageDelta_MimeType_TypeHeic;
+/**
+ *  HEIF image format
+ *
+ *  Value: "TYPE_HEIF"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1ImageDelta_MimeType_TypeHeif;
+/**
+ *  JPEG image format
+ *
+ *  Value: "TYPE_JPEG"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1ImageDelta_MimeType_TypeJpeg;
+/**
+ *  PNG image format
+ *
+ *  Value: "TYPE_PNG"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1ImageDelta_MimeType_TypePng;
+/**
+ *  TIFF image format
+ *
+ *  Value: "TYPE_TIFF"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1ImageDelta_MimeType_TypeTiff;
+/** Value: "TYPE_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1ImageDelta_MimeType_TypeUnspecified;
+/**
+ *  WebP image format
+ *
+ *  Value: "TYPE_WEBP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1ImageDelta_MimeType_TypeWebp;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_GenaiVertexV1ImageDelta.resolution
+
+/**
+ *  High resolution.
+ *
+ *  Value: "HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1ImageDelta_Resolution_High;
+/**
+ *  Low resolution.
+ *
+ *  Value: "LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1ImageDelta_Resolution_Low;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "MEDIA_RESOLUTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1ImageDelta_Resolution_MediaResolutionUnspecified;
+/**
+ *  Medium resolution.
+ *
+ *  Value: "MEDIUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1ImageDelta_Resolution_Medium;
+/**
+ *  Ultra high resolution.
+ *
+ *  Value: "ULTRA_HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1ImageDelta_Resolution_UltraHigh;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_GenaiVertexV1ImageResponseFormat.aspectRatio
+
+/**
+ *  8:1 aspect ratio.
+ *
+ *  Value: "ASPECT_RATIO_EIGHT_BY_ONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1ImageResponseFormat_AspectRatio_AspectRatioEightByOne;
+/**
+ *  5:4 aspect ratio.
+ *
+ *  Value: "ASPECT_RATIO_FIVE_BY_FOUR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1ImageResponseFormat_AspectRatio_AspectRatioFiveByFour;
+/**
+ *  4:5 aspect ratio.
+ *
+ *  Value: "ASPECT_RATIO_FOUR_BY_FIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1ImageResponseFormat_AspectRatio_AspectRatioFourByFive;
+/**
+ *  4:1 aspect ratio.
+ *
+ *  Value: "ASPECT_RATIO_FOUR_BY_ONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1ImageResponseFormat_AspectRatio_AspectRatioFourByOne;
+/**
+ *  4:3 aspect ratio.
+ *
+ *  Value: "ASPECT_RATIO_FOUR_BY_THREE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1ImageResponseFormat_AspectRatio_AspectRatioFourByThree;
+/**
+ *  9:16 aspect ratio.
+ *
+ *  Value: "ASPECT_RATIO_NINE_BY_SIXTEEN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1ImageResponseFormat_AspectRatio_AspectRatioNineBySixteen;
+/**
+ *  1:8 aspect ratio.
+ *
+ *  Value: "ASPECT_RATIO_ONE_BY_EIGHT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1ImageResponseFormat_AspectRatio_AspectRatioOneByEight;
+/**
+ *  1:4 aspect ratio.
+ *
+ *  Value: "ASPECT_RATIO_ONE_BY_FOUR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1ImageResponseFormat_AspectRatio_AspectRatioOneByFour;
+/**
+ *  1:1 aspect ratio.
+ *
+ *  Value: "ASPECT_RATIO_ONE_BY_ONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1ImageResponseFormat_AspectRatio_AspectRatioOneByOne;
+/**
+ *  16:9 aspect ratio.
+ *
+ *  Value: "ASPECT_RATIO_SIXTEEN_BY_NINE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1ImageResponseFormat_AspectRatio_AspectRatioSixteenByNine;
+/**
+ *  3:4 aspect ratio.
+ *
+ *  Value: "ASPECT_RATIO_THREE_BY_FOUR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1ImageResponseFormat_AspectRatio_AspectRatioThreeByFour;
+/**
+ *  3:2 aspect ratio.
+ *
+ *  Value: "ASPECT_RATIO_THREE_BY_TWO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1ImageResponseFormat_AspectRatio_AspectRatioThreeByTwo;
+/**
+ *  21:9 aspect ratio.
+ *
+ *  Value: "ASPECT_RATIO_TWENTY_ONE_BY_NINE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1ImageResponseFormat_AspectRatio_AspectRatioTwentyOneByNine;
+/**
+ *  2:3 aspect ratio.
+ *
+ *  Value: "ASPECT_RATIO_TWO_BY_THREE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1ImageResponseFormat_AspectRatio_AspectRatioTwoByThree;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "ASPECT_RATIO_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1ImageResponseFormat_AspectRatio_AspectRatioUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_GenaiVertexV1ImageResponseFormat.delivery
+
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "DELIVERY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1ImageResponseFormat_Delivery_DeliveryUnspecified;
+/**
+ *  Image data is returned inline in the response.
+ *
+ *  Value: "INLINE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1ImageResponseFormat_Delivery_Inline;
+/**
+ *  Image data is returned as a URI.
+ *
+ *  Value: "URI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1ImageResponseFormat_Delivery_Uri;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_GenaiVertexV1ImageResponseFormat.imageSize
+
+/**
+ *  512px image size.
+ *
+ *  Value: "IMAGE_SIZE_FIVE_TWELVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1ImageResponseFormat_ImageSize_ImageSizeFiveTwelve;
+/**
+ *  4K image size.
+ *
+ *  Value: "IMAGE_SIZE_FOUR_K"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1ImageResponseFormat_ImageSize_ImageSizeFourK;
+/**
+ *  1K image size.
+ *
+ *  Value: "IMAGE_SIZE_ONE_K"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1ImageResponseFormat_ImageSize_ImageSizeOneK;
+/**
+ *  2K image size.
+ *
+ *  Value: "IMAGE_SIZE_TWO_K"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1ImageResponseFormat_ImageSize_ImageSizeTwoK;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "IMAGE_SIZE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1ImageResponseFormat_ImageSize_ImageSizeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_GenaiVertexV1ImageResponseFormat.mimeType
+
+/**
+ *  JPEG image format.
+ *
+ *  Value: "TYPE_JPEG"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1ImageResponseFormat_MimeType_TypeJpeg;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1ImageResponseFormat_MimeType_TypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_GenaiVertexV1Interaction.serviceTier
+
+/**
+ *  Deferred service tier.
+ *
+ *  Value: "SERVICE_TIER_DEFERRED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1Interaction_ServiceTier_ServiceTierDeferred;
+/**
+ *  Flex service tier.
+ *
+ *  Value: "SERVICE_TIER_FLEX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1Interaction_ServiceTier_ServiceTierFlex;
+/**
+ *  Priority service tier.
+ *
+ *  Value: "SERVICE_TIER_PRIORITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1Interaction_ServiceTier_ServiceTierPriority;
+/**
+ *  Standard service tier.
+ *
+ *  Value: "SERVICE_TIER_STANDARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1Interaction_ServiceTier_ServiceTierStandard;
+/**
+ *  Default service tier, which is standard.
+ *
+ *  Value: "SERVICE_TIER_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1Interaction_ServiceTier_ServiceTierUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_GenaiVertexV1Interaction.status
+
+/**
+ *  The interaction was cancelled.
+ *
+ *  Value: "CANCELLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1Interaction_Status_Cancelled;
+/**
+ *  The interaction is completed.
+ *
+ *  Value: "COMPLETED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1Interaction_Status_Completed;
+/**
+ *  The interaction failed.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1Interaction_Status_Failed;
+/**
+ *  The interaction is completed, but contains incomplete results (e.g. hitting
+ *  max_tokens).
+ *
+ *  Value: "INCOMPLETE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1Interaction_Status_Incomplete;
+/**
+ *  The interaction is in progress.
+ *
+ *  Value: "IN_PROGRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1Interaction_Status_InProgress;
+/**
+ *  The interaction is queued, waiting for processing (e.g. waiting for off-peak
+ *  capacity).
+ *
+ *  Value: "QUEUED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1Interaction_Status_Queued;
+/**
+ *  The interaction requires action/input from the user.
+ *
+ *  Value: "REQUIRES_ACTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1Interaction_Status_RequiresAction;
+/**
+ *  The interaction requires at least one more request for it to be completed.
+ *  The next request should set the continuation_token to the one returned by
+ *  this request.
+ *
+ *  Value: "REQUIRES_CONTINUATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1Interaction_Status_RequiresContinuation;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1Interaction_Status_Unspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_GenaiVertexV1InteractionStatusUpdate.status
+
+/**
+ *  The interaction was cancelled.
+ *
+ *  Value: "CANCELLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1InteractionStatusUpdate_Status_Cancelled;
+/**
+ *  The interaction is completed.
+ *
+ *  Value: "COMPLETED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1InteractionStatusUpdate_Status_Completed;
+/**
+ *  The interaction failed.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1InteractionStatusUpdate_Status_Failed;
+/**
+ *  The interaction is completed, but contains incomplete results (e.g. hitting
+ *  max_tokens).
+ *
+ *  Value: "INCOMPLETE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1InteractionStatusUpdate_Status_Incomplete;
+/**
+ *  The interaction is in progress.
+ *
+ *  Value: "IN_PROGRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1InteractionStatusUpdate_Status_InProgress;
+/**
+ *  The interaction is queued, waiting for processing (e.g. waiting for off-peak
+ *  capacity).
+ *
+ *  Value: "QUEUED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1InteractionStatusUpdate_Status_Queued;
+/**
+ *  The interaction requires action/input from the user.
+ *
+ *  Value: "REQUIRES_ACTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1InteractionStatusUpdate_Status_RequiresAction;
+/**
+ *  The interaction requires at least one more request for it to be completed.
+ *  The next request should set the continuation_token to the one returned by
+ *  this request.
+ *
+ *  Value: "REQUIRES_CONTINUATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1InteractionStatusUpdate_Status_RequiresContinuation;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1InteractionStatusUpdate_Status_Unspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_GenaiVertexV1InteractionUsageGroundingToolCount.type
+
+/**
+ *  Grounding with Google Maps.
+ *
+ *  Value: "GOOGLE_MAPS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1InteractionUsageGroundingToolCount_Type_GoogleMaps;
+/**
+ *  Grounding with Google Web Search and Image Search, & Web Grounding for
+ *  Enterprise.
+ *
+ *  Value: "GOOGLE_SEARCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1InteractionUsageGroundingToolCount_Type_GoogleSearch;
+/**
+ *  Grounding with customer's data, for example, VertexAISearch.
+ *
+ *  Value: "RETRIEVAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1InteractionUsageGroundingToolCount_Type_Retrieval;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1InteractionUsageGroundingToolCount_Type_TypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_GenaiVertexV1InteractionUsageModalityTokens.modality
+
+/**
+ *  Indicates the model should return audio.
+ *
+ *  Value: "AUDIO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1InteractionUsageModalityTokens_Modality_Audio;
+/**
+ *  Indicates the model should return documents.
+ *
+ *  Value: "DOCUMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1InteractionUsageModalityTokens_Modality_Document;
+/**
+ *  Indicates the model should return images.
+ *
+ *  Value: "IMAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1InteractionUsageModalityTokens_Modality_Image;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "RESPONSE_MODALITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1InteractionUsageModalityTokens_Modality_ResponseModalityUnspecified;
+/**
+ *  Indicates the model should return text.
+ *
+ *  Value: "TEXT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1InteractionUsageModalityTokens_Modality_Text;
+/**
+ *  Indicates the model should return video.
+ *
+ *  Value: "VIDEO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1InteractionUsageModalityTokens_Modality_Video;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_GenaiVertexV1Retrieval.retrievalTypes
+
+/** Value: "RETRIEVAL_TYPE_EXA_AI_SEARCH" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1Retrieval_RetrievalTypes_RetrievalTypeExaAiSearch;
+/** Value: "RETRIEVAL_TYPE_PARALLEL_AI_SEARCH" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1Retrieval_RetrievalTypes_RetrievalTypeParallelAiSearch;
+/** Value: "RETRIEVAL_TYPE_RAG_STORE" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1Retrieval_RetrievalTypes_RetrievalTypeRagStore;
+/** Value: "RETRIEVAL_TYPE_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1Retrieval_RetrievalTypes_RetrievalTypeUnspecified;
+/** Value: "RETRIEVAL_TYPE_VERTEX_AI_SEARCH" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1Retrieval_RetrievalTypes_RetrievalTypeVertexAiSearch;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_GenaiVertexV1RetrievalCallDelta.retrievalType
+
+/** Value: "RETRIEVAL_TYPE_EXA_AI_SEARCH" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1RetrievalCallDelta_RetrievalType_RetrievalTypeExaAiSearch;
+/** Value: "RETRIEVAL_TYPE_PARALLEL_AI_SEARCH" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1RetrievalCallDelta_RetrievalType_RetrievalTypeParallelAiSearch;
+/** Value: "RETRIEVAL_TYPE_RAG_STORE" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1RetrievalCallDelta_RetrievalType_RetrievalTypeRagStore;
+/** Value: "RETRIEVAL_TYPE_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1RetrievalCallDelta_RetrievalType_RetrievalTypeUnspecified;
+/** Value: "RETRIEVAL_TYPE_VERTEX_AI_SEARCH" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1RetrievalCallDelta_RetrievalType_RetrievalTypeVertexAiSearch;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_GenaiVertexV1RetrievalCallStep.retrievalType
+
+/** Value: "RETRIEVAL_TYPE_EXA_AI_SEARCH" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1RetrievalCallStep_RetrievalType_RetrievalTypeExaAiSearch;
+/** Value: "RETRIEVAL_TYPE_PARALLEL_AI_SEARCH" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1RetrievalCallStep_RetrievalType_RetrievalTypeParallelAiSearch;
+/** Value: "RETRIEVAL_TYPE_RAG_STORE" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1RetrievalCallStep_RetrievalType_RetrievalTypeRagStore;
+/** Value: "RETRIEVAL_TYPE_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1RetrievalCallStep_RetrievalType_RetrievalTypeUnspecified;
+/** Value: "RETRIEVAL_TYPE_VERTEX_AI_SEARCH" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1RetrievalCallStep_RetrievalType_RetrievalTypeVertexAiSearch;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_GenaiVertexV1SafetySetting.method
+
+/**
+ *  The harm block method is unspecified.
+ *
+ *  Value: "HARM_BLOCK_METHOD_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1SafetySetting_Method_HarmBlockMethodUnspecified;
+/**
+ *  The harm block method uses the probability score.
+ *
+ *  Value: "PROBABILITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1SafetySetting_Method_Probability;
+/**
+ *  The harm block method uses both probability and severity scores.
+ *
+ *  Value: "SEVERITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1SafetySetting_Method_Severity;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_GenaiVertexV1SafetySetting.threshold
+
+/**
+ *  Block content with a low harm probability or higher.
+ *
+ *  Value: "BLOCK_LOW_AND_ABOVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1SafetySetting_Threshold_BlockLowAndAbove;
+/**
+ *  Block content with a medium harm probability or higher.
+ *
+ *  Value: "BLOCK_MEDIUM_AND_ABOVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1SafetySetting_Threshold_BlockMediumAndAbove;
+/**
+ *  Do not block any content, regardless of its harm probability.
+ *
+ *  Value: "BLOCK_NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1SafetySetting_Threshold_BlockNone;
+/**
+ *  Block content with a high harm probability.
+ *
+ *  Value: "BLOCK_ONLY_HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1SafetySetting_Threshold_BlockOnlyHigh;
+/**
+ *  The harm block threshold is unspecified.
+ *
+ *  Value: "HARM_BLOCK_THRESHOLD_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1SafetySetting_Threshold_HarmBlockThresholdUnspecified;
+/**
+ *  Turn off the safety filter entirely.
+ *
+ *  Value: "OFF"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1SafetySetting_Threshold_Off;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_GenaiVertexV1SafetySetting.type
+
+/**
+ *  Deprecated: Election filter is not longer supported. The harm category is
+ *  civic integrity.
+ *
+ *  Value: "HARM_CATEGORY_CIVIC_INTEGRITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1SafetySetting_Type_HarmCategoryCivicIntegrity GTLR_DEPRECATED;
+/**
+ *  Content that promotes, facilitates, or enables dangerous activities.
+ *
+ *  Value: "HARM_CATEGORY_DANGEROUS_CONTENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1SafetySetting_Type_HarmCategoryDangerousContent;
+/**
+ *  Abusive, threatening, or content intended to bully, torment, or ridicule.
+ *
+ *  Value: "HARM_CATEGORY_HARASSMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1SafetySetting_Type_HarmCategoryHarassment;
+/**
+ *  Content that promotes violence or incites hatred against individuals or
+ *  groups based on certain attributes.
+ *
+ *  Value: "HARM_CATEGORY_HATE_SPEECH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1SafetySetting_Type_HarmCategoryHateSpeech;
+/**
+ *  Images that contain dangerous content.
+ *
+ *  Value: "HARM_CATEGORY_IMAGE_DANGEROUS_CONTENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1SafetySetting_Type_HarmCategoryImageDangerousContent;
+/**
+ *  Images that contain harassment.
+ *
+ *  Value: "HARM_CATEGORY_IMAGE_HARASSMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1SafetySetting_Type_HarmCategoryImageHarassment;
+/**
+ *  Images that contain hate speech.
+ *
+ *  Value: "HARM_CATEGORY_IMAGE_HATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1SafetySetting_Type_HarmCategoryImageHate;
+/**
+ *  Images that contain sexually explicit content.
+ *
+ *  Value: "HARM_CATEGORY_IMAGE_SEXUALLY_EXPLICIT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1SafetySetting_Type_HarmCategoryImageSexuallyExplicit;
+/**
+ *  Prompts designed to bypass safety filters.
+ *
+ *  Value: "HARM_CATEGORY_JAILBREAK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1SafetySetting_Type_HarmCategoryJailbreak;
+/**
+ *  Content that contains sexually explicit material.
+ *
+ *  Value: "HARM_CATEGORY_SEXUALLY_EXPLICIT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1SafetySetting_Type_HarmCategorySexuallyExplicit;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "HARM_CATEGORY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1SafetySetting_Type_HarmCategoryUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_GenaiVertexV1TextResponseFormat.mimeType
+
+/**
+ *  JSON output format.
+ *
+ *  Value: "TYPE_APPLICATION_JSON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1TextResponseFormat_MimeType_TypeApplicationJson;
+/**
+ *  Plain text output format.
+ *
+ *  Value: "TYPE_TEXT_PLAIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1TextResponseFormat_MimeType_TypeTextPlain;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1TextResponseFormat_MimeType_TypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_GenaiVertexV1UrlContextResultContentUrlContextResult.status
+
+/**
+ *  Url retrieval is failed due to error.
+ *
+ *  Value: "ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1UrlContextResultContentUrlContextResult_Status_Error;
+/**
+ *  Url retrieval is failed because the content is behind paywall.
+ *
+ *  Value: "PAYWALL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1UrlContextResultContentUrlContextResult_Status_Paywall;
+/**
+ *  Unspecified status. This value should not be used.
+ *
+ *  Value: "STATUS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1UrlContextResultContentUrlContextResult_Status_StatusUnspecified;
+/**
+ *  Url retrieval is successful.
+ *
+ *  Value: "SUCCESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1UrlContextResultContentUrlContextResult_Status_Success;
+/**
+ *  Url retrieval is failed because the content is unsafe.
+ *
+ *  Value: "UNSAFE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1UrlContextResultContentUrlContextResult_Status_Unsafe;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_GenaiVertexV1UrlContextResultStepUrlContextResultItem.status
+
+/** Value: "ERROR" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1UrlContextResultStepUrlContextResultItem_Status_Error;
+/** Value: "PAYWALL" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1UrlContextResultStepUrlContextResultItem_Status_Paywall;
+/** Value: "STATUS_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1UrlContextResultStepUrlContextResultItem_Status_StatusUnspecified;
+/** Value: "SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1UrlContextResultStepUrlContextResultItem_Status_Success;
+/** Value: "UNSAFE" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1UrlContextResultStepUrlContextResultItem_Status_Unsafe;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_GenaiVertexV1Value.nullValue
+
+/**
+ *  Null value.
+ *
+ *  Value: "NULL_VALUE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1Value_NullValue_NullValue;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_GenaiVertexV1VideoConfig.task
+
+/**
+ *  Modifies an existing input video.
+ *
+ *  Value: "EDIT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1VideoConfig_Task_Edit;
+/**
+ *  Extends an existing input video.
+ *
+ *  Value: "EXTEND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1VideoConfig_Task_Extend;
+/**
+ *  Generates video from one or two source images. The first image defines the
+ *  starting frame, and the optional second image defines the ending frame.
+ *
+ *  Value: "IMAGE_TO_VIDEO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1VideoConfig_Task_ImageToVideo;
+/**
+ *  Generates video using reference media (such as images, audio, or video).
+ *
+ *  Value: "REFERENCE_TO_VIDEO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1VideoConfig_Task_ReferenceToVideo;
+/**
+ *  Unspecified task. The task is inferred from the input prompt and media.
+ *
+ *  Value: "TASK_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1VideoConfig_Task_TaskUnspecified;
+/**
+ *  Generates video solely from a text prompt.
+ *
+ *  Value: "TEXT_TO_VIDEO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1VideoConfig_Task_TextToVideo;
+/**
+ *  Increases the resolution of an existing input video.
+ *
+ *  Value: "UPSCALE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1VideoConfig_Task_Upscale;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_GenaiVertexV1VideoContent.processingType
+
+/**
+ *  Model-driven dynamic navigation.
+ *
+ *  Value: "AGENTIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1VideoContent_ProcessingType_Agentic;
+/**
+ *  Default. Uses model-specific processing (3.5 Pro+ --> AGENTIC, older models
+ *  --> STATIC)
+ *
+ *  Value: "PROCESSING_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1VideoContent_ProcessingType_ProcessingUnspecified;
+/**
+ *  Fixed-rate frame extraction. All frames placed in context.
+ *
+ *  Value: "STATIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1VideoContent_ProcessingType_Static;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_GenaiVertexV1VideoContent.resolution
+
+/**
+ *  High resolution.
+ *
+ *  Value: "HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1VideoContent_Resolution_High;
+/**
+ *  Low resolution.
+ *
+ *  Value: "LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1VideoContent_Resolution_Low;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "MEDIA_RESOLUTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1VideoContent_Resolution_MediaResolutionUnspecified;
+/**
+ *  Medium resolution.
+ *
+ *  Value: "MEDIUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1VideoContent_Resolution_Medium;
+/**
+ *  Ultra high resolution.
+ *
+ *  Value: "ULTRA_HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1VideoContent_Resolution_UltraHigh;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_GenaiVertexV1VideoDelta.mimeType
+
+/**
+ *  3GPP video format
+ *
+ *  Value: "TYPE_3GPP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1VideoDelta_MimeType_Type3gpp;
+/**
+ *  AVI video format
+ *
+ *  Value: "TYPE_AVI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1VideoDelta_MimeType_TypeAvi;
+/**
+ *  JPEG 2000 video format
+ *
+ *  Value: "TYPE_JPEG2000"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1VideoDelta_MimeType_TypeJpeg2000;
+/**
+ *  MOV video format
+ *
+ *  Value: "TYPE_MOV"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1VideoDelta_MimeType_TypeMov;
+/**
+ *  MP4 video format
+ *
+ *  Value: "TYPE_MP4"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1VideoDelta_MimeType_TypeMp4;
+/**
+ *  MPEG video format
+ *
+ *  Value: "TYPE_MPEG"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1VideoDelta_MimeType_TypeMpeg;
+/**
+ *  MPG video format
+ *
+ *  Value: "TYPE_MPG"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1VideoDelta_MimeType_TypeMpg;
+/** Value: "TYPE_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1VideoDelta_MimeType_TypeUnspecified;
+/**
+ *  WebM video format
+ *
+ *  Value: "TYPE_WEBM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1VideoDelta_MimeType_TypeWebm;
+/**
+ *  WMV video format
+ *
+ *  Value: "TYPE_WMV"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1VideoDelta_MimeType_TypeWmv;
+/**
+ *  FLV video format
+ *
+ *  Value: "TYPE_X_FLV"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1VideoDelta_MimeType_TypeXFlv;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_GenaiVertexV1VideoDelta.resolution
+
+/**
+ *  High resolution.
+ *
+ *  Value: "HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1VideoDelta_Resolution_High;
+/**
+ *  Low resolution.
+ *
+ *  Value: "LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1VideoDelta_Resolution_Low;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "MEDIA_RESOLUTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1VideoDelta_Resolution_MediaResolutionUnspecified;
+/**
+ *  Medium resolution.
+ *
+ *  Value: "MEDIUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1VideoDelta_Resolution_Medium;
+/**
+ *  Ultra high resolution.
+ *
+ *  Value: "ULTRA_HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1VideoDelta_Resolution_UltraHigh;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_GenaiVertexV1VideoResponseFormat.aspectRatio
+
+/**
+ *  9:16 aspect ratio.
+ *
+ *  Value: "ASPECT_RATIO_NINE_BY_SIXTEEN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1VideoResponseFormat_AspectRatio_AspectRatioNineBySixteen;
+/**
+ *  16:9 aspect ratio.
+ *
+ *  Value: "ASPECT_RATIO_SIXTEEN_BY_NINE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1VideoResponseFormat_AspectRatio_AspectRatioSixteenByNine;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "ASPECT_RATIO_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1VideoResponseFormat_AspectRatio_AspectRatioUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_GenaiVertexV1VideoResponseFormat.delivery
+
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "DELIVERY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1VideoResponseFormat_Delivery_DeliveryUnspecified;
+/**
+ *  Video data is returned inline in the response.
+ *
+ *  Value: "INLINE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1VideoResponseFormat_Delivery_Inline;
+/**
+ *  Video data is returned as a URI.
+ *
+ *  Value: "URI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1VideoResponseFormat_Delivery_Uri;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_GenaiVertexV1VideoResponseFormat.resolution
+
+/**
+ *  4K resolution.
+ *
+ *  Value: "RESOLUTION_FOUR_K"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1VideoResponseFormat_Resolution_ResolutionFourK;
+/**
+ *  720p resolution.
+ *
+ *  Value: "RESOLUTION_SEVEN_TWENTY_P"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1VideoResponseFormat_Resolution_ResolutionSevenTwentyP;
+/**
+ *  1080p resolution.
+ *
+ *  Value: "RESOLUTION_TEN_EIGHTY_P"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1VideoResponseFormat_Resolution_ResolutionTenEightyP;
+/**
+ *  360p resolution.
+ *
+ *  Value: "RESOLUTION_THREE_SIXTY_P"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1VideoResponseFormat_Resolution_ResolutionThreeSixtyP;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "RESOLUTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GenaiVertexV1VideoResponseFormat_Resolution_ResolutionUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_GoogleCloudAiplatformV1AgentStatus.state
+
+/**
+ *  The agent is active and ready to process requests.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1AgentStatus_State_Active;
+/**
+ *  The agent is archived (read-only).
+ *
+ *  Value: "ARCHIVED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1AgentStatus_State_Archived;
+/**
+ *  The agent is soft-deleted.
+ *
+ *  Value: "DELETED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1AgentStatus_State_Deleted;
+/**
+ *  Unspecified agent state.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1AgentStatus_State_StateUnspecified;
+/**
+ *  The agent is suspended.
+ *
+ *  Value: "SUSPENDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1AgentStatus_State_Suspended;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_GoogleCloudAiplatformV1AgentStatusSuspensionReason.reason
+
+/**
+ *  Suspended due to abuse or terms of service violations.
+ *
+ *  Value: "ABUSE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1AgentStatusSuspensionReason_Reason_Abuse;
+/**
+ *  Suspended by a domain administrator.
+ *
+ *  Value: "ADMIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1AgentStatusSuspensionReason_Reason_Admin;
+/**
+ *  Unspecified suspension reason.
+ *
+ *  Value: "REASON_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1AgentStatusSuspensionReason_Reason_ReasonUnspecified;
+/**
+ *  Suspended by the owner/user.
+ *
+ *  Value: "USER_INITIATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1AgentStatusSuspensionReason_Reason_UserInitiated;
 
 // ----------------------------------------------------------------------------
 // GTLRAiplatform_GoogleCloudAiplatformV1AggregationResult.aggregationMetric
@@ -1829,6 +3682,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1CacheC
  */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Candidate_FinishReason_Blocklist;
 /**
+ *  Token generation was stopped because the response reached the per-request
+ *  token limit, but generation is not yet complete. The model response can be
+ *  continued via a subsequent request using the returned `continuation_token`.
+ *
+ *  Value: "CONTINUATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Candidate_FinishReason_Continuation;
+/**
  *  The finish reason is unspecified.
  *
  *  Value: "FINISH_REASON_UNSPECIFIED"
@@ -1865,6 +3726,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Candid
  *  Value: "MALFORMED_FUNCTION_CALL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Candidate_FinishReason_MalformedFunctionCall;
+/**
+ *  Finishes due to malformed response.
+ *
+ *  Value: "MALFORMED_RESPONSE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Candidate_FinishReason_MalformedResponse;
 /**
  *  The model generated the maximum number of tokens allowed by the
  *  `max_output_tokens` parameter.
@@ -1924,6 +3791,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Candid
  *  Value: "STOP"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Candidate_FinishReason_Stop;
+/**
+ *  The model made too many tool calls in a single request, so the server-side
+ *  tool loop stopped before the model returned a final answer.
+ *
+ *  Value: "TOO_MANY_TOOL_CALLS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Candidate_FinishReason_TooManyToolCalls;
 /**
  *  The model generated a function call that is semantically invalid. This can
  *  happen, for example, if function calling is not enabled or the generated
@@ -6212,6 +8086,22 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Preset
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Presets_Query_Precise;
 
 // ----------------------------------------------------------------------------
+// GTLRAiplatform_GoogleCloudAiplatformV1Principal.type
+
+/**
+ *  Unspecified principal type.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Principal_Type_TypeUnspecified;
+/**
+ *  A standard human user principal.
+ *
+ *  Value: "USER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Principal_Type_User;
+
+// ----------------------------------------------------------------------------
 // GTLRAiplatform_GoogleCloudAiplatformV1PSCAutomationConfig.state
 
 /**
@@ -8099,6 +9989,52 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Superv
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1SupervisedHyperParameters_AdapterSize_AdapterSizeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRAiplatform_GoogleCloudAiplatformV1Teammate.expansionMode
+
+/**
+ *  Transitive expansion: the agent can contact individual members of the group.
+ *
+ *  Value: "EXPANDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Teammate_ExpansionMode_Expanded;
+/**
+ *  Unspecified expansion mode.
+ *
+ *  Value: "EXPANSION_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Teammate_ExpansionMode_ExpansionModeUnspecified;
+/**
+ *  Infer whether to expand based on roster type (e.g., expand Google Groups, do
+ *  not expand Chat Spaces).
+ *
+ *  Value: "INFER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Teammate_ExpansionMode_Infer;
+/**
+ *  Non-expanded: the agent can contact the group or space as a channel, without
+ *  expanding to individual members.
+ *
+ *  Value: "NON_EXPANDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Teammate_ExpansionMode_NonExpanded;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_GoogleCloudAiplatformV1Tenant.type
+
+/**
+ *  Unspecified tenant type.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Tenant_Type_TypeUnspecified;
+/**
+ *  Workspace customer domain tenant.
+ *
+ *  Value: "WORKSPACE_CUSTOMER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Tenant_Type_WorkspaceCustomer;
+
+// ----------------------------------------------------------------------------
 // GTLRAiplatform_GoogleCloudAiplatformV1Tensor.dtype
 
 /**
@@ -8226,49 +10162,49 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1TimeSe
 // GTLRAiplatform_GoogleCloudAiplatformV1ToolComputerUse.disabledSafetyPolicies
 
 /**
- *  Account creation safety policy.
+ *  Policy that restricts the creation of accounts.
  *
  *  Value: "ACCOUNT_CREATION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1ToolComputerUse_DisabledSafetyPolicies_AccountCreation;
 /**
- *  Communication tool safety policy.
+ *  Policy that restricts the use of communication tools.
  *
  *  Value: "COMMUNICATION_TOOL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1ToolComputerUse_DisabledSafetyPolicies_CommunicationTool;
 /**
- *  Data modification safety policy.
+ *  Policy that restricts general data modification.
  *
  *  Value: "DATA_MODIFICATION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1ToolComputerUse_DisabledSafetyPolicies_DataModification;
 /**
- *  Financial transactions safety policy.
+ *  Policy that restricts financial transactions.
  *
  *  Value: "FINANCIAL_TRANSACTIONS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1ToolComputerUse_DisabledSafetyPolicies_FinancialTransactions;
 /**
- *  Legal terms and agreements safety policy.
+ *  Policy that restricts interaction with legal terms and agreements.
  *
  *  Value: "LEGAL_TERMS_AND_AGREEMENTS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1ToolComputerUse_DisabledSafetyPolicies_LegalTermsAndAgreements;
 /**
- *  Unspecified safety policy. This value should not be used.
+ *  The safety policy is unspecified.
  *
  *  Value: "SAFETY_POLICY_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1ToolComputerUse_DisabledSafetyPolicies_SafetyPolicyUnspecified;
 /**
- *  Sensitive data modification safety policy.
+ *  Policy that restricts modification of sensitive data.
  *
  *  Value: "SENSITIVE_DATA_MODIFICATION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1ToolComputerUse_DisabledSafetyPolicies_SensitiveDataModification;
 /**
- *  User consent management safety policy.
+ *  Policy that restricts user consent management.
  *
  *  Value: "USER_CONSENT_MANAGEMENT"
  */
@@ -8278,25 +10214,25 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1ToolCo
 // GTLRAiplatform_GoogleCloudAiplatformV1ToolComputerUse.environment
 
 /**
- *  Operates in a web browser.
+ *  The tool operates in a web browser.
  *
  *  Value: "ENVIRONMENT_BROWSER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1ToolComputerUse_Environment_EnvironmentBrowser;
 /**
- *  Operates in a desktop environment.
+ *  The tool operates in a desktop environment.
  *
  *  Value: "ENVIRONMENT_DESKTOP"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1ToolComputerUse_Environment_EnvironmentDesktop;
 /**
- *  Operates in a mobile environment.
+ *  The tool operates in a mobile environment.
  *
  *  Value: "ENVIRONMENT_MOBILE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1ToolComputerUse_Environment_EnvironmentMobile;
 /**
- *  Defaults to browser.
+ *  The environment is unspecified.
  *
  *  Value: "ENVIRONMENT_UNSPECIFIED"
  */
@@ -8724,6 +10660,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1VideoR
 /** Human pose parameters for Pose Control */
 @property(nonatomic, strong, nullable) GTLRAiplatform_CloudAiLargeModelsVisionHumanPose *humanPose;
 
+/** Optional. LoRA configuration for Omni editing/stylization models. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoExperimentsLoraConfig *loraConfig;
+
 /**
  *  Optional. BNS override for model backend. Enabled only for local and
  *  autopush environments by the flag `lvm_allow_model_zoo_bns_override`.
@@ -8754,6 +10693,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1VideoR
 /** Config for Outpainting task. */
 @property(nonatomic, strong, nullable) GTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoExperimentsOutpaintConfig *outpaintConfig;
 
+/** Optional. Omni Perf 3D estimation configuration. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoExperimentsPerfEstimationConfig *perfEstimationConfig;
+
 /** Configuration for Pro Edit. */
 @property(nonatomic, strong, nullable) GTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoExperimentsProEditConfig *proEdit;
 
@@ -8783,6 +10725,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1VideoR
 
 /** Optional. Spatial alignment configuration. */
 @property(nonatomic, strong, nullable) GTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoExperimentsSpatialAlignmentConfig *spatialAlignment;
+
+/** Config for the Pro Super Res upsampling task. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoExperimentsSuperResConfig *superResConfig;
 
 /**
  *  If true (default), truncate input videos that exceed the model's maximum
@@ -8850,6 +10795,49 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1VideoR
 
 
 /**
+ *  GTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoExperimentsBoundingBox
+ */
+@interface GTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoExperimentsBoundingBox : GTLRObject
+
+/**
+ *  The bottom coordinate (exclusive) of the bounding box.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *bottom;
+
+/**
+ *  The frame index of the bounding box.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *frameIndex;
+
+/**
+ *  The left coordinate of the bounding box.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *left;
+
+/**
+ *  The right coordinate (exclusive) of the bounding box.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *right;
+
+/**
+ *  The top coordinate of the bounding box.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *top;
+
+@end
+
+
+/**
  *  Configuration for color alignment.
  */
 @interface GTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoExperimentsColorAlignmentConfig : GTLRObject
@@ -8878,6 +10866,43 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1VideoR
 
 /** The image data for this conditioning frame. */
 @property(nonatomic, strong, nullable) GTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoRequestImage *image;
+
+@end
+
+
+/**
+ *  Configuration for Multi-LoRA adaptation.
+ */
+@interface GTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoExperimentsLoraConfig : GTLRObject
+
+/** List of LoRA adapters to apply. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoExperimentsLoraConfigAdapter *> *adapters;
+
+@end
+
+
+/**
+ *  GTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoExperimentsLoraConfigAdapter
+ */
+@interface GTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoExperimentsLoraConfigAdapter : GTLRObject
+
+/**
+ *  The registered ID of the LoRA adapter (e.g. "lora_xxx").
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/** Internal field populated after validation: resolved TFHub path. */
+@property(nonatomic, copy, nullable) NSString *resolvedPath;
+
+/**
+ *  The blending scale/weight of the LoRA adapter. Must be in the range (0.0,
+ *  2.0]. Default is 1.0.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *weight;
 
 @end
 
@@ -8969,6 +10994,53 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1VideoR
 
 
 /**
+ *  Configuration for Omni Perf 3D estimation.
+ */
+@interface GTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoExperimentsPerfEstimationConfig : GTLRObject
+
+/**
+ *  Optional. Whether to export the USD file.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *exportUsd;
+
+/** Required. The bounding box of the object in the source video. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoExperimentsBoundingBox *sourceBoundingBox;
+
+/** Required. The source video for the 3D estimation. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoRequestVideo *sourceVideo;
+
+/** Optional. The character reference images/videos. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoExperimentsPerfEstimationConfigCharacterReference *> *targetCharacterReferences;
+
+/**
+ *  Optional.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *temporalSmoothness;
+
+@end
+
+
+/**
+ *  GTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoExperimentsPerfEstimationConfigCharacterReference
+ */
+@interface GTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoExperimentsPerfEstimationConfigCharacterReference : GTLRObject
+
+/**
+ *  Required. The bounding box of the character in the reference image/video.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoExperimentsBoundingBox *boundingBox;
+
+@property(nonatomic, strong, nullable) GTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoRequestImage *referenceImage;
+@property(nonatomic, strong, nullable) GTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoRequestVideo *referenceVideo;
+
+@end
+
+
+/**
  *  Configuration for Pro Edit.
  */
 @interface GTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoExperimentsProEditConfig : GTLRObject
@@ -9005,6 +11077,43 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1VideoR
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *enable;
+
+@end
+
+
+/**
+ *  Config for the Pro Super Res upsampling task.
+ */
+@interface GTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoExperimentsSuperResConfig : GTLRObject
+
+/**
+ *  Super Res mode. Required.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoExperimentsSuperResConfig_Mode_Mode4k
+ *        Single-pass 4K UDiT. (Value: "MODE_4K")
+ *    @arg @c kGTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoExperimentsSuperResConfig_Mode_Mode4kPro
+ *        "8K UDiT, downsampled 2x in the decoder. (Value: "MODE_4K_PRO")
+ *    @arg @c kGTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoExperimentsSuperResConfig_Mode_Mode8k
+ *        Single-pass 8K UDiT. (Value: "MODE_8K")
+ *    @arg @c kGTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoExperimentsSuperResConfig_Mode_ModeUnspecified
+ *        Value "MODE_UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *mode;
+
+/**
+ *  Number of diffusion denoising steps (1 or 2).
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *steps;
+
+/**
+ *  Smooths the seams between the tiles the model upscales separately.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *tileSmoothing;
 
 @end
 
@@ -9642,6 +11751,3551 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1VideoR
 
 
 /**
+ *  Interaction for generating the completion using agents.
+ */
+@interface GTLRAiplatform_GenaiVertexV1AgentInteraction : GTLRObject
+
+/** The name of the `Agent` used for generating the completion. */
+@property(nonatomic, copy, nullable) NSString *agent;
+
+/**
+ *  Antigravity agent configuration. This configuration is session-level
+ *  settings that are passed to the agent runtime on a per-request basis.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1AntigravityAgentConfig *antigravityConfig;
+
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1CodeMenderAgentConfig *codeMenderConfig;
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1DeepResearchAgentConfig *deepResearchConfig;
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1DynamicAgentConfig *dynamicConfig;
+
+@end
+
+
+/**
+ *  The configuration for allowed tools.
+ */
+@interface GTLRAiplatform_GenaiVertexV1AllowedTools : GTLRObject
+
+/**
+ *  The mode of the tool choice.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1AllowedTools_Mode_Any Any tool
+ *        choice. (Value: "ANY")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1AllowedTools_Mode_Auto Auto tool
+ *        choice. (Value: "AUTO")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1AllowedTools_Mode_None No tool
+ *        choice. (Value: "NONE")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1AllowedTools_Mode_ToolChoiceTypeUnspecified
+ *        Default value. This value is unused. (Value:
+ *        "TOOL_CHOICE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1AllowedTools_Mode_Validated Validated
+ *        tool choice. (Value: "VALIDATED")
+ */
+@property(nonatomic, copy, nullable) NSString *mode;
+
+/** The names of the allowed tools. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *tools;
+
+@end
+
+
+/**
+ *  Configuration for the Antigravity agent runtime. Provides server-side
+ *  control over the agent's execution environment and tool configuration.
+ */
+@interface GTLRAiplatform_GenaiVertexV1AntigravityAgentConfig : GTLRObject
+
+/**
+ *  Max total tokens for the agent run.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxTotalTokens;
+
+/** The model to use for agent reasoning. */
+@property(nonatomic, copy, nullable) NSString *model;
+
+@end
+
+
+/**
+ *  GTLRAiplatform_GenaiVertexV1ArgumentsDelta
+ */
+@interface GTLRAiplatform_GenaiVertexV1ArgumentsDelta : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *arguments;
+
+@end
+
+
+/**
+ *  An audio content block.
+ */
+@interface GTLRAiplatform_GenaiVertexV1AudioContent : GTLRObject
+
+/**
+ *  The number of audio channels.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *channels;
+
+/**
+ *  The audio content.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *data;
+
+/**
+ *  Flexible MIME type string of the audio, superseding mime_type = 1. Note:
+ *  Bespoke logic in the GAOS parser/serializer maps this to the "mime_type"
+ *  JSON key.
+ */
+@property(nonatomic, copy, nullable) NSString *mimeTypeString;
+
+/**
+ *  The sample rate of the audio.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sampleRate;
+
+/** The URI of the audio. */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  GTLRAiplatform_GenaiVertexV1AudioDelta
+ */
+@interface GTLRAiplatform_GenaiVertexV1AudioDelta : GTLRObject
+
+/**
+ *  The number of audio channels.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *channels;
+
+/**
+ *  data
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *data;
+
+/**
+ *  mimeType
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1AudioDelta_MimeType_TypeAac AAC audio
+ *        format (Value: "TYPE_AAC")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1AudioDelta_MimeType_TypeAiff AIFF
+ *        audio format (Value: "TYPE_AIFF")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1AudioDelta_MimeType_TypeAlaw ALAW
+ *        audio format (Value: "TYPE_ALAW")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1AudioDelta_MimeType_TypeFlac FLAC
+ *        audio format (Value: "TYPE_FLAC")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1AudioDelta_MimeType_TypeL16 L16 audio
+ *        format (Value: "TYPE_L16")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1AudioDelta_MimeType_TypeM4a M4A audio
+ *        format (Value: "TYPE_M4A")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1AudioDelta_MimeType_TypeMp3 MP3 audio
+ *        format (Value: "TYPE_MP3")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1AudioDelta_MimeType_TypeMpeg MPEG
+ *        audio format (Value: "TYPE_MPEG")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1AudioDelta_MimeType_TypeMulaw MULAW
+ *        audio format (Value: "TYPE_MULAW")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1AudioDelta_MimeType_TypeOgg OGG audio
+ *        format (Value: "TYPE_OGG")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1AudioDelta_MimeType_TypeOpus OPUS
+ *        audio format (Value: "TYPE_OPUS")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1AudioDelta_MimeType_TypeUnspecified
+ *        Value "TYPE_UNSPECIFIED"
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1AudioDelta_MimeType_TypeWav WAV audio
+ *        format (Value: "TYPE_WAV")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1AudioDelta_MimeType_TypeWebm WEBM
+ *        audio format (Value: "TYPE_WEBM")
+ */
+@property(nonatomic, copy, nullable) NSString *mimeType;
+
+/**
+ *  The sample rate of the audio.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sampleRate;
+
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  Configuration for audio output format.
+ */
+@interface GTLRAiplatform_GenaiVertexV1AudioResponseFormat : GTLRObject
+
+/**
+ *  Bit rate in bits per second (bps). Only applicable for compressed formats
+ *  (MP3, Opus).
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *bitRate;
+
+/**
+ *  The delivery mode for the audio output.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1AudioResponseFormat_Delivery_DeliveryUnspecified
+ *        Default value. This value is unused. (Value: "DELIVERY_UNSPECIFIED")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1AudioResponseFormat_Delivery_Inline
+ *        Audio data is returned inline in the response. (Value: "INLINE")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1AudioResponseFormat_Delivery_Uri
+ *        Audio data is returned as a URI. (Value: "URI")
+ */
+@property(nonatomic, copy, nullable) NSString *delivery;
+
+/**
+ *  The MIME type of the audio output.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1AudioResponseFormat_MimeType_TypeAlaw
+ *        A-law audio format. (Value: "TYPE_ALAW")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1AudioResponseFormat_MimeType_TypeL16
+ *        Raw PCM (L16) audio format. (Value: "TYPE_L16")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1AudioResponseFormat_MimeType_TypeMp3
+ *        MP3 audio format. (Value: "TYPE_MP3")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1AudioResponseFormat_MimeType_TypeMulaw
+ *        Mu-law audio format. (Value: "TYPE_MULAW")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1AudioResponseFormat_MimeType_TypeOggOpus
+ *        OGG Opus audio format. (Value: "TYPE_OGG_OPUS")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1AudioResponseFormat_MimeType_TypeUnspecified
+ *        Default value. This value is unused. (Value: "TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1AudioResponseFormat_MimeType_TypeWav
+ *        WAV audio format. (Value: "TYPE_WAV")
+ */
+@property(nonatomic, copy, nullable) NSString *mimeType;
+
+/**
+ *  Sample rate in Hz.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sampleRate;
+
+@end
+
+
+/**
+ *  A tool that can be used by the model to execute code.
+ */
+@interface GTLRAiplatform_GenaiVertexV1CodeExecution : GTLRObject
+@end
+
+
+/**
+ *  The arguments to pass to the code execution.
+ */
+@interface GTLRAiplatform_GenaiVertexV1CodeExecutionCallContentCodeExecutionCallArguments : GTLRObject
+
+/** The code to be executed. */
+@property(nonatomic, copy, nullable) NSString *code;
+
+/**
+ *  Programming language of the `code`.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1CodeExecutionCallContentCodeExecutionCallArguments_Language_Bash
+ *        Bash. Only available for Gemini 3.0 model or above. (Value: "BASH")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1CodeExecutionCallContentCodeExecutionCallArguments_Language_LanguageUnspecified
+ *        Unspecified language. This value should not be used. (Value:
+ *        "LANGUAGE_UNSPECIFIED")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1CodeExecutionCallContentCodeExecutionCallArguments_Language_Python
+ *        Python >= 3.10, with numpy and simpy available. (Value: "PYTHON")
+ */
+@property(nonatomic, copy, nullable) NSString *language;
+
+@end
+
+
+/**
+ *  GTLRAiplatform_GenaiVertexV1CodeExecutionCallDelta
+ */
+@interface GTLRAiplatform_GenaiVertexV1CodeExecutionCallDelta : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1CodeExecutionCallContentCodeExecutionCallArguments *arguments;
+
+@end
+
+
+/**
+ *  Code execution call step.
+ */
+@interface GTLRAiplatform_GenaiVertexV1CodeExecutionCallStep : GTLRObject
+
+/** Required. The arguments to pass to the code execution. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1CodeExecutionCallStepCodeExecutionCallStepArguments *arguments;
+
+@end
+
+
+/**
+ *  The arguments to pass to the code execution.
+ */
+@interface GTLRAiplatform_GenaiVertexV1CodeExecutionCallStepCodeExecutionCallStepArguments : GTLRObject
+
+/** The code to be executed. */
+@property(nonatomic, copy, nullable) NSString *code;
+
+/**
+ *  Programming language of the `code`.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1CodeExecutionCallStepCodeExecutionCallStepArguments_Language_Bash
+ *        Bash. Only available for Gemini 3.0 model or above. (Value: "BASH")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1CodeExecutionCallStepCodeExecutionCallStepArguments_Language_LanguageUnspecified
+ *        Unspecified language. This value should not be used. (Value:
+ *        "LANGUAGE_UNSPECIFIED")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1CodeExecutionCallStepCodeExecutionCallStepArguments_Language_Python
+ *        Python >= 3.10, with numpy and simpy available. (Value: "PYTHON")
+ */
+@property(nonatomic, copy, nullable) NSString *language;
+
+@end
+
+
+/**
+ *  GTLRAiplatform_GenaiVertexV1CodeExecutionResultDelta
+ */
+@interface GTLRAiplatform_GenaiVertexV1CodeExecutionResultDelta : GTLRObject
+
+/**
+ *  isError
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isError;
+
+@property(nonatomic, copy, nullable) NSString *result;
+
+@end
+
+
+/**
+ *  Code execution result step.
+ */
+@interface GTLRAiplatform_GenaiVertexV1CodeExecutionResultStep : GTLRObject
+
+/**
+ *  Whether the code execution resulted in an error.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isError;
+
+/** Required. The output of the code execution. */
+@property(nonatomic, copy, nullable) NSString *result;
+
+@end
+
+
+/**
+ *  Configuration for the CodeMender agent.
+ */
+@interface GTLRAiplatform_GenaiVertexV1CodeMenderAgentConfig : GTLRObject
+
+/** Parameters for finding vulnerabilities. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1CodeMenderAgentConfigFindRequest *findRequest;
+
+/** Parameters for fixing vulnerabilities. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1CodeMenderAgentConfigFixRequest *fixRequest;
+
+/**
+ *  The name of the model to use for the CodeMender agent. One CodeMender
+ *  session will only use one model.
+ */
+@property(nonatomic, copy, nullable) NSString *model;
+
+/**
+ *  Optional session-specific configurations to override default agent behavior.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1CodeMenderAgentConfigSessionConfig *sessionConfig;
+
+/**
+ *  Parameter for grouping multiple interactions that belong to the same
+ *  CodeMender session.
+ */
+@property(nonatomic, copy, nullable) NSString *sessionId;
+
+@end
+
+
+/**
+ *  Content of a single file in the codebase.
+ */
+@interface GTLRAiplatform_GenaiVertexV1CodeMenderAgentConfigFileContent : GTLRObject
+
+/** The UTF-8 encoded text content of the file. */
+@property(nonatomic, copy, nullable) NSString *content;
+
+/** The relative path of the file from the project root. */
+@property(nonatomic, copy, nullable) NSString *path;
+
+@end
+
+
+/**
+ *  Request parameters specific to FIND sessions, used for discovering
+ *  vulnerabilities in a codebase.
+ */
+@interface GTLRAiplatform_GenaiVertexV1CodeMenderAgentConfigFindRequest : GTLRObject
+
+/**
+ *  Additional context or custom instructions provided by the user to guide the
+ *  vulnerability analysis.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  The identifier of a specific finding to verify. This is primarily used in
+ *  VERIFY mode to focus the agent's execution-based validation on a single
+ *  vulnerability.
+ */
+@property(nonatomic, copy, nullable) NSString *findingId;
+
+/**
+ *  The mode of the find session.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1CodeMenderAgentConfigFindRequest_Mode_ModeScan
+ *        Fast scan using only the initial classifier. (Value: "MODE_SCAN")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1CodeMenderAgentConfigFindRequest_Mode_ModeUnspecified
+ *        Default value. This value is unused. (Value: "MODE_UNSPECIFIED")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1CodeMenderAgentConfigFindRequest_Mode_ModeVerify
+ *        Performs classification followed by detailed investigation. (Value:
+ *        "MODE_VERIFY")
+ */
+@property(nonatomic, copy, nullable) NSString *mode;
+
+/** A list of source files to provide as context for the scan. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GenaiVertexV1CodeMenderAgentConfigFileContent *> *sourceFiles;
+
+@end
+
+
+/**
+ *  Request parameters specific to FIX sessions, used for generating and
+ *  validating security patches.
+ */
+@interface GTLRAiplatform_GenaiVertexV1CodeMenderAgentConfigFixRequest : GTLRObject
+
+/**
+ *  Additional context or custom instructions provided by the user to guide the
+ *  patch generation process.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  The identifier of the specific security finding to be remediated. This ID
+ *  maps to a previously discovered vulnerability.
+ */
+@property(nonatomic, copy, nullable) NSString *findingId;
+
+/**
+ *  A list of source files providing context for the remediation. These files
+ *  are typically the ones containing the identified vulnerability.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GenaiVertexV1CodeMenderAgentConfigFileContent *> *sourceFiles;
+
+@end
+
+
+/**
+ *  The configuration of CodeMender sessions.
+ */
+@interface GTLRAiplatform_GenaiVertexV1CodeMenderAgentConfigSessionConfig : GTLRObject
+
+/**
+ *  The maximum number of interaction rounds the agent is allowed to perform
+ *  before reaching a timeout.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxRounds;
+
+@end
+
+
+/**
+ *  A tool that can be used by the model to interact with the computer.
+ */
+@interface GTLRAiplatform_GenaiVertexV1ComputerUse : GTLRObject
+
+/** Optional. Disabled safety policies for computer use. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *disabledSafetyPolicies;
+
+/**
+ *  Whether enable the prompt injection detection check on computer-use request.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enablePromptInjectionDetection;
+
+/**
+ *  The environment being operated.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1ComputerUse_Environment_Browser
+ *        Operates in a web browser. (Value: "BROWSER")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1ComputerUse_Environment_Desktop
+ *        Operates in a desktop environment. (Value: "DESKTOP")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1ComputerUse_Environment_EnvironmentUnspecified
+ *        Defaults to browser. (Value: "ENVIRONMENT_UNSPECIFIED")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1ComputerUse_Environment_Mobile
+ *        Operates in a mobile environment. (Value: "MOBILE")
+ */
+@property(nonatomic, copy, nullable) NSString *environment;
+
+/** The list of predefined functions that are excluded from the model call. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *excludedPredefinedFunctions;
+
+@end
+
+
+/**
+ *  The content of the response.
+ */
+@interface GTLRAiplatform_GenaiVertexV1Content : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1AudioContent *audio;
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1DocumentContent *document;
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1ImageContent *image;
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1TextContent *text;
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1VideoContent *video;
+
+@end
+
+
+/**
+ *  A list of Content.
+ */
+@interface GTLRAiplatform_GenaiVertexV1ContentList : GTLRObject
+
+/** The contents of the list. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GenaiVertexV1Content *> *contents;
+
+@end
+
+
+/**
+ *  Request message for [InteractionsService.CreateInteractionHttp].
+ */
+@interface GTLRAiplatform_GenaiVertexV1CreateInteractionHttpRequest : GTLRObject
+
+/** Required. The interaction to create. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleApiHttpBody *httpBody;
+
+@end
+
+
+/**
+ *  Configuration parameters for creating an interaction.
+ */
+@interface GTLRAiplatform_GenaiVertexV1CreateInteractionRequest : GTLRObject
+
+/**
+ *  Input only. Whether to run the model interaction in the background.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *background;
+
+/** The interaction to create. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1Interaction *interaction;
+
+/**
+ *  Input only. Whether to store the response and request for later retrieval.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *store;
+
+/**
+ *  Input only. Whether the interaction will be streamed.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *stream;
+
+@end
+
+
+/**
+ *  Configuration for the Deep Research agent.
+ */
+@interface GTLRAiplatform_GenaiVertexV1DeepResearchAgentConfig : GTLRObject
+
+/**
+ *  Enables human-in-the-loop planning for the Deep Research agent. If set to
+ *  true, the Deep Research agent will provide a research plan in its response.
+ *  The agent will then proceed only if the user confirms the plan in the next
+ *  turn.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *collaborativePlanning;
+
+/**
+ *  Enables bigquery tool for the Deep Research agent.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableBigqueryTool;
+
+/**
+ *  Whether to include thought summaries in the response.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1DeepResearchAgentConfig_ThinkingSummaries_ThinkingSummariesAuto
+ *        Auto thinking summaries. (Value: "THINKING_SUMMARIES_AUTO")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1DeepResearchAgentConfig_ThinkingSummaries_ThinkingSummariesNone
+ *        No thinking summaries. (Value: "THINKING_SUMMARIES_NONE")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1DeepResearchAgentConfig_ThinkingSummaries_ThinkingSummariesUnspecified
+ *        Default value. This value is unused. (Value:
+ *        "THINKING_SUMMARIES_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *thinkingSummaries;
+
+/**
+ *  Whether to include visualizations in the response.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1DeepResearchAgentConfig_Visualization_Auto
+ *        Automatically include visualizations. (Value: "AUTO")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1DeepResearchAgentConfig_Visualization_Off
+ *        Do not include visualizations. (Value: "OFF")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1DeepResearchAgentConfig_Visualization_Unspecified
+ *        The default visualization mode. Will default to AUTO. (Value:
+ *        "UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *visualization;
+
+@end
+
+
+/**
+ *  Response for InteractionService.DeleteInteraction.
+ */
+@interface GTLRAiplatform_GenaiVertexV1DeleteInteractionResponse : GTLRObject
+@end
+
+
+/**
+ *  A document content block.
+ */
+@interface GTLRAiplatform_GenaiVertexV1DocumentContent : GTLRObject
+
+/**
+ *  The document content.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *data;
+
+/**
+ *  Flexible MIME type string of the document, superseding mime_type = 1. Note:
+ *  Bespoke logic in the GAOS parser/serializer maps this to the "mime_type"
+ *  JSON key.
+ */
+@property(nonatomic, copy, nullable) NSString *mimeTypeString;
+
+/** The URI of the document. */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  GTLRAiplatform_GenaiVertexV1DocumentDelta
+ */
+@interface GTLRAiplatform_GenaiVertexV1DocumentDelta : GTLRObject
+
+/**
+ *  data
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *data;
+
+/**
+ *  mimeType
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1DocumentDelta_MimeType_TypeCsv CSV
+ *        document format (Value: "TYPE_CSV")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1DocumentDelta_MimeType_TypePdf PDF
+ *        document format (Value: "TYPE_PDF")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1DocumentDelta_MimeType_TypeUnspecified
+ *        Value "TYPE_UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *mimeType;
+
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  Configuration for dynamic agents.
+ */
+@interface GTLRAiplatform_GenaiVertexV1DynamicAgentConfig : GTLRObject
+
+/** For agents that are not supported statically in the API definition. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1Struct *config;
+
+@end
+
+
+/**
+ *  Error message from an interaction.
+ */
+@interface GTLRAiplatform_GenaiVertexV1Error : GTLRObject
+
+/** A URI that identifies the error type. */
+@property(nonatomic, copy, nullable) NSString *code;
+
+/** A human-readable error message. */
+@property(nonatomic, copy, nullable) NSString *message;
+
+@end
+
+
+/**
+ *  GTLRAiplatform_GenaiVertexV1ErrorEvent
+ */
+@interface GTLRAiplatform_GenaiVertexV1ErrorEvent : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1Error *error;
+
+@end
+
+
+/**
+ *  Used to specify configuration for ExaAISearch.
+ */
+@interface GTLRAiplatform_GenaiVertexV1ExaAISearchConfig : GTLRObject
+
+/** Required. The API key for ExaAiSearch. */
+@property(nonatomic, copy, nullable) NSString *apiKey;
+
+/**
+ *  Optional. This field can be used to pass any parameter from the Exa.ai
+ *  Search API.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1ExaAISearchConfig_CustomConfig *customConfig;
+
+@end
+
+
+/**
+ *  Optional. This field can be used to pass any parameter from the Exa.ai
+ *  Search API.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRAiplatform_GenaiVertexV1ExaAISearchConfig_CustomConfig : GTLRObject
+@end
+
+
+/**
+ *  Represents a single field in a struct.
+ */
+@interface GTLRAiplatform_GenaiVertexV1Field : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *name;
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1Value *value;
+
+@end
+
+
+/**
+ *  A file citation annotation.
+ */
+@interface GTLRAiplatform_GenaiVertexV1FileCitation : GTLRObject
+
+/** User provided metadata about the retrieved context. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1FileCitation_CustomMetadata *customMetadata;
+
+/** The URI of the file. */
+@property(nonatomic, copy, nullable) NSString *documentUri;
+
+/** The name of the file. */
+@property(nonatomic, copy, nullable) NSString *fileName;
+
+/** Media ID in-case of image citations, if applicable. */
+@property(nonatomic, copy, nullable) NSString *mediaId;
+
+/**
+ *  Page number of the cited document, if applicable.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pageNumber;
+
+/** Source attributed for a portion of the text. */
+@property(nonatomic, copy, nullable) NSString *source;
+
+@end
+
+
+/**
+ *  User provided metadata about the retrieved context.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRAiplatform_GenaiVertexV1FileCitation_CustomMetadata : GTLRObject
+@end
+
+
+/**
+ *  A tool that can be used by the model to search files.
+ */
+@interface GTLRAiplatform_GenaiVertexV1FileSearch : GTLRObject
+
+/** The file search store names to search. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *fileSearchStoreNames;
+
+/**
+ *  Metadata filter to apply to the semantic retrieval documents and chunks.
+ */
+@property(nonatomic, copy, nullable) NSString *metadataFilter;
+
+/**
+ *  The number of semantic retrieval chunks to retrieve.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *topK;
+
+@end
+
+
+/**
+ *  GTLRAiplatform_GenaiVertexV1FileSearchCallDelta
+ */
+@interface GTLRAiplatform_GenaiVertexV1FileSearchCallDelta : GTLRObject
+@end
+
+
+/**
+ *  File Search call step.
+ */
+@interface GTLRAiplatform_GenaiVertexV1FileSearchCallStep : GTLRObject
+@end
+
+
+/**
+ *  The result of the File Search.
+ */
+@interface GTLRAiplatform_GenaiVertexV1FileSearchResultContentFileSearchResult : GTLRObject
+@end
+
+
+/**
+ *  GTLRAiplatform_GenaiVertexV1FileSearchResultDelta
+ */
+@interface GTLRAiplatform_GenaiVertexV1FileSearchResultDelta : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GenaiVertexV1FileSearchResultContentFileSearchResult *> *result;
+
+@end
+
+
+/**
+ *  File Search result step.
+ */
+@interface GTLRAiplatform_GenaiVertexV1FileSearchResultStep : GTLRObject
+@end
+
+
+/**
+ *  A tool that can be used by the model.
+ */
+@interface GTLRAiplatform_GenaiVertexV1Function : GTLRObject
+
+/**
+ *  A description of the function.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** The name of the function. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The JSON Schema for the function's parameters. Supports a subset of JSON
+ *  Schema. `minLength`, `maxLength`, `minProperties`, `maxProperties`,
+ *  `uniqueItems`, `contains`, `minContains`, and `maxContains` are ignored and
+ *  not enforced.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1Value *parameters;
+
+@end
+
+
+/**
+ *  A function tool call step.
+ */
+@interface GTLRAiplatform_GenaiVertexV1FunctionCallStep : GTLRObject
+
+/** Required. The arguments to pass to the function. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1Struct *arguments;
+
+/** Required. The name of the tool to call. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  GTLRAiplatform_GenaiVertexV1FunctionResultDelta
+ */
+@interface GTLRAiplatform_GenaiVertexV1FunctionResultDelta : GTLRObject
+
+/**
+ *  isError
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isError;
+
+@property(nonatomic, copy, nullable) NSString *name;
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1Value *result;
+
+@end
+
+
+/**
+ *  Result of a function tool call.
+ */
+@interface GTLRAiplatform_GenaiVertexV1FunctionResultStep : GTLRObject
+
+/**
+ *  Whether the tool call resulted in an error.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isError;
+
+/** The name of the tool that was called. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Required. The result of the tool call. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1Value *result;
+
+@end
+
+
+/**
+ *  Configuration parameters for model interactions.
+ */
+@interface GTLRAiplatform_GenaiVertexV1GenerationConfig : GTLRObject
+
+/**
+ *  The maximum number of tokens to include in the response.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxOutputTokens;
+
+/**
+ *  Seed used in decoding for reproducibility.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *seed;
+
+/** A list of character sequences that will stop output interaction. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *stopSequences;
+
+/** Speech and multi-speaker configuration. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1SpeakerConfig *structuredSpeechConfig;
+
+/**
+ *  Controls the randomness of the output.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *temperature GTLR_DEPRECATED;
+
+/**
+ *  The level of thought tokens that the model should generate.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1GenerationConfig_ThinkingLevel_ThinkingLevelHigh
+ *        High thinking level. (Value: "THINKING_LEVEL_HIGH")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1GenerationConfig_ThinkingLevel_ThinkingLevelLow
+ *        Low thinking level. (Value: "THINKING_LEVEL_LOW")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1GenerationConfig_ThinkingLevel_ThinkingLevelMedium
+ *        Medium thinking level. (Value: "THINKING_LEVEL_MEDIUM")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1GenerationConfig_ThinkingLevel_ThinkingLevelMinimal
+ *        Little to no thinking. (Value: "THINKING_LEVEL_MINIMAL")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1GenerationConfig_ThinkingLevel_ThinkingLevelUnspecified
+ *        Default value. This value is unused. (Value:
+ *        "THINKING_LEVEL_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *thinkingLevel;
+
+/**
+ *  Whether to include thought summaries in the response.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1GenerationConfig_ThinkingSummaries_ThinkingSummariesAuto
+ *        Auto thinking summaries. (Value: "THINKING_SUMMARIES_AUTO")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1GenerationConfig_ThinkingSummaries_ThinkingSummariesNone
+ *        No thinking summaries. (Value: "THINKING_SUMMARIES_NONE")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1GenerationConfig_ThinkingSummaries_ThinkingSummariesUnspecified
+ *        Default value. This value is unused. (Value:
+ *        "THINKING_SUMMARIES_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *thinkingSummaries;
+
+/** The config for the tool choice. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1ToolChoiceConfig *toolChoiceConfig;
+
+/**
+ *  The mode of the tool choice.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1GenerationConfig_ToolChoiceMode_Any
+ *        Any tool choice. (Value: "ANY")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1GenerationConfig_ToolChoiceMode_Auto
+ *        Auto tool choice. (Value: "AUTO")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1GenerationConfig_ToolChoiceMode_None
+ *        No tool choice. (Value: "NONE")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1GenerationConfig_ToolChoiceMode_ToolChoiceTypeUnspecified
+ *        Default value. This value is unused. (Value:
+ *        "TOOL_CHOICE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1GenerationConfig_ToolChoiceMode_Validated
+ *        Validated tool choice. (Value: "VALIDATED")
+ */
+@property(nonatomic, copy, nullable) NSString *toolChoiceMode;
+
+/**
+ *  The maximum cumulative probability of tokens to consider when sampling.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *topP GTLR_DEPRECATED;
+
+/**
+ *  Optional. Configuration for speech recognition (transcription). If present,
+ *  ASR is enabled.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1TranscriptionConfig *transcriptionConfig;
+
+/** Configuration for video generation. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1VideoConfig *videoConfig;
+
+@end
+
+
+/**
+ *  A tool that can be used by the model to call Google Maps.
+ */
+@interface GTLRAiplatform_GenaiVertexV1GoogleMaps : GTLRObject
+
+/**
+ *  Whether to return a widget context token in the tool call result of the
+ *  response.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableWidget;
+
+/**
+ *  The latitude of the user's location.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *latitude;
+
+/**
+ *  The longitude of the user's location.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *longitude;
+
+@end
+
+
+/**
+ *  The arguments to pass to the Google Maps tool.
+ */
+@interface GTLRAiplatform_GenaiVertexV1GoogleMapsCallContentGoogleMapsCallArguments : GTLRObject
+
+/** The queries to be executed. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *queries;
+
+@end
+
+
+/**
+ *  GTLRAiplatform_GenaiVertexV1GoogleMapsCallDelta
+ */
+@interface GTLRAiplatform_GenaiVertexV1GoogleMapsCallDelta : GTLRObject
+
+/** The arguments to pass to the Google Maps tool. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1GoogleMapsCallContentGoogleMapsCallArguments *arguments;
+
+@end
+
+
+/**
+ *  Google Maps call step.
+ */
+@interface GTLRAiplatform_GenaiVertexV1GoogleMapsCallStep : GTLRObject
+
+/** The arguments to pass to the Google Maps tool. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1GoogleMapsCallStepGoogleMapsCallStepArguments *arguments;
+
+@end
+
+
+/**
+ *  The arguments to pass to the Google Maps tool.
+ */
+@interface GTLRAiplatform_GenaiVertexV1GoogleMapsCallStepGoogleMapsCallStepArguments : GTLRObject
+
+/** The queries to be executed. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *queries;
+
+@end
+
+
+/**
+ *  The result of the Google Maps.
+ */
+@interface GTLRAiplatform_GenaiVertexV1GoogleMapsResultContentGoogleMapsResult : GTLRObject
+
+/** The places that were found. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GenaiVertexV1GoogleMapsResultContentGoogleMapsResultPlaces *> *places;
+
+/** Resource name of the Google Maps widget context token. */
+@property(nonatomic, copy, nullable) NSString *widgetContextToken;
+
+@end
+
+
+/**
+ *  GTLRAiplatform_GenaiVertexV1GoogleMapsResultContentGoogleMapsResultPlaces
+ */
+@interface GTLRAiplatform_GenaiVertexV1GoogleMapsResultContentGoogleMapsResultPlaces : GTLRObject
+
+/** Title of the place. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The ID of the place, in `places/{place_id}` format. */
+@property(nonatomic, copy, nullable) NSString *placeId;
+
+/**
+ *  Snippets of reviews that are used to generate answers about the features of
+ *  a given place in Google Maps.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GenaiVertexV1ReviewSnippet *> *reviewSnippets;
+
+/** URI reference of the place. */
+@property(nonatomic, copy, nullable) NSString *url;
+
+@end
+
+
+/**
+ *  GTLRAiplatform_GenaiVertexV1GoogleMapsResultDelta
+ */
+@interface GTLRAiplatform_GenaiVertexV1GoogleMapsResultDelta : GTLRObject
+
+/** The results of the Google Maps. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GenaiVertexV1GoogleMapsResultContentGoogleMapsResult *> *result;
+
+@end
+
+
+/**
+ *  Google Maps result step.
+ */
+@interface GTLRAiplatform_GenaiVertexV1GoogleMapsResultStep : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GenaiVertexV1GoogleMapsResultStepGoogleMapsResultItem *> *result;
+
+@end
+
+
+/**
+ *  The result of the Google Maps.
+ */
+@interface GTLRAiplatform_GenaiVertexV1GoogleMapsResultStepGoogleMapsResultItem : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GenaiVertexV1GoogleMapsResultStepGoogleMapsResultItemGoogleMapsResultPlaces *> *places;
+@property(nonatomic, copy, nullable) NSString *widgetContextToken;
+
+@end
+
+
+/**
+ *  GTLRAiplatform_GenaiVertexV1GoogleMapsResultStepGoogleMapsResultItemGoogleMapsResultPlaces
+ */
+@interface GTLRAiplatform_GenaiVertexV1GoogleMapsResultStepGoogleMapsResultItemGoogleMapsResultPlaces : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *placeId;
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GenaiVertexV1ReviewSnippet *> *reviewSnippets;
+@property(nonatomic, copy, nullable) NSString *url;
+
+@end
+
+
+/**
+ *  A tool that can be used by the model to search Google.
+ */
+@interface GTLRAiplatform_GenaiVertexV1GoogleSearch : GTLRObject
+
+/** The types of search grounding to enable. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *searchTypes;
+
+@end
+
+
+/**
+ *  The arguments to pass to Google Search.
+ */
+@interface GTLRAiplatform_GenaiVertexV1GoogleSearchCallContentGoogleSearchCallArguments : GTLRObject
+
+/** Web search queries for the following-up web search. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *queries;
+
+@end
+
+
+/**
+ *  GTLRAiplatform_GenaiVertexV1GoogleSearchCallDelta
+ */
+@interface GTLRAiplatform_GenaiVertexV1GoogleSearchCallDelta : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1GoogleSearchCallContentGoogleSearchCallArguments *arguments;
+
+@end
+
+
+/**
+ *  Google Search call step.
+ */
+@interface GTLRAiplatform_GenaiVertexV1GoogleSearchCallStep : GTLRObject
+
+/** Required. The arguments to pass to Google Search. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1GoogleSearchCallStepGoogleSearchCallStepArguments *arguments;
+
+/**
+ *  The type of search grounding enabled.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1GoogleSearchCallStep_SearchType_SearchTypeEnterpriseWebSearch
+ *        Setting this field enables enterprise web search. (Value:
+ *        "SEARCH_TYPE_ENTERPRISE_WEB_SEARCH")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1GoogleSearchCallStep_SearchType_SearchTypeImageSearch
+ *        Setting this field enables image search. Image bytes are returned.
+ *        (Value: "SEARCH_TYPE_IMAGE_SEARCH")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1GoogleSearchCallStep_SearchType_SearchTypeUnspecified
+ *        Unspecified search type. This value should not be used. (Value:
+ *        "SEARCH_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1GoogleSearchCallStep_SearchType_SearchTypeWebSearch
+ *        Setting this field enables web search. Only text results are returned.
+ *        (Value: "SEARCH_TYPE_WEB_SEARCH")
+ */
+@property(nonatomic, copy, nullable) NSString *searchType;
+
+@end
+
+
+/**
+ *  The arguments to pass to Google Search.
+ */
+@interface GTLRAiplatform_GenaiVertexV1GoogleSearchCallStepGoogleSearchCallStepArguments : GTLRObject
+
+/** Web search queries for the following-up web search. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *queries;
+
+@end
+
+
+/**
+ *  The result of the Google Search.
+ */
+@interface GTLRAiplatform_GenaiVertexV1GoogleSearchResultContentGoogleSearchResult : GTLRObject
+
+/**
+ *  Web content snippet that can be embedded in a web page or an app webview.
+ */
+@property(nonatomic, copy, nullable) NSString *searchSuggestions;
+
+@end
+
+
+/**
+ *  GTLRAiplatform_GenaiVertexV1GoogleSearchResultDelta
+ */
+@interface GTLRAiplatform_GenaiVertexV1GoogleSearchResultDelta : GTLRObject
+
+/**
+ *  isError
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isError;
+
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GenaiVertexV1GoogleSearchResultContentGoogleSearchResult *> *result;
+
+@end
+
+
+/**
+ *  Google Search result step.
+ */
+@interface GTLRAiplatform_GenaiVertexV1GoogleSearchResultStep : GTLRObject
+
+/**
+ *  Whether the Google Search resulted in an error.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isError;
+
+/** Required. The results of the Google Search. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GenaiVertexV1GoogleSearchResultStepGoogleSearchResultItem *> *result;
+
+@end
+
+
+/**
+ *  The result of the Google Search.
+ */
+@interface GTLRAiplatform_GenaiVertexV1GoogleSearchResultStepGoogleSearchResultItem : GTLRObject
+
+/**
+ *  Web content snippet that can be embedded in a web page or an app webview.
+ */
+@property(nonatomic, copy, nullable) NSString *searchSuggestions;
+
+@end
+
+
+/**
+ *  An image content block.
+ */
+@interface GTLRAiplatform_GenaiVertexV1ImageContent : GTLRObject
+
+/**
+ *  The image content.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *data;
+
+/**
+ *  Flexible MIME type string of the image, superseding mime_type = 1. Note:
+ *  Bespoke logic in the GAOS parser/serializer maps this to the "mime_type"
+ *  JSON key.
+ */
+@property(nonatomic, copy, nullable) NSString *mimeTypeString;
+
+/**
+ *  The resolution of the media.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1ImageContent_Resolution_High High
+ *        resolution. (Value: "HIGH")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1ImageContent_Resolution_Low Low
+ *        resolution. (Value: "LOW")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1ImageContent_Resolution_MediaResolutionUnspecified
+ *        Default value. This value is unused. (Value:
+ *        "MEDIA_RESOLUTION_UNSPECIFIED")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1ImageContent_Resolution_Medium Medium
+ *        resolution. (Value: "MEDIUM")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1ImageContent_Resolution_UltraHigh
+ *        Ultra high resolution. (Value: "ULTRA_HIGH")
+ */
+@property(nonatomic, copy, nullable) NSString *resolution;
+
+/** The URI of the image. */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  GTLRAiplatform_GenaiVertexV1ImageDelta
+ */
+@interface GTLRAiplatform_GenaiVertexV1ImageDelta : GTLRObject
+
+/**
+ *  data
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *data;
+
+/**
+ *  mimeType
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1ImageDelta_MimeType_TypeBmp BMP image
+ *        format (Value: "TYPE_BMP")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1ImageDelta_MimeType_TypeGif GIF image
+ *        format (Value: "TYPE_GIF")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1ImageDelta_MimeType_TypeHeic HEIC
+ *        image format (Value: "TYPE_HEIC")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1ImageDelta_MimeType_TypeHeif HEIF
+ *        image format (Value: "TYPE_HEIF")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1ImageDelta_MimeType_TypeJpeg JPEG
+ *        image format (Value: "TYPE_JPEG")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1ImageDelta_MimeType_TypePng PNG image
+ *        format (Value: "TYPE_PNG")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1ImageDelta_MimeType_TypeTiff TIFF
+ *        image format (Value: "TYPE_TIFF")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1ImageDelta_MimeType_TypeUnspecified
+ *        Value "TYPE_UNSPECIFIED"
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1ImageDelta_MimeType_TypeWebp WebP
+ *        image format (Value: "TYPE_WEBP")
+ */
+@property(nonatomic, copy, nullable) NSString *mimeType;
+
+/**
+ *  The resolution of the media.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1ImageDelta_Resolution_High High
+ *        resolution. (Value: "HIGH")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1ImageDelta_Resolution_Low Low
+ *        resolution. (Value: "LOW")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1ImageDelta_Resolution_MediaResolutionUnspecified
+ *        Default value. This value is unused. (Value:
+ *        "MEDIA_RESOLUTION_UNSPECIFIED")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1ImageDelta_Resolution_Medium Medium
+ *        resolution. (Value: "MEDIUM")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1ImageDelta_Resolution_UltraHigh Ultra
+ *        high resolution. (Value: "ULTRA_HIGH")
+ */
+@property(nonatomic, copy, nullable) NSString *resolution;
+
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  Configuration for image output format.
+ */
+@interface GTLRAiplatform_GenaiVertexV1ImageResponseFormat : GTLRObject
+
+/**
+ *  The aspect ratio for the image output.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1ImageResponseFormat_AspectRatio_AspectRatioEightByOne
+ *        8:1 aspect ratio. (Value: "ASPECT_RATIO_EIGHT_BY_ONE")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1ImageResponseFormat_AspectRatio_AspectRatioFiveByFour
+ *        5:4 aspect ratio. (Value: "ASPECT_RATIO_FIVE_BY_FOUR")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1ImageResponseFormat_AspectRatio_AspectRatioFourByFive
+ *        4:5 aspect ratio. (Value: "ASPECT_RATIO_FOUR_BY_FIVE")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1ImageResponseFormat_AspectRatio_AspectRatioFourByOne
+ *        4:1 aspect ratio. (Value: "ASPECT_RATIO_FOUR_BY_ONE")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1ImageResponseFormat_AspectRatio_AspectRatioFourByThree
+ *        4:3 aspect ratio. (Value: "ASPECT_RATIO_FOUR_BY_THREE")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1ImageResponseFormat_AspectRatio_AspectRatioNineBySixteen
+ *        9:16 aspect ratio. (Value: "ASPECT_RATIO_NINE_BY_SIXTEEN")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1ImageResponseFormat_AspectRatio_AspectRatioOneByEight
+ *        1:8 aspect ratio. (Value: "ASPECT_RATIO_ONE_BY_EIGHT")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1ImageResponseFormat_AspectRatio_AspectRatioOneByFour
+ *        1:4 aspect ratio. (Value: "ASPECT_RATIO_ONE_BY_FOUR")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1ImageResponseFormat_AspectRatio_AspectRatioOneByOne
+ *        1:1 aspect ratio. (Value: "ASPECT_RATIO_ONE_BY_ONE")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1ImageResponseFormat_AspectRatio_AspectRatioSixteenByNine
+ *        16:9 aspect ratio. (Value: "ASPECT_RATIO_SIXTEEN_BY_NINE")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1ImageResponseFormat_AspectRatio_AspectRatioThreeByFour
+ *        3:4 aspect ratio. (Value: "ASPECT_RATIO_THREE_BY_FOUR")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1ImageResponseFormat_AspectRatio_AspectRatioThreeByTwo
+ *        3:2 aspect ratio. (Value: "ASPECT_RATIO_THREE_BY_TWO")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1ImageResponseFormat_AspectRatio_AspectRatioTwentyOneByNine
+ *        21:9 aspect ratio. (Value: "ASPECT_RATIO_TWENTY_ONE_BY_NINE")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1ImageResponseFormat_AspectRatio_AspectRatioTwoByThree
+ *        2:3 aspect ratio. (Value: "ASPECT_RATIO_TWO_BY_THREE")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1ImageResponseFormat_AspectRatio_AspectRatioUnspecified
+ *        Default value. This value is unused. (Value:
+ *        "ASPECT_RATIO_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *aspectRatio;
+
+/**
+ *  The delivery mode for the image output.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1ImageResponseFormat_Delivery_DeliveryUnspecified
+ *        Default value. This value is unused. (Value: "DELIVERY_UNSPECIFIED")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1ImageResponseFormat_Delivery_Inline
+ *        Image data is returned inline in the response. (Value: "INLINE")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1ImageResponseFormat_Delivery_Uri
+ *        Image data is returned as a URI. (Value: "URI")
+ */
+@property(nonatomic, copy, nullable) NSString *delivery;
+
+/**
+ *  The size of the image output.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1ImageResponseFormat_ImageSize_ImageSizeFiveTwelve
+ *        512px image size. (Value: "IMAGE_SIZE_FIVE_TWELVE")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1ImageResponseFormat_ImageSize_ImageSizeFourK
+ *        4K image size. (Value: "IMAGE_SIZE_FOUR_K")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1ImageResponseFormat_ImageSize_ImageSizeOneK
+ *        1K image size. (Value: "IMAGE_SIZE_ONE_K")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1ImageResponseFormat_ImageSize_ImageSizeTwoK
+ *        2K image size. (Value: "IMAGE_SIZE_TWO_K")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1ImageResponseFormat_ImageSize_ImageSizeUnspecified
+ *        Default value. This value is unused. (Value: "IMAGE_SIZE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *imageSize;
+
+/**
+ *  The MIME type of the image output.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1ImageResponseFormat_MimeType_TypeJpeg
+ *        JPEG image format. (Value: "TYPE_JPEG")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1ImageResponseFormat_MimeType_TypeUnspecified
+ *        Default value. This value is unused. (Value: "TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *mimeType;
+
+@end
+
+
+/**
+ *  Response for InteractionService.CreateInteraction.
+ */
+@interface GTLRAiplatform_GenaiVertexV1Interaction : GTLRObject
+
+/** Interaction for generating the completion using agents. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1AgentInteraction *agentInteraction;
+
+/** The content for the interaction. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1Content *content;
+
+/**
+ *  Required. Output only. The time at which the response was created in ISO
+ *  8601 format (YYYY-MM-DDThh:mm:ssZ).
+ */
+@property(nonatomic, copy, nullable) NSString *created;
+
+/**
+ *  The environment ID for the interaction. Can be 'remote' for default
+ *  environment.
+ */
+@property(nonatomic, copy, nullable) NSString *envId;
+
+/**
+ *  Output only. The environment ID for the interaction. Only populated if
+ *  environment config is set in the request.
+ */
+@property(nonatomic, copy, nullable) NSString *environmentId;
+
+/**
+ *  Output only. Diagnostic faults / platform errors recorded on the
+ *  interaction.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GenaiVertexV1Error *> *errors;
+
+/**
+ *  Required. Output only. A unique identifier for the interaction completion.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  The labels with user-defined metadata for the request. Label keys and values
+ *  can be no longer than 63 characters (Unicode codepoints) and can only
+ *  contain lowercase letters, numeric characters, underscores, and dashes.
+ *  International characters are allowed. Label values are optional. Label keys
+ *  must start with a letter.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1Interaction_Labels *labels;
+
+/** Interaction for generating the completion using models. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1ModelInteraction *modelInteraction;
+
+/** The ID of the previous interaction, if any. */
+@property(nonatomic, copy, nullable) NSString *previousInteractionId;
+
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1ResponseFormatList *responseFormatList;
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1ResponseFormat *responseFormatSingleton;
+
+/** Safety settings for the interaction. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GenaiVertexV1SafetySetting *> *safetySettings;
+
+/**
+ *  The service tier for the interaction.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1Interaction_ServiceTier_ServiceTierDeferred
+ *        Deferred service tier. (Value: "SERVICE_TIER_DEFERRED")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1Interaction_ServiceTier_ServiceTierFlex
+ *        Flex service tier. (Value: "SERVICE_TIER_FLEX")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1Interaction_ServiceTier_ServiceTierPriority
+ *        Priority service tier. (Value: "SERVICE_TIER_PRIORITY")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1Interaction_ServiceTier_ServiceTierStandard
+ *        Standard service tier. (Value: "SERVICE_TIER_STANDARD")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1Interaction_ServiceTier_ServiceTierUnspecified
+ *        Default service tier, which is standard. (Value:
+ *        "SERVICE_TIER_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *serviceTier;
+
+/**
+ *  Required. Output only. The status of the interaction.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1Interaction_Status_Cancelled The
+ *        interaction was cancelled. (Value: "CANCELLED")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1Interaction_Status_Completed The
+ *        interaction is completed. (Value: "COMPLETED")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1Interaction_Status_Failed The
+ *        interaction failed. (Value: "FAILED")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1Interaction_Status_Incomplete The
+ *        interaction is completed, but contains incomplete results (e.g.
+ *        hitting max_tokens). (Value: "INCOMPLETE")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1Interaction_Status_InProgress The
+ *        interaction is in progress. (Value: "IN_PROGRESS")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1Interaction_Status_Queued The
+ *        interaction is queued, waiting for processing (e.g. waiting for
+ *        off-peak capacity). (Value: "QUEUED")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1Interaction_Status_RequiresAction The
+ *        interaction requires action/input from the user. (Value:
+ *        "REQUIRES_ACTION")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1Interaction_Status_RequiresContinuation
+ *        The interaction requires at least one more request for it to be
+ *        completed. The next request should set the continuation_token to the
+ *        one returned by this request. (Value: "REQUIRES_CONTINUATION")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1Interaction_Status_Unspecified
+ *        Default value. This value is unused. (Value: "UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *status;
+
+/** Input only. The steps for the interaction. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1StepList *stepList;
+
+/**
+ *  Required. Output only. The steps that make up the interaction, when included
+ *  in the response.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GenaiVertexV1Step *> *steps;
+
+/**
+ *  A string input for the interaction, it will be processed as a single text
+ *  input.
+ */
+@property(nonatomic, copy, nullable) NSString *stringContent;
+
+/** System instruction for the interaction. */
+@property(nonatomic, copy, nullable) NSString *systemInstruction;
+
+/** A list of tool declarations the model may call during interaction. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GenaiVertexV1Tool *> *tools;
+
+/**
+ *  Required. Output only. The time at which the response was last updated in
+ *  ISO 8601 format (YYYY-MM-DDThh:mm:ssZ).
+ */
+@property(nonatomic, copy, nullable) NSString *updated;
+
+/** Output only. Statistics on the interaction request's token usage. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1InteractionUsage *usage;
+
+@end
+
+
+/**
+ *  The labels with user-defined metadata for the request. Label keys and values
+ *  can be no longer than 63 characters (Unicode codepoints) and can only
+ *  contain lowercase letters, numeric characters, underscores, and dashes.
+ *  International characters are allowed. Label values are optional. Label keys
+ *  must start with a letter.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRAiplatform_GenaiVertexV1Interaction_Labels : GTLRObject
+@end
+
+
+/**
+ *  Signals that the Interaction completed. Sent when the Interaction receives
+ *  Complete/Cancel or naturally terminates. No more input can be sent to the
+ *  Interaction after this.
+ */
+@interface GTLRAiplatform_GenaiVertexV1InteractionCompletedSseEvent : GTLRObject
+
+/**
+ *  Required. Partial completed interaction resource emitted at the end of the
+ *  stream.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1Interaction *interaction;
+
+@end
+
+
+/**
+ *  Server response confirming that a new interaction was created.
+ */
+@interface GTLRAiplatform_GenaiVertexV1InteractionCreatedSseEvent : GTLRObject
+
+/**
+ *  Required. Partial interaction resource emitted when the stream is created.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1Interaction *interaction;
+
+@end
+
+
+/**
+ *  GTLRAiplatform_GenaiVertexV1InteractionStatusUpdate
+ */
+@interface GTLRAiplatform_GenaiVertexV1InteractionStatusUpdate : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *interactionId;
+
+/**
+ *  status
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1InteractionStatusUpdate_Status_Cancelled
+ *        The interaction was cancelled. (Value: "CANCELLED")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1InteractionStatusUpdate_Status_Completed
+ *        The interaction is completed. (Value: "COMPLETED")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1InteractionStatusUpdate_Status_Failed
+ *        The interaction failed. (Value: "FAILED")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1InteractionStatusUpdate_Status_Incomplete
+ *        The interaction is completed, but contains incomplete results (e.g.
+ *        hitting max_tokens). (Value: "INCOMPLETE")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1InteractionStatusUpdate_Status_InProgress
+ *        The interaction is in progress. (Value: "IN_PROGRESS")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1InteractionStatusUpdate_Status_Queued
+ *        The interaction is queued, waiting for processing (e.g. waiting for
+ *        off-peak capacity). (Value: "QUEUED")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1InteractionStatusUpdate_Status_RequiresAction
+ *        The interaction requires action/input from the user. (Value:
+ *        "REQUIRES_ACTION")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1InteractionStatusUpdate_Status_RequiresContinuation
+ *        The interaction requires at least one more request for it to be
+ *        completed. The next request should set the continuation_token to the
+ *        one returned by this request. (Value: "REQUIRES_CONTINUATION")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1InteractionStatusUpdate_Status_Unspecified
+ *        Default value. This value is unused. (Value: "UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *status;
+
+/** Model usage statistics up to this checkpoint. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1InteractionUsage *usage;
+
+@end
+
+
+/**
+ *  GTLRAiplatform_GenaiVertexV1InteractionStreamingEvent
+ */
+@interface GTLRAiplatform_GenaiVertexV1InteractionStreamingEvent : GTLRObject
+
+/** The error event data, used for error events. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1ErrorEvent *errorEvent;
+
+/**
+ *  The event_id token to be used to resume the interaction stream, from this
+ *  event.
+ */
+@property(nonatomic, copy, nullable) NSString *eventId;
+
+/**
+ *  The interaction data, used for interaction.completed events. Used when steps
+ *  are enabled.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1InteractionCompletedSseEvent *interactionCompletedEvent;
+
+/**
+ *  The interaction data, used for interaction.created events. Used when steps
+ *  are enabled.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1InteractionCreatedSseEvent *interactionCreatedEvent;
+
+/** The interaction status data, used for interaction.status_update events. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1InteractionStatusUpdate *interactionStatusUpdate;
+
+/**
+ *  The step delta data, used for step.delta events. Step-based streaming event,
+ *  used when steps are enabled.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1StepDelta *stepDelta;
+
+/**
+ *  The step start data, used for step.start events. Step-based streaming event,
+ *  used when steps are enabled.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1StepStart *stepStart;
+
+/**
+ *  The step stop data, used for step.stop events. Step-based streaming event,
+ *  used when steps are enabled.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1StepStop *stepStop;
+
+@end
+
+
+/**
+ *  Statistics on the interaction request's token usage.
+ */
+@interface GTLRAiplatform_GenaiVertexV1InteractionUsage : GTLRObject
+
+/** A breakdown of cached token usage by modality. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GenaiVertexV1InteractionUsageModalityTokens *> *cachedTokensByModality;
+
+/** Grounding tool count. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GenaiVertexV1InteractionUsageGroundingToolCount *> *groundingToolCount;
+
+/**
+ *  Number of input tokens used in the first turn of this interaction.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *initialInputTokens;
+
+/** A breakdown of input token usage by modality. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GenaiVertexV1InteractionUsageModalityTokens *> *inputTokensByModality;
+
+/** A breakdown of output token usage by modality. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GenaiVertexV1InteractionUsageModalityTokens *> *outputTokensByModality;
+
+/** A breakdown of tool-use token usage by modality. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GenaiVertexV1InteractionUsageModalityTokens *> *toolUseTokensByModality;
+
+/**
+ *  Number of tokens in the cached part of the prompt (the cached content).
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalCachedTokens;
+
+/**
+ *  Number of tokens in the prompt (context).
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalInputTokens;
+
+/**
+ *  Total number of tokens across all the generated responses.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalOutputTokens;
+
+/**
+ *  Number of tokens of thoughts for thinking models.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalThoughtTokens;
+
+/**
+ *  Total token count for the interaction request (prompt + responses + other
+ *  internal tokens).
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalTokens;
+
+/**
+ *  Number of tokens present in tool-use prompt(s).
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalToolUseTokens;
+
+@end
+
+
+/**
+ *  The number of grounding tool counts.
+ */
+@interface GTLRAiplatform_GenaiVertexV1InteractionUsageGroundingToolCount : GTLRObject
+
+/**
+ *  The number of grounding tool counts.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *count;
+
+/**
+ *  The grounding tool type associated with the count.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1InteractionUsageGroundingToolCount_Type_GoogleMaps
+ *        Grounding with Google Maps. (Value: "GOOGLE_MAPS")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1InteractionUsageGroundingToolCount_Type_GoogleSearch
+ *        Grounding with Google Web Search and Image Search, & Web Grounding for
+ *        Enterprise. (Value: "GOOGLE_SEARCH")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1InteractionUsageGroundingToolCount_Type_Retrieval
+ *        Grounding with customer's data, for example, VertexAISearch. (Value:
+ *        "RETRIEVAL")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1InteractionUsageGroundingToolCount_Type_TypeUnspecified
+ *        Default value. This value is unused. (Value: "TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  The token count for a single response modality.
+ */
+@interface GTLRAiplatform_GenaiVertexV1InteractionUsageModalityTokens : GTLRObject
+
+/**
+ *  The modality associated with the token count.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1InteractionUsageModalityTokens_Modality_Audio
+ *        Indicates the model should return audio. (Value: "AUDIO")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1InteractionUsageModalityTokens_Modality_Document
+ *        Indicates the model should return documents. (Value: "DOCUMENT")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1InteractionUsageModalityTokens_Modality_Image
+ *        Indicates the model should return images. (Value: "IMAGE")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1InteractionUsageModalityTokens_Modality_ResponseModalityUnspecified
+ *        Default value. This value is unused. (Value:
+ *        "RESPONSE_MODALITY_UNSPECIFIED")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1InteractionUsageModalityTokens_Modality_Text
+ *        Indicates the model should return text. (Value: "TEXT")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1InteractionUsageModalityTokens_Modality_Video
+ *        Indicates the model should return video. (Value: "VIDEO")
+ */
+@property(nonatomic, copy, nullable) NSString *modality;
+
+/**
+ *  Number of tokens for the modality.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *tokens;
+
+@end
+
+
+/**
+ *  `ListValue` is a wrapper around a repeated field of values.
+ */
+@interface GTLRAiplatform_GenaiVertexV1ListValue : GTLRObject
+
+/** Repeated field of dynamically typed values. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GenaiVertexV1Value *> *values;
+
+@end
+
+
+/**
+ *  A MCPServer is a server that can be called by the model to perform actions.
+ */
+@interface GTLRAiplatform_GenaiVertexV1McpServer : GTLRObject
+
+/** The allowed tools. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GenaiVertexV1AllowedTools *> *allowedTools;
+
+/** Optional: Fields for authentication headers, timeouts, etc., if needed. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1McpServer_Headers *headers;
+
+/** The name of the MCPServer. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The full URL for the MCPServer endpoint. Example:
+ *  "https://api.example.com/mcp"
+ */
+@property(nonatomic, copy, nullable) NSString *url;
+
+@end
+
+
+/**
+ *  Optional: Fields for authentication headers, timeouts, etc., if needed.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRAiplatform_GenaiVertexV1McpServer_Headers : GTLRObject
+@end
+
+
+/**
+ *  Interaction for generating the completion using models.
+ */
+@interface GTLRAiplatform_GenaiVertexV1ModelInteraction : GTLRObject
+
+/** Input only. Configuration parameters for the model interaction. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1GenerationConfig *generationConfig;
+
+/** The name of the `Model` used for generating the completion. */
+@property(nonatomic, copy, nullable) NSString *model;
+
+@end
+
+
+/**
+ *  Output generated by the model.
+ */
+@interface GTLRAiplatform_GenaiVertexV1ModelOutputStep : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GenaiVertexV1Content *> *content;
+
+/** The error result of the operation in case of failure or cancellation. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleRpcStatus *error GTLR_DEPRECATED;
+
+@end
+
+
+/**
+ *  Used to specify configuration for ParallelAISearch.
+ */
+@interface GTLRAiplatform_GenaiVertexV1ParallelAISearchConfig : GTLRObject
+
+/** Optional. The API key for ParallelAiSearch. */
+@property(nonatomic, copy, nullable) NSString *apiKey;
+
+/** Optional. Custom configs for ParallelAiSearch. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1ParallelAISearchConfig_CustomConfig *customConfig;
+
+@end
+
+
+/**
+ *  Optional. Custom configs for ParallelAiSearch.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRAiplatform_GenaiVertexV1ParallelAISearchConfig_CustomConfig : GTLRObject
+@end
+
+
+/**
+ *  A place citation annotation.
+ */
+@interface GTLRAiplatform_GenaiVertexV1PlaceCitation : GTLRObject
+
+/** Title of the place. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The ID of the place, in `places/{place_id}` format. */
+@property(nonatomic, copy, nullable) NSString *placeId;
+
+/**
+ *  Snippets of reviews that are used to generate answers about the features of
+ *  a given place in Google Maps.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GenaiVertexV1ReviewSnippet *> *reviewSnippets;
+
+/** URI reference of the place. */
+@property(nonatomic, copy, nullable) NSString *url;
+
+@end
+
+
+/**
+ *  Streaming delta for a server-initiated media processing step.
+ */
+@interface GTLRAiplatform_GenaiVertexV1ProcessingCallDelta : GTLRObject
+@end
+
+
+/**
+ *  A server-initiated processing step for media analysis (e.g. video
+ *  understanding).
+ */
+@interface GTLRAiplatform_GenaiVertexV1ProcessingCallStep : GTLRObject
+@end
+
+
+/**
+ *  Streaming delta for the result of a server-initiated media processing step.
+ */
+@interface GTLRAiplatform_GenaiVertexV1ProcessingResultDelta : GTLRObject
+@end
+
+
+/**
+ *  The result of a server-initiated media processing step.
+ */
+@interface GTLRAiplatform_GenaiVertexV1ProcessingResultStep : GTLRObject
+@end
+
+
+/**
+ *  Use to specify configuration for RAG Store.
+ */
+@interface GTLRAiplatform_GenaiVertexV1RagStoreConfig : GTLRObject
+
+/** Optional. The representation of the rag source. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GenaiVertexV1RagStoreConfigRagResource *> *ragResources;
+
+/** Optional. The retrieval config for the Rag query. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1RagStoreConfigRagRetrievalConfig *ragRetrievalConfig;
+
+@end
+
+
+/**
+ *  The definition of the Rag resource.
+ */
+@interface GTLRAiplatform_GenaiVertexV1RagStoreConfigRagResource : GTLRObject
+
+/** Optional. RagCorpora resource name. */
+@property(nonatomic, copy, nullable) NSString *ragCorpus;
+
+/**
+ *  Optional. rag_file_id. The files should be in the same rag_corpus set in
+ *  rag_corpus field.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *ragFileIds;
+
+@end
+
+
+/**
+ *  Specifies the context retrieval config.
+ */
+@interface GTLRAiplatform_GenaiVertexV1RagStoreConfigRagRetrievalConfig : GTLRObject
+
+/** Optional. Config for filters. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1RagStoreConfigRagRetrievalConfigFilter *filter;
+
+/** Optional. Config for Hybrid Search. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1RagStoreConfigRagRetrievalConfigHybridSearch *hybridSearch;
+
+/** Optional. Config for ranking and reranking. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1RagStoreConfigRagRetrievalConfigRanking *ranking;
+
+/**
+ *  Optional. The number of contexts to retrieve.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *topK;
+
+@end
+
+
+/**
+ *  Config for filters.
+ */
+@interface GTLRAiplatform_GenaiVertexV1RagStoreConfigRagRetrievalConfigFilter : GTLRObject
+
+/** Optional. String for metadata filtering. */
+@property(nonatomic, copy, nullable) NSString *metadataFilter;
+
+/**
+ *  Optional. Only returns contexts with vector distance smaller than the
+ *  threshold.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *vectorDistanceThreshold;
+
+/**
+ *  Optional. Only returns contexts with vector similarity larger than the
+ *  threshold.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *vectorSimilarityThreshold;
+
+@end
+
+
+/**
+ *  Config for Hybrid Search.
+ */
+@interface GTLRAiplatform_GenaiVertexV1RagStoreConfigRagRetrievalConfigHybridSearch : GTLRObject
+
+/**
+ *  Optional. Alpha value controls the weight between dense and sparse vector
+ *  search results.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *alpha;
+
+@end
+
+
+/**
+ *  Config for ranking and reranking.
+ */
+@interface GTLRAiplatform_GenaiVertexV1RagStoreConfigRagRetrievalConfigRanking : GTLRObject
+
+/** Config for Rank Service. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1RagStoreConfigRagRetrievalConfigRankingRankService *rankService;
+
+@end
+
+
+/**
+ *  Config for Rank Service.
+ */
+@interface GTLRAiplatform_GenaiVertexV1RagStoreConfigRagRetrievalConfigRankingRankService : GTLRObject
+
+/** Optional. The model name of the rank service. */
+@property(nonatomic, copy, nullable) NSString *modelName;
+
+@end
+
+
+/**
+ *  GTLRAiplatform_GenaiVertexV1ResponseFormat
+ */
+@interface GTLRAiplatform_GenaiVertexV1ResponseFormat : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1AudioResponseFormat *audio;
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1ImageResponseFormat *image;
+
+/** Multi-discriminator values is already enabled in GAOS */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1Struct *structValue;
+
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1TextResponseFormat *text;
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1VideoResponseFormat *video;
+
+@end
+
+
+/**
+ *  GTLRAiplatform_GenaiVertexV1ResponseFormatList
+ */
+@interface GTLRAiplatform_GenaiVertexV1ResponseFormatList : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GenaiVertexV1ResponseFormat *> *responseFormats;
+
+@end
+
+
+/**
+ *  A tool that can be used by the model to retrieve files.
+ */
+@interface GTLRAiplatform_GenaiVertexV1Retrieval : GTLRObject
+
+/** Used to specify configuration for ExaAISearch. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1ExaAISearchConfig *exaAiSearchConfig;
+
+/** Used to specify configuration for ParallelAISearch. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1ParallelAISearchConfig *parallelAiSearchConfig;
+
+/** Used to specify configuration for RagStore. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1RagStoreConfig *ragStoreConfig;
+
+/** The types of file retrieval to enable. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *retrievalTypes;
+
+/** Used to specify configuration for VertexAISearch. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1VertexAISearchConfig *vertexAiSearchConfig;
+
+@end
+
+
+/**
+ *  Used by Vertex Retrieval tools such as Parallel AI, Exa AI, Vertex AI
+ *  Search, etc. RetrievalType decides which tool is used.
+ */
+@interface GTLRAiplatform_GenaiVertexV1RetrievalCallDelta : GTLRObject
+
+/** Required. The arguments to pass to the Retrieval tool. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1RetrievalCallStepRetrievalStepArguments *arguments;
+
+/**
+ *  The type of retrieval tools.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1RetrievalCallDelta_RetrievalType_RetrievalTypeExaAiSearch
+ *        Value "RETRIEVAL_TYPE_EXA_AI_SEARCH"
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1RetrievalCallDelta_RetrievalType_RetrievalTypeParallelAiSearch
+ *        Value "RETRIEVAL_TYPE_PARALLEL_AI_SEARCH"
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1RetrievalCallDelta_RetrievalType_RetrievalTypeRagStore
+ *        Value "RETRIEVAL_TYPE_RAG_STORE"
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1RetrievalCallDelta_RetrievalType_RetrievalTypeUnspecified
+ *        Value "RETRIEVAL_TYPE_UNSPECIFIED"
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1RetrievalCallDelta_RetrievalType_RetrievalTypeVertexAiSearch
+ *        Value "RETRIEVAL_TYPE_VERTEX_AI_SEARCH"
+ */
+@property(nonatomic, copy, nullable) NSString *retrievalType;
+
+@end
+
+
+/**
+ *  Retrieval call step. Used by Vertex Retrieval tools such as Parallel AI, Exa
+ *  AI, Vertex AI Search, etc. RetrievalType decides which tool is used.
+ */
+@interface GTLRAiplatform_GenaiVertexV1RetrievalCallStep : GTLRObject
+
+/** Required. The arguments to pass to the retrieval tool. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1RetrievalCallStepRetrievalStepArguments *arguments;
+
+/**
+ *  The type of retrieval tools.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1RetrievalCallStep_RetrievalType_RetrievalTypeExaAiSearch
+ *        Value "RETRIEVAL_TYPE_EXA_AI_SEARCH"
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1RetrievalCallStep_RetrievalType_RetrievalTypeParallelAiSearch
+ *        Value "RETRIEVAL_TYPE_PARALLEL_AI_SEARCH"
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1RetrievalCallStep_RetrievalType_RetrievalTypeRagStore
+ *        Value "RETRIEVAL_TYPE_RAG_STORE"
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1RetrievalCallStep_RetrievalType_RetrievalTypeUnspecified
+ *        Value "RETRIEVAL_TYPE_UNSPECIFIED"
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1RetrievalCallStep_RetrievalType_RetrievalTypeVertexAiSearch
+ *        Value "RETRIEVAL_TYPE_VERTEX_AI_SEARCH"
+ */
+@property(nonatomic, copy, nullable) NSString *retrievalType;
+
+@end
+
+
+/**
+ *  The arguments to pass to Retrieval tools.
+ */
+@interface GTLRAiplatform_GenaiVertexV1RetrievalCallStepRetrievalStepArguments : GTLRObject
+
+/** Queries for Retrieval information. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *queries;
+
+@end
+
+
+/**
+ *  Used by Vertex Retrieval tools such as Parallel AI, Exa AI, Vertex AI
+ *  Search, etc. ToolResultDelta.type
+ */
+@interface GTLRAiplatform_GenaiVertexV1RetrievalResultDelta : GTLRObject
+
+/**
+ *  Whether the retrieval resulted in an error.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isError;
+
+@end
+
+
+/**
+ *  Vertex Retrieval result step. Used by Vertex Retrieval tools such as
+ *  Parallel AI, Exa AI, Vertex AI Search, etc.
+ */
+@interface GTLRAiplatform_GenaiVertexV1RetrievalResultStep : GTLRObject
+
+/**
+ *  Whether the retrieval resulted in an error.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isError;
+
+@end
+
+
+/**
+ *  Encapsulates a snippet of a user review that answers a question about the
+ *  features of a specific place in Google Maps.
+ */
+@interface GTLRAiplatform_GenaiVertexV1ReviewSnippet : GTLRObject
+
+/** The ID of the review snippet. */
+@property(nonatomic, copy, nullable) NSString *reviewId;
+
+/** Title of the review. */
+@property(nonatomic, copy, nullable) NSString *title;
+
+/** A link that corresponds to the user review on Google Maps. */
+@property(nonatomic, copy, nullable) NSString *url;
+
+@end
+
+
+/**
+ *  A safety setting that affects the safety-blocking behavior. A SafetySetting
+ *  consists of a harm category and a threshold for that category.
+ */
+@interface GTLRAiplatform_GenaiVertexV1SafetySetting : GTLRObject
+
+/**
+ *  Optional. The method for blocking content. If not specified, the default
+ *  behavior is to use the probability score.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1SafetySetting_Method_HarmBlockMethodUnspecified
+ *        The harm block method is unspecified. (Value:
+ *        "HARM_BLOCK_METHOD_UNSPECIFIED")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1SafetySetting_Method_Probability The
+ *        harm block method uses the probability score. (Value: "PROBABILITY")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1SafetySetting_Method_Severity The
+ *        harm block method uses both probability and severity scores. (Value:
+ *        "SEVERITY")
+ */
+@property(nonatomic, copy, nullable) NSString *method;
+
+/**
+ *  Required. The threshold for blocking content. If the harm probability
+ *  exceeds this threshold, the content will be blocked.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1SafetySetting_Threshold_BlockLowAndAbove
+ *        Block content with a low harm probability or higher. (Value:
+ *        "BLOCK_LOW_AND_ABOVE")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1SafetySetting_Threshold_BlockMediumAndAbove
+ *        Block content with a medium harm probability or higher. (Value:
+ *        "BLOCK_MEDIUM_AND_ABOVE")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1SafetySetting_Threshold_BlockNone Do
+ *        not block any content, regardless of its harm probability. (Value:
+ *        "BLOCK_NONE")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1SafetySetting_Threshold_BlockOnlyHigh
+ *        Block content with a high harm probability. (Value: "BLOCK_ONLY_HIGH")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1SafetySetting_Threshold_HarmBlockThresholdUnspecified
+ *        The harm block threshold is unspecified. (Value:
+ *        "HARM_BLOCK_THRESHOLD_UNSPECIFIED")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1SafetySetting_Threshold_Off Turn off
+ *        the safety filter entirely. (Value: "OFF")
+ */
+@property(nonatomic, copy, nullable) NSString *threshold;
+
+/**
+ *  Required. The type of harm category to be blocked.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1SafetySetting_Type_HarmCategoryCivicIntegrity
+ *        Deprecated: Election filter is not longer supported. The harm category
+ *        is civic integrity. (Value: "HARM_CATEGORY_CIVIC_INTEGRITY")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1SafetySetting_Type_HarmCategoryDangerousContent
+ *        Content that promotes, facilitates, or enables dangerous activities.
+ *        (Value: "HARM_CATEGORY_DANGEROUS_CONTENT")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1SafetySetting_Type_HarmCategoryHarassment
+ *        Abusive, threatening, or content intended to bully, torment, or
+ *        ridicule. (Value: "HARM_CATEGORY_HARASSMENT")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1SafetySetting_Type_HarmCategoryHateSpeech
+ *        Content that promotes violence or incites hatred against individuals
+ *        or groups based on certain attributes. (Value:
+ *        "HARM_CATEGORY_HATE_SPEECH")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1SafetySetting_Type_HarmCategoryImageDangerousContent
+ *        Images that contain dangerous content. (Value:
+ *        "HARM_CATEGORY_IMAGE_DANGEROUS_CONTENT")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1SafetySetting_Type_HarmCategoryImageHarassment
+ *        Images that contain harassment. (Value:
+ *        "HARM_CATEGORY_IMAGE_HARASSMENT")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1SafetySetting_Type_HarmCategoryImageHate
+ *        Images that contain hate speech. (Value: "HARM_CATEGORY_IMAGE_HATE")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1SafetySetting_Type_HarmCategoryImageSexuallyExplicit
+ *        Images that contain sexually explicit content. (Value:
+ *        "HARM_CATEGORY_IMAGE_SEXUALLY_EXPLICIT")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1SafetySetting_Type_HarmCategoryJailbreak
+ *        Prompts designed to bypass safety filters. (Value:
+ *        "HARM_CATEGORY_JAILBREAK")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1SafetySetting_Type_HarmCategorySexuallyExplicit
+ *        Content that contains sexually explicit material. (Value:
+ *        "HARM_CATEGORY_SEXUALLY_EXPLICIT")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1SafetySetting_Type_HarmCategoryUnspecified
+ *        Default value. This value is unused. (Value:
+ *        "HARM_CATEGORY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  GTLRAiplatform_GenaiVertexV1ServerToolCallDelta
+ */
+@interface GTLRAiplatform_GenaiVertexV1ServerToolCallDelta : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1CodeExecutionCallDelta *codeExecutionCall;
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1FileSearchCallDelta *fileSearchCall;
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1GoogleMapsCallDelta *googleMapsCall;
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1GoogleSearchCallDelta *googleSearchCall;
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1ProcessingCallDelta *processingCall;
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1RetrievalCallDelta *retrievalCall;
+
+/**
+ *  A signature hash for backend validation.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *signature;
+
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1UrlContextCallDelta *urlContextCall;
+
+@end
+
+
+/**
+ *  GTLRAiplatform_GenaiVertexV1ServerToolResultDelta
+ */
+@interface GTLRAiplatform_GenaiVertexV1ServerToolResultDelta : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1CodeExecutionResultDelta *codeExecutionResult;
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1FileSearchResultDelta *fileSearchResult;
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1GoogleMapsResultDelta *googleMapsResult;
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1GoogleSearchResultDelta *googleSearchResult;
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1ProcessingResultDelta *processingResult;
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1RetrievalResultDelta *retrievalResult;
+
+/**
+ *  A signature hash for backend validation.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *signature;
+
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1UrlContextResultDelta *urlContextResult;
+
+@end
+
+
+/**
+ *  Configuration for multi-speaker and speech generation.
+ */
+@interface GTLRAiplatform_GenaiVertexV1SpeakerConfig : GTLRObject
+
+/** Individual speaker configurations. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GenaiVertexV1SpeechConfig *> *speakers;
+
+@end
+
+
+/**
+ *  Speech annotation for text content.
+ */
+@interface GTLRAiplatform_GenaiVertexV1SpeechAnnotation : GTLRObject
+
+/** The speaker to associate with this turn. */
+@property(nonatomic, copy, nullable) NSString *speaker;
+
+/** Style instruction for the speech synthesis. */
+@property(nonatomic, copy, nullable) NSString *style;
+
+@end
+
+
+/**
+ *  The configuration for speech interaction.
+ */
+@interface GTLRAiplatform_GenaiVertexV1SpeechConfig : GTLRObject
+
+/** The language of the speech. */
+@property(nonatomic, copy, nullable) NSString *language;
+
+/**
+ *  The speaker's name, it should match the speaker name given in the prompt.
+ */
+@property(nonatomic, copy, nullable) NSString *speaker;
+
+/** The voice of the speaker. */
+@property(nonatomic, copy, nullable) NSString *voice;
+
+@end
+
+
+/**
+ *  A step in the interaction.
+ */
+@interface GTLRAiplatform_GenaiVertexV1Step : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1ModelOutputStep *modelOutput;
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1ThoughtStep *thought;
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1ToolCallStep *toolCall;
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1ToolResultStep *toolResult;
+
+/** DO NOT USE -- These are for 3P JSON only */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1UserInputStep *userInput;
+
+@end
+
+
+/**
+ *  GTLRAiplatform_GenaiVertexV1StepDelta
+ */
+@interface GTLRAiplatform_GenaiVertexV1StepDelta : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1StepDeltaData *delta;
+
+/**
+ *  index
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *index;
+
+@end
+
+
+/**
+ *  GTLRAiplatform_GenaiVertexV1StepDeltaData
+ */
+@interface GTLRAiplatform_GenaiVertexV1StepDeltaData : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1ArgumentsDelta *argumentsDelta;
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1AudioDelta *audio;
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1DocumentDelta *document;
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1FunctionResultDelta *functionResult;
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1ImageDelta *image;
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1ServerToolCallDelta *serverToolCall;
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1ServerToolResultDelta *serverToolResult;
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1TextDelta *text;
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1TextAnnotationDelta *textAnnotationDelta;
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1ThoughtSignatureDelta *thoughtSignature;
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1ThoughtSummaryDelta *thoughtSummary;
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1VideoDelta *video;
+
+@end
+
+
+/**
+ *  A list of Steps.
+ */
+@interface GTLRAiplatform_GenaiVertexV1StepList : GTLRObject
+
+/** The steps of the list. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GenaiVertexV1Step *> *steps;
+
+@end
+
+
+/**
+ *  GTLRAiplatform_GenaiVertexV1StepStart
+ */
+@interface GTLRAiplatform_GenaiVertexV1StepStart : GTLRObject
+
+/**
+ *  index
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *index;
+
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1Step *step;
+
+@end
+
+
+/**
+ *  GTLRAiplatform_GenaiVertexV1StepStop
+ */
+@interface GTLRAiplatform_GenaiVertexV1StepStop : GTLRObject
+
+/**
+ *  index
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *index;
+
+/** Model usage stats for this specific step. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1InteractionUsage *stepUsage;
+
+/** Cumulative model usage stats from the start of the session. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1InteractionUsage *usage;
+
+@end
+
+
+/**
+ *  `Struct` represents a structured data value, consisting of fields which map
+ *  to dynamically typed values.
+ */
+@interface GTLRAiplatform_GenaiVertexV1Struct : GTLRObject
+
+/**
+ *  Dynamically typed fields. List instead of map because LLMs are sensitive to
+ *  ordering, and we want to give users full control.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GenaiVertexV1Field *> *fields;
+
+@end
+
+
+/**
+ *  GTLRAiplatform_GenaiVertexV1TextAnnotationDelta
+ */
+@interface GTLRAiplatform_GenaiVertexV1TextAnnotationDelta : GTLRObject
+
+/** Citation information for model-generated content. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GenaiVertexV1TextContentAnnotation *> *annotations;
+
+@end
+
+
+/**
+ *  A text content block.
+ */
+@interface GTLRAiplatform_GenaiVertexV1TextContent : GTLRObject
+
+/** Citation information for model-generated content. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GenaiVertexV1TextContentAnnotation *> *annotations;
+
+/** Required. The text content. */
+@property(nonatomic, copy, nullable) NSString *text;
+
+@end
+
+
+/**
+ *  Citation information for model-generated content.
+ */
+@interface GTLRAiplatform_GenaiVertexV1TextContentAnnotation : GTLRObject
+
+/**
+ *  End of the attributed segment, exclusive.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *endIndex;
+
+/** A file citation annotation. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1FileCitation *fileCitation;
+
+/** A place citation annotation. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1PlaceCitation *placeCitation;
+
+/** Speech annotation for text content. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1SpeechAnnotation *speechMetadata;
+
+/**
+ *  Start of segment of the response that is attributed to this source. Index
+ *  indicates the start of the segment, measured in bytes.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *startIndex;
+
+/**
+ *  NOTE: We use these instead of the Citation message for historical reasons. A
+ *  URL citation annotation.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1UrlCitation *urlCitation;
+
+/** Word-level ASR annotation with timing and speaker info. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1WordInfo *wordInfo;
+
+@end
+
+
+/**
+ *  GTLRAiplatform_GenaiVertexV1TextDelta
+ */
+@interface GTLRAiplatform_GenaiVertexV1TextDelta : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *text;
+
+@end
+
+
+/**
+ *  Configuration for text output format.
+ */
+@interface GTLRAiplatform_GenaiVertexV1TextResponseFormat : GTLRObject
+
+/**
+ *  The MIME type of the text output.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1TextResponseFormat_MimeType_TypeApplicationJson
+ *        JSON output format. (Value: "TYPE_APPLICATION_JSON")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1TextResponseFormat_MimeType_TypeTextPlain
+ *        Plain text output format. (Value: "TYPE_TEXT_PLAIN")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1TextResponseFormat_MimeType_TypeUnspecified
+ *        Default value. This value is unused. (Value: "TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *mimeType;
+
+/**
+ *  The JSON schema that the output should conform to. Only applicable when
+ *  mime_type is application/json. Supports a subset of JSON Schema.
+ *  `minLength`, `maxLength`, `minProperties`, `maxProperties`, `uniqueItems`,
+ *  `contains`, `minContains`, and `maxContains` are ignored and not enforced;
+ *  validate these in your application. `minItems` and `maxItems` are enforced.
+ *  Schemas that are too complex to enforce (for example, large `maxItems` on
+ *  nested arrays) return a 400 INVALID_ARGUMENT error.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1Struct *schema;
+
+@end
+
+
+/**
+ *  GTLRAiplatform_GenaiVertexV1ThoughtSignatureDelta
+ */
+@interface GTLRAiplatform_GenaiVertexV1ThoughtSignatureDelta : GTLRObject
+
+/**
+ *  Signature to match the backend source to be part of the generation.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *signature;
+
+@end
+
+
+/**
+ *  A thought step.
+ */
+@interface GTLRAiplatform_GenaiVertexV1ThoughtStep : GTLRObject
+
+/**
+ *  A signature hash for backend validation.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *signature;
+
+/** A summary of the thought. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GenaiVertexV1Content *> *summary;
+
+@end
+
+
+/**
+ *  GTLRAiplatform_GenaiVertexV1ThoughtSummaryDelta
+ */
+@interface GTLRAiplatform_GenaiVertexV1ThoughtSummaryDelta : GTLRObject
+
+/** A new summary item to be added to the thought. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1Content *content;
+
+@end
+
+
+/**
+ *  A tool that can be used by the model.
+ */
+@interface GTLRAiplatform_GenaiVertexV1Tool : GTLRObject
+
+/** A tool that can be used by the model to execute code. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1CodeExecution *codeExecution;
+
+/** Tool to support the model interacting directly with the computer. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1ComputerUse *computerUse;
+
+/** A tool that can be used by the model to search files. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1FileSearch *fileSearch;
+
+/** A function that can be used by the model. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1Function *function;
+
+/** A tool that can be used by the model to search Google Maps. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1GoogleMaps *googleMaps;
+
+/** A tool that can be used by the model to search Google. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1GoogleSearch *googleSearch;
+
+/**
+ *  A MCPServer is a server that can be called by the model to perform actions.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1McpServer *mcpServer;
+
+/** A tool that can be used by the model to retrieve files. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1Retrieval *retrieval;
+
+/** A tool that can be used by the model to fetch URL context. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1UrlContext *urlContext;
+
+@end
+
+
+/**
+ *  Tool call step.
+ */
+@interface GTLRAiplatform_GenaiVertexV1ToolCallStep : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1CodeExecutionCallStep *codeExecutionCall;
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1FileSearchCallStep *fileSearchCall;
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1FunctionCallStep *functionCall;
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1GoogleMapsCallStep *googleMapsCall;
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1GoogleSearchCallStep *googleSearchCall;
+
+/**
+ *  Required. A unique ID for this specific tool call.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1ProcessingCallStep *processingCall;
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1RetrievalCallStep *retrievalCall;
+
+/**
+ *  A signature hash for backend validation.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *signature;
+
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1UrlContextCallStep *urlContextCall;
+
+@end
+
+
+/**
+ *  The tool choice configuration containing allowed tools.
+ */
+@interface GTLRAiplatform_GenaiVertexV1ToolChoiceConfig : GTLRObject
+
+/** The allowed tools. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1AllowedTools *allowedTools;
+
+@end
+
+
+/**
+ *  Tool result step.
+ */
+@interface GTLRAiplatform_GenaiVertexV1ToolResultStep : GTLRObject
+
+/** Required. ID to match the ID from the function call block. */
+@property(nonatomic, copy, nullable) NSString *callId;
+
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1CodeExecutionResultStep *codeExecutionResult;
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1FileSearchResultStep *fileSearchResult;
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1FunctionResultStep *functionResult;
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1GoogleMapsResultStep *googleMapsResult;
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1GoogleSearchResultStep *googleSearchResult;
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1ProcessingResultStep *processingResult;
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1RetrievalResultStep *retrievalResult;
+
+/**
+ *  A signature hash for backend validation.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *signature;
+
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1UrlContextResultStep *urlContextResult;
+
+@end
+
+
+/**
+ *  Configuration for speech recognition (transcription).
+ */
+@interface GTLRAiplatform_GenaiVertexV1TranscriptionConfig : GTLRObject
+
+/** Optional. A list of phrases to bias the ASR model towards. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *adaptationPhrases GTLR_DEPRECATED;
+
+/**
+ *  Optional. A list of custom vocabulary phrases to bias the speech recognition
+ *  model toward recognizing specific terms.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *customVocabulary;
+
+/** Optional. Configures speaker diarization. Supported values: "speaker". */
+@property(nonatomic, copy, nullable) NSString *diarizationMode GTLR_DEPRECATED;
+
+/**
+ *  Optional. BCP-47 language codes providing hints about the languages present
+ *  in the audio. If omitted or empty, defaults to automatic language detection.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *languageCodes;
+
+/**
+ *  Optional. The granularity of timestamps to include in the transcription
+ *  output. Supported values: "word". If empty, no timestamps are generated.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *timestampGranularities GTLR_DEPRECATED;
+
+@end
+
+
+/**
+ *  A URL citation annotation.
+ */
+@interface GTLRAiplatform_GenaiVertexV1UrlCitation : GTLRObject
+
+/** The title of the URL. */
+@property(nonatomic, copy, nullable) NSString *title;
+
+/** The URL. */
+@property(nonatomic, copy, nullable) NSString *url;
+
+@end
+
+
+/**
+ *  A tool that can be used by the model to fetch URL context.
+ */
+@interface GTLRAiplatform_GenaiVertexV1UrlContext : GTLRObject
+@end
+
+
+/**
+ *  The arguments to pass to the URL context.
+ */
+@interface GTLRAiplatform_GenaiVertexV1UrlContextCallContentUrlContextCallArguments : GTLRObject
+
+/** The URLs to fetch. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *urls;
+
+@end
+
+
+/**
+ *  GTLRAiplatform_GenaiVertexV1UrlContextCallDelta
+ */
+@interface GTLRAiplatform_GenaiVertexV1UrlContextCallDelta : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1UrlContextCallContentUrlContextCallArguments *arguments;
+
+@end
+
+
+/**
+ *  URL context call step.
+ */
+@interface GTLRAiplatform_GenaiVertexV1UrlContextCallStep : GTLRObject
+
+/** Required. The arguments to pass to the URL context. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1UrlContextCallStepUrlContextCallStepArguments *arguments;
+
+@end
+
+
+/**
+ *  The arguments to pass to the URL context.
+ */
+@interface GTLRAiplatform_GenaiVertexV1UrlContextCallStepUrlContextCallStepArguments : GTLRObject
+
+/** The URLs to fetch. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *urls;
+
+@end
+
+
+/**
+ *  The result of the URL context.
+ */
+@interface GTLRAiplatform_GenaiVertexV1UrlContextResultContentUrlContextResult : GTLRObject
+
+/**
+ *  The status of the URL retrieval.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1UrlContextResultContentUrlContextResult_Status_Error
+ *        Url retrieval is failed due to error. (Value: "ERROR")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1UrlContextResultContentUrlContextResult_Status_Paywall
+ *        Url retrieval is failed because the content is behind paywall. (Value:
+ *        "PAYWALL")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1UrlContextResultContentUrlContextResult_Status_StatusUnspecified
+ *        Unspecified status. This value should not be used. (Value:
+ *        "STATUS_UNSPECIFIED")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1UrlContextResultContentUrlContextResult_Status_Success
+ *        Url retrieval is successful. (Value: "SUCCESS")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1UrlContextResultContentUrlContextResult_Status_Unsafe
+ *        Url retrieval is failed because the content is unsafe. (Value:
+ *        "UNSAFE")
+ */
+@property(nonatomic, copy, nullable) NSString *status;
+
+/** The URL that was fetched. */
+@property(nonatomic, copy, nullable) NSString *url;
+
+@end
+
+
+/**
+ *  GTLRAiplatform_GenaiVertexV1UrlContextResultDelta
+ */
+@interface GTLRAiplatform_GenaiVertexV1UrlContextResultDelta : GTLRObject
+
+/**
+ *  isError
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isError;
+
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GenaiVertexV1UrlContextResultContentUrlContextResult *> *result;
+
+@end
+
+
+/**
+ *  URL context result step.
+ */
+@interface GTLRAiplatform_GenaiVertexV1UrlContextResultStep : GTLRObject
+
+/**
+ *  Whether the URL context resulted in an error.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isError;
+
+/** Required. The results of the URL context. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GenaiVertexV1UrlContextResultStepUrlContextResultItem *> *result;
+
+@end
+
+
+/**
+ *  The result of the URL context.
+ */
+@interface GTLRAiplatform_GenaiVertexV1UrlContextResultStepUrlContextResultItem : GTLRObject
+
+/**
+ *  The status of the URL retrieval.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1UrlContextResultStepUrlContextResultItem_Status_Error
+ *        Value "ERROR"
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1UrlContextResultStepUrlContextResultItem_Status_Paywall
+ *        Value "PAYWALL"
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1UrlContextResultStepUrlContextResultItem_Status_StatusUnspecified
+ *        Value "STATUS_UNSPECIFIED"
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1UrlContextResultStepUrlContextResultItem_Status_Success
+ *        Value "SUCCESS"
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1UrlContextResultStepUrlContextResultItem_Status_Unsafe
+ *        Value "UNSAFE"
+ */
+@property(nonatomic, copy, nullable) NSString *status;
+
+/** The URL that was fetched. */
+@property(nonatomic, copy, nullable) NSString *url;
+
+@end
+
+
+/**
+ *  Input provided by the user.
+ */
+@interface GTLRAiplatform_GenaiVertexV1UserInputStep : GTLRObject
+
+/** The content of the step. An array of Content objects. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1ContentList *contentList;
+
+/** The content of the step. A single string. */
+@property(nonatomic, copy, nullable) NSString *contentString;
+
+@end
+
+
+/**
+ *  `Value` represents a dynamically typed value which can be either null, a
+ *  number, a string, a boolean, a recursive struct value, or a list of values.
+ *  A producer of value is expected to set one of these variants. Absence of any
+ *  variant indicates an error.
+ */
+@interface GTLRAiplatform_GenaiVertexV1Value : GTLRObject
+
+/**
+ *  Represents a boolean value.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *boolValue;
+
+/** Represents rich content (text, image, etc.). */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1Content *contentValue;
+
+/** Represents a repeated `Value`. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1ListValue *listValue;
+
+/**
+ *  Represents a null value.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1Value_NullValue_NullValue Null value.
+ *        (Value: "NULL_VALUE")
+ */
+@property(nonatomic, copy, nullable) NSString *nullValue;
+
+/**
+ *  Represents a double value.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numberValue;
+
+/** Represents a string value. */
+@property(nonatomic, copy, nullable) NSString *stringValue;
+
+/** Represents a structured value. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1Struct *structValue;
+
+@end
+
+
+/**
+ *  Used to specify configuration for VertexAISearch.
+ */
+@interface GTLRAiplatform_GenaiVertexV1VertexAISearchConfig : GTLRObject
+
+/** Optional. Used to specify Vertex AI Search datastores. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *datastores;
+
+/** Optional. Used to specify Vertex AI Search engine. */
+@property(nonatomic, copy, nullable) NSString *engine;
+
+@end
+
+
+/**
+ *  Configuration options for video generation.
+ */
+@interface GTLRAiplatform_GenaiVertexV1VideoConfig : GTLRObject
+
+/**
+ *  Optional task mode for video generation. If not specified, the model
+ *  automatically determines the appropriate mode based on the provided text
+ *  prompt and input media.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1VideoConfig_Task_Edit Modifies an
+ *        existing input video. (Value: "EDIT")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1VideoConfig_Task_Extend Extends an
+ *        existing input video. (Value: "EXTEND")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1VideoConfig_Task_ImageToVideo
+ *        Generates video from one or two source images. The first image defines
+ *        the starting frame, and the optional second image defines the ending
+ *        frame. (Value: "IMAGE_TO_VIDEO")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1VideoConfig_Task_ReferenceToVideo
+ *        Generates video using reference media (such as images, audio, or
+ *        video). (Value: "REFERENCE_TO_VIDEO")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1VideoConfig_Task_TaskUnspecified
+ *        Unspecified task. The task is inferred from the input prompt and
+ *        media. (Value: "TASK_UNSPECIFIED")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1VideoConfig_Task_TextToVideo
+ *        Generates video solely from a text prompt. (Value: "TEXT_TO_VIDEO")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1VideoConfig_Task_Upscale Increases
+ *        the resolution of an existing input video. (Value: "UPSCALE")
+ */
+@property(nonatomic, copy, nullable) NSString *task;
+
+@end
+
+
+/**
+ *  A video content block.
+ */
+@interface GTLRAiplatform_GenaiVertexV1VideoContent : GTLRObject
+
+/**
+ *  The video content.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *data;
+
+/**
+ *  Flexible MIME type string of the video, superseding mime_type = 1. Note:
+ *  Bespoke logic in the GAOS parser/serializer maps this to the "mime_type"
+ *  JSON key.
+ */
+@property(nonatomic, copy, nullable) NSString *mimeTypeString;
+
+/**
+ *  A user-defined name for this content block. Can be referenced by the model
+ *  in the final response.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1VideoContentMediaProcessing *processingConfig;
+
+/**
+ *  processingType
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1VideoContent_ProcessingType_Agentic
+ *        Model-driven dynamic navigation. (Value: "AGENTIC")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1VideoContent_ProcessingType_ProcessingUnspecified
+ *        Default. Uses model-specific processing (3.5 Pro+ --> AGENTIC, older
+ *        models --> STATIC) (Value: "PROCESSING_UNSPECIFIED")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1VideoContent_ProcessingType_Static
+ *        Fixed-rate frame extraction. All frames placed in context. (Value:
+ *        "STATIC")
+ */
+@property(nonatomic, copy, nullable) NSString *processingType;
+
+/**
+ *  The resolution of the media.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1VideoContent_Resolution_High High
+ *        resolution. (Value: "HIGH")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1VideoContent_Resolution_Low Low
+ *        resolution. (Value: "LOW")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1VideoContent_Resolution_MediaResolutionUnspecified
+ *        Default value. This value is unused. (Value:
+ *        "MEDIA_RESOLUTION_UNSPECIFIED")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1VideoContent_Resolution_Medium Medium
+ *        resolution. (Value: "MEDIUM")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1VideoContent_Resolution_UltraHigh
+ *        Ultra high resolution. (Value: "ULTRA_HIGH")
+ */
+@property(nonatomic, copy, nullable) NSString *resolution;
+
+/** The URI of the video. */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  GTLRAiplatform_GenaiVertexV1VideoContentMediaProcessing
+ */
+@interface GTLRAiplatform_GenaiVertexV1VideoContentMediaProcessing : GTLRObject
+
+/**
+ *  staticProperty
+ *
+ *  Remapped to 'staticProperty' to avoid language reserved word 'static'.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GenaiVertexV1VideoContentStaticMediaProcessing *staticProperty;
+
+@end
+
+
+/**
+ *  GTLRAiplatform_GenaiVertexV1VideoContentStaticMediaProcessing
+ */
+@interface GTLRAiplatform_GenaiVertexV1VideoContentStaticMediaProcessing : GTLRObject
+
+/**
+ *  Optional. Segment end time. Specified as a decimal number of seconds
+ *  followed by an 's' suffix, e.g., "30s". Must be non-negative and greater
+ *  than `start_offset` if `start_offset` is set.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *endOffset;
+
+/**
+ *  Optional. Video frame-rate sampling density.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *fps;
+
+/**
+ *  Optional. Segment start time. Specified as a decimal number of seconds
+ *  followed by an 's' suffix, e.g., "10.5s". Must be non-negative.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *startOffset;
+
+@end
+
+
+/**
+ *  GTLRAiplatform_GenaiVertexV1VideoDelta
+ */
+@interface GTLRAiplatform_GenaiVertexV1VideoDelta : GTLRObject
+
+/**
+ *  data
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *data;
+
+/**
+ *  mimeType
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1VideoDelta_MimeType_Type3gpp 3GPP
+ *        video format (Value: "TYPE_3GPP")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1VideoDelta_MimeType_TypeAvi AVI video
+ *        format (Value: "TYPE_AVI")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1VideoDelta_MimeType_TypeJpeg2000 JPEG
+ *        2000 video format (Value: "TYPE_JPEG2000")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1VideoDelta_MimeType_TypeMov MOV video
+ *        format (Value: "TYPE_MOV")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1VideoDelta_MimeType_TypeMp4 MP4 video
+ *        format (Value: "TYPE_MP4")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1VideoDelta_MimeType_TypeMpeg MPEG
+ *        video format (Value: "TYPE_MPEG")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1VideoDelta_MimeType_TypeMpg MPG video
+ *        format (Value: "TYPE_MPG")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1VideoDelta_MimeType_TypeUnspecified
+ *        Value "TYPE_UNSPECIFIED"
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1VideoDelta_MimeType_TypeWebm WebM
+ *        video format (Value: "TYPE_WEBM")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1VideoDelta_MimeType_TypeWmv WMV video
+ *        format (Value: "TYPE_WMV")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1VideoDelta_MimeType_TypeXFlv FLV
+ *        video format (Value: "TYPE_X_FLV")
+ */
+@property(nonatomic, copy, nullable) NSString *mimeType;
+
+/**
+ *  The resolution of the media.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1VideoDelta_Resolution_High High
+ *        resolution. (Value: "HIGH")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1VideoDelta_Resolution_Low Low
+ *        resolution. (Value: "LOW")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1VideoDelta_Resolution_MediaResolutionUnspecified
+ *        Default value. This value is unused. (Value:
+ *        "MEDIA_RESOLUTION_UNSPECIFIED")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1VideoDelta_Resolution_Medium Medium
+ *        resolution. (Value: "MEDIUM")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1VideoDelta_Resolution_UltraHigh Ultra
+ *        high resolution. (Value: "ULTRA_HIGH")
+ */
+@property(nonatomic, copy, nullable) NSString *resolution;
+
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  Configuration for video output format.
+ */
+@interface GTLRAiplatform_GenaiVertexV1VideoResponseFormat : GTLRObject
+
+/**
+ *  The aspect ratio for the video output.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1VideoResponseFormat_AspectRatio_AspectRatioNineBySixteen
+ *        9:16 aspect ratio. (Value: "ASPECT_RATIO_NINE_BY_SIXTEEN")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1VideoResponseFormat_AspectRatio_AspectRatioSixteenByNine
+ *        16:9 aspect ratio. (Value: "ASPECT_RATIO_SIXTEEN_BY_NINE")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1VideoResponseFormat_AspectRatio_AspectRatioUnspecified
+ *        Default value. This value is unused. (Value:
+ *        "ASPECT_RATIO_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *aspectRatio;
+
+/**
+ *  The delivery mode for the video output.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1VideoResponseFormat_Delivery_DeliveryUnspecified
+ *        Default value. This value is unused. (Value: "DELIVERY_UNSPECIFIED")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1VideoResponseFormat_Delivery_Inline
+ *        Video data is returned inline in the response. (Value: "INLINE")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1VideoResponseFormat_Delivery_Uri
+ *        Video data is returned as a URI. (Value: "URI")
+ */
+@property(nonatomic, copy, nullable) NSString *delivery;
+
+/** The duration for the video output. */
+@property(nonatomic, strong, nullable) GTLRDuration *duration;
+
+/**
+ *  The Cloud Storage URI to store the video output. Required for Vertex if
+ *  delivery mode is URI.
+ */
+@property(nonatomic, copy, nullable) NSString *gcsUri;
+
+/**
+ *  The video output resolution. Defaults to 720p.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1VideoResponseFormat_Resolution_ResolutionFourK
+ *        4K resolution. (Value: "RESOLUTION_FOUR_K")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1VideoResponseFormat_Resolution_ResolutionSevenTwentyP
+ *        720p resolution. (Value: "RESOLUTION_SEVEN_TWENTY_P")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1VideoResponseFormat_Resolution_ResolutionTenEightyP
+ *        1080p resolution. (Value: "RESOLUTION_TEN_EIGHTY_P")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1VideoResponseFormat_Resolution_ResolutionThreeSixtyP
+ *        360p resolution. (Value: "RESOLUTION_THREE_SIXTY_P")
+ *    @arg @c kGTLRAiplatform_GenaiVertexV1VideoResponseFormat_Resolution_ResolutionUnspecified
+ *        Default value. This value is unused. (Value: "RESOLUTION_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *resolution;
+
+@end
+
+
+/**
+ *  Word-level ASR annotation for transcription output. Carries the word text,
+ *  optional timing, and optional speaker attribution.
+ */
+@interface GTLRAiplatform_GenaiVertexV1WordInfo : GTLRObject
+
+/**
+ *  End offset in time of the word relative to the start of the audio. Present
+ *  when timestamp_granularities contains "word".
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *endOffset;
+
+/**
+ *  Optional. Speaker label for this word (e.g. "spk_1", "spk_2"). Present when
+ *  diarization_mode is set in TranscriptionConfig.
+ */
+@property(nonatomic, copy, nullable) NSString *speaker;
+
+/**
+ *  Start offset in time of the word relative to the start of the audio. Present
+ *  when timestamp_granularities contains "word".
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *startOffset;
+
+/** The transcribed word. */
+@property(nonatomic, copy, nullable) NSString *text;
+
+@end
+
+
+/**
  *  Message that represents an arbitrary HTTP body. It should only be used for
  *  payload formats that can't be represented as JSON, such as raw binary or an
  *  HTML page. This message can be used both in streaming and non-streaming API
@@ -9832,6 +15486,27 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1VideoR
 @interface GTLRAiplatform_GoogleCloudAiplatformV1Agent : GTLRObject
 
 /**
+ *  Optional. Immutable. The identity configuration of the agent. Immutable: the
+ *  agent's own identity determines the A2 (CoWorker) archetype and the minted
+ *  SPIFFE, so it cannot change after creation (no A1<->A2 transition).
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1AgentIdentity *agentIdentity;
+
+/**
+ *  Output only. The resource name of the AI Application provisioned for this
+ *  agent. Format:
+ *  `projects/{project}/locations/{location}/aiApplications/{ai_application}`.
+ */
+@property(nonatomic, copy, nullable) NSString *aiApplication;
+
+/**
+ *  Optional. The identities this agent is allowed to contact outbound (for
+ *  example over Gmail or Chat). Stored on the agent and always returned by
+ *  `GetAgent`; see the field comments on `AllowedTeammates`.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1AllowedTeammates *allowedTeammates;
+
+/**
  *  Required. Immutable. The base agent for the agent. Supported values: *
  *  `antigravity-preview-05-2026` Immutable: `UpdateAgent` rejects a change,
  *  including clearing it. The kind of agent this is gets derived from this
@@ -9861,6 +15536,19 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1VideoR
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
+ *  Output only. The resolved Agent Identity (SPIFFE principal) of the agent.
+ */
+@property(nonatomic, copy, nullable) NSString *effectiveIdentity;
+
+/**
+ *  Optional. Immutable. Customer-managed encryption key spec for an Agent. If
+ *  set, this agent's user data will be secured by this key; if not set, it is
+ *  secured by a Google-managed key. Cannot be changed after the agent is
+ *  created.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1EncryptionSpec *encryptionSpec;
+
+/**
  *  Immutable. The user-specified ID for the agent. This ID becomes the final
  *  component of the agent resource name. If not provided, Vertex AI will
  *  generate a value for this ID. The ID can be up to 63 characters and must
@@ -9870,8 +15558,18 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1VideoR
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
+/** Optional. Memory settings for the agent. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1AgentMemoryConfig *memoryConfig;
+
 /** Optional. The metadata for the agent. */
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1Agent_Metadata *metadata;
+
+/**
+ *  Optional. Model configuration for the agent. When set, tasks running under
+ *  this agent default to this model configuration if they do not specify their
+ *  own.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1AgentModelConfig *modelConfig;
 
 /**
  *  Identifier. The resource name of the agent. Format:
@@ -9887,6 +15585,33 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1VideoR
 
 /** Optional. Observability settings for this agent's sessions. */
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1ObservabilityConfig *observabilityConfig;
+
+/**
+ *  Optional. The human owner (principal) the agent acts on behalf of (A1
+ *  Personal). Mutable by design: ownership is meant to be reassignable (e.g. by
+ *  an admin). On create an A1 (Personal) agent may omit it and the control
+ *  plane defaults it to the caller; an A2 (CoWorker) agent must set it
+ *  explicitly. `owner.id` must be an *obfuscated* Gaia id. A raw Gaia id is
+ *  rejected with INVALID_ARGUMENT naming the rule -- both forms are strings of
+ *  decimal digits, so the surface would otherwise have two indistinguishable
+ *  spellings of one identity. Not yet: `UpdateAgent` currently rejects a change
+ *  to this field. The control plane authorizes every agent method against the
+ *  owner Gaia id it persists internally at create time, and the update path
+ *  does not maintain that copy — so a field write here would move the reported
+ *  owner without moving the one access control uses. The guard comes out once
+ *  reassignment moves both, along with the Workspace identity provisioned under
+ *  the owner.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1Principal *owner;
+
+/**
+ *  Optional. The persona (presentation) of the agent. Mutable: presentation
+ *  only, not an archetype-derivation signal.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1Persona *persona;
+
+/** Output only. The current operational state of the agent. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1AgentStatus *status;
 
 /**
  *  Optional. The instructions for the agent to follow. These instructions are
@@ -10047,6 +15772,96 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1VideoR
 
 
 /**
+ *  Identity configuration for an agent.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1AgentIdentity : GTLRObject
+
+/**
+ *  Optional. The email address representing the agent's principal identity. For
+ *  Google Workspace agents, the email should be on a verified customer domain.
+ */
+@property(nonatomic, copy, nullable) NSString *email;
+
+/**
+ *  Output only. The agent's own obfuscated Gaia id. Set only for an A2
+ *  (CoWorker) agent, which is the only kind that has a first-class Gaia account
+ *  of its own. An A1 (Personal) agent has no `AgentIdentity` at all: it acts on
+ *  behalf of its owner, so the identity it runs as is `Agent.owner`, and there
+ *  is no separate Gaia account to name. Populated asynchronously once the agent
+ *  identity is provisioned, so it may be absent from the `CreateAgent` LRO
+ *  response and present on `GetAgent`/`ListAgents`.
+ */
+@property(nonatomic, copy, nullable) NSString *gaiaId;
+
+/**
+ *  Optional. The tenant / customer context under which this agent runs. For
+ *  Google Workspace , this is the obfuscated Customer ID (e.g. "C0123abcd").
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1Tenant *tenant;
+
+@end
+
+
+/**
+ *  Agent-level memory settings. These apply across every task the agent runs
+ *  and every user of the agent: this is an agent-wide control, not a per-user
+ *  one. To turn memory off for a single end user of a shared agent, the calling
+ *  surface sets `TaskSpec.scope.memory_config.disable_memory` on that user's
+ *  tasks.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1AgentMemoryConfig : GTLRObject
+
+/**
+ *  Optional. If true, memory is disabled for the agent as a whole: across every
+ *  task it runs, the agent neither reads existing memories into the prompt nor
+ *  forms new ones. Memory is on by default, and this is the setting that wins.
+ *  A task may turn memory off for itself alone with
+ *  `TaskSpec.scope.memory_config.disable_memory`, but cannot turn it back on
+ *  while this is true; the two are OR'ed. This level wins because it is the
+ *  mutable one. Turning it on has to cover the tasks that already exist, whose
+ *  stored specs still say whatever they were created with, so the agent's
+ *  current value is re-applied every time a session opens, including on a
+ *  resume. Memories already stored are retained and stay readable by the
+ *  agent's users; this governs only whether the agent can access and modify
+ *  them.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *disableMemory;
+
+@end
+
+
+/**
+ *  Selects the model configuration for an agent. Starts with just the model
+ *  id/alias; extensible with further model parameters without a breaking
+ *  change.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1AgentModelConfig : GTLRObject
+
+/**
+ *  Optional. Publisher model resource name (an
+ *  `aiplatform.googleapis.com/PublisherModel`) of the form
+ *  "publishers/{publisher}/models/{model}", e.g.
+ *  "publishers/anthropic/models/claude-opus-4-8" or
+ *  "publishers/google/models/gemini-3-flash". Empty means the agent's default
+ *  gemini model.
+ */
+@property(nonatomic, copy, nullable) NSString *model;
+
+/**
+ *  Optional. Sampling temperature for the model's generation config (valid
+ *  range (0.0, 2.0]); a value outside that range leaves the backend default
+ *  standing.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *temperature;
+
+@end
+
+
+/**
  *  Customizes the agent's response to the end user when a
  *  `SemanticGovernancePolicy` is evaluated (for example, with a custom message
  *  shown on denial).
@@ -10059,6 +15874,65 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1VideoR
  *  characters.
  */
 @property(nonatomic, copy, nullable) NSString *denialMessage;
+
+@end
+
+
+/**
+ *  Operational state of the agent.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1AgentStatus : GTLRObject
+
+/** Output only. The time at which the agent was soft-deleted. */
+@property(nonatomic, strong, nullable) GTLRDateTime *deleteTime;
+
+/**
+ *  Output only. The current state of the agent.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1AgentStatus_State_Active
+ *        The agent is active and ready to process requests. (Value: "ACTIVE")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1AgentStatus_State_Archived
+ *        The agent is archived (read-only). (Value: "ARCHIVED")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1AgentStatus_State_Deleted
+ *        The agent is soft-deleted. (Value: "DELETED")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1AgentStatus_State_StateUnspecified
+ *        Unspecified agent state. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1AgentStatus_State_Suspended
+ *        The agent is suspended. (Value: "SUSPENDED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** Output only. Context about the current active suspension. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1AgentStatusSuspensionReason *suspensionReason;
+
+@end
+
+
+/**
+ *  Details about the active suspension. This message is only populated if the
+ *  state is SUSPENDED.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1AgentStatusSuspensionReason : GTLRObject
+
+/**
+ *  Output only. The reason for the current suspension.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1AgentStatusSuspensionReason_Reason_Abuse
+ *        Suspended due to abuse or terms of service violations. (Value:
+ *        "ABUSE")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1AgentStatusSuspensionReason_Reason_Admin
+ *        Suspended by a domain administrator. (Value: "ADMIN")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1AgentStatusSuspensionReason_Reason_ReasonUnspecified
+ *        Unspecified suspension reason. (Value: "REASON_UNSPECIFIED")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1AgentStatusSuspensionReason_Reason_UserInitiated
+ *        Suspended by the owner/user. (Value: "USER_INITIATED")
+ */
+@property(nonatomic, copy, nullable) NSString *reason;
+
+/** Output only. The time when the current suspension was applied. */
+@property(nonatomic, strong, nullable) GTLRDateTime *suspensionTime;
 
 @end
 
@@ -10087,8 +15961,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1VideoR
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Required. The type of the tool. Supported types: * `code_execution` *
- *  `endpoint` * `filesystem` * `google_search` * `mcp_server` * `url_context`
+ *  Required. The type of the tool. Supported types: * `audio_generation` *
+ *  `code_execution` * `endpoint` * `filesystem` * `google_search` *
+ *  `image_generation` * `mcp_server` * `speech_generation` * `url_context` *
+ *  `video_generation`
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -10192,6 +16068,28 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1VideoR
 
 /** Results for rouge metric. */
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1RougeMetricValue *rougeMetricValue;
+
+@end
+
+
+/**
+ *  The set of identities an agent is allowed to contact outbound -- who the
+ *  agent may talk to, not who may talk to the agent (that is IAM's job). The
+ *  membership is stored on the agent, so the Agents API is authoritative for
+ *  what this field reports.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1AllowedTeammates : GTLRObject
+
+/**
+ *  Optional. The teammates the agent is permitted to contact. At most 500.
+ *  OUTPUT: always returned. An empty list means the agent has no teammates, not
+ *  that the field went unread. INPUT: the complete desired set, not a delta --
+ *  teammates absent from it are removed. The backing roster is updated
+ *  asynchronously and best-effort after the write returns, so it may briefly
+ *  lag what `GetAgent` reports. What the agent is actually able to reach
+ *  follows the roster, not this field, until the two converge.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1Teammate *> *teammates;
 
 @end
 
@@ -10814,6 +16712,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1VideoR
 @property(nonatomic, copy, nullable) NSString *mode;
 
 /**
+ *  Optional. The source text to be edited or rewritten via voice instructions.
+ *  When provided in `SMART` mode, the model evaluates the audio input against
+ *  this text and emits the complete replacement text in the candidate response
+ *  rather than appending to it.
+ */
+@property(nonatomic, copy, nullable) NSString *sourceText;
+
+/**
  *  Optional. Configures word-level timestamp generation.
  *
  *  Uses NSNumber of boolValue.
@@ -11384,6 +17290,54 @@ GTLR_DEPRECATED
  *  `projects/{project}/locations/{location}/pipelineJobs/{pipelineJob}`
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *names;
+
+@end
+
+
+/**
+ *  Request message for PredictionService.BatchEmbedContents.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1BatchEmbedContentsRequest : GTLRObject
+
+/**
+ *  Required. Embed requests for the batch. The model in each of these requests
+ *  must either be empty or match the model specified in
+ *  `BatchEmbedContentsRequest.model`. All the requests in a batch must have the
+ *  same output dimensionality and auto truncation parameters.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1EmbedContentRequest *> *requests;
+
+@end
+
+
+/**
+ *  Response message for PredictionService.BatchEmbedContents.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1BatchEmbedContentsResponse : GTLRObject
+
+/**
+ *  The embeddings for each request, in the same order as provided in the batch
+ *  request.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1BatchEmbedContentsResponseEmbedding *> *embeddings;
+
+/** Usage metadata about the response(s). */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1UsageMetadata *usageMetadata;
+
+@end
+
+
+/**
+ *  A list of floats representing an embedding.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1BatchEmbedContentsResponseEmbedding : GTLRObject
+
+/**
+ *  Embedding vector values.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *values;
 
 @end
 
@@ -12610,6 +18564,16 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1Content *content;
 
 /**
+ *  Output only. An optional opaque continuation token returned when
+ *  `finish_reason` is `CONTINUATION`. Clients can pass this token in a
+ *  subsequent `GenerateContentRequest` to continue generation.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *continuationToken;
+
+/**
  *  Output only. Describes the reason the model stopped generating tokens in
  *  more detail. This field is returned only when `finish_reason` is set.
  */
@@ -12623,6 +18587,11 @@ GTLR_DEPRECATED
  *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1Candidate_FinishReason_Blocklist
  *        The model stopped generating because the content contains a term from
  *        a configured blocklist. (Value: "BLOCKLIST")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1Candidate_FinishReason_Continuation
+ *        Token generation was stopped because the response reached the
+ *        per-request token limit, but generation is not yet complete. The model
+ *        response can be continued via a subsequent request using the returned
+ *        `continuation_token`. (Value: "CONTINUATION")
  *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1Candidate_FinishReason_FinishReasonUnspecified
  *        The finish reason is unspecified. (Value: "FINISH_REASON_UNSPECIFIED")
  *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1Candidate_FinishReason_ImageOther
@@ -12640,6 +18609,8 @@ GTLR_DEPRECATED
  *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1Candidate_FinishReason_MalformedFunctionCall
  *        The model generated a function call that is syntactically invalid and
  *        can't be parsed. (Value: "MALFORMED_FUNCTION_CALL")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1Candidate_FinishReason_MalformedResponse
+ *        Finishes due to malformed response. (Value: "MALFORMED_RESPONSE")
  *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1Candidate_FinishReason_MaxTokens
  *        The model generated the maximum number of tokens allowed by the
  *        `max_output_tokens` parameter. (Value: "MAX_TOKENS")
@@ -12667,6 +18638,10 @@ GTLR_DEPRECATED
  *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1Candidate_FinishReason_Stop
  *        The model reached a natural stopping point or a configured stop
  *        sequence. (Value: "STOP")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1Candidate_FinishReason_TooManyToolCalls
+ *        The model made too many tool calls in a single request, so the
+ *        server-side tool loop stopped before the model returned a final
+ *        answer. (Value: "TOO_MANY_TOOL_CALLS")
  *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1Candidate_FinishReason_UnexpectedToolCall
  *        The model generated a function call that is semantically invalid. This
  *        can happen, for example, if function calling is not enabled or the
@@ -12954,6 +18929,66 @@ GTLR_DEPRECATED
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *startIndex;
+
+@end
+
+
+/**
+ *  A file that can be referenced by ID from subsequent Claude model requests.
+ *  The JSON representation of this message matches the Claude Files API File
+ *  object field-for-field, so that code written against that API parses these
+ *  responses unchanged.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1ClaudeFile : GTLRObject
+
+/** Output only. The time at which the file was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createdAt;
+
+/**
+ *  Output only. Whether the contents of this file can be retrieved with
+ *  `DownloadFile`. False for user-uploaded files, true for tool-generated ones.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *downloadable;
+
+/**
+ *  Output only. The time at which the file expires and is deleted, set from the
+ *  `expires_in_seconds` upload form field. Unset for files that do not expire,
+ *  which is serialised as `null`.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *expiresAt;
+
+/**
+ *  Output only. The original name of the uploaded file, taken from the
+ *  `Content-Disposition` header on upload. Between 1 and 255 characters.
+ *  Control characters and the characters `<>:"|?*\\/` are not accepted.
+ */
+@property(nonatomic, copy, nullable) NSString *filename;
+
+/**
+ *  Output only. The server-assigned identifier of the file, for example
+ *  `file_abc123`. This is the ID to pass in subsequent model requests.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  Output only. The media type of the file, taken from the `Content-Type`
+ *  header of the file part on upload.
+ */
+@property(nonatomic, copy, nullable) NSString *mimeType;
+
+/**
+ *  Output only. The size of the file in bytes.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sizeBytes;
+
+/** Output only. The object type. Always `file`. */
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -14158,6 +20193,13 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Request message for ClaudeFileService.CreateFile.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1CreateFileRequest : GTLRObject
+@end
+
+
+/**
  *  Runtime operation information for IndexEndpointService.CreateIndexEndpoint.
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1CreateIndexEndpointOperationMetadata : GTLRObject
@@ -14771,6 +20813,21 @@ GTLR_DEPRECATED
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *returnRawOutput;
+
+@end
+
+
+/**
+ *  Config for scraping a Gemini Data Analytics data agent.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1DataAgentConfig : GTLRObject
+
+/**
+ *  Required. The resource name of the Gemini Data Analytics data agent. Format:
+ *  `projects/{project}/locations/{location}/dataAgents/{data_agent}`. For
+ *  example: `projects/123/locations/us-central1/dataAgents/my-agent`.
+ */
+@property(nonatomic, copy, nullable) NSString *dataAgent;
 
 @end
 
@@ -15634,6 +21691,25 @@ GTLR_DEPRECATED
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *onlineStorageModifiedEntityCount;
+
+@end
+
+
+/**
+ *  Response message for ClaudeFileService.DeleteFile. Returns `{id, type:
+ *  "file_deleted"}` rather than an empty body, matching the Claude Files API.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1DeleteFileResponse : GTLRObject
+
+/**
+ *  The ID of the deleted file.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/** The object type. Always `file_deleted`. */
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -16732,6 +22808,13 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Response message for ClaudeFileService.DownloadFile.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1DownloadFileResponse : GTLRObject
+@end
+
+
+/**
  *  Describes the options to customize dynamic retrieval.
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1DynamicRetrievalConfig : GTLRObject
@@ -16778,6 +22861,12 @@ GTLR_DEPRECATED
 
 /** Optional. Configuration for the EmbedContent request. */
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1EmbedContentRequestEmbedContentConfig *embedContentConfig;
+
+/**
+ *  Required. The name of the publisher model requested to serve the prediction.
+ *  Format: `projects/{project}/locations/{location}/publishers/ * /models/ *`
+ */
+@property(nonatomic, copy, nullable) NSString *model;
 
 /**
  *  Optional. Deprecated: Please use EmbedContentConfig.output_dimensionality
@@ -17601,6 +23690,18 @@ GTLR_DEPRECATED
 @interface GTLRAiplatform_GoogleCloudAiplatformV1EvaluateInstancesRequest : GTLRObject
 
 /**
+ *  Optional. Allows the evaluation run to use cross region models. When this
+ *  flag is set, the service may route traffic to other regions if a model is
+ *  unavailable in the current region (e.g., to a `global` endpoint). If a
+ *  fully-qualified model endpoint resource name with a different region than
+ *  the request location is provided elsewhere in the request, this flag must be
+ *  set to true or the request will fail.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allowCrossRegionModel;
+
+/**
  *  Optional. Autorater config used for evaluation. Not applicable for
  *  predefined metrics (PredefinedMetricSpec); the server uses its own model
  *  configuration for predefined metrics and this field is ignored.
@@ -17905,6 +24006,9 @@ GTLR_DEPRECATED
  *  evaluation.
  */
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1EvaluationInstanceDeprecatedAgentData *agentData GTLR_DEPRECATED;
+
+/** Optional. Data used for agent evaluation. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1AgentData *agentEvalData;
 
 /**
  *  Optional. Source for populating `AgentData` from an Interactions API
@@ -18514,7 +24618,12 @@ GTLR_DEPRECATED
  *  Offline Eval Mode: `prompt` is unset, and `candidate_responses` contains
  *  `agent_data` (the completed execution trace). Validation Rule: Either
  *  `prompt` must be set, OR at least one of the `candidate_responses` must
- *  contain `agent_data`.
+ *  contain `agent_data`. Metrics receive each candidate as an
+ *  `EvaluationInstance`, whose fields are the names metrics can reference:
+ *  `prompt` -> `prompt`, the candidate -> `response` (or `agent_eval_data` for
+ *  `agent_data`), `golden_response` -> `reference`, `rubrics` ->
+ *  `rubric_groups`, and `prompt.prompt_template_data.values` and
+ *  `extra_context` -> `other_data`.
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRequest : GTLRObject
 
@@ -18703,6 +24812,19 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  Optional. The service account to run the evaluation run as. If set, the run
+ *  uses this service account to access Google Cloud resources. Access is
+ *  limited to the IAM permissions that you grant to the service account. Must
+ *  be provided if an inference config sets `harbor_run_config`,
+ *  `data_agent_config`. If no inference config requires this field, setting it
+ *  returns an error. The caller must have the `iam.serviceAccounts.actAs`
+ *  permission on this service account, and the project's [Vertex AI Service
+ *  Agent](https://cloud.google.com/vertex-ai/docs/general/access-control#service-agents)
+ *  must have the `roles/iam.serviceAccountTokenCreator` role on it.
+ */
+@property(nonatomic, copy, nullable) NSString *serviceAccount;
+
+/**
  *  Output only. The state of the evaluation run.
  *
  *  Likely values:
@@ -18780,6 +24902,18 @@ GTLR_DEPRECATED
  *  The Evalution configuration used for the evaluation run.
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunEvaluationConfig : GTLRObject
+
+/**
+ *  Optional. Allows the evaluation run to use cross region models. When this
+ *  flag is set, the service may route traffic to other regions if a model is
+ *  unavailable in the current region (e.g., to a `global` endpoint). If a
+ *  fully-qualified model endpoint resource name with a different region than
+ *  the run location is provided elsewhere in the run config, this flag must be
+ *  set to true or the request will fail.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allowCrossRegionModel;
 
 /** Optional. The autorater config for the evaluation run. */
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunEvaluationConfigAutoraterConfig *autoraterConfig;
@@ -18973,6 +25107,13 @@ GTLR_DEPRECATED
  *  For example: projects/123/locations/us-central1/reasoningEngines/456
  */
 @property(nonatomic, copy, nullable) NSString *agentEngine;
+
+/**
+ *  Optional. Config for scraping a Gemini Data Analytics data agent. The
+ *  scraping service runs the agent via the DataChatService Chat API and returns
+ *  the resulting trajectory for evaluation.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1DataAgentConfig *dataAgentConfig;
 
 /**
  *  Optional. Config for scraping a Gemini Agent via the Interactions API. The
@@ -24016,6 +30157,16 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1Content *> *contents;
 
+/**
+ *  Optional. An opaque continuation token used to resume generation from a
+ *  previous `GenerateContent` or `StreamGenerateContent` response that stopped
+ *  with `finish_reason` set to `CONTINUATION`.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *continuationToken;
+
 /** Optional. Generation config. */
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1GenerationConfig *generationConfig;
 
@@ -24033,6 +30184,11 @@ GTLR_DEPRECATED
  *  Armor service. If supplied, safety_settings must not be supplied.
  */
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1ModelArmorConfig *modelArmorConfig;
+
+/**
+ *  Optional. Configuration for persisting output assets to external storage.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1GenerateContentRequestOutputConfig *outputConfig;
 
 /**
  *  Optional. Per request settings for blocking unsafe content. Enforced on
@@ -24077,6 +30233,23 @@ GTLR_DEPRECATED
  *        fetch them all at once.
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1GenerateContentRequest_Labels : GTLRObject
+@end
+
+
+/**
+ *  Configuration for persisting output assets to external storage.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1GenerateContentRequestOutputConfig : GTLRObject
+
+/**
+ *  Optional. The Cloud Storage URI prefix or directory where generated media
+ *  assets should be written (e.g. `gs://my-bucket/prefix/`). Supported URI
+ *  schemes: `gs://`. When set, media bytes are written directly to this
+ *  location and returned as `FileData` with a `file_uri` instead of raw inline
+ *  bytes.
+ */
+@property(nonatomic, copy, nullable) NSString *outputUriPrefix;
+
 @end
 
 
@@ -26163,8 +32336,9 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1EvaluationSet *evaluationSet;
 
 /**
- *  Required. The Cloud Storage location where the resulting EvaluationItem
- *  payloads will be stored.
+ *  Optional. The Cloud Storage location where the resulting EvaluationItem
+ *  payloads will be stored. Required for every source except `harbor_dataset`,
+ *  which must not set it.
  */
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1GcsDestination *gcsDestination;
 
@@ -28302,6 +34476,23 @@ GTLR_DEPRECATED
  *  pages.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Response message for ClaudeFileService.ListFiles.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1ListFilesResponse : GTLRObject
+
+/** The files. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1ClaudeFile *> *data;
+
+/**
+ *  Opaque cursor for the next page. Unset on the last page, and always unset
+ *  when `ids` was supplied, since batch fetch is single-page.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPage;
 
 @end
 
@@ -31547,6 +37738,9 @@ GTLR_DEPRECATED
  *  occur. This field corresponds to the `env` field of the Kubernetes
  *  Containers [v1 core
  *  API](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.23/#container-v1-core).
+ *  At most 200 environment variables can be specified. Each variable
+ *  (`NAME=value`) must be smaller than 128 KiB, and the total size of all
+ *  variables must not exceed 512 KiB.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1EnvVar *> *env;
 
@@ -34853,6 +41047,14 @@ GTLR_DEPRECATED
 /** Filter on the number of underlying LLM calls within a session. */
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1OnlineEvaluatorCloudObservabilityNumericPredicate *modelCalls;
 
+/**
+ *  Filter on the versions that served a session (`service.version` OTel
+ *  resource attribute); matches if any of them is listed. At most one is
+ *  allowed. On Vertex AI Agent Engine, this is the runtime revision id,
+ *  currently set only for agents created via v1beta1.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1OnlineEvaluatorCloudObservabilityStringPredicate *serviceVersion;
+
 /** Filter on the number of tool call errors within a session. */
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1OnlineEvaluatorCloudObservabilityNumericPredicate *toolCallErrors;
 
@@ -34864,6 +41066,20 @@ GTLR_DEPRECATED
 
 /** Filter on the number of user turns within a session. */
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1OnlineEvaluatorCloudObservabilityNumericPredicate *userTurns;
+
+@end
+
+
+/**
+ *  Defines a predicate for filtering based on a string value.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1OnlineEvaluatorCloudObservabilityStringPredicate : GTLRObject
+
+/**
+ *  Required. The values to match exactly (case-sensitive). Requires 1 to 20
+ *  values, each at most 128 characters long.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *values;
 
 @end
 
@@ -34890,6 +41106,13 @@ GTLR_DEPRECATED
 
 /** Filter on the duration of a trace (in seconds). */
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1OnlineEvaluatorCloudObservabilityNumericPredicate *duration;
+
+/**
+ *  Filter on the version that served a trace (`service.version` OTel resource
+ *  attribute). At most one is allowed. On Vertex AI Agent Engine, this is the
+ *  runtime revision id, currently set only for agents created via v1beta1.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1OnlineEvaluatorCloudObservabilityStringPredicate *serviceVersion;
 
 /** Filter on the total token usage within a trace. */
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1OnlineEvaluatorCloudObservabilityNumericPredicate *totalTokenUsage;
@@ -35297,7 +41520,7 @@ GTLR_DEPRECATED
 
 /**
  *  A datatype containing media that is part of a multi-part Content message. A
- *  `Part` consists of data which has an associated datatype. A `Part` can only
+ *  `Part` consists of data which has an associated datatype. A `Part` must
  *  contain one of the accepted types in `Part.data`. For media types that are
  *  not text, `Part` must have a fixed IANA MIME type identifying the type and
  *  subtype of the media if `inline_data` or `file_data` field is filled with
@@ -35656,6 +41879,26 @@ GTLR_DEPRECATED
  *        fetch them all at once.
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1PersistentResource_Labels : GTLRObject
+@end
+
+
+/**
+ *  The persona (presentation) of an agent.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1Persona : GTLRObject
+
+/** Optional. The URL of the agent's avatar. */
+@property(nonatomic, copy, nullable) NSString *avatarUrl;
+
+/** Required. The display name of the agent. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/** Optional. The personality style or behavioral trait of the agent. */
+@property(nonatomic, copy, nullable) NSString *personality;
+
+/** Optional. The role of the agent (e.g., "Financial Analyst"). */
+@property(nonatomic, copy, nullable) NSString *role;
+
 @end
 
 
@@ -36910,6 +43153,32 @@ GTLR_DEPRECATED
  *  `projects/{project}/locations/{location}/models/{model}`
  */
 @property(nonatomic, copy, nullable) NSString *tunedModelName;
+
+@end
+
+
+/**
+ *  Represents an identity principal (user or service).
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1Principal : GTLRObject
+
+/**
+ *  Optional. The system unique identifier of the principal.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  Optional. The type of the principal.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1Principal_Type_TypeUnspecified
+ *        Unspecified principal type. (Value: "TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1Principal_Type_User A
+ *        standard human user principal. (Value: "USER")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -39935,6 +46204,9 @@ GTLR_DEPRECATED
 /** Source code is in a Git repository managed by Developer Connect. */
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngineSpecSourceCodeSpecDeveloperConnectSource *developerConnectSource;
 
+/** Source code is in a public Git repository. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngineSpecSourceCodeSpecGitSource *gitSource;
+
 /** Optional. Configuration for building an image with custom config file. */
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngineSpecSourceCodeSpecImageSpec *imageSpec;
 
@@ -40028,6 +46300,28 @@ GTLR_DEPRECATED
  *  repository, revision, and directory to use as the source code root.
  */
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngineSpecSourceCodeSpecDeveloperConnectConfig *config;
+
+@end
+
+
+/**
+ *  Specifies source code to be fetched from a public Git repository.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngineSpecSourceCodeSpecGitSource : GTLRObject
+
+/**
+ *  Optional. Directory, relative to the source root, in which to run the build.
+ */
+@property(nonatomic, copy, nullable) NSString *dir;
+
+/**
+ *  Required. The revision to fetch from the Git repository: a branch, a tag, or
+ *  a full commit SHA. Abbreviated commit SHAs are not supported.
+ */
+@property(nonatomic, copy, nullable) NSString *revision;
+
+/** Required. The HTTPS URL of the public Git repository to clone. */
+@property(nonatomic, copy, nullable) NSString *url;
 
 @end
 
@@ -45098,6 +51392,20 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Metadata the model returned alongside the content it generated.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1SchemaPromptSpecContentMetadata : GTLRObject
+
+/** Optional. Citations that apply to the content. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1CitationMetadata *citationMetadata;
+
+/** Optional. Sources used to ground the content. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1GroundingMetadata *groundingMetadata;
+
+@end
+
+
+/**
  *  Defines data for an interaction prompt.
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1SchemaPromptSpecInteractionData : GTLRObject
@@ -45154,6 +51462,11 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *model;
 
 /**
+ *  Optional. Configuration for persisting output assets to external storage.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1SchemaPromptSpecPromptMessageOutputConfig *outputConfig;
+
+/**
  *  Per request settings for blocking unsafe content. Enforced on
  *  GenerateContentResponse.candidates.
  */
@@ -45177,6 +51490,20 @@ GTLR_DEPRECATED
  *  the model.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1Tool *> *tools;
+
+@end
+
+
+/**
+ *  Configuration for persisting output assets to external storage.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1SchemaPromptSpecPromptMessageOutputConfig : GTLRObject
+
+/**
+ *  Optional. The Cloud Storage URI prefix or directory where generated media
+ *  assets should be written (e.g. `gs://my-bucket/prefix/`).
+ */
+@property(nonatomic, copy, nullable) NSString *outputUriPrefix;
 
 @end
 
@@ -45213,6 +51540,14 @@ GTLR_DEPRECATED
 
 /** Data for app builder use case. */
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1SchemaPromptSpecAppBuilderData *appBuilderData;
+
+/**
+ *  Optional. Metadata the model returned with each of
+ *  `prompt_message.contents`, such as citations and grounding sources. This
+ *  maps 1:1 to PromptMessage.contents; an entry is empty when its content has
+ *  no metadata.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1SchemaPromptSpecContentMetadata *> *contentMetadata;
 
 /** Preamble: The context of the prompt. */
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1Content *context;
@@ -48477,7 +54812,7 @@ GTLR_DEPRECATED
 
 /**
  *  Required. The name of the agent in Agent Registry that is affected by this
- *  policy.
+ *  policy. Format: `projects/{project}/locations/{location}/agents/{agent}`
  */
 @property(nonatomic, copy, nullable) NSString *agent;
 
@@ -48650,9 +54985,8 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *mcpServer;
 
 /**
- *  Optional. The resource names of the McpTools used by the Agent that is
- *  affected by this policy. If not specified, the policy applies to all
- *  McpTools in the McpServer.
+ *  Required. The resource names of the tools used by the Agent that is affected
+ *  by this policy. Currently, exactly one tool must be specified.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *tools;
 
@@ -48883,6 +55217,32 @@ GTLR_DEPRECATED
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1SessionEvent_RawEvent : GTLRObject
+@end
+
+
+/**
+ *  Request message for NotebookService.SetDefaultNotebookRuntimeTemplate.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1SetDefaultNotebookRuntimeTemplateRequest : GTLRObject
+
+/**
+ *  Required. The resource name of the NotebookRuntimeTemplate to set as
+ *  default. Format:
+ *  `projects/{project}/locations/{location}/notebookRuntimeTemplates/{notebook_runtime_template}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Response message for NotebookService.SetDefaultNotebookRuntimeTemplate.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1SetDefaultNotebookRuntimeTemplateResponse : GTLRObject
+
+/** The NotebookRuntimeTemplate that was set as default. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1NotebookRuntimeTemplate *notebookRuntimeTemplate;
+
 @end
 
 
@@ -50786,6 +57146,75 @@ GTLR_DEPRECATED
 
 
 /**
+ *  One identity an agent is allowed to contact. A message rather than a bare
+ *  string so a teammate can carry more than an address -- a display name, a
+ *  group rather than a person, a scope limiting which surfaces the agent may
+ *  reach them on -- without a breaking change to `AllowedTeammates`. Every
+ *  field is optional, but a teammate identifying nobody is meaningless: at
+ *  least one identifier must be set, and `UpdateAgent` rejects a teammate with
+ *  none.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1Teammate : GTLRObject
+
+/** Optional. Email address of the teammate. */
+@property(nonatomic, copy, nullable) NSString *email;
+
+/**
+ *  Optional. Expansion mode for group or space teammates.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1Teammate_ExpansionMode_Expanded
+ *        Transitive expansion: the agent can contact individual members of the
+ *        group. (Value: "EXPANDED")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1Teammate_ExpansionMode_ExpansionModeUnspecified
+ *        Unspecified expansion mode. (Value: "EXPANSION_MODE_UNSPECIFIED")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1Teammate_ExpansionMode_Infer
+ *        Infer whether to expand based on roster type (e.g., expand Google
+ *        Groups, do not expand Chat Spaces). (Value: "INFER")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1Teammate_ExpansionMode_NonExpanded
+ *        Non-expanded: the agent can contact the group or space as a channel,
+ *        without expanding to individual members. (Value: "NON_EXPANDED")
+ */
+@property(nonatomic, copy, nullable) NSString *expansionMode;
+
+/**
+ *  Optional. Obfuscated Gaia id of the teammate. OBFUSCATED, never a raw Gaia
+ *  id -- the same form as `Principal.id` and every other Gaia id this API
+ *  surfaces, so the two are comparable. A string rather than an int64 for that
+ *  reason: the obfuscated form is not a number.
+ */
+@property(nonatomic, copy, nullable) NSString *gaiaId;
+
+@end
+
+
+/**
+ *  Represents an enterprise tenant.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1Tenant : GTLRObject
+
+/**
+ *  Optional. The unique raw ID of the tenant.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  Optional. The type of the tenant.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1Tenant_Type_TypeUnspecified
+ *        Unspecified tenant type. (Value: "TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1Tenant_Type_WorkspaceCustomer
+ *        Workspace customer domain tenant. (Value: "WORKSPACE_CUSTOMER")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
  *  A tensor value type.
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1Tensor : GTLRObject
@@ -51727,43 +58156,47 @@ GTLR_DEPRECATED
 
 
 /**
- *  Tool to support computer use.
+ *  A tool that enables the model to interact directly with a computer
+ *  environment.
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1ToolComputerUse : GTLRObject
 
-/** Optional. Disabled safety policies for computer use. */
+/**
+ *  Optional. A list of safety policies to disable for the computer use tool.
+ */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *disabledSafetyPolicies;
 
 /**
- *  Optional. Enables the prompt injection detection check on computer-use
- *  request.
+ *  Optional. Whether to enable the prompt injection detection check on the
+ *  computer use request.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *enablePromptInjectionDetection;
 
 /**
- *  Required. The environment being operated.
+ *  Required. The target environment where the computer use tool operates.
  *
  *  Likely values:
  *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1ToolComputerUse_Environment_EnvironmentBrowser
- *        Operates in a web browser. (Value: "ENVIRONMENT_BROWSER")
+ *        The tool operates in a web browser. (Value: "ENVIRONMENT_BROWSER")
  *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1ToolComputerUse_Environment_EnvironmentDesktop
- *        Operates in a desktop environment. (Value: "ENVIRONMENT_DESKTOP")
+ *        The tool operates in a desktop environment. (Value:
+ *        "ENVIRONMENT_DESKTOP")
  *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1ToolComputerUse_Environment_EnvironmentMobile
- *        Operates in a mobile environment. (Value: "ENVIRONMENT_MOBILE")
+ *        The tool operates in a mobile environment. (Value:
+ *        "ENVIRONMENT_MOBILE")
  *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1ToolComputerUse_Environment_EnvironmentUnspecified
- *        Defaults to browser. (Value: "ENVIRONMENT_UNSPECIFIED")
+ *        The environment is unspecified. (Value: "ENVIRONMENT_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *environment;
 
 /**
- *  Optional. By default, [predefined
+ *  Optional. A list of predefined functions to explicitly exclude from the
+ *  model call. By default, [predefined
  *  functions](https://cloud.google.com/vertex-ai/generative-ai/docs/computer-use#supported-actions)
- *  are included in the final model call. Some of them can be explicitly
- *  excluded from being automatically included. This can serve two purposes: 1.
- *  Using a more restricted / different action space. 2. Improving the
- *  definitions / instructions of predefined functions.
+ *  are included. Excluding functions allows for a more restricted action space
+ *  or custom definitions for predefined functions.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *excludedPredefinedFunctions;
 

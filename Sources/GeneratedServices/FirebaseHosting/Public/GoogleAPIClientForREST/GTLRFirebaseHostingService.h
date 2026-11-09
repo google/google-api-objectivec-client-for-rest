@@ -35,11 +35,24 @@ NS_ASSUME_NONNULL_BEGIN
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeFirebaseHostingCloudPlatform;
 /**
+ *  Authorization scope: View your data across Google Cloud services and see the
+ *  email address of your Google Account
+ *
+ *  Value "https://www.googleapis.com/auth/cloud-platform.read-only"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeFirebaseHostingCloudPlatformReadOnly;
+/**
  *  Authorization scope: View and administer all your Firebase data and settings
  *
  *  Value "https://www.googleapis.com/auth/firebase"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeFirebaseHostingFirebase;
+/**
+ *  Authorization scope: View all your Firebase data and settings
+ *
+ *  Value "https://www.googleapis.com/auth/firebase.readonly"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeFirebaseHostingFirebaseReadonly;
 
 // ----------------------------------------------------------------------------
 //   GTLRFirebaseHostingService

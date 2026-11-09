@@ -1375,6 +1375,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCurationPartners_ReportDefinition_Metric
  */
 FOUNDATION_EXTERN NSString * const kGTLRCurationPartners_ReportDefinition_TimeZoneSource_AdExchange;
 /**
+ *  Use the time zone from the curator's account settings.
+ *
+ *  Value: "CURATOR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCurationPartners_ReportDefinition_TimeZoneSource_Curator;
+/**
  *  Use the time zone provided in the ReportDefinition.time_zone field. Reports
  *  may take longer to run since the dates are dynamically calculated at request
  *  time.
@@ -2926,6 +2932,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCurationPartners_VideoPlcmtTargeting_Vid
  *  Likely values:
  *    @arg @c kGTLRCurationPartners_ReportDefinition_TimeZoneSource_AdExchange
  *        Use the Pacific time zone(PT). (Value: "AD_EXCHANGE")
+ *    @arg @c kGTLRCurationPartners_ReportDefinition_TimeZoneSource_Curator Use
+ *        the time zone from the curator's account settings. (Value: "CURATOR")
  *    @arg @c kGTLRCurationPartners_ReportDefinition_TimeZoneSource_Provided Use
  *        the time zone provided in the ReportDefinition.time_zone field.
  *        Reports may take longer to run since the dates are dynamically
@@ -3050,6 +3058,34 @@ FOUNDATION_EXTERN NSString * const kGTLRCurationPartners_VideoPlcmtTargeting_Vid
  *  retrieve data.
  */
 @property(nonatomic, copy, nullable) NSString *reportResult;
+
+@end
+
+
+/**
+ *  A response containing media planner account information from a search.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "mediaPlanners" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRCurationPartners_SearchMediaPlannersResponse : GTLRCollectionObject
+
+/**
+ *  List of media planners matching the search criteria.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCurationPartners_MediaPlanner *> *mediaPlanners;
+
+/**
+ *  A token which can be passed to a subsequent call to the SearchMediaPlanners
+ *  method to retrieve the next page of results in
+ *  SearchMediaPlannersRequest.page_token.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 

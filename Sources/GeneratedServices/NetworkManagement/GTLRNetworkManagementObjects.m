@@ -767,7 +767,7 @@ NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_WorkflowTypeUnspeci
 //
 
 @implementation GTLRNetworkManagement_CloudRunRevisionEndpoint
-@dynamic serviceUri, uri, workerPoolUri;
+@dynamic serviceUri, uri;
 @end
 
 
@@ -908,10 +908,10 @@ NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_WorkflowTypeUnspeci
 
 @implementation GTLRNetworkManagement_Endpoint
 @dynamic appEngineVersion, cloudFunction, cloudRunJob, cloudRunRevision,
-         cloudSqlInstance, dmsPrivateConnection, forwardingRule,
-         forwardingRuleTarget, fqdn, gkeMasterCluster, gkePod, instance,
-         ipAddress, loadBalancerId, loadBalancerType, network, networkType,
-         port, projectId, redisCluster, redisInstance;
+         cloudSqlInstance, datastreamPrivateConnection, dmsPrivateConnection,
+         forwardingRule, forwardingRuleTarget, fqdn, gkeMasterCluster, gkePod,
+         instance, ipAddress, loadBalancerId, loadBalancerType, network,
+         networkType, port, projectId, redisCluster, redisInstance;
 @end
 
 

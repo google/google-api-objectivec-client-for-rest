@@ -16,6 +16,8 @@
 
 @class GTLRCalendar_AclRule;
 @class GTLRCalendar_AclRule_Scope;
+@class GTLRCalendar_Calendar_WorkingHours;
+@class GTLRCalendar_Calendar_WorkingHours_AvailableTimes_Item;
 @class GTLRCalendar_CalendarListEntry;
 @class GTLRCalendar_CalendarListEntry_NotificationSettings;
 @class GTLRCalendar_Channel_Params;
@@ -244,6 +246,79 @@ NS_ASSUME_NONNULL_BEGIN
  *  name, e.g. "Europe/Zurich".) Optional.
  */
 @property(nonatomic, copy, nullable) NSString *timeZone;
+
+/**
+ *  Represents the information about the user's working hours. Only available
+ *  for primary calendars of Google Workspace users. To update the working
+ *  hours, the entire working hours object must be passed. If not specified (or
+ *  passed as null or an empty object), the existing working hours remain
+ *  unchanged. To disable working hours or clear the schedule, set
+ *  workingHoursEnabled to false (and omit availableTimes or pass an empty
+ *  list).
+ */
+@property(nonatomic, strong, nullable) GTLRCalendar_Calendar_WorkingHours *workingHours;
+
+@end
+
+
+/**
+ *  Represents the information about the user's working hours. Only available
+ *  for primary calendars of Google Workspace users. To update the working
+ *  hours, the entire working hours object must be passed. If not specified (or
+ *  passed as null or an empty object), the existing working hours remain
+ *  unchanged. To disable working hours or clear the schedule, set
+ *  workingHoursEnabled to false (and omit availableTimes or pass an empty
+ *  list).
+ */
+@interface GTLRCalendar_Calendar_WorkingHours : GTLRObject
+
+/**
+ *  Working hours. Each availability period represents the user's working hours
+ *  block during one day.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCalendar_Calendar_WorkingHours_AvailableTimes_Item *> *availableTimes;
+
+/**
+ *  Whether the working hours are enabled for this calendar. Cannot be set to
+ *  true when availableTimes is empty.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *workingHoursEnabled;
+
+@end
+
+
+/**
+ *  GTLRCalendar_Calendar_WorkingHours_AvailableTimes_Item
+ */
+@interface GTLRCalendar_Calendar_WorkingHours_AvailableTimes_Item : GTLRObject
+
+/**
+ *  Day of the week. Required. Possible values are:
+ *  - "monday"
+ *  - "tuesday"
+ *  - "wednesday"
+ *  - "thursday"
+ *  - "friday"
+ *  - "saturday"
+ *  - "sunday"
+ */
+@property(nonatomic, copy, nullable) NSString *dayOfWeek;
+
+/**
+ *  Period end, in minutes from the start of the day, exclusive. Required.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *periodEnd;
+
+/**
+ *  Period start, in minutes from the start of the day, inclusive. Required.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *periodStart;
 
 @end
 
