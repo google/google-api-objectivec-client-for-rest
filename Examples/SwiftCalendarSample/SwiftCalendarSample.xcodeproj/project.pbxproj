@@ -1,0 +1,401 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0BE08AE322EC130728A8B023 /* CalendarModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D61A948E259DB7BF373A2B6 /* CalendarModelTests.swift */; };
+		28F49AAF2320503A4AE15951 /* CalendarConfigurationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85546E43E1BAE182DE6CAE5 /* CalendarConfigurationTests.swift */; };
+		554B1EA9ABBFD89474E0A8E3 /* SwiftCalendarSampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8798155FED9F39A2205AB7 /* SwiftCalendarSampleApp.swift */; };
+		62D9AD346335B49402FDA4CE /* GTMAppAuth in Frameworks */ = {isa = PBXBuildFile; productRef = BBFB22339E3EE710914CEA6C /* GTMAppAuth */; };
+		78511D16B1E16928A9FC7765 /* CalendarAuthorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A460CF64ECB3E5E6844544 /* CalendarAuthorization.swift */; };
+		80A6AD24FF9341A83E4B5A3D /* CalendarConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044BA20522A1391BE6F9AD98 /* CalendarConfiguration.swift */; };
+		81CA7EF8DA6ABA78E0B8B409 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D09D7672826643F97244641 /* CalendarView.swift */; };
+		8A5A1EB17B77415B9C19AFD9 /* GoogleAPIClientForREST_Calendar in Frameworks */ = {isa = PBXBuildFile; productRef = 5E2775999A58179D467DCB90 /* GoogleAPIClientForREST_Calendar */; };
+		A47D3C121F8660330BC3C82A /* CalendarAuthorizationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1135ED0AD985110079CE0E77 /* CalendarAuthorizationTests.swift */; };
+		C4CC9510C018DDA558656FA4 /* AppAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 5492379E9A69994F430B6E08 /* AppAuth */; };
+		FAE682C2B546B624251D33A6 /* CalendarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CEA78270F711F8420AA926 /* CalendarModel.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1241936D4DD3AAD68FE7BFBD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 244210E48437B6556980A702 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AC44A5EE06496B21A17CA082;
+			remoteInfo = SwiftCalendarSample;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		00444E2C37DD529B70E931A2 /* SwiftCalendarSampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = SwiftCalendarSampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		044BA20522A1391BE6F9AD98 /* CalendarConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarConfiguration.swift; sourceTree = "<group>"; };
+		1135ED0AD985110079CE0E77 /* CalendarAuthorizationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarAuthorizationTests.swift; sourceTree = "<group>"; };
+		4D09D7672826643F97244641 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
+		5D61A948E259DB7BF373A2B6 /* CalendarModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarModelTests.swift; sourceTree = "<group>"; };
+		763D774377779C412BB71F6F /* SwiftCalendarSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; path = SwiftCalendarSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9CEEC13202AFBF12EE3ABB99 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B9CEA78270F711F8420AA926 /* CalendarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarModel.swift; sourceTree = "<group>"; };
+		D85546E43E1BAE182DE6CAE5 /* CalendarConfigurationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarConfigurationTests.swift; sourceTree = "<group>"; };
+		DB8798155FED9F39A2205AB7 /* SwiftCalendarSampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftCalendarSampleApp.swift; sourceTree = "<group>"; };
+		E7A460CF64ECB3E5E6844544 /* CalendarAuthorization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarAuthorization.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		28557525D9B40FEE6754FB60 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		91024282FFD499F5807DB5BC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8A5A1EB17B77415B9C19AFD9 /* GoogleAPIClientForREST_Calendar in Frameworks */,
+				62D9AD346335B49402FDA4CE /* GTMAppAuth in Frameworks */,
+				C4CC9510C018DDA558656FA4 /* AppAuth in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0A3E27B8CA818264D75C8D81 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				763D774377779C412BB71F6F /* SwiftCalendarSample.app */,
+				00444E2C37DD529B70E931A2 /* SwiftCalendarSampleTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0D6E4079E36703EBD37C0072 = {
+			isa = PBXGroup;
+			children = (
+				DB8798155FED9F39A2205AB7 /* SwiftCalendarSampleApp.swift */,
+				4D09D7672826643F97244641 /* CalendarView.swift */,
+				B9CEA78270F711F8420AA926 /* CalendarModel.swift */,
+				044BA20522A1391BE6F9AD98 /* CalendarConfiguration.swift */,
+				E7A460CF64ECB3E5E6844544 /* CalendarAuthorization.swift */,
+				9CEEC13202AFBF12EE3ABB99 /* Info.plist */,
+				59830EBC3A4184110566BF1A /* Tests */,
+				0A3E27B8CA818264D75C8D81 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		59830EBC3A4184110566BF1A /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				5D61A948E259DB7BF373A2B6 /* CalendarModelTests.swift */,
+				D85546E43E1BAE182DE6CAE5 /* CalendarConfigurationTests.swift */,
+				1135ED0AD985110079CE0E77 /* CalendarAuthorizationTests.swift */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3A0C9CEF9D8F3BC090274361 /* SwiftCalendarSampleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E5C5646C78B6F097F54020C0 /* Build configuration list for PBXNativeTarget "SwiftCalendarSampleTests" */;
+			buildPhases = (
+				B2298129A58493C45A5D7D9A /* Sources */,
+				28557525D9B40FEE6754FB60 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5814A62814D3E05DA760B6C5 /* PBXTargetDependency */,
+			);
+			name = SwiftCalendarSampleTests;
+			productName = SwiftCalendarSampleTests;
+			productReference = 00444E2C37DD529B70E931A2 /* SwiftCalendarSampleTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		AC44A5EE06496B21A17CA082 /* SwiftCalendarSample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 21759D238EA25269B78F22A1 /* Build configuration list for PBXNativeTarget "SwiftCalendarSample" */;
+			buildPhases = (
+				D8AFF257B45D0C513672EC45 /* Sources */,
+				91024282FFD499F5807DB5BC /* Frameworks */,
+				DC549ACCB7C726C62ECFD4E2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SwiftCalendarSample;
+			packageProductDependencies = (
+				5E2775999A58179D467DCB90 /* GoogleAPIClientForREST_Calendar */,
+				BBFB22339E3EE710914CEA6C /* GTMAppAuth */,
+				5492379E9A69994F430B6E08 /* AppAuth */,
+			);
+			productName = SwiftCalendarSample;
+			productReference = 763D774377779C412BB71F6F /* SwiftCalendarSample.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		244210E48437B6556980A702 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 2600;
+			};
+			buildConfigurationList = 8D47EC67E5889C1CCE3B7BBC /* Build configuration list for PBXProject "SwiftCalendarSample" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 0D6E4079E36703EBD37C0072;
+			packageReferences = (
+				661F8879C9FE0D2A5A6EEEAD /* XCLocalSwiftPackageReference ".." */,
+				FC11C28A601D6CEAB4303931 /* XCRemoteSwiftPackageReference "GTMAppAuth" */,
+				C401A9F872720F629ACB875F /* XCRemoteSwiftPackageReference "AppAuth-iOS" */,
+			);
+			productRefGroup = 0A3E27B8CA818264D75C8D81 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AC44A5EE06496B21A17CA082 /* SwiftCalendarSample */,
+				3A0C9CEF9D8F3BC090274361 /* SwiftCalendarSampleTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DC549ACCB7C726C62ECFD4E2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B2298129A58493C45A5D7D9A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0BE08AE322EC130728A8B023 /* CalendarModelTests.swift in Sources */,
+				28F49AAF2320503A4AE15951 /* CalendarConfigurationTests.swift in Sources */,
+				A47D3C121F8660330BC3C82A /* CalendarAuthorizationTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D8AFF257B45D0C513672EC45 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				554B1EA9ABBFD89474E0A8E3 /* SwiftCalendarSampleApp.swift in Sources */,
+				81CA7EF8DA6ABA78E0B8B409 /* CalendarView.swift in Sources */,
+				FAE682C2B546B624251D33A6 /* CalendarModel.swift in Sources */,
+				80A6AD24FF9341A83E4B5A3D /* CalendarConfiguration.swift in Sources */,
+				78511D16B1E16928A9FC7765 /* CalendarAuthorization.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5814A62814D3E05DA760B6C5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AC44A5EE06496B21A17CA082 /* SwiftCalendarSample */;
+			targetProxy = 1241936D4DD3AAD68FE7BFBD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		00F7239D56B3D27A504B8B09 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				ENABLE_TESTABILITY = YES;
+				INFOPLIST_FILE = Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.SwiftCalendarSample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		369569E61CD38E9CF39CBB99 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				ENABLE_TESTABILITY = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.SwiftCalendarSampleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftCalendarSample.app/SwiftCalendarSample";
+			};
+			name = Release;
+		};
+		A414433A4E22DB647819BB58 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				ENABLE_TESTABILITY = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AC6E8DAF206311C94163CD30 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				ENABLE_TESTABILITY = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.SwiftCalendarSampleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftCalendarSample.app/SwiftCalendarSample";
+			};
+			name = Debug;
+		};
+		B595C5C438AFCFCC0AB6972C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				ENABLE_TESTABILITY = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		DF3D6CB4AAEBCE91B65B1363 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				ENABLE_TESTABILITY = YES;
+				INFOPLIST_FILE = Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.SwiftCalendarSample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		21759D238EA25269B78F22A1 /* Build configuration list for PBXNativeTarget "SwiftCalendarSample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				00F7239D56B3D27A504B8B09 /* Debug */,
+				DF3D6CB4AAEBCE91B65B1363 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8D47EC67E5889C1CCE3B7BBC /* Build configuration list for PBXProject "SwiftCalendarSample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A414433A4E22DB647819BB58 /* Debug */,
+				B595C5C438AFCFCC0AB6972C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E5C5646C78B6F097F54020C0 /* Build configuration list for PBXNativeTarget "SwiftCalendarSampleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AC6E8DAF206311C94163CD30 /* Debug */,
+				369569E61CD38E9CF39CBB99 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		661F8879C9FE0D2A5A6EEEAD /* XCLocalSwiftPackageReference ".." */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../..;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C401A9F872720F629ACB875F /* XCRemoteSwiftPackageReference "AppAuth-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/openid/AppAuth-iOS.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+		FC11C28A601D6CEAB4303931 /* XCRemoteSwiftPackageReference "GTMAppAuth" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/GTMAppAuth.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5492379E9A69994F430B6E08 /* AppAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C401A9F872720F629ACB875F /* XCRemoteSwiftPackageReference "AppAuth-iOS" */;
+			productName = AppAuth;
+		};
+		5E2775999A58179D467DCB90 /* GoogleAPIClientForREST_Calendar */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 661F8879C9FE0D2A5A6EEEAD /* XCLocalSwiftPackageReference ".." */;
+			productName = GoogleAPIClientForREST_Calendar;
+		};
+		BBFB22339E3EE710914CEA6C /* GTMAppAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FC11C28A601D6CEAB4303931 /* XCRemoteSwiftPackageReference "GTMAppAuth" */;
+			productName = GTMAppAuth;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 244210E48437B6556980A702 /* Project object */;
+}
